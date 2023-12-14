@@ -22,9 +22,7 @@
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
-
   
-// Evitar cache  
   <!-- endinject -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
@@ -260,6 +258,8 @@
                     echo '<h3 class="kt-portlet__head-title">Serviços adicionados</h3>';
                     $_SESSION['vtotal_orcamento'] = 0;
 
+                    $count = 0;
+                    $vtotal = 0;
                     while($row_orcamento = $result_orcamento->fetch_assoc()) {
 
                       echo '<div name="listaOrcamento" id="listaOrcamento" class="typeahead" '.$_SESSION['c_card'].'>';
@@ -489,6 +489,13 @@
                             mensagem += "Total: *R$:" + vtotalServico + "*\n";
                             mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
                             mensagem += "Falta pagar: R$:*" + faltaPagar + "*\n\n";
+
+                            mensagem += "__________________________________\n";
+                            <?php
+                              echo 'mensagem += "Acompanhe seu histórico pelo link:'.$_SESSION['dominio'].'pages/md_assistencia/acompanha_servico.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel=" + telefoneCliente + "\n";';
+                            ?>
+                              mensagem += "__________________________________";
+
 
                             mensagem += "OBS: *_<?php echo $_SESSION['saudacoes_filial'];?>_*\n\n";//$_SESSION['endereco_filial']
                             mensagem += "```NuvemSoft © | Release: B E T A```";//$_SESSION['endereco_filial']
@@ -780,7 +787,7 @@ if($_POST['marcartitulo_atividade'] == 'E') {// SQL ARQUIVAR SERVIÇO
                       echo '<input value="'.$row_lastatividade['cd_colab'].'" style="display: none;" name="atividadecd_colab" type="text" id="atividadecd_colab" class="aspNetDisabled form-control form-control-sm" readonly/>';
                       
                       if($row_lastatividade['titulo_atividade'] == "A"){//INICIAR ATENDIMENTO
-                        echo '<label for="marcartitulo_atividade">Título - A</label>';
+                        echo '<label for="marcartitulo_atividade">Entrada</label>';
                         echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
                         echo '<option selected="selected"value="B">EM ANDAMENTO</option>';
                         echo '<option value="C">FINALIZAR</option>';
@@ -790,58 +797,59 @@ if($_POST['marcartitulo_atividade'] == 'E') {// SQL ARQUIVAR SERVIÇO
                         echo '<label for="showobs_servico">Observações</label>';
                         echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
                         echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
+                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
                         echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
                       }
 
                       if($row_lastatividade['titulo_atividade'] == "B"){//FINALIZAR ATENDIMENTO
-                        echo '<label for="marcartitulo_atividade">Título - B</label>';
+                        echo '<label for="marcartitulo_atividade">Serviço em Andamento</label>';
                         echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
                         echo '<option selected="selected"value="C">FINALIZAR</option>';
                         echo '</select>';
                         echo '<label for="obs_atividade">Observações</label>';
                         echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
                         echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
+                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
                         echo '<input type="submit" class="btn btn-success" name="finalizarAtividade" id="finalizarAtividade" value="Finalizar Atividade">';
                       
                       }
 
                       if($row_lastatividade['titulo_atividade'] == "C"){//ENTREGAR / DEVOLVER OU REABRIR
-                        echo '<label for="marcartitulo_atividade">Título</label>';
+                        echo '<label for="marcartitulo_atividade">Serviço Realizado</label>';
                         echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
                         echo '<option selected="selected"value="D">ENTREGAR / DEVOLVER</option>';
                         echo '<option value="B">REFAZER AGORA</option>';
                         echo '<option value="A">REFAZER DEPOIS</option>';
+                        echo '<option value="E">ARQUIVAR</option>';
                         echo '</select>';
                         echo '<label for="obs_atividade">Observações</label>';
                         echo '<input name="obs_atividade" type="text" maxlength="999" id="obs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?" />';
-                        echo '<label for="novadataentrega_atividade">Nova data de entrega</label>';
-                        echo '<input name="novadataentrega_atividade" type="datetime-local" id="novadataentrega_atividade" class="form-control form-control-sm" required>';
-                        
+                        echo '<label for="novadataentrega_atividade">Prazo Para Revisão</label>';
+                        echo '<input name="novadataentrega_atividade" type="datetime-local" value="'.date('Y-m-d\T16:00', strtotime('+30 days')).'" id="novadataentrega_atividade" class="form-control form-control-sm">';
                         echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
+                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
                         echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
                       }
 
                       if($row_lastatividade['titulo_atividade'] == "D"){//ENTREGUE / DEVOLVIDO
-                        echo '<label for="marcartitulo_atividade">Título</label>';
+                        echo '<label for="marcartitulo_atividade">Entregue / Devolvido</label>';
                         echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
                         echo '<option selected="selected"value="B">REFAZER AGORA</option>';
                         echo '<option value="A">REFAZER DEPOIS</option>';
+                        echo '<option value="E">ARQUIVAR</option>';
                         echo '</select>';
                         echo '<label for="obs_atividade">Observações</label>';
                         //echo '<input name="novaobs_atividade" type="text" maxlength="999" id="novaobs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="O que precisa fazer para resolver este problema?" />';
                         echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="novadataentrega_atividade">Nova data de entrega</label>';
-                        echo '<input name="novadataentrega_atividade" type="datetime-local" id="novadataentrega_atividade" class="form-control form-control-sm" required>';
+                        echo '<label for="novadataentrega_atividade">Prazo Para Revisão</label>';
+                        echo '<input name="novadataentrega_atividade" type="datetime-local" value="'.date('Y-m-d\T16:00', strtotime('+30 days')).'" id="novadataentrega_atividade" class="form-control form-control-sm">';
                         echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
+                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
                         echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
                       }
                       
                       if($row_lastatividade['titulo_atividade'] == "E"){//ARQUIVADO
-                        echo '<label for="marcartitulo_atividade">Título</label>';
+                        echo '<label for="marcartitulo_atividade">Atividade Arquivada</label>';
                         echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
                         echo '<option selected="selected"value="B">REFAZER AGORA</option>';
                         echo '<option value="A">REFAZER DEPOIS</option>';
@@ -849,10 +857,10 @@ if($_POST['marcartitulo_atividade'] == 'E') {// SQL ARQUIVAR SERVIÇO
                         echo '<label for="obs_atividade">Observações</label>';
                         //echo '<input name="novaobs_atividade" type="text" maxlength="999" id="novaobs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="O que precisa fazer para resolver este problema?" />';
                         echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="novadataentrega_atividade">Nova data de entrega</label>';
-                        echo '<input name="novadataentrega_atividade" type="datetime-local" id="novadataentrega_atividade" class="form-control form-control-sm" required>';
+                        echo '<label for="novadataentrega_atividade">Prazo Para Revisão</label>';
+                        echo '<input name="novadataentrega_atividade" type="datetime-local" value="'.date('Y-m-d\T16:00', strtotime('+30 days')).'" id="novadataentrega_atividade" class="form-control form-control-sm">';
                         echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
+                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
                         echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
                       }
                       
@@ -877,28 +885,7 @@ if($_POST['marcartitulo_atividade'] == 'E') {// SQL ARQUIVAR SERVIÇO
                     
                     
                     ?>
-                <script>
-                  var data = new Date();
-                  var mes = data.getMonth() + 1;
-                  var dia = data.getDate();
-                  var ano = data.getFullYear();
-                  var hora = data.getHours();
-                  var minuto = data.getMinutes();
-
-
-                  if(mes2 + 1 > 12){
-                    mes2 = 1;
-                    ano2 = ano + 1;
-                  }else{
-                    mes2 = data.getMonth() + 2;
-                  }
-
-                  document.getElementById("novadataentrega_atividade").value = `${ano2}-${mes2.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}T${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
-                  document.getElementById("data_hora_ponto").value = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}T${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
-                   
-
-
-                  </script>
+                
               </div>
 
                 
@@ -910,3 +897,36 @@ if($_POST['marcartitulo_atividade'] == 'E') {// SQL ARQUIVAR SERVIÇO
      
     
   
+
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <?php
+          include("../../partials/_footer.php");
+        ?>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- base:js -->
+  <script src="../../vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="../../js/off-canvas.js"></script>
+  <script src="../../js/hoverable-collapse.js"></script>
+  <script src="../../js/template.js"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
+  <script src="../../vendors/select2/select2.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="../../js/file-upload.js"></script>
+  <script src="../../js/typeahead.js"></script>
+  <script src="../../js/select2.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>
