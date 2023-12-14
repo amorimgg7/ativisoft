@@ -62,7 +62,7 @@ if ($cnpj && $tel) {
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Cadastro de cliente</title>
+  <title>Histórico de Serviços</title>
   <!-- base:css -->
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
@@ -398,7 +398,7 @@ if ($cnpj && $tel) {
               </div>
             </div>
           </div>
-          <?php session_start();
+          <?php ////session_start();
             if(isset($_SESSION['contel_cliente'])){
               echo '<script>document.getElementById("consulta").style.display = "none";</script>';
             }
@@ -417,7 +417,7 @@ if ($cnpj && $tel) {
                 $_SESSION['acompanha_tel_cliente'] = $row_select_cliente['tel_cliente'];
               }          
             }
-            if($_SESSION['acompanha_cd_cliente'] > 0){
+            if(isset($_SESSION['acompanha_cd_cliente'])){
               echo '<div class="col-12 grid-margin stretch-card">';
               echo '<div class="card">';
               echo '<div class="card-body">';
@@ -462,7 +462,7 @@ if ($cnpj && $tel) {
             }
           ?>
           <?php
-            if($_SESSION['acompanha_cd_cliente'] > 0) {
+            if(isset($_SESSION['acompanha_cd_cliente'])) {
               //$query_count_0 = "SELECT * FROM tb_servico WHERE status_servico = '0' AND cd_cliente = '".$_SESSION['acompanha_cd_cliente']."'";
               $query_count_0 = "SELECT COUNT(*) as count0 FROM tb_servico WHERE status_servico = '0' AND cd_cliente = '".$_SESSION['acompanha_cd_cliente']."'";
               $query_count_1 = "SELECT COUNT(*) as count1 FROM tb_servico WHERE status_servico = '1' AND cd_cliente = '".$_SESSION['acompanha_cd_cliente']."'";
@@ -480,7 +480,7 @@ if ($cnpj && $tel) {
               $row_count_3 = mysqli_fetch_assoc($result_count_3);
               
               // Exibe as informações do usuário no formulário
-              session_start();
+              ////session_start();
               if($row_count_0['count0'] > 0) {
                 $_SESSION['count0'] = $row_count_0['count0'];
                 //$_SESSION['count0'] = 25;
@@ -733,7 +733,7 @@ if ($cnpj && $tel) {
                 <?php //À FAZER
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-                  if($_SESSION['acompanha_cd_cliente'] > 0) {
+                  if(isset($_SESSION['acompanha_cd_cliente'])) {
                     $sql_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_SESSION['acompanha_tel_cliente']."'";
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);
@@ -797,7 +797,7 @@ if ($cnpj && $tel) {
                 <?php //EM ANDAMENTO
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-                  if($_SESSION['acompanha_cd_cliente'] > 0) {
+                  if(isset($_SESSION['acompanha_cd_cliente'])) {
                     $sql_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_SESSION['acompanha_tel_cliente']."'";
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);
@@ -861,7 +861,7 @@ if ($cnpj && $tel) {
                 <?php //LIBERADO
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-                  if($_SESSION['acompanha_cd_cliente'] > 0) {
+                  if(isset($_SESSION['acompanha_cd_cliente'])) {
                     $sql_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_SESSION['acompanha_tel_cliente']."'";
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);
@@ -925,7 +925,7 @@ if ($cnpj && $tel) {
                 <?php //RETIRADO / DEVOLVIDO
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-                  if($_SESSION['acompanha_cd_cliente'] > 0) {
+                  if(isset($_SESSION['acompanha_cd_cliente'])) {
                     $sql_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_SESSION['acompanha_tel_cliente']."'";
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);

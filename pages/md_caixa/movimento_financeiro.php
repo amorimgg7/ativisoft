@@ -264,6 +264,18 @@ if($_SESSION['dt_caixa'] == "HOJE"){
 
         echo '<button type="submit" name="pagar_servico" id="pagar_servico" class="btn btn-lg btn-block btn-outline-success btn-light"><i class="mdi mdi-file-check"></i>Lançar Pagamento</button>';
         echo '</form>';
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Processar dados do formulário
+            unset($_POST['pagar_servico']);
+            unset($_POST['fpag_movimento']);
+            unset($_POST['vpag_movimento']);
+            
+            
+            // Redirecionar para evitar reenvio
+            ////header("Location: ".$_SERVER['PHP_SELF']);
+            ////exit();
+        }
         }
     echo '</div>';
     echo '</div>';
@@ -336,83 +348,93 @@ if($_SESSION['dt_caixa'] == "ONTEM"){
                     
         }else{
             echo '<form method="POST" id="tela_pagamento" name="tela_pagamento">';
-        //echo '<div class="form-group btn-block">';
-        echo '<div class="input-group">';
-        echo '<div class="input-group-prepend">';
-        echo '<span class="input-group-text btn-outline-success">FORMA DE PAGAMENTO:</span>';
-        echo '</div>'; 
-        echo '<select id="fpag_movimento" name="fpag_movimento" type="tel" class="form-control form-control-lg " required>';
-        echo '<option selected value=""></option>';
-        //echo '<option value="DINHEIRO">Dinheiro</option>';
-        //echo '<option value="DEBITO">Débito</option>';
-        //echo '<option value="CREDITO">Crédito</option>';
-        //echo '<option value="PIX">PIX</option>';
-        //echo '<option value="COFRE">COFRE</option>';
-        //echo '<option value="BOLETO">Boleto</option>';
+            //echo '<div class="form-group btn-block">';
+            echo '<div class="input-group">';
+            echo '<div class="input-group-prepend">';
+            echo '<span class="input-group-text btn-outline-success">FORMA DE PAGAMENTO:</span>';
+            echo '</div>'; 
+            echo '<select id="fpag_movimento" name="fpag_movimento" type="tel" class="form-control form-control-lg " required>';
+            echo '<option selected value=""></option>';
+            //echo '<option value="DINHEIRO">Dinheiro</option>';
+            //echo '<option value="DEBITO">Débito</option>';
+            //echo '<option value="CREDITO">Crédito</option>';
+            //echo '<option value="PIX">PIX</option>';
+            //echo '<option value="COFRE">COFRE</option>';
+            //echo '<option value="BOLETO">Boleto</option>';
 
 
-        $sql_describe = "DESCRIBE tb_caixa";
-        $result_describe = mysqli_query($conn, $sql_describe);
+            $sql_describe = "DESCRIBE tb_caixa";
+            $result_describe = mysqli_query($conn, $sql_describe);
 
-        $found_start = false;
+            $found_start = false;
 
-        if ($result_describe) {
-            while ($row_describe = mysqli_fetch_assoc($result_describe)) {
-                if ($row_describe['Field'] == 'diferenca_caixa') {
-                    $found_start = true;
-                    continue; // Começar a coleta após encontrar a coluna "diferenca_caixa"
+            if ($result_describe) {
+                while ($row_describe = mysqli_fetch_assoc($result_describe)) {
+                    if ($row_describe['Field'] == 'diferenca_caixa') {
+                        $found_start = true;
+                        continue; // Começar a coleta após encontrar a coluna "diferenca_caixa"
+                    }
+
+                    if ($found_start && $row_describe['Field'] == 'fpag_boleto') {
+                        break; // Parar a coleta após encontrar a coluna "status_caixa"
+                    }
+
+                    if ($found_start) {
+                        $column_name = str_replace('fpag_', '', $row_describe['Field']);
+                        //echo $column_name . "<br>";
+                        echo '<option value="'.$column_name.'">'.$column_name.'</option>';
+
+                    }
                 }
-
-                if ($found_start && $row_describe['Field'] == 'fpag_boleto') {
-                    break; // Parar a coleta após encontrar a coluna "status_caixa"
-                }
-
-                if ($found_start) {
-                    $column_name = str_replace('fpag_', '', $row_describe['Field']);
-                    //echo $column_name . "<br>";
-                    echo '<option value="'.$column_name.'">'.$column_name.'</option>';
-
-                }
+            } else {
+                echo "Erro na consulta: " . mysqli_error($conn);
             }
-        } else {
-            echo "Erro na consulta: " . mysqli_error($conn);
-        }
 
 
 
-        echo '</select>';
-        echo '</div>';
-        //echo '</div>';
+            echo '</select>';
+            echo '</div>';
+            //echo '</div>';
 
-        //echo '<div class="form-group">';
-        echo '<div class="input-group">';
-        echo '<div class="input-group-prepend">';
-        echo '<span class="input-group-text btn-outline-info">R$:</span>';
-        echo '</div>'; 
-        echo '<input id="vpag_movimento" name="vpag_movimento" type="tel" class="form-control form-control-sm" aria-label="Amount (to the nearest dollar)" required oninput="validateInput(this)">';
-        echo '<span id="error-message" style="color: red;"></span>';
+            //echo '<div class="form-group">';
+            echo '<div class="input-group">';
+            echo '<div class="input-group-prepend">';
+            echo '<span class="input-group-text btn-outline-info">R$:</span>';
+            echo '</div>'; 
+            echo '<input id="vpag_movimento" name="vpag_movimento" type="tel" class="form-control form-control-sm" aria-label="Amount (to the nearest dollar)" required oninput="validateInput(this)">';
+            echo '<span id="error-message" style="color: red;"></span>';
 
-        echo '<script>';
-        echo 'function validateInput(inputElement) {';
-        echo 'var inputValue = inputElement.value;';
-        echo 'var errorMessageElement = document.getElementById("error-message");';
-        echo 'if (isNaN(inputValue) || inputValue < 0.1 || inputValue > '.$_SESSION['falta_pagar_servico'].') {';
-        echo 'errorMessageElement.textContent = "O valor pago deve ser maior que 1 e menor ou igual a '.$_SESSION['falta_pagar_servico'].'.";';
-        echo 'inputElement.setCustomValidity("O valor pago deve ser maior que 1 e menor ou igual a '.$_SESSION['falta_pagar_servico'].'.");';
-        echo '} else {';
-        echo 'errorMessageElement.textContent = "";';
-        echo 'inputElement.setCustomValidity("");';
-        echo '}';
-        echo '}';
-        echo '</script>';
+            echo '<script>';
+            echo 'function validateInput(inputElement) {';
+            echo 'var inputValue = inputElement.value;';
+            echo 'var errorMessageElement = document.getElementById("error-message");';
+            echo 'if (isNaN(inputValue) || inputValue < 0.1 || inputValue > '.$_SESSION['falta_pagar_servico'].') {';
+            echo 'errorMessageElement.textContent = "O valor pago deve ser maior que 1 e menor ou igual a '.$_SESSION['falta_pagar_servico'].'.";';
+            echo 'inputElement.setCustomValidity("O valor pago deve ser maior que 1 e menor ou igual a '.$_SESSION['falta_pagar_servico'].'.");';
+            echo '} else {';
+            echo 'errorMessageElement.textContent = "";';
+            echo 'inputElement.setCustomValidity("");';
+            echo '}';
+            echo '}';
+            echo '</script>';
 
-        echo '</div>';
-        //echo '</div>';
+            echo '</div>';
+            //echo '</div>';
 
-        echo '<button type="submit" name="pagar_servico" id="pagar_servico" class="btn btn-lg btn-block btn-outline-success btn-light"><i class="mdi mdi-file-check"></i>Lançar Pagamento</button>';
-        echo '</form>';
+            echo '<button type="submit" name="pagar_servico" id="pagar_servico" class="btn btn-lg btn-block btn-outline-success btn-light"><i class="mdi mdi-file-check"></i>Lançar Pagamento</button>';
+            echo '</form>';
 
-            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Processar dados do formulário
+                unset($_POST['pagar_servico']);
+                unset($_POST['fpag_movimento']);
+                unset($_POST['vpag_movimento']);
+                
+                
+                // Redirecionar para evitar reenvio
+                ////header("Location: ".$_SERVER['PHP_SELF']);
+                ////exit();
+            }
         }
         
     }

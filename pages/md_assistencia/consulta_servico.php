@@ -22,7 +22,9 @@
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
+
   
+// Evitar cache  
   <!-- endinject -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
@@ -883,8 +885,20 @@ if($_POST['marcartitulo_atividade'] == 'E') {// SQL ARQUIVAR SERVIÇO
                   var hora = data.getHours();
                   var minuto = data.getMinutes();
 
+
+                  if(mes2 + 1 > 12){
+                    mes2 = 1;
+                    ano2 = ano + 1;
+                  }else{
+                    mes2 = data.getMonth() + 2;
+                  }
+
+                  document.getElementById("novadataentrega_atividade").value = `${ano2}-${mes2.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}T${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
                   document.getElementById("data_hora_ponto").value = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}T${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
-                </script>
+                   
+
+
+                  </script>
               </div>
 
                 
