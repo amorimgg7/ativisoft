@@ -18,6 +18,20 @@
       
     </form>
   <?php
+    echo '<h4>Dados do Caixa</h4>';
+    echo '<p>cd_Caixa: '.$_SESSION['cd_caixa'].'</p>';
+    echo '<p>Abertura: '.$_SESSION['dt_caixa'].'</p>';
+    
+    echo '<h4>Dados do cliente</h4>';
+    echo '<p>cd_cliente: '.$_SESSION['cd_cliente'].'</p>';
+    echo '<p>pnome_cliente: '.$_SESSION['pnome_cliente'].'</p>';
+    echo '<p>snome_cliente: '.$_SESSION['snome_cliente'].'</p>';
+    echo '<p>tel_cliente: '.$_SESSION['tel_cliente'].'</p>';
+  ?>
+    <form method="post">
+      <input type="submit" id="limpaCaixa" name="limpaCaixa" class="dropdown-item preview-item" value="Limpa Caixa"></input>
+    </form>
+  <?php
     echo '<h4>Dados da Matriz</h4>';
     echo '<p>cd_empresa: '.$_SESSION['cd_empresa'].'</p>';
     echo '<p>cnpj_empresa: '.$_SESSION['cnpj_empresa'].'</p>';
@@ -32,6 +46,7 @@
     <form method="post">
       <input type="submit" id="limpaCliente" name="limpaCliente" class="dropdown-item preview-item" value="Limpa Cliente"></input>
     </form>
+  
   <?php
     echo '<h4>Dados da Filial</h4>';
     echo '<p>nfantasia_filial: '.$_SESSION['nfantasia_filial'].'</p>';

@@ -1163,18 +1163,27 @@
 
 <script>
     var data = new Date();
-    var mes = data.getMonth() + 1;
     var dia = data.getDate() + 5;
-    if(dia > 28){
-      dia = 5;
-      mes ++;
-    }
+    var mes = data.getMonth() + 1;
     var ano = data.getFullYear();
     var hora = '16';
     var minuto = '00';
 
+    // Verifica se ultrapassou o último dia do mês
+    if (dia > new Date(ano, mes, 0).getDate()) {
+        dia = dia - new Date(ano, mes, 0).getDate();
+        mes++;
+    }
+
+    // Atualiza o ano e o mês se necessário
+    if (mes > 12) {
+        mes = 1;
+        ano++;
+    }
+
     document.getElementById("prazo_servico").value = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}T${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
 </script>
+
 
 <?php //cadastra ordem de serviço e consulta para imprimir
                             
