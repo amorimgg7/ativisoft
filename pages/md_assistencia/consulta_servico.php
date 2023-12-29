@@ -490,11 +490,11 @@
                             mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
                             mensagem += "Falta pagar: R$:*" + faltaPagar + "*\n\n";
 
-                            mensagem += "__________________________________\n";
+                            mensagem += "\n__________________________________\n";
                             <?php
                               echo 'mensagem += "Acompanhe seu histórico pelo link:'.$_SESSION['dominio'].'pages/md_assistencia/acompanha_servico.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel=" + telefoneCliente + "\n";';
                             ?>
-                              mensagem += "__________________________________";
+                            mensagem += "\n__________________________________\n";
 
 
                             mensagem += "OBS: *_<?php echo $_SESSION['saudacoes_filial'];?>_*\n\n";//$_SESSION['endereco_filial']

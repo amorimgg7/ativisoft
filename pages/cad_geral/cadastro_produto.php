@@ -137,26 +137,26 @@
               }
               
 
-                if(isset($_POST['outroProdServ'])) { 
-                  $_SESSION['cd_prod_serv'] = FALSE;
+                if(isset($_POST['menuPrincipal'])) { 
+                  $_SESSION['statusCadastros'] = FALSE;
                 }
 
                 if(isset($_POST['cadProdServ'])) { 
-                  $_SESSION['cd_prod_serv'] = "";
-                    $_SESSION['cd_classe_fiscal'] = "";
-                    $_SESSION['cd_grupo_prod_serv'] = "";
-                    $_SESSION['cdbarras_prod_serv'] = "";
-                    $_SESSION['titulo_prod_serv'] = "";
-                    $_SESSION['obs_prod_serv'] = "";
-                    $_SESSION['tipo_prod_serv'] = "";
-                    $_SESSION['preco_prod_serv'] = "";
-                    $_SESSION['custo_prod_serv'] = "";
-                    $_SESSION['status_prod_serv'] = "";
+                  $_SESSION['cd_prod_serv']       = "";
+                  $_SESSION['cd_classe_fiscal']   = "";
+                  $_SESSION['cd_grupo_prod_serv'] = "";
+                  $_SESSION['cdbarras_prod_serv'] = "";
+                  $_SESSION['titulo_prod_serv']   = "";
+                  $_SESSION['obs_prod_serv']      = "";
+                  $_SESSION['tipo_prod_serv']     = "";
+                  $_SESSION['preco_prod_serv']    = "";
+                  $_SESSION['custo_prod_serv']    = "";
+                  $_SESSION['status_prod_serv']   = "";
 
-                    $_SESSION['statusCadastros'] = 2;
+                  $_SESSION['statusCadastros']    = 2;
                 }
                 if(isset($_POST['cadGrupo'])) { 
-                  $_SESSION['cd_gupo'] = "";
+                  $_SESSION['cd_grupo'] = "";
                   $_SESSION['cd_classe_fiscal_gupo'] = "";
                   $_SESSION['titulo_gupo'] = "";
                   $_SESSION['obs_gupo'] = "";
@@ -164,6 +164,28 @@
                   $_SESSION['status_gupo'] = "";
 
                   $_SESSION['statusCadastros'] = 1;
+                }
+                if(isset($_POST['cadGrupo_funcao'])) {
+                  $query = "INSERT INTO tb_grupo(titulo_grupo, obs_grupo) VALUES(
+                    '".$_POST['edittitulo_grupo']."',
+                    '".$_POST['editdescricao_grupo']."')
+                  ";
+                  mysqli_query($conn, $query);
+                  echo "<script>window.alert('Gruppo Cadastrado!');</script>";
+                  $_SESSION['statusCadastros'] = FALSE;
+                }
+                if(isset($_POST['cadProdServ_funcao'])) {
+                  $query = "INSERT INTO tb_prod_serv(cd_grupo, cdbarras_prod_serv, titulo_prod_serv, obs_prod_serv, preco_prod_serv, custo_prod_serv) VALUES(
+                    '".$_POST['editgrupo_prod_serv']."',
+                    '".$_POST['editcdbarras_prod_serv']."',
+                    '".$_POST['edittitulo_prod_serv']."',
+                    '".$_POST['editobs_prod_serv']."',
+                    '".$_POST['editpreco_prod_serv']."',
+                    '".$_POST['editcusto_prod_serv']."')
+                  ";
+                  mysqli_query($conn, $query);
+                  echo "<script>window.alert('Produto Cadastrado com sucesso!');</script>";
+                  $_SESSION['statusCadastros'] = FALSE;
                 }
               ?>
               
@@ -177,75 +199,44 @@
                 echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
                 echo '<h3 class="card-title">-_'.$_SESSION['statusCadastros'].'_-</h3>';
                 echo '<form method="POST">';
+
                 echo '<div class="form-group row justify-content-center">';
                 echo '<div class="col text-center">';
                 echo '<p class="mb-2 card-title">Grupo Atívo '.$_SESSION['status_prod_serv'].'</p>';
-              
-                echo '<div class="col">';
-                echo '<p class="mb-2">Danger</p>';
-                echo '<label class="toggle-switch toggle-switch-success">';
-                echo '<input name="editstatus_prod_serv" id="editstatus_prod_serv" type="checkbox";}>';
-                echo '<span class="toggle-slider round"></span>';
-                echo '</label>';
-                echo '</div>';
-              
-                echo '<script>document.getElementById("editstatus_prod_serv").checked = '.$_SESSION['status_prod_serv'].';</script>';  
                 echo '<span class="toggle-slider round"></span>';
                 echo '</label>';
                 echo '</div>';
                 echo '</div>';
-                //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
-                echo '<label class="card-title" for="editcd_prod_serv">CD</label>';
-                echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="editcd_prod_serv" type="tel" id="editcd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
-                echo '<label class="card-title"for="editcdbarras_prod_serv">Código de Barras</label>';
-                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="editcdbarras_prod_serv" type="tel"  id="editcdbarras_prod_serv" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)" required/>';
-                echo '<label class="card-title"for="editcdbarras_prod_serv">Grupo</label>';
+                echo '<label class="card-title"for="editcd_grupo"></label>';
                 echo '<div class="input-group">';
                 echo '<div class="input-group-prepend">';
-                echo '<span class="input-group-text">Grupo: </span>';
-                echo '</div>'; 
-                echo '<select id="editgrupo_prod_serv" name="editgrupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg " required>';
-                $select_show_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_SESSION['cd_grupo_prod_serv']."'";
-                $resulta_show_grupo = $conn->query($select_show_grupo);
-                if ($resulta_show_grupo->num_rows > 0){
-                  while ($row_show_grupo = $resulta_show_grupo->fetch_assoc()){
-                    echo '<option selected value="'.$row_show_grupo['cd_grupo'].'">'.$row_show_grupo['titulo_grupo'].'</option>';
-                  }
-                }
-                //$select_edit_grupo = "SELECT * FROM tb_grupo WHERE != '".$_SESSION['cd_grupo_prod_serv']."' ORDER BY cd_grupo ASC";
-                $select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' ORDER BY cd_grupo ASC";
-                $resulta_edit_grupo = $conn->query($select_edit_grupo);
-                if ($resulta_edit_grupo->num_rows > 0){
-                  while ($row_edit_grupo = $resulta_edit_grupo->fetch_assoc()){
-                    echo '<option value="'.$row_edit_grupo['cd_grupo'].'">'.$row_edit_grupo['titulo_grupo'].'</option>';
-                  }
-                }
-                echo '</select>';
+                echo '<span class="input-group-text" style="width:150px;">Código</span>';
                 echo '</div>';
-                echo '<label class="card-title"for="edittitulo_prod_serv">Nome / Descrição</label>';
-                echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="edittitulo_prod_serv" type="text" id="edittitulo_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '<label class="card-title"for="editobs_prod_serv">Observações</label>';
-                echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="editobs_prod_serv" type="text" id="editobs_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '<label class="card-title"for="editpreco_prod_serv">Valor de Venda</label>';
-                echo '<div class="input-group">';
-                echo '<div class="input-group-prepend">';
-                echo '<span class="input-group-text btn-outline-info">R$:</span>';
-                echo '</div>'; 
-                echo '<input value="'.$_SESSION['preco_prod_serv'].'" name="editpreco_prod_serv" type="tel"  id="editpreco_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '</div>';
-                echo '</div>';
-                echo '<label class="card-title"for="editcusto_prod_serv">Valor de compra</label>';
-                echo '<div class="input-group">';
-                echo '<div class="input-group-prepend">';
-                echo '<span class="input-group-text btn-outline-info">R$:</span>';
-                echo '</div>'; 
-                echo '<input value="'.$_SESSION['custo_prod_serv'].'" name="editcusto_prod_serv" type="tel"  id="editcusto_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '</div>';
+                echo '<input value="'.$_SESSION['cd_grupo'].'" name="editcd_grupo" type="tel" id="editcd_grupo" class="form-control form-control-sm" style="display: block;" readonly/>';
                 echo '</div>';
 
+                echo '<label class="card-title"for="edittitulo_grupo"></label>';
+                echo '<div class="input-group">';
+                echo '<div class="input-group-prepend">';
+                echo '<span class="input-group-text" style="width:150px;">Título: </span>';
+                echo '</div>';
+                echo '<input id="edittitulo_grupo" name="edittitulo_grupo" type="text" class="input-group-text form-control form-control-lg "/>';
+                echo '</div>';
+
+                echo '<label class="card-title"for="editdescricao_grupo"></label>';
+                echo '<div class="input-group">';
+                echo '<div class="input-group-prepend">';
+                echo '<span class="input-group-text" style="width:150px;">Descrição: </span>';
+                echo '</div>';
+                echo '<input id="editdescricao_grupo" name="editdescricao_grupo" type="text" class="input-group-text form-control form-control-lg "/>';
+                echo '</div>';
+
+                
+                
+
                     
-                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="editProdServ" id="editProdServ" style="margin-top: 20px; margin-bottom: 20px;">Atualizar cadastro</button>';
-                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="outroProdServ" id="outroProdServ" style="margin-top: 20px; margin-bottom: 20px;">Consultar Outro</button>';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadGrupo_funcao" id="cadGrupo_funcao" style="margin-top: 20px; margin-bottom: 20px;">Cadastrar</button>';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="menuPrincipal" id="menuPrincipal" style="margin-top: 20px; margin-bottom: 20px;">Voltar</button>';
                                 
                 echo '</form>';
               
@@ -261,18 +252,8 @@
                 echo '<form method="POST">';
                 echo '<div class="form-group row justify-content-center">';
                 echo '<div class="col text-center">';
-                echo '<p class="mb-2 card-title">Produto Atívo '.$_SESSION['status_prod_serv'].'</p>';
-              
-                echo '<div class="col">';
-                echo '<p class="mb-2">Danger</p>';
-                echo '<label class="toggle-switch toggle-switch-success">';
-                echo '<input name="editstatus_prod_serv" id="editstatus_prod_serv" type="checkbox";}>';
-                echo '<span class="toggle-slider round"></span>';
-                echo '</label>';
-                echo '</div>';
-              
-                echo '<script>document.getElementById("editstatus_prod_serv").checked = '.$_SESSION['status_prod_serv'].';</script>';  
-                echo '<span class="toggle-slider round"></span>';
+                 
+                
                 echo '</label>';
                 echo '</div>';
                 echo '</div>';
@@ -294,7 +275,6 @@
                     echo '<option selected value="'.$row_show_grupo['cd_grupo'].'">'.$row_show_grupo['titulo_grupo'].'</option>';
                   }
                 }
-                //$select_edit_grupo = "SELECT * FROM tb_grupo WHERE != '".$_SESSION['cd_grupo_prod_serv']."' ORDER BY cd_grupo ASC";
                 $select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' ORDER BY cd_grupo ASC";
                 $resulta_edit_grupo = $conn->query($select_edit_grupo);
                 if ($resulta_edit_grupo->num_rows > 0){
@@ -326,14 +306,16 @@
                 echo '</div>';
 
                     
-                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="editProdServ" id="editProdServ" style="margin-top: 20px; margin-bottom: 20px;">Atualizar cadastro</button>';
-                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="outroProdServ" id="outroProdServ" style="margin-top: 20px; margin-bottom: 20px;">Consultar Outro</button>';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadProdServ_funcao" id="cadProdServ_funcao" style="margin-top: 20px; margin-bottom: 20px;">Cadastrar</button>';
                                 
+                echo '</form>';
+                echo '<form method="POST">';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="menuPrincipal" id="menuPrincipal" style="margin-top: 20px; margin-bottom: 20px;">Sair</button>';
                 echo '</form>';
               
                 echo '</div>';
               
-              }else if($_SESSION['statusCadastros'] == 3){//
+              }else if($_SESSION['statusCadastros'] == 3){//editar produto
                 echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
                 echo '<div class="card-body">';
@@ -345,61 +327,64 @@
               
                 echo '</div>';
               }else{
-              $select_grupo = "SELECT * FROM tb_grupo ORDER BY cd_grupo ASC";
-              $resulta_grupo = $conn->query($select_grupo);
-              if ($resulta_grupo->num_rows > 0){
-                while ( $row_grupo = $resulta_grupo->fetch_assoc()){
-                  echo '<div class="col-lg-12 grid-margin stretch-card"  data-toggle="collapse" href="#grupo_'.$row_grupo['cd_grupo'].'" aria-expanded="false" aria-controls="grupo_'.$row_grupo['cd_grupo'].'">';
-                  echo '<div class="card" '.$_SESSION['c_card'].'>';
-                  echo '<div class="card-body">';
-                
-                  echo '<h4 class="card-title" style="text-align: center;">'.$row_grupo['titulo_grupo'].'</h4>';
-                  echo '<h6 class="card-title" style="text-align: center;">'.$row_grupo['obs_grupo'].'</h6>';
-                  echo '<div class="collapse table-responsive" id="grupo_'.$row_grupo['cd_grupo'].'">';
-                
-                  $select_produtos = "SELECT * FROM tb_prod_serv WHERE cd_grupo = '".$row_grupo['cd_grupo']."' ORDER BY cd_prod_serv ASC";
-                  $resulta_produtos = $conn->query($select_produtos);
-                  if ($resulta_produtos->num_rows > 0){
+                $select_grupo = "SELECT * FROM tb_grupo ORDER BY cd_grupo ASC";
+                $resulta_grupo = $conn->query($select_grupo);
+                if ($resulta_grupo->num_rows > 0){
+                  while ( $row_grupo = $resulta_grupo->fetch_assoc()){
+                    echo '<div class="col-lg-12 grid-margin stretch-card"  data-toggle="collapse" href="#grupo_'.$row_grupo['cd_grupo'].'" aria-expanded="false" aria-controls="grupo_'.$row_grupo['cd_grupo'].'">';
+                    echo '<div class="card" '.$_SESSION['c_card'].'>';
+                    echo '<div class="card-body">';
+                  
+                    echo '<h4 class="card-title" style="text-align: center;">'.$row_grupo['titulo_grupo'].'</h4>';
+                    echo '<h6 class="card-title" style="text-align: center;">'.$row_grupo['obs_grupo'].'</h6>';
+                    echo '<div class="collapse table-responsive" id="grupo_'.$row_grupo['cd_grupo'].'">';
+                  
+                    echo '<form method="POST">';
+                    echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadProdServ" id="cadProdServ" style="margin-top: 20px; margin-bottom: 20px;">Novo Produto</button>';
+                    echo '</form>';
+                    $select_produtos = "SELECT * FROM tb_prod_serv WHERE cd_grupo = '".$row_grupo['cd_grupo']."' ORDER BY cd_prod_serv ASC";
+                    $resulta_produtos = $conn->query($select_produtos);
+                    if ($resulta_produtos->num_rows > 0){
 
-                    echo '<table class="table" '.$_SESSION['c_card'].'>';
-                    echo '<thead>';
-                    echo '<tr>';
-                    echo '<th>CD</th>';
-                    echo '<th>Nome</th>';
-                    echo '<th>Preço</th>';
-                    echo '</tr>';
-                    echo '</thead>';
-                    echo '<tbody>';
-
-                    while ($row_produtos = $resulta_produtos->fetch_assoc()){
-                    
+                      echo '<table class="table" '.$_SESSION['c_card'].'>';
+                      echo '<thead>';
                       echo '<tr>';
-                      echo '<form method="POST">';
-                      echo '<td style="display: none;"><input type="tel" id="con_cd_prod_serv" name="con_cd_prod_serv" value="'.$row_produtos['cd_prod_serv'].'"></td>';
-                      echo '<td><button type="submit" class="btn btn-outline-success" name="btn_con_prod_serv" id="btn_con_prod_serv">'.$row_produtos['cd_prod_serv'].'</button></td>';
-                      echo '</form>';
-                      echo '<td>'.$row_produtos['titulo_prod_serv'].'</td>';
-                      echo '<td>R$: '.$row_produtos['preco_prod_serv'].'</td>';
+                      echo '<th>CD</th>';
+                      echo '<th>Nome</th>';
+                      echo '<th>Preço</th>';
                       echo '</tr>';
+                      echo '</thead>';
+                      echo '<tbody>';
+
+                      while ($row_produtos = $resulta_produtos->fetch_assoc()){
+                    
+                        echo '<tr>';
+                        echo '<form method="POST">';
+                        echo '<td style="display: none;"><input type="tel" id="con_cd_prod_serv" name="con_cd_prod_serv" value="'.$row_produtos['cd_prod_serv'].'"></td>';
+                        echo '<td><button type="submit" class="btn btn-outline-success" name="btn_con_prod_serv" id="btn_con_prod_serv">'.$row_produtos['cd_prod_serv'].'</button></td>';
+                        echo '</form>';
+                        echo '<td>'.$row_produtos['titulo_prod_serv'].'</td>';
+                        echo '<td>R$: '.$row_produtos['preco_prod_serv'].'</td>';
+                        echo '</tr>';
+                      }
+
+                      echo '</tbody>';
+                      echo '</table>';
                     }
 
-                    echo '</tbody>';
-                  echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="atualizaCliente" id="atualizaCliente" style="margin-top: 20px; margin-bottom: 20px;">Novo Produto</button>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
 
-                    echo '</table>';
+
                   }
+                  echo '<form method="POST">';
+                  echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadGrupo" id="cadGrupo" style="margin-top: 20px; margin-bottom: 20px;">Novo Grupo</button>';
 
-                  echo '</div>';
-                  echo '</div>';
-                  echo '</div>';
-                  echo '</div>';
-
-
+                  echo '</form>';
                 }
-                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="atualizaCliente" id="atualizaCliente" style="margin-top: 20px; margin-bottom: 20px;">Novo Grupo</button>';
-
               }
-            }
 
 
 
