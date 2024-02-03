@@ -243,7 +243,13 @@
               
                 echo '<div class="collapse table-responsive" id="os_liberado">';
         
-                echo '<a href="../md_assistencia/painel_01.php" class="btn btn-lg btn-block btn-outline-info">VER MAIS</a>';
+                //echo '<a href="../md_assistencia/painel_01.php" class="btn btn-lg btn-block btn-outline-info">VER MAIS</a>';
+
+                echo '<form method="POST" action="../md_assistencia/painel_01.php">';
+                echo '<input value="2" name="tipo_card" id="tipo_card" type="hidden">';
+                echo '<td><button type="submit" name="con_edit_os" id="con_edit_os" class="btn btn-lg btn-block btn-outline-info">VER MAIS</button></td>';
+                echo '</form>';
+
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
@@ -270,7 +276,13 @@
                 echo '<h4>ENTREGUE / DEVOLVIDO</h4>';
                 
                 echo '<div class="collapse table-responsive" id="os_retirado">';
-                echo '<a href="../md_assistencia/painel_01.php" class="btn btn-lg btn-block btn-outline-info">VER MAIS</a>';
+                //echo '<a href="../md_assistencia/painel_01.php" class="btn btn-lg btn-block btn-outline-info">VER MAIS</a>';
+
+                echo '<form method="POST" action="../md_assistencia/painel_01.php">';
+                echo '<input value="3" name="tipo_card" id="tipo_card" type="hidden">';
+                echo '<td><button type="submit" name="con_edit_os" id="con_edit_os" class="btn btn-lg btn-block btn-outline-info">VER MAIS</button></td>';
+                echo '</form>';
+
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
@@ -299,8 +311,14 @@
                 
                 echo '<div class="collapse table-responsive" id="os_arquivado">';
                 
-                echo '<a href="../md_assistencia/painel_01.php" class="btn btn-lg btn-block btn-outline-info">VER MAIS</a>';
 
+                
+                //echo '<a href="../md_assistencia/painel_01.php" class="btn btn-lg btn-block btn-outline-info">VER MAIS</a>';
+
+                echo '<form method="POST" action="../md_assistencia/painel_01.php">';
+                echo '<input value="4" name="tipo_card" id="tipo_card" type="hidden">';
+                echo '<td><button type="submit" name="con_edit_os" id="con_edit_os" class="btn btn-lg btn-block btn-outline-info">VER MAIS</button></td>';
+                echo '</form>';
                 
                 echo '</div>';
                 echo '</div>';
