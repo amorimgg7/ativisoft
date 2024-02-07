@@ -182,9 +182,9 @@ $u = new Usuario;
 
                                 echo '<h4 class="card-title" id="soma_cofre">.</h4>';
 
-                                echo '<h4 class="card-title" id="soma_sangria">.</h4>';
-
                                 echo '<h4 class="card-title" id="soma_suprimento">.</h4>';
+
+                                echo '<h4 class="card-title" id="soma_sangria">.</h4>';
 
                                 echo '<h2 class="card-title" style="font-size: 24px;" id="soma_total">.</h2>';
 
@@ -199,9 +199,6 @@ $u = new Usuario;
 									}
 								}
 
-
-
-                                
                                 if (isset($_POST['con_conf_cd_caixa'])) {
                                     //$query_count_0 = "SELECT * FROM tb_servico WHERE status_servico = '0' AND cd_cliente = '".$_SESSION['acompanha_cd_cliente']."'";
                                     //$query_fpag_dinheiro = "SELECT COUNT(*) as count_dinheiro FROM tb_movimento_financeiro WHERE date(data_movimento) = '09/09/2023' and fpag_movimento = 'DINHEIRO'" . $_SESSION['acompanha_cd_cliente'] . "'";
@@ -230,12 +227,12 @@ $u = new Usuario;
                                         WHERE cd_caixa_movimento = '".$_SESSION['cd_caixa_conferido']."' 
                                         AND fpag_movimento = 'cofre'";
 
-                                    $query_fpag_sangria = "SELECT SUM(valor_sangria) as soma_sangria 
+                                    $query_fpag_sangria = "SELECT SUM(valor_movimento) as soma_sangria 
                                         FROM tb_movimento_financeiro 
                                         WHERE cd_caixa_movimento = '".$_SESSION['cd_caixa_conferido']."' 
                                         AND tipo_movimento = 3";
 
-                                    $query_fpag_suprimento = "SELECT SUM(valor_suprimento) as soma_suprimento 
+                                    $query_fpag_suprimento = "SELECT SUM(valor_movimento) as soma_suprimento 
                                         FROM tb_movimento_financeiro 
                                         WHERE cd_caixa_movimento = '".$_SESSION['cd_caixa_conferido']."' 
                                         AND tipo_movimento = 2";
@@ -308,17 +305,6 @@ $u = new Usuario;
                                         $_SESSION['soma_cofre'] = 0;
                                     }
 
-                                    if ($row_fpag_sangria['soma_sangria'] > 0) {
-                                        $_SESSION['soma_sangria'] = $row_fpag_sangria['soma_sangria'];
-                                        echo '<script>document.getElementById("soma_sangria").innerHTML = "Sangria: R$'.$row_fpag_sangria['soma_sangria'].'";</script>';//
-                                        $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_sangria'];
-                                        //$_SESSION['count3'] = 25;
-                                        //echo '<script>var count3 = 25;</script>';
-                                    } else {
-                                        echo '<script>document.getElementById("soma_sangria").innerHTML = "";</script>';//
-                                        $_SESSION['soma_sangria'] = 0;
-                                    }
-
                                     if ($row_fpag_suprimento['soma_suprimento'] > 0) {
                                         $_SESSION['soma_suprimento'] = $row_fpag_suprimento['soma_suprimento'];
                                         echo '<script>document.getElementById("soma_suprimento").innerHTML = "Suprimento: R$'.$row_fpag_suprimento['soma_suprimento'].'";</script>';//
@@ -328,6 +314,18 @@ $u = new Usuario;
                                     } else {
                                         echo '<script>document.getElementById("soma_cofre").innerHTML = "";</script>';//
                                         $_SESSION['soma_cofre'] = 0;
+                                    }
+
+                                    if ($row_fpag_sangria['soma_sangria'] > 0) {
+                                        $_SESSION['soma_sangria'] = $row_fpag_sangria['soma_sangria'];
+                                        echo '<script>document.getElementById("soma_sangria").style.color = "#FF0000";</script>';//
+                                        echo '<script>document.getElementById("soma_sangria").innerHTML = "Sangria: R$ - '.$row_fpag_sangria['soma_sangria'].'";</script>';//
+                                        $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_sangria'];
+                                        //$_SESSION['count3'] = 25;
+                                        //echo '<script>var count3 = 25;</script>';
+                                    } else {
+                                        echo '<script>document.getElementById("soma_sangria").innerHTML = "";</script>';//
+                                        $_SESSION['soma_sangria'] = 0;
                                     }
                                     echo '<script>document.getElementById("soma_total").innerHTML = "Total: R$" + ' . number_format($_SESSION['soma_total'], 2, ',', '.') . ';</script>';
 
