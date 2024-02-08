@@ -255,7 +255,7 @@ $u = new Usuario;
                                     $row_fpag_suprimento = mysqli_fetch_assoc($result_soma_suprimento);
 
                                     // Exibe as informações do usuário no formulário
-                                    session_start();
+                                    
                                     $_SESSION['soma_total'] = 0;
                                     if ($row_fpag_dinheiro['soma_dinheiro'] > 0) {
                                         $_SESSION['soma_dinheiro'] = $row_fpag_dinheiro['soma_dinheiro'];

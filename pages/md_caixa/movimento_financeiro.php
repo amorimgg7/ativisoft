@@ -280,7 +280,8 @@ if($_SESSION['dt_caixa'] == "HOJE"){
     echo '</div>';
     echo '</div>';
     echo '</div>';
-        
+    echo '</div>';
+    
     }
 }
 
