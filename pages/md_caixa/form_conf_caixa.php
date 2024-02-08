@@ -200,8 +200,6 @@ $u = new Usuario;
 								}
 
                                 if (isset($_POST['con_conf_cd_caixa'])) {
-                                    //$query_count_0 = "SELECT * FROM tb_servico WHERE status_servico = '0' AND cd_cliente = '".$_SESSION['acompanha_cd_cliente']."'";
-                                    //$query_fpag_dinheiro = "SELECT COUNT(*) as count_dinheiro FROM tb_movimento_financeiro WHERE date(data_movimento) = '09/09/2023' and fpag_movimento = 'DINHEIRO'" . $_SESSION['acompanha_cd_cliente'] . "'";
                                     $query_fpag_dinheiro = "SELECT SUM(valor_movimento) as soma_dinheiro 
                                         FROM tb_movimento_financeiro 
                                         WHERE cd_caixa_movimento = '".$_SESSION['cd_caixa_conferido']."' 
@@ -263,7 +261,7 @@ $u = new Usuario;
                                         $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_dinheiro'];
                                         //$_SESSION['count0'] = 25;
                                     } else {
-                                        echo '<script>document.getElementById("soma_dinheiro").innerHTML = "";</script>';//
+                                        echo '<script>document.getElementById("soma_dinheiro").innerHTML = "..";</script>';//
                                         $_SESSION['soma_dinheiro'] = 0;
                                     }
                                     if ($row_fpag_debito['soma_debito'] > 0) {
@@ -272,7 +270,7 @@ $u = new Usuario;
                                         $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_debito'];
                                         //$_SESSION['count1'] = 25;
                                     } else {
-                                        echo '<script>document.getElementById("soma_debito").innerHTML = "";</script>';//
+                                        echo '<script>document.getElementById("soma_debito").innerHTML = "..";</script>';//
                                         $_SESSION['soma_debito'] = 0;
                                     }
                                     if ($row_fpag_credito['soma_credito'] > 0) {
@@ -281,27 +279,23 @@ $u = new Usuario;
                                         $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_credito'];
                                         //$_SESSION['count2'] = 25;
                                     } else {
-                                        echo '<script>document.getElementById("soma_credito").innerHTML = "";</script>';//
+                                        echo '<script>document.getElementById("soma_credito").innerHTML = "..";</script>';
                                         $_SESSION['soma_credito'] = 0;
                                     }
-                                    if ($row_fpag_pix['soma_pix'] > 0) {
+                                    if ($row_fpag_pix['soma_pix'] > 0 || isset($row_fpag_pix['soma_pix'])) {
                                         $_SESSION['soma_pix'] = $row_fpag_pix['soma_pix'];
-                                        echo '<script>document.getElementById("soma_pix").innerHTML = "PIX: R$'.$row_fpag_pix['soma_pix'].'";</script>';//
+                                        echo '<script>document.getElementById("soma_pix").innerHTML = "PIX: R$'.$row_fpag_pix['soma_pix'].'";</script>';
                                         $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_pix'];
-                                        //$_SESSION['count3'] = 25;
-                                        //echo '<script>var count3 = 25;</script>';
                                     } else {
-                                        echo '<script>document.getElementById("soma_pix").innerHTML = "";</script>';//
+                                        echo '<script>document.getElementById("soma_pix").innerHTML = "..";</script>';
                                         $_SESSION['soma_pix'] = 0;
                                     }
                                     if ($row_fpag_cofre['soma_cofre'] > 0) {
                                         $_SESSION['soma_cofre'] = $row_fpag_cofre['soma_cofre'];
-                                        echo '<script>document.getElementById("soma_cofre").innerHTML = "Cófre: R$'.$row_fpag_cofre['soma_cofre'].'";</script>';//
+                                        echo '<script>document.getElementById("soma_cofre").innerHTML = "Cófre: R$'.$row_fpag_cofre['soma_cofre'].'";</script>';
                                         $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_cofre'];
-                                        //$_SESSION['count3'] = 25;
-                                        //echo '<script>var count3 = 25;</script>';
                                     } else {
-                                        echo '<script>document.getElementById("soma_cofre").innerHTML = "";</script>';//
+                                        echo '<script>document.getElementById("soma_cofre").innerHTML = "..";</script>';
                                         $_SESSION['soma_cofre'] = 0;
                                     }
 
@@ -309,10 +303,8 @@ $u = new Usuario;
                                         $_SESSION['soma_suprimento'] = $row_fpag_suprimento['soma_suprimento'];
                                         echo '<script>document.getElementById("soma_suprimento").innerHTML = "Suprimento: R$'.$row_fpag_suprimento['soma_suprimento'].'";</script>';//
                                         $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_suprimento'];
-                                        //$_SESSION['count3'] = 25;
-                                        //echo '<script>var count3 = 25;</script>';
                                     } else {
-                                        echo '<script>document.getElementById("soma_cofre").innerHTML = "";</script>';//
+                                        echo '<script>document.getElementById("soma_suprimento").innerHTML = "..";</script>';//
                                         $_SESSION['soma_cofre'] = 0;
                                     }
 
@@ -324,7 +316,7 @@ $u = new Usuario;
                                         //$_SESSION['count3'] = 25;
                                         //echo '<script>var count3 = 25;</script>';
                                     } else {
-                                        echo '<script>document.getElementById("soma_sangria").innerHTML = "";</script>';//
+                                        echo '<script>document.getElementById("soma_sangria").innerHTML = "..";</script>';//
                                         $_SESSION['soma_sangria'] = 0;
                                     }
                                     echo '<script>document.getElementById("soma_total").innerHTML = "Total: R$" + ' . number_format($_SESSION['soma_total'], 2, ',', '.') . ';</script>';
