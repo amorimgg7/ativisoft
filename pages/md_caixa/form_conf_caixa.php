@@ -308,7 +308,7 @@ $u = new Usuario;
                                     if ($row_fpag_suprimento['soma_suprimento'] > 0) {
                                         $_SESSION['soma_suprimento'] = $row_fpag_suprimento['soma_suprimento'];
                                         echo '<script>document.getElementById("soma_suprimento").innerHTML = "Suprimento: R$'.$row_fpag_suprimento['soma_suprimento'].'";</script>';//
-                                        $_SESSION['soma_total'] = $_SESSION['soma_total'] - $_SESSION['soma_sangria'];
+                                        $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_suprimento'];
                                         //$_SESSION['count3'] = 25;
                                         //echo '<script>var count3 = 25;</script>';
                                     } else {
@@ -320,7 +320,7 @@ $u = new Usuario;
                                         $_SESSION['soma_sangria'] = $row_fpag_sangria['soma_sangria'];
                                         echo '<script>document.getElementById("soma_sangria").style.color = "#FF0000";</script>';//
                                         echo '<script>document.getElementById("soma_sangria").innerHTML = "Sangria: R$ - '.$row_fpag_sangria['soma_sangria'].'";</script>';//
-                                        $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_sangria'];
+                                        $_SESSION['soma_total'] = $_SESSION['soma_total'] - $_SESSION['soma_sangria'];
                                         //$_SESSION['count3'] = 25;
                                         //echo '<script>var count3 = 25;</script>';
                                     } else {
