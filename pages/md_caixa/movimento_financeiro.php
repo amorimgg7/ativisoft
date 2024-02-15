@@ -177,12 +177,9 @@ if($_SESSION['dt_caixa'] == "HOJE"){
             echo '<input value="'.$row_vpag['fpag_movimento'].'" name="listavalor_movimento" id="listavalor_movimento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
             echo '<label for="listavalor_movimento"></label>';
             echo '<input value="R$:'.$row_vpag['valor_movimento'].'" name="listavalor_movimento" id="listavalor_movimento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
-            //echo '<label for="listaremover_orcamento"></label>';
-            //echo '<input type="submit" value="X" onclick="location.reload()" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
-            //echo '<input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
+            
             echo '</div>';
             echo '</div>';
-            //echo '</form>';
             echo '</div>';
         }
         if($_SESSION['vpag_servico'] == $_SESSION['vtotal_orcamento']){
@@ -279,7 +276,7 @@ if($_SESSION['dt_caixa'] == "HOJE"){
         }
     echo '</div>';
     echo '</div>';
-    echo '</div>';
+        
     echo '</div>';
     
     }

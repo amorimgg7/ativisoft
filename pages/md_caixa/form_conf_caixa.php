@@ -239,16 +239,16 @@ $u = new Usuario;
                                     $result_soma_dinheiro = mysqli_query($conn, $query_fpag_dinheiro);
                                     $result_soma_debito = mysqli_query($conn, $query_fpag_debito);
                                     $result_soma_credito = mysqli_query($conn, $query_fpag_credito);
-                                    $result_soma_pix = mysqli_query($conn, $query_fpag_pix);
-                                    $result_soma_cofre = mysqli_query($conn, $query_fpag_cofre);
+                                    $result_soma_pix =      mysqli_query($conn, $query_fpag_pix);
+                                    $result_soma_cofre =    mysqli_query($conn, $query_fpag_cofre);
                                     $result_soma_sangria = mysqli_query($conn, $query_fpag_sangria);
                                     $result_soma_suprimento = mysqli_query($conn, $query_fpag_suprimento);
 
                                     $row_fpag_dinheiro = mysqli_fetch_assoc($result_soma_dinheiro);
                                     $row_fpag_debito = mysqli_fetch_assoc($result_soma_debito);
                                     $row_fpag_credito = mysqli_fetch_assoc($result_soma_credito);
-                                    $row_fpag_pix = mysqli_fetch_assoc($result_soma_pix);
-                                    $row_fpag_cofre = mysqli_fetch_assoc($result_soma_cofre);
+                                    $row_fpag_pix =     mysqli_fetch_assoc($result_soma_pix);
+                                    $row_fpag_cofre =   mysqli_fetch_assoc($result_soma_cofre);
                                     $row_fpag_sangria = mysqli_fetch_assoc($result_soma_sangria);
                                     $row_fpag_suprimento = mysqli_fetch_assoc($result_soma_suprimento);
 
@@ -282,7 +282,7 @@ $u = new Usuario;
                                         echo '<script>document.getElementById("soma_credito").innerHTML = "..";</script>';
                                         $_SESSION['soma_credito'] = 0;
                                     }
-                                    if ($row_fpag_pix['soma_pix'] > 0 || isset($row_fpag_pix['soma_pix'])) {
+                                    if ($row_fpag_pix['soma_pix'] > 0) {
                                         $_SESSION['soma_pix'] = $row_fpag_pix['soma_pix'];
                                         echo '<script>document.getElementById("soma_pix").innerHTML = "PIX: R$'.$row_fpag_pix['soma_pix'].'";</script>';
                                         $_SESSION['soma_total'] = $_SESSION['soma_total'] + $_SESSION['soma_pix'];
@@ -313,8 +313,6 @@ $u = new Usuario;
                                         echo '<script>document.getElementById("soma_sangria").style.color = "#FF0000";</script>';//
                                         echo '<script>document.getElementById("soma_sangria").innerHTML = "Sangria: R$ - '.$row_fpag_sangria['soma_sangria'].'";</script>';//
                                         $_SESSION['soma_total'] = $_SESSION['soma_total'] - $_SESSION['soma_sangria'];
-                                        //$_SESSION['count3'] = 25;
-                                        //echo '<script>var count3 = 25;</script>';
                                     } else {
                                         echo '<script>document.getElementById("soma_sangria").innerHTML = "..";</script>';//
                                         $_SESSION['soma_sangria'] = 0;
