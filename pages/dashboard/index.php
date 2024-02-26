@@ -93,7 +93,10 @@
                 <?php
                   if($_SESSION['cd_funcao'] == 1)
                   {
-                    //echo '<h1>Testador!</h1><br>';
+                    echo '<h1>Módulo Geral!</h1>';
+                    echo '<h6>Este módulo é dedicado para licença de testes do sistema.</h6>';
+
+                    include '../../pages/md_patrimonio/index.php';
                     include '../../pages/md_caixa/index.php';
                     include '../../pages/md_assistencia/index.php';
 
@@ -120,8 +123,10 @@
                   if($_SESSION['cd_funcao'] == 5)
                   {
                     echo '<h1>Módulo Assistente!</h1>';
-                    echo '<h6>Aqui o técnico verá um histórico resumido de seus atendimentos realizados e chamados abertos para suas habilidades cadastradas.</h6>';
+                    echo '<h6>&nbsp&nbsp&nbsp&nbsp Licença ao módulo de assistencia.</h6>';
 
+                    include '../../pages/md_caixa/index.php';
+                    include '../../pages/md_assistencia/index.php';
                   }
                 ?>
               </div>

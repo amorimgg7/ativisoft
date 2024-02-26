@@ -390,53 +390,127 @@ $u = new Usuario;
 							<div class="col-sm-6 grid-margin stretch-card">
 								<div class="card">
 									<div class="card-body">
+                                        <?php
+                                            echo '<h4 class="card-title">Movimentação</h4>';
+                                            echo '<div class="table-responsive">';
+                                            echo '<table class="table">';
+                                            echo '<thead>';
+                                            echo '<tr>';
+                                            echo '<th>Tipo</th>';
+                                            echo '<th>Valor Movimento</th>';
+                                            echo '<th>Forma de Pagamento</th>';
+                                            echo '<th>OBS</th>'; 
+                                            echo '</tr>';
+                                            echo '</thead>';
+                                            echo '<tbody>';
+                                            $select_movimento_caixa = "SELECT * FROM tb_movimento_financeiro WHERE cd_caixa_movimento = '".$_SESSION['cd_caixa_conferido']."'";
+                                            //insert into tb_caixa(dt_abertura, cd_colab_abertura, saldo_abertura, status_caixa) VALUES('2023-08-12T13:00','1','15','0')
+                                            $resulta_movimento_caixa = $conn->query($select_movimento_caixa);
+                                            while ( $row_movimento_caixa = $resulta_movimento_caixa->fetch_assoc()){
+                                                echo '<tr>';
+                                                if($row_movimento_caixa['tipo_movimento'] == 1){echo '<td>Receita</td>';}
+                                                if($row_movimento_caixa['tipo_movimento'] == 2){echo '<td>Suprimento</td>';}
+                                                if($row_movimento_caixa['tipo_movimento'] == 3){echo '<td>Sangria</td>';}
+                                                echo '<td>R$: '.$row_movimento_caixa['valor_movimento'].'</td>';
+                                                echo '<td>'.$row_movimento_caixa['fpag_movimento'].'</td>';
+                                                echo '<td>'.$row_movimento_caixa['obs_movimento'].'</td>';
 
-
-
-									<?php
-
-									echo '<h4 class="card-title">Movimentação</h4>';
-                                          echo '<div class="table-responsive">';
-                                          echo '<table class="table">';
-                                          echo '<thead>';
-                                          echo '<tr>';
-                                          echo '<th>Tipo</th>';
-                                          echo '<th>Valor Movimento</th>';
-                                          echo '<th>Forma de Pagamento</th>';
-                                          echo '<th>OBS</th>'; 
-                                          echo '</tr>';
-                                          echo '</thead>';
-                                          echo '<tbody>';
-
-
-									$select_movimento_caixa = "SELECT * FROM tb_movimento_financeiro WHERE cd_caixa_movimento = '".$_SESSION['cd_caixa_conferido']."'";
-                                          //insert into tb_caixa(dt_abertura, cd_colab_abertura, saldo_abertura, status_caixa) VALUES('2023-08-12T13:00','1','15','0')
-                                          $resulta_movimento_caixa = $conn->query($select_movimento_caixa);
-                                          while ( $row_movimento_caixa = $resulta_movimento_caixa->fetch_assoc()){
-                                              echo '<tr>';
-                                              if($row_movimento_caixa['tipo_movimento'] == 1){echo '<td>Receita</td>';}
-                                              if($row_movimento_caixa['tipo_movimento'] == 2){echo '<td>Suprimento</td>';}
-                                              if($row_movimento_caixa['tipo_movimento'] == 3){echo '<td>Sangria</td>';}
-                                              echo '<td>R$: '.$row_movimento_caixa['valor_movimento'].'</td>';
-                                              echo '<td>'.$row_movimento_caixa['fpag_movimento'].'</td>';
-                                              echo '<td>'.$row_movimento_caixa['obs_movimento'].'</td>';
-
-                                              echo '<form method="POST">';
-                                              echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['cd_movimento'].'" id="cd_movimento" name="cd_movimento"></td>';
-                                              echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['cd_os_movimento'].'" id="cd_os_movimento" name="cd_os_movimento" ></td>';
-                                              echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['valor_movimento'].'" id="valor_servico" name="valor_servico"></td>';
-                                              echo '</form>';
+                                                echo '<form method="POST">';
+                                                echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['cd_movimento'].'" id="cd_movimento" name="cd_movimento"></td>';
+                                                echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['cd_os_movimento'].'" id="cd_os_movimento" name="cd_os_movimento" ></td>';
+                                                echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['valor_movimento'].'" id="valor_servico" name="valor_servico"></td>';
+                                                echo '</form>';
+                                                }
+                                                echo '</tbody>';
+                                                echo '</table>';
+                                                echo '</div>';
                                             }
+                                        ?>
+                                        <div class="table-responsive" id="conf_por_movimento">
+                                            <form action="post">
 
-											echo '</tbody>';
-                                            echo '</table>';
-                                            echo '</div>';
-                                        }
-											?>
+                                                    <div class="typeahead">
+                                                        <h4>Conferir por Movimento</h4>
+                                                        <label></label>
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text btn-outline-info">Tipo</span>
+                                                            <select name="tipo_movimento" id="tipo_movimento" class="form-control form-control-sm" onchange="selectTipo()" required>
+                                                                <option value='' selected ></option>
+                                                                <option value='1'>Pagamento de OS</option>
+                                                                <option value='2'>Suprimento</option>
+                                                                <option value='3'>Sangria</option>
+                                                            </select>
+                                                        </div>
+                                                        <label></label>
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text btn-outline-info">#</span>
+                                                            <select id="fpag_movimento" name="fpag_movimento" class="form-control form-control-sm" style="display:none;">
+                                                                <option value=""></option>
+                                                                <?php
+                                                                    $sql_describe = "DESCRIBE tb_caixa";
+                                                                    $result_describe = mysqli_query($conn, $sql_describe);
+                                                                    $found_start = false;
+                                                                    if ($result_describe) {
+                                                                        while ($row_describe = mysqli_fetch_assoc($result_describe)) {
+                                                                            if ($row_describe['Field'] == 'diferenca_caixa') {
+                                                                                $found_start = true;
+                                                                                continue; // Começar a coleta após encontrar a coluna "diferenca_caixa"
+                                                                            }
+                                                            
+                                                                            if ($found_start && $row_describe['Field'] == 'fpag_boleto') {
+                                                                                break; // Parar a coleta após encontrar a coluna "status_caixa"
+                                                                            }
+                                                            
+                                                                            if ($found_start) {
+                                                                                $column_name = str_replace('fpag_', '', $row_describe['Field']);
+                                                                                //echo $column_name . "<br>";
+                                                                                echo '<option value="'.$column_name.'">'.$column_name.'</option>';
+                                                            
+                                                                            }
+                                                                        }
+                                                                    } else {
+                                                                        echo "Erro na consulta: " . mysqli_error($conn);
+                                                                    }
+                                                                ?>
+                                                            </select>
+                                                            <input id="vpag_movimento" name="vpag_movimento" type="tel" class="form-control form-control-sm" placeholder="Valor" style="display:none;">
+                                                        </div>
+                                                    </div>
 
+                                                    <script>
+                                                        function selectTipo() {
+                                                            var tipoSelecionado = document.getElementById("tipo_movimento").value;
+                                                            if (tipoSelecionado === 1) {
+                                                                document.getElementById("os_movimento").style.display = "block";
+                                                                document.getElementById("fpag_movimento").style.display = "block";
+                                                                document.getElementById("vpag_movimento").style.display = "block";
+                                                                document.getElementById("motivo_movimento").innerHTML = '<option value="" selected></option><option value="liquidacaoOS">Liquida OS</option><option value="Suprimento">Suprimento</option>';
+                                                            } else
+                                                            if (tipoSelecionado === 2) {
+                                                                document.getElementById("os_movimento").style.display = "none";
+                                                                document.getElementById("fpag_movimento").style.display = "none";
+                                                                document.getElementById("vpag_movimento").style.display = "block"; 
+                                                                document.getElementById("motivo_movimento").innerHTML = '<option value="" selected></option><option value="Sangria">Sangria</option><option value="Outros">Outros</option>';
+                                                            }
+                                                            else
+                                                            if (tipoSelecionado === 3) {
+                                                                document.getElementById("motivo_movimento").style.display = "block";
+                                                                document.getElementById("motivo_movimento").innerHTML = '<option value="" selected></option><option value="Sangria">Sangria</option><option value="Outros">Outros</option>';
+                                                            }
+                                                            else{//vpag_movimento
+                                                                document.getElementById("os_movimento").style.display = "none";
+                                                                document.getElementById("fpag_movimento").style.display = "none";
+                                                                document.getElementById("vpag_movimento").style.display = "none";
+                                                            }
+                                                        }
+                                                    </script>
 
+        
+                                               
+                                                <button type="submit" class="btn btn-lg btn-block btn-outline-success"><i class="mdi mdi-file-check"></i>Lançar</button>
 
-										
+                                            </form>
+                                        </div>
 					                </div>
 								</div>
 					        </div>
