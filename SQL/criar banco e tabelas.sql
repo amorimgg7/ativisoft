@@ -362,3 +362,47 @@ insert into tb_prod_serv(cd_classe_fiscal, cd_grupo, cdbarras_prod_serv, titulo_
     (1,3,'789123123794', 'produto 6', 'Terceira linha de Servico', 2, '30', '15');
     
     
+
+
+create table tb_comodo(
+    cd_comodo integer PRIMARY KEY AUTO_INCREMENT,
+    cd_empresa_comodo integer,
+    cd_filial_comodo integer,
+    cd_colab_comodo integer,
+    ds_comodo varchar(100),
+    obs_comodo varchar(999)
+);
+--ALTER TABLE tb_comodo
+--    ADD CONSTRAINT fk_tb_comodo1 FOREIGN KEY(cd_empresa_comodo) REFERENCES tb_empresa (cd_empresa),
+--    ADD CONSTRAINT fk_tb_comodo2 FOREIGN KEY(cd_filial_comodo) REFERENCES tb_filial (cd_filial),
+--    ADD CONSTRAINT fk_tb_comodo3 FOREIGN KEY(cd_colab_comodo) REFERENCES tb_colab (cd_colab);
+    
+
+
+create table tb_patrimonio(
+    cd_patrimonio integer PRIMARY KEY AUTO_INCREMENT,
+    cd_empresa_patrimonio integer,
+    cd_filial_patrimonio integer,
+    cd_comodo_patrimonio integer,
+    cd_colab_patrimonio integer,
+    numserie_patrimonio varchar(999),
+    tipo_patrimonio varchar(100),
+    fabricante_patrimonio varchar(100),
+    marca_patrimonio varchar(100),
+    modelo_patrimonio varchar(100),
+    versao_patrimonio varchar(100),
+    ds_patrimonio varchar(100),
+    obs_patrimonio varchar(999),
+    dt_compra_patrimonio DATETIME,
+    dt_venda_patrimonio DATETIME,
+    vl_compra_patrimonio DECIMAL(10,2),
+    vl_venda_patrimonio DECIMAL(10,2),
+    link_compra_patrimonio varchar(999),
+    link_venda_patrimonio varchar(999)
+);
+--ALTER TABLE tb_patrimonio
+--    ADD CONSTRAINT fk_tb_patrimonio FOREIGN KEY(cd_empresa_patrimonio) REFERENCES tb_empresa (cd_empresa),
+--    ADD CONSTRAINT fk_tb_patrimonio FOREIGN KEY(cd_filial_patrimonio) REFERENCES tb_filial (cd_filial),
+--    ADD CONSTRAINT fk_tb_patrimonio FOREIGN KEY(cd_comodo_patrimonio) REFERENCES tb_colab (cd_colab),
+--    ADD CONSTRAINT fk_tb_patrimonio FOREIGN KEY(cd_colab_patrimonio) REFERENCES tb_colab (cd_colab);
+

@@ -65,7 +65,7 @@
           </li>
           
 
-          <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>>
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#cadastros" aria-expanded="false" aria-controls="cadastros">
               <i class="icon-disc menu-icon" <?php echo $_SESSION['c_sidebar']?>></i>
               <span class="menu-title" <?php echo $_SESSION['c_sidebar']?>>Cadastros</span>
@@ -75,9 +75,13 @@
             <div class="collapse" id="cadastros">
             
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_colaborador.php">Funcionario</a></li>
-                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/consulta_cliente.php">Cliente</a></li>
-                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_produto.php">Produtos</a></li>
+                <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_colaborador.php">Funcionario</a></li>
+                <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/consulta_cliente.php">Cliente</a></li>
+                <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_produto.php">Produtos</a></li>
+                <li class="nav-item" <?php echo $_SESSION['md_patrimonio'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_patrimonio/cadastro_patrimonio.php">Patrimônio</a></li>
+              
+
+                
               </ul>
             </div>
             
@@ -119,6 +123,7 @@
               </ul>
             </div> 
           </li>
+
 <!--
           <li class="nav-item" <?php //echo $_SESSION['md_cliente'];?>>
             <a class="nav-link" data-toggle="collapse" href="#md_cliente" aria-expanded="false" aria-controls="md_cliente">

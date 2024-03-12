@@ -97,6 +97,7 @@ class Usuario
                     $_SESSION['md_cliente'] = $tb_funcao['md_cliente'];
                     $_SESSION['md_fornecedor'] = $tb_funcao['md_fornecedor'];
                     $_SESSION['md_clientefornecedor'] = $tb_funcao['md_clientefornecedor'];
+                    $_SESSION['md_patrimonio'] = $tb_funcao['md_patrimonio'];
                 }
                 
             }
