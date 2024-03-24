@@ -187,6 +187,21 @@
                   echo "<script>window.alert('Produto Cadastrado com sucesso!');</script>";
                   $_SESSION['statusCadastros'] = FALSE;
                 }
+                if(isset($_POST['gravaProdServ_funcao'])) {
+                  $query = "UPDATE tb_prod_serv SET
+                    cd_grupo = '".$_POST['editgrupo_prod_serv']."',
+                    cdbarras_prod_serv = '".$_POST['editcdbarras_prod_serv']."',
+                    titulo_prod_serv = '".$_POST['edittitulo_prod_serv']."',
+                    obs_prod_serv = '".$_POST['editobs_prod_serv']."',
+                    preco_prod_serv = '".$_POST['editpreco_prod_serv']."',
+                    custo_prod_serv = '".$_POST['editcusto_prod_serv']."',
+                    status_prod_serv = '".$_POST['editstatus_prod_serv']."'  
+                    WHERE cd_prod_serv = '".$_POST['editcd_prod_serv']."'
+                  ";
+                  mysqli_query($conn, $query);
+                  echo "<script>window.alert('Produto Atualizado com sucesso!');</script>";
+                  $_SESSION['statusCadastros'] = FALSE;
+                }
               ?>
               
               <?php
@@ -258,6 +273,9 @@
                 echo '</div>';
                 echo '</div>';
                 //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
+                echo '<label class="card-title" for="editstatus_prod_serv">Status</label>';
+                echo '<input value="'.$_SESSION['status_prod_serv'].'" name="editstatus_prod_serv" type="tel" id="editstatus_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" required/>';
+                
                 echo '<label class="card-title" for="editcd_prod_serv">CD</label>';
                 echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="editcd_prod_serv" type="tel" id="editcd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
                 echo '<label class="card-title"for="editcdbarras_prod_serv">Código de Barras</label>';
@@ -306,7 +324,7 @@
                 echo '</div>';
 
                     
-                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadProdServ_funcao" id="cadProdServ_funcao" style="margin-top: 20px; margin-bottom: 20px;">Cadastrar</button>';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="gravaProdServ_funcao" id="gravaProdServ_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar</button>';
                                 
                 echo '</form>';
                 echo '<form method="POST">';
@@ -360,8 +378,14 @@
                     
                         echo '<tr>';
                         echo '<form method="POST">';
-                        echo '<td style="display: none;"><input type="tel" id="con_cd_prod_serv" name="con_cd_prod_serv" value="'.$row_produtos['cd_prod_serv'].'"></td>';
-                        echo '<td><button type="submit" class="btn btn-outline-success" name="btn_con_prod_serv" id="btn_con_prod_serv">'.$row_produtos['cd_prod_serv'].'</button></td>';
+                        if($row_produtos['status_prod_serv'] == 0){
+                          echo '<td style="display: none;"><input type="tel" id="con_cd_prod_serv" name="con_cd_prod_serv" value="'.$row_produtos['cd_prod_serv'].'"></td>';
+                          echo '<td><button type="submit" class="btn btn-outline-danger" name="btn_con_prod_serv" id="btn_con_prod_serv">'.$row_produtos['cd_prod_serv'].'</button></td>';
+                        }else{
+                          echo '<td style="display: none;"><input type="tel" id="con_cd_prod_serv" name="con_cd_prod_serv" value="'.$row_produtos['cd_prod_serv'].'"></td>';
+                          echo '<td><button type="submit" class="btn btn-outline-success" name="btn_con_prod_serv" id="btn_con_prod_serv">'.$row_produtos['cd_prod_serv'].'</button></td>';
+                        }
+                        
                         echo '</form>';
                         echo '<td>'.$row_produtos['titulo_prod_serv'].'</td>';
                         echo '<td>R$: '.$row_produtos['preco_prod_serv'].'</td>';
