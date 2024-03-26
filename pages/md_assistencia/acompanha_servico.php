@@ -454,8 +454,8 @@ if ($cnpj && $tel) {
               //echo '  </div>';
               //echo '</div>';
               //echo '</div>';
-
-              
+                                                                                                                                    //btn btn-lg btn-block btn-outline-info
+              echo '<a href="../web/index.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel='.$_SESSION['acompanha_tel_cliente'].'" class="btn btn-lg btn-block btn-social-icon-text btn-outline-success" style="margin: 5px;">Acesse o catálogo do seu prestador de serviços favorito</a>';
               echo '</div>';
               echo '</div>';
               echo '</div>';

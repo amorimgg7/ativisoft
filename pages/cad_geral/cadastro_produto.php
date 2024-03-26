@@ -92,7 +92,16 @@
                     $_SESSION['preco_prod_serv'] = $row['preco_prod_serv'];
                     $_SESSION['custo_prod_serv'] = $row['custo_prod_serv'];
                     $_SESSION['status_prod_serv'] = $row['status_prod_serv'];
-
+                    echo '<script>';
+                    echo 'document.addEventListener("DOMContentLoaded", function() {';
+                    echo '    var editcheckstatus_prod_serv = document.getElementById("editcheckstatus_prod_serv");';
+                    echo '    if (' . $_SESSION['status_prod_serv'] . ' == 1) {';
+                    echo '        editcheckstatus_prod_serv.checked = true;';
+                    echo '    } else {';
+                    echo '        editcheckstatus_prod_serv.checked = false;';
+                    echo '    }';
+                    echo '});';
+                    echo '</script>';
                     $_SESSION['statusCadastros'] = 3;
                   }      
                 }
@@ -100,6 +109,13 @@
               ?>
               <?php
                 if (isset($_POST['editProdServ'])) {
+
+                  if($_POST['editstatus_prod_serv'] == false){
+                    $status_prod_serv = 0;
+                  }else{
+                    $status_prod_serv = 1;
+                  }
+
                   $updatecliente = "UPDATE tb_prod_serv SET
                       cd_classe_fiscal = '" . $_POST['editcd_classe_fiscal'] . "',
                       cd_grupo = '" . $_POST['editcd_grupo'] . "',
@@ -109,7 +125,7 @@
                       tipo_prod_serv = '" . $_POST['edittipo_prod_serv'] . "',
                       preco_prod_serv = '" . $_POST['editpreco_prod_serv'] . "',
                       custo_prod_serv = '" . $_POST['editcusto_prod_serv'] . "',
-                      status_prod_serv = '" . $_POST['editstatus_prod_serv'] . "'
+                      status_prod_serv = '" . $status_prod_serv = 0 . "'
                       WHERE cd_prod_serv = " . $_POST['editcd_prod_serv'];
               
                   mysqli_query($conn, $updatecliente);
@@ -348,8 +364,40 @@
                 echo '</div>';
                 echo '</div>';
                 //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
-                echo '<label class="card-title" for="editstatus_prod_serv">Status</label>';
-                echo '<input value="'.$_SESSION['status_prod_serv'].'" name="editstatus_prod_serv" type="tel" id="editstatus_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" required/>';
+                
+
+                
+              
+
+                
+                
+
+                
+                echo '<div class="col text-center">';
+                echo '    <p class="mb-2 card-title" id="status">Produto Inativo</p>';
+                echo '    <label class="toggle-switch toggle-switch-success">';
+                echo '        <input name="editcheckstatus_prod_serv" id="editcheckstatus_prod_serv" ';
+                if($_SESSION['status_prod_serv'] == 1){echo 'checked="checked"';};
+                echo ' type="checkbox" onclick="handleCheckboxClick(this);">';
+                echo '        <span class="toggle-slider round"></span>';
+                echo '    </label>';
+                echo '</div>';
+
+                
+                echo '<script>';
+                echo 'function handleCheckboxClick(checkbox) {';
+                echo '    var statusElement = document.getElementById("status");';
+                echo '    if (checkbox.checked) {';
+                echo '        statusElement.textContent = "Produto Ativo";';
+                echo '        document.getElementById("editstatus_prod_serv").value = "1";';
+                echo '    } else {';
+                echo '        statusElement.textContent = "Produto Inativo";';
+                echo '        document.getElementById("editstatus_prod_serv").value = "0";';
+                echo '    }';
+                echo '}';
+                echo '</script>';
+                
+                echo '<input value="'.$_SESSION['status_prod_serv'].'" name="editstatus_prod_serv" type="tel" id="editstatus_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: none;" required/>';
                 
                 echo '<label class="card-title" for="editcd_prod_serv">CD</label>';
                 echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="editcd_prod_serv" type="tel" id="editcd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';

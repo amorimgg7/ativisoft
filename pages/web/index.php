@@ -86,6 +86,26 @@ else {
         }
     }
 
+    if(isset($_POST['rm_ItemCarrinho'])){
+        //cd_prod_serv_carrinho
+        $query = "DELETE FROM tb_carrinho WHERE cd_carrinho = ".$_POST['cd_carrinho']."";
+        if(mysqli_query($conn, $query)){
+            //echo "<script>window.alert('Item removido do carrinho!');</script>";
+        }else{
+            echo "<script>window.alert('Nada feito...');</script>";
+        }
+    }
+
+    if(isset($_POST['rm_all_ItemCarrinho'])){
+        //cd_prod_serv_carrinho
+        $query = "DELETE FROM tb_carrinho WHERE cd_cliente_carrinho = ".$_SESSION['cd_cliente']."";
+        if(mysqli_query($conn, $query)){
+            //echo "<script>window.alert('Carrinho limpo com sucesso!');</script>";
+        }else{
+            echo "<script>window.alert('Nada feito...');</script>";
+        }
+    }
+
 ?>
 <?php
     //http://arteliemalu.lovestoblog.com/?cnpj=123&tel=null&cd_prod_serv=1
@@ -231,13 +251,15 @@ else {
             
             <?php 
                 if(isset($_SESSION['nfantasia_filial'])){
-                    echo '<a class="brand" href="#">'.$_SESSION['nfantasia_filial'].'</a>';
+                
+                echo '<a style="margin:10px;" class="brand" href="index.php?cnpj='.$_SESSION['cnpj_empresa'].'">'.$_SESSION['nfantasia_filial'].'</a>';
+                echo '<a style="margin:10px;" class="button button-primary u-pull-right simpleStore_viewCart" href="../md_assistencia/acompanha_servico.php?cnpj='.$_SESSION['cnpj_empresa'].'">Retorne aos Serviços</a>';
                 }else{
                     echo '<a class="brand" href="#">...</a>';
                 }
             ?>
-            <a class="button button-primary u-pull-right simpleStore_viewCart" href="<?php echo 'index.php?cnpj='.$_SESSION['cnpj_empresa'].'&carrinho=true';?>">
-                <i class="fa fa-shopping-cart"></i> Carrinho 
+            <a style="margin:10px;" class="button button-primary u-pull-right simpleStore_viewCart" href="<?php echo 'index.php?cnpj='.$_SESSION['cnpj_empresa'].'&carrinho=true';?>">
+                 
                 <?php
                     if(isset($_SESSION['cd_cliente'])){
                         $query_soma_carrinho = "SELECT SUM(ps.preco_prod_serv * c.qtd_prod_serv_carrinho) AS total_carrinho FROM tb_carrinho c, tb_prod_serv ps WHERE c.cd_prod_serv_carrinho = ps.cd_prod_serv and cd_cliente_carrinho = ".$_SESSION['cd_cliente']."";
@@ -245,8 +267,10 @@ else {
                         $row_soma_carrinho = mysqli_fetch_assoc($result_soma_carrinho);
                         
                         if($row_soma_carrinho) {
-                            echo '<span class="simpleCart_total">R$: '.$row_soma_carrinho['total_carrinho'].'</span>';
+                            echo '<i class="fa fa-shopping-cart"></i> Carrinho <span class="simpleCart_total">R$: '.$row_soma_carrinho['total_carrinho'].'</span>';
                         }
+                    }else{
+                        echo '<i class="fa fa-shopping-cart"></i> Login / Cadastro';
                     }
                 ?>
                 
@@ -326,7 +350,11 @@ else {
                     echo '                <input style="display:none;" type="text" id="dt_add_carrinho" name="dt_add_carrinho" value="'.date("d/m/Y:H.mm").'">';
                     echo '                <input style="display:none;" type="tel" id="status_carrinho" name="status_carrinho" value="1">';
                     echo '                <input style="display:none;" type="tel" id="preco_prod_serv" name="preco_prod_serv" value="'.$row_select_index_prod_serv['preco_prod_serv'].'">';
-                    echo '                <input type="submit" id="add_carrinho" name="add_carrinho" class="item_add button u-pull-right" value="Add to Cart">';
+                    if(isset($_SESSION['cd_cliente'])){
+                        echo '                <input type="submit" id="add_carrinho" name="add_carrinho" class="item_add button u-pull-right" value="Adicionar ao Carrinho">';
+                    }else{
+                        echo '                <a class="button button-primary u-pull-right simpleStore_viewCart" href="index.php?cnpj='.$_SESSION['cnpj_empresa'].'&carrinho=true"><i class="fa fa-shopping-cart"></i>Acesse sua conta para comprar</a>';
+                    }
                     echo '            </div>';
                     echo '        </div>';
                     echo '    </div>';
@@ -342,99 +370,110 @@ else {
     ?>
 
     <!-- Cart View -->
-    <script id="cart-template" type="x-template">
-        <div class="simpleStore_cart">
-            <h2>Cart</h2>
-            <a href="#" class="close">&times;</a>
-
-            <div class="row">
-                <div class="eight columns">
-                    <div class="simpleCart_items"></div>
-                    <a href="javascript:;" class="simpleCart_empty u-pull-left">Empty Cart <i class="fa fa-trash-o"></i></a>
-                </div>
-                <div class="four columns">
-                    <div class="cart_info">
-                        <div class="cart_info_item cart_itemcount">Items:
-                            <div class="simpleCart_quantity"></div>
-                        </div>
-                        <div class="cart_info_item cart_taxrate">Tax Rate:
-                            <div class="simpleCart_taxRate"></div>
-                        </div>
-                        <div class="cart_info_item cart_tax">Tax:
-                            <div class="simpleCart_tax"></div>
-                        </div>
-                        <div class="cart_info_item cart_shipping">Shipping:
-                            <div class="simpleCart_shipping"></div>
-                        </div>
-                        <div class="cart_info_item cart_total"><b>Total:
-                            <div class="simpleCart_grandTotal"></div>
-                        </b></div>
-                        <a href="javascript:;" class="button button-primary simpleStore_checkout u-pull-right">Checkout <i class="fa fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </script>
     <?php
         if($_SESSION['carrinho'] == true){
             if(isset($_SESSION['cd_cliente'])){
                 echo '<div class="container simpleStore"><div class="simpleStore_container" style="display: block;"><div class="row simpleStore_row_1">';
 
                 echo '<div class="simpleStore_cart_container carrinho" style="display: block;"><div class="simpleStore_cart">';
-                echo '<h2>Cart</h2>';
+                echo '<h2>Carrinho</h2>';
                 echo '<a href="index.php?cnpj='.$_SESSION['cnpj_empresa'].'" class="close">×</a>';
 
-
                 echo '<div class="row">';
-                echo '  <div class="eight columns">';
-                echo '      <div class="simpleCart_items"> <div><div class="headerRow"><div class="item-name">Nome</div><div class="item-price">Preço</div><div class="item-decrement"></div><div class="item-quantity">Qtd</div><div class="item-increment"></div><div class="item-total">SubTotal</div><div class="item-remove"></div></div>';
+                echo '<div class="eight columns">';
+                echo '<div class="simpleCart_items">';
+                echo '<table>';
+                echo '<tr>';
+                echo '<div>';
+                echo '<div class="headerRow">';
+                echo '<th><div class="item-name">Nome</div></th>';
+                echo '<th><div class="item-price">Preço</div></th>';
+                echo '<!--<th><div class="item-decrement"></div>--></th>';
+                echo '<th><div class="item-quantity">Qtd</div></th>';
+                echo '<!--<th><div class="item-increment"></div>--></th>';
+                echo '<th><div class="item-total">SubTotal</div></th>';
+                echo '<th><div class="item-remove"></div></th>';
+                echo '</div>';
+                echo '</tr>';
                 
 
                 $select_prod_serv_carrinho = "SELECT c.*, ps.* FROM tb_carrinho c, tb_prod_serv ps WHERE c.cd_prod_serv_carrinho = ps.cd_prod_serv and cd_cliente_carrinho = ".$_SESSION['cd_cliente']."";
                 $resulta_prod_serv_carrinho = $conn->query($select_prod_serv_carrinho);
                 if ($resulta_prod_serv_carrinho->num_rows > 0){
                     while ( $row_prod_serv_carrinho = $resulta_prod_serv_carrinho->fetch_assoc()){
+                        echo '<tr>';
+                        echo '<form method="POST" style="margin:0; padding:0;">';
                         echo '<div class="itemRow row-'.$row_prod_serv_carrinho['cd_prod_serv_carrinho'].' odd" id="cartItem_SCI-1">';
-                        echo '  <div class="item-name">'.$row_prod_serv_carrinho['cd_prod_serv_carrinho'].' - '.$row_prod_serv_carrinho['titulo_prod_serv'].'</div>';
-                        echo '  <div class="item-price">'.$row_prod_serv_carrinho['preco_prod_serv'].'</div>';
-                        echo '  <div class="item-decrement"><a href="javascript:;" class="simpleCart_decrement">-</a></div>';
-                        echo '  <div class="item-quantity">'.$row_prod_serv_carrinho['qtd_prod_serv_carrinho'].'</div>';
-                        echo '  <div class="item-increment"><a href="javascript:;" class="simpleCart_increment">+</a></div>';
-                        echo '  <div class="item-total">R$'.$row_prod_serv_carrinho['preco_prod_serv']*$row_prod_serv_carrinho['qtd_prod_serv_carrinho'].'</div>';
-                        echo '  <div class="item-remove"><a href="javascript:;" class="simpleCart_remove">Remove</a></div>';
+                        echo '<td><div class="item-name">'.$row_prod_serv_carrinho['cd_prod_serv_carrinho'].' - '.$row_prod_serv_carrinho['titulo_prod_serv'].'</div></td>';
+                        echo '<td><div class="item-price">'.$row_prod_serv_carrinho['preco_prod_serv'].'</div></td>';
+                        //echo '  <td><div class="item-decrement"><a href="javascript:;" class="simpleCart_decrement">-</a></div></td>';
+                        echo '<td><div class="item-quantity">'.$row_prod_serv_carrinho['qtd_prod_serv_carrinho'].'</div></td>';
+                        //echo '  <td><div class="item-increment"><a href="javascript:;" class="simpleCart_increment">+</a></div></td>';
+                        echo '<td><div class="item-total">R$'.$row_prod_serv_carrinho['preco_prod_serv']*$row_prod_serv_carrinho['qtd_prod_serv_carrinho'].'</div></td>';
+                        //echo '<td><div class="item-remove"><a href="javascript:;" class="simpleCart_remove">Remove</a></div></td>';
+                        echo '<input style="display:none;" type="tel" id="cd_carrinho" name="cd_carrinho" value="'.$row_prod_serv_carrinho['cd_carrinho'].'">';
+                        echo '<td><div class="item-remove"><input class="simpleCart_remove" type="submit" id="rm_ItemCarrinho" name="rm_ItemCarrinho" value="Remover"></div></td>';
                         echo '</div>';
+                        echo '';
+                        //echo '</form>';
+                        echo '</tr>';
                     }
                 }
 
+                
                 echo '      </div>';
                 echo '  </div>';
-                echo '        <a href="javascript:;" class="simpleCart_empty u-pull-left">Empty Cart <i class="fa fa-trash-o"></i></a>';
+                echo '<tr>';
+                //echo '<form method="POST">';
+                echo '<td><input class="simpleCart_remove" type="submit" id="rm_all_ItemCarrinho" name="rm_all_ItemCarrinho" value="Limpar carrinho"></td>';
+                echo '</form>';
+                //echo '<td><a href="javascript:;" class="simpleCart_empty u-pull-left">Empty Cart <i class="fa fa-trash-o"></i></a></td>';
+                echo '</tr>';
                 echo '</div>';
                 echo '    <div class="four columns">';
                 echo '        <div class="cart_info">';
-                echo '            <div class="cart_info_item cart_itemcount">Items:';
-                echo '                <div class="simpleCart_quantity">2</div>';
-                echo '            </div>';
-                echo '            <div class="cart_info_item cart_taxrate">Tax Rate:';
-                echo '                <div class="simpleCart_taxRate">0</div>';
-                echo '            </div>';
-                echo '            <div class="cart_info_item cart_tax">Tax:';
-                echo '                <div class="simpleCart_tax">R$0.00</div>';
-                echo '            </div>';
-                echo '            <div class="cart_info_item cart_shipping">Shipping:';
-                echo '                <div class="simpleCart_shipping">R$0.00</div>';
-                echo '            </div>';
-                echo '            <div class="cart_info_item cart_total"><b>Total:';
-                echo '                <div class="simpleCart_grandTotal">R$180.00</div>';
-                echo '            </b></div>';
-                echo '            <a href="javascript:;" class="button button-primary simpleStore_checkout u-pull-right">Checkout <i class="fa fa-arrow-right"></i></a>';
-                echo '        </div>';
-                echo '    </div>';
-                echo '</div>';
-                echo '</div></div>';
-                echo '</div></div></div>';
+
+                $query_totalizadores_carrinho = "SELECT SUM(ps.preco_prod_serv * c.qtd_prod_serv_carrinho) AS total_carrinho, SUM(c.qtd_prod_serv_carrinho) AS total_quantidade FROM tb_carrinho c, tb_prod_serv ps WHERE c.cd_prod_serv_carrinho = ps.cd_prod_serv and cd_cliente_carrinho = ".$_SESSION['cd_cliente']."";
+                $result_totalizadores_carrinho = mysqli_query($conn, $query_totalizadores_carrinho);
+                $row_totalizadores_carrinho = mysqli_fetch_assoc($result_totalizadores_carrinho);
+                      
+                if($row_totalizadores_carrinho) {
+                    echo '            <div class="cart_info_item cart_itemcount">Items:';
+                    echo '                <div class="simpleCart_quantity">'.$row_totalizadores_carrinho['total_quantidade'].'</div>';
+                    echo '            </div>';
+                    //echo '            <div class="cart_info_item cart_taxrate">Tax Rate:';
+                    //echo '                <div class="simpleCart_taxRate">0</div>';
+                    //echo '            </div>';
+                    //echo '            <div class="cart_info_item cart_tax">Tax:';
+                    //echo '                <div class="simpleCart_tax">R$0.00</div>';
+                    //echo '            </div>';
+                    //echo '            <div class="cart_info_item cart_shipping">Shipping:';
+                    //echo '                <div class="simpleCart_shipping">R$0.00</div>';
+                    //echo '            </div>';
+                    echo '            <div class="cart_info_item cart_total"><b>Total:';
+                    echo '                <div class="simpleCart_grandTotal">R$: '.$row_totalizadores_carrinho['total_carrinho'].'</div>';
+                    echo '            </b></div>';
+                    echo '            <a href="javascript:;" class="button button-primary simpleStore_checkout u-pull-right">Checkout <i class="fa fa-arrow-right"></i></a>';
+                    echo '        </div>';
+                    echo '    </div>';
+                    echo '</div>';
+                    echo '</div></div>';
+                    echo '</div></div></div>';
+                }
             }else{
-                echo "<script>window.alert('Entre com seu login ou cadastre-se...');</script>";
+
+                echo '<div class="container simpleStore">';
+                echo '<div class="simpleStore_container" style="display: block;">';
+                echo '<div class="row simpleStore_row_1">';
+                echo '<div class="simpleStore_cart_container carrinho" style="display: block;"><div class="simpleStore_cart">';
+
+                echo '<h2>Login</h2>';
+                echo '<a href="index.php?cnpj='.$_SESSION['cnpj_empresa'].'" class="close">×</a>';
+
+                echo '<div class="row">';
+                echo '<div class="eight columns">';
+                echo '<div class="simpleCart_items">';
+                echo '</div>';
             }
             
 
