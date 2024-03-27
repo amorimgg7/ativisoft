@@ -361,7 +361,16 @@ insert into tb_prod_serv(cd_classe_fiscal, cd_grupo, cdbarras_prod_serv, titulo_
     (1,3,'789123123793', 'produto 5', 'Terceira linha de produto', 1, '90', '45'),
     (1,3,'789123123794', 'produto 6', 'Terceira linha de Servico', 2, '30', '15');
     
-    
+CREATE TABLE tb_carrinho(
+    cd_carrinho integer PRIMARY KEY AUTO_INCREMENT,
+    cd_prod_serv_carrinho integer,
+    qtd_prod_serv_carrinho integer,
+    cd_cliente_carrinho  integer,
+    dt_add_carrinho datetime,
+    dt_status_carrinho datetime,
+    dt_compra_carrinho datetime,
+    status_carrinho integer
+);
 
 
 create table tb_comodo(

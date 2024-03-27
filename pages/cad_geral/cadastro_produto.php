@@ -92,14 +92,30 @@
                     $_SESSION['preco_prod_serv'] = $row['preco_prod_serv'];
                     $_SESSION['custo_prod_serv'] = $row['custo_prod_serv'];
                     $_SESSION['status_prod_serv'] = $row['status_prod_serv'];
-
-                    $_SESSION['statusCadastros'] = 2;
+                    echo '<script>';
+                    echo 'document.addEventListener("DOMContentLoaded", function() {';
+                    echo '    var editcheckstatus_prod_serv = document.getElementById("editcheckstatus_prod_serv");';
+                    echo '    if (' . $_SESSION['status_prod_serv'] . ' == 1) {';
+                    echo '        editcheckstatus_prod_serv.checked = true;';
+                    echo '    } else {';
+                    echo '        editcheckstatus_prod_serv.checked = false;';
+                    echo '    }';
+                    echo '});';
+                    echo '</script>';
+                    $_SESSION['statusCadastros'] = 3;
                   }      
                 }
                 
               ?>
               <?php
                 if (isset($_POST['editProdServ'])) {
+
+                  if($_POST['editstatus_prod_serv'] == false){
+                    $status_prod_serv = 0;
+                  }else{
+                    $status_prod_serv = 1;
+                  }
+
                   $updatecliente = "UPDATE tb_prod_serv SET
                       cd_classe_fiscal = '" . $_POST['editcd_classe_fiscal'] . "',
                       cd_grupo = '" . $_POST['editcd_grupo'] . "',
@@ -109,7 +125,7 @@
                       tipo_prod_serv = '" . $_POST['edittipo_prod_serv'] . "',
                       preco_prod_serv = '" . $_POST['editpreco_prod_serv'] . "',
                       custo_prod_serv = '" . $_POST['editcusto_prod_serv'] . "',
-                      status_prod_serv = '" . $_POST['editstatus_prod_serv'] . "'
+                      status_prod_serv = '" . $status_prod_serv = 0 . "'
                       WHERE cd_prod_serv = " . $_POST['editcd_prod_serv'];
               
                   mysqli_query($conn, $updatecliente);
@@ -175,16 +191,99 @@
                   $_SESSION['statusCadastros'] = FALSE;
                 }
                 if(isset($_POST['cadProdServ_funcao'])) {
-                  $query = "INSERT INTO tb_prod_serv(cd_grupo, cdbarras_prod_serv, titulo_prod_serv, obs_prod_serv, preco_prod_serv, custo_prod_serv) VALUES(
-                    '".$_POST['editgrupo_prod_serv']."',
-                    '".$_POST['editcdbarras_prod_serv']."',
-                    '".$_POST['edittitulo_prod_serv']."',
-                    '".$_POST['editobs_prod_serv']."',
-                    '".$_POST['editpreco_prod_serv']."',
-                    '".$_POST['editcusto_prod_serv']."')
+                  $query = "INSERT INTO tb_prod_serv(cd_grupo, cdbarras_prod_serv, titulo_prod_serv, obs_prod_serv, preco_prod_serv, custo_prod_serv, status_prod_serv) VALUES(
+                    '".$_POST['grupo_prod_serv']."',
+                    '".$_POST['cdbarras_prod_serv']."',
+                    '".$_POST['titulo_prod_serv']."',
+                    '".$_POST['obs_prod_serv']."',
+                    '".$_POST['preco_prod_serv']."',
+                    '".$_POST['custo_prod_serv']."',
+                    1)
                   ";
                   mysqli_query($conn, $query);
                   echo "<script>window.alert('Produto Cadastrado com sucesso!');</script>";
+                  $_SESSION['statusCadastros'] = FALSE;
+                }
+                if(isset($_POST['gravaProdServ_funcao'])) {
+                  
+                    if($_FILES["fotoProduto"]["error"] == UPLOAD_ERR_OK){
+
+                      $caminho_pasta_produto = "../web/imagens/123/";
+                      if (!file_exists($caminho_pasta_produto)) {// Verificar se o diretório de destino existe, senão, criar
+                        mkdir($caminho_pasta_produto, 0777, true);
+                        echo "<script>window.alert('Criando diretório da Empresa! ".$caminho_pasta_produto."');</script>";
+
+                      }
+                      $caminho_pasta_produto .= "produto/";
+                      if (!file_exists($caminho_pasta_produto)) {
+                        mkdir($caminho_pasta_produto, 0777, true);
+                        echo "<script>window.alert('Criando diretório dos produtos da empresa! ".$caminho_pasta_produto."');</script>";
+
+                      }
+                      $foto_produto = $_POST['editcd_prod_serv']."-foto.jpg"; // Nome do arquivo que será salvo
+                              
+                      $caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
+                      
+                      $tipo_foto_produto = exif_imagetype($_FILES["fotoProduto"]["tmp_name"]);
+    
+                      $extensoes_permitidas = array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF);
+
+                      if (in_array($tipo_foto_produto, $extensoes_permitidas)) {
+                          // Redimensionar a imagem para 100x100
+                          list($largura_orig, $altura_orig) = getimagesize($_FILES["fotoProduto"]["tmp_name"]);
+                          $nova_largura = 100;
+                          $nova_altura = 100;
+                          $imagem_redimensionada = imagecreatetruecolor(100, 100);
+
+                          switch ($tipo_foto_produto) {
+                              case IMAGETYPE_JPEG:
+                                  $imagem_orig = imagecreatefromjpeg($_FILES["fotoProduto"]["tmp_name"]);
+                              break;
+                              case IMAGETYPE_PNG:
+                                  $imagem_orig = imagecreatefrompng($_FILES["fotoProduto"]["tmp_name"]);
+                              break;
+                              case IMAGETYPE_GIF:
+                                  $imagem_orig = imagecreatefromgif($_FILES["fotoProduto"]["tmp_name"]);
+                              break;
+                          }
+
+                          imagecopyresampled($imagem_redimensionada, $imagem_orig, 0, 0, 0, 0, $nova_largura, $nova_altura, $largura_orig, $altura_orig);
+
+                          // Salvar a miniatura
+                          switch ($tipo_foto_produto) {
+                              case IMAGETYPE_JPEG:
+                                  imagejpeg($imagem_redimensionada, $caminho_foto_produto);
+                              break;
+                              case IMAGETYPE_PNG:
+                                  imagepng($imagem_redimensionada, $caminho_foto_produto);
+                              break;
+                              case IMAGETYPE_GIF:
+                                  imagegif($imagem_redimensionada, $caminho_foto_produto);
+                              break;
+                          }
+
+                          imagedestroy($imagem_orig);
+                          imagedestroy($imagem_redimensionada);
+                      } else {
+                        echo "<script>window.alert('Imagem não gravada\\nApenas arquivos JPEG, PNG e GIF são permitidos.');</script>";
+                      }
+
+                    }else{
+                      //echo "<script>window.alert('Produto sem foto!');</script>";
+                    }
+                  
+                  $query = "UPDATE tb_prod_serv SET
+                    cd_grupo = '".$_POST['editgrupo_prod_serv']."',
+                    cdbarras_prod_serv = '".$_POST['editcdbarras_prod_serv']."',
+                    titulo_prod_serv = '".$_POST['edittitulo_prod_serv']."',
+                    obs_prod_serv = '".$_POST['editobs_prod_serv']."',
+                    preco_prod_serv = '".$_POST['editpreco_prod_serv']."',
+                    custo_prod_serv = '".$_POST['editcusto_prod_serv']."',
+                    status_prod_serv = '".$_POST['editstatus_prod_serv']."'  
+                    WHERE cd_prod_serv = '".$_POST['editcd_prod_serv']."'
+                  ";
+                  mysqli_query($conn, $query);
+                  //echo "<script>window.alert('Produto Atualizado com sucesso!');</script>";
                   $_SESSION['statusCadastros'] = FALSE;
                 }
               ?>
@@ -258,8 +357,158 @@
                 echo '</div>';
                 echo '</div>';
                 //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
+                echo '<label class="card-title" for="cd_prod_serv">CD</label>';
+                echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="cd_prod_serv" type="tel" id="cd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                echo '<label class="card-title"for="editcdbarras_prod_serv">Código de Barras</label>';
+                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="cdbarras_prod_serv" type="tel"  id="cdbarras_prod_serv" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)" required/>';
+                echo '<label class="card-title"for="cdbarras_prod_serv">Grupo</label>';
+                echo '<div class="input-group">';
+                echo '<div class="input-group-prepend">';
+                echo '<span class="input-group-text">Grupo: </span>';
+                echo '</div>'; 
+                echo '<select id="grupo_prod_serv" name="grupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg " required>';
+                $select_show_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_SESSION['cd_grupo_prod_serv']."'";
+                $resulta_show_grupo = $conn->query($select_show_grupo);
+                if ($resulta_show_grupo->num_rows > 0){
+                  while ($row_show_grupo = $resulta_show_grupo->fetch_assoc()){
+                    echo '<option selected value="'.$row_show_grupo['cd_grupo'].'">'.$row_show_grupo['titulo_grupo'].'</option>';
+                  }
+                }
+                $select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' ORDER BY cd_grupo ASC";
+                $resulta_edit_grupo = $conn->query($select_edit_grupo);
+                if ($resulta_edit_grupo->num_rows > 0){
+                  while ($row_edit_grupo = $resulta_edit_grupo->fetch_assoc()){
+                    echo '<option value="'.$row_edit_grupo['cd_grupo'].'">'.$row_edit_grupo['titulo_grupo'].'</option>';
+                  }
+                }
+                echo '</select>';
+                echo '</div>';
+                echo '<label class="card-title"for="titulo_prod_serv">Nome / Descrição</label>';
+                echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="titulo_prod_serv" type="text" id="titulo_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '<label class="card-title"for="obs_prod_serv">Observações</label>';
+                echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="obs_prod_serv" type="text" id="obs_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '<label class="card-title"for="preco_prod_serv">Valor de Venda</label>';
+                echo '<div class="input-group">';
+                echo '<div class="input-group-prepend">';
+                echo '<span class="input-group-text btn-outline-info">R$:</span>';
+                echo '</div>'; 
+                echo '<input value="'.$_SESSION['preco_prod_serv'].'" name="preco_prod_serv" type="tel"  id="preco_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+                echo '<label class="card-title"for="custo_prod_serv">Valor de compra</label>';
+                echo '<div class="input-group">';
+                echo '<div class="input-group-prepend">';
+                echo '<span class="input-group-text btn-outline-info">R$:</span>';
+                echo '</div>'; 
+                echo '<input value="'.$_SESSION['custo_prod_serv'].'" name="custo_prod_serv" type="tel"  id="custo_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                    
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadProdServ_funcao" id="cadProdServ_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar</button>';
+                                
+                echo '</form>';
+                echo '<form method="POST">';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="menuPrincipal" id="menuPrincipal" style="margin-top: 20px; margin-bottom: 20px;">Sair</button>';
+                echo '</form>';
+              
+                echo '</div>';
+              
+              }else if($_SESSION['statusCadastros'] == 3){//editar produto
+                echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
+                echo '<div class="card" '.$_SESSION['c_card'].'>';
+                echo '<div class="card-body">';
+
+                echo '<div class="col-12 col-md-12">';
+                echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                echo '<h3 class="card-title">-_'.$_SESSION['statusCadastros'].'_-</h3>';
+                echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="POST" enctype="multipart/form-data">';
+                echo '<div class="form-group row justify-content-center">';
+                echo '<div class="col text-center">';
+                 
+                
+                echo '</label>';
+                echo '</div>';
+                echo '</div>';
+                //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
+                
+
+                
+              
+
+                
+                
+
+                
+                echo '<div class="col text-center">';
+                echo '    <p class="mb-2 card-title" id="status">Produto Inativo</p>';
+                echo '    <label class="toggle-switch toggle-switch-success">';
+                echo '        <input name="editcheckstatus_prod_serv" id="editcheckstatus_prod_serv" ';
+                if($_SESSION['status_prod_serv'] == 1){echo 'checked="checked"';};
+                echo ' type="checkbox" onclick="handleCheckboxClick(this);">';
+                echo '        <span class="toggle-slider round"></span>';
+                echo '    </label>';
+                echo '</div>';
+
+                
+                echo '<script>';
+                echo 'function handleCheckboxClick(checkbox) {';
+                echo '    var statusElement = document.getElementById("status");';
+                echo '    if (checkbox.checked) {';
+                echo '        statusElement.textContent = "Produto Ativo";';
+                echo '        document.getElementById("editstatus_prod_serv").value = "1";';
+                echo '    } else {';
+                echo '        statusElement.textContent = "Produto Inativo";';
+                echo '        document.getElementById("editstatus_prod_serv").value = "0";';
+                echo '    }';
+                echo '}';
+                echo '</script>';
+                
+                echo '<input value="'.$_SESSION['status_prod_serv'].'" name="editstatus_prod_serv" type="tel" id="editstatus_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: none;" required/>';
+                
                 echo '<label class="card-title" for="editcd_prod_serv">CD</label>';
                 echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="editcd_prod_serv" type="tel" id="editcd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                
+                echo '<label for="imagem-preview-produto"></label>';
+                echo "<div class='card' style='max-width: 100%; max-height: 50vh;'>";
+                $caminho_pasta_produto = "../web/imagens/123/produto/";
+                $foto_produto = $_SESSION['cd_prod_serv']."-foto.jpg"; // Nome do arquivo que será salvo
+                $caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
+
+                if (file_exists($caminho_foto_produto)) {
+                  $tipo_foto_produto = mime_content_type($caminho_foto_produto);
+                  echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-produto' style='width: 200px; height: 200px;' src='data:$tipo_foto_produto;base64," . base64_encode(file_get_contents($caminho_foto_produto)) . "' alt='Imagem'>"; 
+                }
+
+                echo '<div class="card-body text-center">';
+                echo '<label for="fotoProduto" class="btn btn-block btn-lg btn-outline-success">';
+                echo '<i class="bi bi-paperclip"></i> Escolher arquivo';
+                echo '<input type="file" name="fotoProduto" id="fotoProduto" style="display: none;">';
+                echo '</label>';
+                echo '</div>';
+                echo '</div>';
+
+
+                ?>
+                <script>
+                    const imagemInputCliente = document.getElementById('fotoProduto');
+                    const imagemPreviewCliente = document.getElementById('imagem-preview-produto');
+
+                    imagemInputCliente.addEventListener('change', function(event) {
+                        const arquivo = event.target.files[0];
+                        if (arquivo) {
+                            const leitor = new FileReader();
+                            leitor.onload = function(e) {
+                                imagemPreviewCliente.src = e.target.result;
+                            }
+                            leitor.readAsDataURL(arquivo);
+                        } else {
+                            imagemPreviewCliente.src = '#';
+                        }
+                    });
+                </script>
+        
+                <?php
                 echo '<label class="card-title"for="editcdbarras_prod_serv">Código de Barras</label>';
                 echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="editcdbarras_prod_serv" type="tel"  id="editcdbarras_prod_serv" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)" required/>';
                 echo '<label class="card-title"for="editcdbarras_prod_serv">Grupo</label>';
@@ -306,7 +555,7 @@
                 echo '</div>';
 
                     
-                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadProdServ_funcao" id="cadProdServ_funcao" style="margin-top: 20px; margin-bottom: 20px;">Cadastrar</button>';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="gravaProdServ_funcao" id="gravaProdServ_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar</button>';
                                 
                 echo '</form>';
                 echo '<form method="POST">';
@@ -315,7 +564,7 @@
               
                 echo '</div>';
               
-              }else if($_SESSION['statusCadastros'] == 3){//editar produto
+              }else if($_SESSION['statusCadastros'] == 4){//editar produto
                 echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
                 echo '<div class="card-body">';
@@ -360,8 +609,14 @@
                     
                         echo '<tr>';
                         echo '<form method="POST">';
-                        echo '<td style="display: none;"><input type="tel" id="con_cd_prod_serv" name="con_cd_prod_serv" value="'.$row_produtos['cd_prod_serv'].'"></td>';
-                        echo '<td><button type="submit" class="btn btn-outline-success" name="btn_con_prod_serv" id="btn_con_prod_serv">'.$row_produtos['cd_prod_serv'].'</button></td>';
+                        if($row_produtos['status_prod_serv'] == 0){
+                          echo '<td style="display: none;"><input type="tel" id="con_cd_prod_serv" name="con_cd_prod_serv" value="'.$row_produtos['cd_prod_serv'].'"></td>';
+                          echo '<td><button type="submit" class="btn btn-outline-danger" name="btn_con_prod_serv" id="btn_con_prod_serv">'.$row_produtos['cd_prod_serv'].'</button></td>';
+                        }else{
+                          echo '<td style="display: none;"><input type="tel" id="con_cd_prod_serv" name="con_cd_prod_serv" value="'.$row_produtos['cd_prod_serv'].'"></td>';
+                          echo '<td><button type="submit" class="btn btn-outline-success" name="btn_con_prod_serv" id="btn_con_prod_serv">'.$row_produtos['cd_prod_serv'].'</button></td>';
+                        }
+                        
                         echo '</form>';
                         echo '<td>'.$row_produtos['titulo_prod_serv'].'</td>';
                         echo '<td>R$: '.$row_produtos['preco_prod_serv'].'</td>';
@@ -379,11 +634,10 @@
 
 
                   }
-                  echo '<form method="POST">';
-                  echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadGrupo" id="cadGrupo" style="margin-top: 20px; margin-bottom: 20px;">Novo Grupo</button>';
-
-                  echo '</form>';
                 }
+                echo '<form method="POST">';
+                  echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadGrupo" id="cadGrupo" style="margin-top: 20px; margin-bottom: 20px;">Novo Grupo</button>';
+                  echo '</form>';
               }
 
 

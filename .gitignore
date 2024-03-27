@@ -1,3 +1,3 @@
-# Arquivos de acesso local
-*conn.php
-
+# Arquivos de acesso local: git add -f .\classes\conn.php
+classes/conn.php
+pages/web/imagens
