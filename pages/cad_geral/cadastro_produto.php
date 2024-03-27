@@ -252,13 +252,16 @@
                           // Salvar a miniatura
                           switch ($tipo_foto_produto) {
                               case IMAGETYPE_JPEG:
-                                  imagejpeg($imagem_redimensionada, $caminho_foto_produto);
+                                //imagegif($imagem_redimensionada, $caminho_foto_produto);
+                                imagejpeg($imagem_orig, $caminho_foto_produto);
                               break;
                               case IMAGETYPE_PNG:
-                                  imagepng($imagem_redimensionada, $caminho_foto_produto);
+                                //imagegif($imagem_redimensionada, $caminho_foto_produto);
+                                imagepng($imagem_orig, $caminho_foto_produto);
                               break;
                               case IMAGETYPE_GIF:
-                                  imagegif($imagem_redimensionada, $caminho_foto_produto);
+                                //imagegif($imagem_redimensionada, $caminho_foto_produto);
+                                imagegif($imagem_orig, $caminho_foto_produto);
                               break;
                           }
 
