@@ -208,7 +208,7 @@
                   
                     if($_FILES["fotoProduto"]["error"] == UPLOAD_ERR_OK){
 
-                      $caminho_pasta_produto = "../web/imagens/123/";
+                      $caminho_pasta_produto = "../web/imagens/".$_SESSION['cnpj_filial']."/";
                       if (!file_exists($caminho_pasta_produto)) {// Verificar se o diretório de destino existe, senão, criar
                         mkdir($caminho_pasta_produto, 0777, true);
                         echo "<script>window.alert('Criando diretório da Empresa! ".$caminho_pasta_produto."');</script>";
@@ -471,7 +471,7 @@
                 
                 echo '<label for="imagem-preview-produto"></label>';
                 echo "<div class='card' style='max-width: 100%; max-height: 50vh;'>";
-                $caminho_pasta_produto = "../web/imagens/123/produto/";
+                $caminho_pasta_produto = "../web/imagens/".$_SESSION['cnpj_filial']."//produto/";
                 $foto_produto = $_SESSION['cd_prod_serv']."-foto.jpg"; // Nome do arquivo que será salvo
                 $caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
 
