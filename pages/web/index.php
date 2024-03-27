@@ -296,7 +296,14 @@ else {
             while($row_select_prod_serv = $result_select_prod_serv->fetch_assoc()) {
                 echo '<div class="column one-third">';
                 echo '    <div class="simpleCart_shelfItem">';
-                echo '        <img src="https://lh3.googleusercontent.com/pw/AL9nZEXZ-JzGGHj9AMS0wCkTnXEVE3xvMq9kccrXImkej82q9gAt4RdtZ7LUXe8Tcg1qIOnK2juVpQ7qeHQ7xw3-AadCxwpRIGq_3LW4ry5r940B1ArdZ6jovOZOdOn4olJYGUdTJbn1fAw5z-cWYjcxlaZT0Q=w272-h273-no?authuser=0" class="item_thumb">';
+                $caminho_pasta_produto = "../web/imagens/123/produto/";
+                    $foto_produto = $row_select_prod_serv['cd_prod_serv']."-foto.jpg"; // Nome do arquivo que será salvo
+                    $caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
+                    $tipo_foto_produto = mime_content_type($caminho_foto_produto);
+                    
+                echo "                <img src='data:$tipo_foto_produto;base64," . base64_encode(file_get_contents($caminho_foto_produto)) . "' class='item_thumb'>";
+
+                //echo '        <img src="https://lh3.googleusercontent.com/pw/AL9nZEXZ-JzGGHj9AMS0wCkTnXEVE3xvMq9kccrXImkej82q9gAt4RdtZ7LUXe8Tcg1qIOnK2juVpQ7qeHQ7xw3-AadCxwpRIGq_3LW4ry5r940B1ArdZ6jovOZOdOn4olJYGUdTJbn1fAw5z-cWYjcxlaZT0Q=w272-h273-no?authuser=0" class="item_thumb">';
                 echo '        <div class="row">';
                 echo '            <h5 class="item_titulo_prod_serv">'.$row_select_prod_serv['titulo_prod_serv'].'</h5>';
                 echo '            <div class="simpleStore_getDetail_container">';
@@ -333,7 +340,13 @@ else {
                     echo '        <a href="index.php?cnpj='.$_SESSION['cnpj_empresa'].'" class="close view_close">×</a>';
                     echo '        <div class="row">';
                     echo '            <div class="four columns">';
-                    echo '                <img src="http://upload.wikimedia.org/wikipedia/commons/c/c6/Grey_Tshirt.jpg" class="item_thumb">';
+                    $caminho_pasta_produto = "../web/imagens/123/produto/";
+                    $foto_produto = $row_select_index_prod_serv['cd_prod_serv']."-foto.jpg"; // Nome do arquivo que será salvo
+                    $caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
+                    $tipo_foto_produto = mime_content_type($caminho_foto_produto);
+                    //echo "<img class='card-img-top' id='imagem-preview-produto' src='data:$tipo_foto_produto;base64," . base64_encode(file_get_contents($caminho_foto_produto)) . "' alt='Imagem'>";
+
+                    echo "                <img src='data:$tipo_foto_produto;base64," . base64_encode(file_get_contents($caminho_foto_produto)) . "' class='item_thumb'>";
                     echo '            </div>';
                     echo '            <div class="eight columns">';
                     echo '                <h5 class="item_titulo_prod_serv"></h5>';
