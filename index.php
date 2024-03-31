@@ -61,7 +61,7 @@
             <div class="collapse navbar-collapse" id="oleezMainNav">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <!--
                     <li class="nav-item dropdown">
@@ -511,7 +511,7 @@
         <button type="button" class="close" aria-label="Close" data-dismiss="searchModal">
             <span aria-hidden="true">&times;</span>
         </button>
-        <form action="index.html" method="get" class="oleez-overlay-search-form">
+        <form action="index.php" method="get" class="oleez-overlay-search-form">
             <label for="search" class="sr-only">Search</label>
             <input type="search" class="oleez-overlay-search-input" id="search" name="search" placeholder="Search here">
         </form>
