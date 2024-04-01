@@ -1,7 +1,7 @@
 <?php
 
 session_start(); 
-if(!isset($_SESSION['cd_pessoal']))
+if(!isset($_SESSION['cd_colab']))
 {
     header("location: ../../pages/samples/login.php");
     exit;
@@ -48,15 +48,15 @@ $_SESSION['senha_pessoal'] = 0;
               <img src="<?php echo $_SESSION['foto_pessoal']; ?>" class="lock-profile-img" alt="img">
               <form method="POST" class="pt-5">
                 <div class="form-group">
-                  <label for="examplePassword1"><p style="color:#fff;">CPF: <?php echo $_SESSION['cpf_pessoal'];?></p></label>
-                  <input type="text" class="form-control text-center" name="cpf_pessoal" id="cpf_pessoal" value="<?php echo $_SESSION['cpf_pessoal'];?>" style="display: none;">
-                  <input type="password" class="form-control text-center" name="senha_pessoal" id="senha_pessoal" placeholder="Password" autocomplete="off">
+                  <label for="email_colab"><p style="color:#fff;">Nome: <?php echo $_SESSION['pnome_colab'].' '.$_SESSION['snome_colab'];?></p></label>
+                  <input type="text" class="form-control text-center" name="email_colab" id="email_colab" value="<?php echo $_SESSION['email_colab'];?>" style="display: block; color:#FFFFFF;" readonly>
+                  <input type="password" class="form-control text-center" name="senha_colab" id="senha_colab" placeholder="Senha" autocomplete="on" style="color:#FFFFFF;">
                 </div>
                 <div class="mt-5">
-                  <input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="ACESSAR" >
+                  <input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="ACESSAR" style="color:#FFFFFF; " >
                 </div>
                 <div class="mt-3 text-center">
-                  <a href="#" class="auth-link text-white">Sign in using a different account</a>
+                  <a href="login.php" class="auth-link text-white">Sair</a>
                 </div>
               </form>
             </div>
@@ -69,16 +69,16 @@ $_SESSION['senha_pessoal'] = 0;
   </div>
 
   <?php
-                if (isset($_POST['senha_pessoal']))
+                if (isset($_POST['senha_colab']))
                 {
-                  $cpf_pessoal = addslashes($_POST['cpf_pessoal']);
-                  $senha_pessoal = addslashes($_POST['senha_pessoal']);
-                  if (!empty($cpf_pessoal) && !empty($senha_pessoal)) 
+                  $email_colab = addslashes($_POST['email_colab']);
+                  $senha_colab = addslashes($_POST['senha_colab']);
+                  if (!empty($email_colab) && !empty($senha_colab)) 
                   {
                     $u->conectar();
                     if ($u-> $msgErro == "")
                     {
-                      if($u->logar($cpf_pessoal,$senha_pessoal))  
+                      if($u->logar($_SESSION['cnpj_empresa'], $email_colab,$senha_colab))  
                       {
                         echo "<script>window.alert('Senha correta!');</script>";
                         ?>
@@ -91,12 +91,14 @@ $_SESSION['senha_pessoal'] = 0;
                       {
                         echo "<script>window.alert('Senha errada!');</script>";
                         ?>
-                          <div class="msg-erro">CPF ou senha incorretos!</div>
+                          <div class="msg-erro">Senha Errada!</div>
                         <?php
-                        //echo "<script>setTimeout('location.href = 'cadastros/cadPessoal.php';', 5);</script>";
+                        //echo "<script>setTimeout('location.href = 'login.php';', 5);</script>";
                         //echo '<script>location.href="cadastros/cadPessoal.php";</script>';
-                        include ("../../pages/samples/login.php");
+                        //include ("../../pages/samples/login.php");
 
+                        header("location: ../../pages/samples/login.php");
+                        //exit;
                       }
                     }
                     else
@@ -104,7 +106,7 @@ $_SESSION['senha_pessoal'] = 0;
                       ?>
                         <div class="msg-erro"><?php echo "Erro: ".$u->msgErro;?></div>
                       <?php
-                      echo "<script>window.alert('Erro desconhecido!');</script>";
+                      echo "<script>window.alert('Erro: '".$u->msgErro.");</script>";
                     }
                   }
                   else
