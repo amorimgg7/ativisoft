@@ -36,8 +36,8 @@
                 <img src="../../images/logo-dark.svg" alt="logo">
               </div>
             -->
-              <h4>"Se você quer chegar onde a maioria não chega, faça oque a maioria não faz!"</h4>
-              <h6 class="font-weight-light">Bill Gates (1955 - 67 anos)</h6>
+              <h4>"As oportunidades multiplicam-se à medida que são agarradas!"</h4>
+              <h6 class="font-weight-light">Sun Tsu ± (544 a.C. - 496 a.C)</h6>
   
               <form class="pt-3" method="POST">
                 
