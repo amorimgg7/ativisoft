@@ -37,7 +37,7 @@
               </div>
             -->
               <h4>"As oportunidades multiplicam-se à medida que são agarradas!"</h4>
-              <h6 class="font-weight-light">Sun Tsu ± (544 a.C. - 496 a.C)</h6>
+              <h6 class="font-weight-light">Sun Tzu ± (544 a.C. - 496 a.C)</h6>
   
               <form class="pt-3" method="POST">
                 
