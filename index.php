@@ -103,7 +103,8 @@
                 <div id="oleezLandingCarousel" class="oleez-landing-carousel carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img src="marketing/images/Banner_1@2x.jpg" alt="First slide" class="w-100">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczN2mbTyUzjM7pgHYvsRu-MMNZFQRvbYaEbVoR4kAr7v6iJGX-Oqq-FL8RQOFmflI8ynM4nrzVcG436EHexgCkHtsSDx-kDJwcgI-sbvNcc6pJRLE673AWAzA2iZtC_Fv0iYJZ-xmtGke8UvpbLJ-qXsnQ=w1379-h919-s-no-gm?authuser=0" alt="First slide" class="w-100">
+                            <!--<img src="marketing/images/Banner_1@2x.jpg" alt="First slide" class="w-100">-->
                             <div class="carousel-caption">
                                 <h2 data-animation="animated fadeInRight"><span>Maior</span></h2>
                                 <h2 data-animation="animated fadeInRight"><span>Agilidade</span></h2>
@@ -111,7 +112,8 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="marketing/images/Banner_2@2x.jpg" alt="Second slide" class="w-100">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPd2WMYyPLmKmCZ6ePBPe-OLXOeOFrW9TVGs5yqffKK8cOWWltQ0NHvi1wH4MHFWLnYG-0-4VtmbE9I_HBIKGqdsuAEuHW3pZFmdo1N9HLRj3BAp27n_DKJVzTZ4irS8IuwCRP-IiUkdbnMHcqo3eL4Iw=w1379-h919-s-no-gm?authuser=0" alt="Second slide" class="w-100">
+                            <!--<img src="marketing/images/Banner_2@2x.jpg" alt="Second slide" class="w-100">-->
                             <div class="carousel-caption">
                                 <h2 data-animation="animated fadeInRight"><span>Maior</span></h2>
                                 <h2 data-animation="animated fadeInRight"><span>Transparência</span></h2>
@@ -119,7 +121,8 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="marketing/images/Banner_3@2x.jpg" alt="Third slide" class="w-100">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMbn1qJ2zROHAU5utQK7bM7-Y92qrhfD14BvRDUPPLcVBS64GPvMAKTi_1c2eB7DWH_wo1WLH96bauUKxahUVAee4KIev2mNGbHjI779bZLmB8CeCs8I_MRQTeF72fxVt4X5-58xmsjkkMVlJqo3NnvOw=w1379-h919-s-no-gm?authuser=0" alt="Third slide" class="w-100">
+                            <!--<img src="marketing/images/Banner_3@2x.jpg" alt="Third slide" class="w-100">-->
                             <div class="carousel-caption">
                                 <h2 data-animation="animated fadeInRight"><span>Menor</span></h2>
                                 <h2 data-animation="animated fadeInRight"><span>Desorganização</span></h2>
@@ -127,7 +130,8 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="marketing/images/Banner_4@2x.jpg" alt="Fourth slide" class="w-100">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPtaGK7sfROjPSWedE610rWfJp-w2j6NhdedjbRN9v0HUQ8mkbCIwJWEKDBHwLaly4sxDFiqNVpE08lm_A3oK7Fa1WqGuxw_L9bOyGnqgUaQG5kOyBnj-11Jjzyo66F3dORCPh-IhLgLUd0vT2CT0r48A=w500-h500-s-no-gm?authuser=0" alt="Fourth slide" class="w-100">
+                            <!--<img src="marketing/images/Banner_4@2x.jpg" alt="Fourth slide" class="w-100">-->
                             <div class="carousel-caption">
                                 <h2 data-animation="animated fadeInRight"><span>Atividade em</span></h2>
                                 <h2 data-animation="animated fadeInRight"><span>Software</span></h2>
