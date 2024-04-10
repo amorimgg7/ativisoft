@@ -7,58 +7,74 @@
             <?php //À FAZER
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-              $sql_cliente = "SELECT * FROM tb_cliente WHERE cnpj_cliente > 0";
-              $resulta_cliente = $conn->query($sql_cliente);
-              if ($resulta_cliente->num_rows > 0){
+              $sql_cliente_matriz = "SELECT * FROM tb_cliente_comercial where cd_cliente_comercial = cd_matriz_comercial";
+              $resulta_cliente_matriz = $conn->query($sql_cliente_matriz);
+              if ($resulta_cliente_matriz->num_rows > 0){
                 $extrapolado = 0;
                 $extrapoladoafaser = 0;
                 $parahoje = 0;
                 $parahojeafazer = 0;
                 $noprazo = 0;
                 $noprazoafaser = 0;
-                while ( $cliente = $resulta_cliente->fetch_assoc()){
-                    $sql_cliente_base = "SELECT * FROM tb_filial WHERE cnpj_cliente > 0";
-                    $resulta_cliente_base = $conn_base.$cliente['cnpj_cliente']->query($sql_cliente_base);
-
-                    echo '<div class="col-lg-12 grid-margin stretch-card" data-toggle="collapse" href="#cliente_'.$cliente['cd_cliente'].'" aria-expanded="false" aria-controls="os_afaser">';
+                while ( $cliente_matriz = $resulta_cliente_matriz->fetch_assoc()){
+                    echo '<div class="col-lg-12 grid-margin stretch-card" data-toggle="collapse" href="#cliente_'.$cliente_matriz['cd_cliente_comercial'].'" aria-expanded="false" aria-controls="os_afaser">';
                     echo '<div class="card" '.$_SESSION['c_card'].'>';
-                    
                     echo '<div class="card-body">';
                     echo '<div class="grid-margin stretch-card">';
-                    echo '<h4 style="display: inline-block; margin-left: 10px;">Razão Social - '. $cliente['cnpj_cliente'] .'</h4>';
+                    echo '<h4 style="display: inline-block; margin-left: 10px;">'. $cliente_matriz['rsocial_cliente_comercial'] .' - '. $cliente_matriz['cnpj_cliente_comercial'] .'</h4>';
                     echo '<i class="btn btn-success" style="margin:auto; display:none;" id="noprazoafaser"></i><i class="btn btn-warning" style="margin:auto; display:none;" id="parahojeafaser"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="extrapoladoafaser"></i>';
                     echo '</div>';
-
-                    
-                    echo '<div class="collapse table-responsive" id="cliente_'.$cliente['cd_cliente'].'">';
-                    
+                    echo '<div class="collapse table-responsive" id="cliente_'.$cliente_matriz['cd_cliente_comercial'].'">';
                     echo '<table class="table" '.$_SESSION['c_card'].'>';
                     echo '<thead>';
                     echo '<tr>';
-                    echo '<th>CD</th>';
+                    echo '<th>Código</th>';
+                    echo '<th>Razão Social</th>';
+                    echo '<th>Data de Cadastro</th>';
+                    echo '<th>Vencimento do Contrato</th>';
+                    echo '<th>À Vencer em</th>';
                     echo '<th>Financeiro</th>';
-                    echo '<th>Prioridade</th>';
-                    echo '<th>Prazo</th>';
                     echo '</tr>';
                     echo '</thead>';
                     echo '<tbody>';
-
-                    echo '<tr>';
-                    echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
-                    echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$cliente['cd_cliente'].'"></td>';
-                    echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$cliente['cd_cliente'].'" id="btn_cd_'.$cliente['cd_cliente'].'">'.$cliente['cd_cliente'].'</button></td>';
-                    echo '</form>';
-                    
-                    echo '</tbody>';
-                    echo '</table>';
+                    $sql_cliente_filial = "SELECT * FROM tb_cliente_comercial where cd_matriz_comercial = ".$cliente_matriz['cd_cliente_comercial'];
+                    $resulta_cliente_filial = $conn->query($sql_cliente_filial);
+                    if ($resulta_cliente_filial->num_rows > 0){
+                        while ( $cliente_filial = $resulta_cliente_filial->fetch_assoc()){
+                            echo '<tr>';
+                            echo '<form method="POST" action="../../pages/md_fornecedor/consultar_cliente_comercial.php">';
+                            echo '<td style="display: none;"><input type="tel" id="concnpj_cliente_comercial" name="concnpj_cliente_comercial" value="'.$cliente_filial['cnpj_cliente_comercial'].'"></td>';
+                            echo '<td><button type="submit" class="btn btn-info" name="btn_cnpj_'.$cliente_filial['cnpj_cliente_comercial'].'" id="btn_cd_'.$cliente_filial['cnpj_cliente_comercial'].'">'.$cliente_filial['cnpj_cliente_comercial'].'</button></td>';
+                            echo '</form>';
+                            echo '<td><p>'.$cliente_filial['rsocial_cliente_comercial'].'</p></td>';
+                            echo '<td><p>'.date('d/m/y', strtotime($cliente_filial['dtcadastro_cliente_comercial'])).'</p></td>';
+                            echo '<td><p>'.date('d/m/y', strtotime($cliente_filial['dtvalidlicenca_cliente_comercial'])).'</p></td>';
+                            $data_fornecida = $cliente_filial['dtvalidlicenca_cliente_comercial'];
+                            $diferenca_dias = round((strtotime($data_fornecida) - time()) / (60 * 60 * 24));
+                            if($diferenca_dias >= 0){
+                                echo '<td><p>Expira em: '.$diferenca_dias.' dia(s).</p></td>';
+                            }else{
+                                echo '<td><p class="badge badge-danger">Expirado a: '.-$diferenca_dias.' dia(s).</p></br><p>Tolerância de 10 dias para multa estipulada em contrato</p></td>';
+                            }
+                            if($diferenca_dias >= 0){
+                                echo '<td><label class="badge badge-success">Prevista: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'</label></td>';
+                            }else if($diferenca_dias < 0 && $diferenca_dias > -10){
+                                echo '<td><label class="badge badge-warning">Prevista: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'</label></td>';
+                            }else{
+                                $fatura_prevista = isset($cliente_filial['fatura_prevista_cliente_fiscal']) && is_numeric($cliente_filial['fatura_prevista_cliente_fiscal']) ? $cliente_filial['fatura_prevista_cliente_fiscal'] : 0;
+                                $fatura_devida = isset($cliente_filial['fatura_devida_cliente_fiscal']) && is_numeric($cliente_filial['fatura_devida_cliente_fiscal']) ? $cliente_filial['fatura_devida_cliente_fiscal'] : 0;
+                                echo '<td><label class="badge badge-danger">Vencida: R$:' . ($fatura_prevista - $diferenca_dias) . '</label></td>';
+                            }
+                            echo '</tr>';
+                        }
+                        echo '</tbody>';
+                        echo '</table>';
+                        echo '</div>';
+                    }
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
-                    echo '</div>';
-
                 }
-                
-                
                 if($noprazoafaser > 0){
                   echo '<script>document.getElementById("noprazoafaser").innerHTML = "'.$noprazoafaser.'";</script>';
                   echo '<script>document.getElementById("noprazoafaser").style.display = "block";</script>';

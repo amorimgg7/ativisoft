@@ -117,19 +117,26 @@ CREATE TABLE `tb_cliente` (
 
 CREATE TABLE `tb_cliente_comercial` (
   `cd_cliente_comercial` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `cd_matriz_comercial` int(11),
   `rsocial_cliente_comercial` varchar(40) DEFAULT NULL,
   `nfantasia_cliente_comercial` varchar(40) DEFAULT NULL,
   `cnpj_cliente_comercial` varchar(40) DEFAULT NULL,
-  `dtcadastro_cliente_comercial` varchar(40) DEFAULT NULL,
-  `dtvalidlicenca_cliente_comercial` varchar(40) DEFAULT NULL,
-  
-  `obs_cliente` varchar(40) DEFAULT NULL,
-  `tel_cliente` varchar(40) DEFAULT NULL,
-  `obs_tel_cliente` varchar(40) DEFAULT NULL,
-  `email_cliente` varchar(40) DEFAULT NULL,
-  `foto_cliente` varchar(1000) DEFAULT NULL,
-  `senha_cliente` varchar(40) DEFAULT NULL
+  `dtcadastro_cliente_comercial` datetime NOT NULL,
+  `dtvalidlicenca_cliente_comercial` datetime NOT NULL,
+  `obs_cliente_comercial` varchar(40) DEFAULT NULL,
+  `tel_cliente_comercial` varchar(40) DEFAULT NULL,
+  `obs_tel_cliente_comercial` varchar(40) DEFAULT NULL,
+  `email_cliente_comercial` varchar(40) DEFAULT NULL,
+  `fatura_prevista_cliente_fiscal` decimal(10,2) DEFAULT NULL,
+  `fatura_devida_cliente_fiscal` decimal(10,2) DEFAULT NULL,
+  `senha_cliente_comercial` varchar(40) DEFAULT NULL
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+INSERT INTO `tb_cliente_comercial` (`cd_matriz_comercial`, `rsocial_cliente_comercial`, `nfantasia_cliente_comercial`, `cnpj_cliente_comercial`, `dtcadastro_cliente_comercial`, `dtvalidlicenca_cliente_comercial`, `obs_cliente_comercial`, `tel_cliente_comercial`, `obs_tel_cliente_comercial`, `email_cliente_comercial`, `fatura_prevista_cliente_fiscal`, `fatura_devida_cliente_fiscal`, `senha_cliente_comercial`) VALUES
+(1, 'AtiviSoft', 'AtiviSoft', '123', '2024-03-15T00:00', '2024-04-13T00:00', '', '21970071218', '', 'sc46cs@gmail.com', 80.00, 0.00, ''),
+(2, 'OFICINA DA ROUPA', 'OFICINA DA ROUPA', '08057969000100', '2023-08-12T00:00', '2024-05-05T00:00', '', '21992048913', '', 'marcia.oficinadaroupa@gmail.com', 80.00, 0.00, ''),
+(3, 'AMORIMFOR TEC', 'AMORIMFOR TEC', '37719768000120', '2024-01-05T00:00', '2024-04-13T00:00', '', '21965543094', '', 'amorimgg7@gmail.com', 80.00, 0.00, ''),
+(4, 'MARIA DA LUZ GOMES DA SILVA', 'MALUÊ', '34798614000182', '2023-08-20T00:00', '2024-04-13T00:00', '', '21982803278', '', 'malu.atelie.moda.praia@gmail.com', 80.00, 0.00, ''),
+(5, 'SONIA CRISTINA DA CONCEICAO SILVA', 'FESTAS E EVENTOS', '31273120000196', '2024-03-15T00:00', '2024-04-13T00:00', '', '21970071218', '', 'sc46cs@gmail.com', 80.00, 0.00, '');
 
 
 CREATE TABLE `tb_colab` (
@@ -245,11 +252,7 @@ CREATE TABLE `tb_funcao` (
 
 
 INSERT INTO `tb_funcao` (`cd_funcao`, `titulo_funcao`, `obs_funcao`, `md_patrimonio`, `md_fponto`, `md_assistencia`, `md_cliente`, `md_fornecedor`, `md_clientefornecedor`) VALUES
-(1, 'TESTADOR', 'observações', 'style=\"display: block;\"', 'style=\"display: block;\"', 'style=\"display: block;\"', 'style=\"display: block;\"', 'style=\"display: block;\"', 'style=\"display: block;\"'),
-(2, 'Cliente', 'observações', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: block;\"', 'style=\"display: none;\"', 'style=\"display: none;\"'),
-(3, 'Fornecedor', 'observações', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: block;\"', 'style=\"display: none;\"'),
-(4, 'Cliente / Fornecedor', 'observações', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: block;\"'),
-(5, 'Assistente', 'observações', 'style=\"display: block;\"', 'style=\"display: block;\"', 'style=\"display: block;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"');
+(1, 'Assistente', 'observações', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: block;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"');
 
 
 
