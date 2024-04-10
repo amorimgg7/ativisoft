@@ -115,6 +115,21 @@ CREATE TABLE `tb_cliente` (
   `senha_cliente` varchar(40) DEFAULT NULL
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+CREATE TABLE `tb_cliente_comercial` (
+  `cd_cliente_comercial` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `rsocial_cliente_comercial` varchar(40) DEFAULT NULL,
+  `nfantasia_cliente_comercial` varchar(40) DEFAULT NULL,
+  `cnpj_cliente_comercial` varchar(40) DEFAULT NULL,
+  `dtcadastro_cliente_comercial` varchar(40) DEFAULT NULL,
+  `dtvalidlicenca_cliente_comercial` varchar(40) DEFAULT NULL,
+  
+  `obs_cliente` varchar(40) DEFAULT NULL,
+  `tel_cliente` varchar(40) DEFAULT NULL,
+  `obs_tel_cliente` varchar(40) DEFAULT NULL,
+  `email_cliente` varchar(40) DEFAULT NULL,
+  `foto_cliente` varchar(1000) DEFAULT NULL,
+  `senha_cliente` varchar(40) DEFAULT NULL
+)  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 
 CREATE TABLE `tb_colab` (

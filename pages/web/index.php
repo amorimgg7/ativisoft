@@ -340,7 +340,7 @@ else {
                     echo '        <a href="index.php?cnpj='.$_SESSION['cnpj_empresa'].'" class="close view_close">×</a>';
                     echo '        <div class="row">';
                     echo '            <div class="four columns">';
-                    $caminho_pasta_produto = "../web/imagens/123/produto/";
+                    $caminho_pasta_produto = "../web/imagens/".$_SESSION['cnpj_empresa']."//produto/";
                     $foto_produto = $row_select_index_prod_serv['cd_prod_serv']."-foto.jpg"; // Nome do arquivo que será salvo
                     $caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
                     $tipo_foto_produto = mime_content_type($caminho_foto_produto);
