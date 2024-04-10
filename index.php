@@ -459,7 +459,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <img src="marketing/images/Logo_3.png" alt="AtiviSoft" class="footer-logo" width="100px" height="100px">
-                        <p class="footer-intro-text">Oportunidade favorece a mente preparada.</p>
+                        <p class="footer-intro-text">As oportunidades multiplicam-se à medida que são agarradas!</p>
                         <p class="widget-content">Sun Tzu ± (544 a.C. - 496 a.C)</p>
 
                         

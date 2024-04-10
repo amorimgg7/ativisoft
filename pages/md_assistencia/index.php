@@ -34,8 +34,10 @@
                 echo '<thead>';
                 echo '<tr>';
                 echo '<th>OS</th>';
+                echo '<th>Financeiro</th>';
                 echo '<th>Prioridade</th>';
                 echo '<th>Prazo</th>';
+                
                 
                 echo '</tr>';
                 echo '</thead>';
@@ -53,7 +55,13 @@
                   echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                   echo '</form>';
 
-                  
+                  if($servico['orcamento_servico'] == $servico['vpag_servico']){
+                    echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                  }else{
+                    $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
+                    $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
+                    echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de ' . $orcamento_servico . '</label></td>';
+                  }
                                     
                   if($servico['prioridade_servico'] == "B"){
                     echo '<td><label class="badge badge-success">Baixa</label></td>';
@@ -70,7 +78,11 @@
                   if($servico['prioridade_servico'] == "U"){
                     echo '<td><label class="badge badge-danger">Urgente</label></td>';
                   }
+
+                  
                   echo '<td name="btn_dt_'.$servico['cd_servico'].'" id="btn_dt_'.$servico['cd_servico'].'">'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
+
+                  
 
 		              if(date('Y-m-d', strtotime('+1 hour')) > date('Y-m-d', strtotime($servico['prazo_servico']))){
                     echo '<script>document.getElementById("btn_cd_'.$servico['cd_servico'].'").className = "btn btn-danger";</script>';
@@ -145,6 +157,7 @@
                 echo '<thead>';
                 echo '<tr>';
                 echo '<th>OS</th>';
+                echo '<th>Financeiro</th>';
                 echo '<th>Prioridade</th>';
                 echo '<th>Prazo</th>';
                 
@@ -163,6 +176,14 @@
                   echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
                   echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                   echo '</form>';
+
+                  if($servico['orcamento_servico'] == $servico['vpag_servico']){
+                    echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                  }else{
+                    $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
+                    $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
+                    echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de ' . $orcamento_servico . '</label></td>';
+                  }
 
                   if(date('Y-m-d', strtotime('+1 hour')) > date('Y-m-d', strtotime($servico['prazo_servico']))){
                     echo '<script>document.getElementById("btn_cd_'.$servico['cd_servico'].'").className = "btn btn-danger";</script>';

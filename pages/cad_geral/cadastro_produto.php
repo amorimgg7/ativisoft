@@ -45,34 +45,7 @@
       <div class="main-panel">        
         <div class="content-wrapper" <?php echo $_SESSION['c_body'];?>>
           <div class="row">
-            <!--
-            <div class="col-12 grid-margin">
-              <div class="card" <?php echo $_SESSION['c_card'];?>>
-                
-                <div class="card-body" id="consulta" style="display: block;">
-                  <h3 class="card-title">Consultar pelo telefone</h3>
-                  <p class="card-description">Consulte o cliente que deseja atualizar os dados cadastrais pelo número de telefone cadastrado.</p>
-                  <div class="kt-portlet__body">
-                    <div class="row">
-                      <div class="col-12 col-md-12">
-                        <div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">
-                          <form method="POST">
-                          
-                            <input placeholder="Telefone" type="tel" name="btntel_cliente" id="btntel_cliente" type="tel" class="aspNetDisabled form-control form-control-sm" required>
-                            <br>
-                            <button type="submit" class="btn btn-success"name="con_cliente" >Consulta</button>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-  -->
-
-
-            
+                       
               <?php
                 if(isset($_POST['btn_con_prod_serv'])) {
                   
@@ -108,6 +81,7 @@
                 
               ?>
               <?php
+              /*
                 if (isset($_POST['editProdServ'])) {
 
                   if($_POST['editstatus_prod_serv'] == false){
@@ -150,8 +124,8 @@
                     $_SESSION['statusCadastros'] = 2;
                   }   
                   
-              }
-              
+                }
+              */
 
                 if(isset($_POST['menuPrincipal'])) { 
                   $_SESSION['statusCadastros'] = FALSE;
@@ -221,7 +195,7 @@
 
                       }
                       $foto_produto = $_POST['editcd_prod_serv']."-foto.jpg"; // Nome do arquivo que será salvo
-                              
+                            
                       $caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
                       
                       $tipo_foto_produto = exif_imagetype($_FILES["fotoProduto"]["tmp_name"]);
@@ -231,9 +205,9 @@
                       if (in_array($tipo_foto_produto, $extensoes_permitidas)) {
                           // Redimensionar a imagem para 100x100
                           list($largura_orig, $altura_orig) = getimagesize($_FILES["fotoProduto"]["tmp_name"]);
-                          $nova_largura = 100;
-                          $nova_altura = 100;
-                          $imagem_redimensionada = imagecreatetruecolor(100, 100);
+                          $nova_largura = 500;
+                          $nova_altura = 500;
+                          $imagem_redimensionada = imagecreatetruecolor(500, 500);
 
                           switch ($tipo_foto_produto) {
                               case IMAGETYPE_JPEG:
@@ -253,15 +227,15 @@
                           switch ($tipo_foto_produto) {
                               case IMAGETYPE_JPEG:
                                 //imagegif($imagem_redimensionada, $caminho_foto_produto);
-                                imagejpeg($imagem_orig, $caminho_foto_produto);
+                                imagejpeg($imagem_redimensionada, $caminho_foto_produto);
                               break;
                               case IMAGETYPE_PNG:
                                 //imagegif($imagem_redimensionada, $caminho_foto_produto);
-                                imagepng($imagem_orig, $caminho_foto_produto);
+                                imagepng($imagem_redimensionada, $caminho_foto_produto);
                               break;
                               case IMAGETYPE_GIF:
                                 //imagegif($imagem_redimensionada, $caminho_foto_produto);
-                                imagegif($imagem_orig, $caminho_foto_produto);
+                                imagegif($imagem_redimensionada, $caminho_foto_produto);
                               break;
                           }
 

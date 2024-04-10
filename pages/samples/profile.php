@@ -47,26 +47,49 @@
                                 <div class="card-body">
                                     <div class="kt-portlet__body kt-portlet__body--fit">
                                         <ul class="kt-nav kt-nav--bold kt-nav--md-space kt-nav--v3 kt-margin-t-20 kt-margin-b-20 nav nav-tabs" role="tablist">	    
-                                            <li class="kt-nav__item">
-                                                <button onclick="abrirInfoPessoal()" class="btn btn-outline-secondary btn-lg btn-block" data-toggle="tab" href="#kt_profile_tab_personal_information" role="tab">
-                                                    Informações Pessoais
-                                                </button>
-                                            </li>
-											<li class="kt-nav__item">
-                                                <button onclick="abrirContatos()" class="btn btn-outline-secondary btn-lg btn-block" data-toggle="tab" href="#contatos" role="tab">
-                                                    Contatos
-                                                </button>
-                                            </li>
-                                            <li class="kt-nav__item">
-                                                <button onclick="abrirPreferencias()" class="btn btn-outline-secondary btn-lg btn-block" data-toggle="tab" href="#kt_profile_tab_account_information" role="tab">
-                                                    Preferências
-                                                </button>
-                                            </li>
-                                            <li class="kt-nav__item">
-                                                <button onclick="abrirAlterSenha()" class="btn btn-outline-secondary btn-lg btn-block" data-toggle="tab" href="#kt_profile_change_password" role="tab">
-                                                    Alterar Senha
-                                                </button>
-                                            </li>
+                                            
+											<?php
+												if(isset($_POST['tabInfoPessoal'])){
+													$_SESSION['opcaoMenu'] = 1;
+												}else if(isset($_POST['tabInfoContatos'])){
+													$_SESSION['opcaoMenu'] = 2;
+												}else if(isset($_POST['tabInfoPreferencias'])){
+													$_SESSION['opcaoMenu'] = 3;
+												}else if(isset($_POST['tabInfoSenha'])){
+													$_SESSION['opcaoMenu'] = 4;
+												}else
+											?>
+											
+											<style>
+												form {
+													display: inline-block 0px; /* Torna o formulário um elemento em linha */
+													vertical-align: top; /* Alinha o topo do formulário com o topo dos botões */
+												}
+												.kt-nav__item {
+													display: inline-block;
+													margin-right: 10px; /* ajuste conforme necessário */
+												}
+											</style>
+
+											<form method="POST">
+												<ul class="button-list">
+													<li class="kt-nav__item">
+														<input type="submit" id="tabInfoPessoal" name="tabInfoPessoal" class="btn btn-outline-secondary btn-lg btn-block" value="Informações Pessoais">
+													</li>
+													<li class="kt-nav__item">
+														<input type="submit" id="tabInfoContatos" name="tabInfoContatos" class="btn btn-outline-secondary btn-lg btn-block" value="Contatos">
+													</li>
+													<li class="kt-nav__item">
+														<input type="submit" id="tabInfoPreferencias" name="tabInfoPreferencias" class="btn btn-outline-secondary btn-lg btn-block" value="Preferências">    
+													</li>
+													<li class="kt-nav__item">
+														<input type="submit" id="tabInfoSenha" name="tabInfoSenha" class="btn btn-outline-secondary btn-lg btn-block" value="Alterar Senha">
+													</li>
+												</ul>
+											</form>
+
+
+
                                         </ul>
                                     </div>
                                 </div>
@@ -75,35 +98,7 @@
                     </div>
 
 
-					<script>
-              		  	function abrirInfoPessoal() {
-                			document.getElementById("infoPessoal").style.display = "block";
-                			document.getElementById("infoContatos").style.display = "none";
-                    		document.getElementById("infoPreferencias").style.display = "none";
-							document.getElementById("infoAlterSenha").style.display = "none";
-                		}
-
-						function abrirContatos() {
-                			document.getElementById("infoPessoal").style.display = "none";
-                			document.getElementById("infoContatos").style.display = "block";
-                    		document.getElementById("infoPreferencias").style.display = "none";
-							document.getElementById("infoAlterSenha").style.display = "none";
-                		}
-
-						function abrirPreferencias() {
-                			document.getElementById("infoPessoal").style.display = "none";
-                			document.getElementById("infoContatos").style.display = "none";
-                    		document.getElementById("infoPreferencias").style.display = "block";
-							document.getElementById("infoAlterSenha").style.display = "none";
-                		}
-
-						function abrirAlterSenha() {
-                			document.getElementById("infoPessoal").style.display = "none";
-                			document.getElementById("infoContatos").style.display = "none";
-                    		document.getElementById("infoPreferencias").style.display = "none";
-							document.getElementById("infoAlterSenha").style.display = "block";
-                		}
-                	</script>
+					
 
 
                     <div class="row">
@@ -113,290 +108,563 @@
                                     <div class="kt-portlet__body kt-portlet__body--fit">
                                         <div class="col-lg-8 col-xl-9">
                                     	    <div class="tab-content">
+												<?php
+													if(!isset($_SESSION['opcaoMenu'])){
+														$_SESSION['opcaoMenu'] = 1;
+													}
+
+													if(isset($_POST['gravaInfoPessoal_Funcao'])) {
 
 
-                                    		    <!--begin: Personal Information-->
-                                			    <div class="tab-pane fade show active" id="infoPessoal" style="display:block;">
-                                				    <div class="kt-portlet">
-                            	    				    <div class="kt-portlet__head">
-                            		    				    <div class="kt-portlet__head-label">
-                            			    				    <h3 class="kt-portlet__head-title">Informações Pessoais</h3>
-                            				    			</div>															
-                                						</div>
-                                						<div class="kt-form kt-form--label-right">
+														if($_FILES["fotoProduto"]["error"] == UPLOAD_ERR_OK){
 
-															<!--<form method="post" action="../../classes/salvar-imagem.php" enctype="multipart/form-data">
-																<input type="file" name="imagem">
-																<input type="submit" value="Enviar">
-															</form>
-															<img src="caminho/para/salvar/nome_do_arquivo.jpg" alt="Imagem do perfil">
+															$caminho_pasta_produto = "../web/imagens/".$_SESSION['cnpj_filial']."/";
+															if (!file_exists($caminho_pasta_produto)) {// Verificar se o diretório de destino existe, senão, criar
+															  mkdir($caminho_pasta_produto, 0777, true);
+															  echo "<script>window.alert('Criando diretório da Empresa! ".$caminho_pasta_produto."');</script>";
+									  
+															}
+															$caminho_pasta_produto .= "produto/";
+															if (!file_exists($caminho_pasta_produto)) {
+															  mkdir($caminho_pasta_produto, 0777, true);
+															  echo "<script>window.alert('Criando diretório dos produtos da empresa! ".$caminho_pasta_produto."');</script>";
+									  
+															}
+															$foto_produto = "1-foto.jpg"; // Nome do arquivo que será salvo
+																  
+															$caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
 															
-															<?php
-															//	if ($_FILES["imagem"]["error"] == UPLOAD_ERR_OK) {
-															//	    $nome_arquivo = $_FILES["imagem"]["name"];
-															//	    $caminho_arquivo = "../../images/perfil" . $nome_arquivo;
-															//    	move_uploaded_file($_FILES["imagem"]["tmp_name"], $caminho_arquivo);
-															//	    // aqui você pode salvar o caminho do arquivo no banco de dados do usuário
-															//	}
-															?>
-															-->
-															<form method="POST">
-																<div class="kt-portlet__body">
-																	<div class="kt-section kt-section--first">
-                                								    	<div class="kt-section__body">
-																			<!--
-																			<div class="form-group row">
-		    																	<label class="col-xl-3 col-lg-3 col-form-label text-center">Foto <br />(tamanho max. 2MB)</label>
-																			    <div class="col-lg-9 col-xl-6">
-																			        <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_profile_avatar">
-																			            <div id="ContentPlaceHolder1_DivFoto" class="kt-avatar__holder"></div>
-																				        <img src="<?php //echo $_SESSION['dominio'];?>images/foto/logo/<?php echo $_SESSION['cd_pessoal'];?>.jpg" alt="" style="width:100px; height:100px;">
-																				        <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="Altere sua foto">
-																				            <i class="fa fa-pen"></i>
-																				            <input type="file" name="profile_avatar" class="kt-avatarinputfile" />
-																				            <input type="hidden" name="ctl00$ContentPlaceHolder1$hfImgUsuario" id="hfImgUsuario" />
-																				            <input type="text" name="editfoto_pessoal" id="editfoto_pessoal" />
-																				            <button type="submit" name="salvar_imagem" class="btn btn-primary">Salvar</button>
-																				        </label>
-																				        <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="Cancelar foto">
-																			                <i class="fa fa-times"></i>
-																			            </span>
-																			        </div>
-																			    </div>
-																			</div>
-																			-->
-																			<div class="form-group row" style="display: none;">
-                                        										<label class="col-xl-3 col-lg-3 col-form-label">CD</label>
-                                    	        								<div class="col-lg-9 col-xl-6">
-    	                                    								        <input type="rel" name="editcd_colab" id="editcd_colab" class="form-control" readonly/>																				
-	                                            								</div>
-        	                                    							</div>
-                                                                    	    <div class="form-group row">
-                                        										<label class="col-xl-3 col-lg-3 col-form-label">Nome</label>
-                                    	        								<div class="col-lg-9 col-xl-6">
-    	                                    								        <input type="text" name="editpnome_colab" id="editpnome_colab" class="form-control" />																				
-	                                            								</div>
-        	                                    							</div>
-																			<div class="form-group row">
-                	                        									<label class="col-xl-3 col-lg-3 col-form-label">Sobrenome</label>
-                    	                	        							<div class="col-lg-9 col-xl-6">
-                        	                								        <input type="text" name="editsnome_colab" id="editsnome_colab" class="form-control" />																				
-                            	                								</div>
-                                	            							</div>
-																			<div class="form-group row">
-                                        										<label class="col-xl-3 col-lg-3 col-form-label">CPF</label>
-                                    	    	    							<div class="col-lg-9 col-xl-6">
-                                        									        <input type="text" name="editcpf_colab" id="editcpf_colab" class="form-control" readonly/>																				
-                                            									</div>
-                                            								</div>
-																			<!--<div class="form-group row">
-                                        										<label class="col-xl-3 col-lg-3 col-form-label">RG</label>
-                                    	        								<div class="col-lg-9 col-xl-6">
-                                        									        <input type="text" name="editrg_colab" id="editrg_colab" oninput="rg(this)" class="form-control" />																				
-                                            									</div>
-	                                            							</div>
-																			<div class="form-group row">
-        	                                									<label class="col-xl-3 col-lg-3 col-form-label">CNH</label>
-            	                        	        							<div class="col-lg-9 col-xl-6">
-                	                        								        <input type="text" name="editcnh_colab" id="editcnh_colab" oninput="cnh(this)" class="form-control" />																				
-                    	                        								</div>
-                        	                    							</div>
-																			<div class="form-group row">
-                                	        									<label class="col-xl-3 col-lg-3 col-form-label">Carteira de Trabalho</label>
-                                    		        							<div class="col-lg-9 col-xl-6">
-                                        									        <input type="text" name="editcarttrabalho_colab" id="editcarttrabalho_colab" oninput="cartTrabalho(this)" class="form-control" />																				
-                                            									</div>
-                                            								</div>
-																			<div class="form-group row">
-                                        										<label class="col-xl-3 col-lg-3 col-form-label">PIS</label>
-                                    	        								<div class="col-lg-9 col-xl-6">
-                                        									        <input type="text" name="editpis_colab" id="editpis_colab" oninput="pis(this)" class="form-control" />																				
-                                            									</div>
-                                            								</div>-->
-																			<div class="form-group row">
-    	                                    									<label class="col-xl-3 col-lg-3 col-form-label">Data de Nascimento</label>
-        	                            	        							<div class="col-lg-9 col-xl-6">
-            	                            								        <input type="date" name="editdtnasc_colab" id="editdtnasc_colab" class="form-control" readonly/>																				
-                	                            								</div>
-                    	                        							</div>
-																			<!--<div class="form-group row">
-                            	            									<label class="col-xl-3 col-lg-3 col-form-label">Sexo</label>
-                                	    	        							<div class="col-lg-9 col-xl-6">
-																					<select name="editsexo_colab" id="editsexo_colab" class="form-control">
-														                                <option value="M">Masculino</option>
-													                                	<option value="F">Feminino</option>
-																						<option value="O">Outros</option>
-																					</select>																				
-                                        	    								</div>
-                                            								</div>
-																			<div class="form-group row">
-                                        										<label class="col-xl-3 col-lg-3 col-form-label">Estado Civil</label>
-                                    	        								<div class="col-lg-9 col-xl-6">
-																					<select name="editecivil_colab" id="editecivil_colab" class="form-control">
-														                                <option value="S">Solteiro(a)</option>
-													                                	<option value="C">Casado(a)</option>
-																						<option value="D">Divorciado(a)</option>
-																					</select>																				
-                                            									</div>
-                                            								</div>-->
-																			<div class="form-group row">
-	                                        									<label class="col-xl-3 col-lg-3 col-form-label">Observações</label>
-    	                                	        							<div class="col-lg-9 col-xl-6">
-        	                                								        <input type="text" name="editobs_colab" id="editobs_colab" class="form-control" />																				
-            	                                								</div>
-                	                            							</div>
-                    	                                                </div>
-                        	                                        </div>
-                            	                                </div>
-										                        <div class="kt-portlet__foot">
-                       							    				<div>
-                       								    				<div class="row">
-                      									    				<div class="col-lg-3 col-xl-3">
-                       										    			</div>
-                  											    			<div class="col-lg-9 col-xl-9">
-																				<input type="submit" value="Confirmar" class="btn btn-success" id="atualizarIPessoal" name="atualizarIPessoal">
-																				&nbsp;
-                                                                    	        <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>
-																			</div>
-	    										                        </div>
-    	                            								</div>
-        	                        							</div>
-															</form>
-
-															<?php
-																//if(isset($_POST['concpf_pessoal'])) {
-                    											// Consulta o usuário pelo CPF
-													            $query = "SELECT * FROM tb_colab WHERE cd_colab = '".$_SESSION['cd_colab']."'";
-													            $result = mysqli_query($conn, $query);
-													            $row = mysqli_fetch_assoc($result);
-													            // Exibe as informações do usuário no formulário
-													            if($row) {
-														        	echo '<script>document.getElementById("editcd_colab").value = "'.$row['cd_colab'].'"</script>';
-														            //echo '<script>document.getElementById("editfoto_colab").value = "'.$_SESSION['dominio'].'images/foto/logo/'.$_SESSION['cd_pessoal'].'.jpg"</script>';
-														            //echo '<script>document.getElementById("foto_pessoal").value = "'.$_SESSION['dominio'].'images/foto/logo/'.$_SESSION['cd_pessoal'].'.jpg"</script>';
-																	echo '<script>document.getElementById("editpnome_colab").value = "'.$row['pnome_colab'].'"</script>';
-														            echo '<script>document.getElementById("editsnome_colab").value = "'.$row['snome_colab'].'"</script>';
-														            echo '<script>document.getElementById("editcpf_colab").value = "'.$row['cpf_colab'].'"</script>';
-														            //echo '<script>document.getElementById("editrg_colab").value = "'.$row['rg_colab'].'"</script>';
-														            //echo '<script>document.getElementById("editcnh_colab").value = "'.$row['cnh_colab'].'"</script>';
-														            //echo '<script>document.getElementById("editpis_colab").value = "'.$row['pis_colab'].'"</script>';
-														            //echo '<script>document.getElementById("editcarttrabalho_colab").value = "'.$row['carttrabalho_colab'].'"</script>';
-														            echo '<script>document.getElementById("editdtnasc_colab").value = "'.$row['dtnasc_colab'].'"</script>';
-														            //echo '<script>document.getElementById("editsexo_colab").value = "'.$row['sexo_colab'].'"</script>';
-														            //echo '<script>document.getElementById("editecivil_colab").value = "'.$row['ecivil_colab'].'"</script>';
-														            echo '<script>document.getElementById("editobs_colab").value = "'.$row['obs_colab'].'"</script>';
+															$tipo_foto_produto = exif_imagetype($_FILES["fotoProduto"]["tmp_name"]);
+										  
+															$extensoes_permitidas = array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF);
+									  
+															if (in_array($tipo_foto_produto, $extensoes_permitidas)) {
+																// Redimensionar a imagem para 100x100
+																list($largura_orig, $altura_orig) = getimagesize($_FILES["fotoProduto"]["tmp_name"]);
+																$nova_largura = 500;
+																$nova_altura = 500;
+																$imagem_redimensionada = imagecreatetruecolor(500, 500);
+									  
+																switch ($tipo_foto_produto) {
+																	case IMAGETYPE_JPEG:
+																		$imagem_orig = imagecreatefromjpeg($_FILES["fotoProduto"]["tmp_name"]);
+																	break;
+																	case IMAGETYPE_PNG:
+																		$imagem_orig = imagecreatefrompng($_FILES["fotoProduto"]["tmp_name"]);
+																	break;
+																	case IMAGETYPE_GIF:
+																		$imagem_orig = imagecreatefromgif($_FILES["fotoProduto"]["tmp_name"]);
+																	break;
 																}
-																//}
-																// Verifica se o formulário foi enviado
-													            if(isset($_POST['atualizarIPessoal'])) {
-													                // Atualiza as informações do usuário no banco de dados
-													                $query = "UPDATE tb_colab SET
-														            pnome_colab = '".$_POST['editpnome_colab']."',
-														            snome_colab = '".$_POST['editsnome_colab']."',
-																	obs_colab = '".$_POST['editobs_colab']."'
-																	WHERE cd_colab = '".$_POST['editcd_colab']."'";
-																	mysqli_query($conn, $query);
-																	//echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
-																	?>
-																		<script>// Limpa os cookies
-									                                    // Remove as informações do formulário do histórico de navegação';
-									                                    history.replaceState({}, document.title, window.location.href.split('?')[0]);
-
-									                                    // Recarrega a página
-                                    									window.location.reload();
-										                                </script>
-																	<?php
+									  
+																imagecopyresampled($imagem_redimensionada, $imagem_orig, 0, 0, 0, 0, $nova_largura, $nova_altura, $largura_orig, $altura_orig);
+									  
+																// Salvar a miniatura
+																switch ($tipo_foto_produto) {
+																	case IMAGETYPE_JPEG:
+																	  //imagegif($imagem_redimensionada, $caminho_foto_produto);
+																	  imagejpeg($imagem_redimensionada, $caminho_foto_produto);
+																	break;
+																	case IMAGETYPE_PNG:
+																	  //imagegif($imagem_redimensionada, $caminho_foto_produto);
+																	  imagepng($imagem_redimensionada, $caminho_foto_produto);
+																	break;
+																	case IMAGETYPE_GIF:
+																	  //imagegif($imagem_redimensionada, $caminho_foto_produto);
+																	  imagegif($imagem_redimensionada, $caminho_foto_produto);
+																	break;
 																}
-															?>
-														</div>
-        	                        				</div>
-            	                    			</div>
+									  
+																imagedestroy($imagem_orig);
+																imagedestroy($imagem_redimensionada);
+															} else {
+															  echo "<script>window.alert('Imagem não gravada\\nApenas arquivos JPEG, PNG e GIF são permitidos.');</script>";
+															}
+									  
+														  }else{
+															echo "<script>window.alert('Produto sem foto!');</script>";
+														  }
 
-												<div class="tab-pane fade show active" id="infoContatos" style="display:none;">
-                                				    <div class="kt-portlet">
-                            	    				    <div class="kt-portlet__head">
-                            		    				    <div class="kt-portlet__head-label">
-                            			    				    <h3 class="kt-portlet__head-title">Contatos</h3>
-                            				    			</div>															
-                                						</div>
-                                						<div class="kt-form kt-form--label-right">
-															<form method="POST">
-																<div class="kt-portlet__body">
-																	<div class="kt-section kt-section--first">
-                                								    	<div class="kt-section__body">
-																			<div class="form-group row">
-        	                                									<label class="col-xl-3 col-lg-3 col-form-label">E-mail</label>
-            	                        	        							<div class="col-lg-9 col-xl-6">
-                	                        								        <input type="text" name="editemail_colab" id="editemail_colab" class="form-control" readonly />																				
-                    	                        								</div>
-                        	                    							</div>
-                                                                    	    <div class="form-group row">
-                                        										<label class="col-xl-3 col-lg-3 col-form-label">Telefone</label>
-                                    	        								<div class="col-lg-9 col-xl-6">
-    	                                    								        <input type="text" name="edittel_colab" id="edittel_colab" class="form-control" />																				
-	                                            								</div>
-        	                                    							</div>
-																			<div class="form-group row">
-                	                        									<label class="col-xl-3 col-lg-3 col-form-label">Obs Telefone</label>
-                    	                	        							<div class="col-lg-9 col-xl-6">
-                        	                								        <input type="text" name="editobstel_colab" id="editobstel_colab" class="form-control" />																				
-                            	                								</div>
-                                	            							</div>
-                    	                                                </div>
-                        	                                        </div>
-                            	                                </div>
-										                        <div class="kt-portlet__foot">
-                       							    				<div>
-                       								    				<div class="row">
-                      									    				<div class="col-lg-3 col-xl-3">
-                       										    			</div>
-                  											    			<div class="col-lg-9 col-xl-9">
-																				<input type="submit" value="Confirmar" class="btn btn-success" id="atualizar_contatos" name="atualizar_contatos">
-																				&nbsp;
-                                                                    	        <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>
-																			</div>
-	    										                        </div>
-    	                            								</div>
-        	                        							</div>
-															</form>
+
+														// Atualiza as informações do usuário no banco de dados
+														$query = "UPDATE tb_colab SET
+														pnome_colab = '".$_POST['editpnome_colab']."',
+														snome_colab = '".$_POST['editsnome_colab']."',
+														obs_colab = '".$_POST['editobs_colab']."'
+														WHERE cd_colab = '".$_POST['editcd_colab']."'";
+														if(mysqli_query($conn, $query)){
+															echo "<script>window.alert('Cadastro Atualizado com sucesso!');</script>";
+														}else{
+															echo "<script>window.alert('Erro ao atualizar Cadastro!');</script>";
+														}
+														?>
+															<script>// Limpa os cookies
+												        		// Remove as informações do formulário do histórico de navegação';
+														        ////history.replaceState({}, document.title, window.location.href.split('?')[0]);
+														        // Recarrega a página
+				                                    			////window.location.reload();
+													        </script>
+														<?php
+													}
+
+													if(isset($_POST['gravaInfoContatos_Funcao'])) {
+														// Atualiza as informações do usuário no banco de dados
+														$query = "UPDATE tb_colab SET
+														email_colab = '".$_POST['editemail_colab']."',
+														tel_colab = '".$_POST['edittel_colab']."',
+														obs_tel_colab = '".$_POST['editobstel_colab']."'
+														WHERE cd_colab = '".$_SESSION['cd_colab']."'";
+														if(mysqli_query($conn, $query)){
+															echo "<script>window.alert('Cadastro Atualizado com sucesso!');</script>";
+														}else{
+															echo "<script>window.alert('Erro ao atualizar Cadastro!');</script>";
+														}
+														?>
+															<script>// Limpa os cookies
+												        		// Remove as informações do formulário do histórico de navegação';
+														        history.replaceState({}, document.title, window.location.href.split('?')[0]);
+														        // Recarrega a página
+				                                    			window.location.reload();
+													        </script>
+														<?php
+													}
+
+													if(isset($_POST['gravaInfoPreferencias_Funcao'])) {
+														// Atualiza as informações do usuário no banco de dados
+														$query = "UPDATE rel_user SET
+														cd_estilo = '".$_POST['editcd_estilo']."',
+														cd_seg = '".$_POST['editcd_seg']."',
+														cd_funcao = '".$_POST['editcd_funcao']."'
+														WHERE cd_colab = '".$_SESSION['cd_colab']."';";
+														if(mysqli_query($conn, $query)){
+															echo "<script>window.alert('Cadastro Atualizado com sucesso!');</script>";
+														}else{
+															echo "<script>window.alert('Erro ao atualizar Cadastro!');</script>";
+														}
+														//echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
+														?>
+															<script>// Limpa os cookies
+															// Remove as informações do formulário do histórico de navegação';
+															history.replaceState({}, document.title, window.location.href.split('?')[0]);
+
+															// Recarrega a página
+															window.location.reload();
+															</script>
+														<?php
+													} 
+
+													if(isset($_POST['gravaInfoSenha_Funcao'])){			//atualizar_senha						
+														$query = "SELECT * FROM tb_colab WHERE cd_colab = '".$_SESSION['cd_colab']."'";
+														$result = mysqli_query($conn, $query);
+														$row = mysqli_fetch_assoc($result);
+														// Exibe as informações do usuário no formulário
+														if($row['senha_colab'] == $_POST['senha_atual']) {
+															echo "<script>window.alert('Senha certa');</script>";
+															if($_POST['senha_nova1'] == $_POST['senha_nova2']){
+																echo "<script>window.alert('Confirmação de senha certa');</script>";
+																$query = "UPDATE tb_colab SET
+														        	senha_colab = '".$_POST['senha_nova2']."'
+																	WHERE cd_colab = '".$_SESSION['cd_colab']."';
+																";
+																if(mysqli_query($conn, $query)){
+																	echo "<script>window.alert('Cadastro Atualizado com sucesso!');</script>";
+																}else{
+																	echo "<script>window.alert('Erro ao atualizar Cadastro!');</script>";
+																}
+																//echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
+																?>
+																	<script>// Limpa os cookies
+												                		// Remove as informações do formulário do histórico de navegação';
+													                	history.replaceState({}, document.title, window.location.href.split('?')[0]);
+													                	// Recarrega a página
+			                                    						window.location.reload();
+												                    </script>
+																<?php
+															}
+															else
+															{
+																echo "<script>window.alert('CONFIRMAÇÃO DE SENHA ERRADA!');</script>";
+															}
+															//echo '<script>document.getElementById("editcd_estilo").value = "'.$row['cd_estilo'].'"</script>';
+															//echo '<script>document.getElementById("editcd_seg").value = "'.$row['cd_seg'].'"</script>';
+															//echo '<script>document.getElementById("editcd_funcao").value = "'.$row['cd_funcao'].'"</script>';
+															//echo "<script>window.alert('Senha certa');</script>";
+														}
+														else
+														{
+															echo "<script>window.alert('SENHA ERRADA!');</script>";
+														}
+													}
+
+													if($_SESSION['opcaoMenu'] == 1){
+
+														echo ' <!--begin: Personal Information-->';
+														echo ' <div class="tab-pane fade show active" id="infoPessoal">';
+														echo ' <div class="kt-portlet">';
+														echo ' <div class="kt-portlet__head">';
+														echo ' <div class="kt-portlet__head-label">';
+														echo ' <h3 class="kt-portlet__head-title">Informações Pessoais</h3>';
+														echo ' </div>															';
+														echo ' </div>';
+														echo ' <div class="kt-form kt-form--label-right">';
+
+														echo ' <form method="POST">';
+														echo ' <div class="kt-portlet__body">';
+														echo ' <div class="kt-section kt-section--first">';
+														echo ' <div class="kt-section__body">';
+
+
+														$query = "SELECT * FROM tb_colab WHERE cd_colab = '".$_SESSION['cd_colab']."'";
+														$result = mysqli_query($conn, $query);
+														$row = mysqli_fetch_assoc($result);
+														// Exibe as informações do usuário no formulário
+														if($row) {
+															echo ' <div class="form-group row" style="display: block;">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">CD</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="tel" name="editcd_colab" id="editcd_colab" class="form-control" value="'.$row['cd_colab'].'" readonly/>																				';
+															echo ' </div>';
+															echo ' </div>';
+
+															echo '<label for="imagem-preview-produto"></label>';
+                echo "<div class='card' style='max-width: 100%; max-height: 50vh;'>";
+                $caminho_pasta_produto = "../web/imagens/".$_SESSION['cnpj_filial']."//produto/";
+                $foto_produto = "1-foto.jpg"; // Nome do arquivo que será salvo
+                $caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
+
+                if (file_exists($caminho_foto_produto)) {
+                  $tipo_foto_produto = mime_content_type($caminho_foto_produto);
+                  echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-produto' style='width: 200px; height: 200px;' src='data:$tipo_foto_produto;base64," . base64_encode(file_get_contents($caminho_foto_produto)) . "' alt='Imagem'>"; 
+                }
+
+                echo '<div class="card-body text-center">';
+                echo '<label for="fotoProduto" class="btn btn-block btn-lg btn-outline-success">';
+                echo '<i class="bi bi-paperclip"></i> Escolher arquivo';
+                echo '<input type="file" name="fotoProduto" id="fotoProduto" style="display: none;">';
+                echo '</label>';
+                echo '</div>';
+                echo '</div>';
+
+
+                ?>
+                <script>
+                    const imagemInputCliente = document.getElementById('fotoProduto');
+                    const imagemPreviewCliente = document.getElementById('imagem-preview-produto');
+
+                    imagemInputCliente.addEventListener('change', function(event) {
+                        const arquivo = event.target.files[0];
+                        if (arquivo) {
+                            const leitor = new FileReader();
+                            leitor.onload = function(e) {
+                                imagemPreviewCliente.src = e.target.result;
+                            }
+                            leitor.readAsDataURL(arquivo);
+                        } else {
+                            imagemPreviewCliente.src = '#';
+                        }
+                    });
+                </script>
+        
+                <?php
+
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Nome</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="text" name="editpnome_colab" id="editpnome_colab" value = "'.$row['pnome_colab'].'" class="form-control" />																				';
+															echo ' </div>';
+															echo ' </div>';
+
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Sobrenome</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="text" name="editsnome_colab" id="editsnome_colab" value = "'.$row['snome_colab'].'" class="form-control" />																				';
+															echo ' </div>';
+															echo ' </div>';
+
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">CPF</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="text" name="editcpf_colab" id="editcpf_colab" class="form-control" value = "'.$row['cpf_colab'].'" readonly/>																				';
+															echo ' </div>';
+															echo ' </div>';
+
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Data de Nascimento</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="date" name="editdtnasc_colab" id="editdtnasc_colab" class="form-control" value = "'.$row['dtnasc_colab'].'" readonly/>																				';
+															echo ' </div>';
+															echo ' </div>';
+
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Observações</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="text" name="editobs_colab" id="editobs_colab" value = "'.$row['obs_colab'].'" class="form-control" />																				';
+															echo ' </div>';
+															echo ' </div>';			
+														}
+														
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' <div class="kt-portlet__foot">';
+														echo ' <div>';
+														echo ' <div class="row">';
+														echo ' <div class="col-lg-3 col-xl-3">';
+														echo ' </div>';
+														echo ' <div class="col-lg-9 col-xl-9">';
+														echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfoPessoal_Funcao" name="gravaInfoPessoal_Funcao">';
+														echo ' &nbsp;';
+														echo ' <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </form>';
+
+													}else if($_SESSION['opcaoMenu'] == 2){
+														echo ' <!--begin: Personal Information-->';
+														echo ' <div class="tab-pane fade show active" id="infoPessoal" style="display:block;">';
+														echo ' <div class="kt-portlet">';
+														echo ' <div class="kt-portlet__head">';
+														echo ' <div class="kt-portlet__head-label">';
+														echo ' <h3 class="kt-portlet__head-title">Contatos</h3>';
+														echo ' </div>															';
+														echo ' </div>';
+
+														echo ' <div class="kt-form kt-form--label-right">';
+														echo ' <form method="POST">';
+														echo ' <div class="kt-portlet__body">';
+														echo ' <div class="kt-section kt-section--first">';
+                                						echo ' <div class="kt-section__body">';
+
+														$query = "SELECT * FROM tb_colab WHERE cd_colab = '".$_SESSION['cd_colab']."'";
+													    $result = mysqli_query($conn, $query);
+													    $row = mysqli_fetch_assoc($result);
+													    // Exibe as informações do usuário no formulário
+
+													    if($row) {
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">E-mail</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="text" name="editemail_colab" id="editemail_colab" class="form-control" value = "'.$row['email_colab'].'" readonly />																				';
+															echo ' </div>';
+															echo ' </div>';
+
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Telefone</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="text" name="edittel_colab" id="edittel_colab" value = "'.$row['tel_colab'].'" class="form-control" />																				';
+															echo ' </div>';
+															echo ' </div>';
+
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Obs Telefone</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="text" name="editobstel_colab" id="editobstel_colab" value = "'.$row['obs_tel_colab'].'" class="form-control" />																				';
+															echo ' </div>';
+															echo ' </div>';
+
+
+														        
+														}
+														
+                    	                                echo ' </div>';
+                        	                            echo ' </div>';
+                            	                        echo ' </div>';
+										                echo ' <div class="kt-portlet__foot">';
+														echo ' <div>';
+														echo ' <div class="row">';
+														echo ' <div class="col-lg-3 col-xl-3">';
+														echo ' </div>';
+														echo ' <div class="col-lg-9 col-xl-9">';
+														echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfoContatos_Funcao" name="gravaInfoContatos_Funcao">';
+														echo ' &nbsp;';
+                                                        echo ' <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>';
+														echo ' </div>';
+	    										        echo ' </div>';
+    	                            					echo ' </div>';
+        	                        					echo ' </div>';
+														echo ' </form>';
+														
+
+													}else if($_SESSION['opcaoMenu'] == 3){
+														echo ' <!--begin: Personal Information-->';
+														echo ' <div class="tab-pane fade show active" id="infoPessoal">';
+														echo ' <div class="kt-portlet">';
+														echo ' <div class="kt-portlet__head">';
+														echo ' <div class="kt-portlet__head-label">';
+														echo ' <h3 class="kt-portlet__head-title">Preferências</h3>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' <div class="kt-form kt-form--label-right">';
+														echo ' <form method="POST">';
+														echo ' <div class="kt-portlet__body">';
+					                                	echo ' <div class="kt-section kt-section--first">';
+					                                	echo ' <div class="kt-section__body">';
+					                                	echo ' <!--<div class="row">';
+					                                	echo ' <label class="col-xl-3"></label>';
+					                                	echo ' <div class="col-lg-9 col-xl-6">';
+									    			    echo ' <h3 class="kt-section__title kt-section__title-sm">Preferências</h3>';
+            					                    	echo ' </div>';
+                            					    	echo ' </div>-->';
+														echo ' <div class="form-group row">';
+                                						echo ' <!--';
+														echo ' Paletas de cores:  https://color.adobe.com/pt/create/color-wheel';
+														echo ' -->';
 															
-															<?php
-																//if(isset($_POST['concpf_pessoal'])) {
-                    											// Consulta o usuário pelo CPF
-													            $query = "SELECT * FROM tb_colab WHERE cd_colab = '".$_SESSION['cd_colab']."'";
-													            $result = mysqli_query($conn, $query);
-													            $row = mysqli_fetch_assoc($result);
-													            // Exibe as informações do usuário no formulário
-													            if($row) {
-														        	echo '<script>document.getElementById("editemail_colab").value = "'.$row['email_colab'].'"</script>';
-														            echo '<script>document.getElementById("edittel_colab").value = "'.$row['tel_colabl'].'"</script>';
-														            echo '<script>document.getElementById("editobstel_colab").value = "'.$row['obs_tel_colab'].'"</script>';
-														        }
-																//}
-																// Verifica se o formulário foi enviado
-													            if(isset($_POST['atualizar_contatos'])) {
-													                // Atualiza as informações do usuário no banco de dados
-													                $query = "UPDATE tb_colab SET
-														            email_colab = '".$_POST['editemail_colab']."',
-														            tel_colab = '".$_POST['edittel_colab']."',
-														            obs_tel_colab = '".$_POST['editobstel_colab']."'
-														            WHERE cd_colab = '".$_SESSION['cd_colab']."'";
-																	mysqli_query($conn, $query);
-																	//echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
-																	?>
-																		<script>// Limpa os cookies
-									                                    // Remove as informações do formulário do histórico de navegação';
-									                                    history.replaceState({}, document.title, window.location.href.split('?')[0]);
+														
+														//if(isset($_POST['concpf_pessoal'])) {
+                    									// Consulta o usuário pelo CPF
+													    $query_rel_user = "SELECT * FROM rel_user WHERE cd_colab = '".$_SESSION['cd_colab']."' AND cd_empresa = '".$_SESSION['cd_empresa']."'";
+													    $result_rel_user = mysqli_query($conn, $query_rel_user);
+													    $row_rel_user = mysqli_fetch_assoc($result_rel_user);
+												        // Exibe as informações do usuário no formulário
+											            if($row_rel_user) {
+												        	echo '<script>document.getElementById("editcd_estilo").value = "'.$row_rel_user['cd_estilo'].'"</script>';
+												            //$sql_estilo = "SELECT * FROM tb_estilo";
+															$sql_estilo = "SELECT * FROM tb_estilo ORDER BY CASE WHEN cd_estilo = '".$row_rel_user['cd_estilo']."' THEN 0 ELSE 1 END, cd_estilo;";
+															$resulta_estilo = $conn->query($sql_estilo);
 
-									                                    // Recarrega a página
-                                    									window.location.reload();
-										                                </script>
-																	<?php
+															if ($resulta_estilo->num_rows > 0){
+																echo ' <label class="col-xl-3 col-lg-3 col-form-label">Tema do Sistema</label>';
+																echo ' <div class="col-lg-9 col-xl-6">';
+																echo ' <select name="editcd_estilo" id="editcd_estilo" class="form-control">';
+																//echo ' <option value="">Selecione Tema</option>';
+																while ( $row_estilo = $resulta_estilo->fetch_assoc()){
+																	echo ' <option value="'.$row_estilo['cd_estilo'].'">'.$row_estilo['titulo_estilo'].'</option>';
 																}
-															?>
-														</div>
-        	                        				</div>
-            	                    			</div>
+																echo ' </select>';
+																echo ' </div>';
+															}
+
+															echo '<script>document.getElementById("editcd_seg").value = "'.$row_rel_user['cd_seg'].'"</script>';
+															//$sql_estilo = "SELECT * FROM tb_seguranca";
+															$sql_seg = "SELECT * FROM tb_seguranca ORDER BY CASE WHEN cd_seg = '".$row_rel_user['cd_seg']."' THEN 0 ELSE 1 END, cd_seg;";
+
+															$resulta_seg = $conn->query($sql_seg);
+
+															if ($resulta_seg->num_rows > 0){
+																echo ' <label class="col-xl-3 col-lg-3 col-form-label">Perfil de Permissões</label>';
+																echo ' <div class="col-lg-9 col-xl-6">';
+																echo ' <select name="editcd_seg" id="editcd_seg" class="form-control">';
+																//echo ' <option value="">Selecione Permissão</option>';
+																while ( $row_seg = $resulta_seg->fetch_assoc()){
+																	echo ' <option value="'.$row_seg['cd_seg'].'">'.$row_seg['titulo_seg'].'</option>';
+																}
+																echo ' </select>';
+																echo ' </div>';
+															}
+
+															echo '<script>document.getElementById("editcd_funcao").value = "'.$row_rel_user['cd_funcao'].'"</script>';
+															//$sql_funcao = "SELECT * FROM tb_funcao";
+															$sql_funcao = "SELECT * FROM tb_funcao ORDER BY CASE WHEN cd_funcao = '".$row_rel_user['cd_funcao']."' THEN 0 ELSE 1 END, cd_funcao;";
+
+															$resulta_funcao = $conn->query($sql_funcao);
+
+															if ($resulta_funcao->num_rows > 0){
+																echo ' <label class="col-xl-3 col-lg-3 col-form-label">Função</label>';
+																echo ' <div class="col-lg-9 col-xl-6">';
+																echo ' <select name="editcd_funcao" id="editcd_funcao" class="form-control">';
+																//echo ' <option value="">Selecione Função</option>';
+																while ( $row_funcao = $resulta_funcao->fetch_assoc()){
+																	echo ' <option value="'.$row_funcao['cd_funcao'].'">'.$row_funcao['titulo_funcao'].'</option>';
+																}
+																echo ' </select>';
+																echo ' </div>';
+															}
+														}
+																
+														echo ' </div>';
+														echo ' <div>';
+														echo ' <div class="float-left">';
+														echo ' <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--danger kt-switch--xs">';
+														echo ' <label class="mb-0 pb-0">';
+														echo ' <input id="ContentPlaceHolder1_iCkTemaFontBold" type="checkbox" name="ctl00$ContentPlaceHolder1$iCkTemaFontBold" /> ';
+														echo ' <span></span>';
+														echo ' </label>';
+														echo ' </span>   ';
+														echo ' </div>   ';
+														echo ' <div  class="float-left pl-2" style="padding-top: 0.15rem !important;">';
+														echo ' <label>Usar Font Bold</label>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' <div class="kt-portlet__foot">';
+														echo ' <div class="kt-form__actions">';
+														echo ' <div class="row">';
+														echo ' <div class="col-lg-3 col-xl-3">';
+														echo ' </div>';
+														echo ' <div class="col-lg-9 col-xl-9">';
+														echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfoPreferencias_Funcao" name="gravaInfoPreferencias_Funcao">';
+														echo ' &nbsp;';
+														echo ' <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </form>';
+														                            							
+													}else if($_SESSION['opcaoMenu'] == 4){
+														echo ' <!--begin: Personal Information-->';
+														echo ' <div class="tab-pane fade show active">';
+														echo ' <div class="kt-portlet">';
+														echo ' <div class="kt-portlet__head">';
+														echo ' <div class="kt-portlet__head-label">';
+														echo ' <h3 class="kt-portlet__head-title">Alterar Senha</h3>';
+														echo ' </div>';
+														echo ' </div>';
+
+														echo ' <div class="kt-form kt-form--label-right">';
+														echo ' <form method="POST">';
+                                						echo ' <div class="kt-portlet__body">';
+	                                					echo ' <div class="kt-section kt-section--first">';
+    	                            					echo ' <div class="kt-section__body">';
+        	                        					echo ' <div class="form-group row">';
+            	                    					echo ' <label class="col-xl-3 col-lg-3 col-form-label">Senha atual</label>';
+                	                					echo ' <div class="col-lg-9 col-xl-6">';
+                    	                            	echo ' <input name="senha_atual" id="senha_atual" class="form-control" type="text" />';
+                        	                            echo ' </div>';
+                            	    					echo ' </div>';
+                                						echo ' <div class="form-group row">';
+                                						echo ' <label class="col-xl-3 col-lg-3 col-form-label">Nova senha</label>';
+                                						echo ' <div class="col-lg-9 col-xl-6">';
+                                            	        echo ' <input name="senha_nova1" id="senha_nova1" class="form-control" type="password" />';
+                                						echo ' </div>';
+                                						echo ' </div>';
+                                						echo ' <div class="form-group form-group-last row">';
+                                						echo ' <label class="col-xl-3 col-lg-3 col-form-label">Confirme a nova senha</label>';
+                                						echo ' <div class="col-lg-9 col-xl-6">';
+                                                        echo ' <input name="senha_nova2" id="senha_nova2" class="form-control" type="password" />';
+                                						echo ' </div>';
+	                                					echo ' </div>';
+    	                            					echo ' </div>';
+	    	                            				echo ' </div>';
+            	                    					echo ' </div>';
+                	                					echo ' <div class="kt-portlet__foot">';
+	                                					echo ' <div class="kt-form__actions">';
+    	                            					echo ' <div class="row">';
+        	                        					echo ' <div class="col-lg-3 col-xl-3">';
+														echo ' </div>';
+	            	                    				echo ' <div class="col-lg-9 col-xl-9">';
+														echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfoSenha_Funcao" name="gravaInfoSenha_Funcao">';
+														echo ' &nbsp;';
+														echo ' <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>';
+					        			    			echo ' </div>';
+							        	                echo ' </div>';
+                            					    	echo ' </div>';
+                            						    echo ' </div>';
+														echo ' </form>';
+
+															
+																
+															
+													}
+
+														?>
+
+												
 		
 												<!--end: Personal Information-->
 												<div class="tab-pane fade show active" id="infoPreferencias" style="display:none;">
