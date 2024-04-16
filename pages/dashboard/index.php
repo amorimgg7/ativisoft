@@ -96,6 +96,7 @@
                   {
                     echo '<h1>Módulo Geral!</h1>';
                     echo '<h6>Este módulo é dedicado para licença de testes do sistema.</h6>';
+                    include '../../pages/md_caixa/index.php';
 
                     //include '../../pages/md_patrimonio/index.php';
                     //include '../../pages/md_caixa/index.php';

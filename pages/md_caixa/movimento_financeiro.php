@@ -142,7 +142,11 @@ if($_SESSION['dt_caixa'] == "HOJE"){
     
     if($_SESSION['tela_movimento_financeiro'] == "VENDA_SERVICO"){
 
-        $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$_SESSION['servico']."' ORDER BY cd_movimento ASC";
+        if(isset($_SESSION['servico'])){
+            $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$_SESSION['servico']."' ORDER BY cd_movimento ASC";
+        }else if(isset($_SESSION['cd_cliente_comercial'])){
+            $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."' ORDER BY cd_movimento ASC";
+        }
         $result_vpag = mysqli_query($conn, $select_vpag);
         //$row_atividade = mysqli_fetch_assoc($result_atividade);
         
