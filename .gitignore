@@ -1,3 +1,4 @@
 # Arquivos de acesso local: git add -f .\classes\conn.php
 classes/conn.php
+classes/conn_revenda.php
 pages/web/imagens/
