@@ -149,7 +149,7 @@
         echo '</div>';
         echo '</div>';  
       }else{ $_SESSION['dt_caixa'] = FALSE;
-        echo '<div class="col-12 grid-margin stretch-card btn-danger">';//
+        echo '<div class="col-12 grid-margin stretch-card btn-info">';//
         echo '<div class="card" '.$_SESSION['c_card'].'>';
         echo '<div class="card-body">';
 
@@ -158,7 +158,7 @@
         echo '<div class="table-responsive">';
         echo '</div>';
         echo '<form action="../../pages/md_caixa/abertura_caixa.php" method="POST">';
-        echo '<button type="submit" class="btn btn-lg btn-block btn-danger" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Abra já seu caixa</button>';
+        echo '<button type="submit" class="btn btn-lg btn-block btn-outline-info" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Abra já seu caixa</button>';
         echo '</form>';
         echo '</div>';
         echo '</div>';     
