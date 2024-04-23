@@ -7,7 +7,7 @@
             <?php //À FAZER
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-              $sql_cliente_matriz = "SELECT * FROM tb_cliente_comercial where cd_cliente_comercial = cd_matriz_comercial";
+              $sql_cliente_matriz = "SELECT * FROM tb_cliente_comercial where cd_cliente_comercial = cd_matriz_comercial order by dtvalidlicenca_cliente_comercial ASC";
               $resulta_cliente_matriz = $conn->query($sql_cliente_matriz);
               if ($resulta_cliente_matriz->num_rows > 0){
                 $extrapolado = 0;
