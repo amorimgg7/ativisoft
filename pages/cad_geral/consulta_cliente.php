@@ -344,10 +344,7 @@
 
                   // Exibe as informações do usuário no formulário
                   if($row) {
-                    $_SESSION['concd_cliente'] = $row['cd_cliente'];
-                    
-                    
-                    
+                    $_SESSION['concd_cliente'] = $row['cd_cliente']; 
                   }      
                 }
                 
@@ -357,6 +354,7 @@
                   $updatecliente = "UPDATE tb_cliente SET
                   pnome_cliente = '".$_POST['btnpnome_cliente']."',
                   snome_cliente = '".$_POST['btnsnome_cliente']."',
+                  cpf_cliente = '".$_POST['btncpf_cliente']."',
                   tel_cliente = '".$_POST['btntel_cliente']."',
                   email_cliente = '".$_POST['btnemail_cliente']."'
                   WHERE cd_cliente = ".$_POST['btncd_cliente']."";
@@ -386,12 +384,15 @@
                       echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
                       echo '<h3 class="card-title">Dados Pessoais</h3>';
                       echo '<form method="POST">';
+                      echo '<label for="btncd_cliente">CD</label>';
                       //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
-                      echo '<input value="'.$row_cliente['cd_cliente'].'" name="btncd_cliente" type="text" id="btncd_cliente" class="aspNetDisabled form-control form-control-sm" style="display: none;"/>';
+                      echo '<input value="'.$row_cliente['cd_cliente'].'" name="btncd_cliente" type="text" id="btncd_cliente" class="aspNetDisabled form-control form-control-sm" readonly style="display: block;"/>';
                       echo '<label for="btnpnome_cliente">Nome</label>';
                       echo '<input value="'.$row_cliente['pnome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
                       echo '<label for="btnsnome_cliente">sobrenome</label>';
                       echo '<input value="'.$row_cliente['snome_cliente'].'" name="btnsnome_cliente" type="text" id="btnsnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
+                      echo '<label for="btncpf_cliente">CPF</label>';
+                      echo '<input value="'.$row_cliente['cpf_cliente'].'" oninput="cpf(this)" name="btncpf_cliente" type="tel"  id="btncpf_cliente" class="aspNetDisabled form-control form-control-sm"/>';
                       echo '<label for="btntel_cliente">Telefone</label>';
                       echo '<input value="'.$row_cliente['tel_cliente'].'" name="btntel_cliente" type="tel"  id="btntel_cliente" class="aspNetDisabled form-control form-control-sm"/>';
                       echo '<label for="btnemail_cliente">Email</label>';

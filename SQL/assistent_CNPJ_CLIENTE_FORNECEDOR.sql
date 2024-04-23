@@ -30,13 +30,13 @@ CREATE TABLE `rel_user` (
 
 
 INSERT INTO `rel_user` (`token_alter`, `cd_seg`, `cd_colab`, `cd_estilo`, `cd_funcao`, `cd_empresa`, `cd_status`) VALUES
-(1, 1, 1, 1, 5, 1, 1),
+(1, 1, 1, 1, 1, 1, 1),
 (2, 1, 2, 1, 5, 1, 1);
 
 
 
 CREATE TABLE `tb_atividade` (
-  `cd_atividade` int(11) NOT NULL,
+  `cd_atividade` int(11) PRIMARY KEY AUTO_INCREMENT,
   `cd_servico` int(11) DEFAULT NULL,
   `titulo_atividade` varchar(10) DEFAULT NULL,
   `obs_atividade` varchar(1000) DEFAULT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `tb_atividade` (
 
 
 CREATE TABLE `tb_caixa` (
-  `cd_caixa` int(11) NOT NULL,
+  `cd_caixa` int(11) PRIMARY KEY AUTO_INCREMENT,
   `dt_abertura` datetime NOT NULL,
   `dt_fechamento` datetime DEFAULT NULL,
   `cd_colab_abertura` int(11) DEFAULT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE `tb_caixa` (
 
 
 CREATE TABLE `tb_caixa_conferido` (
-  `cd_caixa_conferido` int(11) NOT NULL,
+  `cd_caixa_conferido` int(11) PRIMARY KEY AUTO_INCREMENT,
   `cd_caixa_analitico` int(11) DEFAULT NULL,
   `dt_conferencia` datetime DEFAULT NULL,
   `cd_colab_conferencia` int(11) DEFAULT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE `tb_caixa_conferido` (
 
 
 CREATE TABLE `tb_caixa_dia_fiscal` (
-  `cd_caixa_dia_fiscal` int(11) NOT NULL,
+  `cd_caixa_dia_fiscal` int(11) PRIMARY KEY AUTO_INCREMENT,
   `dt_abertura_dia_fiscal` datetime NOT NULL,
   `dt_fechamento_dia_fiscal` datetime DEFAULT NULL,
   `movimento_analitico_dia_fiscal` decimal(10,2) DEFAULT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE `tb_caixa_dia_fiscal` (
 
 
 CREATE TABLE `tb_cliente` (
-  `cd_cliente` int(11) NOT NULL,
+  `cd_cliente` int(11) PRIMARY KEY AUTO_INCREMENT,
   `pnome_cliente` varchar(40) DEFAULT NULL,
   `snome_cliente` varchar(40) DEFAULT NULL,
   `cpf_cliente` varchar(40) DEFAULT NULL,
@@ -115,10 +115,32 @@ CREATE TABLE `tb_cliente` (
   `senha_cliente` varchar(40) DEFAULT NULL
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+CREATE TABLE `tb_cliente_comercial` (
+  `cd_cliente_comercial` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `cd_matriz_comercial` int(11),
+  `rsocial_cliente_comercial` varchar(40) DEFAULT NULL,
+  `nfantasia_cliente_comercial` varchar(40) DEFAULT NULL,
+  `cnpj_cliente_comercial` varchar(40) DEFAULT NULL,
+  `dtcadastro_cliente_comercial` datetime NOT NULL,
+  `dtvalidlicenca_cliente_comercial` datetime NOT NULL,
+  `obs_cliente_comercial` varchar(40) DEFAULT NULL,
+  `tel_cliente_comercial` varchar(40) DEFAULT NULL,
+  `obs_tel_cliente_comercial` varchar(40) DEFAULT NULL,
+  `email_cliente_comercial` varchar(40) DEFAULT NULL,
+  `fatura_prevista_cliente_fiscal` decimal(10,2) DEFAULT NULL,
+  `fatura_devida_cliente_fiscal` decimal(10,2) DEFAULT NULL,
+  `senha_cliente_comercial` varchar(40) DEFAULT NULL
+)  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+INSERT INTO `tb_cliente_comercial` (`cd_matriz_comercial`, `rsocial_cliente_comercial`, `nfantasia_cliente_comercial`, `cnpj_cliente_comercial`, `dtcadastro_cliente_comercial`, `dtvalidlicenca_cliente_comercial`, `obs_cliente_comercial`, `tel_cliente_comercial`, `obs_tel_cliente_comercial`, `email_cliente_comercial`, `fatura_prevista_cliente_fiscal`, `fatura_devida_cliente_fiscal`, `senha_cliente_comercial`) VALUES
+(1, 'AtiviSoft', 'AtiviSoft', '123', '2024-03-15T00:00', '2024-04-13T00:00', '', '21970071218', '', 'sc46cs@gmail.com', 80.00, 0.00, ''),
+(2, 'OFICINA DA ROUPA', 'OFICINA DA ROUPA', '08057969000100', '2023-08-12T00:00', '2024-05-05T00:00', '', '21992048913', '', 'marcia.oficinadaroupa@gmail.com', 80.00, 0.00, ''),
+(3, 'AMORIMFOR TEC', 'AMORIMFOR TEC', '37719768000120', '2024-01-05T00:00', '2024-04-13T00:00', '', '21965543094', '', 'amorimgg7@gmail.com', 80.00, 0.00, ''),
+(4, 'MARIA DA LUZ GOMES DA SILVA', 'MALUÊ', '34798614000182', '2023-08-20T00:00', '2024-04-13T00:00', '', '21982803278', '', 'malu.atelie.moda.praia@gmail.com', 80.00, 0.00, ''),
+(5, 'SONIA CRISTINA DA CONCEICAO SILVA', 'FESTAS E EVENTOS', '31273120000196', '2024-03-15T00:00', '2024-04-13T00:00', '', '21970071218', '', 'sc46cs@gmail.com', 80.00, 0.00, '');
 
 
 CREATE TABLE `tb_colab` (
-  `cd_colab` int(11) NOT NULL,
+  `cd_colab` int(11) PRIMARY KEY AUTO_INCREMENT,
   `pnome_colab` varchar(40) DEFAULT NULL,
   `snome_colab` varchar(40) DEFAULT NULL,
   `cpf_colab` varchar(40) DEFAULT NULL,
@@ -136,12 +158,11 @@ CREATE TABLE `tb_colab` (
 
 INSERT INTO `tb_colab` (`cd_colab`, `pnome_colab`, `snome_colab`, `cpf_colab`, `dtnasc_colab`, `sexo_colab`, `obs_colab`, `tel_colab`, `obs_tel_colab`, `email_colab`, `foto_colab`, `senha_colab`) VALUES
 (1, 'erp-Nuvemsoft', '', '1', NULL, NULL, NULL, '', NULL, 'suporte@ativisoft.com.br', NULL, 'asd,123'),
-(2, 'Aloisio', 'Gomes', '', '', '', NULL, '5521975836725', NULL, 'reidasinstalacaoe@gmail.com', NULL, '1'),
-(3, 'Marissol', 'Ramalho', '', '', '', NULL, '5521964367149', NULL, 'marissolcriz23@gmail.com', NULL, '1');
+(2, 'Sonia', 'Silva', '', '', '', NULL, '21970071218', NULL, 'sc46cs@gmail.com', NULL, '1');
 
 
 CREATE TABLE `tb_empresa` (
-  `cd_empresa` int(11) NOT NULL,
+  `cd_empresa` int(11) PRIMARY KEY AUTO_INCREMENT,
   `rsocial_empresa` varchar(100) DEFAULT NULL,
   `nfantasia_empresa` varchar(100) DEFAULT NULL,
   `cnpj_empresa` int(100) DEFAULT NULL,
@@ -152,12 +173,12 @@ CREATE TABLE `tb_empresa` (
 
 
 INSERT INTO `tb_empresa` (`cd_empresa`, `rsocial_empresa`, `nfantasia_empresa`, `cnpj_empresa`, `cd_ceo`, `chave_auth`) VALUES
-(1, 'ALOISIO FRANCISCO GOMES', 'ALOISIO FRANCISCO GOMES', 27910715000138, 2, 'AUTH');
+(1, 'SONIA CRISTINA DA CONCEICAO SILVA', 'FESTAS E EVENTOS', 31273120000196, 2, 'AUTH');
 
 
 
 CREATE TABLE `tb_estilo` (
-  `cd_estilo` int(11) NOT NULL,
+  `cd_estilo` int(11) PRIMARY KEY AUTO_INCREMENT,
   `titulo_estilo` varchar(40) DEFAULT NULL,
   `t_sidebar` varchar(200) DEFAULT NULL,
   `c_sidebar` varchar(200) DEFAULT NULL,
@@ -186,7 +207,7 @@ VALUES ('master', 'User Master', '1', '1');
 
 
 CREATE TABLE `tb_servico` (
-  `cd_servico` int(11) PRIMARY KEY,
+  `cd_servico` int(11) PRIMARY KEY AUTO_INCREMENT,
   `cd_cliente` int(11) DEFAULT NULL,
   `titulo_servico` varchar(100) DEFAULT NULL,
   `obs_servico` varchar(1000) DEFAULT NULL,
@@ -213,7 +234,7 @@ CREATE TABLE `tb_filial` (
 
 
 INSERT INTO `tb_filial` (`cd_filial`, `cd_empresa`, `cd_responsavel`, `rsocial_filial`, `nfantasia_filial`, `cnpj_filial`, `endereco_filial`, `saudacoes_filial`) VALUES
-(1, 1, 1, 'ALOISIO FRANCISCO GOMES', 'ALOISIO FRANCISCO GOMES', '27910715000138', 'Rua..., Número, Cidade, RJ horário de - a - das - as - e - de - as -', 'Saudações.');
+(1, 1, 1, 'SONIA CRISTINA DA CONCEICAO SILVA', 'FESTAS E EVENTOS', '31273120000196', 'Rua..., Número, Cidade, RJ(21) 9 7007 1218 horário de - a - das - as - e - de - as -', 'Saudações.');
 
 
 
@@ -231,7 +252,7 @@ CREATE TABLE `tb_funcao` (
 
 
 INSERT INTO `tb_funcao` (`cd_funcao`, `titulo_funcao`, `obs_funcao`, `md_patrimonio`, `md_fponto`, `md_assistencia`, `md_cliente`, `md_fornecedor`, `md_clientefornecedor`) VALUES
-(5, 'Assistente', 'observações', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: block;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"');
+(1, 'Assistente', 'observações', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: block;\"', 'style=\"display: none;\"', 'style=\"display: none;\"', 'style=\"display: none;\"');
 
 
 
@@ -358,27 +379,27 @@ ALTER TABLE `rel_user`
 
 
 ALTER TABLE `tb_atividade`
-  MODIFY `cd_atividade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `cd_atividade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7288;
 
 
 ALTER TABLE `tb_caixa`
-  MODIFY `cd_caixa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `cd_caixa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 
 ALTER TABLE `tb_caixa_conferido`
-  MODIFY `cd_caixa_conferido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `cd_caixa_conferido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
 
 
 ALTER TABLE `tb_caixa_dia_fiscal`
-  MODIFY `cd_caixa_dia_fiscal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `cd_caixa_dia_fiscal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 
 ALTER TABLE `tb_cliente`
-  MODIFY `cd_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `cd_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1521;
 
 
 ALTER TABLE `tb_colab`
-  MODIFY `cd_colab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `cd_colab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 
 ALTER TABLE `tb_empresa`
@@ -398,11 +419,11 @@ ALTER TABLE `tb_funcao`
 
 
 ALTER TABLE `tb_movimento_financeiro`
-  MODIFY `cd_movimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `cd_movimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3227;
 
 
 ALTER TABLE `tb_orcamento_servico`
-  MODIFY `cd_orcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `cd_orcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5837;
 
 
 ALTER TABLE `tb_seguranca`
@@ -410,7 +431,7 @@ ALTER TABLE `tb_seguranca`
 
 
 ALTER TABLE `tb_servico`
-  MODIFY `cd_servico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `cd_servico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2993;
 COMMIT;
 
 

@@ -21,8 +21,12 @@
                     echo '<div class="card" '.$_SESSION['c_card'].'>';
                     echo '<div class="card-body">';
                     echo '<div class="grid-margin stretch-card">';
-                    echo '<h4 style="display: inline-block; margin-left: 10px;">'. $cliente_matriz['rsocial_cliente_comercial'] .' - '. $cliente_matriz['cnpj_cliente_comercial'] .'</h4>';
-                    echo '<i class="btn btn-success" style="margin:auto; display:none;" id="noprazoafaser"></i><i class="btn btn-warning" style="margin:auto; display:none;" id="parahojeafaser"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="extrapoladoafaser"></i>';
+                    echo '<h4 style="display: inline-block; margin-left: 10px;">'. $cliente_matriz['rsocial_cliente_comercial'] .'</br>'. $cliente_matriz['cnpj_cliente_comercial'] .'</h4>';
+                    echo '<div style="position: absolute; right: 10px; text-align: right;">';
+                    echo '<i id="status_cd_cliente_comercial_'.$cliente_matriz['cd_cliente_comercial'].'"></i>';
+                    echo '<i style="margin: auto;" id="statusfinanceiro_cd_cliente_comercial_'.$cliente_matriz['cd_cliente_comercial'].'"></i>';
+                    echo '</div>';
+                    echo '<i class="btn btn-warning" style=" display:none;" id="parahojeafaser"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="extrapoladoafaser"></i>';
                     echo '</div>';
                     echo '<div class="collapse table-responsive" id="cliente_'.$cliente_matriz['cd_cliente_comercial'].'">';
                     echo '<table class="table" '.$_SESSION['c_card'].'>';
@@ -32,8 +36,8 @@
                     echo '<th>Razão Social</th>';
                     echo '<th>Data de Cadastro</th>';
                     echo '<th>Vencimento do Contrato</th>';
-                    echo '<th>À Vencer em</th>';
-                    echo '<th>Financeiro</th>';
+                    //echo '<th>À Vencer em</th>';
+                    //echo '<th>Financeiro</th>';
                     echo '</tr>';
                     echo '</thead>';
                     echo '<tbody>';
@@ -52,18 +56,25 @@
                             $data_fornecida = $cliente_filial['dtvalidlicenca_cliente_comercial'];
                             $diferenca_dias = round((strtotime($data_fornecida) - time()) / (60 * 60 * 24));
                             if($diferenca_dias >= 0){
-                                echo '<td><p>Expira em: '.$diferenca_dias.' dia(s).</p></td>';
+                              //echo '<td><p>Expira em: '.$diferenca_dias.' dia(s).</p></td>';
+                              echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "<td><p>Expira em: '.$diferenca_dias.' dia(s).</p></td>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
+
+                                //echo '<script>document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHtml = "style="display:block;<h1>'.$cliente_filial['cd_cliente_comercial'].'</h1>";</script>';
                             }else{
-                                echo '<td><p class="badge badge-danger">Expirado a: '.-$diferenca_dias.' dia(s).</p></br><p>Tolerância de 10 dias para multa estipulada em contrato</p></td>';
+                              echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "<p class=\"badge badge-danger\">Expirado a: '.-$diferenca_dias.' dia(s).</p><br><p>Tolerância de 10 dias para multa estipulada em contrato</p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
+                              //echo '<td><p class="badge badge-danger">Expirado a: '.-$diferenca_dias.' dia(s).</p></br><p>Tolerância de 10 dias para multa estipulada em contrato</p></td>';
                             }
                             if($diferenca_dias >= 0){
-                                echo '<td><label class="badge badge-success">Prevista: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'</label></td>';
+                              echo '<script>document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "Prevista: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'"; document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
+                              //echo '<td><label class="badge badge-success">Prevista: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'</label></td>';
                             }else if($diferenca_dias < 0 && $diferenca_dias > -10){
-                                echo '<td><label class="badge badge-warning">Prevista: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'</label></td>';
+                              echo '<script>document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "Prevista com atraso: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'"; document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
+                              //echo '<td><label class="badge badge-warning">Prevista: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'</label></td>';
                             }else{
-                                $fatura_prevista = isset($cliente_filial['fatura_prevista_cliente_fiscal']) && is_numeric($cliente_filial['fatura_prevista_cliente_fiscal']) ? $cliente_filial['fatura_prevista_cliente_fiscal'] : 0;
-                                $fatura_devida = isset($cliente_filial['fatura_devida_cliente_fiscal']) && is_numeric($cliente_filial['fatura_devida_cliente_fiscal']) ? $cliente_filial['fatura_devida_cliente_fiscal'] : 0;
-                                echo '<td><label class="badge badge-danger">Vencida: R$:' . ($fatura_prevista - $diferenca_dias) . '</label></td>';
+                              $fatura_prevista = isset($cliente_filial['fatura_prevista_cliente_fiscal']) && is_numeric($cliente_filial['fatura_prevista_cliente_fiscal']) ? $cliente_filial['fatura_prevista_cliente_fiscal'] : 0;
+                              $fatura_devida = isset($cliente_filial['fatura_devida_cliente_fiscal']) && is_numeric($cliente_filial['fatura_devida_cliente_fiscal']) ? $cliente_filial['fatura_devida_cliente_fiscal'] : 0;
+                              echo '<script>document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "Vencida com juros: R$:' . ($fatura_prevista - $diferenca_dias) . '"; document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
+                              //echo '<td><label class="badge badge-danger">Vencida: R$:' . ($fatura_prevista - $diferenca_dias) . '</label></td>';
                             }
                             echo '</tr>';
                         }

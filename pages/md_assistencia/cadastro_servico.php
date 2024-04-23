@@ -85,6 +85,7 @@
                     $_SESSION['os_cliente'] = 0;
                     $_SESSION['os_servico'] = 0;
                     $_SESSION['servico'] = 0;
+                    $_SESSION['cd_cliente_comercial'] = 0;
                     $_SESSION['vtotal_orcamento'] = 0;
                     $_SESSION['vpag_servico'] = 0;
                   
@@ -1072,7 +1073,7 @@
                       echo '</div>';
                       echo '</div>';
                       echo '</div>';
-                      echo '</div>';
+                      echo '</div>'; 
                       
                               
                               

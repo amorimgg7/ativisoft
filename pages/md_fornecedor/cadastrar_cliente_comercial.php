@@ -88,9 +88,8 @@
 
 
                       if(mysqli_query($conn, $update_cliente_comercial)){
-                        echo "<script>window.alert('Sucesso no Insert Into!');</script>";
                       }else{
-                        echo "<script>window.alert('Erro ao Update!');</script>";
+                        echo "<script>window.alert('Erro ao Update da tb_cliente_comercial!');</script>";
                       }
                       
                       //update
@@ -126,13 +125,104 @@
                       }
                     }
                   }
+
+
+                  if(isset($_POST['lancarFatura'])) {
+                              
+                    if($_POST['data_fatura']==false){
+                      $_SESSION['data_fatura'] = $_POST['data_fatura'];
+                      $_SESSION['vcusto_fatura'] = $_POST['vcusto_fatura'];
+                      echo "<script>window.alert('Descreva a Fatura!');</script>"; 
+                    }else if($_POST['vcusto_fatura']==false){
+                      $_SESSION['data_fatura'] = $_POST['data_fatura'];
+                      $_SESSION['vcusto_fatura'] = $_POST['vcusto_fatura'];
+                      echo "<script>window.alert('Insira o Valor da Fatura!');</script>";  
+                    }else{
+                      $_SESSION['data_fatura'] = false;
+                      $_SESSION['vcusto_fatura'] = false;
+                      $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente_comercial, titulo_orcamento, vcusto_orcamento, status_orcamento) VALUES(
+                        '".$_SESSION['cadcd_cliente_comercial']."',
+                        '".$_POST['data_fatura']."',
+                        '".$_POST['vcusto_fatura']."',
+                        '0')
+                      ";
+                      if(!mysqli_query($conn, $insertOrcamento)){
+                        echo "<script>window.alert('Erro ao lançar a fatura na TB_ORCAMENTO_SERVICO!');</script>"; 
+                      }
+                      $fatura = $_POST['vcusto_fatura'] + $_SESSION['falta_pagar_servico'];
+                      $_SESSION['vtotal_servico'] = $_SESSION['vtotal_servico'] + $_POST['vcusto_fatura'];
+                      $updateFaturaClienteComercial = "UPDATE tb_cliente_comercial SET
+                        dtvalidlicenca_cliente_comercial = '".$_POST['data_fatura']."',
+                        fatura_devida_cliente_fiscal = ".$fatura."
+                        WHERE cd_cliente_comercial = ".$_SESSION['cd_cliente_comercial']."";
+                        if(!mysqli_query($conn, $updateFaturaClienteComercial)){
+                          echo "<script>window.alert('Erro ao lançar a fatura na TB_CLIENTE_COMERCIAL!');</script>"; 
+                        }
+                    }            
+                  }
+
+                  if(isset($_POST['pagar_servico'])){//pagar a fatura
+                    $insert_pagar_servico = "INSERT INTO tb_movimento_financeiro(tipo_movimento, cd_caixa_movimento, cd_cliente_comercial, cd_colab_movimento, fpag_movimento, valor_movimento, data_movimento, obs_movimento) VALUES(
+                        1,
+                        '".$_SESSION['cd_caixa']."',
+                        '".$_SESSION['cd_cliente_comercial']."',
+                        '".$_SESSION['cd_colab']."',
+                        '".$_POST['fpag_movimento']."',
+                        '".$_POST['vpag_movimento']."',
+                        '".date('Y-m-d H:i', strtotime('+1 hour'))."',
+                        'PAGAMENTO DA FATURA DO CLIENTE: ".$_SESSION['cd_cliente_comercial']."'
+                         )
+                     ";
+                    mysqli_query($conn, $insert_pagar_servico);
+                    //echo "<script>window.alert('Movimento Financeiro Lançado!');</script>";
+                    
+                    $fechar_caixa = "UPDATE tb_cliente_comercial SET
+                        fatura_devida_cliente_fiscal = '".($_SESSION['fatura_devida_cliente_fiscal'] - $_POST['vpag_movimento'])."'
+                        WHERE cd_cliente_comercial = ".$_SESSION['cd_cliente_comercial']."";
+                        if(!mysqli_query($conn, $fechar_caixa)){
+                          echo "<script>window.alert('Erro ao lançar na tb_cliente_comercial!');</script>";
+                        }
+                        
+                        $_SESSION['vpag_servico'] = $_POST['vpag_movimento'] - $_SESSION['fatura_devida_cliente_fiscal'];
+                        $_SESSION['falta_pagar_servico'] = $_SESSION['vtotal_orcamento'] - $_SESSION['vpag_servico'];
+                        echo  '<script>document.getElementById("btn_falta_pagar_orcamento").value = "'.$_SESSION['fatura_devida_cliente_fiscal'].'";</script>';
+        
+                        if($_SESSION['fatura_devida_cliente_fiscal'] == 0){
+                            echo '<script>document.getElementById("tela_pagamento").style.display = "none";</script>';//tela_pagamento
+                        }
+                        //$_SESSION['cd_servico'] = 0;
+                        //$_SESSION['cd_servico'] = 0;
+                        //$_SESSION['cd_cliente'] = 0;
+                        //echo '<script>location.href="../../index.php";</script>';
+                  }
+
+
+                  if(isset($_POST['listaremover_orcamento'])) {//DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = 198
+                    if(($_SESSION['vtotal_orcamento'] - $_POST['listavalor_orcamento'])>=$_SESSION['vpag_servico']){
+                      //echo "<script>window.alert('OK, pode remover');</script>";
+                      //$vtotal = $_SESSION['falta_pagar_servico'] - $_POST['listavalor_orcamento'];
+                      $removeOrcamento = "DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = ".$_POST['listaid_orcamento']."";
+                      if(!mysqli_query($conn, $removeOrcamento)){
+                        echo "<script>window.alert('Erro ao deletar da tb_orcamento_servico!');</script>";  
+                      }
+                      $fatura = $_SESSION['falta_pagar_servico'] - $_POST['listavalor_orcamento'];
+
+                      $dtvalidlicenca_cliente_comercial = date('Y-m-d', strtotime('-1 month', strtotime($_POST['listatitulo_orcamento'])));
+
+                      $updateVtotalServico = "UPDATE tb_cliente_comercial SET
+                        dtvalidlicenca_cliente_comercial = '".$dtvalidlicenca_cliente_comercial."',
+                        fatura_devida_cliente_fiscal = ".$fatura."
+                        WHERE cd_cliente_comercial = ".$_SESSION['cd_cliente_comercial']."";
+                      if(!mysqli_query($conn, $updateVtotalServico)){
+                        echo "<script>window.alert('erro ao atualizar a tb_cliente_comercial!');</script>";  
+                      }
+                      echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_fornecedor/cadastrar_cliente_comercial.php";</script>';             
+                    }else{
+                      echo "<script>window.alert('O valor pago não pode ser menor que o que o valor devido!');</script>";  
+                    }
+                  }
                 ?>
                 
-
-
-
-                
-
                 <div class="card-body" id="consulta" >
                   <h4 class="card-title">Identifique o cliente</h4>
                   <div class="kt-portlet__body">
@@ -167,7 +257,7 @@
                               <label for="cadnfantasia_cliente_comercial">Nome Fantasia</label>
                               <input name="cadnfantasia_cliente_comercial" type="text" id="cadnfantasia_cliente_comercial" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>
                               <label for="cadcnpj_cliente_comercial">CNPJ</label>
-                              <input name="cadcnpj_cliente_comercial" type="tel" id="cadcnpj_cliente_comercial" maxlength="90" oninput="cnpj(this)" class="aspNetDisabled form-control form-control-sm" readonly/>
+                              <input name="cadcnpj_cliente_comercial" type="tel" id="cadcnpj_cliente_comercial" maxlength="90" oninput="cnpj(this)" class="aspNetDisabled form-control form-control-sm" readonly/>                            
                               <label for="btntel_cliente">Data do Cadastro</label>
                               <input name="caddtcadastro_cliente_comercial" type="date"  id="caddtcadastro_cliente_comercial"  class="aspNetDisabled form-control form-control-sm" readonly/>
                               <label for="btntel_cliente">Data do Vencimento</label>
@@ -184,11 +274,8 @@
                               <input name="cadfatura_prevista_cliente_fiscal" type="tel"  id="cadfatura_prevista_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
                               <label for="btntel_cliente">Fatura Devida</label>
                               <input name="cadfatura_devida_cliente_fiscal" type="tel"  id="cadfatura_devida_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
+                              <td><button type="submit" name="cad_cliente_comercial" id="cad_cliente_comercial" class="btn btn-block btn-outline-success"><i class="icon-cog">Gravar</i></button></td>
                             </div>
-                            <button type="submit" name="cad_cliente_comercial" class="btn btn-block btn-lg btn-success" >Salvar</button>
-                          </form>
-                          <form method="post">
-                            <button type="submit" class="btn btn-block btn-lg btn-danger" name="CancelarCadastro" style="margin: 5px;">Refazer</button>
                           </form>
                         </div>
                       </div>
@@ -207,18 +294,20 @@
                     $row_cliente_comercial = mysqli_fetch_assoc($result_cliente_comercial);
                     // Exibe as informações do usuário no formulário
                     if($row_cliente_comercial) {
-
-                      echo "<script>window.alert('Cliente encontrado!');</script>";
-
+                      //echo "<script>window.alert('Cliente encontrado!');</script>";
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
                       echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
                       $_SESSION['cd_cliente_comercial'] = $row_cliente_comercial['cd_cliente_comercial'];
+                      $_SESSION['fatura_devida_cliente_fiscal'] = $row_cliente_comercial['fatura_devida_cliente_fiscal'];
+                      $_SESSION['servico'] = 0;
+                      $data_fatura_prevista = date('Y-m-d', strtotime('+1 month', strtotime($row_cliente_comercial['dtvalidlicenca_cliente_comercial'])));
                       echo '<script>document.getElementById("cadcd_cliente_comercial").value = "'. $row_cliente_comercial['cd_cliente_comercial'] .'";</script>';
+                      $_SESSION['cadcd_cliente_comercial'] = $row_cliente_comercial['cd_cliente_comercial'];
                       echo '<script>document.getElementById("cadrsocial_cliente_comercial").value = "'. $row_cliente_comercial['rsocial_cliente_comercial'] .'";</script>';
                       echo '<script>document.getElementById("cadnfantasia_cliente_comercial").value = "'. $row_cliente_comercial['nfantasia_cliente_comercial'] .'";</script>';
                       echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. $row_cliente_comercial['cnpj_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "'. $row_cliente_comercial['dtcadastro_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "'. $row_cliente_comercial['dtvalidlicenca_cliente_comercial'] .'";</script>';
+                      echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtcadastro_cliente_comercial'])) . '";</script>';
+                      echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtvalidlicenca_cliente_comercial'])) .'";</script>';
                       echo '<script>document.getElementById("cadobs_cliente_comercial").value = "'. $row_cliente_comercial['obs_cliente_comercial'] .'";</script>';
                       echo '<script>document.getElementById("cadtel_cliente_comercial").value = "'. $row_cliente_comercial['tel_cliente_comercial'] .'";</script>';
                       echo '<script>document.getElementById("cademail_cliente_comercial").value = "'. $row_cliente_comercial['email_cliente_comercial'] .'";</script>';
@@ -237,6 +326,7 @@
                         $result_orcamento = mysqli_query($conn, $select_orcamento);
                         //$row_atividade = mysqli_fetch_assoc($result_atividade);
                         // Exibe as informações do usuário no formulário
+                        
                         echo '<style>';
                         echo '.horizontal-form {';
                         echo 'display: table;';
@@ -251,22 +341,50 @@
                         echo 'padding: 5px;';
                         echo '}';
                         echo '</style>';
+                              
+                        echo '<h3 class="kt-portlet__head-title">Lançar nova Fatura</h3>';
+                        echo '<script>document.getElementById("listaOrcamento").style.display = "block";</script>';
+                        echo '<form method="post">';
+                        echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" style="background-color: #C6C6C6;">';
+                        echo '<div class="horizontal-form">';
+                        echo '<div class="form-group">';
+                        
+                        echo '<label for="data_fatura"></label>';
+                        
+
+                        echo '<input value="'.$data_fatura_prevista.'"type="date" style="width: 20%;" name="data_fatura" id="data_fatura" class="aspNetDisabled form-control form-control-sm">';
+                        echo '<label for="vcusto_fatura"></label>';
+                        echo '<input type="tel" oninput="tel(this)" id="vcusto_fatura" name="vcusto_fatura" class="aspNetDisabled form-control form-control-sm" placeholder="Quanto custa este serviço?">';
+                        
+                        echo '<label for="lancarFatura"></label>';
+                        echo '<button type="submit" name="lancarFatura" id="lancarFatura" class="btn btn-success">Enviar</button>';
+                        
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</form>';
+                        
                         echo '<h3 class="kt-portlet__head-title">Faturas Geradas</h3>';
                         $_SESSION['vtotal_orcamento'] = 0;
                         $_SESSION['vpag_orcamento'] = 0;
                         $count = 0;
                         $vcusto_orcamento = 0;
                         $vpag_orcamento = 0;
+                        $_SESSION['vpag_servico'] = 10;
                         while($row_orcamento = $result_orcamento->fetch_assoc()) {
                           echo '<div name="listaOrcamento" id="listaOrcamento" class="typeahead" '.$_SESSION['c_card'].'>';
+                          echo '<form method="POST">';
                           echo '<div class="horizontal-form">';
                           echo '<div class="form-group">';
                           $count = $count + 1;
                           echo '<input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:none;">';
                           echo '<label for="listatitulo_orcamento">#'.$count.'</label>';
-                          echo '<input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" readonly>';
+                          echo '<input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="date" style="width: 20%;" class="aspNetDisabled form-control form-control-sm" readonly>';
                           echo '<label for="listavalor_orcamento">R$: </label>';
                           echo '<input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
+                          echo '<label for="listaremover_orcamento"></label>';
+                          echo '<input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
+                        
                           $vcusto_orcamento = $vcusto_orcamento + $row_orcamento['vcusto_orcamento'];
                           $vpag_orcamento += $row_orcamento['vpag_orcamento'];
                           $_SESSION['vcusto_orcamento'] = $vcusto_orcamento;
@@ -274,30 +392,35 @@
                           $_SESSION['vpag_servico'] = $vpag_orcamento;
                           echo '</div>';
                           echo '</div>';
+                          echo '</form>';
                           echo '</div>';
-                        }         
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
+                        }
+                        
+                        $select_pagamentos = "SELECT * FROM tb_movimento_financeiro WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."'";
+                        if(!$result_pagamentos = mysqli_query($conn, $select_pagamentos)){
+                          echo "<script>window.alert('Erro ao consultar o movimento financeiro na tb_movimento_financeiro!');</script>"; 
+                        }
+                        while($row_pagamentos = $result_pagamentos->fetch_assoc()) {
+                          $_SESSION['vpag_servico'] = $_SESSION['vpag_servico'] + $row_pagamentos['valor_movimento'];
+                        }
+
+                        $_SESSION['falta_pagar_servico'] = 0;
+                        $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."'";
+                        if(!$result_orcamento = mysqli_query($conn, $select_orcamento)){
+                          echo "<script>window.alert('Erro ao consultar uma fatura na tb_movimento_financeiro!');</script>"; 
+                        }
+                        while($row_orcamento = $result_orcamento->fetch_assoc()) {
+                          $_SESSION['falta_pagar_servico'] = $_SESSION['vpag_servico'] + $row_orcamento['vcusto_orcamento'];
+                        }
+                        //$_SESSION['falta_pagar_servico']
+
+                        ////echo '</div>';
+                        ////echo '</div>';
+                        ////echo '</div>';
                         ////echo '</div>';
                         ////echo '</div>';
                         
-                        if(isset($_POST['listaremover_orcamento'])) {//DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = 198
-                          if(($_SESSION['vtotal_orcamento'] - $_POST['listavalor_orcamento'])>=$_SESSION['vpag_servico']){
-                          //echo "<script>window.alert('OK, pode remover');</script>";
-                          $vtotal = $vtotal - $_POST['listavalor_orcamento'];
-                          $removeOrcamento = "DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = ".$_POST['listaid_orcamento']."";
-                          mysqli_query($conn, $removeOrcamento);
-                                        
-                          $updateVtotalServico = "UPDATE tb_servico SET
-                            orcamento_servico = ".$vtotal."
-                            WHERE cd_servico = ".$_SESSION['os_servico']."";
-                            mysqli_query($conn, $updateVtotalServico);
-                            echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';             
-                          }else{
-                            echo "<script>window.alert('Valor pago não pode ser maior que o total do serviço!');</script>";  
-                          }
-                        }
+                        
                         echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" style="background-color: #C6C6C6; display:none;">';
                         echo '<div class="horizontal-form">';
                         echo '<div class="form-group">';
@@ -306,7 +429,7 @@
                         echo '<label for="cadobs_servico">Total:</label>';
                         echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
                         echo '<label for="cadobs_servico">Falta:</label>';
-                        echo '<input value="'.$_SESSION['falta_pagar_servico'].'" type="tel" name="btn_falta_pagar_orcamento" id="btn_falta_pagar_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                        echo '<input value="'.$_SESSION['fatura_devida_cliente_fiscal'].'" type="tel" name="btn_falta_pagar_orcamento" id="btn_falta_pagar_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
                                       
                         echo '</div>';
                         echo '</div>';
@@ -320,8 +443,8 @@
                         }else{
                           echo '<form method="POST">';
                           echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="totalizador" name="totalizador" style="display: none;">';
-                          echo '<label for="btncd_servico">OS</label>';
-                          echo '<input value="'.$_SESSION['os_servico'].'" type="tel" name="btncd_servico" id="btncd_servico" class="aspNetDisabled form-control form-control-sm">';
+                          echo '<label for="btncd_servico">CD_CLIENTE_COMERCIAL</label>';
+                          echo '<input value="'.$_SESSION['cd_cliente_comercial'].'" type="tel" name="btncd_cliente_comercial" id="btncd_cliente_comercial" class="aspNetDisabled form-control form-control-sm">';
                           echo '</div>';
                           echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" style="background-color: #C6C6C6;">';
                           echo '<div class="horizontal-form">';
@@ -330,28 +453,32 @@
                             echo '<label for="cadobs_servico">Total Pago:</label>';
                             echo '<input value="'.$vpag_orcamento.'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
                           }else{
-                            $_SESSION['falta_pagar_servico'] = $vcusto_orcamento - $vpag_orcamento;
+                            $_SESSION['falta_pagar_servico'] = $vcusto_orcamento - $_SESSION['vpag_servico'];
                             echo '<label for="cadobs_servico">Total:</label>';
                             echo '<input value="'.$vcusto_orcamento.'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
                             echo '<label for="cadobs_servico">Pago:</label>';
-                            echo '<input value="'.$vpag_orcamento.'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                            echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
                             echo '<label for="cadobs_servico">Falta:</label>';
                             echo '<input value="'.$_SESSION['falta_pagar_servico'].'" type="tel" name="btn_falta_pagar_orcamento" id="btn_falta_pagar_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
                             //echo '<label for="lancarPagamento"></label>';
                             //echo '<input type="submit" name="lancarPagamento" id="lancarPagamento" class="btn btn-success"">';
                           }
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</div>';
+
                         }          
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
+                        
                         echo '</form>';           
                         $_SESSION['tela_movimento_financeiro'] = "VENDA_SERVICO";
+
                         echo '<div class="col-12 grid-margin stretch-card btn-success">';//
                         echo '<div class="card">';
-                        include("../md_caixa/movimento_financeiro.php");
-                                      
+                        include("../md_caixa/movimento_financeiro.php");         
                         echo '</div>';
                         echo '</div>';
+
                         echo '<form action="impresso.php" method="POST" target="_blank">';
                         echo '<div class="card-body" id="formBtn"><!--FORMULÁRIO DOS BOTOES-->';
                         echo '<div class="kt-portlet__body">';
@@ -420,7 +547,13 @@
                 
                                     
                                   
-                      }                   
+                      }
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+
                     }else{
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
                       echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
@@ -435,78 +568,9 @@
                 
 
 
-                <?php
-                if(isset($_POST['lancar1'])) { //CADASTRAR SERVICO E CHAMAR SERVICO CADASTRADO CADASTRADOS
-                    //include("../../partials/load.html");
-                    // Atualiza as informações do usuário no banco de dados
-                    $insert_servico = "INSERT INTO tb_servico(cd_cliente, titulo_servico, obs_servico, prioridade_servico, entrada_servico, prazo_servico, orcamento_servico, vpag_servico, status_servico) VALUES(
-                      '".$_POST['os_cliente']."',
-                      '".$_POST['titulo_servico']."',
-                      '".$_POST['obs_servico']."',
-                      '".$_POST['prioridade_servico']."',
-                      '".$_POST['data_hora_ponto']."',
-                      '".$_POST['prazo_servico']."',
-                      '".$_POST['orcamento_servico']."',
-                      '".$_POST['vpag_servico']."',
-                      '0')
-                    ";
-                    mysqli_query($conn, $insert_servico);
-                    echo "<script>window.alert('Ordem de Serviço criada com sucesso!');</script>";
-                    //echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
-                    $select_servico = "SELECT * FROM tb_servico WHERE cd_cliente = '".$_POST['os_cliente']."' AND status_servico = 0 ORDER BY cd_servico DESC LIMIT 1";
-                    $result = mysqli_query($conn, $select_servico);
-                    $row = mysqli_fetch_assoc($result);
-                    // Exibe as informações do usuário no formulário
-                    if($row) {
-                        echo "<script>window.alert('OS: ".$row['cd_servico']." Prioridade: ".$row['prioridade_servico'].", cadastrado com sucesso!');</script>";
-                      
-                        $_SESSION['os_servico'] = $row['cd_servico'];
-                      
-                        $_SESSION['titulo_servico'] = $row['titulo_servico'];
-                        $_SESSION['obs_cliente'] = $row['obs_cliente'];
-                        $_SESSION['prioridade_cliente'] = $row['prioridade_cliente'];
-                        $_SESSION['prazo_servico'] = $row['prazo_servico'];
-                        $_SESSION['orcamento_servico'] = $row['orcamento_servico'];
-                        $_SESSION['vpag_servico'] = $row['vpag_servico'];
-
-                        $query3 = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
-                            '".$row['cd_servico']."',
-                            'A',
-                            '".$row['obs_servico']."',
-                            '".$_SESSION['cd_colab']."',
-                            '".$_POST['data_hora_ponto']."',
-                            '".$_POST['data_hora_ponto']."')
-                        ";
-                        mysqli_query($conn, $query3);
-                        echo "<script>window.alert('Atividade Lançada!');</script>";           
-
-                        $_SESSION['tel_cliente'] = $row['tel_cliente'];
-                        header("Location: ".$_SERVER['REQUEST_URI']); // Redireciona para a mesma página
-                        
-                    }
-                    
-                }
-                  
-                  
-                if(isset($_POST['pagar_servico'])){
-                  $insert_pagar_servico = "INSERT INTO tb_movimento_financeiro(tipo_movimento, cd_caixa_movimento, cd_cliente_comercial, cd_colab_movimento, fpag_movimento, valor_movimento, data_movimento, obs_movimento) VALUES(
-                    1,
-                    '".$_SESSION['cd_caixa']."',
-                    '".$_SESSION['cd_cliente_comercial']."',
-                    '".$_SESSION['cd_colab']."',
-                    '".$_POST['fpag_movimento']."',
-                    '".$_POST['vpag_movimento']."',
-                    '".date('Y-m-d H:i', strtotime('+1 hour'))."',
-                    'PAGAMENTO DA MENSALIDADE REFERENTE A ".date('mm/yyyy')."'
-                    )
-                  ";
-                  mysqli_query($conn, $insert_pagar_servico);
-                  //echo "<script>window.alert('Movimento Financeiro Lançado!');</script>";
-                }
-        
-                ?>
                 
-              </div>
+                
+              
 
                 
 

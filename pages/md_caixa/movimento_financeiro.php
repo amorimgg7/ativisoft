@@ -142,9 +142,9 @@ if($_SESSION['dt_caixa'] == "HOJE"){
     
     if($_SESSION['tela_movimento_financeiro'] == "VENDA_SERVICO"){
 
-        if(isset($_SESSION['servico'])){
+        if($_SESSION['servico'] > 0){
             $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$_SESSION['servico']."' ORDER BY cd_movimento ASC";
-        }else if(isset($_SESSION['cd_cliente_comercial'])){
+        }else if($_SESSION['cd_cliente_comercial'] > 0){
             $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."' ORDER BY cd_movimento ASC";
         }
         $result_vpag = mysqli_query($conn, $select_vpag);
@@ -168,6 +168,8 @@ if($_SESSION['dt_caixa'] == "HOJE"){
         echo '';
         $count = 0;
         echo '<h4 class="card-title" style="text-align: center;">Histórico de Pagamento</h4>';
+        //echo '<h4 class="card-title" style="text-align: center;">'.$_SESSION['servico'].'</h4>';
+        //echo '<h4 class="card-title" style="text-align: center;">'.$_SESSION['cd_cliente_comercial'].'</h4>';
         while($row_vpag = $result_vpag->fetch_assoc()) {
             echo '<div class="typeahead" style="background-color: #C6C6C6;">';
             echo '<div class="horizontal-form">';
@@ -299,7 +301,11 @@ if($_SESSION['dt_caixa'] == "ONTEM"){
     
     if($_SESSION['tela_movimento_financeiro'] == "VENDA_SERVICO"){
 
-        $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$_SESSION['servico']."' ORDER BY cd_movimento ASC";
+        if($_SESSION['servico'] > 0){
+            $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$_SESSION['servico']."' ORDER BY cd_movimento ASC";
+        }else if($_SESSION['cd_cliente_comercial'] > 0){
+            $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."' ORDER BY cd_movimento ASC";
+        }
         $result_vpag = mysqli_query($conn, $select_vpag);
         //$row_atividade = mysqli_fetch_assoc($result_atividade);
         
@@ -321,6 +327,10 @@ if($_SESSION['dt_caixa'] == "ONTEM"){
         echo '';
         $count = 0;
         echo '<h4 class="card-title" style="text-align: center;">Histórico de Pagamento</h4>';
+        
+        //echo '<h4 class="card-title" style="text-align: center;">'.$_SESSION['servico'].'</h4>';
+        //echo '<h4 class="card-title" style="text-align: center;">'.$_SESSION['cd_cliente_comercial'].'</h4>';
+
         echo '<div class="card-body">';
         echo '<h1 class="card-title" style="text-align: center;">O Caixa de ontem está aberto</h1>';
         echo '<p class="card-title">Realize o correto fechamento do seu caixa de ontem e abra novamente, só assim poderá registrar movimentos financeiros</p>';
@@ -463,12 +473,12 @@ if($_SESSION['dt_caixa'] == "ANTERIOR"){
 
 
     if($_SESSION['tela_movimento_financeiro'] == "VENDA_SERVICO"){
-
-        $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$_SESSION['servico']."' ORDER BY cd_movimento ASC";
+        if($_SESSION['servico'] > 0){
+            $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$_SESSION['servico']."' ORDER BY cd_movimento ASC";
+        }else if($_SESSION['cd_cliente_comercial'] > 0){
+            $select_vpag = "SELECT * FROM tb_movimento_financeiro WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."' ORDER BY cd_movimento ASC";
+        }
         $result_vpag = mysqli_query($conn, $select_vpag);
-        //$row_atividade = mysqli_fetch_assoc($result_atividade);
-        
-        // Exibe as informações do usuário no formulário
         echo '<style>';
         echo '.horizontal-form {';
         echo 'display: table;';
@@ -486,6 +496,10 @@ if($_SESSION['dt_caixa'] == "ANTERIOR"){
         echo '';
         $count = 0;
         echo '<h4 class="card-title" style="text-align: center;">Histórico de Pagamento</h4>';
+        
+        //echo '<h4 class="card-title" style="text-align: center;">'.$_SESSION['servico'].'</h4>';
+        //echo '<h4 class="card-title" style="text-align: center;">'.$_SESSION['cd_cliente_comercial'].'</h4>';
+
         while($row_vpag = $result_vpag->fetch_assoc()) {
             echo '<div class="typeahead" style="background-color: #C6C6C6;">';
             echo '<div class="horizontal-form">';

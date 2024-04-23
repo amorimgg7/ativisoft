@@ -92,10 +92,7 @@
             <div class="col-xl-3 flex-column d-flex grid-margin stretch-card">
               <div class="row flex-grow">
                 <?php                   
-                    echo '<h1>Revendedor!</h1>';
-                    echo '<h6>Destinado ao Revendedor de software. </h6>';
                     include '../../pages/md_fornecedor/index.php';
-
                 ?>
               </div>
             </div>

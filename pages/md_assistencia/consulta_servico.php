@@ -89,7 +89,7 @@
                     $_SESSION['cd_cliente'] = $row_servico['cd_cliente'];
                     $_SESSION['servico'] = $row_servico['cd_servico'];
                     $_SESSION['cd_servico'] = $row_servico['cd_servico'];
-                    $_SESSION['servico'] = $row_servico['cd_servico'];
+                    
                     $_SESSION['titulo_servico'] = $row_servico['titulo_servico'];
                     $_SESSION['obs_con_servico'] = $row_servico['obs_servico'];
                     $_SESSION['prioridade_servico'] = $row_servico['prioridade_servico'];
@@ -162,7 +162,7 @@
 
 
                       $_SESSION['servico'] = $_SESSION['cd_servico'];
-
+                      $_SESSION['cd_cliente_comercial'] = 0;
 
                     echo '<script>document.getElementById("consulta").style.display = "none";</script>';
                   

@@ -96,7 +96,7 @@
                   {
                     
                     include '../../pages/auto_pagamento/index.php';
-                    //include '../../pages/md_caixa/index.php';
+                    include '../../pages/md_caixa/index.php';
 
                     //include '../../pages/md_patrimonio/index.php';
                     //include '../../pages/md_caixa/index.php';

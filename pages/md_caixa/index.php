@@ -4,6 +4,7 @@
   //$dia_hoje = date('Y-m-d H:i', strtotime('+1 hour'));
 
   
+  //echo '<h1>'.$dia_hoje = date('Y-m-d H:i').'</h1>';
   
 
   
