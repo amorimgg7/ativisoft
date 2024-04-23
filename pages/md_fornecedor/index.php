@@ -21,9 +21,9 @@
                     echo '<div class="card" '.$_SESSION['c_card'].'>';
                     echo '<div class="card-body">';
                     echo '<div class="grid-margin stretch-card">';
-                    echo '<h4 style="display: inline-block; margin-left: 10px;">'. $cliente_matriz['rsocial_cliente_comercial'] .'</br>'. $cliente_matriz['cnpj_cliente_comercial'] .'</h4>';
+                    echo '<h6 style="display: inline-block; margin-left: 10px;">'. $cliente_matriz['rsocial_cliente_comercial'] .'</br>'. $cliente_matriz['cnpj_cliente_comercial'] .'</h6>';
                     echo '<div style="position: absolute; right: 10px; text-align: right;">';
-                    echo '<i id="status_cd_cliente_comercial_'.$cliente_matriz['cd_cliente_comercial'].'"></i>';
+                    echo '</br></br><i id="status_cd_cliente_comercial_'.$cliente_matriz['cd_cliente_comercial'].'"></i>';
                     echo '<i style="margin: auto;" id="statusfinanceiro_cd_cliente_comercial_'.$cliente_matriz['cd_cliente_comercial'].'"></i>';
                     echo '</div>';
                     echo '<i class="btn btn-warning" style=" display:none;" id="parahojeafaser"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="extrapoladoafaser"></i>';
