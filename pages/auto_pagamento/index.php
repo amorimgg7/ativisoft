@@ -63,17 +63,29 @@
             echo '<div class="col-lg-12 grid-margin stretch-card btn-danger">';//
             echo '<div class="card" '.$_SESSION['c_card'].'>';
             echo '<div class="card-body">';
-            echo '<h6 class="card-title">Licenciamento vencido a '.-$diferenca_dias.' dia(s)</h6>';
+            
             echo '<div class="table-responsive">';
             echo '<table class="table">';
-            echo '<thead>';      
-            echo '</tr>';
+            echo '<thead>';
+            echo '<th>';
+            echo '<h6 class="card-title">Licenciamento vencido a '.-$diferenca_dias.' dia(s)</h6>';     
+            echo '<h6 class="card-title">Tolerância de 10 dias para multa prevista em contrato</h6>';
+            echo '<label class="badge badge-danger">Parcela prevista R$:' . ($cliente_matriz['fatura_prevista_cliente_fiscal'] + (-$diferenca_dias)) . '</label>';
+            echo '</th>';
+            echo '<th><form method="POST" action="'.$_SESSION['dominio'].'pages/auto_pagamento/payment.php">';
+            echo '<input type="text" style="display: none;" readonly id="cd_cliente_comercial_pagamento" name="cd_cliente_comercial_pagamento" value="'.$_SESSION['cd_empresa'].'">';
+            echo '<input type="text" style="display: none;" readonly id="cnpj_cliente_comercial_pagamento" name="cnpj_cliente_comercial_pagamento" value="'.$_SESSION['cnpj_empresa'].'">';
+            echo '<input type="text" style="display: none;" readonly id="valor_pagamento" name="valor_pagamento" value="'.$cliente_matriz['fatura_prevista_cliente_fiscal'].'">';
+            echo '<button type="submit" class="btn btn-danger" name="pagar_pagamento" id="pagar_pagamento">Renovar Licenciamento</button>';
+
+            echo '';
+            echo '</form></th>';
+            
             echo '</thead>';
             echo '<tbody>';
+            
             echo '</tbody>';
             echo '</table>';
-            echo '<h6 class="card-title">Tolerância de 10 dias para multa prevista em contrato</h6>';
-            echo '<td><label class="badge badge-danger">Parcela prevista R$:' . ($cliente_matriz['fatura_prevista_cliente_fiscal'] + (-$diferenca_dias)) . '</label></td>';
             echo '</div>';
             echo '</div>';
             echo '</div>';

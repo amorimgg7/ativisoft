@@ -101,13 +101,13 @@
         echo '</div>';
         echo '</div>';  
     }else{
-      $select_caixa_hoje = "SELECT * FROM tb_caixa WHERE status_caixa = 0 AND cd_colab_abertura = '".$_SESSION['cd_colab']."' AND DATE(dt_abertura) = '".$dia_hoje."'";
-      //echo '<h3>'.$dia_hoje.'</h3>';
-
-      //insert into tb_caixa(dt_abertura, cd_colab_abertura, saldo_abertura, status_caixa) VALUES('2023-08-12T13:00','1','15','0')
+      if($_SESSION['cd_colab'] == 1){
+        $select_caixa_hoje = "SELECT * FROM tb_caixa WHERE status_caixa = 0 AND DATE(dt_abertura) = '".$dia_hoje."'";
+      }else{
+        $select_caixa_hoje = "SELECT * FROM tb_caixa WHERE status_caixa = 0 AND cd_colab_abertura = '".$_SESSION['cd_colab']."' AND DATE(dt_abertura) = '".$dia_hoje."'";
+      }
       $resulta_caixa_hoje = $conn->query($select_caixa_hoje);
       if ($resulta_caixa_hoje->num_rows > 0){ $_SESSION['dt_caixa'] = "HOJE";
-        //echo '<div class="col-lg-6 grid-margin stretch-card" style="background-color: #FF0000;">';//dia anterior aberto
         echo '<div class="col-12 grid-margin stretch-card btn-success" '.$_SESSION['c_card'].'>';//
         echo '<div class="card" '.$_SESSION['c_card'].'>';
         echo '<div class="card-body" '.$_SESSION['c_card'].'>';
