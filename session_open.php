@@ -51,6 +51,7 @@
     echo '<h4>Dados da Filial</h4>';
     echo '<p>nfantasia_filial: '.$_SESSION['nfantasia_filial'].'</p>';
     echo '<p>cnpj_filial: '.$_SESSION['cnpj_filial'].'</p>';
+    echo '<p>email_filial: '.$_SESSION['email_filial'].'</p>';
     echo '<p>endereco_filial: '.$_SESSION['endereco_filial'].'</p>';
     echo '<p>saudacoes_filial: '.$_SESSION['saudacoes_filial'].'</p>';
   ?>
