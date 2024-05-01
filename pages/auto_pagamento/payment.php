@@ -13,11 +13,11 @@ require_once '../../classes/conn.php';
 <html lang="pt-br">
 
 <head>
-  
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
 
   <!-- Required meta tags --> 
   <meta charset="utf-8">
-  <meta http-equiv='refresh' content='30'>
+  
   <!--<meta http-equiv="refresh" content="5;url=../samples/lock-screen.php">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -76,121 +76,163 @@ require_once '../../classes/conn.php';
             $_SESSION['email_fatura'] = $cliente_matriz['email_cliente_comercial'];
             $_SESSION['valor_fatura'] = $cliente_matriz['fatura_prevista_cliente_fiscal'];
             $data_fornecida = $cliente_matriz['dtvalidlicenca_cliente_comercial'];
-            $diferenca_dias = round((strtotime($data_fornecida) - strtotime($dia_hoje)) / (60 * 60 * 24));
-            $_SESSION['fatura_prevista'] = $_SESSION['valor_fatura'] + (-$diferenca_dias);
+            $diferenca_dias = round((strtotime($data_fornecida) - strtotime($dia_hoje)) / (60 * 60 * 24), 2);
+            //$diferenca_dias = number_format(floatval($diferenca_dias), 2);
+            $_SESSION['fatura_prevista'] = number_format(floatval($_SESSION['valor_fatura'] + (-$diferenca_dias)), 2);
         }
     }
 
-    $chaveMP = "TEST-767dfaf0-1461-48ee-9b84-17cc1c784b45";
+    include 'tratar_payment.php';
+
 ?>
-    <h2><?php echo 'R$: '.$_SESSION['valor_fatura']. ' + R$: '. number_format(floatval(-$diferenca_dias), 2);?></h4>
+<!--
+    <h2><?php //echo 'R$: '.$_SESSION['valor_fatura']. ' + R$: '. number_format(floatval(-$diferenca_dias), 2);?></h4>
     <h4>Multa de R$: 1,00 por dia</h4>
-    <h1>Valor a Pagar: R$: <?php echo number_format(floatval($_SESSION['fatura_prevista']), 2);?></h1>
+    <h1>Valor a Pagar: R$: <?php //echo $_SESSION['fatura_prevista'];?></h1>
+  -->
+
+  
+  
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+                
+        <div class="card-body">
+          <div class="grid-margin stretch-card">
+            <h4>Dados de Pagamento</h4>
+          </div>
+          <div class="table-responsive">
+                
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Forma de Pagamento</th>
+                  <th>Nome</th>
+                  <th>CNPJ</th>
+                  <th>Email</th>
+                  <th>Valor</th>
+                  <th>Multa</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><!---->
+                  <form method="POST">
+                    <?php //gerencianet/examples/pix/cob/pixCreateImmediateCharge.php
+                      echo '<td><button type="submit" class="btn btn-danger" name="tratar_pix" id="tratar_pix">PIX</button></td>';
+                      echo '<button type="button" name="button" class="btn btn-info" onclick="modalPix();" >Pagar com pix</button>';
+                      echo '<td>'.$_SESSION['rsocial_fatura'].'<input style="display:none;" type="text" id="nome" name="nome" value="'.$_SESSION['rsocial_fatura'].'" readonly></td>';
+                      echo '<td>'.$_SESSION['cnpj_fatura'].'<input style="display:none;" type="text" id="cnpj" name="cnpj" value="'.$_SESSION['cnpj_fatura'].'" readonly></td>';
+                      echo '<td>'.$_SESSION['email_fatura'].'<input style="display:none;" type="text" value="'.$_SESSION['email_fatura'].'" readonly></td>';
+                      echo '<td>R$: '.$_SESSION['valor_fatura'].'<input style="display:none;" type="text" id="licenca" name="licenca" value="'.$_SESSION['valor_fatura'].'" readonly></td>';
+                      echo '<td>R$: '.number_format(floatval(-$diferenca_dias), 2).'<input style="display:none;" type="text" id="multa" name="multa" value="'.-$diferenca_dias.'" readonly></td>';
+                      echo '<td>R$: '.$_SESSION['fatura_prevista'].'<input style="display:none;" type="text" id="valor" name="valor" value="'.$_SESSION['fatura_prevista'].'" readonly></td>';
+                    ?>
+                  </form>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <?php
+  if(isset($_POST['tratar_pix'])){
     
+    echo '<div class="col-lg-12 grid-margin stretch-card">';
+    echo '<div class="card">';
+                
+    echo '<div class="card-body">';
+    echo '<div class="grid-margin stretch-card">';
+    echo '<h4>PIX</h4>';
+    echo '</div>';
+    echo '<div class="table-responsive">';
+                
+    echo '<table class="table">';
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th>QR</th>';
+    echo '<th>Copia & Cola</th>';
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+    echo '<tr><!---->';
+   //gerencianet/examples/pix/cob/pixCreateImmediateCharge.php
+   include 'gerencianet/examples/pix/cob/pixCreateImmediateCharge.php';
+    
+    echo '</tr>';
+    echo '</tbody>';
+    echo '</table>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '<div class="modal fade" role="dialog" aria-labelledby="exampleModalLabel">';
+    echo '<div class="modal-dialog" role="document">';
+    echo '  <div class="modal-content">';
+    echo '    <div class="modal-header">';
+    echo '      <h5 class="modal-title" id="exampleModalLabel">Pagamento com pix</h5>';
+    echo '      <button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+    echo '        <span>&times;</span>';
+    echo '      </button>';
+    echo '    </div>';
+    echo '    <div class="modal-body text-center">';
+    echo '      <!--<img id="load" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="">-->';
+    include 'gerencianet/examples/pix/cob/pixCreateImmediateCharge.php';
 
-<div id="paymentBrick_container">
-    <!-- Seu conteúdo de pagamento aqui -->
-</div>
+    echo '      <div class="row" id="dix-pix" style="display:block;" >';
+    echo '        <div class="col-md-12">';
+    echo '          <img src="" id="img-pix" width="100%" alt="">';
+    echo '        </div>';
+    echo '        <div class="col-md-12">';
+    echo '          <textarea name="code-pix" class="form-control" id="code-pix" rows="8" cols="80"></textarea>';
+    echo '        </div>';
+    echo '      </div>';
 
-        <div id="qrCodeContainer"></div>
+    echo '    </div>';
+    echo '    <div class="modal-footer">';
+    echo '      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>';
+    echo '    </div>';
+    echo '  </div>';
+    echo '</div>';
+    echo '</div>';
+  }
+  
+  ?>
+  
+  <div class="modal fade" id="modalPix" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pagamento com pix</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="load" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="">
 
-  <script>
-    // Substitua por sua chave de teste do Mercado Pago
-    const mp = new MercadoPago('<?php echo $chaveMP; ?>', {
-      locale: 'pt'
-    });
+          <div class="row" id="dix-pix" style="display:none;" >
+            <div class="col-md-12">
+              <img src="" id="img-pix" width="100%" alt="">
+            </div>
+            <div class="col-md-12">
+              <textarea name="code-pix" class="form-control" id="code-pix" rows="8" cols="80"></textarea>
+            </div>
+          </div>
 
-    const bricksBuilder = mp.bricks();
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="modalPix(false);" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>
 
-    async function renderPaymentBrick(bricksBuilder) {
-      const settings = {
-        initialization: {
-          amount: <?php echo $_SESSION['fatura_prevista'];?>, // Valor total a pagar
-          preferenceId: 250, // ID da preferência (obtida no seu servidor)
-          payer: {
-            firstName: "<?php echo $_SESSION['rsocial_fatura'];?>", // Nome do pagador (opcional)
-            lastName: "<?php echo $_SESSION['nfantasia_fatura'];?>", // Sobrenome do pagador (opcional)
-            email: "<?php echo $_SESSION['email_fatura'];?>" // Email do pagador (opcional)
-          }
-        },
-        customization: {
-          visual: {
-            style: {
-              theme: "bootstrap",
-            },
-          },
-          paymentMethods: {
-            atm: "all",
-										wallet_purchase: "all",
-										bankTransfer: "all",
-            maxInstallments: 1
-          },
-        },
-        callbacks: {
-          onReady: () => {
-            // Callback quando o brick estiver pronto
-            console.log('Brick do Mercado Pago pronto!');
-          },
-          onSubmit: ({ selectedPaymentMethod, formData }) => {
-            // Callback quando o usuário envia os dados de pagamento
-            return fetch('/process_payment', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                selectedPaymentMethod,
-                formData
-              })
-            })
-            .then(response => response.json())
-            .then(response => {
-              if (response.status === 'success') {
-                console.log('Pagamento realizado com sucesso!');
-
-                // Gere o QR Code com a preferenceId da resposta do servidor
-                const preferenceId = response.preferenceId;
-                generateQRCode(preferenceId);
-              } else {
-                console.error('Erro no processamento do pagamento:', response.message);
-                // Exiba uma mensagem de erro para o usuário.
-              }
-            })
-            .catch(error => {
-              console.error('Erro na comunicação com o servidor:', error);
-              // Exiba uma mensagem de erro para o usuário.
-            });
-          },
-          onError: (error) => {
-            // Callback para erros do brick
-            console.error('Erro no brick do Mercado Pago:', error);
-          }
-        }
-      };
-
-      const paymentBrickController = await bricksBuilder.create("payment", "paymentBrick_container", settings);
-    }
-
-    async function generateQRCode(preferenceId) {
-      try {
-        const qrCodeResponse = await mp.qrCodes.create({
-          preferenceId: preferenceId
-        });
-
-        const qrCodeURL = qrCodeResponse.qrCode;
-        console.log('QR Code gerado:', qrCodeURL);
-
-        const qrCodeContainer = document.getElementById('qrCodeContainer');
-        if (qrCodeContainer) {
-          qrCodeContainer.innerHTML = `<img src="${qrCodeURL}" alt="QR Code do Mercado Pago">`;
-        }
-      } catch (error) {
-        console.error('Erro ao gerar QR Code:', error);
-      }
-    }
-
-    renderPaymentBrick(bricksBuilder);
-  </script>
 
 <table>
 <th>
