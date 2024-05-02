@@ -168,35 +168,7 @@ require_once '../../classes/conn.php';
     echo '</div>';
     echo '</div>';
     echo '</div>';
-    echo '<div class="modal fade" role="dialog" aria-labelledby="exampleModalLabel">';
-    echo '<div class="modal-dialog" role="document">';
-    echo '  <div class="modal-content">';
-    echo '    <div class="modal-header">';
-    echo '      <h5 class="modal-title" id="exampleModalLabel">Pagamento com pix</h5>';
-    echo '      <button type="button" class="close" data-dismiss="modal" aria-label="Close">';
-    echo '        <span>&times;</span>';
-    echo '      </button>';
-    echo '    </div>';
-    echo '    <div class="modal-body text-center">';
-    echo '      <!--<img id="load" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="">-->';
-    include 'gerencianet/examples/pix/cob/pixCreateImmediateCharge.php';
-
-    echo '      <div class="row" id="dix-pix" style="display:block;" >';
-    echo '        <div class="col-md-12">';
-    echo '          <img src="" id="img-pix" width="100%" alt="">';
-    echo '        </div>';
-    echo '        <div class="col-md-12">';
-    echo '          <textarea name="code-pix" class="form-control" id="code-pix" rows="8" cols="80"></textarea>';
-    echo '        </div>';
-    echo '      </div>';
-
-    echo '    </div>';
-    echo '    <div class="modal-footer">';
-    echo '      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>';
-    echo '    </div>';
-    echo '  </div>';
-    echo '</div>';
-    echo '</div>';
+    
   }
   
   ?>
@@ -234,44 +206,6 @@ require_once '../../classes/conn.php';
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>
 
 
-<table>
-<th>
-    <?php
-        //echo '<h1>Opção 1</h1><h2>Copiar Conteúdo '.$_POST['valor_pagamento'].'</h2>';
-    ?>
-    <!--
-    <textarea id="link1" rows="5" cols="50">00020101021126580014br.gov.bcb.pix01366f253057-2713-4a14-8076-7c8bdab319f7520400005303986540580.005802BR5920GABRIEL GOMES AMORIM6009SAO PAULO622905251HW9BJC9HWVN0HTT6CQDPC1SC6304D2C3</textarea><br>
-
-    <button onclick="copiarTexto1()">Copiar</button>
--->
-    <script>
-        function copiarTexto1() {
-            var textarea = document.getElementById("link1");
-            textarea.select();
-            document.execCommand("copy");
-            alert("Conteúdo copiado para a área de transferência!");
-        }
-    </script>
-</th>
-<th>
-    <!--
-    <?php
-        //echo '<h1>Opção 2</h1><h2>Copiar Conteúdo '.$_POST['valor_pagamento'].'</h2>';
-    ?>
-    <textarea id="link2" rows="5" cols="50">00020101021126580014br.gov.bcb.pix01366f253057-2713-4a14-8076-7c8bdab319f7520400005303986540580.005802BR5920GABRIEL GOMES AMORIM6009SAO PAULO622905251HW9BMVAVD941FJY580TA9XM16304A243</textarea><br>
-    <button onclick="copiarTexto2()">copiar</button>
-    -->
-    <script>
-        function copiarTexto2() {
-            var textarea = document.getElementById("link2");
-            textarea.select();
-            document.execCommand("copy");
-            alert("Conteúdo copiado para a área de transferência!");
-        }
-    </script>
-</th>
-
-</table>
 </div>
 
         <!-- content-wrapper ends -->

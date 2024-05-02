@@ -72,8 +72,9 @@ try {
 			echo "<td><img style='width:200px; height:200px; border-radius: 0; ' src='" . $qrcode["imagemQrcode"] . "' /></td>";
 			//echo "<td style='border-radius: 0;'><a style='border-radius: 0;' href='" . $qrcode["imagemQrcode"] . "' target='_blank'><img style='width:200px; height:200px border-radius: 0; 'src='" . $qrcode["imagemQrcode"] . "' /></a></td>";
 
-			echo "<td><button onclick='copiarTexto1()'>Copiar</button>";
-    		echo "<textarea id='link1' rows='5' cols='50'>".json_encode($qrcode, JSON_PRETTY_PRINT)."</textarea><br><td>";
+			echo "<td><button style='width: 200px; height: 200px;' class='btn btn-outline-success' onclick='copiarTexto1()'>Copiar QR code</button>";
+			$qrcode_value = trim($qrcode['qrcode'], '"');
+    		echo "<textarea style='display: none;' id='link1' rows='5' cols='50'>".$qrcode_value."</textarea><br><td>";
 
 			//echo "<button onclick='copiarTexto1()'>Copiar</button>";
 
@@ -82,7 +83,7 @@ try {
 			echo "var textarea = document.getElementById('link1');";
 			echo "textarea.select();";
 			echo "document.execCommand('copy');";
-			echo "alert('Conteúdo copiado para a área de transferência!');";
+			//echo "alert('Conteúdo copiado para a área de transferência!');";
 			echo "}";
 			echo "</script>";
 
