@@ -9,7 +9,7 @@ require_once('fpdf/fpdf.php');
         $sobrenome = $_POST['btnsnome_cliente'];
         $telefone = $_POST['btntel_cliente'];
     
-        $showtitulo_servico = $_POST['btntitulo_servico'];
+        $showtitulo_servico = "abc";//$_POST['btntitulo_servico'];
         $showobs_servico = $_POST['btnobs_servico'];
         $showprioridade_servico = $_POST['btnprioridade_servico'];
         $showprazo_servico = $_POST['btnprazo_servico'];
@@ -19,15 +19,30 @@ require_once('fpdf/fpdf.php');
 
         $showdtinicio_atividade = $_POST['btnentrada_servico'];
         $inicioDatetime = date_create_from_format('d/m/Y H:i', $showdtinicio_atividade);
-        $dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
-        $horaInicio_formatada = date_format($inicioDatetime, 'H:i');
+        if ($inicioDatetime !== false) {
+            $dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
+            $horaInicio_formatada = date_format($inicioDatetime, 'H:i');
+        } else {
+            // Tratar caso em que a data de início não pôde ser criada corretamente
+            // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
+        }
+        
         //$this->Cell(0, 5, 'Data de entrada: '.date('d/m/Y H:i', strtotime($showdtinicio_atividade)), 0, 1, 'L');
                 
 
         $showprazo_servico = $_POST['btnprazo_servico'];
+
         $prazoDatetime = date_create_from_format('d/m/Y H:i', $showprazo_servico);
-        $dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
-        $horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
+        if ($prazoDatetime !== false) {
+            $dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
+            $horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
+        } else {
+            // Tratar caso em que a data de início não pôde ser criada corretamente
+            // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
+        }
+        ////$prazoDatetime = date_create_from_format('d/m/Y H:i', $showprazo_servico);
+        ////$dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
+        ////$horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
         //$this->Cell(0, 5, utf8_decode('Previsão de entrega: ').date('d/m/Y H:i', strtotime($showprazo_servico)), 0, 1, 'L');
              
 
@@ -121,7 +136,9 @@ require_once('fpdf/fpdf.php');
 
                 // FINANCEIRO
                 $this->SetFont('Arial', 'B', 15);
-                $faltapagar = $showorcamento_servico - $showvpag_servico;
+                // Converter as variáveis para números usando floatval() antes de subtrair
+                $faltapagar = floatval($showorcamento_servico) - floatval($showvpag_servico);
+
                 if($faltapagar == 0){
                     $this->Cell(0, 5, 'Total Pago: ' . $showvpag_servico, 0, 1, 'L');
                 }else{
@@ -175,19 +192,40 @@ require_once('fpdf/fpdf.php');
         $pdf->Output($nomeArquivo, 'I');
 
     } elseif (isset($_POST['via_cliente'])) {
+        
+        
         $showcd_servico = $_POST['btncd_servico'];
         
         $showdtinicio_atividade = $_POST['btnentrada_servico'];
+
         $inicioDatetime = date_create_from_format('d/m/Y H:i', $showdtinicio_atividade);
-        $dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
-        $horaInicio_formatada = date_format($inicioDatetime, 'H:i');
+        if ($inicioDatetime !== false) {
+            $dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
+            $horaInicio_formatada = date_format($inicioDatetime, 'H:i');
+        } else {
+            // Tratar caso em que a data de início não pôde ser criada corretamente
+            // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
+        }
+
+        ////$inicioDatetime = date_create_from_format('d/m/Y H:i', $showdtinicio_atividade);
+        ////$dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
+        ////$horaInicio_formatada = date_format($inicioDatetime, 'H:i');
         //$this->Cell(0, 5, 'Data de entrada: '.date('d/m/Y H:i', strtotime($showdtinicio_atividade)), 0, 1, 'L');
                 
 
         $showprazo_servico = $_POST['btnprazo_servico'];
+
         $prazoDatetime = date_create_from_format('d/m/Y H:i', $showprazo_servico);
-        $dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
-        $horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
+        if ($inicioDatetime !== false) {
+            $dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
+            $horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
+        } else {
+            // Tratar caso em que a data de início não pôde ser criada corretamente
+            // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
+        }
+        ////$prazoDatetime = date_create_from_format('d/m/Y H:i', $showprazo_servico);
+        ////$dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
+        ////$horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
         //$this->Cell(0, 5, utf8_decode('Previsão de entrega: ').date('d/m/Y H:i', strtotime($showprazo_servico)), 0, 1, 'L');
                 
             
@@ -204,7 +242,10 @@ require_once('fpdf/fpdf.php');
         $saudacoes_filial = $_SESSION['saudacoes_filial'];
 
 
-        $falta_pagar = $showorcamento_servico - $showvpag_servico;
+        ////$falta_pagar = $showorcamento_servico - $showvpag_servico;
+        // Converter as variáveis para números inteiros usando intval() antes de subtrair
+        $falta_pagar = floatval($showorcamento_servico) - floatval($showvpag_servico);
+
 
         // Criação da classe MeuPDF que estende a classe FPDF
         class MeuPDF extends FPDF {
@@ -255,7 +296,7 @@ require_once('fpdf/fpdf.php');
                 $this->Ln(5);
 
                 // Data
-                session_start();
+                //session_start();
                 require_once '../../classes/conn.php';
                 include("../../classes/functions.php");
 
@@ -326,6 +367,7 @@ require_once('fpdf/fpdf.php');
         $nomeArquivo = 'VIA_CLIENTE_OS_' . $showcd_servico . '.pdf';
 
         $pdf->Output($nomeArquivo, 'I');
+        
     } elseif (isset($_POST['lancar_composto'])) {
             include("../../partials/load.html");
             // Atualiza as informações do usuário no banco de dados
@@ -413,23 +455,44 @@ require_once('fpdf/fpdf.php');
         $sobrenome = $_POST['btnsnome_cliente'];
         $telefone = $_POST['btntel_cliente'];
     
-        $showtitulo_servico = $_POST['btntitulo_servico'];
+        $showtitulo_servico = "ABC";//$_POST['btntitulo_servico'];
         $showobs_servico = $_POST['btnobs_servico'];
         $showprioridade_servico = $_POST['btnprioridade_servico'];
         $showprazo_servico = $_POST['btnprazo_servico'];
 
 
         $showdtinicio_atividade = $_POST['btnentrada_servico'];
+
         $inicioDatetime = date_create_from_format('d/m/Y H:i', $showdtinicio_atividade);
-        $dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
-        $horaInicio_formatada = date_format($inicioDatetime, 'H:i');
+if ($inicioDatetime !== false) {
+    $dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
+    $horaInicio_formatada = date_format($inicioDatetime, 'H:i');
+} else {
+    // Tratar caso em que a data de início não pôde ser criada corretamente
+    // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
+}
+
+
+        //$inicioDatetime = date_create_from_format('d/m/Y H:i', $showdtinicio_atividade);
+        //$dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
+        //$horaInicio_formatada = date_format($inicioDatetime, 'H:i');
         //$this->Cell(0, 5, 'Data de entrada: '.date('d/m/Y H:i', strtotime($showdtinicio_atividade)), 0, 1, 'L');
                 
 
         $showprazo_servico = $_POST['btnprazo_servico'];
+
         $prazoDatetime = date_create_from_format('d/m/Y H:i', $showprazo_servico);
-        $dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
-        $horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
+if ($inicioDatetime !== false) {
+    $dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
+    $horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
+} else {
+    // Tratar caso em que a data de início não pôde ser criada corretamente
+    // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
+}
+
+        //$prazoDatetime = date_create_from_format('d/m/Y H:i', $showprazo_servico);
+        //$dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
+        //$horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
         //$this->Cell(0, 5, utf8_decode('Previsão de entrega: ').date('d/m/Y H:i', strtotime($showprazo_servico)), 0, 1, 'L');
           
         
@@ -616,6 +679,8 @@ require_once('fpdf/fpdf.php');
         header("location: cadastro_servico.php");
         exit;
     }
+
+
 ?>
 
 

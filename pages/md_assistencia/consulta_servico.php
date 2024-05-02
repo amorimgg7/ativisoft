@@ -221,7 +221,7 @@
                       echo '<input value="Baixa" type="text" class="aspNetDisabled form-control form-control-sm" readonly>';
                     }
                     echo '<label for="btnentrada_servico">Entrada</label>';
-                    echo '<input value="'.$_SESSION['entrada_servico'].'" name="bbtnentrada_servico" type="datetime-local" id="bbtnentrada_servico" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<input value="'.$_SESSION['entrada_servico'].'" name="btnentrada_servico" type="datetime-local" id="btnentrada_servico" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="btnprazo_servico">Prazo</label>';
                     echo '<input value="'.$_SESSION['prazo_servico'].'" name="btnprazo_servico" type="datetime-local" id="btnprazo_servico" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     
