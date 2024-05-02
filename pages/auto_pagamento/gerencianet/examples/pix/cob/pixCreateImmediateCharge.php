@@ -74,7 +74,7 @@ try {
 
 			echo "<tr><td><button style='width: 200px; height: 200px;' class='btn btn-outline-success' onclick='copiarTexto1()'>Copiar QR code</button></td></tr>";
 			$qrcode_value = trim($qrcode['qrcode'], '"');
-    		echo "<tr><td><textarea id='link1' rows='5' cols='50'>".$qrcode_value."</textarea></td></tr>";
+    		echo "<tr><td><textarea id='link1' rows='5' cols='50' readonly>".$qrcode_value."</textarea></td></tr>";
 
 			//echo "<button onclick='copiarTexto1()'>Copiar</button>";
 
