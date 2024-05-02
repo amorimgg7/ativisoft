@@ -464,13 +464,13 @@ require_once('fpdf/fpdf.php');
         $showdtinicio_atividade = $_POST['btnentrada_servico'];
 
         $inicioDatetime = date_create_from_format('d/m/Y H:i', $showdtinicio_atividade);
-if ($inicioDatetime !== false) {
-    $dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
-    $horaInicio_formatada = date_format($inicioDatetime, 'H:i');
-} else {
-    // Tratar caso em que a data de início não pôde ser criada corretamente
-    // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
-}
+        if ($inicioDatetime !== false) {
+            $dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
+            $horaInicio_formatada = date_format($inicioDatetime, 'H:i');
+        } else {
+            // Tratar caso em que a data de início não pôde ser criada corretamente
+            // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
+        }
 
 
         //$inicioDatetime = date_create_from_format('d/m/Y H:i', $showdtinicio_atividade);
@@ -482,13 +482,13 @@ if ($inicioDatetime !== false) {
         $showprazo_servico = $_POST['btnprazo_servico'];
 
         $prazoDatetime = date_create_from_format('d/m/Y H:i', $showprazo_servico);
-if ($inicioDatetime !== false) {
-    $dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
-    $horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
-} else {
-    // Tratar caso em que a data de início não pôde ser criada corretamente
-    // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
-}
+        if ($prazoDatetime !== false) {
+            $dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
+            $horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
+        } else {
+            // Tratar caso em que a data de início não pôde ser criada corretamente
+            // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
+        }
 
         //$prazoDatetime = date_create_from_format('d/m/Y H:i', $showprazo_servico);
         //$dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');

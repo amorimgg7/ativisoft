@@ -119,7 +119,6 @@ require_once '../../classes/conn.php';
                   <form method="POST">
                     <?php //gerencianet/examples/pix/cob/pixCreateImmediateCharge.php
                       echo '<td><button type="submit" class="btn btn-danger" name="tratar_pix" id="tratar_pix">PIX</button></td>';
-                      echo '<button type="button" name="button" class="btn btn-info" onclick="modalPix();" >Pagar com pix</button>';
                       echo '<td>'.$_SESSION['rsocial_fatura'].'<input style="display:none;" type="text" id="nome" name="nome" value="'.$_SESSION['rsocial_fatura'].'" readonly></td>';
                       echo '<td>'.$_SESSION['cnpj_fatura'].'<input style="display:none;" type="text" id="cnpj" name="cnpj" value="'.$_SESSION['cnpj_fatura'].'" readonly></td>';
                       echo '<td>'.$_SESSION['email_fatura'].'<input style="display:none;" type="text" value="'.$_SESSION['email_fatura'].'" readonly></td>';
@@ -153,14 +152,12 @@ require_once '../../classes/conn.php';
     echo '<thead>';
     echo '<tr>';
     echo '<th>QR</th>';
-    echo '<th>Copia & Cola</th>';
     echo '</tr>';
     echo '</thead>';
     echo '<tbody>';
     echo '<tr><!---->';
-   //gerencianet/examples/pix/cob/pixCreateImmediateCharge.php
-   include 'gerencianet/examples/pix/cob/pixCreateImmediateCharge.php';
-    
+    //gerencianet/examples/pix/cob/pixCreateImmediateCharge.php
+    include 'gerencianet/examples/pix/cob/pixCreateImmediateCharge.php';
     echo '</tr>';
     echo '</tbody>';
     echo '</table>';
@@ -173,34 +170,14 @@ require_once '../../classes/conn.php';
   
   ?>
   
-  <div class="modal fade" id="modalPix" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Pagamento com pix</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body text-center">
-          <img id="load" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="">
-
-          <div class="row" id="dix-pix" style="display:none;" >
-            <div class="col-md-12">
-              <img src="" id="img-pix" width="100%" alt="">
-            </div>
-            <div class="col-md-12">
-              <textarea name="code-pix" class="form-control" id="code-pix" rows="8" cols="80"></textarea>
-            </div>
-          </div>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="modalPix(false);" data-dismiss="modal">Fechar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <script>
+  	function copiarTexto1() {
+	    var textarea = document.getElementById('link1');
+    	textarea.select();
+    	document.execCommand('copy');
+    	//alert('Conteúdo copiado para a área de transferência!');
+  	}
+	</script>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>

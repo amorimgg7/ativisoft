@@ -69,23 +69,16 @@ try {
 
 
 			
-			echo "<td><img style='width:200px; height:200px; border-radius: 0; ' src='" . $qrcode["imagemQrcode"] . "' /></td>";
+			echo "<tr><td><img style='width:200px; height:200px; border-radius: 0; ' src='" . $qrcode["imagemQrcode"] . "' /></td></tr>";
 			//echo "<td style='border-radius: 0;'><a style='border-radius: 0;' href='" . $qrcode["imagemQrcode"] . "' target='_blank'><img style='width:200px; height:200px border-radius: 0; 'src='" . $qrcode["imagemQrcode"] . "' /></a></td>";
 
-			echo "<td><button style='width: 200px; height: 200px;' class='btn btn-outline-success' onclick='copiarTexto1()'>Copiar QR code</button>";
+			echo "<tr><td><button style='width: 200px; height: 200px;' class='btn btn-outline-success' onclick='copiarTexto1()'>Copiar QR code</button></td></tr>";
 			$qrcode_value = trim($qrcode['qrcode'], '"');
-    		echo "<textarea style='display: none;' id='link1' rows='5' cols='50'>".$qrcode_value."</textarea><br><td>";
+    		echo "<tr><td><textarea id='link1' rows='5' cols='50'>".$qrcode_value."</textarea></td></tr>";
 
 			//echo "<button onclick='copiarTexto1()'>Copiar</button>";
 
-			echo "<script>";
-			echo "function copiarTexto1() {";
-			echo "var textarea = document.getElementById('link1');";
-			echo "textarea.select();";
-			echo "document.execCommand('copy');";
-			//echo "alert('Conteúdo copiado para a área de transferência!');";
-			echo "}";
-			echo "</script>";
+			
 
 		} catch (EfiException $e) {
 			print_r($e->code . "<br>");
