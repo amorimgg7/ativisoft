@@ -21,7 +21,7 @@ if (!file_exists($optionsFile)) {
 $options = include $optionsFile;
 
 $params = [
-	"chave" => "00000000-0000-0000-0000-000000000000"
+	"chave" => "ae95d0a9-5571-4ffd-b8cb-539def1e495c"
 ];
 
 try {

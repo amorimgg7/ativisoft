@@ -69,17 +69,19 @@ require_once '../../classes/conn.php';
     $select_cliente_comercial = "SELECT * FROM tb_cliente_comercial where cnpj_cliente_comercial = ".$_SESSION['cnpj_filial'];
     $resulta_cliente_comercial = $conn_revenda->query($select_cliente_comercial);
     if ($resulta_cliente_comercial->num_rows > 0){ 
-        while ( $cliente_matriz = $resulta_cliente_comercial->fetch_assoc()){
-            $_SESSION['rsocial_fatura'] = $cliente_matriz['rsocial_cliente_comercial'];
-            $_SESSION['nfantasia_fatura'] = $cliente_matriz['nfantasia_cliente_comercial'];
-            $_SESSION['cnpj_fatura'] = $cliente_matriz['cnpj_cliente_comercial'];
-            $_SESSION['email_fatura'] = $cliente_matriz['email_cliente_comercial'];
-            $_SESSION['valor_fatura'] = $cliente_matriz['fatura_prevista_cliente_fiscal'];
-            $data_fornecida = $cliente_matriz['dtvalidlicenca_cliente_comercial'];
-            $diferenca_dias = round((strtotime($data_fornecida) - strtotime($dia_hoje)) / (60 * 60 * 24), 2);
-            //$diferenca_dias = number_format(floatval($diferenca_dias), 2);
-            $_SESSION['fatura_prevista'] = number_format(floatval($_SESSION['valor_fatura'] + (-$diferenca_dias)), 2);
-        }
+      while ( $cliente_matriz = $resulta_cliente_comercial->fetch_assoc()){
+        $_SESSION['cd_cliente_comercial'] = $cliente_matriz['cd_cliente_comercial'];
+        $_SESSION['rsocial_fatura'] = $cliente_matriz['rsocial_cliente_comercial'];
+        $_SESSION['nfantasia_fatura'] = $cliente_matriz['nfantasia_cliente_comercial'];
+        $_SESSION['cnpj_fatura'] = $cliente_matriz['cnpj_cliente_comercial'];
+        $_SESSION['dtvalidlicenca_cliente_comercial'] = $cliente_matriz['dtvalidlicenca_cliente_comercial'];
+        $_SESSION['email_fatura'] = $cliente_matriz['email_cliente_comercial'];
+        $_SESSION['valor_fatura'] = $cliente_matriz['fatura_prevista_cliente_fiscal'];
+        $data_fornecida = $cliente_matriz['dtvalidlicenca_cliente_comercial'];
+        $diferenca_dias = round((strtotime($data_fornecida) - strtotime($dia_hoje)) / (60 * 60 * 24), 2);
+        //$diferenca_dias = number_format(floatval($diferenca_dias), 2);
+        $_SESSION['fatura_prevista'] = number_format(floatval($_SESSION['valor_fatura'] + (-$diferenca_dias)), 2);
+      }
     }
 
     include 'tratar_payment.php';
@@ -136,18 +138,50 @@ require_once '../../classes/conn.php';
     </div>
 
 
-    <?php
+<?php
+  require_once '../../classes/conn_revenda.php';
+  $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE status_orcamento = 0 AND cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."' ";
+  $result_orcamento = mysqli_query($conn_revenda, $select_orcamento);
+  $row_orcamento = mysqli_fetch_assoc($result_orcamento);
+  // Exibe as informações do usuário no formulário
+  if($row_orcamento) {
+    $_SESSION['cd_orcamento'] = $row_orcamento['cd_orcamento'];
+    if($_SESSION['fatura_prevista'] != $row_orcamento['vcusto_orcamento']){
+      $update_orcamento = "UPDATE tb_orcamento_servico SET
+      vcusto_orcamento = '".$_SESSION['fatura_prevista']."'
+      WHERE cd_cliente_comercial = ".$_SESSION['cd_cliente_comercial']."";
+      if(mysqli_query($conn_revenda, $update_orcamento)){
+        echo "<script>window.alert('Fatura Alterada!');</script>";
+      }else{
+        echo "<script>window.alert('Erro ao Alterar Fatura!');</script>";
+      }
+    }
+  }else{
+    $insert_pagar_servico = "INSERT INTO tb_orcamento_servico(cd_cliente_comercial, titulo_orcamento, vcusto_orcamento, status_orcamento) VALUES(
+      '".$_SESSION['cd_cliente_comercial']."',
+      '".date('Y-m-d')."',
+      '".$_SESSION['fatura_prevista']."',
+      0
+      )
+    ";
+    if(mysqli_query($conn_revenda, $insert_pagar_servico)){
+      //echo "<script>window.alert('Fatura Criada!');</script>";
+    }else{
+      echo "<script>window.alert('Erro ao Criar fatura!');</script>";
+    }
+  }
+
   if(isset($_POST['tratar_pix'])){
+  
     
+
     echo '<div class="col-lg-12 grid-margin stretch-card">';
-    echo '<div class="card">';
-                
+    echo '<div class="card">';           
     echo '<div class="card-body">';
     echo '<div class="grid-margin stretch-card">';
-    echo '<h4>PIX</h4>';
+    echo '<h4>Pague Aqui</h4>';
     echo '</div>';
-    echo '<div class="table-responsive">';
-                
+    echo '<div class="table-responsive">'; 
     echo '<table class="table">';
     echo '<thead>';
     echo '<tr>';
@@ -155,9 +189,46 @@ require_once '../../classes/conn.php';
     echo '</tr>';
     echo '</thead>';
     echo '<tbody>';
-    echo '<tr><!---->';
-    //gerencianet/examples/pix/cob/pixCreateImmediateCharge.php
-    include 'gerencianet/examples/pix/cob/pixCreateImmediateCharge.php';
+    echo '<tr>';
+    
+    $select_movimento_financeiro = "SELECT * FROM tb_movimento_financeiro WHERE status_movimento = 0 AND cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."' ";
+    $result_movimento_financeiro = mysqli_query($conn_revenda, $select_movimento_financeiro);
+    $row_movimento_financeiro = mysqli_fetch_assoc($result_movimento_financeiro);
+    // Exibe as informações do usuário no formulário
+    if($row_movimento_financeiro) {
+      $_SESSION['cd_movimento'] = $row_movimento_financeiro['cd_movimento'];
+      $_SESSION['txid'] = $row_movimento_financeiro['key_pay_movimento'];
+      if($_SESSION['fatura_prevista'] != $row_movimento_financeiro['valor_movimento']){
+        $update_movimento_financeiro = "UPDATE tb_movimento_financeiro SET
+        valor_movimento = '".$_SESSION['fatura_prevista']."'
+        WHERE cd_movimento = ".$_SESSION['cd_movimento'];
+        if(mysqli_query($conn_revenda, $update_movimento_financeiro)){
+          //echo "<script>window.alert('Movimento alterado!');</script>";
+        }else{
+          echo "<script>window.alert('Erro ao alterar o Movimento!');</script>";
+        }
+
+      }
+      include 'gerencianet/examples/pix/cob/pixDetailCharge.php';
+    }else{
+      include 'gerencianet/examples/pix/cob/pixCreateImmediateCharge.php';
+      $insert_pagar_servico = "INSERT INTO tb_movimento_financeiro(cd_cliente_comercial, fpag_movimento, valor_movimento, data_movimento, obs_movimento, status_movimento, key_pay_movimento) VALUES(
+        ".$_SESSION['cd_cliente_comercial'].",
+        'PIX',
+        '".$_SESSION['fatura_prevista']."',
+        '".date('Y-m-d H:i')."',
+        'Cliente Gerou o PIX',
+        0,
+        '".$_SESSION['txid']."'
+        )
+      ";
+      if(mysqli_query($conn_revenda, $insert_pagar_servico)){
+        //echo "<script>window.alert('Movimento Financeiro Criado!');</script>";
+      }else{
+        echo "<script>window.alert('Erro ao Criar Movimento Financeiro!');</script>";
+      }
+    }
+
     echo '</tr>';
     echo '</tbody>';
     echo '</table>';
@@ -175,7 +246,7 @@ require_once '../../classes/conn.php';
 	    var textarea = document.getElementById('link1');
     	textarea.select();
     	document.execCommand('copy');
-    	//alert('Conteúdo copiado para a área de transferência!');
+    	alert('Após realizar o pagamento, Recarregue esta página para liberar sua licença.');
   	}
 	</script>
   

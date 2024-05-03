@@ -29,22 +29,23 @@ $body = [
 		"nome" => "".$_POST['nome'].""
 	],
 	"valor" => [
+		//"original" => "0.01"
 		"original" => "".$_POST['valor'].""
 	],
 	"chave" => "ae95d0a9-5571-4ffd-b8cb-539def1e495c", // Pix key registered in the authenticated Efí account
-	"solicitacaoPagador" => "Enter the order number or identifier.",
+	"solicitacaoPagador" => "Descreva seu pagamento.",
 	"infoAdicionais" => [
 		[
-			"nome" => "Licença R$",
-			"valor" => "".$_POST['licenca'].""
+			"nome" => "Licença",
+			"valor" => "R$: ".$_POST['licenca'].""
 		],
 		[
-			"nome" => "Multa acumulada em 10 dias R$",
-			"valor" => "".$_POST['multa'].""
+			"nome" => "Multa acumulada",
+			"valor" => "R$: ".$_POST['multa'].""
 		],
 		[
-			"nome" => "Valor total R$",
-			"valor" => "".$_POST['valor'].""
+			"nome" => "Valor total",
+			"valor" => "R$: ".$_POST['valor'].""
 		]
 	]
 ];
@@ -60,26 +61,13 @@ try {
 
 		try {
 			$qrcode = $api->pixGenerateQRCode($params);
-
-			//echo "<b>Detalhes da cobrança:</b>";
-			//echo "<pre>" . json_encode($pix, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "</pre>";
-
-			//echo "<b>QR Code:</b>";
-			//echo "<pre>" . json_encode($qrcode, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "</pre>";
-
-
-			
 			echo "<tr><td><img style='width:200px; height:200px; border-radius: 0; ' src='" . $qrcode["imagemQrcode"] . "' /></td></tr>";
-			//echo "<td style='border-radius: 0;'><a style='border-radius: 0;' href='" . $qrcode["imagemQrcode"] . "' target='_blank'><img style='width:200px; height:200px border-radius: 0; 'src='" . $qrcode["imagemQrcode"] . "' /></a></td>";
-
-			echo "<tr><td><button style='width: 200px; height: 200px;' class='btn btn-outline-success' onclick='copiarTexto1()'>Copiar QR code</button></td></tr>";
+			//echo "<tr><td><button style='width: 200px; height: 200px;' class='btn btn-outline-success' onclick='copiarTexto1()'>Copiar QR code</button></td></tr>";
 			$qrcode_value = trim($qrcode['qrcode'], '"');
-    		echo "<tr><td><textarea id='link1' rows='5' cols='50' readonly>".$qrcode_value."</textarea></td></tr>";
-
-			//echo "<button onclick='copiarTexto1()'>Copiar</button>";
-
-			
-
+    		//echo "<tr><td><textarea id='link1' rows='5' cols='50' readonly>".$qrcode_value."</textarea></td></tr>";//$pix["txid"]
+    		//echo "<tr><td><textarea rows='5' cols='50' readonly>".$pix["txid"]."</textarea></td></tr>";
+			$_SESSION['txid'] = $pix["txid"];
+			include 'pixDetailCharge.php';
 		} catch (EfiException $e) {
 			print_r($e->code . "<br>");
 			print_r($e->error . "<br>");
