@@ -78,9 +78,17 @@ require_once '../../classes/conn.php';
         $_SESSION['email_fatura'] = $cliente_matriz['email_cliente_comercial'];
         $_SESSION['valor_fatura'] = $cliente_matriz['fatura_prevista_cliente_fiscal'];
         $data_fornecida = $cliente_matriz['dtvalidlicenca_cliente_comercial'];
-        $diferenca_dias = round((strtotime($data_fornecida) - strtotime($dia_hoje)) / (60 * 60 * 24), 2);
+        $diferenca_dias = (strtotime($data_fornecida) - strtotime($dia_hoje)) / (60 * 60 * 24);
         //$diferenca_dias = number_format(floatval($diferenca_dias), 2);
-        $_SESSION['fatura_prevista'] = number_format(floatval($_SESSION['valor_fatura'] + (-$diferenca_dias)), 2);
+        if(-$diferenca_dias > 10){
+          //echo '<h1>Com Multa: '.$diferenca_dias.'</h1>';
+          $_SESSION['fatura_prevista'] = number_format(floatval($_SESSION['valor_fatura'] + (-$diferenca_dias)), 2);
+          $_SESSION['multa_fatura'] = number_format(floatval(-$diferenca_dias), 2);
+        }else{
+          //echo '<h1>Sem Multa: '.$diferenca_dias.'</h1>';
+          $_SESSION['fatura_prevista'] = number_format(floatval($_SESSION['valor_fatura']), 2);
+          $_SESSION['multa_fatura'] = 0;
+        }
       }
     }
 
@@ -125,7 +133,7 @@ require_once '../../classes/conn.php';
                       echo '<td>'.$_SESSION['cnpj_fatura'].'<input style="display:none;" type="text" id="cnpj" name="cnpj" value="'.$_SESSION['cnpj_fatura'].'" readonly></td>';
                       echo '<td>'.$_SESSION['email_fatura'].'<input style="display:none;" type="text" value="'.$_SESSION['email_fatura'].'" readonly></td>';
                       echo '<td>R$: '.$_SESSION['valor_fatura'].'<input style="display:none;" type="text" id="licenca" name="licenca" value="'.$_SESSION['valor_fatura'].'" readonly></td>';
-                      echo '<td>R$: '.number_format(floatval(-$diferenca_dias), 2).'<input style="display:none;" type="text" id="multa" name="multa" value="'.-$diferenca_dias.'" readonly></td>';
+                      echo '<td>R$: '.$_SESSION['multa_fatura'].'<input style="display:none;" type="text" id="multa" name="multa" value="'.$_SESSION['multa_fatura'].'" readonly></td>';
                       echo '<td>R$: '.$_SESSION['fatura_prevista'].'<input style="display:none;" type="text" id="valor" name="valor" value="'.$_SESSION['fatura_prevista'].'" readonly></td>';
                     ?>
                   </form>
@@ -151,9 +159,17 @@ require_once '../../classes/conn.php';
       vcusto_orcamento = '".$_SESSION['fatura_prevista']."'
       WHERE cd_cliente_comercial = ".$_SESSION['cd_cliente_comercial']."";
       if(mysqli_query($conn_revenda, $update_orcamento)){
-        echo "<script>window.alert('Fatura Alterada!');</script>";
+        echo "<script>window.alert('Fatura Alterada - tb_orcamento_servico!');</script>";
       }else{
-        echo "<script>window.alert('Erro ao Alterar Fatura!');</script>";
+        echo "<script>window.alert('Erro ao Alterar Fatura - tb_orcamento_servico!');</script>";
+      }
+      $update_cliente_comercial = "UPDATE tb_cliente_comercial SET
+      fatura_devida_cliente_fiscal = '".$_SESSION['fatura_prevista']."'
+      WHERE cd_cliente_comercial = ".$_SESSION['cd_cliente_comercial']."";
+      if(mysqli_query($conn_revenda, $update_cliente_comercial)){
+        echo "<script>window.alert('Fatura Alterada - tb_cliente_comercial!');</script>";
+      }else{
+        echo "<script>window.alert('Erro ao Alterar Fatura - tb_cliente_comercial!');</script>";
       }
     }
   }else{
@@ -169,12 +185,18 @@ require_once '../../classes/conn.php';
     }else{
       echo "<script>window.alert('Erro ao Criar fatura!');</script>";
     }
+    $update_cliente_comercial = "UPDATE tb_cliente_comercial SET
+      fatura_devida_cliente_fiscal = '".$_SESSION['fatura_prevista']."'
+      WHERE cd_cliente_comercial = ".$_SESSION['cd_cliente_comercial']."";
+    if(mysqli_query($conn_revenda, $update_cliente_comercial)){
+      //echo "<script>window.alert('Fatura Criada - tb_cliente_comercial!');</script>";
+    }else{
+      echo "<script>window.alert('Erro ao Alterar Fatura - tb_cliente_comercial!');</script>";
+    }
   }
 
   if(isset($_POST['tratar_pix'])){
   
-    
-
     echo '<div class="col-lg-12 grid-margin stretch-card">';
     echo '<div class="card">';           
     echo '<div class="card-body">';
@@ -207,9 +229,10 @@ require_once '../../classes/conn.php';
         }else{
           echo "<script>window.alert('Erro ao alterar o Movimento!');</script>";
         }
-
+        include 'gerencianet/examples/pix/cob/pixUpdateCharge.php';
+      }else{
+        include 'gerencianet/examples/pix/cob/pixDetailCharge.php';
       }
-      include 'gerencianet/examples/pix/cob/pixDetailCharge.php';
     }else{
       include 'gerencianet/examples/pix/cob/pixCreateImmediateCharge.php';
       $insert_pagar_servico = "INSERT INTO tb_movimento_financeiro(cd_cliente_comercial, fpag_movimento, valor_movimento, data_movimento, obs_movimento, status_movimento, key_pay_movimento) VALUES(

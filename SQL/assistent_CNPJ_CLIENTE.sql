@@ -167,11 +167,50 @@ CREATE TABLE `tb_estilo` (
   `c_font` varchar(200) DEFAULT NULL
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-
-
 INSERT INTO `tb_estilo` (`cd_estilo`, `titulo_estilo`, `t_sidebar`, `c_sidebar`, `t_navbar`, `c_navbar`, `t_font`, `c_font`) VALUES
 (1, 'Light-blue', 'padrão', 'style=\"background-color: #a7dbfb; color: #044167;\"', 'padrão', 'style=\"background-color: #23a5f6;\"', 'padrão', 'padrão'),
 (2, 'Dark-blue', 'padrão', 'style=\"background-color: #191970; color: #8b8bbb;\"', 'padrão', 'style=\"background-color: #2727ec;\"', 'padrão', 'padrão');
+
+
+CREATE TABLE `tb_estilo_site` (
+  `cd_estilo` int(11) NOT NULL,
+  `titulo_estilo` varchar(40) DEFAULT NULL,
+  `t_sidebar` varchar(200) DEFAULT NULL,
+  `c_sidebar` varchar(200) DEFAULT NULL,
+  `t_navbar` varchar(200) DEFAULT NULL,
+  `c_navbar` varchar(200) DEFAULT NULL,
+  `t_font` varchar(200) DEFAULT NULL,
+  `c_font` varchar(200) DEFAULT NULL,
+  `saudacao_inicial` varchar(999) DEFAULT NULL,
+  `saudacao_final` varchar(999) DEFAULT NULL,
+  `modelo_site` varchar(999) DEFAULT NULL,
+  `cabecalho_site` varchar(999) DEFAULT NULL,
+  `apresentacao_site` varchar(999) DEFAULT NULL,
+  `apresentacao_site_txt` varchar(999) DEFAULT NULL,
+  `apresentacao_site_html` varchar(9999) DEFAULT NULL,
+  `rodape_site` boolean DEFAULT false,
+  `apresentacao_site_html` varchar(9999) DEFAULT NULL,
+  `modelo_impressao` varchar(99) DEFAULT NULL,
+  `modelo_site` varchar(99) DEFAULT NULL
+)  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+INSERT INTO `tb_estilo_impressao` (`cd_estilo`, `titulo_estilo`, `t_sidebar`, `c_sidebar`, `t_navbar`, `c_navbar`, `t_font`, `c_font`) VALUES
+(1, 'Versão 1', 'padrão', 'style=\"background-color: #a7dbfb; color: #044167;\"', 'padrão', 'style=\"background-color: #23a5f6;\"', 'padrão', 'padrão', 'saudacao inicial', 'saudacao final', 'modelo site', 'cabecalho site', 'apresentacao site', 'apresentacao site txt', 'apresentacao site html', false, 'apresentacao site html', 'modelo impressao', 'modelo site'),
+(2, 'Versão 2', 'padrão', 'style=\"background-color: #a7dbfb; color: #044167;\"', 'padrão', 'style=\"background-color: #23a5f6;\"', 'padrão', 'padrão', 'saudacao inicial', 'saudacao final', 'modelo site', 'cabecalho site', 'apresentacao site', 'apresentacao site txt', 'apresentacao site html', false, 'apresentacao site html', 'modelo impressao', 'modelo site');
+
+
+CREATE TABLE `tb_estilo_impressao` (
+  `cd_estilo` int(11) NOT NULL,
+  `titulo_estilo` varchar(40) DEFAULT NULL,
+  `saudacao_inicial` varchar(999) DEFAULT NULL,
+  `saudacao_final` varchar(999) DEFAULT NULL,
+  `modelo_impressao` varchar(99) DEFAULT NULL
+)  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+INSERT INTO `tb_estilo_impressao` (`cd_estilo`, `titulo_estilo`, `t_sidebar`, `c_sidebar`, `t_navbar`, `c_navbar`, `t_font`, `c_font`) VALUES
+(1, 'Light-blue', 'padrão', 'style=\"background-color: #a7dbfb; color: #044167;\"', 'padrão', 'style=\"background-color: #23a5f6;\"', 'padrão', 'padrão'),
+(2, 'Dark-blue', 'padrão', 'style=\"background-color: #191970; color: #8b8bbb;\"', 'padrão', 'style=\"background-color: #2727ec;\"', 'padrão', 'padrão');
+
 
 CREATE TABLE tb_seguranca(
     `cd_seg` int(11) NOT NULL,	
@@ -209,7 +248,6 @@ CREATE TABLE `tb_filial` (
   `endereco_filial` varchar(999) DEFAULT NULL,
   `saudacoes_filial` varchar(999) DEFAULT NULL
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
 
 
 INSERT INTO `tb_filial` (`cd_filial`, `cd_empresa`, `cd_responsavel`, `rsocial_filial`, `nfantasia_filial`, `cnpj_filial`, `endereco_filial`, `saudacoes_filial`) VALUES

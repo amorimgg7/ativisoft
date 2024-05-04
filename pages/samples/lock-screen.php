@@ -35,7 +35,7 @@ $_SESSION['senha_pessoal'] = 0;
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?php echo $_SESSION['logo_empresa']; ?>" />
+  <!--<link rel="shortcut icon" href="<?php //echo $_SESSION['logo_empresa']; ?>" />-->
 </head>
 
 <body>
@@ -45,7 +45,7 @@ $_SESSION['senha_pessoal'] = 0;
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-transparent text-left p-5 text-center">
-              <img src="<?php echo $_SESSION['foto_pessoal']; ?>" class="lock-profile-img" alt="img">
+              <!--<img src="<?php //echo $_SESSION['foto_pessoal']; ?>" class="lock-profile-img" alt="img">-->
               <form method="POST" class="pt-5">
                 <div class="form-group">
                   <label for="email_colab"><p style="color:#fff;">Nome: <?php echo $_SESSION['pnome_colab'].' '.$_SESSION['snome_colab'];?></p></label>
