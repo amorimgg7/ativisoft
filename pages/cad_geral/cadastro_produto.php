@@ -61,6 +61,7 @@
                     $_SESSION['cdbarras_prod_serv'] = $row['cdbarras_prod_serv'];
                     $_SESSION['titulo_prod_serv'] = $row['titulo_prod_serv'];
                     $_SESSION['obs_prod_serv'] = $row['obs_prod_serv'];
+                    $_SESSION['estoque_prod_serv'] = $row['estoque_prod_serv'];
                     $_SESSION['tipo_prod_serv'] = $row['tipo_prod_serv'];
                     $_SESSION['preco_prod_serv'] = $row['preco_prod_serv'];
                     $_SESSION['custo_prod_serv'] = $row['custo_prod_serv'];
@@ -138,6 +139,7 @@
                   $_SESSION['cdbarras_prod_serv'] = "";
                   $_SESSION['titulo_prod_serv']   = "";
                   $_SESSION['obs_prod_serv']      = "";
+                  $_SESSION['estoque_prod_serv']      = "";
                   $_SESSION['tipo_prod_serv']     = "";
                   $_SESSION['preco_prod_serv']    = "";
                   $_SESSION['custo_prod_serv']    = "";
@@ -165,11 +167,12 @@
                   $_SESSION['statusCadastros'] = FALSE;
                 }
                 if(isset($_POST['cadProdServ_funcao'])) {
-                  $query = "INSERT INTO tb_prod_serv(cd_grupo, cdbarras_prod_serv, titulo_prod_serv, obs_prod_serv, preco_prod_serv, custo_prod_serv, status_prod_serv) VALUES(
+                  $query = "INSERT INTO tb_prod_serv(cd_grupo, cdbarras_prod_serv, titulo_prod_serv, obs_prod_serv, estoque_prod_serv, preco_prod_serv, custo_prod_serv, status_prod_serv) VALUES(
                     '".$_POST['grupo_prod_serv']."',
                     '".$_POST['cdbarras_prod_serv']."',
                     '".$_POST['titulo_prod_serv']."',
                     '".$_POST['obs_prod_serv']."',
+                    '".$_POST['estoque_prod_serv']."',
                     '".$_POST['preco_prod_serv']."',
                     '".$_POST['custo_prod_serv']."',
                     1)
@@ -254,6 +257,7 @@
                     cdbarras_prod_serv = '".$_POST['editcdbarras_prod_serv']."',
                     titulo_prod_serv = '".$_POST['edittitulo_prod_serv']."',
                     obs_prod_serv = '".$_POST['editobs_prod_serv']."',
+                    estoque_prod_serv = '".$_POST['editestoque_prod_serv']."',
                     preco_prod_serv = '".$_POST['editpreco_prod_serv']."',
                     custo_prod_serv = '".$_POST['editcusto_prod_serv']."',
                     status_prod_serv = '".$_POST['editstatus_prod_serv']."'  
@@ -363,7 +367,9 @@
                 echo '<label class="card-title"for="titulo_prod_serv">Nome / Descrição</label>';
                 echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="titulo_prod_serv" type="text" id="titulo_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
                 echo '<label class="card-title"for="obs_prod_serv">Observações</label>';
-                echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="obs_prod_serv" type="text" id="obs_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="obs_prod_serv" type="text" id="obs_prod_serv" maxlength="999"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '<label class="card-title"for="estoque_prod_serv">QTD Estoque</label>';
+                echo '<input value="'.$_SESSION['estoque_prod_serv'].'" name="estoque_prod_serv" type="tel" id="estoque_prod_serv" class="aspNetDisabled form-control form-control-sm" required/>';
                 echo '<label class="card-title"for="preco_prod_serv">Valor de Venda</label>';
                 echo '<div class="input-group">';
                 echo '<div class="input-group-prepend">';
@@ -513,7 +519,9 @@
                 echo '<label class="card-title"for="edittitulo_prod_serv">Nome / Descrição</label>';
                 echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="edittitulo_prod_serv" type="text" id="edittitulo_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
                 echo '<label class="card-title"for="editobs_prod_serv">Observações</label>';
-                echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="editobs_prod_serv" type="text" id="editobs_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="editobs_prod_serv" type="text" id="editobs_prod_serv" maxlength="999"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '<label class="card-title"for="editestoque_prod_serv">QTD Estoque</label>';
+                echo '<input value="'.$_SESSION['estoque_prod_serv'].'" name="editestoque_prod_serv" type="tel" id="editestoque_prod_serv" class="aspNetDisabled form-control form-control-sm" required/>';
                 echo '<label class="card-title"for="editpreco_prod_serv">Valor de Venda</label>';
                 echo '<div class="input-group">';
                 echo '<div class="input-group-prepend">';

@@ -63,7 +63,6 @@
                           <!--<span>-->
                             <select name="cd_pais" id="cd_pais"  class="input-group-text" required>
                             <option selected="selected"value='55'>+55 Brasil</option>
-                            
                             <option value='93'>93 Afeganistão</option>
                             <option value='355'>355 Albânia</option>
                             <option value='213'>213 Argélia</option>
