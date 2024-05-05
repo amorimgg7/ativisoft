@@ -22,6 +22,7 @@ function getParameterByName($name, $url = null) {
 }
 
 $cnpj = getParameterByName('cnpj');
+$cd_pais = getParameterByName('cd_pais');
 $tel = getParameterByName('tel');
 $cd_prod_serv = getParameterByName('cd_prod_serv');
 $carrinho = getParameterByName('carrinho');
@@ -32,7 +33,12 @@ if ($cnpj || $tel || $cd_prod_serv || $carrinho || $cadastro) {
     $_SESSION['cnpj_empresa'] = $cnpj;
     
     // Você pode fazer qualquer outra coisa com o telefone aqui
-    $_SESSION['contel_cliente'] = $tel;
+    if(isset($cd_pais)){
+        $_SESSION['contel_cliente'] = $cd_pais.$tel;
+        $_SESSION['cadtel_cliente'] = $tel;
+    }else{
+        $_SESSION['contel_cliente'] = $tel;
+    }
     
     $_SESSION['cd_prod_serv'] = $cd_prod_serv;
     
@@ -145,12 +151,12 @@ else {
         $query = "INSERT INTO tb_cliente(pnome_cliente, snome_cliente, tel_cliente, obs_tel_cliente) VALUES(
             '".$_POST['cad_cliente_nome']."',
             '".$_POST['cad_cliente_sobrenome']."',
-            '".$_POST['cad_cliente_tel']."',
+            '".$_POST['cd_pais'].$_POST['cad_cliente_tel']."',
             'Cliente cadastrado através da loja virtual')
         ";
         if(mysqli_query($conn, $query)){
             echo "<script>window.alert('Cadastro realizado com sucesso!');</script>";
-            echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel='.$_POST['cad_cliente_tel'].'";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
+            echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel='.$_POST['cd_pais'].$_POST['cad_cliente_tel'].'";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
         }else{
             echo "<script>window.alert('Nada feito...');</script>";
         }
@@ -172,7 +178,7 @@ else {
             $_SESSION['snome_cliente'] = $row_select_cliente['snome_cliente'];
             $_SESSION['foto_cliente'] = $row_select_cliente['foto_cliente'];
         }else{
-            $_SESSION['cadtel_cliente'] = $_SESSION['contel_cliente'];
+            //$_SESSION['cadtel_cliente'] = $_SESSION['contel_cliente'];
             echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&cadastro=true";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
         }
         echo '<script>document.getElementById("consulta").style.display = "none";</script>';
