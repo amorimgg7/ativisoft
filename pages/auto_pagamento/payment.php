@@ -195,7 +195,7 @@ require_once '../../classes/conn.php';
     }
   }
 
-  if(isset($_POST['tratar_pix'])){
+  if(isset($_POST['tratar_pix']) || isset($_SESSION['txid'])){
   
     echo '<div class="col-lg-12 grid-margin stretch-card">';
     echo '<div class="card">';           
