@@ -148,17 +148,19 @@ else {
     }
 
     if(isset($_POST['cad_cliente'])){
-        $query = "INSERT INTO tb_cliente(pnome_cliente, snome_cliente, tel_cliente, obs_tel_cliente) VALUES(
-            '".$_POST['cad_cliente_nome']."',
-            '".$_POST['cad_cliente_sobrenome']."',
-            '".$_POST['cd_pais'].$_POST['cad_cliente_tel']."',
-            'Cliente cadastrado através da loja virtual')
-        ";
-        if(mysqli_query($conn, $query)){
-            echo "<script>window.alert('Cadastro realizado com sucesso!');</script>";
-            echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel='.$_POST['cd_pais'].$_POST['cad_cliente_tel'].'";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
-        }else{
-            echo "<script>window.alert('Nada feito...');</script>";
+        if(strlen($_SESSION['cadtel_cliente']) == 11){
+            $query = "INSERT INTO tb_cliente(pnome_cliente, snome_cliente, tel_cliente, obs_tel_cliente) VALUES(
+                '".$_POST['cad_cliente_nome']."',
+                '".$_POST['cad_cliente_sobrenome']."',
+                '".$_POST['cd_pais'].$_POST['cad_cliente_tel']."',
+                'Cliente cadastrado através da loja virtual')
+            ";
+            if(mysqli_query($conn, $query)){
+                echo "<script>window.alert('Cadastro realizado com sucesso!');</script>";
+                echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel='.$_POST['cd_pais'].$_POST['cad_cliente_tel'].'";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
+            }else{
+                echo "<script>window.alert('Nada feito...');</script>";
+            }
         }
     }
 
@@ -168,18 +170,23 @@ else {
     // AREA DE CARREGAR DADOS
     
     if(isset($_SESSION['contel_cliente'])){
-        $query_select_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_SESSION['contel_cliente']."'";
-        $result_select_cliente = mysqli_query($conn, $query_select_cliente);
-        $row_select_cliente = mysqli_fetch_assoc($result_select_cliente);
-        // Exibe as informações do usuário no formulário
-        if($row_select_cliente) {
-            $_SESSION['cd_cliente'] = $row_select_cliente['cd_cliente'];
-            $_SESSION['pnome_cliente'] = $row_select_cliente['pnome_cliente'];
-            $_SESSION['snome_cliente'] = $row_select_cliente['snome_cliente'];
-            $_SESSION['foto_cliente'] = $row_select_cliente['foto_cliente'];
+        if(strlen($_SESSION['cadtel_cliente']) == 11 && ctype_digit($_SESSION['contel_cliente'])){
+            $query_select_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_SESSION['contel_cliente']."'";
+            $result_select_cliente = mysqli_query($conn, $query_select_cliente);
+            $row_select_cliente = mysqli_fetch_assoc($result_select_cliente);
+            // Exibe as informações do usuário no formulário
+            if($row_select_cliente) {
+                $_SESSION['cd_cliente'] = $row_select_cliente['cd_cliente'];
+                $_SESSION['pnome_cliente'] = $row_select_cliente['pnome_cliente'];
+                $_SESSION['snome_cliente'] = $row_select_cliente['snome_cliente'];
+                $_SESSION['foto_cliente'] = $row_select_cliente['foto_cliente'];
+            }else{
+                //$_SESSION['cadtel_cliente'] = $_SESSION['contel_cliente'];
+                echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&cadastro=true";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
+            }
         }else{
-            //$_SESSION['cadtel_cliente'] = $_SESSION['contel_cliente'];
-            echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&cadastro=true";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
+            echo "<script>window.alert('Digite um número de telefone válido');</script>";
+            echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&carrinho=true";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
         }
         echo '<script>document.getElementById("consulta").style.display = "none";</script>';
     }

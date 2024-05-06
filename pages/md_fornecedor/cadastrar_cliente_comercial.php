@@ -75,8 +75,6 @@
                       $update_cliente_comercial = "UPDATE tb_cliente_comercial SET 
                         rsocial_cliente_comercial = '".$_POST['cadrsocial_cliente_comercial']."',
                         nfantasia_cliente_comercial = '".$_POST['cadnfantasia_cliente_comercial']."',
-                        cnpj_cliente_comercial = ".$_POST['cadcnpj_cliente_comercial'].",
-                        dtcadastro_cliente_comercial = '".$_POST['caddtcadastro_cliente_comercial']."',
                         dtvalidlicenca_cliente_comercial = '".$_POST['caddtvalidlicenca_cliente_comercial']."',
                         obs_cliente_comercial = '".$_POST['cadobs_cliente_comercial']."',
                         tel_cliente_comercial = '".$_POST['cadtel_cliente_comercial']."',
@@ -257,7 +255,7 @@
                               <label for="cadnfantasia_cliente_comercial">Nome Fantasia</label>
                               <input name="cadnfantasia_cliente_comercial" type="text" id="cadnfantasia_cliente_comercial" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>
                               <label for="cadcnpj_cliente_comercial">CNPJ</label>
-                              <input name="cadcnpj_cliente_comercial" type="tel" id="cadcnpj_cliente_comercial" maxlength="90" oninput="cnpj(this)" class="aspNetDisabled form-control form-control-sm" readonly/>                            
+                              <input name="cadcnpj_cliente_comercial" type="text" id="cadcnpj_cliente_comercial" maxlength="90" oninput="cnpj(this)" class="aspNetDisabled form-control form-control-sm" readonly/>                            
                               <label for="btntel_cliente">Data do Cadastro</label>
                               <input name="caddtcadastro_cliente_comercial" type="date"  id="caddtcadastro_cliente_comercial"  class="aspNetDisabled form-control form-control-sm" readonly/>
                               <label for="btntel_cliente">Data do Vencimento</label>
@@ -305,7 +303,7 @@
                       $_SESSION['cadcd_cliente_comercial'] = $row_cliente_comercial['cd_cliente_comercial'];
                       echo '<script>document.getElementById("cadrsocial_cliente_comercial").value = "'. $row_cliente_comercial['rsocial_cliente_comercial'] .'";</script>';
                       echo '<script>document.getElementById("cadnfantasia_cliente_comercial").value = "'. $row_cliente_comercial['nfantasia_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. $row_cliente_comercial['cnpj_cliente_comercial'] .'";</script>';
+                      echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. strval($row_cliente_comercial['cnpj_cliente_comercial']) .'";</script>';
                       echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtcadastro_cliente_comercial'])) . '";</script>';
                       echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtvalidlicenca_cliente_comercial'])) .'";</script>';
                       echo '<script>document.getElementById("cadobs_cliente_comercial").value = "'. $row_cliente_comercial['obs_cliente_comercial'] .'";</script>';
