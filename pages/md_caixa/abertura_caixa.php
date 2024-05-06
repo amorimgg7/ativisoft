@@ -80,7 +80,7 @@
                                             '".$_POST['cd_colab']."',
                                             'DINHEIRO',
                                             '".$_POST['valor_suprimento']."',
-                                            '".date('Y-m-d H:i', strtotime('+1 hour'))."',
+                                            '".date('Y-m-d H:i')."',
                                             'SANGRIA: ".$_POST['obs_suprimento']."'
                                             )
                                         ";
@@ -109,8 +109,13 @@
 
                                     if($_SESSION['dt_caixa'] == FALSE)
                                     {
+
+                                        // Definir o fuso horário para São Paulo
+                                        date_default_timezone_set('America/Sao_Paulo');
+                                        //$data_hora_atual = date('Y-m-d H:i:s');
+
                                         //$dataHoraAtual = date('Y-m-d H:i');
-                                        $dataHoraAtual = date('Y-m-d H:i', strtotime('+1 hour'));
+                                        $dataHoraAtual = date('Y-m-d H:i');
                                         echo '<h1>Abrir Caixa (Normal)</h1>';
                                         echo '<div class="col-12 grid-margin stretch-card btn-danger">';
                                         echo '<div class="card" '.$_SESSION['c_card'].'>';

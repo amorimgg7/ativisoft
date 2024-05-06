@@ -52,8 +52,8 @@
 
 
                 <div class="card-body" id="consulta" style="display: block;">
-                  <h4 class="card-title">Acompanhe seu pedido</h4>
-                  <p class="card-description">Consulte todos os serviços solicitados através do seu número de telefone!</p>
+                  <h4 class="card-title">Acompanhe o carrinho do cliente</h4>
+                  <p class="card-description">Consulte todos os produtos adicionados ao carrinho do cliente!</p>
                   <div class="kt-portlet__body">
                     <div class="row">
                       <div class="col-12 col-md-12">
@@ -68,12 +68,13 @@
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
-          <?php session_start();
-            if(isset($_POST['contel_cliente'])) {
-              $query_select_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_POST['contel_cliente']."'";
+          <?php //session_start();
+            if(isset($_POST['contel_cliente_carrinho'])) {
+              $query_select_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_POST['contel_cliente_carrinho']."'";
               $result_select_cliente = mysqli_query($conn, $query_select_cliente);
               $row_select_cliente = mysqli_fetch_assoc($result_select_cliente);
               // Exibe as informações do usuário no formulário
