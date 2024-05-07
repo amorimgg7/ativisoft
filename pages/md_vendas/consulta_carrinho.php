@@ -186,7 +186,7 @@
                     echo '}';
                     echo '</style>';
                     echo '';
-                    echo '<h3 class="kt-portlet__head-title">Produtos adicionados</h3>';
+                    echo '<h3 class="kt-portlet__head-title">Produtos DFDFDF adicionados</h3>';
                     
                     $count = 0;
                     $_SESSION['falta_pagar_carrinho'] = 0;
@@ -242,97 +242,52 @@
                     echo '</div>';
                     echo '</div>';
 
-                    
-                    
-                    
-                            
-                    
-                    
-                    
-
-                  
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
 
-                    
-                    
-                    
-                      $_SESSION['tela_movimento_financeiro'] = "VENDA_PRODUTO";
-                      //echo '<div class="col-12 grid-margin stretch-card btn-success">';//
-                      //echo '<div class="card">';
-                      //echo '<div class="card-body">';
-                      include("../md_caixa/movimento_financeiro.php");
-                      //echo '</div>';
-                      //echo '</div>';
-                      //echo '</div>';
-                    
-
-                    
-
-
+                    $_SESSION['tela_movimento_financeiro'] = "VENDA_PRODUTO";
+                    //echo '<div class="col-12 grid-margin stretch-card btn-success">';//
+                    //echo '<div class="card">';
+                    //echo '<div class="card-body">';
+                    include("../md_caixa/movimento_financeiro.php");
+                    //echo '</div>';
+                    //echo '</div>';
+                    //echo '</div>';
                     echo '<form action="impresso.php" method="POST" target="_blank" '.$_SESSION['c_card'].'>';
-                    echo '<div style="display:none; '.$_SESSION['c_card'].'">';
-                    //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
-                    echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" style="display: none;"/>';
-                    //echo '<label for="btnpnome_cliente">Nome</label>';
+                    echo '<div '.$_SESSION['c_card'].'">';
+                    echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
+                    echo '<label for="btncd_cliente">cd</label>';
+                    echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" style="display: block;"/>';
+                    echo '<label for="btnpnome_cliente">Nome</label>';
                     echo '<input value="'.$_SESSION['pnome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40" readonly/>';
-                    //echo '<label for="btnsnome_cliente">sobrenome</label>';
+                    echo '<label for="btnsnome_cliente">sobrenome</label>';
                     echo '<input value="'.$_SESSION['snome_cliente'].'" name="btnsnome_cliente" type="text" id="btnsnome_cliente" maxlength="40" readonly/>';
-                    //echo '<label for="btntel_cliente">Telefone</label>';
+                    echo '<label for="btntel_cliente">Telefone</label>';
                     echo '<input value="'.$_SESSION['tel_cliente'].'" name="btntel_cliente" type="tel"  id="btntel_cliente" oninput="tel(this)" readonly/>';
-                    //echo '<script>document.getElementById("showcd_cliente").value = "'.$_SESSION['cd_cliente'].'"</script>';
-                    //echo '<script>document.getElementById("btnpnome_cliente").value = "'.$_SESSION['pnome_cliente'].'"</script>';
-                    //echo '<script>document.getElementById("btnsnome_cliente").value = "'.$_SESSION['snome_cliente'].'"</script>';
-                    //echo '<script>document.getElementById("btntel_cliente").value = "'.$_SESSION['tel_cliente'].'"</script>';
-
-                    //echo '<label for="btncd_servico">OS</label>';
-                    echo '<input value="'.$_SESSION['cd_servico'].'" type="tel" name="btncd_servico" id="btncd_servico" readonly>';
-                    //echo '<label for="btnobs_servico">Descrição Geral</label>';
-                    echo '<input value="'.$_SESSION['obs_servico'].'" type="text" name="btnobs_servico" maxlength="999" id="btnobs_servico" placeholder="Caracteristica geral do serviço" readonly>';
-                    //echo '<label for="btnprioridade_servico">Prioridade</label>';
-                    echo '<select name="btnprioridade_servico" id="btnprioridade_servico">';
-                    echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >'.$_SESSION['prioridade_servico'].'</option>';
-                    echo '</select>';
-                    //echo '<!--<label for="btnprazo_servico">Entrada</label>-->';
-                    echo '<input value="'.$_SESSION['entrada_servico'].'" name="btnentrada_servico" type="datetime-local" id="btnentrada_servico" readonly/>';
-                    //echo '<label for="btnprazo_servico">Prazo</label>';
-                    echo '<input value="'.$_SESSION['prazo_servico'].'" name="btnprazo_servico" type="datetime-local" id="btnprazo_servico" readonly/>';
-                    
-                    echo '<script>document.getElementById("btncd_servico").value = "'.$_SESSION['cd_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnobs_servico").value = "'.$_SESSION['obs_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprioridade_servico").value = "'.$_SESSION['prioridade_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnentrada_servico").value = "'.$_SESSION['entrada_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprazo_servico").value = "'.$_SESSION['prazo_servico'].'"</script>';
+                    echo '<script>document.getElementById("btncd_cliente").value = "'.$_SESSION['cd_cliente'].'"</script>';
+                    echo '<script>document.getElementById("btnpnome_cliente").value = "'.$_SESSION['pnome_cliente'].'"</script>';
+                    echo '<script>document.getElementById("btnsnome_cliente").value = "'.$_SESSION['snome_cliente'].'"</script>';
+                    echo '<script>document.getElementById("btntel_cliente").value = "'.$_SESSION['tel_cliente'].'"</script>';
 
                     //echo '<label for="showobs_servico">Total</label>';
                     echo '<input value="'.$_SESSION['vtotal_orcamento'].'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" readonly>';
                     //echo '<label for="showobs_servico">Pago</label>';
                     echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" readonly>';
                     
-
                     echo '<script>document.getElementById("btnvtotal_orcamento").value = "'.$_SESSION['vtotal_orcamento'].'"</script>';
                     echo '<script>document.getElementById("btnvpag_orcamento").value = "'.$_SESSION['vpag_servico'].'"</script>';
                     echo '</div>';
 
-                    
-                    //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
-                    //echo '<button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">OS <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    //echo '<button type="submit" name="historico_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Histórico <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    //echo '<button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-printer btn-icon-append"></i></button>';
                     echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-whatsapp"></i></button>';
-                    //echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarPosicaoMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Localização<i class="mdi mdi-whatsapp"></i></button>';
-                    //echo '<button type="submit" class="btn btn-danger" name="limpaTELA-" style="margin: 5px;">Nova Consulta</button>';     
                     echo '</form>';
                     echo '<form method="post"'.$_SESSION['c_card'].'>';//echo '<button type="submit" class="btn btn-danger" name="limpaTELA" style="margin: 5px;">Nova Consulta</button>';
                     echo '<button type="submit" class="btn btn-block btn-lg btn-warning" name="editaOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-file-check btn-icon-append"></i> Editar</button>';
                     echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limpaTELA" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
                     //<i class="mdi mdi-alert btn-icon-prepend"></i>  
                     echo '</form>';
-
-
                   }
 
                   if(isset($_POST['lancarPagamento'])) {
@@ -345,10 +300,6 @@
                     header("location: consulta_servico.php");
                   }
 
-
-
-
-                  
                 ?>
                 <script>
                           function enviarMensagemWhatsApp() {
