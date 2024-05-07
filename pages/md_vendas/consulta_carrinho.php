@@ -319,17 +319,17 @@
                               $select_carrinho_whatsapp = "SELECT ps.cd_prod_serv, ps.titulo_prod_serv, ps.preco_prod_serv, sum(c.qtd_prod_serv_carrinho) as qtd_total, sum(ps.preco_prod_serv) as valor_total FROM tb_carrinho c, tb_prod_serv ps WHERE cd_cliente_carrinho = '".$_SESSION['cd_cliente']."' and ps.cd_prod_serv = c.cd_prod_serv_carrinho GROUP BY ps.titulo_prod_serv ORDER BY c.qtd_prod_serv_carrinho DESC";
                               //$select_carrinho_whatsapp = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_orcamento ASC";
                               $result_carrinho_whatsapp = mysqli_query($conn, $select_carrinho_whatsapp);
-                              echo 'mensagem += "*Produtos em seu carrinho*\n"';
+                              //echo 'mensagem += "*Produtos em seu carrinho*\n"';
                               $counter = 0;
                               $vtotalServico = 0;
                               while($row_carrinho_whatsapp = $result_carrinho_whatsapp->fetch_assoc()) {
                                 $counter = $counter + 1;
-                                $vtotalServico = $vtotalServico + $row_carrinho_whatsapp['titulo_prod_serv'];
-                                ?>mensagem += "<?php echo '*'.$counter.'* - '.$row_carrinho_whatsapp['titulo_prod_serv'].' - R$:'.$row_carrinho_whatsapp['valor_total']; ?>\n";<?php
+                                //$vtotalServico = $vtotalServico + $row_carrinho_whatsapp['titulo_prod_serv'];
+                                ?>//mensagem += "<?php //echo '*'.$counter.'* - '.$row_carrinho_whatsapp['titulo_prod_serv'].' - R$:'.$row_carrinho_whatsapp['valor_total']; ?>\n";<?php
                               }
                               echo 'mensagem += "\n"';
                             ?>
-                            mensagem += "Total: *R$:101010*\n";
+                            //mensagem += "Total: *R$:" + vtotalServico + "*\n\n";
                             //mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
                             //mensagem += "Falta pagar: R$:*" + faltaPagar + "*\n\n";
 
