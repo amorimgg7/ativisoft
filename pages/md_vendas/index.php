@@ -1,8 +1,4 @@
-<div class="col-lg-12 grid-margin stretch-card">
-<i type="submit" class="btn btn-success"style="margin:auto; display:none;"id="nocarrinho">No Carrinho</i>
-<i type="submit" class="btn btn-warning"style="margin:auto; display:none;"id="pago">Pago</i>
-<i type="submit" class="btn btn-danger"style="margin:auto; display:none;" id="entregue">Entregue</i>
-</div>
+
 
             <?php //À FAZER
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
