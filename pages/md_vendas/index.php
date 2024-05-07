@@ -21,7 +21,6 @@
                 echo '<div class="card-body">';
                 echo '<div class="grid-margin stretch-card">';
                 echo '<h4 style="display: inline-block; margin-left: 10px;">No Carrinho</h4>';
-                echo '<i class="btn btn-success" style="margin:auto; display:none;" id="noprazoafaser"></i><i class="btn btn-warning" style="margin:auto; display:none;" id="parahojeafaser"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="extrapoladoafaser"></i>';
                 echo '</div>';
 
                 
