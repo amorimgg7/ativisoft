@@ -260,7 +260,7 @@
                     echo '<div '.$_SESSION['c_card'].'">';
                     echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
                     echo '<label for="btncd_cliente">cd</label>';
-                    echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" style="display: block;"/>';
+                    echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="btncd_cliente" style="display: block;"/>';
                     echo '<label for="btnpnome_cliente">Nome</label>';
                     echo '<input value="'.$_SESSION['pnome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40" readonly/>';
                     echo '<label for="btnsnome_cliente">sobrenome</label>';
@@ -312,26 +312,29 @@
                             //faltaPagar = vtotalServico - vpagServico;
                               // Construir a mensagem com todos os dados do formulário
                             var mensagem = "*Olá, " + pnomeCliente + "!*\n";
-                            ////mensagem += "Sou *<?php ////echo $_SESSION['pnome_colab'].' '.$_SESSION['snome_colab'];?>*.\n\n";
+                            mensagem += "Sou *<?php echo $_SESSION['pnome_colab'].' '.$_SESSION['snome_colab'];?>*.\n\n";
                             
-                            //mensagem += "Notei que voce se interessou em nussos produtos e estou entrando em contato com voce para saber como posso te ajudar a ter a melhor experiência em nossa loja virtual.*\n";
+                            mensagem += "Notei que voce se interessou em nussos produtos e estou entrando em contato com voce para saber como posso te ajudar a ter uma melhor experiência em nossa loja virtual.\n";
                             <?php
-                              ////$select_carrinho_whatsapp = "SELECT ps.cd_prod_serv, ps.titulo_prod_serv, ps.preco_prod_serv, sum(c.qtd_prod_serv_carrinho) as qtd_total, sum(ps.preco_prod_serv) as valor_total FROM tb_carrinho c, tb_prod_serv ps WHERE cd_cliente_carrinho = '".$_SESSION['cd_cliente']."' and ps.cd_prod_serv = c.cd_prod_serv_carrinho GROUP BY ps.titulo_prod_serv ORDER BY c.qtd_prod_serv_carrinho DESC";
+                              $select_carrinho_whatsapp = "SELECT ps.cd_prod_serv, ps.titulo_prod_serv, ps.preco_prod_serv, sum(c.qtd_prod_serv_carrinho) as qtd_total, sum(ps.preco_prod_serv) as valor_total FROM tb_carrinho c, tb_prod_serv ps WHERE cd_cliente_carrinho = '".$_SESSION['cd_cliente']."' and ps.cd_prod_serv = c.cd_prod_serv_carrinho GROUP BY ps.titulo_prod_serv ORDER BY c.qtd_prod_serv_carrinho DESC";
                               //$select_carrinho_whatsapp = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_orcamento ASC";
-                              ////$result_carrinho_whatsapp = mysqli_query($conn, $select_carrinho_whatsapp);
-                              ////echo 'mensagem += "*Lista detalhada*\n";';
-                              ////while($row_carrinho_whatsapp = $result_carrinho_whatsapp->fetch_assoc()) {
-                                ////$counter = $counter + 1;
-                                ?>////mensagem += "<?php ////echo '*'.$counter.'* - '.$row_carrinho_whatsapp['titulo_prod_serv'].' - R$:'.$row_carrinho_whatsapp['valor_total']; ?>\n";<?php
-                              ////}
-                              ////echo 'mensagem += "\n";';
+                              $result_carrinho_whatsapp = mysqli_query($conn, $select_carrinho_whatsapp);
+                              echo 'mensagem += "*Produtos em seu carrinho*\n"';
+                              $counter = 0;
+                              $vtotalServico = 0;
+                              while($row_carrinho_whatsapp = $result_carrinho_whatsapp->fetch_assoc()) {
+                                $counter = $counter + 1;
+                                $vtotalServico = $vtotalServico + $row_carrinho_whatsapp['titulo_prod_serv'];
+                                ?>mensagem += "<?php echo '*'.$counter.'* - '.$row_carrinho_whatsapp['titulo_prod_serv'].' - R$:'.$row_carrinho_whatsapp['valor_total']; ?>\n";<?php
+                              }
+                              echo 'mensagem += "\n"';
                             ?>
-                            ////mensagem += "Total: *R$:" + vtotalServico + "*\n\n";
+                            mensagem += "Total: *R$:101010*\n";
                             //mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
                             //mensagem += "Falta pagar: R$:*" + faltaPagar + "*\n\n";
 
-                            ////mensagem += "OBS: *_<?php ////echo $_SESSION['saudacoes_filial'];?>_*\n\n";//$_SESSION['endereco_filial']
-                            //mensagem += "```NuvemSoft © | Release: B E T A```";//$_SESSION['endereco_filial']
+                            mensagem += "OBS: *_<?php echo $_SESSION['saudacoes_filial'];?>_*\n\n";//$_SESSION['endereco_filial']
+                            mensagem += "```NuvemSoft © | Release: B E T A```";//$_SESSION['endereco_filial']
                             // Codificar a mensagem para uso na URL
                             var mensagemCodificada = encodeURIComponent(mensagem);
                             // Construir a URL do WhatsApp

@@ -130,6 +130,7 @@
 
                     include '../../pages/auto_pagamento/index.php';
                     include '../../pages/md_caixa/index.php';
+                    include '../../pages/md_vendas/index.php';
                     include '../../pages/md_assistencia/index.php';
                   }
                   if($_SESSION['cd_funcao'] == 6)
