@@ -46,15 +46,15 @@
             <div class="col-12 grid-margin">
               <div class="card" <?php $_SESSION['c_card'];?>>
                 <div class="card-body" id="consulta" <?php echo $_SESSION['c_card'];?> style="display: block;" >
-                  <h3 class="card-title"<?php echo $_SESSION['c_card'];?>>Consultar pela OS</h3>
-                  <p class="card-description"<?php echo $_SESSION['c_card'];?>>Consulte a Ordem de Serviço para lançar as atividades e avisar ao cliente sobre o status atual.</p>
+                  <h3 class="card-title"<?php echo $_SESSION['c_card'];?>>Consultar Carrinho</h3>
+                  <p class="card-description"<?php echo $_SESSION['c_card'];?>>Consulte o Carrinho pelo Código do seu cliente.</p>
                   <div class="kt-portlet__body" >
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">
                         <form method="POST">
                           
-                          <input placeholder="Ordem de Serviço" type="tel" name="conos_servico" id="conos_servico" type="tel" maxlength="10" class="aspNetDisabled form-control form-control-sm" required>
+                          <input placeholder="Código do Cliente" type="tel" name="concd_cliente_carrinho" id="concd_cliente_carrinho" type="tel" maxlength="10" class="aspNetDisabled form-control form-control-sm" required>
                           <br>
                           <button type="submit" name="consulta" class="btn btn-success">Consulta</button>
                         </form>
@@ -67,8 +67,9 @@
                 <?php
                   if(isset($_POST['limpaTELA'])){
                     //echo "<script>window.alert('Mostrar botão de limpar OS!');</script>";
-                    session_start();
+                    //session_start();
                     $_SESSION['cd_cliente_carrinho'] = 0;
+                    $_SESSION['cd_cliente'] = 0;
                     $_SESSION['vtotal_orcamento'] = 0;
                     $_SESSION['vpag_servico'] = 0;
                     
@@ -257,7 +258,7 @@
                     //echo '</div>';
                     //echo '</div>';
                     echo '<form action="impresso.php" method="POST" target="_blank" '.$_SESSION['c_card'].'>';
-                    echo '<div '.$_SESSION['c_card'].'">';
+                    echo '<div style="display: none;" '.$_SESSION['c_card'].'">';
                     echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
                     echo '<label for="btncd_cliente">cd</label>';
                     echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="btncd_cliente" style="display: block;"/>';
@@ -281,10 +282,9 @@
                     echo '<script>document.getElementById("btnvpag_orcamento").value = "'.$_SESSION['vpag_servico'].'"</script>';
                     echo '</div>';
 
-                    echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-whatsapp"></i></button>';
+                    echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Lembrete de Carrinho <i class="mdi mdi-whatsapp"></i></button>';
                     echo '</form>';
                     echo '<form method="post"'.$_SESSION['c_card'].'>';//echo '<button type="submit" class="btn btn-danger" name="limpaTELA" style="margin: 5px;">Nova Consulta</button>';
-                    echo '<button type="submit" class="btn btn-block btn-lg btn-warning" name="editaOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-file-check btn-icon-append"></i> Editar</button>';
                     echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limpaTELA" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
                     //<i class="mdi mdi-alert btn-icon-prepend"></i>  
                     echo '</form>';
@@ -315,25 +315,31 @@
                             mensagem += "Sou *<?php echo $_SESSION['pnome_colab'].' '.$_SESSION['snome_colab'];?>*.\n\n";
                             
                             mensagem += "Notei que voce se interessou em nussos produtos e estou entrando em contato com voce para saber como posso te ajudar a ter uma melhor experiência em nossa loja virtual.\n";
+                            mensagem += "Confira já seu carrinho em <?php echo $_SESSION['dominio'].'pages/web/index.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel='.$_SESSION['tel_cliente'].'&carrinho=true'; ?>.\n";
+                            //mensagem += "Confira já seu carrinho em " + <?php //echo 'https://';?> + ".\n";
                             <?php
                               $select_carrinho_whatsapp = "SELECT ps.cd_prod_serv, ps.titulo_prod_serv, ps.preco_prod_serv, sum(c.qtd_prod_serv_carrinho) as qtd_total, sum(ps.preco_prod_serv) as valor_total FROM tb_carrinho c, tb_prod_serv ps WHERE cd_cliente_carrinho = '".$_SESSION['cd_cliente']."' and ps.cd_prod_serv = c.cd_prod_serv_carrinho GROUP BY ps.titulo_prod_serv ORDER BY c.qtd_prod_serv_carrinho DESC";
                               //$select_carrinho_whatsapp = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_orcamento ASC";
                               $result_carrinho_whatsapp = mysqli_query($conn, $select_carrinho_whatsapp);
-                              //echo 'mensagem += "*Produtos em seu carrinho*\n"';
+                              echo 'mensagem += "*Produtos em seu carrinho*\n";';
                               $counter = 0;
                               $vtotalServico = 0;
+                              
+                              $counter = 0;
                               while($row_carrinho_whatsapp = $result_carrinho_whatsapp->fetch_assoc()) {
-                                $counter = $counter + 1;
-                                //$vtotalServico = $vtotalServico + $row_carrinho_whatsapp['titulo_prod_serv'];
-                                ?>//mensagem += "<?php //echo '*'.$counter.'* - '.$row_carrinho_whatsapp['titulo_prod_serv'].' - R$:'.$row_carrinho_whatsapp['valor_total']; ?>\n";<?php
+                                  $counter = $counter + 1;
+                                  //$vtotalServico = $vtotalServico + $row_carrinho_whatsapp['titulo_prod_serv'];
+                                  echo 'mensagem += "' . '*'.$counter.'* - ' . $row_carrinho_whatsapp['titulo_prod_serv'] . ' - R$:' . $row_carrinho_whatsapp['valor_total'] . '\n";';
                               }
+
+
                               echo 'mensagem += "\n"';
                             ?>
                             //mensagem += "Total: *R$:" + vtotalServico + "*\n\n";
                             //mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
                             //mensagem += "Falta pagar: R$:*" + faltaPagar + "*\n\n";
 
-                            mensagem += "OBS: *_<?php echo $_SESSION['saudacoes_filial'];?>_*\n\n";//$_SESSION['endereco_filial']
+                            //mensagem += "OBS: *_<?php //echo $_SESSION['saudacoes_filial'];?>_*\n\n";//$_SESSION['endereco_filial']
                             mensagem += "```NuvemSoft © | Release: B E T A```";//$_SESSION['endereco_filial']
                             // Codificar a mensagem para uso na URL
                             var mensagemCodificada = encodeURIComponent(mensagem);

@@ -185,7 +185,7 @@ else {
                 echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&cadastro=true";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
             }
         }else{
-            echo "<script>window.alert('Digite um número de telefone válido');</script>";
+            //echo "<script>window.alert('Digite um número de telefone válido');</script>";
             echo '<script>window.location.href = "index.php?cnpj='.$_SESSION['cnpj_empresa'].'&carrinho=true";</script>';//index.php?cnpj='.$_SESSION['cnpj_empresa'].'
         }
         echo '<script>document.getElementById("consulta").style.display = "none";</script>';
