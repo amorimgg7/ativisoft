@@ -49,7 +49,9 @@
                 if($row_frase) {
                   //echo '<h4>"'. utf8_encode($row_frase['texto_frase']) .'"</h4>';
 
-                  echo '<h4>"'. htmlspecialchars($row_frase['texto_frase'], ENT_QUOTES, 'UTF-8') .'"</h4>';
+                  //echo '<h4>"'. htmlspecialchars($row_frase['texto_frase'], ENT_QUOTES, 'UTF-8') .'"</h4>';
+
+                  echo '<h4>"'.htmlspecialchars($row_frase['texto_frase']).'"</h4>';
 
                   //echo '<h4>"'.$row_frase['texto_frase'].'"</h4>';
                   echo '<h6 class="font-weight-light">'.htmlspecialchars($row_frase['autor_frase'], ENT_QUOTES, 'UTF-8') .' ('.htmlspecialchars($row_frase['vida_autor'], ENT_QUOTES, 'UTF-8') .')</h6>';               
