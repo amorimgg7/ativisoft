@@ -282,6 +282,53 @@ CREATE TABLE `tb_orcamento_servico` (
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 
+CREATE TABLE `tb_frases` (
+  `cd_frase` int(11) NOT NULL,
+  `texto_frase` varchar(900) DEFAULT NULL,
+  `autor_frase` varchar(200) DEFAULT NULL,
+  `vida_autor` varchar(200) DEFAULT NULL,
+  `biografia_autor` varchar(999) DEFAULT NULL,
+  `data_inicio_frase` varchar(10) DEFAULT NULL,
+  `data_fim_frase` varchar(10) DEFAULT NULL,
+  `dia_inicio` int(11) NOT NULL,
+  `dia_fim` int(11) NOT NULL,
+  `prioridade_frase` int(11) NOT NULL
+
+)  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+
+INSERT INTO `tb_frases` (`cd_frase`, `texto_frase`, `autor_frase`, `vida_autor`, `biografia_autor`, `data_inicio_frase`, `data_fim_frase`, `dia_inicio`, `dia_fim`) VALUES
+(1, 'frase de efeito', 'autor da frase', '2000 a 2024', 'O Autor viveu na galiléia e dedicou a sua vida em ajudar os necessitados', '01-01-2000', '01-01-2030', 1, 6),
+(2, 'As oportunidades multiplicam-se à medida que são agarradas!', 'Sun Tzu', '544 a.C. - 496 a.C', 'Sun Tzu foi um estrategista militar chinês, filósofo e autor do tratado militar clássico "A Arte da Guerra". Pouco se sabe sobre sua biografia com precisão histórica, mas é amplamente aceito que ele viveu durante o século IV a.C., durante o período conhecido como os Reinos Combatentes da China antiga. Sun Tzu serviu como general no exército do estado de Wu e é creditado por suas contribuições para as estratégias militares que ajudaram Wu a alcançar vitórias sobre seus rivais. Seu trabalho mais famoso, "A Arte da Guerra", é uma obra seminal sobre estratégia militar, que oferece conselhos atemporais sobre táticas, planejamento e liderança.  Além de suas habilidades militares, Sun Tzu é considerado um filósofo cujas ideias transcenderam o campo da guerra, sendo aplicadas em diversos campos, como negócios, política e esportes. Sua obra continua a ser estudada e admirada até os dias de hoje, influenciando estrategistas e líderes em todo o mundo.', '01-01-2000', '01-01-2030', 7, 20);
+(3, 'Você não pode impor a produtividade, você deve fornecer as ferramentas para permitir que as pessoas se transformem no seu melhor.”', 'Steve Jobs', '', '', '', '', 1, 1, 1);
+(4, 'Não tente se tornar uma pessoa de sucesso, prefira tentar se tornar uma pessoa de valor.”', 'Albert Einstein', '', '', '', '', 1, 1, 1);
+(5, 'Sempre que te perguntarem se você pode fazer um trabalho, diga-lhes: – Certamente eu posso! – Em seguida, fique muito ocupado e descubra como fazê-lo.”', 'Theodore Roosevelt', '', '', '', '', 1, 1, 1);
+(6, 'Não é problema reclamar do trabalho. Mas trabalhe antes, só assim suas queixas terão fundamento.”', 'Sócrates', '', '', '', '', 1, 1, 1);
+(7, 'Melhorando a qualidade, automaticamente você estará melhorando a produtividade.”', 'W. Edwards Deming', '', '', '', '', 1, 1, 1);
+(8, 'O insucesso é apenas uma oportunidade para recomeçar de novo com mais inteligência.”', 'Henry Ford', '', '', '', '', 1, 1, 1);
+(9, 'Nos momentos finais do mês, reflita sobre suas realizações com gratidão e prepare-se para receber as novas oportunidades que o próximo ciclo trará."', 'Paulo Coelho', '', '', '', '', 1, 1, 1);
+
+
+
+
+
+INSERT INTO `tb_frases` (`texto_frase`, `autor_frase`, `vida_autor`, `biografia_autor`, `data_inicio_frase`, `data_fim_frase`, `dia_inicio`, `dia_fim`, `prioridade_frase`) VALUES
+('frase de efeito', 'autor da frase', '2000 a 2024', 'O Autor viveu na galiléia e dedicou a sua vida em ajudar os necessitados', '', '', 1, 6, 1),
+('As oportunidades multiplicam-se à medida que são agarradas!', 'Sun Tzu', '544 a.C. - 496 a.C', 'Sun Tzu foi um estrategista militar chinês, filósofo e autor do tratado militar clássico "A Arte da Guerra". Pouco se sabe sobre sua biografia com precisão histórica, mas é amplamente aceito que ele viveu durante o século IV a.C., durante o período conhecido como os Reinos Combatentes da China antiga. Sun Tzu serviu como general no exército do estado de Wu e é creditado por suas contribuições para as estratégias militares que ajudaram Wu a alcançar vitórias sobre seus rivais. Seu trabalho mais famoso, "A Arte da Guerra", é uma obra seminal sobre estratégia militar, que oferece conselhos atemporais sobre táticas, planejamento e liderança.  Além de suas habilidades militares, Sun Tzu é considerado um filósofo cujas ideias transcenderam o campo da guerra, sendo aplicadas em diversos campos, como negócios, política e esportes. Sua obra continua a ser estudada e admirada até os dias de hoje, influenciando estrategistas e líderes em todo o mundo.', '01-01-2000', '01-01-2030', 7, 20, 1),
+('Você não pode impor a produtividade, você deve fornecer as ferramentas para permitir que as pessoas se transformem no seu melhor.”', 'Steve Jobs', '', '', '', '', 1, 1, 1),
+('Não tente se tornar uma pessoa de sucesso, prefira tentar se tornar uma pessoa de valor.”', 'Albert Einstein', '', '', '', '', 1, 1, 1),
+('Sempre que te perguntarem se você pode fazer um trabalho, diga-lhes: – Certamente eu posso! – Em seguida, fique muito ocupado e descubra como fazê-lo.”', 'Theodore Roosevelt', '', '', '', '', 1, 1, 1),
+('Não é problema reclamar do trabalho. Mas trabalhe antes, só assim suas queixas terão fundamento.”', 'Sócrates', '', '', '', '', 1, 1, 1),
+('Melhorando a qualidade, automaticamente você estará melhorando a produtividade.”', 'W. Edwards Deming', '', '', '', '', 1, 1, 1),
+('O insucesso é apenas uma oportunidade para recomeçar de novo com mais inteligência.”', 'Henry Ford', '', '', '', '', 1, 1, 1),
+('Nos momentos finais do mês, reflita sobre suas realizações com gratidão e prepare-se para receber as novas oportunidades que o próximo ciclo trará."', 'Paulo Coelho', '', '', '', '', 1, 1, 1);
+
+
+
+
+ALTER TABLE `tb_frases`
+  ADD PRIMARY KEY (`cd_frase`);
+
 ALTER TABLE `fl_ponto`
   ADD PRIMARY KEY (`token_alter`),
   ADD KEY `fk_fl_ponto1` (`cdcolab_ponto`),

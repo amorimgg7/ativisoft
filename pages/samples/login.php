@@ -36,9 +36,21 @@
                 <img src="../../images/logo-dark.svg" alt="logo">
               </div>
             -->
-              <h4>"As oportunidades multiplicam-se à medida que são agarradas!"</h4>
-              <h6 class="font-weight-light">Sun Tzu ± (544 a.C. - 496 a.C)</h6>
-  
+              <?php
+                require_once '../../classes/conn_revenda.php';
+                /*
+                  SELECT * FROM tb_frases 
+                  WHERE (data_inicio_frase <= CURDATE() AND data_fim_frase >= CURDATE())  
+                  AND (dia_inicio <= DAYOFMONTH(NOW()) AND dia_fim >= DAYOFMONTH(NOW())) 
+                */
+                $select_frase = "SELECT * FROM tb_frases WHERE (data_inicio_frase <= CURDATE() AND data_fim_frase >= CURDATE()) AND (dia_inicio <= DAYOFMONTH(NOW()) AND dia_fim >= DAYOFMONTH(NOW())) order by prioridade_frase DESC";  
+                $result_frase = mysqli_query($conn_revenda, $select_frase);
+                $row_frase = mysqli_fetch_assoc($result_frase);
+                if($row_frase) {
+                  echo '<h4>"'.$row_frase['texto_frase'].'"</h4>';
+                  echo '<h6 class="font-weight-light">'.$row_frase['autor_frase'].' ('.$row_frase['vida_autor'].')</h6>';               
+                }
+              ?>
               <form class="pt-3" method="POST">
                 
                 <div class="form-group">
@@ -78,7 +90,6 @@
 
 
               <?php
-              session_start();
                 if (isset($_POST['cnpj_empresa']))
                 {
                   require_once '../../classes/functions.php';
