@@ -37,6 +37,8 @@
               </div>
             -->
               <?php
+                header('Content-Type: text/html; charset=UTF-8');
+
                 require_once '../../classes/conn_revenda.php';
                 /*
                   SELECT * FROM tb_frases 
