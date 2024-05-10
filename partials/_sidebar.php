@@ -23,6 +23,22 @@
           <!--<div class="user-image">
             <img src="<?php //echo $_SESSION['foto_pessoal'];?>">
           </div>-->
+          <div class="user-image">
+            <?php
+              $caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
+              $foto_empresa = "LogoEmpresa.jpg"; // Nome do arquivo que será salvo
+              $caminho_foto_empresa = $caminho_pasta_empresa . $foto_empresa;
+
+              if (file_exists($caminho_foto_empresa)) {
+                $tipo_foto_empresa = mime_content_type($caminho_foto_empresa);
+                  echo '<img src="'.$caminho_foto_empresa. '">';
+                  //echo "<link rel='shortcut icon' href='data:$tipo_foto_empresa;base64," . base64_encode(file_get_contents($caminho_foto_empresa)) . "' />";
+              }else{
+                //echo '<img src="https://lh3.googleusercontent.com/pw/AP1GczOReqQClzL-PZkykfOwgmMyVzQgx27DTp783MI7iwKuKSv-6P6V7KOEbCC74sGdK3DEV3O88CsBLeIvOaQwGT3x4bqCTPRtyV9zcODbYVDRxAF8zf8Uev7geh4ONPdl3arNhnSDPvbQfMdpFRPM263V9A=w250-h250-s-no-gm?authuser=0">';
+                //echo "<link rel='shortcut icon' href='https://lh3.googleusercontent.com/pw/AP1GczOReqQClzL-PZkykfOwgmMyVzQgx27DTp783MI7iwKuKSv-6P6V7KOEbCC74sGdK3DEV3O88CsBLeIvOaQwGT3x4bqCTPRtyV9zcODbYVDRxAF8zf8Uev7geh4ONPdl3arNhnSDPvbQfMdpFRPM263V9A=w250-h250-s-no-gm?authuser=0' />";
+              }
+            ?>
+          </div>
           <div class="user-name">
             <?php echo 'Olá, '.$_SESSION['pnome_colab'].' '.$_SESSION['snome_colab']?>
           </div>

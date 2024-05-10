@@ -34,7 +34,8 @@
 
   <!-- Required meta tags --> 
   <meta charset="utf-8">
-  <meta http-equiv='refresh' content='30'>
+  <!--<meta http-equiv='refresh' content='30'>-->
+  <meta>
   <!--<meta http-equiv="refresh" content="5;url=../samples/lock-screen.php">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
