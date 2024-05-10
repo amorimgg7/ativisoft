@@ -274,10 +274,9 @@ else {
 <html lang="pt-br">
 <head>
 
-   
+  <link rel="shortcut icon" href="<?php echo $_SESSION['dominio'].'pages/web/imagens/'.$_SESSION['cnpj_empresa'].'/Logos/LogoEmpresa.jpg'; ?>" /><!--$_SESSION['dominio'].'pages/samples/lock-screen.php';-->
 
-
-    <!-- Basic Page Needs
+      <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
     <?php 

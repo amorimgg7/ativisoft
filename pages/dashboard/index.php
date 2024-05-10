@@ -53,11 +53,12 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?php echo $_SESSION['logo_empresa']; ?>" />
+  <link rel="shortcut icon" href="<?php echo $_SESSION['dominio'].'pages/web/imagens/'.$_SESSION['cnpj_empresa'].'/Logos/LogoEmpresa.jpg'; ?>" /><!--$_SESSION['dominio'].'pages/samples/lock-screen.php';-->
+  <!--<link rel="shortcut icon" href="<?php //echo $_SESSION['logo_empresa']; ?>" />-->
   <script>
-                document.getElementById("c_body").style = '<?php echo $_SESSION['c_body'];?>';
-                document.getElementById("c_card").style = '<?php echo $_SESSION['c_card'];?>';
-              </script>
+    document.getElementById("c_body").style = '<?php echo $_SESSION['c_body'];?>';
+    document.getElementById("c_card").style = '<?php echo $_SESSION['c_card'];?>';
+  </script>
   
 
 </head>

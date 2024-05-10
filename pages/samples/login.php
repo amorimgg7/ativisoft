@@ -19,7 +19,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <!--<link rel="shortcut icon" href="../../images/favicon.png" />-->
+  <link rel="shortcut icon" href="../../images/tecbg.png" />
   <script src="../../js/functions.js"></script>
 </head>
 

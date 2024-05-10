@@ -25,6 +25,8 @@ $u = new Usuario;
     <!-- endinject -->
     <!-- inject:css -->
     <link rel="stylesheet" href="../../css/style.css">
+  <link rel="shortcut icon" href="<?php echo $_SESSION['dominio'].'pages/web/imagens/'.$_SESSION['cnpj_empresa'].'/Logos/LogoEmpresa.jpg'; ?>" /><!--$_SESSION['dominio'].'pages/samples/lock-screen.php';-->
+
     <!-- endinject -->
     <script src="../../js/functions.js"></script>
     <link rel="shortcut icon" href="<?php echo $_SESSION['logo_empresa']; ?>" />

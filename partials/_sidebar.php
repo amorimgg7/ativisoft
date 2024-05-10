@@ -21,7 +21,7 @@
 <nav class="sidebar sidebar-offcanvas " id="sidebar" <?php echo $_SESSION['c_sidebar']?>>
         <div class="user-profile" <?php echo $_SESSION['c_sidebar']?>>
           <!--<div class="user-image">
-            <img src="<?php echo $_SESSION['foto_pessoal'];?>">
+            <img src="<?php //echo $_SESSION['foto_pessoal'];?>">
           </div>-->
           <div class="user-name">
             <?php echo 'Olá, '.$_SESSION['pnome_colab'].' '.$_SESSION['snome_colab']?>

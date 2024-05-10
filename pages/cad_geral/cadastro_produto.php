@@ -461,6 +461,8 @@
                 if (file_exists($caminho_foto_produto)) {
                   $tipo_foto_produto = mime_content_type($caminho_foto_produto);
                   echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-produto' style='width: 200px; height: 200px;' src='data:$tipo_foto_produto;base64," . base64_encode(file_get_contents($caminho_foto_produto)) . "' alt='Imagem'>"; 
+                }else{
+                  echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-produto' style='width: 200px; height: 200px;' src='https://lh3.googleusercontent.com/pw/AP1GczMtcne3DnCiab9YcotaYOwWr-VwlW7ue4Us3dPaVXp51TNFSvwxI_6S4UDf26DplSgSiNW8hm3S5V1Zv5r7WSe1DW_hhs4hpioRd5LoLdvnkRz493kr2_m0EpmY3dL0T1H3oD52Qk9c77fR4hY5Jg9OOw=w272-h273-s-no-gm?authuser=0' alt='Imagem'>";
                 }
 
                 echo '<div class="card-body text-center">';
