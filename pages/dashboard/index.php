@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
   <?php
-  		$caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
+  	$caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
 		$foto_empresa = "LogoEmpresa.jpg"; // Nome do arquivo que será salvo
 		$caminho_foto_empresa = $caminho_pasta_empresa . $foto_empresa;
 
@@ -75,7 +75,8 @@
 
 </head>
 <script src="../../js/functions.js"></script>
-<body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">
+<!--<body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">-->
+<body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <?php include ("../../partials/_navbar.php");?>
