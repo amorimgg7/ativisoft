@@ -26,9 +26,23 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?php echo $_SESSION['dominio'].'pages/web/imagens/'.$_SESSION['cnpj_empresa'].'/Logos/LogoEmpresa.jpg'; ?>" /><!--$_SESSION['dominio'].'pages/samples/lock-screen.php';-->
+  <!--<link rel="shortcut icon" href="<?php //echo $_SESSION['dominio'].'pages/web/imagens/'.$_SESSION['cnpj_empresa'].'/Logos/LogoEmpresa.jpg'; ?>" />--><!--$_SESSION['dominio'].'pages/samples/lock-screen.php';-->
+	<?php
+  		$caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
+		$foto_empresa = "LogoEmpresa.jpg"; // Nome do arquivo que será salvo
+		$caminho_foto_empresa = $caminho_pasta_empresa . $foto_empresa;
 
-  
+		if (file_exists($caminho_foto_empresa)) {
+			$tipo_foto_empresa = mime_content_type($caminho_foto_empresa);
+  			echo "<link rel='shortcut icon' href='data:$tipo_foto_empresa;base64," . base64_encode(file_get_contents($caminho_foto_empresa)) . "' />";
+
+			//echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-empresa' style='width: 200px; height: 200px;' src='data:$tipo_foto_empresa;base64," . base64_encode(file_get_contents($caminho_foto_empresa)) . "' alt='Imagem'>";
+		}else{
+			//echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-empresa' style='width: 200px; height: 200px;' src='https://lh3.googleusercontent.com/pw/AP1GczMtcne3DnCiab9YcotaYOwWr-VwlW7ue4Us3dPaVXp51TNFSvwxI_6S4UDf26DplSgSiNW8hm3S5V1Zv5r7WSe1DW_hhs4hpioRd5LoLdvnkRz493kr2_m0EpmY3dL0T1H3oD52Qk9c77fR4hY5Jg9OOw=w272-h273-s-no-gm?authuser=0' alt='Imagem'>";
+			echo "<link rel='shortcut icon' href='https://lh3.googleusercontent.com/pw/AP1GczMtcne3DnCiab9YcotaYOwWr-VwlW7ue4Us3dPaVXp51TNFSvwxI_6S4UDf26DplSgSiNW8hm3S5V1Zv5r7WSe1DW_hhs4hpioRd5LoLdvnkRz493kr2_m0EpmY3dL0T1H3oD52Qk9c77fR4hY5Jg9OOw=w272-h273-s-no-gm?authuser=0' />";
+			
+		}
+	  ?>
   <script src="../../js/functions.js"></script>
 </head>
 
