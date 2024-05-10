@@ -35,14 +35,10 @@
 		if (file_exists($caminho_foto_empresa)) {
 			$tipo_foto_empresa = mime_content_type($caminho_foto_empresa);
   			echo "<link rel='shortcut icon' href='data:$tipo_foto_empresa;base64," . base64_encode(file_get_contents($caminho_foto_empresa)) . "' />";
-
-			//echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-empresa' style='width: 200px; height: 200px;' src='data:$tipo_foto_empresa;base64," . base64_encode(file_get_contents($caminho_foto_empresa)) . "' alt='Imagem'>";
 		}else{
-			//echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-empresa' style='width: 200px; height: 200px;' src='https://lh3.googleusercontent.com/pw/AP1GczMtcne3DnCiab9YcotaYOwWr-VwlW7ue4Us3dPaVXp51TNFSvwxI_6S4UDf26DplSgSiNW8hm3S5V1Zv5r7WSe1DW_hhs4hpioRd5LoLdvnkRz493kr2_m0EpmY3dL0T1H3oD52Qk9c77fR4hY5Jg9OOw=w272-h273-s-no-gm?authuser=0' alt='Imagem'>";
-			echo "<link rel='shortcut icon' href='https://lh3.googleusercontent.com/pw/AP1GczMtcne3DnCiab9YcotaYOwWr-VwlW7ue4Us3dPaVXp51TNFSvwxI_6S4UDf26DplSgSiNW8hm3S5V1Zv5r7WSe1DW_hhs4hpioRd5LoLdvnkRz493kr2_m0EpmY3dL0T1H3oD52Qk9c77fR4hY5Jg9OOw=w272-h273-s-no-gm?authuser=0' />";
-			
+			echo "<link rel='shortcut icon' href='https://lh3.googleusercontent.com/pw/AP1GczOReqQClzL-PZkykfOwgmMyVzQgx27DTp783MI7iwKuKSv-6P6V7KOEbCC74sGdK3DEV3O88CsBLeIvOaQwGT3x4bqCTPRtyV9zcODbYVDRxAF8zf8Uev7geh4ONPdl3arNhnSDPvbQfMdpFRPM263V9A=w250-h250-s-no-gm?authuser=0' />";
 		}
-	  ?>
+	?>
   <script src="../../js/functions.js"></script>
 </head>
 
@@ -203,75 +199,7 @@
 															echo "<script>window.alert('Empresa sem foto!');</script>";
 														}
 
-														if($_FILES["LogoFilial"]["error"] == UPLOAD_ERR_OK){
-															
-
-															$caminho_pasta_filial = "../web/imagens/".$_SESSION['cnpj_empresa']."/";
-															if (!file_exists($caminho_pasta_filial)) {// Verificar se o diretório de destino existe, senão, criar
-															  mkdir($caminho_pasta_filial, 0777, true);
-															  echo "<script>window.alert('Criando diretório da Filial! ".$caminho_pasta_filial."');</script>";
-									  
-															}
-															$caminho_pasta_filial .= "logos/";
-															if (!file_exists($caminho_pasta_filial)) {
-															  mkdir($caminho_pasta_filial, 0777, true);
-															  echo "<script>window.alert('Criando diretório da Logo da Filial! ".$caminho_pasta_filial."');</script>";
-									  
-															}
-															$foto_filial = "LogoFilial-".$_SESSION['cd_filial'].".jpg"; // Nome do arquivo que será salvo
-																  
-															$caminho_foto_filial = $caminho_pasta_filial . $foto_filial;
-															
-															$tipo_foto_filial = exif_imagetype($_FILES["LogoFilial"]["tmp_name"]);
-										  
-															$extensoes_permitidas = array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF);
-									  
-															if (in_array($tipo_foto_filial, $extensoes_permitidas)) {
-																// Redimensionar a imagem para 100x100
-																list($largura_orig, $altura_orig) = getimagesize($_FILES["LogoFilial"]["tmp_name"]);
-																$nova_largura = 500;
-																$nova_altura = 500;
-																$imagem_redimensionada = imagecreatetruecolor(500, 500);
-									  
-																switch ($tipo_foto_filial) {
-																	case IMAGETYPE_JPEG:
-																		$imagem_orig = imagecreatefromjpeg($_FILES["LogoFilial"]["tmp_name"]);
-																	break;
-																	case IMAGETYPE_PNG:
-																		$imagem_orig = imagecreatefrompng($_FILES["LogoFilial"]["tmp_name"]);
-																	break;
-																	case IMAGETYPE_GIF:
-																		$imagem_orig = imagecreatefromgif($_FILES["LogoFilial"]["tmp_name"]);
-																	break;
-																}
-									  
-																imagecopyresampled($imagem_redimensionada, $imagem_orig, 0, 0, 0, 0, $nova_largura, $nova_altura, $largura_orig, $altura_orig);
-									  
-																// Salvar a miniatura
-																switch ($tipo_foto_filial) {
-																	case IMAGETYPE_JPEG:
-																	  //imagegif($imagem_redimensionada, $caminho_foto_produto);
-																	  imagejpeg($imagem_redimensionada, $caminho_foto_filial);
-																	break;
-																	case IMAGETYPE_PNG:
-																	  //imagegif($imagem_redimensionada, $caminho_foto_produto);
-																	  imagepng($imagem_redimensionada, $caminho_foto_filial);
-																	break;
-																	case IMAGETYPE_GIF:
-																	  //imagegif($imagem_redimensionada, $caminho_foto_produto);
-																	  imagegif($imagem_redimensionada, $caminho_foto_filial);
-																	break;
-																}
-									  
-																imagedestroy($imagem_orig);
-																imagedestroy($imagem_redimensionada);
-															} else {
-															  echo "<script>window.alert('Imagem não gravada\\nApenas arquivos JPEG, PNG e GIF são permitidos.');</script>";
-															}
-									  
-														  }else{
-															echo "<script>window.alert('Filial sem foto!');</script>";
-														}
+														
 													}
 
 													if(isset($_POST['gravaInfoContatos_Funcao'])) {
@@ -390,7 +318,7 @@
 																$tipo_foto_empresa = mime_content_type($caminho_foto_empresa);
 																echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-empresa' style='width: 200px; height: 200px;' src='data:$tipo_foto_empresa;base64," . base64_encode(file_get_contents($caminho_foto_empresa)) . "' alt='Imagem'>";
 															}else{
-																echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-empresa' style='width: 200px; height: 200px;' src='https://lh3.googleusercontent.com/pw/AP1GczMtcne3DnCiab9YcotaYOwWr-VwlW7ue4Us3dPaVXp51TNFSvwxI_6S4UDf26DplSgSiNW8hm3S5V1Zv5r7WSe1DW_hhs4hpioRd5LoLdvnkRz493kr2_m0EpmY3dL0T1H3oD52Qk9c77fR4hY5Jg9OOw=w272-h273-s-no-gm?authuser=0' alt='Imagem'>";
+																echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-empresa' style='width: 200px; height: 200px;' src='https://lh3.googleusercontent.com/pw/AP1GczOReqQClzL-PZkykfOwgmMyVzQgx27DTp783MI7iwKuKSv-6P6V7KOEbCC74sGdK3DEV3O88CsBLeIvOaQwGT3x4bqCTPRtyV9zcODbYVDRxAF8zf8Uev7geh4ONPdl3arNhnSDPvbQfMdpFRPM263V9A=w250-h250-s-no-gm?authuser=0' alt='Imagem'>";
 															}
 
 															echo '<div class="card-body text-center">';
@@ -420,49 +348,7 @@
 																	}
 																});
 															</script>
-															<?php
-
-															echo '<label for="imagem-preview-filial"></label>';
-															echo "<div class='card' style='max-width: 100%; max-height: 50vh;'>";
-															$caminho_pasta_filial = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
-															$foto_filial = "LogoFilial-".$_SESSION['cd_filial'].".jpg"; // Nome do arquivo que será salvo
-															$caminho_foto_filial = $caminho_pasta_filial . $foto_filial;
-
-															if (file_exists($caminho_foto_filial)) {
-																$tipo_foto_filial = mime_content_type($caminho_foto_filial);
-																echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-filial' style='width: 200px; height: 200px;' src='data:$tipo_foto_filial;base64," . base64_encode(file_get_contents($caminho_foto_filial)) . "' alt='Imagem'>";
-															}else{
-																echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-filial' style='width: 200px; height: 200px;' src='https://lh3.googleusercontent.com/pw/AP1GczMtcne3DnCiab9YcotaYOwWr-VwlW7ue4Us3dPaVXp51TNFSvwxI_6S4UDf26DplSgSiNW8hm3S5V1Zv5r7WSe1DW_hhs4hpioRd5LoLdvnkRz493kr2_m0EpmY3dL0T1H3oD52Qk9c77fR4hY5Jg9OOw=w272-h273-s-no-gm?authuser=0' alt='Imagem'>";
-															}
-
-															echo '<div class="card-body text-center">';
-															echo '<h1>Logo Filial</h1>';
-															echo '<label for="LogoFilial" class="btn btn-block btn-lg btn-outline-success">';
-															echo '<i class="bi bi-paperclip"></i> Escolher arquivo';
-															echo '<input type="file" name="LogoFilial" id="LogoFilial" style="display: none;">'; // Mudei o estilo para "none"
-															echo '</label>';
-															echo '</div>';
-															echo '</div>';
-															?>
-
-															<script>
-																const imagemInputFilial = document.getElementById('LogoFilial');
-																const imagemPreviewFilial = document.getElementById('imagem-preview-filial');
-
-																imagemInputFilial.addEventListener('change', function(event) {
-																	const arquivo = event.target.files[0];
-																	if (arquivo) {
-																		const leitor = new FileReader();
-																		leitor.onload = function(e) {
-																			imagemPreviewFilial.src = e.target.result;
-																		}
-																		leitor.readAsDataURL(arquivo);
-																	} else {
-																		imagemPreviewFilial.src = '#';
-																	}
-																});
-															</script>
-													
+															
 															<?php
 
 															
