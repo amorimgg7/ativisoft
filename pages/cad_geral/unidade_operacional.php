@@ -63,12 +63,14 @@
 											<?php
 												if(isset($_POST['tabInfoGeral'])){
 													$_SESSION['opcaoMenu'] = 1;
-												}else if(isset($_POST['tabInfoMensagens'])){
+												}else if(isset($_POST['tabInfoDadosFinanceiros'])){
 													$_SESSION['opcaoMenu'] = 2;
-												}else if(isset($_POST['tabInfoImpressao'])){
+												}else if(isset($_POST['tabInfoMensagens'])){
 													$_SESSION['opcaoMenu'] = 3;
-												}else if(isset($_POST['tabInfoSite'])){
+												}else if(isset($_POST['tabInfoImpressao'])){
 													$_SESSION['opcaoMenu'] = 4;
+												}else if(isset($_POST['tabInfoSite'])){
+													$_SESSION['opcaoMenu'] = 5;
 												}else
 											?>
 											
@@ -87,6 +89,9 @@
 												<ul class="button-list">
 													<li class="kt-nav__item">
 														<input type="submit" id="tabInfoGeral" name="tabInfoGeral" class="btn btn-outline-secondary btn-lg btn-block" value="Geral">
+													</li>
+													<li class="kt-nav__item">
+														<input type="submit" id="tabInfoDadosFinanceiros" name="tabInfoDadosFinanceiros" class="btn btn-outline-secondary btn-lg btn-block" value="Financeiro">
 													</li>
 													<li class="kt-nav__item">
 														<input type="submit" id="tabInfoMensagens" name="tabInfoMensagens" class="btn btn-outline-secondary btn-lg btn-block" value="Mensagens">
@@ -199,7 +204,6 @@
 															echo "<script>window.alert('Empresa sem foto!');</script>";
 														}
 
-														
 													}
 
 													if(isset($_POST['gravaInfoContatos_Funcao'])) {
@@ -269,7 +273,6 @@
 													}
 
 													if($_SESSION['opcaoMenu'] == 1){
-
 														echo ' <!--begin: Personal Information-->';
 														echo ' <div class="tab-pane fade show active" id="infoGeral">';
 														echo ' <div class="kt-portlet">';
@@ -279,35 +282,15 @@
 														echo ' </div>															';
 														echo ' </div>';
 														echo ' <div class="kt-form kt-form--label-right">';
-
-														//echo '<!--';
 														echo ' <form method="POST" enctype="multipart/form-data">';
 														echo ' <div class="kt-portlet__body">';
 														echo ' <div class="kt-section kt-section--first">';
 														echo ' <div class="kt-section__body">';
-
-
 														$query = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_SESSION['cnpj_empresa']."'";
 														$result = mysqli_query($conn, $query);
 														$row = mysqli_fetch_assoc($result);
 														// Exibe as informações do usuário no formulário
 														if($row) {
-															
-
-															echo ' <div class="form-group row">';
-															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Nome</label>';
-															echo ' <div class="col-lg-9 col-xl-6">';
-															echo ' <input type="text" name="cd_matriz" id="cd_matriz" value = "'.$row['cd_empresa'].'" class="form-control" />																				';
-															echo ' </div>';
-															echo ' </div>';
-
-															echo ' <div class="form-group row">';
-															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Nome</label>';
-															echo ' <div class="col-lg-9 col-xl-6">';
-															echo ' <input type="text" name="rsocial_matriz" id="rsocial_matriz" value = "'.$row['rsocial_empresa'].'" class="form-control" />																				';
-															echo ' </div>';
-															echo ' </div>';
-
 															echo '<label for="imagem-preview-empresa"></label>';
 															echo "<div class='card' style='max-width: 100%; max-height: 50vh;'>";
 															$caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
@@ -329,59 +312,48 @@
 															echo '</label>';
 															echo '</div>';
 															echo '</div>';
-															?>
-
-															<script>
-																const imagemInputEmpresa = document.getElementById('LogoEmpresa');
-																const imagemPreviewEmpresa = document.getElementById('imagem-preview-empresa');
-
-																imagemInputEmpresa.addEventListener('change', function(event) {
-																	const arquivo = event.target.files[0];
-																	if (arquivo) {
-																		const leitor = new FileReader();
-																		leitor.onload = function(e) {
-																			imagemPreviewEmpresa.src = e.target.result;
-																		}
-																		leitor.readAsDataURL(arquivo);
-																	} else {
-																		imagemPreviewEmpresa.src = '#';
-																	}
-																});
-															</script>
+															echo "<script>";
+															echo "const imagemInputEmpresa = document.getElementById('LogoEmpresa');";
+															echo "const imagemPreviewEmpresa = document.getElementById('imagem-preview-empresa');";
+															echo "imagemInputEmpresa.addEventListener('change', function(event) {";
+															echo "const arquivo = event.target.files[0];";
+															echo "if (arquivo) {";
+															echo "const leitor = new FileReader();";
+															echo "leitor.onload = function(e) {";
+															echo "imagemPreviewEmpresa.src = e.target.result;";
+															echo "}";
+															echo "leitor.readAsDataURL(arquivo);";
+															echo "} else {";
+															echo "imagemPreviewEmpresa.src = '#';";
+															echo "}";
+															echo "});";
+															echo "</script>";
 															
-															<?php
+															
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Razão Social</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input style="display:none;" type="text" name="cd_matriz" id="cd_matriz" value = "'.$row['cd_empresa'].'" class="form-control" />';
+															echo ' <input type="text" name="rsocial_matriz" id="rsocial_matriz" value = "'.$row['rsocial_empresa'].'" class="form-control" />';
+															echo ' </div>';
+															echo ' </div>';
+															
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Nome Fantasia</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="text" name="nfantasia_matriz" id="nfantasia_matriz" value = "'.$row['nfantasia_empresa'].'" class="form-control" />';
+															echo ' </div>';
+															echo ' </div>';
+
+															echo ' <div class="form-group row">';
+															echo ' <label class="col-xl-3 col-lg-3 col-form-label">CNPJ Matriz</label>';
+															echo ' <div class="col-lg-9 col-xl-6">';
+															echo ' <input type="text" name="cnpj_matriz" id="cnpj_matriz" class="form-control" value = "'.$row['cnpj_empresa'].'" readonly/>																				';
+															echo ' </div>';
+															echo ' </div>';
 
 															
-
-															/*echo ' <div class="form-group row">';
-															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Sobrenome</label>';
-															echo ' <div class="col-lg-9 col-xl-6">';
-															echo ' <input type="text" name="editsnome_colab" id="editsnome_colab" value = "'.$row['snome_colab'].'" class="form-control" />																				';
-															echo ' </div>';
-															echo ' </div>';
-
-															echo ' <div class="form-group row">';
-															echo ' <label class="col-xl-3 col-lg-3 col-form-label">CPF</label>';
-															echo ' <div class="col-lg-9 col-xl-6">';
-															echo ' <input type="text" name="editcpf_colab" id="editcpf_colab" class="form-control" value = "'.$row['cpf_colab'].'" readonly/>																				';
-															echo ' </div>';
-															echo ' </div>';
-
-															echo ' <div class="form-group row">';
-															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Data de Nascimento</label>';
-															echo ' <div class="col-lg-9 col-xl-6">';
-															echo ' <input type="date" name="editdtnasc_colab" id="editdtnasc_colab" class="form-control" value = "'.$row['dtnasc_colab'].'" readonly/>																				';
-															echo ' </div>';
-															echo ' </div>';
-
-															echo ' <div class="form-group row">';
-															echo ' <label class="col-xl-3 col-lg-3 col-form-label">Observações</label>';
-															echo ' <div class="col-lg-9 col-xl-6">';
-															echo ' <input type="text" name="editobs_colab" id="editobs_colab" value = "'.$row['obs_colab'].'" class="form-control" />																				';
-															echo ' </div>';
-															echo ' </div>';	*/		
 														}
-														
 														echo ' </div>';
 														echo ' </div>';
 														echo ' </div>';
@@ -399,9 +371,125 @@
 														echo ' </div>';
 														echo ' </div>';
 														echo ' </form>';
-														//echo '-->';
-
 													}else if($_SESSION['opcaoMenu'] == 2){
+														echo ' <!--begin: Personal Information-->';
+														echo ' <div class="tab-pane fade show active" id="infoDadosFinanceiros">';
+														echo ' <div class="kt-portlet">';
+														echo ' <div class="kt-portlet__head">';
+														echo ' <div class="kt-portlet__head-label">';
+														echo ' <h3 class="kt-portlet__head-title">Integração com Banco</h3>';
+														echo ' </div>															';
+														echo ' </div>';
+														echo ' <div class="kt-form kt-form--label-right">';
+														echo ' <form method="POST" enctype="multipart/form-data">';
+														echo ' <div class="kt-portlet__body">';
+														echo ' <div class="kt-section kt-section--first">';
+														echo ' <div class="kt-section__body">';
+														
+
+														echo '<form method="post">';
+														echo ' <div class="form-group row">';
+														echo ' <label class="col-xl-3 col-lg-3 col-form-label">Tema do Sistema</label>';
+														echo ' <div class="col-lg-9 col-xl-6">';
+														echo ' <select name="entidade_financeira" id="entidade_financeira" class="form-control">';
+														echo ' <option value="1">Efí</option>';
+														echo ' <option value="2">Mercado Pago</option>';
+														echo ' <option value="3">PayPal</option>';
+														echo ' </select>';
+														
+														echo ' <input type="submit" value="Seguir" class="btn btn-success" id="" name="">';
+
+														echo ' </div>';
+														echo ' </div>';
+														echo '</form>';
+
+														if(isset($_POST['entidade_financeira'])){
+															//if($_POST['entidade_financeira'] == 1){
+																$_SESSION['entidade_financeira'] = $_POST['entidade_financeira'];
+															//}
+														}
+														if(isset($_SESSION['entidade_financeira'])){
+															if($_SESSION['entidade_financeira'] == 1){
+
+																echo '<label for="certificado-preview-banco"></label>';
+																echo "<div class='card' style='max-width: 100%; max-height: 50vh;'>";
+																$caminho_certificado_banco = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
+																$foto_empresa = "LogoEmpresa.jpg"; // Nome do arquivo que será salvo
+																$caminho_foto_empresa = $caminho_certificado_banco . $foto_empresa;
+
+																if (file_exists($caminho_certificado_banco)) {
+																	//$tipo_foto_empresa = mime_content_type($caminho_certificado_banco);
+																	//echo "<img class='card-img-top img-thumbnail mx-auto' id='certificado-preview-banco' style='width: 200px; height: 200px;' src='data:$tipo_foto_empresa;base64," . base64_encode(file_get_contents($caminho_certificado_banco)) . "' alt='Imagem'>";
+																}else{
+																	//echo "<img class='card-img-top img-thumbnail mx-auto' id='certificado-preview-banco' style='width: 200px; height: 200px;' src='https://lh3.googleusercontent.com/pw/AP1GczOReqQClzL-PZkykfOwgmMyVzQgx27DTp783MI7iwKuKSv-6P6V7KOEbCC74sGdK3DEV3O88CsBLeIvOaQwGT3x4bqCTPRtyV9zcODbYVDRxAF8zf8Uev7geh4ONPdl3arNhnSDPvbQfMdpFRPM263V9A=w250-h250-s-no-gm?authuser=0' alt='Imagem'>";
+																}
+
+																echo '<div class="card-body text-center">';
+																echo '<h1>Certificado do Banco</h1>';
+																echo '<h7>Produção</h7>';
+																echo '<label for="LogoEmpresa" class="btn btn-block btn-lg btn-outline-success">';
+																echo '<i class="bi bi-paperclip"></i> Escolher arquivo';
+																echo '<input type="file" name="certificadoBanco" id="certificadoBanco" style="display: block;">'; // Mudei o estilo para "none"
+																echo '</label>';
+																echo '</div>';
+																echo '</div>';
+																
+																echo ' <div class="form-group row">';
+																echo ' <label class="col-xl-3 col-lg-3 col-form-label">Chave Client ID</label>';
+																echo ' <div class="col-lg-9 col-xl-6">';
+																echo ' <input type="text" name="clientId_Entidade" id="clientId_Entidade" class="form-control" placeholder="Copie o seu CLIENT ID do seu banco e cole aqui."/>';
+																echo ' </div>';
+																echo ' </div>';
+																	
+																echo ' <div class="form-group row">';
+																echo ' <label class="col-xl-3 col-lg-3 col-form-label">Chave Client Secret</label>';
+																echo ' <div class="col-lg-9 col-xl-6">';
+																echo ' <input type="text" name="clientSecret_Entidade" id="clientSecret_Entidade" value = "" class="form-control" placeholder="Copie o seu CLIENT SECRET do seu banco e cole aqui."/>';
+																echo ' </div>';
+																echo ' </div>';
+																
+																echo ' <div class="form-group row">';
+																echo ' <label class="col-xl-3 col-lg-3 col-form-label">Entidade Financeira</label>';
+																echo ' <div class="col-lg-9 col-xl-6">';
+																echo ' <input type="text" name="nfantasia_entidade" id="nfantasia_entidade" value = "Efí S.A." class="form-control" readonly/>';
+																echo ' </div>';
+																echo ' </div>';
+
+																echo ' <div class="form-group row">';
+																echo ' <label class="col-xl-3 col-lg-3 col-form-label">CNPJ Entidade</label>';
+																echo ' <div class="col-lg-9 col-xl-6">';
+																echo ' <input type="text" name="cnpj_entidade" id="cnpj_entidade" class="form-control" value = "09.089.356/0001-18" readonly/>																				';
+																echo ' </div>';
+																echo ' </div>';
+
+
+
+																echo ' </div>';
+																echo ' </div>';
+																echo ' </div>';
+																echo ' <div class="kt-portlet__foot">';
+																echo ' <div>';
+																echo ' <div class="row">';
+																echo ' <div class="col-lg-3 col-xl-3">';
+																echo ' </div>';
+																echo ' <div class="col-lg-9 col-xl-9">';
+																echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfo_Geral" name="gravaInfo_Geral">';
+																echo ' &nbsp;';
+																echo ' <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>';
+																echo ' </div>';
+
+															}
+														}
+															
+
+															
+														
+														
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </form>';
+													}else if($_SESSION['opcaoMenu'] == 3){
 														echo ' <!--begin: Personal Information-->';
 														echo ' <div class="tab-pane fade show active" id="infoGeral" style="display:block;">';
 														echo ' <div class="kt-portlet">';
@@ -469,7 +557,7 @@
 														echo '-->';
 														
 
-													}else if($_SESSION['opcaoMenu'] == 3){
+													}else if($_SESSION['opcaoMenu'] == 4){
 														echo ' <!--begin: Personal Information-->';
 														echo ' <div class="tab-pane fade show active" id="infoGeral">';
 														echo ' <div class="kt-portlet">';
@@ -591,7 +679,7 @@
 														echo ' </form>';
 														echo '-->';
 														                            							
-													}else if($_SESSION['opcaoMenu'] == 4){
+													}else if($_SESSION['opcaoMenu'] == 5){
 														echo ' <!--begin: Personal Information-->';
 														echo ' <div class="tab-pane fade show active">';
 														echo ' <div class="kt-portlet">';
