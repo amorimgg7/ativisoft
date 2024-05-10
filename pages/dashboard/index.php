@@ -34,7 +34,8 @@
 
   <!-- Required meta tags --> 
   <meta charset="utf-8">
-  <meta http-equiv='refresh' content='30'>
+  <meta>
+  <!--<meta http-equiv='refresh' content='30'>-->
   <!--<meta http-equiv="refresh" content="5;url=../samples/lock-screen.php">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -66,16 +67,17 @@
 			echo "<link rel='shortcut icon' href='https://lh3.googleusercontent.com/pw/AP1GczOReqQClzL-PZkykfOwgmMyVzQgx27DTp783MI7iwKuKSv-6P6V7KOEbCC74sGdK3DEV3O88CsBLeIvOaQwGT3x4bqCTPRtyV9zcODbYVDRxAF8zf8Uev7geh4ONPdl3arNhnSDPvbQfMdpFRPM263V9A=w250-h250-s-no-gm?authuser=0' />";
 		}
 	?>
-  
+
   <script>
-                document.getElementById("c_body").style = '<?php echo $_SESSION['c_body'];?>';
-                document.getElementById("c_card").style = '<?php echo $_SESSION['c_card'];?>';
-              </script>
+    document.getElementById("c_body").style = '<?php echo $_SESSION['c_body'];?>';
+    document.getElementById("c_card").style = '<?php echo $_SESSION['c_card'];?>';
+  </script>
   
 
 </head>
 <script src="../../js/functions.js"></script>
-<body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">
+  <!--<body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">-->
+  <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <?php include ("../../partials/_navbar.php");?>
