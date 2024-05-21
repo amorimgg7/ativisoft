@@ -85,6 +85,12 @@
                   </div>
                   <!--<a href="#" class="auth-link text-black">Forgot password?</a>-->
                 </div>
+                <div class="mb-2">
+                  <h1>ADS</h1>
+
+                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3996853854538676"
+                    crossorigin="anonymous"></script>
+                </div>
                 <!--
                 <div class="mb-2">
                   <button type="button" class="btn btn-block btn-facebook auth-form-btn">
