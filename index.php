@@ -462,7 +462,9 @@
                         <p class="footer-intro-text">As oportunidades multiplicam-se à medida que são agarradas!</p>
                         <p class="widget-content">Sun Tzu ± (544 a.C. - 496 a.C)</p>
 
-                        
+                        <h1>ADS-></h1>
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3996853854538676" crossorigin="anonymous"></script>
+                        <h1><-ADS</h1>
                     </div>
                     <div class="col-md-6">
                         <div class="row">
