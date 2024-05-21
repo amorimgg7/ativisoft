@@ -78,6 +78,7 @@ class Usuario
                     $_SESSION['cd_filial'] = $filial['cd_filial'];
                     $_SESSION['cnpj_filial'] = $filial['cnpj_filial'];
                     $_SESSION['endereco_filial'] = utf8_encode($filial['endereco_filial']);
+                    $_SESSION['cd_entidade_financeira'] = utf8_encode($filial['cd_entidade_financeira']);
                     //$_SESSION['saudacoes_filial'] = $filial['saudacoes_filial'];
                     $_SESSION['saudacoes_filial'] = utf8_encode($filial['saudacoes_filial']);
                     //session_start();

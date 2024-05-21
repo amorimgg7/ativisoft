@@ -34,6 +34,25 @@ INSERT INTO `rel_user` (`token_alter`, `cd_seg`, `cd_colab`, `cd_estilo`, `cd_fu
 (2, 1, 2, 1, 5, 1, 1);
 
 
+CREATE TABLE `tb_entidade_financeira` (
+  `cd_entidade_financeira` int(11) NOT NULL,
+  `titulo_entidade_financeira` varchar(10) DEFAULT NULL,
+  `obs_entidade_financeira` varchar(10) DEFAULT NULL,
+  `rsocial_entidade_financeira` varchar(10) DEFAULT NULL,
+  `cnpj_entidade_financeira` varchar(10) DEFAULT NULL,
+  `chave_client_id_entidade_financeira` varchar(10) DEFAULT NULL,
+  `chave_client_secret_entidade_financeira` varchar(10) DEFAULT NULL,
+  `integra_pix_entidade_financeira` varchar(10) DEFAULT NULL,
+  `Integra_boleto_secret_entidade_financeira` varchar(10) DEFAULT NULL
+)  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+ALTER TABLE `tb_entidade_financeira`
+  ADD PRIMARY KEY (`cd_entidade_financeira`);
+
+ALTER TABLE `tb_entidade_financeira`
+  MODIFY `cd_entidade_financeira` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
 
 CREATE TABLE `tb_atividade` (
   `cd_atividade` int(11) NOT NULL,
