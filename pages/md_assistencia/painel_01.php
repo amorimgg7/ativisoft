@@ -98,12 +98,16 @@
                 
                   echo '</form>';
                   
-                  if($servico['orcamento_servico'] == $servico['vpag_servico']){
-                    echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                  if($servico['orcamento_servico'] == 0){
+                    echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
                   }else{
-                    $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
-                    $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
-                    echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                    if($servico['orcamento_servico'] == $servico['vpag_servico']){
+                      echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                    }else{
+                      $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
+                      $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
+                      echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                    }
                   }
                   
                     echo '<script>document.getElementById("btn_cd_'.$servico['cd_servico'].'").className = "btn btn-danger";</script>';
@@ -197,12 +201,16 @@
                   echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                   echo '</form>';
 
-                  if($servico['orcamento_servico'] == $servico['vpag_servico']){
-                    echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                  if($servico['orcamento_servico'] == 0){
+                    echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
                   }else{
-                    $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
-                    $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
-                    echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                    if($servico['orcamento_servico'] == $servico['vpag_servico']){
+                      echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                    }else{
+                      $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
+                      $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
+                      echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                    }
                   }
 
                     echo '<script>document.getElementById("btn_cd_'.$servico['cd_servico'].'").className = "btn btn-danger";</script>';
@@ -301,12 +309,16 @@
                   echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                   echo '</form>';
 
-                  if($servico['orcamento_servico'] == $servico['vpag_servico']){
-                    echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                  if($servico['orcamento_servico'] == 0){
+                    echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
                   }else{
-                    $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
-                    $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
-                    echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                    if($servico['orcamento_servico'] == $servico['vpag_servico']){
+                      echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                    }else{
+                      $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
+                      $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
+                      echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                    }
                   }
 
                     echo '<script>document.getElementById("btn_cd_'.$servico['cd_servico'].'").className = "btn btn-danger";</script>';
