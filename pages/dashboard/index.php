@@ -41,9 +41,9 @@
     
   <title>AtiviSoft</title>
   <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="icon-192x192.png" sizes="192x192">
+    <!--<link rel="icon" href="icon-192x192.png" sizes="192x192">
     <link rel="apple-touch-icon" href="icon-192x192.png">
-    <meta name="theme-color" content="#000000">
+  -->
   <!-- base:css -->
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
@@ -101,44 +101,41 @@
           <div class="row">
             <div class="col-sm-12 mb-4 mb-xl-0">
               
+              <button id="install-button" class="btn btn-block btn-outline-success" style="display: none;">Instalar o Web APP</button>
+              <script>
+                  let deferredPrompt;
+                  const installButton = document.getElementById('install-button');
 
+                  window.addEventListener('beforeinstallprompt', (e) => {
+                      e.preventDefault();
+                      deferredPrompt = e;
+                      installButton.style.display = 'block';
 
-
-            <button id="install-button" style="display: none;">Adicionar à Tela Inicial</button>
-            <script>
-                let deferredPrompt;
-                const installButton = document.getElementById('install-button');
-
-                window.addEventListener('beforeinstallprompt', (e) => {
-                    e.preventDefault();
-                    deferredPrompt = e;
-                    installButton.style.display = 'block';
-
-                    installButton.addEventListener('click', () => {
-                        installButton.style.display = 'none';
-                        deferredPrompt.prompt();
-                        deferredPrompt.userChoice.then((choiceResult) => {
-                            if (choiceResult.outcome === 'accepted') {
-                                console.log('Usuário aceitou a instalação do app');
-                            } else {
-                                console.log('Usuário rejeitou a instalação do app');
-                            }
-                            deferredPrompt = null;
-                        });
-                    });
-                });
-            </script>
-            <script>
-                if ('serviceWorker' in navigator) {
-                    navigator.serviceWorker.register('<?php echo $_SESSION['dominio']; ?>pages/dashboard/service-worker.js')
-                    .then((registration) => {
-                        console.log('Service Worker registrado com sucesso:', registration);
-                    })
-                    .catch((error) => {
-                        console.log('Falha ao registrar o Service Worker:', error);
-                    });
-                }
-            </script>
+                      installButton.addEventListener('click', () => {
+                          installButton.style.display = 'none';
+                          deferredPrompt.prompt();
+                          deferredPrompt.userChoice.then((choiceResult) => {
+                              if (choiceResult.outcome === 'accepted') {
+                                  console.log('Usuário aceitou a instalação do app');
+                              } else {
+                                  console.log('Usuário rejeitou a instalação do app');
+                              }
+                              deferredPrompt = null;
+                          });
+                      });
+                  });
+              </script>
+              <script>
+                  if ('serviceWorker' in navigator) {
+                      navigator.serviceWorker.register('<?php echo $_SESSION['dominio']; ?>pages/dashboard/service-worker.js')
+                      .then((registration) => {
+                          console.log('Service Worker registrado com sucesso:', registration);
+                      })
+                      .catch((error) => {
+                          console.log('Falha ao registrar o Service Worker:', error);
+                      });
+                  }
+              </script>
               <p><?php echo $_SESSION['c_body'];?></p>
               <p><?php echo $_SESSION['c_card'];?></p>
               <p class="font-weight-normal mb-2 text-muted"><span id="data-atual" <?php echo $_SESSION['c_body'];?>></span></p>
