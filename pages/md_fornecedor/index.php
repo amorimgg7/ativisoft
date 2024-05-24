@@ -10,12 +10,13 @@
               $sql_cliente_matriz = "SELECT * FROM tb_cliente_comercial where cd_cliente_comercial = cd_matriz_comercial order by dtvalidlicenca_cliente_comercial ASC";
               $resulta_cliente_matriz = $conn->query($sql_cliente_matriz);
               if ($resulta_cliente_matriz->num_rows > 0){
-                $extrapolado = 0;
-                $extrapoladoafaser = 0;
-                $parahoje = 0;
-                $parahojeafazer = 0;
-                $noprazo = 0;
-                $noprazoafaser = 0;
+                //$extrapolado = 0;
+                //$extrapoladoafaser = 0;
+                //$parahoje = 0;
+                //$parahojeafazer = 0;
+                //$noprazo = 0;
+                //$noprazoafaser = 0;
+                //DateTime('now', $timezone);
                 while ( $cliente_matriz = $resulta_cliente_matriz->fetch_assoc()){
                     echo '<div class="col-lg-12 grid-margin stretch-card" data-toggle="collapse" href="#cliente_'.$cliente_matriz['cd_cliente_comercial'].'" aria-expanded="false" aria-controls="os_afaser">';
                     echo '<div class="card" '.$_SESSION['c_card'].'>';
