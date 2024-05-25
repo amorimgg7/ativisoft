@@ -503,10 +503,9 @@
             <li>
                 <a href="pages/samples/login.php" class="oleez-social-menu-link">Acessar</a>
             </li>
-            <!--
-                <li>
-                <a href="#!" class="oleez-social-menu-link">Instagram</a>
-            </li>
+            <li>
+                <a href="captar.php" class="oleez-social-menu-link">O sistema</a>
+            </li><!--
             <li>
                 <a href="#!" class="oleez-social-menu-link">Behance</a>
             </li>
