@@ -1,7 +1,5 @@
 <?php
     session_start();
-
-    
     if(!isset($_SESSION['cd_colab']))
     {
         //header("location: http://amorimgg77.lovestoblog.com/pages/samples/login.php");
@@ -15,13 +13,9 @@
       exit;
     }
     require_once '../../classes/conn.php';
-    
     include("../../classes/functions.php");
     //conectar($_SESSION['cnpj_empresa']);
-
     $u = new Usuario;
-    
-    
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 
@@ -30,15 +24,12 @@
 <html lang="pt-br">
 
 <head>
-  
-
   <!-- Required meta tags --> 
   <meta charset="utf-8">
   <meta>
   <!--<meta http-equiv='refresh' content='30'>-->
   <!--<meta http-equiv="refresh" content="5;url=../samples/lock-screen.php">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
   <title>AtiviSoft</title>
   <link rel="manifest" href="manifest.json">
     <!--<link rel="icon" href="icon-192x192.png" sizes="192x192">
@@ -58,9 +49,8 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  
   <?php
-  		$caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
+    $caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
 		$foto_empresa = "LogoEmpresa.jpg"; // Nome do arquivo que será salvo
 		$caminho_foto_empresa = $caminho_pasta_empresa . $foto_empresa;
 

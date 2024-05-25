@@ -63,16 +63,20 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="captar.php">O sistema<span class="sr-only"></span></a>
+                    </li>
                     <!--
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#!" id="portfolioDropdown" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Personas</a>
+                            aria-haspopup="true" aria-expanded="false">Teste Free</a>
                         <div class="dropdown-menu" aria-labelledby="portfolioDropdown">
                             <a class="dropdown-item" href="portfolio/portfolio-profissional.html">Profissionais</a>
                             <a class="dropdown-item" href="portfolio/portfolio-contratante.html">Empregadores</a>
                             <a class="dropdown-item" href="portfolio/portfolio-patrocinio.html">Patrocinio / Fianciamento</a>
                         </div>
                     </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#!" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fórum</a>
                         <div class="dropdown-menu" aria-labelledby="blogDropdown">
