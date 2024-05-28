@@ -44,20 +44,12 @@
       <!-- partial -->
       <div class="main-panel">        
         <div class="content-wrapper" <?php echo $_SESSION['c_body'];?>>
-          
 
-          <div class="col-lg-12 grid-margin stretch-card">
-            <i type="submit" class="btn btn-success"style="margin:auto; display:none;"id="noprazo">No prazo</i>
-            <i type="submit" class="btn btn-warning"style="margin:auto; display:none;"id="parahoje">Previsto para hoje</i>
-            <i type="submit" class="btn btn-danger"style="margin:auto; display:none;" id="extrapolado">Prazo extrapolado</i>
-          </div>
-
-            
             <?php //LIBERADO
             if($_POST['tipo_card'] == 2){
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-              $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 2 
+              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.* FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and status_servico = 2 
                 ORDER BY 
                 CASE 
                     WHEN prioridade_servico = 'U' THEN 1
@@ -83,18 +75,26 @@
                 echo '<tr>';
                 echo '<th>OS</th>';
                 echo '<th>Financeiro</th>';
+                echo '<th>Cliente</th>';
                 echo '<th>Prioridade</th>';
-                echo '<th>Prazo</th>';
+                
                 
                 echo '</tr>';
                 echo '</thead>';
                 echo '<tbody>';
                 $liberado = 0;
                 while ( $servico = $resulta_servico->fetch_assoc()){
+
+                  $liberado = $liberado + 1;
+                    echo '<script>document.getElementById("liberado").innerHTML = "'.$liberado.'";</script>';
+                    echo '<script>document.getElementById("liberado").style.display = "block";</script>';//
+                    
+
+
                   echo '<tr>';
                   echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
                   echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
-                  echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
+                  echo '<td><button type="submit" class="btn btn-secondary" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                 
                   echo '</form>';
                   
@@ -110,10 +110,9 @@
                     }
                   }
                   
-                    echo '<script>document.getElementById("btn_cd_'.$servico['cd_servico'].'").className = "btn btn-danger";</script>';
-                    $liberado = $liberado + 1;
-                  
-                                  
+                     
+                  echo '<td>'.$servico['full_name'].'</td>';
+
                   if($servico['prioridade_servico'] == "B"){
                     echo '<td><label class="badge badge-success">Baixa</label></td>';
                   
@@ -129,12 +128,12 @@
                   if($servico['prioridade_servico'] == "U"){
                     echo '<td><label class="badge badge-danger">Urgente</label></td>';
                   }
-                  echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
+                  
+                  //echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
                   
                   echo '</tr>';
                 }
                 
-                 
                 echo '</tbody>';
                 echo '</table>';
                 echo '</div>';
@@ -143,29 +142,17 @@
                 echo '</div>';
                 echo '</div>';  
 
-
-
                 if($liberado > 0){
                   echo '<script>document.getElementById("liberado").innerHTML = "'.$liberado.'";</script>';
                   echo '<script>document.getElementById("liberado").style.display = "block";</script>';
                 }
-                
-
-
               }
             }
             ?>
 
             <?php //RETIRADO / DEVOLVIDO
             if($_POST['tipo_card'] == 3){
-              $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 3 
-                ORDER BY 
-                CASE 
-                    WHEN prioridade_servico = 'U' THEN 1
-                    WHEN prioridade_servico = 'A' THEN 2
-                    WHEN prioridade_servico = 'M' THEN 3
-                    ELSE 4
-                END, cd_servico";
+              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico, s.prioridade_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 3 order by cd_servico desc ";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -179,7 +166,6 @@
                 echo '</div>';
                 echo '<h4 ></h4>';
 
-                
                 echo '<div class="collapse table-responsive" id="os_retirado">';
                 
                 echo '<table class="table" '.$_SESSION['c_card'].'>';
@@ -187,8 +173,7 @@
                 echo '<tr>';
                 echo '<th>OS</th>';
                 echo '<th>Financeiro</th>';
-                echo '<th>Prioridade</th>';
-                echo '<th>Prazo</th>';
+                echo '<th>Cliente</th>';
                 
                 echo '</tr>';
                 echo '</thead>';
@@ -198,7 +183,7 @@
                   echo '<tr>';
                   echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
                   echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
-                  echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
+                  echo '<td><button type="submit" class="btn btn-secondary" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                   echo '</form>';
 
                   if($servico['orcamento_servico'] == 0){
@@ -213,26 +198,13 @@
                     }
                   }
 
-                    echo '<script>document.getElementById("btn_cd_'.$servico['cd_servico'].'").className = "btn btn-danger";</script>';
+                      
                     $retiradodevolvido = $retiradodevolvido + 1;
-                  
-                  if($servico['prioridade_servico'] == "B"){
-                    echo '<td><label class="badge badge-success">Baixa</label></td>';
-                  
-                  }
-                  if($servico['prioridade_servico'] == "M"){
-                    echo '<td><label class="badge badge-info">Média</label></td>';
-                  
-                  }
-                  if($servico['prioridade_servico'] == "A"){
-                    echo '<td><label class="badge badge-warning">Alta</label></td>';
-                  
-                  }
-                  if($servico['prioridade_servico'] == "U"){
-                    echo '<td><label class="badge badge-danger">Urgente</label></td>';
-                  }
-                  echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
-                  echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
+                    echo '<script>document.getElementById("retiradodevolvido").innerHTML = "'.$retiradodevolvido.'";</script>';
+                    echo '<script>document.getElementById("retiradodevolvido").style.display = "block";</script>';//
+                    echo '<td>'.$servico['full_name'].'</td>';
+                    //echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
+                    echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
                 }
                 echo '</tbody>';
                 echo '</table>';
@@ -241,40 +213,16 @@
                 echo '</div>';
                 echo '</div>';  
 
-                if($liberado > 0){
-                  echo '<script>document.getElementById("retiradodevolvido").innerHTML = "'.$retiradodevolvido.'";</script>';
-                  echo '<script>document.getElementById("retiradodevolvido").style.display = "block";</script>';
-                }
               }
 
-
-              if($parahoje > 0){
-                echo '<script>document.getElementById("parahoje").innerHTML = "Para Hoje</br>'.$parahoje.'";</script>';
-                echo '<script>document.getElementById("parahoje").style.display = "block";</script>';
-              }
-              if($noprazo > 0){
-                echo '<script>document.getElementById("noprazo").innerHTML = "No Prazo</br>'.$noprazo.'";</script>';
-                echo '<script>document.getElementById("noprazo").style.display = "block";</script>';
-              }
-              if($extrapolado > 0){
-                echo '<script>document.getElementById("extrapolado").innerHTML = "Prazo Extrapolado</br>'.$extrapolado.'";</script>';
-                echo '<script>document.getElementById("extrapolado").style.display = "block";</script>';
-              }
             }
             ?>
             
             
             <?php //ARQUIVADO
             if($_POST['tipo_card'] == 4){
-              $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 4 
-                ORDER BY 
-                CASE 
-                    WHEN prioridade_servico = 'U' THEN 1
-                    WHEN prioridade_servico = 'A' THEN 2
-                    WHEN prioridade_servico = 'M' THEN 3
-                    WHEN prioridade_servico = 'M' THEN 4
-                    ELSE 5
-                END, cd_servico";
+              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 4 order by cd_servico desc ";
+
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -295,18 +243,22 @@
                 echo '<tr>';
                 echo '<th>OS</th>';
                 echo '<th>Financeiro</th>';
-                echo '<th>Prioridade</th>';
-                echo '<th>Prazo</th>';
+                echo '<th>Cliente</th>';
                 
                 echo '</tr>';
                 echo '</thead>';
                 echo '<tbody>';
                 $arquivado = 0;
                 while ( $servico = $resulta_servico->fetch_assoc()){
+
+                  $arquivado = $arquivado + 1;
+                  echo '<script>document.getElementById("arquivado").innerHTML = "'.$arquivado.'";</script>';
+                  echo '<script>document.getElementById("arquivado").style.display = "block";</script>';
+
                   echo '<tr>';
                   echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
                   echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
-                  echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
+                  echo '<td><button type="submit" class="btn btn-secondary" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                   echo '</form>';
 
                   if($servico['orcamento_servico'] == 0){
@@ -321,8 +273,12 @@
                     }
                   }
 
-                    echo '<script>document.getElementById("btn_cd_'.$servico['cd_servico'].'").className = "btn btn-danger";</script>';
-                    $arquivado = $arquivado + 1;
+
+                  
+
+                  echo '<td>'.$servico['full_name'].'</td>';
+                    
+
                   
 
               //    // Contagem de equipamentos em uso
@@ -343,22 +299,7 @@
 
 
                   
-                  if($servico['prioridade_servico'] == "B"){
-                    echo '<td><label class="badge badge-success">Baixa</label></td>';
                   
-                  }
-                  if($servico['prioridade_servico'] == "M"){
-                    echo '<td><label class="badge badge-info">Média</label></td>';
-                  
-                  }
-                  if($servico['prioridade_servico'] == "A"){
-                    echo '<td><label class="badge badge-warning">Alta</label></td>';
-                  
-                  }
-                  if($servico['prioridade_servico'] == "U"){
-                    echo '<td><label class="badge badge-danger">Urgente</label></td>';
-                  }
-                  echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
                   echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
                 }
                 echo '</tbody>';
@@ -367,24 +308,9 @@
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
-                if($arquivado > 0){
-                  echo '<script>document.getElementById("arquivado").innerHTML = "'.$arquivado.'";</script>';
-                  echo '<script>document.getElementById("arquivado").style.display = "block";</script>';
-                }
+                
               }
 
-              if($parahoje > 0){
-                echo '<script>document.getElementById("parahoje").innerHTML = "Para Hoje</br>'.$parahoje.'";</script>';
-                echo '<script>document.getElementById("parahoje").style.display = "block";</script>';
-              }
-              if($noprazo > 0){
-                echo '<script>document.getElementById("noprazo").innerHTML = "No Prazo</br>'.$noprazo.'";</script>';
-                echo '<script>document.getElementById("noprazo").style.display = "block";</script>';
-              }
-              if($extrapolado > 0){
-                echo '<script>document.getElementById("extrapolado").innerHTML = "Prazo Extrapolado</br>'.$extrapolado.'";</script>';
-                echo '<script>document.getElementById("extrapolado").style.display = "block";</script>';
-              }
             }
             ?>
             
