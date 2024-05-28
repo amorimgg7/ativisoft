@@ -47,8 +47,8 @@
 
             <?php //LIBERADO
             if($_POST['tipo_card'] == 2){
-              //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
-              //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
+              
+
               $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.* FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and status_servico = 2 
                 ORDER BY 
                 CASE 
@@ -56,7 +56,7 @@
                     WHEN prioridade_servico = 'A' THEN 2
                     WHEN prioridade_servico = 'M' THEN 3
                     ELSE 4
-                END, cd_servico limit 500";
+                END, cd_servico limit 200";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -65,7 +65,7 @@
                 echo '<div class="card-body">';
                 echo '<div class="grid-margin stretch-card">';
                 echo '<h4 style="display: inline-block; margin-left: 10px;">LIBERADO</h4>';
-                echo '<i class="btn btn-success" style="margin:auto; display:none;" id="liberado"></i><i class="btn btn-warning" style="margin:auto; display:none;" id="liberado"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="liberado"></i>';
+                echo '<i class="btn btn-outline-success" style="margin:auto; display:none;" id="liberado"></i>';
                 echo '</div>';
                 echo '<h4 ></h4>';
                 
@@ -85,11 +85,15 @@
                 $liberado = 0;
                 while ( $servico = $resulta_servico->fetch_assoc()){
 
-                  $liberado = $liberado + 1;
-                    echo '<script>document.getElementById("liberado").innerHTML = "'.$liberado.'";</script>';
-                    echo '<script>document.getElementById("liberado").style.display = "block";</script>';//
-                    
 
+                  $liberado = $liberado + 1;
+                  if($liberado > 199){
+                    echo '<script>document.getElementById("liberado").innerHTML = "+ '.$liberado.'";</script>';
+                  }else{
+                    echo '<script>document.getElementById("liberado").innerHTML = "'.$liberado.'";</script>';
+                  }
+                  
+                  echo '<script>document.getElementById("liberado").style.display = "block";</script>';//
 
                   echo '<tr>';
                   echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
@@ -142,19 +146,15 @@
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';  
-
-                if($liberado > 0){
-                  echo '<script>document.getElementById("liberado").innerHTML = "'.$liberado.'";</script>';
-                  echo '<script>document.getElementById("liberado").style.display = "block";</script>';
-                }
               }
+
+
             }
             ?>
 
             <?php //RETIRADO / DEVOLVIDO
             if($_POST['tipo_card'] == 3){
-              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico, s.prioridade_servico, s.obs_servico, s.prazo_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 3 order by prazo_servico desc  limit 1000";
-
+              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico, s.prioridade_servico, s.obs_servico, s.prazo_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 3 order by prazo_servico desc  limit 200";
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
                 echo '<div class="col-lg-12 grid-margin stretch-card"  data-toggle="collapse" href="#os_retirado" aria-expanded="false" aria-controls="os_retirado">';
@@ -163,7 +163,7 @@
 
                 echo '<div class="grid-margin stretch-card">';
                 echo '<h4 style="display: inline-block; margin-left: 10px;">RETIRADO / DEVOLVIDO</h4>';
-                echo '<i class="btn btn-success" style="margin:auto; display:none;" id="retiradodevolvido"></i><i class="btn btn-warning" style="margin:auto; display:none;" id="retiradodevolvido"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="retiradodevolvido"></i>';
+                echo '<i class="btn btn-outline-success" style="margin:auto; display:none;" id="retiradodevolvido"></i>';
                 echo '</div>';
                 echo '<h4 ></h4>';
 
@@ -184,6 +184,17 @@
                 echo '<tbody>';
                 $retiradodevolvido = 0;
                 while ( $servico = $resulta_servico->fetch_assoc()){
+
+                  $retiradodevolvido = $retiradodevolvido + 1;
+                  if($retiradodevolvido > 199){
+                    echo '<script>document.getElementById("retiradodevolvido").innerHTML = "+ '.$retiradodevolvido.'";</script>';
+                  }else{
+                    echo '<script>document.getElementById("retiradodevolvido").innerHTML = "'.$retiradodevolvido.'";</script>';
+                  }
+                  
+                  echo '<script>document.getElementById("retiradodevolvido").style.display = "block";</script>';//
+
+
                   echo '<tr>';
                   echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
                   echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
@@ -203,9 +214,7 @@
                   }
 
                       
-                    $retiradodevolvido = $retiradodevolvido + 1;
-                    echo '<script>document.getElementById("retiradodevolvido").innerHTML = "'.$retiradodevolvido.'";</script>';
-                    echo '<script>document.getElementById("retiradodevolvido").style.display = "block";</script>';//
+                    
                     echo '<td>'.$servico['full_name'].'</td>';
                     
                     echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
@@ -361,14 +370,3 @@
 </body>
 
 </html>
-
-
-
-
-
-/*
-
-
-
-
-*/
