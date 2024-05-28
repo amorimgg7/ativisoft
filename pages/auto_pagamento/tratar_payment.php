@@ -1,6 +1,6 @@
 
 <?php //Gadget caixa
-    require_once '../../classes/conn_revenda.php';
+    require_once '../../classes/conn_revenda.php'; 
     
 
   $dia_hoje = date('Y-m-d'); // Formatando a data de hoje para o formato do banco de dados (ano-mês-dia)
