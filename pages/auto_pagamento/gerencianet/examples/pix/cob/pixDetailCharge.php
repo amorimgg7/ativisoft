@@ -70,7 +70,7 @@ try {
 		fatura_devida_cliente_fiscal = '0'
         WHERE cd_cliente_comercial = ".$_SESSION['cd_cliente_comercial'];
         if(mysqli_query($conn_revenda, $update_cliente_comercial)){
-			$_SESSION['txid'] = "";
+			$_SESSION['txid'] = "null";
 			echo "<script>window.alert('Licença liberada com validade até ".date('Y-m-d', strtotime($_SESSION['dtvalidlicenca_cliente_comercial'] . ' +1 month'))."!');</script>";
 			echo '<script>location.href="'.$_SESSION['dominio'].'pages/dashboard/index.php";</script>';             
 		}else{
