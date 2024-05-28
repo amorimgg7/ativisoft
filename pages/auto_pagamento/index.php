@@ -22,7 +22,7 @@
             //echo '</div>';
             //echo '</div>';
         }else if($diferenca_dias <= 5 && $diferenca_dias > 0){
-            $_SESSION['bloqueado'] = 0;
+            $_SESSION['bloqueado'] = null;
             echo '<div class="col-lg-12 grid-margin stretch-card btn-secondary">';//
             echo '<div class="card" '.$_SESSION['c_card'].'>';
             echo '<div class="card-body">';
@@ -47,7 +47,7 @@
             echo '</div>';
             echo '</div>';
         } else if($diferenca_dias == 0){
-            $_SESSION['bloqueado'] = 0;
+            $_SESSION['bloqueado'] = null;
             echo '<div class="col-lg-12 grid-margin stretch-card btn-success">';//
             echo '<div class="card" '.$_SESSION['c_card'].'>';
             echo '<div class="card-body">';
