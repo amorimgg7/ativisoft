@@ -554,7 +554,7 @@ class Usuario
 
 function loggout(){
     session_start();
-    $_SESSION['cd_pessoal'] = '';
+    
     session_destroy();
     echo '<script>location.href="'.$_SESSION['dominio'].'pages/samples/login.php";</script>';
     echo "<script>window.close();</script>";
