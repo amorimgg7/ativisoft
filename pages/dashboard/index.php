@@ -27,6 +27,17 @@
   <!-- Required meta tags --> 
   <meta charset="utf-8">
   <meta>
+  <?php 
+    if(isset($_SESSION['bloqueado'])){
+      
+      if($_SESSION['bloqueado'] == 1){
+        echo "<meta http-equiv='refresh' content='30;url=../auto_pagamento/payment.php'>";
+        
+      }else if($_SESSION['bloqueado'] == 2){
+        echo "<meta http-equiv='refresh' content='1;url=../auto_pagamento/payment.php'>";
+      }
+    }
+  ?>
   <!--<meta http-equiv='refresh' content='30'>-->
   <!--<meta http-equiv="refresh" content="5;url=../samples/lock-screen.php">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

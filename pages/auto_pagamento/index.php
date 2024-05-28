@@ -1,5 +1,5 @@
 
-<?php //Gadget caixa
+<?php //Gadget caixa 
     require_once '../../classes/conn_revenda.php';
 
   $dia_hoje = date('Y-m-d'); // Formatando a data de hoje para o formato do banco de dados (ano-mês-dia)
@@ -70,6 +70,7 @@
             echo '</div>';
             echo '</div>';
         }else if($diferenca_dias < 0 && $diferenca_dias > -10){
+            $_SESSION['bloqueado'] = 1;
             echo '<div class="col-lg-12 grid-margin stretch-card btn-warning">';//
             echo '<div class="card" '.$_SESSION['c_card'].'>';
             echo '<div class="card-body">';
@@ -98,6 +99,7 @@
             echo '</div>';
             echo '</div>';  
         }else{
+            $_SESSION['bloqueado'] = 2;
             echo '<div class="col-lg-12 grid-margin stretch-card btn-danger">';//
             echo '<div class="card" '.$_SESSION['c_card'].'>';
             echo '<div class="card-body">';
