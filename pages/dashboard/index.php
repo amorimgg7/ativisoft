@@ -28,7 +28,7 @@
   <meta charset="utf-8">
   <meta>
   <?php 
-    if(isset($_SESSION['bloqueado'])){
+    if(isset($_SESSION['bloqueado']) && $_SESSION['bloqueado'] > 0){
       
       if($_SESSION['bloqueado'] == 1){
         echo "<meta http-equiv='refresh' content='15;url=../auto_pagamento/payment.php'>";

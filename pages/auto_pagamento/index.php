@@ -14,6 +14,7 @@
         $data_fornecida = $cliente_matriz['dtvalidlicenca_cliente_comercial'];
         $diferenca_dias = round((strtotime($data_fornecida) - strtotime($dia_hoje)) / (60 * 60 * 24));
         if($diferenca_dias > 5){
+            $_SESSION['bloqueado'] = 0;
             //echo '<div class="col-lg-12 grid-margin stretch-card btn-secondary">';//
             //echo '<div class="card" '.$_SESSION['c_card'].'>';
             //echo '<div class="card-body">';
@@ -22,7 +23,7 @@
             //echo '</div>';
             //echo '</div>';
         }else if($diferenca_dias <= 5 && $diferenca_dias > 0){
-            $_SESSION['bloqueado'] = null;
+            $_SESSION['bloqueado'] = 0;
             echo '<div class="col-lg-12 grid-margin stretch-card btn-secondary">';//
             echo '<div class="card" '.$_SESSION['c_card'].'>';
             echo '<div class="card-body">';
@@ -47,7 +48,7 @@
             echo '</div>';
             echo '</div>';
         } else if($diferenca_dias == 0){
-            $_SESSION['bloqueado'] = null;
+            $_SESSION['bloqueado'] = 0;
             echo '<div class="col-lg-12 grid-margin stretch-card btn-success">';//
             echo '<div class="card" '.$_SESSION['c_card'].'>';
             echo '<div class="card-body">';
