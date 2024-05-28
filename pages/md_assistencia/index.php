@@ -264,7 +264,7 @@
                     WHEN prioridade_servico = 'A' THEN 2
                     WHEN prioridade_servico = 'M' THEN 3
                     ELSE 4
-                END, cd_servico limit 500";
+                END, cd_servico limit 200";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -295,7 +295,7 @@
 
 
                   $liberado = $liberado + 1;
-                  if($liberado > 499){
+                  if($liberado > 199){
                     echo '<script>document.getElementById("liberado").innerHTML = "+ '.$liberado.'";</script>';
                   }else{
                     echo '<script>document.getElementById("liberado").innerHTML = "'.$liberado.'";</script>';
@@ -360,7 +360,7 @@
             ?>
 
             <?php //RETIRADO / DEVOLVIDO
-              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico, s.prioridade_servico, s.obs_servico, s.prazo_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 3 order by prazo_servico desc  limit 500";
+              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico, s.prioridade_servico, s.obs_servico, s.prazo_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 3 order by prazo_servico desc  limit 200";
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
                 echo '<div class="col-lg-12 grid-margin stretch-card"  data-toggle="collapse" href="#os_retirado" aria-expanded="false" aria-controls="os_retirado">';
@@ -392,7 +392,7 @@
                 while ( $servico = $resulta_servico->fetch_assoc()){
 
                   $retiradodevolvido = $retiradodevolvido + 1;
-                  if($retiradodevolvido > 499){
+                  if($retiradodevolvido > 199){
                     echo '<script>document.getElementById("retiradodevolvido").innerHTML = "+ '.$retiradodevolvido.'";</script>';
                   }else{
                     echo '<script>document.getElementById("retiradodevolvido").innerHTML = "'.$retiradodevolvido.'";</script>';
@@ -440,7 +440,7 @@
             
             <?php //ARQUIVADO
               
-              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 4 order by cd_servico desc limit 500";
+              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 4 order by cd_servico desc limit 200";
 
 
               $resulta_servico = $conn->query($sql_servico);
@@ -471,7 +471,7 @@
                 while ( $servico = $resulta_servico->fetch_assoc()){
 
                   $arquivado = $arquivado + 1;
-                  if($arquivado > 499){
+                  if($arquivado > 199){
                     echo '<script>document.getElementById("arquivado").innerHTML = "+ '.$arquivado.'";</script>';
                   }else{
                     echo '<script>document.getElementById("arquivado").innerHTML = "'.$arquivado.'";</script>';
