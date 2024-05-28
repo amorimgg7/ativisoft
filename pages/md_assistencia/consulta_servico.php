@@ -18,7 +18,7 @@
     if(isset($_SESSION['bloqueado'])){
       
       if($_SESSION['bloqueado'] == 1){
-        echo "<meta http-equiv='refresh' content='30;url=../auto_pagamento/payment.php'>";
+        echo "<meta http-equiv='refresh' content='15;url=../auto_pagamento/payment.php'>";
         
       }else if($_SESSION['bloqueado'] == 2){
         echo "<meta http-equiv='refresh' content='1;url=../auto_pagamento/payment.php'>";
