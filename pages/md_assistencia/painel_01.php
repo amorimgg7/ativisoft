@@ -56,7 +56,7 @@
                     WHEN prioridade_servico = 'A' THEN 2
                     WHEN prioridade_servico = 'M' THEN 3
                     ELSE 4
-                END, cd_servico";
+                END, cd_servico limit 500";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -76,7 +76,7 @@
                 echo '<th>OS</th>';
                 echo '<th>Financeiro</th>';
                 echo '<th>Cliente</th>';
-                echo '<th>Prioridade</th>';
+                echo '<th>Descrição</th>';
                 
                 
                 echo '</tr>';
@@ -112,7 +112,8 @@
                   
                      
                   echo '<td>'.$servico['full_name'].'</td>';
-
+                  echo '<td>'.$servico['obs_servico'].'</td>';
+/*
                   if($servico['prioridade_servico'] == "B"){
                     echo '<td><label class="badge badge-success">Baixa</label></td>';
                   
@@ -127,7 +128,7 @@
                   }
                   if($servico['prioridade_servico'] == "U"){
                     echo '<td><label class="badge badge-danger">Urgente</label></td>';
-                  }
+                  }*/
                   
                   //echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
                   
@@ -152,7 +153,7 @@
 
             <?php //RETIRADO / DEVOLVIDO
             if($_POST['tipo_card'] == 3){
-              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico, s.prioridade_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 3 order by cd_servico desc ";
+              $sql_servico = "SELECT concat(c.pnome_cliente, ' ',c.snome_cliente) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico, s.prioridade_servico, s.obs_servico, s.prazo_servico FROM tb_servico s, tb_cliente c WHERE s.cd_cliente = c.cd_cliente and s.status_servico = 3 order by prazo_servico desc  limit 1000";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -174,6 +175,9 @@
                 echo '<th>OS</th>';
                 echo '<th>Financeiro</th>';
                 echo '<th>Cliente</th>';
+                
+                echo '<th>Prazo</th>';
+                echo '<th>Descrição</th>';
                 
                 echo '</tr>';
                 echo '</thead>';
@@ -203,8 +207,11 @@
                     echo '<script>document.getElementById("retiradodevolvido").innerHTML = "'.$retiradodevolvido.'";</script>';
                     echo '<script>document.getElementById("retiradodevolvido").style.display = "block";</script>';//
                     echo '<td>'.$servico['full_name'].'</td>';
+                    
+                    echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
+                    echo '<td>'.$servico['obs_servico'].'</td>';
                     //echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
-                    echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
+                    //echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
                 }
                 echo '</tbody>';
                 echo '</table>';
