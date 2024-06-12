@@ -412,7 +412,7 @@ if ($cnpj && $tel) {
           </div>
           <?php ////session_start();
             if(isset($_SESSION['contel_cliente'])){
-              echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+              echo '<script>document.getElementById("consulta").style.display = "block";</script>';
             }
             if(isset($_POST['contel_cliente'])){
               $_SESSION['contel_cliente'] = $_POST['cd_pais'].$_POST['contel_cliente'];
@@ -427,6 +427,8 @@ if ($cnpj && $tel) {
                 $_SESSION['acompanha_pnome_cliente'] = $row_select_cliente['pnome_cliente'];
                 $_SESSION['acompanha_snome_cliente'] = $row_select_cliente['snome_cliente'];
                 $_SESSION['acompanha_tel_cliente'] = $row_select_cliente['tel_cliente'];
+              }else{
+                echo "<script>window.alert('Telefone não encontrado!');</script>";
               }          
             }
             if(isset($_SESSION['acompanha_cd_cliente'])){
