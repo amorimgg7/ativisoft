@@ -85,7 +85,6 @@
                   </div>
                   <!--<a href="#" class="auth-link text-black">Forgot password?</a>-->
                 </div>
-                
                 <!--
                 <div class="mb-2">
                   <button type="button" class="btn btn-block btn-facebook auth-form-btn">

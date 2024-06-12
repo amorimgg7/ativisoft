@@ -75,10 +75,8 @@ class Usuario
                     //entrar no sistema(sessão)
                     $filial = $selectFilial->fetch();
                     $_SESSION['nfantasia_filial'] = utf8_encode($filial['nfantasia_filial']);
-                    $_SESSION['cd_filial'] = $filial['cd_filial'];
                     $_SESSION['cnpj_filial'] = $filial['cnpj_filial'];
                     $_SESSION['endereco_filial'] = utf8_encode($filial['endereco_filial']);
-                    $_SESSION['cd_entidade_financeira'] = utf8_encode($filial['cd_entidade_financeira']);
                     //$_SESSION['saudacoes_filial'] = $filial['saudacoes_filial'];
                     $_SESSION['saudacoes_filial'] = utf8_encode($filial['saudacoes_filial']);
                     //session_start();
@@ -554,7 +552,7 @@ class Usuario
 
 function loggout(){
     session_start();
-    
+    $_SESSION['cd_pessoal'] = '';
     session_destroy();
     echo '<script>location.href="'.$_SESSION['dominio'].'pages/samples/login.php";</script>';
     echo "<script>window.close();</script>";

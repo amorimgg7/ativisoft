@@ -1,5 +1,7 @@
 <?php
     session_start();
+
+    
     if(!isset($_SESSION['cd_colab']))
     {
         //header("location: http://amorimgg77.lovestoblog.com/pages/samples/login.php");
@@ -13,9 +15,13 @@
       exit;
     }
     require_once '../../classes/conn.php';
+    
     include("../../classes/functions.php");
     //conectar($_SESSION['cnpj_empresa']);
+
     $u = new Usuario;
+    
+    
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 
@@ -24,28 +30,16 @@
 <html lang="pt-br">
 
 <head>
+  
+
   <!-- Required meta tags --> 
   <meta charset="utf-8">
   <meta>
-  <?php 
-    if(isset($_SESSION['bloqueado']) && $_SESSION['bloqueado'] > 0){
-      
-      if($_SESSION['bloqueado'] == 1){
-        echo "<meta http-equiv='refresh' content='1;url=../auto_pagamento/payment.php'>";
-        
-      }else if($_SESSION['bloqueado'] == 2){
-        echo "<meta http-equiv='refresh' content='1;url=../auto_pagamento/payment.php'>";
-      }
-    }
-  ?>
   <!--<meta http-equiv='refresh' content='30'>-->
   <!--<meta http-equiv="refresh" content="5;url=../samples/lock-screen.php">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
   <title>AtiviSoft</title>
-  <link rel="manifest" href="manifest.json">
-    <!--<link rel="icon" href="icon-192x192.png" sizes="192x192">
-    <link rel="apple-touch-icon" href="icon-192x192.png">
-  -->
   <!-- base:css -->
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
@@ -60,8 +54,9 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
+  
   <?php
-    $caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
+  		$caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
 		$foto_empresa = "LogoEmpresa.jpg"; // Nome do arquivo que será salvo
 		$caminho_foto_empresa = $caminho_pasta_empresa . $foto_empresa;
 
@@ -83,12 +78,6 @@
 <script src="../../js/functions.js"></script>
   <!--<body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">-->
   <body>
-
-
-
-  
-
-
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <?php include ("../../partials/_navbar.php");?>
@@ -102,41 +91,6 @@
           <div class="row">
             <div class="col-sm-12 mb-4 mb-xl-0">
               
-              <button id="install-button" class="btn btn-block btn-outline-success" style="display: none;">Instalar o Web APP</button>
-              <script>
-                  let deferredPrompt;
-                  const installButton = document.getElementById('install-button');
-
-                  window.addEventListener('beforeinstallprompt', (e) => {
-                      e.preventDefault();
-                      deferredPrompt = e;
-                      installButton.style.display = 'block';
-
-                      installButton.addEventListener('click', () => {
-                          installButton.style.display = 'none';
-                          deferredPrompt.prompt();
-                          deferredPrompt.userChoice.then((choiceResult) => {
-                              if (choiceResult.outcome === 'accepted') {
-                                  console.log('Usuário aceitou a instalação do app');
-                              } else {
-                                  console.log('Usuário rejeitou a instalação do app');
-                              }
-                              deferredPrompt = null;
-                          });
-                      });
-                  });
-              </script>
-              <script>
-                  if ('serviceWorker' in navigator) {
-                      navigator.serviceWorker.register('<?php echo $_SESSION['dominio']; ?>pages/dashboard/service-worker.js')
-                      .then((registration) => {
-                          console.log('Service Worker registrado com sucesso:', registration);
-                      })
-                      .catch((error) => {
-                          console.log('Falha ao registrar o Service Worker:', error);
-                      });
-                  }
-              </script>
               <p><?php echo $_SESSION['c_body'];?></p>
               <p><?php echo $_SESSION['c_card'];?></p>
               <p class="font-weight-normal mb-2 text-muted"><span id="data-atual" <?php echo $_SESSION['c_body'];?>></span></p>
