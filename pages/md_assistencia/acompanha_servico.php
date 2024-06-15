@@ -436,7 +436,7 @@ if ($cnpj && $tel) {
               echo '<div class="card">';
               echo '<div class="card-body">';
               echo '<h4 class="card-title">Ficha do cliente</h4>';
-                
+              echo '<h5 id="divida_cliente">Divida</h5>';
               echo '<div class="table-responsive">';
               echo '<table class="table">';
               echo '<thead>';
@@ -745,6 +745,7 @@ if ($cnpj && $tel) {
               <div class="row flex-grow">
 
                 <?php //À FAZER
+                $falta_pagar_orcamento_servico = 0;
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
                   if(isset($_SESSION['acompanha_cd_cliente'])) {
@@ -773,7 +774,8 @@ if ($cnpj && $tel) {
                         echo '<thead>';
                         echo '<tr>';
                         echo '<th>OS</th>';
-                        echo '<th>Prioridade</th>';
+                        echo '<th>Financeiro</th>';
+                        echo '<th>Entrada</th>';
                         echo '<th>Prazo</th>';
                         echo '</tr>';
                         echo '</thead>';
@@ -781,19 +783,20 @@ if ($cnpj && $tel) {
                         while ( $servico = $resulta_servico->fetch_assoc()){
                           echo '<tr>';
                           echo '<td>'.$servico['cd_servico'].'</td>';
-                          if($servico['prioridade_servico'] == "B"){
-                            echo '<td><label class="badge badge-success">Baixa</label></td>';
+                          if($servico['orcamento_servico'] == 0){
+                            echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
+                          }else{
+                            if($servico['orcamento_servico'] == $servico['vpag_servico']){
+                              echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                            }else{
+                              $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
+                              $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
+                              echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                              $falta_pagar_orcamento_servico = $falta_pagar_orcamento_servico + ($orcamento_servico - $vpag_servico); 
+                            }
                           }
-                          if($servico['prioridade_servico'] == "M"){
-                            echo '<td><label class="badge badge-info">Média</label></td>';
-                          }
-                          if($servico['prioridade_servico'] == "A"){
-                            echo '<td><label class="badge badge-warning">Alta</label></td>';
-                          }
-                          if($servico['prioridade_servico'] == "U"){
-                            echo '<td><label class="badge badge-danger">Urgente</label></td>';
-                          }
-                          echo '<td>'.$servico['prazo_servico'].'</td>';
+                          echo '<td>'.date('d/m/y', strtotime($servico['entrada_servico'])).'</td>';
+                          echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
                         }
                         echo '</tbody>';
                         echo '</table>';
@@ -837,7 +840,8 @@ if ($cnpj && $tel) {
                         echo '<thead>';
                         echo '<tr>';
                         echo '<th>OS</th>';
-                        echo '<th>Prioridade</th>';
+                        echo '<th>Financeiro</th>';
+                        echo '<th>Entrada</th>';
                         echo '<th>Prazo</th>';
                         echo '</tr>';
                         echo '</thead>';
@@ -845,19 +849,21 @@ if ($cnpj && $tel) {
                         while ( $servico = $resulta_servico->fetch_assoc()){
                           echo '<tr>';
                           echo '<td>'.$servico['cd_servico'].'</td>';
-                          if($servico['prioridade_servico'] == "B"){
-                            echo '<td><label class="badge badge-success">Baixa</label></td>';
+                          if($servico['orcamento_servico'] == 0){
+                            echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
+                          }else{
+                            if($servico['orcamento_servico'] == $servico['vpag_servico']){
+                              echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                            }else{
+                              $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
+                              $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
+                              echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                              $falta_pagar_orcamento_servico = $falta_pagar_orcamento_servico + ($orcamento_servico - $vpag_servico); 
+                            }
                           }
-                          if($servico['prioridade_servico'] == "M"){
-                            echo '<td><label class="badge badge-info">Média</label></td>';
-                          }
-                          if($servico['prioridade_servico'] == "A"){
-                            echo '<td><label class="badge badge-warning">Alta</label></td>';
-                          }
-                          if($servico['prioridade_servico'] == "U"){
-                            echo '<td><label class="badge badge-danger">Urgente</label></td>';
-                          }
-                          echo '<td>'.$servico['prazo_servico'].'</td>';
+
+                          echo '<td>'.date('d/m/y', strtotime($servico['entrada_servico'])).'</td>';
+                          echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
                         }
                         echo '</tbody>';
                         echo '</table>';
@@ -901,7 +907,8 @@ if ($cnpj && $tel) {
                         echo '<thead>';
                         echo '<tr>';
                         echo '<th>OS</th>';
-                        echo '<th>Prioridade</th>';
+                        echo '<th>Financeiro</th>';
+                        echo '<th>Entrada</th>';
                         echo '<th>Prazo</th>';
                         echo '</tr>';
                         echo '</thead>';
@@ -909,19 +916,21 @@ if ($cnpj && $tel) {
                         while ( $servico = $resulta_servico->fetch_assoc()){
                           echo '<tr>';
                           echo '<td>'.$servico['cd_servico'].'</td>';
-                          if($servico['prioridade_servico'] == "B"){
-                            echo '<td><label class="badge badge-success">Baixa</label></td>';
+                          if($servico['orcamento_servico'] == 0){
+                            echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
+                          }else{
+                            if($servico['orcamento_servico'] == $servico['vpag_servico']){
+                              echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                            }else{
+                              $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
+                              $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
+                              echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                              $falta_pagar_orcamento_servico = $falta_pagar_orcamento_servico + ($orcamento_servico - $vpag_servico); 
+                            }
                           }
-                          if($servico['prioridade_servico'] == "M"){
-                            echo '<td><label class="badge badge-info">Média</label></td>';
-                          }
-                          if($servico['prioridade_servico'] == "A"){
-                            echo '<td><label class="badge badge-warning">Alta</label></td>';
-                          }
-                          if($servico['prioridade_servico'] == "U"){
-                            echo '<td><label class="badge badge-danger">Urgente</label></td>';
-                          }
-                          echo '<td>'.$servico['prazo_servico'].'</td>';
+
+                          echo '<td>'.date('d/m/y', strtotime($servico['entrada_servico'])).'</td>';
+                          echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
                         }
                         echo '</tbody>';
                         echo '</table>';
@@ -966,7 +975,8 @@ if ($cnpj && $tel) {
                         echo '<thead>';
                         echo '<tr>';
                         echo '<th>OS</th>';
-                        echo '<th>Prioridade</th>';
+                        echo '<th>Financeiro</th>';
+                        echo '<th>Entrada</th>';
                         echo '<th>Prazo</th>';
                         echo '</tr>';
                         echo '</thead>';
@@ -974,19 +984,21 @@ if ($cnpj && $tel) {
                         while ( $servico = $resulta_servico->fetch_assoc()){
                           echo '<tr>';
                           echo '<td>'.$servico['cd_servico'].'</td>';
-                          if($servico['prioridade_servico'] == "B"){
-                            echo '<td><label class="badge badge-success">Baixa</label></td>';
+                          if($servico['orcamento_servico'] == 0){
+                            echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
+                          }else{
+                            if($servico['orcamento_servico'] == $servico['vpag_servico']){
+                              echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                            }else{
+                              $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
+                              $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
+                              echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                              $falta_pagar_orcamento_servico = $falta_pagar_orcamento_servico + ($orcamento_servico - $vpag_servico); 
+                            }
                           }
-                          if($servico['prioridade_servico'] == "M"){
-                            echo '<td><label class="badge badge-info">Média</label></td>';
-                          }
-                          if($servico['prioridade_servico'] == "A"){
-                            echo '<td><label class="badge badge-warning">Alta</label></td>';
-                          }
-                          if($servico['prioridade_servico'] == "U"){
-                            echo '<td><label class="badge badge-danger">Urgente</label></td>';
-                          }
-                          echo '<td>'.$servico['prazo_servico'].'</td>';
+
+                          echo '<td>'.date('d/m/y', strtotime($servico['entrada_servico'])).'</td>';
+                          echo '<td>'.date('d/m/y', strtotime($servico['prazo_servico'])).'</td>';
                         }
                         echo '</tbody>';
                         echo '</table>';
@@ -998,6 +1010,80 @@ if ($cnpj && $tel) {
                         echo '</div>';  
                       }
                     }          
+                  }
+                ?>
+
+
+                <?php //ARQUIVADO
+                  //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
+                  //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
+                  if(isset($_SESSION['acompanha_cd_cliente'])) {
+                    $sql_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_SESSION['acompanha_tel_cliente']."'";
+                    $result_cliente = mysqli_query($conn, $sql_cliente);
+                    $row_cliente = mysqli_fetch_assoc($result_cliente);
+                    // Exibe as informações do usuário no formulário
+                    if($row_cliente) {
+                      echo '<script>document.getElementById("cd_cliente").value = "'.$row_cliente['cd_cliente'].'"</script>';
+                      $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 4 AND cd_cliente = '".$row_cliente['cd_cliente']."'
+                        ORDER BY 
+                        CASE 
+                        WHEN prioridade_servico = 'U' THEN 1
+                        WHEN prioridade_servico = 'A' THEN 2
+                        WHEN prioridade_servico = 'M' THEN 3
+                        ELSE 4
+                        END, cd_servico";
+                      $resulta_servico = $conn->query($sql_servico);
+                      if ($resulta_servico->num_rows > 0){
+                        echo '<div class="col-lg-6 grid-margin stretch-card">';
+                        echo '<div class="card">';
+                        echo '<div class="card-body">';
+                        echo '<h4 class="card-title">ARQUIVADO</h4>';
+                        echo '<div class="table-responsive">';
+                        echo '<table class="table">';
+                        echo '<thead>';
+                        echo '<tr>';
+                        echo '<th>OS</th>';
+                        echo '<th>Motivo</th>';
+                        echo '<th>Ultimo Status</th>';
+                        echo '</tr>';
+                        echo '</thead>';
+                        echo '<tbody>';
+                        while ( $servico = $resulta_servico->fetch_assoc()){
+                          echo '<tr>';
+                          echo '<td>'.$servico['cd_servico'].'</td>';
+                          //SELECT * FROM tb_atividade WHERE cd_servico = '19' order by cd_atividade desc limit 1
+                          $sql_atividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$servico['cd_servico']."' order by cd_atividade desc limit 1";
+                          $resulta_atividade = $conn->query($sql_atividade);
+                          if ($resulta_atividade->num_rows > 0){
+                            while($atividade = $resulta_atividade->fetch_assoc()){
+                              $sql_pessoa_atividade = "SELECT * FROM tb_colab WHERE cd_colab = '".$atividade['cd_colab']."'";
+                              $resulta_pessoa_atividade = $conn->query($sql_pessoa_atividade);
+                              if ($resulta_pessoa_atividade->num_rows > 0){
+                                while($pessoa_atividade = $resulta_pessoa_atividade->fetch_assoc()){
+                                  echo '<td>'.$pessoa_atividade['pnome_colab'].' '.$pessoa_atividade['snome_colab'].'. OBS: '.$atividade['obs_atividade'].'</td>';
+                                }}
+                              //echo '<td>'.$atividade['obs_atividade'].'</td>';
+                              echo '<td>'.date('d/m/y', strtotime($atividade['fim_atividade'])).'</td>';
+                            }
+                          }
+                        }
+                        echo '</tbody>';
+                        echo '</table>';
+                        echo '</div>';
+                        echo '</div>';
+                        //echo '<button type="button" class="btn btn-social-icon-text btn-success" style="margin: 5px;"><i class="mdi mdi-whatsapp"></i>Enviar</button>';
+                        //echo '<button type="button" class="btn btn-social-icon-text btn-info" style="margin: 5px;"><i class="mdi mdi-printer"></i>Imprimir</button>';
+                        echo '</div>';
+                        echo '</div>';
+                        
+                      }
+                    }          
+                  }
+
+                  if($falta_pagar_orcamento_servico > 0){
+                    echo '<script>document.getElementById("divida_cliente").innerHTML = "Dívida ativa de R$: '.number_format($falta_pagar_orcamento_servico, 2, '.', '').'";</script>';
+                  }else{
+                    echo '<script>document.getElementById("divida_cliente").innerHTML = "";</script>';
                   }
                 ?>
 
