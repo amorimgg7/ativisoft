@@ -318,6 +318,64 @@ CREATE TABLE `tb_orcamento_servico` (
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 
+CREATE TABLE tb_filme(
+    cd_filme integer PRIMARY KEY AUTO_INCREMENT,
+    titulo_filme varchar(99),
+    sinopse_filme varchar(9999),
+    lancamento_filme varchar(40),
+    genero_filme varchar(40),
+    classificacao_filme varchar(40),
+    duracao_filme varchar(40),
+    pontuacao_filme varchar(40),
+    magnect_link_720p_filme varchar(9999),
+    magnect_link_1080p_filme varchar(9999),
+);
+
+INSERT INTO tb_filme (titulo_filme, lancamento_filme, duracao_filme, classificacao_filme)
+VALUES ('Jungle Fever (1991)', '1991', '1H', '+14');
+
+ALTER TABLE `tb_filme` ADD PRIMARY KEY (`cd_filme`),
+
+ALTER TABLE `tb_filme` MODIFY `cd_filme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+CREATE TABLE tb_casa(
+  cd_casa integer PRIMARY KEY AUTO_INCREMENT,
+  cd_cliente int(11) DEFAULT NULL,
+  cd_anfitriao int(11) DEFAULT NULL,
+  titulo_casa varchar(100) DEFAULT NULL,
+  obs_casa varchar(1000) DEFAULT NULL,
+  iptu_casa varchar(100) DEFAULT NULL,
+  valor_venda decimal(10,2) DEFAULT NULL,
+  valor_aluga decimal(10,2) DEFAULT NULL,
+  tipo_exercicio varchar(40) DEFAULT NULL,
+  cd_endereco int(11) DEFAULT NULL,
+  status_casa varchar(10) DEFAULT NULL
+)  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+INSERT INTO tb_casa (titulo_casa, obs_casa, valor_venda, valor_aluga, tipo_exercicio, status_casa)
+VALUES ('Casa teste', 'Testes', '100', '100','A', '0');
+
+
+
+CREATE TABLE tb_endereco(
+  cd_endereco integer PRIMARY KEY AUTO_INCREMENT,
+  cep_endereco varchar(100) DEFAULT NULL,
+  pais_endereco varchar(100) DEFAULT NULL,
+  estado_endereco varchar(100) DEFAULT NULL,
+  municipio_endereco varchar(100) DEFAULT NULL,
+  bairro_endereco varchar(100) DEFAULT NULL,
+  logradouro_endereco varchar(100) DEFAULT NULL,
+  complemento_endereco varchar(100) DEFAULT NULL,
+  tipo_endereco varchar(100) DEFAULT NULL,
+  status_endereco varchar(100) DEFAULT NULL
+)  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+INSERT INTO tb_endereco(cep_endereco, pais_endereco, estado_endereco, municipio_endereco, bairro_endereco, logradouro_endereco, complemento_endereco, tipo_endereco, status_endereco)
+VALUES ('22780805', 'BRASIL', 'RJ', 'RIO DE JANEIRO', 'CURICICA', 'RUA JOÃO BRUNO LOBO, 291', 'LOTE A, CASA 1', 'RESIDENCIAL', '0');
+
+
+
 ALTER TABLE `fl_ponto`
   ADD PRIMARY KEY (`token_alter`),
   ADD KEY `fk_fl_ponto1` (`cdcolab_ponto`),

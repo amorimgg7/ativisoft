@@ -154,6 +154,18 @@
                     echo '<h6>&nbsp&nbsp&nbsp&nbsp Licença ao módulo de controle patrimônial.</h6>';
                     //include '../../pages/md_patrimonio/index.php';
                   }
+                  if($_SESSION['cd_funcao'] == 7)
+                  {
+                    //echo '<h1>Módulo Hospedagem!</h1>';
+                    //echo '<h6>&nbsp&nbsp&nbsp&nbsp Licença ao módulo de controle de casas voltado a pessoas que alugam casas e espaços.</h6>';
+                    include '../../pages/md_caixa/index.php';
+                    include '../../pages/md_hospedagem/index.php';
+                    //include '../../pages/md_patrimonio/index.php';
+                  }
+
+
+                  
+
                 ?>
               </div>
             </div>
