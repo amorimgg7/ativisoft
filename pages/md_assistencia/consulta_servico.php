@@ -18,7 +18,7 @@
     if(isset($_SESSION['bloqueado'])){
       
       if($_SESSION['bloqueado'] == 1){
-        echo "<meta http-equiv='refresh' content='15;url=../auto_pagamento/payment.php'>";
+        //echo "<meta http-equiv='refresh' content='15;url=../auto_pagamento/payment.php'>";
         
       }else if($_SESSION['bloqueado'] == 2){
         echo "<meta http-equiv='refresh' content='1;url=../auto_pagamento/payment.php'>";
@@ -67,6 +67,7 @@
         <div class="content-wrapper" <?php echo $_SESSION['c_body'];?>>
           <div class="row">
             <div class="col-12 grid-margin">
+              <h1><?php echo $_SESSION['bloqueado'];?></h1>
               <div class="card" <?php $_SESSION['c_card'];?>>
                 <div class="card-body" id="consulta" <?php echo $_SESSION['c_card'];?> style="display: block;" >
                   <h3 class="card-title"<?php echo $_SESSION['c_card'];?>>Consultar pela OS</h3>

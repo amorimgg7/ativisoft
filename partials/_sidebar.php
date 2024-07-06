@@ -106,25 +106,19 @@
             <div class="collapse" id="cadastros">
             
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/unidade_operacional.php">Loja</a></li>
-                <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_colaborador.php">Funcionario</a></li>
-                <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/consulta_cliente.php">Cliente</a></li>
+                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/unidade_operacional.php">Empresa</a></li>
+                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_colaborador.php">Funcionario</a></li>
+                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/consulta_cliente.php">Cliente</a></li>
                 <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_produto.php">Produtos</a></li>
                 <li class="nav-item" <?php echo $_SESSION['md_patrimonio'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_patrimonio/cadastro_patrimonio.php">Patrimônio</a></li>
-              
-
-                
+                <li class="nav-item" <?php echo $_SESSION['md_hospedagem'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_hospedagem/editar_casa.php">Imóvel</a></li>
               </ul>
             </div>
-            
-              
+          
           </li>
 
-          
-          
-
-
           <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>>
+            
             <a class="nav-link" data-toggle="collapse" href="#os_assistencia" aria-expanded="false" aria-controls="os_assistencia">
               <i class="icon-disc menu-icon" <?php echo $_SESSION['c_sidebar']?>></i>
               <span class="menu-title" <?php echo $_SESSION['c_sidebar']?>>Serviços</span>

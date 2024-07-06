@@ -281,6 +281,16 @@ CREATE TABLE `tb_orcamento_servico` (
   `status_orcamento` int(11) DEFAULT NULL
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+CREATE TABLE `tb_orcamento_casa` (
+  `cd_orcamento` int(11) ,
+  `cd_casa` int(11) DEFAULT NULL,
+  `cd_cliente` int(11) DEFAULT NULL,
+  `titulo_orcamento` varchar(999) DEFAULT NULL,
+  `vcusto_orcamento` varchar(40) DEFAULT NULL,
+  `vpag_orcamento` varchar(40) DEFAULT NULL,
+  `status_orcamento` int(11) DEFAULT NULL
+)  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
 
 CREATE TABLE `tb_frases` (
   `cd_frase` int(11) NOT NULL,
@@ -406,6 +416,11 @@ ALTER TABLE `tb_orcamento_servico`
   ADD KEY `fk_rel_orcamento1` (`cd_servico`),
   ADD KEY `fk_rel_orcamento2` (`cd_cliente`);
 
+ALTER TABLE `tb_orcamento_casa`
+  ADD PRIMARY KEY (`cd_orcamento`),
+  ADD KEY `fk_rel_orcamento1` (`cd_casa`),
+  ADD KEY `fk_rel_orcamento2` (`cd_cliente`);
+
 
 ALTER TABLE `tb_seguranca`
   ADD PRIMARY KEY (`cd_seg`);
@@ -466,11 +481,14 @@ ALTER TABLE `tb_funcao`
 
 
 ALTER TABLE `tb_movimento_financeiro`
-  MODIFY `cd_movimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3227;
+  MODIFY `cd_movimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 
 ALTER TABLE `tb_orcamento_servico`
-  MODIFY `cd_orcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5837;
+  MODIFY `cd_orcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `tb_orcamento_casa`
+  MODIFY `cd_orcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 
 ALTER TABLE `tb_seguranca`

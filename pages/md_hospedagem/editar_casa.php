@@ -132,6 +132,27 @@
                       $_SESSION['tel_cliente'] = $row_cliente['tel_cliente'];                
                     }
                   }
+
+                  if(isset($_POST['contel_cliente'])) { //CHAMAR CLIENTE CADASTRADO PARA SESSION
+                    echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
+                    //session_start();
+                    $_SESSION['contel_cliente'] = $_POST['contel_cliente'];
+                    $select_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_POST['cd_pais'].$_POST['contel_cliente']."'";
+                    $result = mysqli_query($conn, $select_cliente);
+                    $row = mysqli_fetch_assoc($result);
+                    if($row) {
+                      $_SESSION['cd_cliente'] = $row['cd_cliente'];
+                      $_SESSION['pnome_cliente'] = $row['pnome_cliente'];
+                      $_SESSION['snome_cliente'] = $row['snome_cliente'];
+                      $_SESSION['tel_cliente'] = $row['tel_cliente'];                
+                    }else{
+                      echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+                      echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
+                      echo '<script>document.getElementById("tel_cliente").value = "'.$_POST['cd_pais'].$_POST['contel_cliente'].'"</script>';
+                    }
+                  }
+
+                  
                 ?>
                 <?php
                   if(isset($_POST['lancarPagamento'])) {
@@ -218,7 +239,67 @@
                       echo '<script>document.getElementById("btnsnome_cliente").value = "'.$_SESSION['snome_cliente'].'"</script>';
                       echo '<script>document.getElementById("btntel_cliente").value = "'.$_SESSION['tel_cliente'].'"</script>';
                     }else{
-                      echo '<h1>Vincule um cliente</h1>';
+                      echo '<div class="card-body" id="consulta_cliente" '.$_SESSION["c_card"].'" >';
+                      echo '<h3 class="card-title" '.$_SESSION["c_card"].' >Informar Cliente</h3>';
+                      echo '<p class="card-description" '.$_SESSION["c_card"].' >Diga quem é o cliente para reservar este imóvel!</p>';
+                      echo '<div class="kt-portlet__body" >';
+                      echo '<div class="row">';
+                      echo '<div class="col-12 col-md-12">';
+                      echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                      echo '<div class="typeahead" id="botoes" name="botoes" '.$_SESSION['c_card'].' style="display:block;">';
+                      echo '<form method="POST"> ';
+                      echo '<div class="form-group" style="display: flex;">';
+                      echo '<div class="input-group">';
+                      echo '<div class="input-group-prepend">';
+                      echo '<!--<span>-->';
+                      echo '<select name="cd_pais" id="cd_pais"  class="input-group-text" required>';
+                      echo '<option selected="selected"value="55">+55 Brasil</option>';
+                      echo '</select>  ';
+                      echo '<!--</span>-->';
+                      echo '</div>';
+                      echo '<input placeholder="Telefone do Cliente" type="tel" name="contel_cliente" id="contel_cliente" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required oninput="validateInput(this)">';
+                      echo '<div class="input-group-append">';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '<p id="error-message" style="color: #DDDDDD;"></p>';
+                      echo '<br>';
+                      echo '<button type="submit" name="consulta" class="btn btn-block btn-success">Reservar</button>';
+                      echo '</form>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+
+
+                      echo '<div class="card-body" id="cadastroCliente" style="display:none;">';
+                      echo '<h3 class="kt-portlet__head-title">Dados do cliente</h3>';
+                      echo '<div class="kt-portlet__body">';
+                      echo '<div class="row">';
+                      echo '<div class="col-12 col-md-12">';
+                      echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                      echo '<form method="POST">';
+                      echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead">';
+                      echo '<label for="pnome_cliente">Nome</label>';
+                      echo '<input name="pnome_cliente" type="text" id="pnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
+                      
+                      echo '<label for="snome_cliente">sobrenome</label>';
+                      echo '<input name="snome_cliente" type="text" id="snome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" />';
+                      echo '<label for="tel_cliente">Telefone</label>';
+                      echo '<input name="tel_cliente" type="tel"'.$_SESSION["contel_cliente"].' id="tel_cliente" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      echo '<!--<input type="submit" class="btn btn-success" value="Salvar">-->';
+                      echo '</div>';
+                      echo '<button type="submit" name="cad_cliente" class="btn btn-success" >Salvar</button>';
+                      echo '</form>';
+                      echo '<form method="post">';
+                      echo '<button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Refazer</button>';
+                      echo '</form>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
                     }
                     
 
@@ -243,118 +324,150 @@
                     echo '<script>document.getElementById("btntitulo_casa").value = "'.$_SESSION['titulo_casa'].'"</script>';
                     echo '<script>document.getElementById("btnobs_casa").value = "'.$_SESSION['obs_casa'].'"</script>';
                     
-                    $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_orcamento ASC";
-                    $result_orcamento = mysqli_query($conn, $select_orcamento);
-                    //$row_atividade = mysqli_fetch_assoc($result_atividade);
+
+                    if(isset($_SESSION['cd_casa'])){
+                      if($_SESSION['cd_casa'] > 0){
+                        if($_SESSION['cd_cliente'] > 0){
+                          $select_orcamento = "SELECT * FROM tb_orcamento_casa WHERE cd_casa = '".$_SESSION['cd_casa']."' ORDER BY cd_orcamento ASC";
+                          $result_orcamento = mysqli_query($conn, $select_orcamento);
+                          //$row_atividade = mysqli_fetch_assoc($result_atividade);
         
-                    // Exibe as informações do usuário no formulário
-                    echo '<style>';
-                    echo '.horizontal-form {';
-                    echo 'display: table;';
-                    echo 'width: 100%;';
-                    echo '}';
-                    echo '.form-group {';
-                    echo 'display: table-row;';
-                    echo '}';
+                          // Exibe as informações do usuário no formulário
+                          echo '<style>';
+                          echo '.horizontal-form {';
+                          echo 'display: table;';
+                          echo 'width: 100%;';
+                          echo '}';
+                          echo '.form-group {';
+                          echo 'display: table-row;';
+                          echo '}';
 
-                    echo '.form-group label,';
-                    echo '.form-group input {';
-                    echo 'display: table-cell;';
-                    echo 'padding: 5px;';
-                    echo '}';
-                    echo '</style>';
-                    echo '';
-                    echo '<h3 class="kt-portlet__head-title">Serviços adicionados</h3>';
-                    $_SESSION['vtotal_orcamento'] = 0;
-
-                    $count = 0;
-                    $vtotal = 0;
-                    while($row_orcamento = $result_orcamento->fetch_assoc()) {
-
-                      echo '<div name="listaOrcamento" id="listaOrcamento" class="typeahead" '.$_SESSION['c_card'].'>';
-                      //echo '<form method="POST">';
-                      echo '<div class="horizontal-form">';
-                      echo '<div class="form-group">';
-                      $count = $count + 1;
-                      
-                      echo '<input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:none;">';
-                      echo '<label for="listatitulo_orcamento">#'.$count.'</label>';
-                      echo '<input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" readonly>';
-                      echo '<label for="listavalor_orcamento">R$: </label>';
-                      echo '<input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
-                      //echo '<label for="listaremover_orcamento"></label>';
-                      //echo '<input type="submit" value="X" onclick="location.reload()" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
-                      //echo '<input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
-                      
-                      $vtotal = $vtotal + $row_orcamento['vcusto_orcamento'];
-                      $_SESSION['vtotal_orcamento'] = $vtotal;
-                      echo '</div>';
-                      echo '</div>';
-                      //echo '</form>';
-                      echo '</div>';
-                      //$i = 0;
-                    } 
-                    $_SESSION['falta_pagar_orcamento'] = $_SESSION['vtotal_orcamento'] - $_SESSION['vpag_orcamento'];
-                    echo '<div class="typeahead" '.$_SESSION['c_body'].'">';
-                    echo '<div class="horizontal-form"'.$_SESSION['c_card'].'>';
-                    echo '<div class="form-group"'.$_SESSION['c_card'].'>';
-                    
-                    
-                    if($_SESSION['vpag_servico'] == $_SESSION['vtotal_orcamento']){
-                      echo '<label for="showobs_servico">Total Pago:</label>';
-                      echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
-                    }else{
-                      $_SESSION['falta_pagar_servico'] = $_SESSION['vtotal_orcamento'] - $_SESSION['vpag_servico'];
-                      echo '<label for="showobs_servico">Total:</label>';
-                      echo '<input value="'.$_SESSION['vtotal_orcamento'].'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
-                      echo '<label for="showobs_servico">Pago:</label>';
-                      echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
-                      echo '<label for="showobs_servico">Falta:</label>';
-                      echo '<input value="'.$_SESSION['falta_pagar_servico'].'" type="tel" name="btn_falta_pagar_orcamento" id="btn_falta_pagar_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
-                      //echo '<label for="lancarPagamento"></label>';
-                      //echo '<input type="submit" name="lancarPagamento" id="lancarPagamento" class="btn btn-success"">';
-                    }
-                    //echo '</form>';
-                    
+                          echo '.form-group label,';
+                          echo '.form-group input {';
+                          echo 'display: table-cell;';
+                          echo 'padding: 5px;';
+                          echo '}';
+                          echo '</style>';
+                          echo '';
+                          echo '<h3 class="kt-portlet__head-title">Serviços Adicionais</h3>';
 
 
-                    //echo '<label for="lancarPagamento"></label>';
-                    //echo '<input type="submit" name="lancarPagamento" id="lancarPagamento" class="btn btn-success"">';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
 
                     
-                    
-                    
+                          $_SESSION['vtotal_orcamento'] = 0;
+
+                          $count = 0;
+                          $vtotal = 0;
+                          while($row_orcamento = $result_orcamento->fetch_assoc()) {
+                            echo '<div name="listaOrcamento" id="listaOrcamento" class="typeahead" '.$_SESSION['c_card'].'>';
+                            echo '<form method="POST">';
+                            echo '<div class="horizontal-form">';
+                            echo '<div class="form-group">';
+                            $count = $count + 1;
                             
-                    
-                    
-                    
+                            echo '<input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:none;">';
+                            echo '<label for="listatitulo_orcamento">#'.$count.'</label>';
+                            echo '<input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" readonly>';
+                            echo '<label for="listavalor_orcamento">R$: </label>';
+                            echo '<input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
+                            echo '<label for="listaremover_orcamento"></label>';
+                            //echo '<input type="submit" value="X" onclick="location.reload()" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
+                            echo '<input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
+                            
+                            $vtotal = $vtotal + $row_orcamento['vcusto_orcamento'];
+                            $_SESSION['vtotal_orcamento'] = $vtotal;
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</form>';
+                            echo '</div>';
+                            $i = 0;
+                          } 
 
-                  
+                          echo '<style>';
+                          echo '.horizontal-form {';
+                          echo 'display: table;';
+                          echo 'width: 100%;';
+                          echo '}';
+                          echo '.form-group {';
+                          echo 'display: table-row;';
+                          echo '}';
+                          echo '.form-group label,';
+                          echo '.form-group input {';
+                          echo 'display: table-cell;';
+                          echo 'padding: 5px;';
+                          echo '}';
+                          echo '</style>';
+                          
+                          //echo '<h3 class="kt-portlet__head-title">Adicionar Serviço</h3>';
+                          echo '<script>document.getElementById("listaOrcamento").style.display = "block";</script>';
+                          echo '<form method="post">';
+                          echo '<div class="typeahead" style="background-color: #C6C6C6;">';
+                          echo '<div class="horizontal-form">';
+                          echo '<div class="form-group">';
+                          //echo '<form>';
+                          echo '<label for="titulo_orcamento"></label>';
+                          echo '<input type="text" name="titulo_orcamento" id="titulo_orcamento" class="aspNetDisabled form-control form-control-sm" placeholder="Título do serviço">';
+                          echo '<label for="vcusto_orcamento"></label>';
+                          echo '<input type="tel" id="vcusto_orcamento" name="vcusto_orcamento" class="aspNetDisabled form-control form-control-sm" placeholder="Quanto custa este serviço?">';
+                          echo '<label for="lancarOrcamento"></label>';
+                          echo '<button type="submit" name="lancarOrcamento" id="lancarOrcamento" class="btn btn-success">Enviar</button>';
+                          //echo '</form>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</form>';
+                    
+                          //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
+                          //echo '<button type="submit" name="imprimir_os" class="btn btn-success">Imprimir OS</button>';
+                          //echo '<button type="submit" name="via_cliente" class="btn btn-success">Via do Cliente (Impressão)</button>';
+                          //echo '<button type="button" class="btn btn-success" onclick="enviarMensagemWhatsApp()">Via do Cliente (Whatsapp)</button>';
+                          echo '</form>';
+                          //echo '</div>';
+                          if(isset($_SESSION['vpag_orcamento'])){
+                            $_SESSION['falta_pagar_orcamento'] = $_SESSION['vtotal_orcamento'] - $_SESSION['vpag_orcamento'];
+                            echo '<div class="typeahead" '.$_SESSION['c_body'].'">';
+                            echo '<div class="horizontal-form"'.$_SESSION['c_card'].'>';
+                            echo '<div class="form-group"'.$_SESSION['c_card'].'>';
+                                
+                                
+                            if($_SESSION['vpag_servico'] == $_SESSION['vtotal_orcamento']){
+                              echo '<label for="showobs_servico">Total Pago:</label>';
+                              echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                            }else{
+                              $_SESSION['falta_pagar_servico'] = $_SESSION['vtotal_orcamento'] - $_SESSION['vpag_servico'];
+                              echo '<label for="showobs_servico">Total:</label>';
+                              echo '<input value="'.$_SESSION['vtotal_orcamento'].'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                              echo '<label for="showobs_servico">Pago:</label>';
+                              echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                              echo '<label for="showobs_servico">Falta:</label>';
+                              echo '<input value="'.$_SESSION['falta_pagar_servico'].'" type="tel" name="btn_falta_pagar_orcamento" id="btn_falta_pagar_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                              //echo '<label for="lancarPagamento"></label>';
+                              //echo '<input type="submit" name="lancarPagamento" id="lancarPagamento" class="btn btn-success"">';
+                            }
+                            //echo '</form>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</div>';
+                          }
+                        }
+                      }
+                    }
+
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
 
+                    $_SESSION['tela_movimento_financeiro'] = "VENDA_SERVICO";
+                    //echo '<div class="col-12 grid-margin stretch-card btn-success">';//
+                    //echo '<div class="card">';
+                    //echo '<div class="card-body">';
+                    include("../md_caixa/movimento_financeiro.php");
+                    //echo '</div>';
+                    //echo '</div>';
+                    //echo '</div>';
                     
-                    
-                    
-                      $_SESSION['tela_movimento_financeiro'] = "VENDA_SERVICO";
-                      //echo '<div class="col-12 grid-margin stretch-card btn-success">';//
-                      //echo '<div class="card">';
-                      //echo '<div class="card-body">';
-                      include("../md_caixa/movimento_financeiro.php");
-                      //echo '</div>';
-                      //echo '</div>';
-                      //echo '</div>';
-                    
-
-                    
-
-
                     echo '<form action="impresso.php" method="POST" target="_blank" '.$_SESSION['c_card'].'>';
                     echo '<div style="display:none; '.$_SESSION['c_card'].'">';
                     //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
@@ -394,12 +507,10 @@
                     //echo '<label for="showobs_servico">Pago</label>';
                     echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" readonly>';
                     
-
                     echo '<script>document.getElementById("btnvtotal_orcamento").value = "'.$_SESSION['vtotal_orcamento'].'"</script>';
                     echo '<script>document.getElementById("btnvpag_orcamento").value = "'.$_SESSION['vpag_servico'].'"</script>';
                     echo '</div>';
 
-                    
                     //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
                     echo '<button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">OS <i class="mdi mdi-printer btn-icon-append"></i></button>';
                     echo '<button type="submit" name="historico_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Histórico <i class="mdi mdi-printer btn-icon-append"></i></button>';
@@ -413,8 +524,6 @@
                     echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
                     //<i class="mdi mdi-alert btn-icon-prepend"></i>  
                     echo '</form>';
-
-
                   }
 
                   if(isset($_POST['lancarPagamento'])) {
@@ -428,7 +537,179 @@
                   }
 
 
+                  if(isset($_POST['lancar'])) { //CADASTRAR SERVICO E CHAMAR SERVICO CADASTRADO PARA SESSION
+                    //include("../../partials/load.html");
+                    // Atualiza as informações do usuário no banco de dados
+                    $insert_servico = "INSERT INTO tb_servico(cd_cliente, obs_servico, prioridade_servico, entrada_servico, prazo_servico, status_servico) VALUES(
+                      '".$_SESSION['os_cliente']."',
+                              
+                      '".$_POST['obs_servico']."',
+                      '".$_POST['prioridade_servico']."',
+                      '".$_POST['data_hora_ponto']."',
+                      '".$_POST['prazo_servico']."',
+                      '0')
+                    ";
+                    mysqli_query($conn, $insert_servico);
+                    //echo "<script>window.alert('Ordem de Serviço criada com sucesso!');</script>";
+                    echo '<script>document.getElementById("cadOs").style.display = "none";</script>';
+                    //echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
+                    $select_servico = "SELECT * FROM tb_servico WHERE cd_cliente = '".$_SESSION['os_cliente']."' AND status_servico = 0 ORDER BY cd_servico DESC LIMIT 1";
+                    $result_servico = mysqli_query($conn, $select_servico);
+                    $row_servico = mysqli_fetch_assoc($result_servico);
+                    // Exibe as informações do usuário no formulário
+                    if($row_servico) {
+                      $_SESSION['os_servico'] = $row_servico['cd_servico'];
+                      //$_SESSION['os_servico'] = $row_servico['cd_servico'];
+                      $_SESSION['servico'] = $row_servico['cd_servico'];
+                      $_SESSION['titulo_servico'] = $row_servico['titulo_servico'];
+                      $_SESSION['obs_servico'] = $row_servico['obs_servico'];
+                      $_SESSION['prioridade_servico'] = $row_servico['prioridade_servico'];
+                      $_SESSION['entrada_servico'] = $_POST['data_hora_ponto'];
+                      $_SESSION['prazo_servico'] = $row_servico['prazo_servico'];
+                      $_SESSION['orcamento_servico'] = $row_servico['orcamento_servico'];
+                      $_SESSION['vpag_servico'] = $row_servico['vpag_servico'];
+        
+                      $insert_atividade = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
+                        '".$row_servico['cd_servico']."',
+                        'A',
+                        '".$row_servico['obs_servico']."',
+                        '".$_SESSION['cd_colab']."',
+                        '".$_POST['data_hora_ponto']."',
+                        '".$_POST['data_hora_ponto']."')
+                      ";
+                      mysqli_query($conn, $insert_atividade);
+                      //echo "<script>window.alert('Atividade Lançada!');</script>";
+                      }
+                      //echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
+                    }
+                    
+                  if(isset($_POST['con_edit_os'])) {
+                      $query = "SELECT * FROM tb_servico WHERE cd_servico = '".$_POST['btncd_servico']."'";
+                      $result = mysqli_query($conn, $query);
+                      $row = mysqli_fetch_assoc($result);
 
+                      // Exibe as informações do usuário no formulário
+                      if($row) {
+                        $_SESSION['os_servico'] = $row['cd_servico'];
+                        $_SESSION['os_cliente'] = $row['cd_cliente'];
+                                
+                                
+                        $_SESSION['titulo_servico'] = $row['titulo_servico'];
+                        $_SESSION['obs_servico'] = $row['obs_servico'];
+                        $_SESSION['prioridade_servico'] = $row['prioridade_servico'];
+                        $_SESSION['entrada_servico'] = $row['entrada_servico'];
+                        $_SESSION['prazo_servico'] = $row['prazo_servico'];
+                        $_SESSION['orcamento_servico'] = $row['orcamento_servico'];
+                        $_SESSION['vpag_servico'] = $row['vpag_servico'];
+                      }
+                              
+                      $select_cliente = "SELECT * FROM tb_cliente WHERE cd_cliente = '".$_SESSION['os_cliente']."'";
+                      $result_cliente = mysqli_query($conn, $select_cliente);
+                      $row_cliente = mysqli_fetch_assoc($result_cliente);
+                      if($row_cliente) {
+                        $_SESSION['pnome_cliente'] = $row_cliente['pnome_cliente'];
+                        $_SESSION['snome_cliente'] = $row_cliente['snome_cliente'];
+                        $_SESSION['tel_cliente'] = $row_cliente['tel_cliente'];                
+                      }
+
+
+                  }
+
+
+                  if(isset($_POST['edit_os'])) {
+                      $edit_os = "UPDATE tb_servico SET
+                        obs_servico = '".$_POST['editobs_servico']."',
+                        prioridade_servico = '".$_POST['editprioridade_servico']."',
+                        prazo_servico = '".$_POST['editprazo_servico']."'
+                        WHERE cd_servico = '".$_POST['editos_servico']."'";
+                        mysqli_query($conn, $edit_os);
+                        echo "<script>window.alert('Servico editado!');</script>";
+
+                        $query = "SELECT * FROM tb_servico WHERE cd_servico = '".$_POST['editos_servico']."'";
+                        $result = mysqli_query($conn, $query);
+                        $row = mysqli_fetch_assoc($result);
+                        // Exibe as informações do usuário no formulário
+                        if($row) {
+                          $_SESSION['os_servico'] = $row['cd_servico'];
+                          $_SESSION['os_cliente'] = $row['cd_cliente'];
+                                
+                                
+                          $_SESSION['titulo_servico'] = $row['titulo_servico'];
+                          $_SESSION['obs_servico'] = $row['obs_servico'];
+                          $_SESSION['prioridade_servico'] = $row['prioridade_servico'];
+                          $_SESSION['entrada_servico'] = $row['entrada_servico'];
+                          $_SESSION['prazo_servico'] = $row['prazo_servico'];
+                          $_SESSION['orcamento_servico'] = $row['orcamento_servico'];
+                          $_SESSION['vpag_servico'] = $row['vpag_servico'];
+                        }
+                  }
+
+                  if(isset($_POST['lancarOrcamento'])) {
+                              
+                        if($_POST['titulo_orcamento']==false){
+                          $_SESSION['titulo_orcamento'] = $_POST['titulo_orcamento'];
+                          $_SESSION['vcusto_orcamento'] = $_POST['vcusto_orcamento'];
+                          echo "<script>window.alert('Descreva o Orcamento!');</script>"; 
+                        }elseif($_POST['vcusto_orcamento']==false){
+                          $_SESSION['titulo_orcamento'] = $_POST['titulo_orcamento'];
+                          $_SESSION['vcusto_orcamento'] = $_POST['vcusto_orcamento'];
+                          echo "<script>window.alert('Insira o Valor do Orcamento!');</script>";  
+                        }else{
+                          $_SESSION['titulo_orcamento'] = false;
+                          $_SESSION['vcusto_orcamento'] = false;
+                          $insertOrcamento = "INSERT INTO tb_orcamento_casa(cd_cliente, cd_casa, titulo_orcamento, vcusto_orcamento, status_orcamento) VALUES(
+                            '".$_SESSION['cd_cliente_casa']."',
+                            '".$_SESSION['cd_casa']."',
+                            '".$_POST['titulo_orcamento']."',
+                            '".$_POST['vcusto_orcamento']."',
+                            '0')
+                          ";
+                          mysqli_query($conn, $insertOrcamento);
+                          $_SESSION['vtotal_orcamento'] = $_SESSION['vtotal_orcamento'] + $_POST['vcusto_orcamento'];
+                              
+                          //$updateOrcamentoServico = "UPDATE tb_servico SET
+                          //  orcamento_servico = ".$_SESSION['vtotal_orcamento']."
+                          //  WHERE cd_servico = ".$_SESSION['os_servico']."";
+                          //  mysqli_query($conn, $updateOrcamentoServico);
+                        echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_hospedagem/editar_casa.php";</script>';             
+
+                          }            
+                  }
+
+                  if(isset($_POST['listaremover_orcamento'])) {//DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = 198
+                    if(($_SESSION['vtotal_orcamento'] - $_POST['listavalor_orcamento'])>=$_SESSION['vpag_servico']){
+                      //echo "<script>window.alert('OK, pode remover');</script>";
+                      $vtotal = $vtotal - $_POST['listavalor_orcamento'];
+                      $removeOrcamento = "DELETE FROM `tb_orcamento_casa` WHERE `tb_orcamento_casa`.`cd_orcamento` = ".$_POST['listaid_orcamento']."";
+                      mysqli_query($conn, $removeOrcamento);
+                      
+                      //$updateVtotalServico = "UPDATE tb_servico SET
+                        //orcamento_servico = ".$vtotal."
+                        //WHERE cd_servico = ".$_SESSION['os_servico']."";
+                        //mysqli_query($conn, $updateVtotalServico);
+                        echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_hospedagem/editar_casa.php";</script>';             
+                    }else{
+                      echo "<script>window.alert('Valor pago não pode ser maior que o total do serviço!');</script>";  
+                    }
+                  }
+                  
+                  
+                
+                
+                  if(isset($_POST['limparOS'])){
+                    //echo "<script>window.alert('Mostrar botão de limpar OS!');</script>";
+                    ////session_start();
+                    $_SESSION['os_cliente'] = 0;
+                    $_SESSION['os_servico'] = 0;
+                    $_SESSION['vtotal_orcamento'] = 0;
+                    $_SESSION['vpag_servico'] = 0;
+                    
+                    echo '<script>document.getElementById("consulta").style.display = "block";</script>';//botoes
+                    echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
+                    
+                    
+                  }
+                
 
                   
                 ?>
