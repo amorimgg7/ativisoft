@@ -14,11 +14,11 @@
 <html lang="pt-br">
 
 <head>
-<?php 
+  <?php 
     if(isset($_SESSION['bloqueado'])){
       
       if($_SESSION['bloqueado'] == 1){
-        echo "<meta http-equiv='refresh' content='15;url=../auto_pagamento/payment.php'>";
+        echo "<meta http-equiv='refresh' content='60;url=../auto_pagamento/payment.php'>";
         
       }else if($_SESSION['bloqueado'] == 2){
         echo "<meta http-equiv='refresh' content='1;url=../auto_pagamento/payment.php'>";
@@ -75,13 +75,13 @@
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">
-                        <form method="POST">
-                          
-                          <input placeholder="Ordem de Serviço" type="tel" name="conos_servico" id="conos_servico" type="tel" maxlength="10" class="aspNetDisabled form-control form-control-sm" required>
-                          <br>
-                          <button type="submit" name="consulta" class="btn btn-success">Consulta</button>
-                        </form>
-                      </div>
+                          <form method="POST">
+                            
+                            <input placeholder="Ordem de Serviço" type="tel" name="conos_servico" id="conos_servico" type="tel" maxlength="10" class="aspNetDisabled form-control form-control-sm" required>
+                            <br>
+                            <button type="submit" name="consulta" class="btn btn-success">Consulta</button>
+                          </form>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -101,6 +101,22 @@
                 ?>
                 
                 <?php
+
+                  if(isset($_POST['desfazer_rezerva'])) { //CHAMAR CLIENTE CADASTRADO PARA SESSION    
+                    $edit_os = "UPDATE tb_casa SET
+                    cd_cliente = null,
+                    status_casa = '0'
+                    WHERE cd_casa = '".$_SESSION['cd_casa']."'";
+                    if(mysqli_query($conn, $edit_os)){
+                      echo "<script>window.alert('Reserva desfeita!');</script>";  
+                      $_SESSION['cd_cliente'] = 0;
+                      //echo '<script>document.getElementById("consulta_cliente").style.display = "block";</script>';
+
+                    }else{
+                      echo "<script>window.alert('Erro!');</script>";      
+                    }
+                  }
+
                   if(isset($_POST['concd_casa'])){
                     $select_casa = "SELECT * FROM tb_casa WHERE cd_casa = '".$_POST['concd_casa']."'";
                     $result_casa = mysqli_query($conn, $select_casa);
@@ -138,23 +154,72 @@
                     //session_start();
                     $_SESSION['contel_cliente'] = $_POST['contel_cliente'];
                     $select_cliente = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_POST['cd_pais'].$_POST['contel_cliente']."'";
-                    $result = mysqli_query($conn, $select_cliente);
-                    $row = mysqli_fetch_assoc($result);
-                    if($row) {
-                      $_SESSION['cd_cliente'] = $row['cd_cliente'];
-                      $_SESSION['pnome_cliente'] = $row['pnome_cliente'];
-                      $_SESSION['snome_cliente'] = $row['snome_cliente'];
-                      $_SESSION['tel_cliente'] = $row['tel_cliente'];                
+                    $result_cliente = mysqli_query($conn, $select_cliente);
+                    $row_cliente = mysqli_fetch_assoc($result_cliente);
+                    if($row_cliente) {
+
+                      $select_casa = "SELECT * FROM tb_casa WHERE cd_cliente = '".$row_cliente['cd_cliente']."'";
+                      $result_casa = mysqli_query($conn, $select_casa);
+                      $row_casa = mysqli_fetch_assoc($result_casa);
+                      if($row_casa) {
+                        echo "<script>window.alert('Ops, esta casa ja foi reservada!');</script>";
+                      }else{
+                        
+                        $edit_os = "UPDATE tb_casa SET
+                        cd_cliente = '".$row_cliente['cd_cliente']."',
+                        status_casa = '1'
+                        WHERE cd_casa = '".$_SESSION['cd_casa']."'";
+                        if(mysqli_query($conn, $edit_os)){
+                          $_SESSION['cd_cliente'] = $row_cliente['cd_cliente'];
+                          $_SESSION['pnome_cliente'] = $row_cliente['pnome_cliente'];
+                          $_SESSION['snome_cliente'] = $row_cliente['snome_cliente'];
+                          $_SESSION['tel_cliente'] = $row_cliente['tel_cliente']; 
+                        }
+                        echo "<script>window.alert('Casa Reservada!');</script>";      
+                      }
+
+
+                                     
                     }else{
-                      echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+                      echo '<script>document.getElementById("consulta_cliente").style.display = "none";</script>';
                       echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
                       echo '<script>document.getElementById("tel_cliente").value = "'.$_POST['cd_pais'].$_POST['contel_cliente'].'"</script>';
                     }
                   }
 
+
+                  
+                  //desfazer_rezerva
+
                   
                 ?>
                 <?php
+
+                  if(isset($_POST['reserva_cliente'])) {
+
+                    $query = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_POST['btncd_casa']."'";
+                    $result = mysqli_query($conn, $query);
+                    $row = mysqli_fetch_assoc($result);
+                    if($row) {}
+
+
+                    $query = "SELECT * FROM tb_casa WHERE cd_cliente = '".$_POST['btncd_casa']."'";
+                    $result = mysqli_query($conn, $query);
+                    $row = mysqli_fetch_assoc($result);
+                    if($row) {
+                      echo "<script>window.alert('Ops, esta casa ja foi reservada!');</script>";
+                    }else{
+                      $edit_os = "UPDATE tb_servico SET
+                      obs_servico = '".$_POST['editobs_servico']."',
+                      prioridade_servico = '".$_POST['editprioridade_servico']."',
+                      prazo_servico = '".$_POST['editprazo_servico']."'
+                      WHERE cd_servico = '".$_POST['editos_servico']."'";
+                      mysqli_query($conn, $edit_os);
+                      echo "<script>window.alert('Servico editado!');</script>";
+                  
+                    }
+                  }
+
                   if(isset($_POST['lancarPagamento'])) {
                     $updateVpagServico = "UPDATE tb_servico SET
                     vpag_servico = ".$_POST['btnvpag_orcamento']."
@@ -206,7 +271,7 @@
                   if($_SESSION['cd_casa'] > 0){
                     $_SESSION['casa'] = $_SESSION['cd_casa'];
 
-                    echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+                    echo '<script>document.getElementById("consulta_cliente").style.display = "none";</script>';
                   
                     echo '<div class="card-body" '.$_SESSION['c_card'].'>';
                     echo '<div class="kt-portlet__body">';
@@ -222,24 +287,24 @@
                     //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
 
                     if($_SESSION['cd_cliente'] > 0){
-                      echo '<div class="typeahead" id="botoes" name="botoes" '.$_SESSION['c_card'].' style="display:block;">';
-                      echo '<form method="POST" action="../cad_geral/consulta_cliente.php">';
-                      echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" class="aspNetDisabled form-control form-control-sm" style="display: none;"/>';
-                      echo '<label for="btnpnome_cliente">Nome</label>';
-                      echo '<input value="'.$_SESSION['pnome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
-                      echo '<label for="btnsnome_cliente">sobrenome</label>';
-                      echo '<input value="'.$_SESSION['snome_cliente'].'" name="btnsnome_cliente" type="text" id="btnsnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
-                      echo '<label for="btntel_cliente">Telefone</label>';
-                      echo '<input value="'.$_SESSION['tel_cliente'].'" name="btntel_cliente" type="tel"  id="btntel_cliente" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
-                      echo '<td><button type="submit" name="con_cliente" id="con_cliente" class="btn btn-block btn-outline-warning"><i class="icon-cog">Editar</i></button></td>';
-                      echo '</form>';
-                      echo '</div>';
-                      echo '<script>document.getElementById("showcd_cliente").value = "'.$_SESSION['cd_cliente'].'"</script>';
-                      echo '<script>document.getElementById("btnpnome_cliente").value = "'.$_SESSION['pnome_cliente'].'"</script>';
-                      echo '<script>document.getElementById("btnsnome_cliente").value = "'.$_SESSION['snome_cliente'].'"</script>';
-                      echo '<script>document.getElementById("btntel_cliente").value = "'.$_SESSION['tel_cliente'].'"</script>';
+                      $select_orcamento = "SELECT cl.cd_cliente, cl.tel_cliente, concat(cl.pnome_cliente, ' ', cl.snome_cliente) as full_nome_cliente FROM tb_cliente cl, tb_casa ca  WHERE ca.cd_casa = '".$_SESSION['cd_casa']."' AND cl.cd_cliente = ca.cd_cliente";
+                      $result_orcamento = mysqli_query($conn, $select_orcamento);
+                      while($row_orcamento = $result_orcamento->fetch_assoc()) {
+                        //echo '<input value="'.$row_orcamento['full_nome_cliente'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:none;">';
+                        echo '<div class="typeahead" id="botoes" name="botoes" '.$_SESSION['c_card'].' style="display:block;">';
+                        echo '<form method="POST">';
+                        echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" class="aspNetDisabled form-control form-control-sm" style="display: none;"/>';
+                        echo '<label for="btnpnome_cliente">Nome</label>';
+                        echo '<input value="'.$row_orcamento['full_nome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
+                        echo '<label for="btntel_cliente">Telefone</label>';
+                        echo '<input value="'.$_SESSION['tel_cliente'].'" name="btntel_cliente" type="tel"  id="btntel_cliente" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                        //echo '<td><button type="submit" name="con_cliente" id="con_cliente" class="btn btn-block btn-outline-warning"><i class="icon-cog">Editar</i></button></td>';
+                        echo '<td><button type="submit" name="desfazer_rezerva" id="desfazer_rezerva" class="btn btn-block btn-outline-warning"><i class="icon-cog">Desfazer Reserva</i></button></td>';
+                        echo '</form>';
+                        echo '</div>';
+                      }
                     }else{
-                      echo '<div class="card-body" id="consulta_cliente" '.$_SESSION["c_card"].'" >';
+                      echo '<div class="card-body" id="consulta_cliente" name="consulta_cliente" '.$_SESSION["c_card"].'" >';
                       echo '<h3 class="card-title" '.$_SESSION["c_card"].' >Informar Cliente</h3>';
                       echo '<p class="card-description" '.$_SESSION["c_card"].' >Diga quem é o cliente para reservar este imóvel!</p>';
                       echo '<div class="kt-portlet__body" >';
@@ -264,7 +329,7 @@
                       echo '</div>';
                       echo '<p id="error-message" style="color: #DDDDDD;"></p>';
                       echo '<br>';
-                      echo '<button type="submit" name="consulta" class="btn btn-block btn-success">Reservar</button>';
+                      echo '<button type="submit" name="consulta_cliente" class="btn btn-block btn-success">Reservar</button>';
                       echo '</form>';
                       echo '</div>';
                       echo '</div>';
@@ -320,9 +385,9 @@
                     echo '<td><button type="submit" name="con_edit_os" id="con_edit_os" class="btn btn-block btn-outline-warning"><i class="icon-cog"></i>Editar</button></td>';
                     //echo '</form>';
                     echo '</div>';
-                    echo '<script>document.getElementById("btncd_casa").value = "'.$_SESSION['cd_casa'].'"</script>';
-                    echo '<script>document.getElementById("btntitulo_casa").value = "'.$_SESSION['titulo_casa'].'"</script>';
-                    echo '<script>document.getElementById("btnobs_casa").value = "'.$_SESSION['obs_casa'].'"</script>';
+                    //echo '<script>document.getElementById("btncd_casa").value = "'.$_SESSION['cd_casa'].'"</script>';
+                    //echo '<script>document.getElementById("btntitulo_casa").value = "'.$_SESSION['titulo_casa'].'"</script>';
+                    //echo '<script>document.getElementById("btnobs_casa").value = "'.$_SESSION['obs_casa'].'"</script>';
                     
 
                     if(isset($_SESSION['cd_casa'])){
@@ -483,8 +548,8 @@
                     echo '<script>document.getElementById("btnsnome_cliente").value = "'.$_SESSION['snome_cliente'].'"</script>';
                     echo '<script>document.getElementById("btntel_cliente").value = "'.$_SESSION['tel_cliente'].'"</script>';
 
-                    //echo '<label for="btncd_servico">OS</label>';
-                    echo '<input value="'.$_SESSION['cd_servico'].'" type="tel" name="btncd_servico" id="btncd_servico" readonly>';
+                    //echo '<label for="btncd_casa">OS</label>';
+                    echo '<input value="'.$_SESSION['cd_casa'].'" type="tel" name="btncd_casa" id="btncd_casa" readonly>';
                     //echo '<label for="btnobs_servico">Descrição Geral</label>';
                     echo '<input value="'.$_SESSION['obs_con_servico'].'" type="text" name="btnobs_servico" maxlength="999" id="btnobs_servico" placeholder="Caracteristica geral do serviço" readonly>';
                     //echo '<label for="btnprioridade_servico">Prioridade</label>';
@@ -496,11 +561,11 @@
                     //echo '<label for="btnprazo_servico">Prazo</label>';
                     echo '<input value="'.$_SESSION['prazo_servico'].'" name="btnprazo_servico" type="datetime-local" id="btnprazo_servico" readonly/>';
                     
-                    echo '<script>document.getElementById("btncd_servico").value = "'.$_SESSION['cd_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnobs_servico").value = "'.$_SESSION['obs_con_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprioridade_servico").value = "'.$_SESSION['prioridade_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnentrada_servico").value = "'.$_SESSION['entrada_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprazo_servico").value = "'.$_SESSION['prazo_servico'].'"</script>';
+                    //echo '<script>document.getElementById("btncd_casa").value = "'.$_SESSION['cd_servico'].'"</script>';
+                    //echo '<script>document.getElementById("btnobs_servico").value = "'.$_SESSION['obs_con_servico'].'"</script>';
+                    //echo '<script>document.getElementById("btnprioridade_servico").value = "'.$_SESSION['prioridade_servico'].'"</script>';
+                    //echo '<script>document.getElementById("btnentrada_servico").value = "'.$_SESSION['entrada_servico'].'"</script>';
+                    //echo '<script>document.getElementById("btnprazo_servico").value = "'.$_SESSION['prazo_servico'].'"</script>';
 
                     //echo '<label for="showobs_servico">Total</label>';
                     echo '<input value="'.$_SESSION['vtotal_orcamento'].'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" readonly>';
@@ -510,20 +575,23 @@
                     echo '<script>document.getElementById("btnvtotal_orcamento").value = "'.$_SESSION['vtotal_orcamento'].'"</script>';
                     echo '<script>document.getElementById("btnvpag_orcamento").value = "'.$_SESSION['vpag_servico'].'"</script>';
                     echo '</div>';
-
+/*
                     //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
                     echo '<button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">OS <i class="mdi mdi-printer btn-icon-append"></i></button>';
                     echo '<button type="submit" name="historico_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Histórico <i class="mdi mdi-printer btn-icon-append"></i></button>';
                     echo '<button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-printer btn-icon-append"></i></button>';
                     echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-whatsapp"></i></button>';
+*/
                     //echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarPosicaoMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Localização<i class="mdi mdi-whatsapp"></i></button>';
                     //echo '<button type="submit" class="btn btn-danger" name="limparOS-" style="margin: 5px;">Nova Consulta</button>';     
                     echo '</form>';
+/*
                     echo '<form method="post"'.$_SESSION['c_card'].'>';//echo '<button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Nova Consulta</button>';
                     //echo '<button type="submit" class="btn btn-block btn-lg btn-warning" name="editaOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-file-check btn-icon-append"></i> Editar</button>';
                     echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
                     //<i class="mdi mdi-alert btn-icon-prepend"></i>  
                     echo '</form>';
+*/
                   }
 
                   if(isset($_POST['lancarPagamento'])) {
@@ -581,10 +649,12 @@
                       //echo "<script>window.alert('Atividade Lançada!');</script>";
                       }
                       //echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
-                    }
+                  }
+
+                  
                     
                   if(isset($_POST['con_edit_os'])) {
-                      $query = "SELECT * FROM tb_servico WHERE cd_servico = '".$_POST['btncd_servico']."'";
+                      $query = "SELECT * FROM tb_servico WHERE cd_servico = '".$_POST['btncd_casa']."'";
                       $result = mysqli_query($conn, $query);
                       $row = mysqli_fetch_assoc($result);
 
@@ -718,7 +788,7 @@
                             // Obter os valores dos campos do formulário
                             var nomeCliente = document.getElementById("btnpnome_cliente").value;
                             var telefoneCliente = document.getElementById("btntel_cliente").value;
-                            var numeroOS = document.getElementById("btncd_servico").value;
+                            var numeroOS = document.getElementById("btncd_casa").value;
                             var entradaServico = document.getElementById("btnentrada_servico").value;
 
                             var observacoesServico = document.getElementById("btnobs_servico").value;
@@ -829,352 +899,58 @@
 
                     
                 ?>
+                
                 <?php
+                  
+                  echo '<div class="row mt-3 ">';
+                  echo '<div class="col-xl-3 flex-column d-flex grid-margin stretch-card">';
+                  echo '<h3 class="kt-portlet__head-title">Área da automação</h3>';
 
-if($_POST['marcartitulo_atividade'] == 'A') {// CRIAR NOVA ATIVIDADE A FAZER PARA O SERVICO
-  //include("../../partials/load.html");
-  // Atualiza as informações do usuário no banco de dados
-  $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade) VALUES(
-    '".$_POST['atividadecd_servico']."',
-    '".$_POST['marcartitulo_atividade']."',
-    '".$_POST['obs_atividade']."',
-    '".$_POST['atividadecd_colab']."',
-    '".$_POST['data_hora_ponto']."'
-    )
-  ";
-  mysqli_query($conn, $query);
-  if(isset($_POST['novadataentrega_atividade'])){
-    $query = "UPDATE tb_servico SET
-      prazo_servico = '".$_POST['novadataentrega_atividade']."',
-      prioridade_servico = 'U',
-      status_servico = '0'
-      WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-    ";
-    mysqli_query($conn, $query);
-    //echo "<script>window.alert('Prazo para entrega alterado!');</script>";
-  }
-}
+                  echo '<div class="row justify-content-md-center"> ';
 
-if($_POST['marcartitulo_atividade'] == 'B') {// SQL DAR INICIO A ATIVIDADE
-  //include("../../partials/load.html");
-  // Atualiza as informações do usuário no banco de dados
-  $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade) VALUES(
-    '".$_POST['atividadecd_servico']."',
-    '".$_POST['marcartitulo_atividade']."',
-    '".$_POST['obs_atividade']."',
-    '".$_POST['atividadecd_colab']."',
-    '".$_POST['data_hora_ponto']."'
-    )
-  ";
-  mysqli_query($conn, $query);
-  $query = "UPDATE tb_servico SET
-      status_servico = '1'
-      WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-    ";
-    mysqli_query($conn, $query);
-  if(isset($_POST['novadataentrega_atividade'])){
-    $query = "UPDATE tb_servico SET
-      prazo_servico = '".$_POST['novadataentrega_atividade']."',
-      prioridade_servico = 'U',
-      status_servico = '1'
-      WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-    ";
-    mysqli_query($conn, $query);
-    //echo "<script>window.alert('Prazo para entrega alterado!');</script>";
-  }
-  
-  echo "<script>window.alert('ATIVIDADE INICIADA COM SUCESSO!');</script>";
-}
-
-if($_POST['marcartitulo_atividade'] == 'C') {// SQL FINALIZAR A ATIVIDDE / ANDAMENTO
-  $select_atividade_finalizar = "SELECT * FROM tb_atividade where titulo_atividade = 'B' AND cd_servico = '".$_POST['atividadecd_servico']."'";
-  $result_atividade_finalizar = mysqli_query($conn, $select_atividade_finalizar);
-  $row_atividade_finalizar = mysqli_fetch_assoc($result_atividade_finalizar);
-  if($row_atividade_finalizar){
-    $query = "UPDATE tb_atividade SET
-    titulo_atividade = '".$_POST['marcartitulo_atividade']."',
-    obs_atividade = '".$_POST['obs_atividade']."',
-    fim_atividade = '".$_POST['data_hora_ponto']."'
-    WHERE titulo_atividade = 'B' AND cd_servico = '".$_POST['atividadecd_servico']."'
-  ";
-  mysqli_query($conn, $query);
-  //echo "<script>window.alert('FINALIZAR APÓS ANDAMENTO!');</script>";
-  }else{
-    $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
-      '".$_POST['atividadecd_servico']."',
-      '".$_POST['marcartitulo_atividade']."',
-      '".$_POST['obs_atividade']."',
-      '".$_POST['atividadecd_colab']."',
-      '".$_POST['data_hora_ponto']."',
-      '".$_POST['data_hora_ponto']."'
-      )
-    ";
-    mysqli_query($conn, $query);
-    //echo "<script>window.alert('FINALIZAR DIRETO!');</script>";
-  }
-  $query = "UPDATE tb_servico SET
-    status_servico = '2'
-    WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-  ";
-  mysqli_query($conn, $query);
-  //echo "<script>window.alert('ATIVIDADE FINALIZADA!');</script>";
-}
-
-if($_POST['marcartitulo_atividade'] == 'D') {// SQL ENTREGA / DEVOLVE AO CLIENTE
-  $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
-    '".$_POST['atividadecd_servico']."',
-    '".$_POST['marcartitulo_atividade']."',
-    '".$_POST['obs_atividade']."',
-    '".$_POST['atividadecd_colab']."',
-    '".$_POST['data_hora_ponto']."',
-    '".$_POST['data_hora_ponto']."'
-    )
-  ";
-  mysqli_query($conn, $query);
-  $query = "UPDATE tb_servico SET
-    status_servico = '3'
-    WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-  ";
-  mysqli_query($conn, $query);
-  //echo "<script>window.alert('ENTREGUE / DEVOLVIDO!');</script>";
-}
-
-if($_POST['marcartitulo_atividade'] == 'E') {// SQL ARQUIVAR SERVIÇO
-  $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
-    '".$_POST['atividadecd_servico']."',
-    '".$_POST['marcartitulo_atividade']."',
-    '".$_POST['obs_atividade']."',
-    '".$_POST['atividadecd_colab']."',
-    '".$_POST['data_hora_ponto']."',
-    '".$_POST['data_hora_ponto']."'
-    )
-  ";
-  mysqli_query($conn, $query);
-  $query = "UPDATE tb_servico SET
-    status_servico = '4'
-    WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-  ";
-  mysqli_query($conn, $query);
-  echo "<script>window.alert('ARQUIVADO!');</script>";
-}
-
-
-                  //$sql_atividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_atividade ASC";
-                  //$sql_atividade = "SELECT * FROM (
-                  //  SELECT * FROM tb_atividade 
-                  //  WHERE cd_servico = '".$_SESSION['cd_servico']."' 
-                  //  ORDER BY cd_atividade ASC
-                  //) as temp_table 
-                  //WHERE temp_table.rownum < (SELECT COUNT(*) FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."')";
-
-
-                  //Um exemplo alternativo usando MySQL é usar variáveis de usuário para emular a função ROW_NUMBER():
-                  //Isso atribuirá um número de linha a cada linha na tabela tb_atividade e a consulta principal então selecionará todas as linhas exceto a última.
-                  $sql_atividade = "SELECT * FROM (
-                    SELECT @rownum:=@rownum+1 'rownum', t.* 
-                    FROM tb_atividade t, (SELECT @rownum:=0) r 
-                    WHERE cd_servico = '".$_SESSION['cd_servico']."' 
-                    ORDER BY cd_atividade ASC
-                  ) as temp_table 
-                  WHERE temp_table.rownum < (SELECT COUNT(*) FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."')";
-                  $result_atividade = mysqli_query($conn, $sql_atividade);
-                  //echo '<h3>HISTÓRICO PASSADO</h3>';
-                  while($row_atividade = $result_atividade->fetch_assoc()) { //mostrar historico
-                    echo '<div class="col-lg-12 grid-margin stretch-card" '.$_SESSION['c_card'].'>';
-                    echo '<div class="card" '.$_SESSION['c_card'].'>';
-                    echo '<div class="card-body">';
-                    if($row_atividade['titulo_atividade'] == "A"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' Entrada</h4>';
-                    }
-                    if($row_atividade['titulo_atividade'] == "B"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' Em Andamento / Fazendo</h4>';
-                    }
-                    if($row_atividade['titulo_atividade'] == "C"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' Finalizado / Liberado para Entrega</h4>';
-                    }
-                    if($row_atividade['titulo_atividade'] == "D"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' Entregue / Devolvido ao Cliente</h4>';
-                    }
-                    if($row_atividade['titulo_atividade'] == "E"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' ARQUIVADO</h4>';
-                    }
-                    echo '<div class="table-responsive">';
-                    echo '<table class="table" '.$_SESSION['c_card'].'>';
-                    echo '<thead>';
-                    echo '<tr>';
-                    echo '<th>Início</th>';
-                    echo '<th>Observações</th>';
-                    echo '<th>Fim</th>';
-                    echo '</tr>';
-                    echo '</thead>';
-                    echo '<tbody>';
-                    echo '<td>'.date('d/m/Y', strtotime($row_atividade['inicio_atividade'])).'</td>';
-                    echo '<td>'.$row_atividade['obs_atividade'].'</td>';
-                    echo '<td>'.date('d/m/Y', strtotime($row_atividade['fim_atividade'])).'</td>';
-                    echo '</tbody>';
-                    echo '</table>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';  
-                  }
-                    //$sql_lastatividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$_POST['conos_servico']."'";
-                    $sql_lastatividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_atividade DESC LIMIT 1";
-
-                    $result_lastatividade = mysqli_query($conn, $sql_lastatividade);
-                    $row_lastatividade = mysqli_fetch_assoc($result_lastatividade);
-                    //echo '<h3>ULTIMA ATIVIDADE EXECUTADA</h3>';
-                    // Exibe as informações do usuário no formulário
-                    if($row_lastatividade) {//MOSTRAR FORMULÁRIO DE ANDAMENTO DA ATIVIDADE ATUAL / ULTIMA ATIVIDADE REGISTRADA
-                      echo '<div class="col-lg-12 grid-margin stretch-card" style="background-color: #23A5F6;">';
-                      echo '<div class="card" '.$_SESSION['c_card'].'>';
+                  //echo '<div class="card-body" '.$_SESSION["c_card"].'" >';
+                  //echo '<div class="card-body" id="consulta_cliente" name="consulta_cliente" '.$_SESSION["c_card"].'" >';
+                  //echo '<h3 class="card-title" '.$_SESSION["c_card"].' >Area da automação</h3>';
+                ?>
+                
+                <?php
+                  
+                  $sql_casa = "SELECT * FROM tb_dispositivo where cd_casa_dispositivo = ".$_SESSION['cd_casa'];
+                  $resulta_casa = $conn->query($sql_casa);
+                  if ($resulta_casa->num_rows > 0){
+                    while ( $casas = $resulta_casa->fetch_assoc()){
+                      //echo '<div class="col">';
+                      echo '<div class="card text-white bg-secondary mb-3 align-items-center" style="margin: 10px; max-width: 18rem;">';
+                      echo '<div class="card-header bg-success">'.$casas['local_dispositivo'].'</div>';
                       echo '<div class="card-body">';
-                      if($row_lastatividade['titulo_atividade'] == "A"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' Entrada</h4>';
-                      }
-                      if($row_lastatividade['titulo_atividade'] == "B"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' Em Andamento / Fazendo</h4>';
-                      }
-                      if($row_lastatividade['titulo_atividade'] == "C"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' Finalizado / Liberado para Entrega</h4>';
-                      }
-                      if($row_lastatividade['titulo_atividade'] == "D"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' Entregue / Devolvido ao Cliente</h4>';
-                      }
-                      if($row_lastatividade['titulo_atividade'] == "E"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' ARQUIVADO</h4>';
-                      }
-                      echo '<div class="table-responsive" '.$_SESSION['c_card'].'>';
-                      echo '<table class="table" '.$_SESSION['c_card'].'>';
-                      echo '<thead>';
-                      echo '<tr>';
-                      echo '<th>Início</th>';
-                      echo '<th>Observações</th>';
-                      echo '<th>Fim</th>';
-                      echo '</tr>';
-                      echo '</thead>';
-                      echo '<tbody>';
-                      echo '<td>'.date('d/m/Y', strtotime($row_lastatividade['inicio_atividade'])).'</td>';
-                      echo '<td>'.$row_lastatividade['obs_atividade'].'</td>';
-                      echo '<td>'.date('d/m/Y', strtotime($row_lastatividade['fim_atividade'])).'</td>';
-                      echo '</tbody>';
-                      echo '</table>';
+                      echo '<h5 class="card-title">'.$casas['marca_dispositivo'].' '.$casas['modelo_dispositivo'].' '.$casas['versao_dispositivo'].'</h5>';
+                      echo '<p class="card-title">IP - '.$casas['ip_dispositivo'].'</p>';
+                      echo '<p class="card-title">MAC - '.$casas['mac_dispositivo'].'</p>';
                       echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-
-                      echo '<div class="card-body" id="novaAtividade" '.$_SESSION['c_card'].'>';
-                      echo '<div class="kt-portlet__body" '.$_SESSION['c_card'].'>';
-                      echo '<div class="row">';
-                      echo '<div class="col-12 col-md-12">';
-                      echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
-                      echo '<h3>LANÇAR ATIVIDADE</h3>';
-                      echo '<form method="POST">';
-                      //echo '<h3 class="kt-portlet__head-title">Nova Atividade</h3> ';
-                      echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead">';
-                      echo '<input value="'.$row_lastatividade['cd_servico'].'" style="display: none;" name="atividadecd_servico" type="text" id="atividadecd_servico" class="aspNetDisabled form-control form-control-sm" readonly/>       ';
-                      echo '<input value="'.$row_lastatividade['cd_colab'].'" style="display: none;" name="atividadecd_colab" type="text" id="atividadecd_colab" class="aspNetDisabled form-control form-control-sm" readonly/>';
-                      
-                      if($row_lastatividade['titulo_atividade'] == "A"){//INICIAR ATENDIMENTO
-                        echo '<label for="marcartitulo_atividade">Entrada</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="B">EM ANDAMENTO</option>';
-                        echo '<option value="C">FINALIZAR</option>';
-                        echo '<option value="E">ARQUIVAR</option>';
-                        //echo '<option value="C">FINALIZAR</option>';
-                        echo '</select>';
-                        echo '<label for="showobs_servico">Observações</label>';
-                        echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
-                      }
-
-                      if($row_lastatividade['titulo_atividade'] == "B"){//FINALIZAR ATENDIMENTO
-                        echo '<label for="marcartitulo_atividade">Serviço em Andamento</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="C">FINALIZAR</option>';
-                        echo '</select>';
-                        echo '<label for="obs_atividade">Observações</label>';
-                        echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="finalizarAtividade" id="finalizarAtividade" value="Finalizar Atividade">';
-                      
-                      }
-
-                      if($row_lastatividade['titulo_atividade'] == "C"){//ENTREGAR / DEVOLVER OU REABRIR
-                        echo '<label for="marcartitulo_atividade">Serviço Realizado</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="D">ENTREGAR / DEVOLVER</option>';
-                        echo '<option value="B">REFAZER AGORA</option>';
-                        echo '<option value="A">REFAZER DEPOIS</option>';
-                        echo '<option value="E">ARQUIVAR</option>';
-                        echo '</select>';
-                        echo '<label for="obs_atividade">Observações</label>';
-                        echo '<input name="obs_atividade" type="text" maxlength="999" id="obs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?" />';
-                        echo '<label for="novadataentrega_atividade">Prazo Para Revisão</label>';
-                        echo '<input name="novadataentrega_atividade" type="datetime-local" value="'.date('Y-m-d\T16:00', strtotime('+30 days')).'" id="novadataentrega_atividade" class="form-control form-control-sm">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
-                      }
-
-                      if($row_lastatividade['titulo_atividade'] == "D"){//ENTREGUE / DEVOLVIDO
-                        echo '<label for="marcartitulo_atividade">Entregue / Devolvido</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="B">REFAZER AGORA</option>';
-                        echo '<option value="A">REFAZER DEPOIS</option>';
-                        echo '<option value="E">ARQUIVAR</option>';
-                        echo '</select>';
-                        echo '<label for="obs_atividade">Observações</label>';
-                        //echo '<input name="novaobs_atividade" type="text" maxlength="999" id="novaobs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="O que precisa fazer para resolver este problema?" />';
-                        echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="novadataentrega_atividade">Prazo Para Revisão</label>';
-                        echo '<input name="novadataentrega_atividade" type="datetime-local" value="'.date('Y-m-d\T16:00', strtotime('+30 days')).'" id="novadataentrega_atividade" class="form-control form-control-sm">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
-                      }
-                      
-                      if($row_lastatividade['titulo_atividade'] == "E"){//ARQUIVADO
-                        echo '<label for="marcartitulo_atividade">Atividade Arquivada</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="B">REFAZER AGORA</option>';
-                        echo '<option value="A">REFAZER DEPOIS</option>';
-                        echo '</select>';
-                        echo '<label for="obs_atividade">Observações</label>';
-                        //echo '<input name="novaobs_atividade" type="text" maxlength="999" id="novaobs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="O que precisa fazer para resolver este problema?" />';
-                        echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="novadataentrega_atividade">Prazo Para Revisão</label>';
-                        echo '<input name="novadataentrega_atividade" type="datetime-local" value="'.date('Y-m-d\T16:00', strtotime('+30 days')).'" id="novadataentrega_atividade" class="form-control form-control-sm">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
-                      }
-                      
-                      
-                                       
-                    
-                      //echo '<label for="obs_atividade">Observações</label>';
-                      //echo '<input name="obs_atividade" type="text"  id="obs_atividade" class="aspNetDisabled form-control form-control-sm"/>';
-                      //echo '';
-                      //echo '<label for="showtel_cliente">Fim</label>';
-                      //echo '<input name="showtel_cliente" type="date"  id="showtel_cliente" class="aspNetDisabled form-control form-control-sm"/>';
-                      echo '</div>';
+                      echo '<div class="card-footer text-muted">';
+                      //<a href="'.$_SESSION['dominio'].'/pages/filmes/index.php?cd_filme='.$casas['cd_casa'].'" title="'.$casas['titulo_casa'].'">
+                      echo '<form method="post" action="'.$_SESSION['dominio'].'/pages/md_hospedagem/editar_dispositivo.php">';
+                      echo '<input type="text" id="concd_dispositivo" name="concd_dispositivo" value="'.$casas['cd_dispositivo'].'" style="display:none;">';
+                      echo '<input class="btn btn-outline-success btn-lg btn-block" type="submit" value="Parametros">';
+                      //echo '<input class="btn btn-outline-success btn-lg btn-block" type="submit" value="#2">';
                       echo '</form>';
+                      //echo '<a href="'.$_SESSION['dominio'].'/pages/md_hospedagem/editar_casa.php?cd_casa='.$casas['cd_casa'].'" class="btn btn-outline-success btn-lg btn-block">Parametros</a>';
                       echo '</div>';
                       echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
+                      //echo '</a>';
+                      //echo '</div>';
                     }
-                    
-
-                    
-                    
-                    ?>
+                  }
+                  
+                  
+                  
+                  
+                  //echo '</div>';
+                  //echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+                ?>
                 
               </div>
 

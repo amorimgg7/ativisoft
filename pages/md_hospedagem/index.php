@@ -45,11 +45,15 @@ if(!isset($ocupado)){
 
                       }else if($casas['status_casa'] == '1'){
                         echo '<div class="card border-info mb-3 shadow-sm align-items-center" style="max-width: 18rem;">';
-                        echo '<div class="card-header bg-info">Em preparação</div>';
+                        echo '<div class="card-header bg-info">Reservado</div>';
 
                       }else if($casas['status_casa'] == '2'){
+                        echo '<div class="card border-info mb-3 shadow-sm align-items-center" style="max-width: 18rem;">';
+                        echo '<div class="card-header bg-info">Ocupado</div>';
+
+                      }else if($casas['status_casa'] == '3'){
                         echo '<div class="card border-warning mb-3 shadow-sm align-items-center" style="max-width: 18rem;">';
-                        echo '<div class="card-header bg-warning">Ocupado</div>';
+                        echo '<div class="card-header bg-warning">Em preparação</div>';
 
                       }else{
                         echo '<div class="card border-danger mb-3 shadow-sm align-items-center" style="max-width: 18rem;">';

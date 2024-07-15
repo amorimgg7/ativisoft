@@ -356,6 +356,56 @@ CREATE TABLE tb_casa(
 INSERT INTO tb_casa (titulo_casa, obs_casa, valor_venda, valor_aluga, tipo_exercicio, status_casa)
 VALUES ('Casa teste', 'Testes', '100', '100','A', '0');
 
+CREATE TABLE tb_dispositivo(
+    cd_dispositivo integer PRIMARY KEY AUTO_INCREMENT,
+    cd_casa_dispositivo integer,
+    mac_dispositivo varchar(99),
+    ip_dispositivo varchar(9999),
+    mascara_dispositivo varchar(40),
+    gateway_dispositivo varchar(40),
+    marca_dispositivo varchar(40),
+    modelo_dispositivo varchar(40),
+    versao_dispositivo varchar(40),
+    titulo_dispositivo varchar(40),
+    local_dispositivo varchar(40),
+    status_dispositivo varchar(40),
+    dt_status_dispositivo DATETIME NOT NULL,
+    canal_1 varchar(40),
+    canal_2 varchar(40),
+    canal_3 varchar(40),
+    canal_4 varchar(40),
+    canal_5 varchar(40),
+    canal_6 varchar(40),
+    canal_7 varchar(40),
+    canal_8 varchar(40)
+);
+
+INSERT INTO tb_dispositivo (
+    cd_casa_dispositivo, 
+    mac_dispositivo, 
+    ip_dispositivo, 
+    mascara_dispositivo, 
+    gateway_dispositivo, 
+    marca_dispositivo, 
+    modelo_dispositivo, 
+    versao_dispositivo, 
+    titulo_dispositivo, 
+    local_dispositivo, 
+    status_dispositivo,
+    dt_status_dispositivo,
+    canal_1, 
+    canal_2, 
+    canal_3, 
+    canal_4, 
+    canal_5, 
+    canal_6, 
+    canal_7, 
+    canal_8
+) VALUES
+(1, '00:1A:2B:3C:4D:5E', '192.168.1.2', '255.255.255.0', '192.168.1.1', 'MarcaA', 'ModeloA', '1.0', 'Dispositivo 1', 'Sala', 'Ativo', '13-07-2024T17:10', 'Canal 1A', 'Canal 2A', 'Canal 3A', 'Canal 4A', 'Canal 5A', 'Canal 6A', 'Canal 7A', 'Canal 8A'),
+(1, '11:2B:3C:4D:5E:6F', '192.168.1.3', '255.255.255.0', '192.168.1.1', 'MarcaB', 'ModeloB', '2.0', 'Dispositivo 2', 'Quarto', 'Inativo', '13-07-2024T17:10', 'Canal 1B', 'Canal 2B', 'Canal 3B', 'Canal 4B', 'Canal 5B', 'Canal 6B', 'Canal 7B', 'Canal 8B'),
+(1, '22:3C:4D:5E:6F:7G', '192.168.1.4', '255.255.255.0', '192.168.1.1', 'MarcaC', 'ModeloC', '3.0', 'Dispositivo 3', 'Cozinha', 'Ativo', '13-07-2024T17:10', 'Canal 1C', 'Canal 2C', 'Canal 3C', 'Canal 4C', 'Canal 5C', 'Canal 6C', 'Canal 7C', 'Canal 8C'),
+(1, '33:4D:5E:6F:7G:8H', '192.168.1.5', '255.255.255.0', '192.168.1.1', 'MarcaD', 'ModeloD', '4.0', 'Dispositivo 4', 'Escritório', 'Manutenção', '13-07-2024T17:10', 'Canal 1D', 'Canal 2D', 'Canal 3D', 'Canal 4D', 'Canal 5D', 'Canal 6D', 'Canal 7D', 'Canal 8D');
 
 
 CREATE TABLE tb_endereco(
