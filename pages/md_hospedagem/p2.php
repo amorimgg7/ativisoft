@@ -9,7 +9,7 @@
 <?php
                    echo 'Atualizado em: '.date("d/m/Y H:i:s").' !';
                   $sql_casa = "SELECT * FROM tb_dispositivo where cd_casa_dispositivo = ".$_SESSION['cd_casa'];
-                  $resulta_casa = $conn->query($sql_casa);
+                  $resulta_casa = $conn_revenda->query($sql_casa);
                   if ($resulta_casa->num_rows > 0){
                     while ( $casas = $resulta_casa->fetch_assoc()){
                       //echo '<div class="col">';
