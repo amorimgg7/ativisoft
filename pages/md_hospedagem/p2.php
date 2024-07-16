@@ -18,7 +18,7 @@
                         $dataStatus = strtotime($casas['dt_status_dispositivo']);
                         $dataAtual = time();
                     
-                        if (($dataAtual - $dataStatus) > 30) {
+                        if (($dataAtual - $dataStatus) > 10) {
                             // A data e hora são maiores que 30 segundos
                           echo '<div class="card text-white border-danger mb-3 shadow-sm bg-secondary mb-3 align-items-center" style="margin: 10px; max-width: 18rem;">';
                           echo '<div class="card-header bg-danger">Offline</div>';    
