@@ -210,7 +210,7 @@
                           $edit_canais = "UPDATE tb_dispositivo SET
                               canal_" . $i . " = '" . $_POST['btncanal_' . $i] . "'
                               WHERE cd_dispositivo = '" . $_SESSION['cd_dispositivo'] . "'";
-                          if (mysqli_query($conn_revenda, $edit_canais)) {
+                          if (mysqli_query($conn, $edit_canais)) {
                               //echo "<script>window.alert('Canal " . $i . " atualizado para " . $_POST['btncanal_' . $i] . "!');</script>";
                               $select_dispositivo = "SELECT * FROM tb_dispositivo WHERE cd_dispositivo = '" . $_SESSION['cd_dispositivo'] . "'";
                               $result_dispositivo = mysqli_query($conn, $select_dispositivo);
