@@ -76,7 +76,7 @@
     }else{
         $canal_8 = 0;
     }
-    date_default_timezone_set('America/Sao_Paulo');
+    //date_default_timezone_set('America/Sao_Paulo');
     $data_hora = date("Y-m-d H:i:s");
     if($conn_revenda) {
         if($mac > 0){
