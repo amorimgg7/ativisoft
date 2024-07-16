@@ -12,5 +12,4 @@
         die("Connection failed: " . $conn_revenda->connect_error);
     }
     $_SESSION['dominio_revenda'] = 'http://localhost/ativisoft_1_0/';
-    date_default_timezone_set('America/Sao_Paulo');
 ?>
