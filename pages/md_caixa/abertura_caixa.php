@@ -104,7 +104,7 @@
                                             'DINHEIRO',
                                             '".$_POST['valor_suprimento']."',
                                             '".date('Y-m-d H:i')."',
-                                            'SANGRIA: ".$_POST['obs_suprimento']."'
+                                            'SUPRIMENTO: ".$_POST['obs_suprimento']."'
                                             )
                                         ";
                                         mysqli_query($conn, $insert_suprimento);
