@@ -219,7 +219,7 @@ if($_SESSION['dt_caixa'] == "HOJE"){
                     continue; // Começar a coleta após encontrar a coluna "diferenca_caixa"
                 }
 
-                if ($found_start && $row_describe['Field'] == 'fpag_boleto') {
+                if ($found_start && $row_describe['Field'] == 'status_caixa') {
                     break; // Parar a coleta após encontrar a coluna "status_caixa"
                 }
 
