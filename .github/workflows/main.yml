@@ -16,4 +16,5 @@ jobs:
         host: ${{ secrets.HOST }} 
         user: ${{ secrets.USER }}
         password: ${{ secrets.PASSWORD }}
-        server-dir: /public_html
+        localDir: /home/ativisofttecnolo1/public_html
+        remoteDir: /amorimgg7/ativisoft
