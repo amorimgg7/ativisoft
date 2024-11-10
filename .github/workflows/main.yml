@@ -17,4 +17,3 @@ jobs:
         user: ${{ secrets.USER }}
         password: ${{ secrets.PASSWORD }}
         localDir: ${{ secrets.DIR }}
-        port: 21
