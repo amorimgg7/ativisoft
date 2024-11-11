@@ -150,7 +150,7 @@
                     else
                     {
                       ?>
-                        <div class="msg-erro"><?php echo "Erro: ";?></div>
+                        <div class="msg-erro"><?php echo "Erro: ".$msgErro;?></div>
                       <?php
                     }
                   }
