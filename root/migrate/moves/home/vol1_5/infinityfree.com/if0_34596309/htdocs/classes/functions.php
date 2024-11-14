@@ -9,7 +9,7 @@ class Usuario
         global $msgErro;
         try {
             //$pdo = new PDO("mysql:dbname=".$nome."".$cnpj_empresa.";host=".$host, $usuario, $senha);
-            $pdo = new PDO("mysql:dbname=".$nome."".$_SESSION['cnpj_empresa'].";host=".$host, $usuario, $senha);
+            $pdo = new PDO("mysql:dbname=".$nome.";host=".$host, $usuario, $senha);
         } catch (PDOException $e) {
             $msgErro = $e->getMessage();
         }
