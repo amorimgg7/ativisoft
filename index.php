@@ -42,6 +42,7 @@
 </head>
 
 <body>
+<script src="js/gtag.js"></script>
     <div class="oleez-loader"></div>
     <header class="oleez-header">
         <nav class="navbar navbar-expand-lg navbar-light">

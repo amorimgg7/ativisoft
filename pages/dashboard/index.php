@@ -39,7 +39,7 @@
   <!--<meta http-equiv="refresh" content="5;url=../samples/lock-screen.php">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-  <title>AtiviSoft</title>
+  <title>Dashboard</title>
   <!-- base:css -->
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
@@ -55,6 +55,7 @@
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
   
+
   <?php
   		$caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
 		$foto_empresa = "LogoEmpresa.jpg"; // Nome do arquivo que será salvo
@@ -78,6 +79,7 @@
 <script src="../../js/functions.js"></script>
   <!--<body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">-->
   <body>
+  <!--<script src="../../js/gtag.js"></script>-->
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <?php include ("../../partials/_navbar.php");?>
