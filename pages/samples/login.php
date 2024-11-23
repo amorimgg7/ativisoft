@@ -26,7 +26,7 @@
 
 
 <body>
-  <!--<script src="../../js/gtag.js"></script>-->
+  <script src="../../js/gtag.js"></script>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-center auth px-0">

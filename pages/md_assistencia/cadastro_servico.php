@@ -66,6 +66,7 @@
 <!--<body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">-->
 
 <body>
+<script src="../../js/gtag.js"></script>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <?php include ("../../partials/_navbar.php");?>
