@@ -462,7 +462,31 @@
                       $_SESSION['os_cliente'] = $row['cd_cliente'];
                       $_SESSION['pnome_cliente'] = $row['pnome_cliente'];
                       $_SESSION['snome_cliente'] = $row['snome_cliente'];
-                      $_SESSION['tel_cliente'] = $row['tel_cliente'];                
+                      $_SESSION['tel_cliente'] = $row['tel_cliente'];
+                          
+                      
+                      /*
+                       SELECT 
+                            cd_cliente,
+                            SUM(orcamento_servico) AS total_orcamento,
+                            SUM(vpag_servico) AS total_pago,
+                            SUM(orcamento_servico) - SUM(vpag_servico) AS saldo_faltante
+                        FROM 
+                            tb_servico
+                        WHERE 
+                            cd_cliente = 1
+                        GROUP BY 
+                            cd_cliente;
+                       */
+                      $select_divida = "SELECT SUM(orcamento_servico) AS total_orcamento, SUM(vpag_servico) AS total_pago, SUM(orcamento_servico) - SUM(vpag_servico) AS saldo_faltante FROM tb_servico WHERE cd_cliente = ".$row['cd_cliente']." GROUP BY cd_cliente;";
+                      $result_divida = mysqli_query($conn, $select_divida);
+                      $row_divida = mysqli_fetch_assoc($result_divida);
+                      if($row_divida) {
+                        $_SESSION['divida_cliente'] = "Dívida ativa de R$: ".number_format($row_divida['saldo_faltante'], 2, ',', '.')." <a class='btn btn-block btn-lg btn-warning' style='margin: 5px;' href='".$_SESSION['dominio']."pages/md_assistencia/acompanha_servico.php?cnpj=".$_SESSION['cnpj_empresa']."&tel=".$row['tel_cliente']."'>Saiba Mais</a>";
+                        echo "<script>window.alert('A L E R T A ! \\nO cliente ".$row['pnome_cliente']." ".$row['snome_cliente']." está com uma dívida ativa de R$:".number_format($row_divida['saldo_faltante'], 2, ',', '.')."');</script>";
+                      }else{
+                        $_SESSION['divida_cliente'] = "0";
+                      }
                     }else{
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
                       echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
@@ -493,6 +517,11 @@
                       echo '<input value="'.$_SESSION['snome_cliente'].'" name="showsnome_cliente" type="text" id="showsnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
                       echo '<label for="showtel_cliente">Telefone</label>';
                       echo '<input value="'.$_SESSION['tel_cliente'].'" name="showtel_cliente" type="tel"  id="showtel_cliente" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+
+                      if($_SESSION['divida_cliente'] > 0){
+                        echo '<h5 style="color:#f00;" id="divida_cliente">'.$_SESSION['divida_cliente'].'</h5>';
+                      }
+                      
                       echo '</div>';
                               
                       echo '<h3 class="kt-portlet__head-title">Dados do serviço</h3>';

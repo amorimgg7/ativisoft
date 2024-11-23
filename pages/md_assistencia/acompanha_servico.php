@@ -783,7 +783,15 @@ if ($cnpj && $tel) {
                         echo '<tbody>';
                         while ( $servico = $resulta_servico->fetch_assoc()){
                           echo '<tr>';
-                          echo '<td>'.$servico['cd_servico'].'</td>';
+                          if($_SESSION['cd_colab'] > 0){
+                            echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
+                            echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
+                            echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
+                            echo '</form>';
+                          }else{
+                            echo '<td>'.$servico['cd_servico'].'</td>';
+                          }
+                          
                           if($servico['orcamento_servico'] == 0){
                             echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
                           }else{
@@ -849,7 +857,14 @@ if ($cnpj && $tel) {
                         echo '<tbody>';
                         while ( $servico = $resulta_servico->fetch_assoc()){
                           echo '<tr>';
-                          echo '<td>'.$servico['cd_servico'].'</td>';
+                          if($_SESSION['cd_colab'] > 0){
+                            echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
+                            echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
+                            echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
+                            echo '</form>';
+                          }else{
+                            echo '<td>'.$servico['cd_servico'].'</td>';
+                          }
                           if($servico['orcamento_servico'] == 0){
                             echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
                           }else{
@@ -916,7 +931,14 @@ if ($cnpj && $tel) {
                         echo '<tbody>';
                         while ( $servico = $resulta_servico->fetch_assoc()){
                           echo '<tr>';
-                          echo '<td>'.$servico['cd_servico'].'</td>';
+                          if($_SESSION['cd_colab'] > 0){
+                            echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
+                            echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
+                            echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
+                            echo '</form>';
+                          }else{
+                            echo '<td>'.$servico['cd_servico'].'</td>';
+                          }
                           if($servico['orcamento_servico'] == 0){
                             echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
                           }else{
@@ -984,7 +1006,14 @@ if ($cnpj && $tel) {
                         echo '<tbody>';
                         while ( $servico = $resulta_servico->fetch_assoc()){
                           echo '<tr>';
-                          echo '<td>'.$servico['cd_servico'].'</td>';
+                          if($_SESSION['cd_colab'] > 0){
+                            echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
+                            echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
+                            echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
+                            echo '</form>';
+                          }else{
+                            echo '<td>'.$servico['cd_servico'].'</td>';
+                          }
                           if($servico['orcamento_servico'] == 0){
                             echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
                           }else{
@@ -1013,7 +1042,6 @@ if ($cnpj && $tel) {
                     }          
                   }
                 ?>
-
 
                 <?php //ARQUIVADO
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
@@ -1051,7 +1079,14 @@ if ($cnpj && $tel) {
                         echo '<tbody>';
                         while ( $servico = $resulta_servico->fetch_assoc()){
                           echo '<tr>';
-                          echo '<td>'.$servico['cd_servico'].'</td>';
+                          if($_SESSION['cd_colab'] > 0){
+                            echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
+                            echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
+                            echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
+                            echo '</form>';
+                          }else{
+                            echo '<td>'.$servico['cd_servico'].'</td>';
+                          }
                           //SELECT * FROM tb_atividade WHERE cd_servico = '19' order by cd_atividade desc limit 1
                           $sql_atividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$servico['cd_servico']."' order by cd_atividade desc limit 1";
                           $resulta_atividade = $conn->query($sql_atividade);

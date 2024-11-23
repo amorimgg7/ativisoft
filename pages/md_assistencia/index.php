@@ -4,6 +4,108 @@
 <i type="submit" class="btn btn-danger"style="margin:auto; display:none;" id="extrapolado">Prazo extrapolado</i>
 </div>
 
+            <?php //Financeiro
+              //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
+              //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
+              
+              $sql_devendo = "  SELECT 
+                                    CONCAT(c.pnome_cliente, ' ', c.snome_cliente, ' ', c.tel_cliente) AS full_cliente,
+                                    c.tel_cliente, 
+                                    SUM(s.orcamento_servico) AS total_orcamento, 
+                                    SUM(s.vpag_servico) AS total_pago, 
+                                    SUM(s.orcamento_servico) - SUM(s.vpag_servico) AS saldo_faltante
+                                FROM 
+                                    tb_servico s
+                                JOIN 
+                                    tb_cliente c 
+                                ON 
+                                    s.cd_cliente = c.cd_cliente
+                                GROUP BY 
+                                    c.cd_cliente, c.pnome_cliente, c.snome_cliente, c.tel_cliente;
+                                ";
+                //full_cliente              
+                //total_orcamento
+                //total_pago
+                //saldo_faltante
+              /*$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0 
+                ORDER BY 
+                CASE 
+                    WHEN prioridade_servico = 'U' THEN 1
+                    WHEN prioridade_servico = 'A' THEN 2
+                    WHEN prioridade_servico = 'M' THEN 3 
+                    ELSE 4
+                END, cd_servico";*/
+
+              $resulta_devendo = $conn->query($sql_devendo);
+              if ($resulta_devendo->num_rows > 0){
+                echo '<div class="col-lg-12 grid-margin stretch-card" data-toggle="collapse" href="#clientes_devendo" aria-expanded="false" aria-controls="clientes_devendo">';
+                echo '<div class="card" '.$_SESSION['c_card'].'>';
+                
+                echo '<div class="card-body">';
+                echo '<div class="grid-margin stretch-card">';
+                echo '<h4 id="qtdValClientesDevendo">?</h4>';
+                echo '<i class="btn btn-success" style="margin:auto; display:none;" id="qtdClientesDevendo"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="vtotalClientesDevendo"></i>';
+                
+                echo '</div>';
+
+                
+                echo '<div class="collapse table-responsive" id="clientes_devendo">';
+                
+                echo '<table class="table" '.$_SESSION['c_card'].'>';
+                echo '<thead>';
+                echo '<tr>';
+                echo '<th>Cliente</th>';
+                echo '<th>Total Pago</th>';
+                echo '<th>Devendo</th>';
+                
+                
+                echo '</tr>';
+                echo '</thead>';
+                echo '<tbody>';
+                $qtdClientesDevendo = 0;
+                $vtotalClientesDevendo = 0;
+                while ( $devendo = $resulta_devendo->fetch_assoc()){
+                  echo '<tr>';
+                 
+                  echo "<td><a class='btn btn-danger' style='margin: 5px;' href='".$_SESSION['dominio']."pages/md_assistencia/acompanha_servico.php?cnpj=".$_SESSION['cnpj_empresa']."&tel=".$devendo['tel_cliente']."'>".$devendo['full_cliente']."</td>";
+                  echo "<td>R$:".number_format($devendo['total_pago'], 2, ',', '.')."</td>";
+                  echo "<td>R$:".number_format($devendo['saldo_faltante'], 2, ',', '.')."</td>";
+                  
+                  
+                  $qtdClientesDevendo ++;
+                  
+                  $vtotalClientesDevendo += $devendo['saldo_faltante'];
+
+		              
+                }
+                echo '</tbody>';
+                echo '</table>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                
+                if($qtdClientesDevendo > 0){
+                  echo '<script>document.getElementById("qtdClientesDevendo").innerHTML = " ('.$qtdClientesDevendo.') ";</script>';
+                  echo '<script>document.getElementById("obsQtdClientesDevendo").innerHTML = "Clientes Devendo: '.$qtdClientesDevendo.'";</script>';
+                  echo '<script>document.getElementById("qtdClientesDevendo").style.display = "block";</script>';
+                  echo '<script>document.getElementById("obsQtdClientesDevendo").style.display = "block";</script>';
+                }
+                if($vtotalClientesDevendo > 0){
+                  echo '<script>document.getElementById("vtotalClientesDevendo").innerHTML = " (R$:'.number_format($vtotalClientesDevendo, 2, ',', '.').') ";</script>';
+                  echo '<script>document.getElementById("obsVtotalClientesDevendo").innerHTML = "Total a Receber R$:'.number_format($vtotalClientesDevendo, 2, ',', '.').'";</script>';
+                  echo '<script>document.getElementById("vtotalClientesDevendo").style.display = "block";</script>';
+                  echo '<script>document.getElementById("obsVtotalClientesDevendo").style.display = "block";</script>';
+                }
+
+                echo '<script>document.getElementById("qtdValClientesDevendo").innerHTML = " Total de dívida ativa R$:'.number_format($vtotalClientesDevendo, 2, ',', '.').' ";</script>';
+                echo '<script>document.getElementById("qtdValClientesDevendo").style.display = "block";</script>';
+
+                
+              }
+            ?>
+
+
             <?php //À FAZER
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
