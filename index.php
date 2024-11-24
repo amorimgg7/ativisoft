@@ -39,6 +39,12 @@
     <link rel="stylesheet" href="marketing/css/style.css">
     <script src="marketing/vendors/jquery/jquery.min.js"></script>
     <script src="marketing/js/loader.js"></script>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3996853854538676"
+     crossorigin="anonymous"></script>
+
+     
 </head>
 
 <body>

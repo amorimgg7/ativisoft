@@ -478,7 +478,7 @@
                         GROUP BY 
                             cd_cliente;
                        */
-                      $select_divida = "SELECT SUM(orcamento_servico) AS total_orcamento, SUM(vpag_servico) AS total_pago, SUM(orcamento_servico) - SUM(vpag_servico) AS saldo_faltante FROM tb_servico WHERE cd_cliente = ".$row['cd_cliente']." GROUP BY cd_cliente;";
+                      $select_divida = "SELECT SUM(orcamento_servico) AS total_orcamento, SUM(vpag_servico) AS total_pago, SUM(orcamento_servico) - SUM(vpag_servico) AS saldo_faltante FROM tb_servico WHERE cd_cliente = ".$row['cd_cliente']." GROUP BY cd_cliente HAVING saldo_faltante > 0;";
                       $result_divida = mysqli_query($conn, $select_divida);
                       $row_divida = mysqli_fetch_assoc($result_divida);
                       if($row_divida) {

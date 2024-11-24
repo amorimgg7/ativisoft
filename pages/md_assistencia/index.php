@@ -9,19 +9,28 @@
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
               
               $sql_devendo = "  SELECT 
-                                    CONCAT(c.pnome_cliente, ' ', c.snome_cliente, ' ', c.tel_cliente) AS full_cliente,
-                                    c.tel_cliente, 
-                                    SUM(s.orcamento_servico) AS total_orcamento, 
-                                    SUM(s.vpag_servico) AS total_pago, 
-                                    SUM(s.orcamento_servico) - SUM(s.vpag_servico) AS saldo_faltante
-                                FROM 
-                                    tb_servico s
-                                JOIN 
-                                    tb_cliente c 
-                                ON 
-                                    s.cd_cliente = c.cd_cliente
-                                GROUP BY 
-                                    c.cd_cliente, c.pnome_cliente, c.snome_cliente, c.tel_cliente;
+    CONCAT(c.pnome_cliente, ' ', c.snome_cliente, ' ', c.tel_cliente) AS full_cliente,
+    c.tel_cliente, 
+    SUM(s.orcamento_servico) AS total_orcamento, 
+    SUM(COALESCE(s.vpag_servico, 0)) AS total_pago, 
+    SUM(s.orcamento_servico) - SUM(COALESCE(s.vpag_servico, 0)) AS saldo_faltante
+FROM 
+    tb_servico s
+JOIN 
+    tb_cliente c 
+ON 
+    s.cd_cliente = c.cd_cliente
+WHERE 
+    s.status_servico != 4
+GROUP BY 
+    c.cd_cliente, c.pnome_cliente, c.snome_cliente, c.tel_cliente
+HAVING 
+    saldo_faltante > 0
+ORDER BY 
+    saldo_faltante DESC;
+
+
+
                                 ";
                 //full_cliente              
                 //total_orcamento
@@ -44,7 +53,7 @@
                 echo '<div class="card-body">';
                 echo '<div class="grid-margin stretch-card">';
                 echo '<h4 id="qtdValClientesDevendo">?</h4>';
-                echo '<i class="btn btn-success" style="margin:auto; display:none;" id="qtdClientesDevendo"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="vtotalClientesDevendo"></i>';
+                //echo '<i class="btn btn-success" style="margin:auto; display:none;" id="qtdClientesDevendo"></i><i class="btn btn-danger" style="margin:auto; display:none;" id="vtotalClientesDevendo"></i>';
                 
                 echo '</div>';
 
