@@ -38,7 +38,11 @@
   <!--<meta http-equiv='refresh' content='30'>-->
   <!--<meta http-equiv="refresh" content="5;url=../samples/lock-screen.php">-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
+  <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <title>Dashboard</title>
   <!-- base:css -->
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
@@ -54,7 +58,14 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
+  <link rel="manifest" href="manifest.json">
   
+
+  <style>
+    #installBtn {
+      display: none;
+    }
+  </style>
 
   <?php
   		$caminho_pasta_empresa = "../web/imagens/".$_SESSION['cnpj_empresa']."//logos/";
@@ -63,9 +74,9 @@
 
 		if (file_exists($caminho_foto_empresa)) {
 			$tipo_foto_empresa = mime_content_type($caminho_foto_empresa);
-  			echo "<link rel='shortcut icon' href='data:$tipo_foto_empresa;base64," . base64_encode(file_get_contents($caminho_foto_empresa)) . "' />";
+  			echo "<link rel='icon' href='data:$tipo_foto_empresa;base64," . base64_encode(file_get_contents($caminho_foto_empresa)) . "' />";
 		}else{
-			echo "<link rel='shortcut icon' href='https://lh3.googleusercontent.com/pw/AP1GczOReqQClzL-PZkykfOwgmMyVzQgx27DTp783MI7iwKuKSv-6P6V7KOEbCC74sGdK3DEV3O88CsBLeIvOaQwGT3x4bqCTPRtyV9zcODbYVDRxAF8zf8Uev7geh4ONPdl3arNhnSDPvbQfMdpFRPM263V9A=w250-h250-s-no-gm?authuser=0' />";
+			echo "<link rel='icon' href='https://lh3.googleusercontent.com/pw/AP1GczOReqQClzL-PZkykfOwgmMyVzQgx27DTp783MI7iwKuKSv-6P6V7KOEbCC74sGdK3DEV3O88CsBLeIvOaQwGT3x4bqCTPRtyV9zcODbYVDRxAF8zf8Uev7geh4ONPdl3arNhnSDPvbQfMdpFRPM263V9A=w250-h250-s-no-gm?authuser=0' />";
 		}
 	?>
 
@@ -81,6 +92,7 @@
   <body>
   <script src="../../js/gtag.js"></script>
   <div class="container-scroller">
+  
     <!-- partial:partials/_navbar.html -->
     <?php include ("../../partials/_navbar.php");?>
     <!-- partial -->
@@ -90,6 +102,57 @@
       <!-- partial -->
       <div class="main-panel" >
         <div class="content-wrapper" <?php echo $_SESSION['c_body'];?>>
+
+
+        <!--Instalando app PWA-->
+        <button id="installBtn" class="btn btn-block btn-social-icon-text btn-success" style="margin: 5px;"><i class="mdi mdi-anchor"></i>... Instalar Aplicativo ...<i class="mdi mdi-anchor"></i></button>
+
+        <script>
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    // Verifica se o Service Worker está registrado
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registrado com sucesso.'))
+        .catch((error) => console.error('Erro ao registrar Service Worker:', error));
+    }
+
+    // Evento para exibir o botão de instalação
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'block'; // Exibe o botão de instalação
+    });
+
+    // Ação do botão de instalação
+    installBtn.addEventListener('click', () => {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('Usuário aceitou instalar.');
+          installBtn.style.display = 'none';
+        } else {
+          console.log('Usuário cancelou a instalação.');
+        }
+        deferredPrompt = null;
+      });
+    });
+
+    // Evento para quando o app é instalado
+    window.addEventListener('appinstalled', () => {
+      console.log('Aplicativo instalado com sucesso!');
+      installBtn.style.display = 'none';
+    });
+
+    // Verifica se o app já está instalado
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      installBtn.style.display = 'none';
+    }
+  </script>
+  <!--Instalando app PWA-->
+
+
           <div class="row">
             <div class="col-sm-12 mb-4 mb-xl-0">
               
