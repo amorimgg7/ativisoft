@@ -135,6 +135,23 @@
             </div> 
           </li>
 
+
+          <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>>
+            <a class="nav-link" data-toggle="collapse" href="#vendas" aria-expanded="false" aria-controls="vendas">
+              <i class="icon-disc menu-icon" <?php echo $_SESSION['c_sidebar']?>></i>
+              <span class="menu-title" <?php echo $_SESSION['c_sidebar']?>>Vendas</span>
+              <i class="menu-arrow" <?php echo $_SESSION['c_sidebar']?>></i>
+            </a>
+            
+            <div class="collapse" id="vendas">
+            
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_vendas/nova_venda.php">Nova Venda</a></li>
+                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_vendas/historico_vendas.php">Histórico</a></li>
+              </ul>
+            </div> 
+          </li>
+
           <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>>
             <a class="nav-link" data-toggle="collapse" href="#relatorios" aria-expanded="false" aria-controls="relatorios">
               <i class="icon-disc menu-icon" <?php echo $_SESSION['c_sidebar']?>></i>
@@ -150,6 +167,9 @@
               </ul>
             </div> 
           </li>
+
+
+          
 
 <!--
           <li class="nav-item" <?php //echo $_SESSION['md_cliente'];?>>

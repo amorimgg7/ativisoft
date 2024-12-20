@@ -151,6 +151,7 @@
     }
   </script>
   <!--Instalando app PWA-->
+  <!--https://www.nobleui.com/html/template/demo2-dh/pages/icons/mdi-icons.html-->
 
 
           <div class="row">
