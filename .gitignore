@@ -1,4 +1,5 @@
 # Arquivos de acesso local: git add -f .\classes\conn.php
 classes/conn.php
+ativihouse_1_0/classes/conn.php
 classes/conn_revenda.php
 pages/web/imagens/
