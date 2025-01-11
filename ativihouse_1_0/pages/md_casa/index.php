@@ -80,11 +80,15 @@ if(isset($_POST['bt_casa_selecionada'])){
                               echo ' <i style="color: #D00;" class="icon-thermometer"></i>';
                             }else if($dispositivo['modelo_dispositivo'] == 'Luzes_2_0'){
                               echo ' <i style="color: #D00;" class="icon-record"></i>';
+                            }else if($dispositivo['modelo_dispositivo'] == 'PowerBalance_1_0'){
+                              echo ' <i style="color: #D00;" class="icon-record"></i>';
                             }
                           }else{
                             if($dispositivo['modelo_dispositivo'] == "Higrometro_1_0"){
                               echo ' <i style="color: #0D0;" class="icon-thermometer"></i>';
                             }else if($dispositivo['modelo_dispositivo'] == 'Luzes_2_0'){
+                              echo ' <i style="color: #0D0;" class="icon-record"></i>';
+                            }else if($dispositivo['modelo_dispositivo'] == 'PowerBalance_1_0'){
                               echo ' <i style="color: #0D0;" class="icon-record"></i>';
                             }
                           }
