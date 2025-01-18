@@ -305,15 +305,17 @@ CREATE TABLE `tb_movimento_financeiro` (
   `obs_movimento` varchar(999) DEFAULT NULL
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-
-
 CREATE TABLE `tb_orcamento_servico` (
   `cd_orcamento` int(11) ,
   `cd_servico` int(11) DEFAULT NULL,
   `cd_cliente` int(11) DEFAULT NULL,
+  `cd_produto` int(11) DEFAULT NULL,
   `titulo_orcamento` varchar(999) DEFAULT NULL,
   `vcusto_orcamento` varchar(40) DEFAULT NULL,
+  `qtd_orcamento` int(11) DEFAULT NULL,
+  `vtotal_orcamento` int(11) DEFAULT NULL,
   `vpag_orcamento` varchar(40) DEFAULT NULL,
+  `tipo_orcamento` varchar(40) DEFAULT NULL,
   `status_orcamento` int(11) DEFAULT NULL
 )  DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 

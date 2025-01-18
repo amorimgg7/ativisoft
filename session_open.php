@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-    session_start();
+    //session_start();
     echo '<h1>Sessão Aberta</h1>';
     echo '<h4>Dados do Usuário</h4>';
     echo '<p>cd_colab: '.$_SESSION['cd_colab'].'</p>';

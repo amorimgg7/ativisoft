@@ -53,12 +53,66 @@
 	?>
   <!-- endinject -->
   <script src="../../js/functions.js"></script>
-  <link rel="shortcut icon" href="<?php echo $_SESSION['logo_empresa']; ?>" />
+  <link rel="shortcut icon" href="<?php /*echo $_SESSION['logo_empresa']; */?>" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function updatePriceAndCode() {
+    const select = document.getElementById('produto_servico');
+    const selectedOption = select.options[select.selectedIndex];
+
+    // Atualizar o preço
+    const preco = selectedOption.getAttribute('data-preco') || 0;
+    document.getElementById('produto_servico_preco').value = parseFloat(preco).toFixed(2);
+
+    // Atualizar o ID do produto
+    const cdProduto = selectedOption.value || '**';
+    document.getElementById('produto_servico_id1').textContent = cdProduto;
+    document.getElementById('produto_servico_id2').value = cdProduto;
+
+    const tituloProdServ = selectedOption.text || '';
+    document.getElementById('produto_servico_nome').value = tituloProdServ;
+
+    const estoque = selectedOption.getAttribute('data-estoque') || 0;
+    document.getElementById('produto_servico_estoque').value = estoque;
+
+    const reserva = selectedOption.getAttribute('data-reserva') || 0;
+    document.getElementById('produto_servico_reserva').value = reserva;
 
 
+    // Recalcular o total
+    calculateTotal();
+}
+
+
+    function calculateTotal() {
+      const preco = parseFloat(document.getElementById('produto_servico_preco').value) || 0;
+      const quantidade = parseFloat(document.getElementById('produto_servico_qtd').value) || 0;
+      const estoque = parseFloat(document.getElementById('produto_servico_estoque').value) || 0;
+      const reserva = parseFloat(document.getElementById('produto_servico_reserva').value) || 0;
+
+
+      const total = preco * quantidade;
+
+      // Validar se a quantidade excede o estoque
+    if (quantidade > estoque) {
+        // Adicionar borda vermelha
+        document.getElementById('produto_servico_qtd').style.border = "2px solid red";
+    } else if(quantidade > (estoque - reserva)){
+      document.getElementById('produto_servico_qtd').style.border = "2px solid orange";
+    }else{
+        // Restaurar borda normal
+        document.getElementById('produto_servico_qtd').style.border = "";
+    }
+
+
+      document.getElementById('produto_servico_vtotal').value = total.toFixed(2);
+    }
+</script>
 
 
 </head>
@@ -153,26 +207,26 @@
 
                         <?php //cadastra cliente e consulta para abrir ordem de serviço
                           if(isset($_POST['cad_cliente'])) {
-                          //include("../../partials/load.html");
-                          // Atualiza as informações do usuário no banco de dados
-                          $query = "INSERT INTO tb_cliente(pnome_cliente, snome_cliente, tel_cliente) VALUES(
-                            '".$_POST['pnome_cliente']."',
-                            '".$_POST['snome_cliente']."',
-                            '".$_POST['cd_pais'].$_POST['tel_cliente']."')
-                          ";
-                          mysqli_query($conn, $query);
+                            //include("../../partials/load.html");
+                            // Atualiza as informações do usuário no banco de dados
+                            $query = "INSERT INTO tb_cliente(pnome_cliente, snome_cliente, tel_cliente) VALUES(
+                              '".$_POST['pnome_cliente']."',
+                              '".$_POST['snome_cliente']."',
+                              '".$_POST['cd_pais'].$_POST['tel_cliente']."')
+                            ";
+                            mysqli_query($conn, $query);
                               
-                          $query = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_POST['cd_pais'].$_POST['tel_cliente']."'";
-                          $result = mysqli_query($conn, $query);
-                          $row = mysqli_fetch_assoc($result);
+                            $query = "SELECT * FROM tb_cliente WHERE tel_cliente = '".$_POST['cd_pais'].$_POST['tel_cliente']."'";
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_assoc($result);
 
-                          // Exibe as informações do usuário no formulário
-                          if($row) {
-                            $_SESSION['os_cliente'] = $row['cd_cliente'];
-                            $_SESSION['pnome_cliente'] = $row['pnome_cliente'];
-                            $_SESSION['snome_cliente'] = $row['snome_cliente'];
-                            $_SESSION['tel_cliente'] = $row['tel_cliente'];                
-                          }
+                            // Exibe as informações do usuário no formulário
+                            if($row) {
+                              $_SESSION['os_cliente'] = $row['cd_cliente'];
+                              $_SESSION['pnome_cliente'] = $row['pnome_cliente'];
+                              $_SESSION['snome_cliente'] = $row['snome_cliente'];
+                              $_SESSION['tel_cliente'] = $row['tel_cliente'];                
+                            }
                           }
                         ?>
 
@@ -497,8 +551,9 @@
                 
                 <?php
                   if(isset($_SESSION['os_cliente'])){
-
                     if($_SESSION['os_cliente'] > 0 && (!isset($_SESSION['os_servico']) || $_SESSION['os_servico'] == 0)){
+                      
+
                       echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
                       echo '<div class="card-body" id="cadOs"><!--FORMULÁRIO PARA CRIAR OS-->';
                       echo '<div class="kt-portlet__body">';
@@ -648,14 +703,14 @@
                         prioridade_servico = '".$_POST['editprioridade_servico']."',
                         prazo_servico = '".$_POST['editprazo_servico']."'
                         WHERE cd_servico = '".$_POST['editos_servico']."'";
-                        mysqli_query($conn, $edit_os);
-                        echo "<script>window.alert('Servico editado!');</script>";
+                      mysqli_query($conn, $edit_os);
+                      echo "<script>window.alert('Servico editado!');</script>";
 
-                        $query = "SELECT * FROM tb_servico WHERE cd_servico = '".$_POST['editos_servico']."'";
-                        $result = mysqli_query($conn, $query);
-                        $row = mysqli_fetch_assoc($result);
-                        // Exibe as informações do usuário no formulário
-                        if($row) {
+                      $query = "SELECT * FROM tb_servico WHERE cd_servico = '".$_POST['editos_servico']."'";
+                      $result = mysqli_query($conn, $query);
+                      $row = mysqli_fetch_assoc($result);
+                      // Exibe as informações do usuário no formulário
+                      if($row) {
                           $_SESSION['os_servico'] = $row['cd_servico'];
                           $_SESSION['os_cliente'] = $row['cd_cliente'];
                                 
@@ -667,222 +722,377 @@
                           $_SESSION['prazo_servico'] = $row['prazo_servico'];
                           $_SESSION['orcamento_servico'] = $row['orcamento_servico'];
                           $_SESSION['vpag_servico'] = $row['vpag_servico'];
-                        }
                       }
+                    }
 
-                      if(isset($_POST['lancarOrcamento'])) {
-                              
-                        if($_POST['titulo_orcamento']==false){
+                    if(isset($_POST['lancarOrcamento'])) {      
+                      if($_POST['titulo_orcamento']==false){
                           $_SESSION['titulo_orcamento'] = $_POST['titulo_orcamento'];
-                          $_SESSION['vcusto_orcamento'] = $_POST['vcusto_orcamento'];
+                          $_SESSION['vtotal_orcamento'] = $_POST['vtotal_orcamento'];
                           echo "<script>window.alert('Descreva o Orcamento!');</script>"; 
-                        }elseif($_POST['vcusto_orcamento']==false){
+                      }elseif($_POST['vtotal_orcamento']==false){
                           $_SESSION['titulo_orcamento'] = $_POST['titulo_orcamento'];
-                          $_SESSION['vcusto_orcamento'] = $_POST['vcusto_orcamento'];
+                          $_SESSION['vtotal_orcamento'] = $_POST['vtotal_orcamento'];
                           echo "<script>window.alert('Insira o Valor do Orcamento!');</script>";  
-                        }else{
+                      }else{  
                           $_SESSION['titulo_orcamento'] = false;
-                          $_SESSION['vcusto_orcamento'] = false;
-                          $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente, cd_servico, titulo_orcamento, vcusto_orcamento, status_orcamento) VALUES(
+                          $_SESSION['vtotal_orcamento'] = false;
+                          $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente, cd_servico, qtd_orcamento, titulo_orcamento, vtotal_orcamento, tipo_orcamento, status_orcamento) VALUES(
                             '".$_SESSION['os_cliente']."',
                             '".$_SESSION['os_servico']."',
+                            '1',
                             '".$_POST['titulo_orcamento']."',
-                            '".$_POST['vcusto_orcamento']."',
+                            '".$_POST['vtotal_orcamento']."',
+                            'AVULSO',
                             '0')
                           ";
-                          mysqli_query($conn, $insertOrcamento);
-                          $_SESSION['vtotal_orcamento'] = $_SESSION['vtotal_orcamento'] + $_POST['vcusto_orcamento'];
+                          if(mysqli_query($conn, $insertOrcamento)){
+                            echo "<script>window.alert('Sucesso orcamento!');</script>";
+                          }
+                          
+                          $_SESSION['vtotal_orcamento'] = $_SESSION['vtotal_orcamento'] + $_POST['vtotal_orcamento'];
+                          //$_SESSION['vtotal_orcamento'] = $_SESSION['vtotal_orcamento'] + $_SESSION['orcamento_servico'];
+
+                          $updateOrcamentoServico = "UPDATE tb_servico SET
+                            orcamento_servico = ".$_SESSION['vtotal_orcamento']."
+                            WHERE cd_servico = ".$_SESSION['os_servico']."";
+                          if(mysqli_query($conn, $updateOrcamentoServico)){
+                            echo "<script>window.alert('Sucesso Serviço!');</script>";
+                          }
+                      }            
+                    }
+
+                    if(isset($_POST['lancarOrcamentoCadastro'])) {      
+                      if($_POST['produto_servico']==false){
+                        $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];
+                        $_SESSION['produto_servico_id'] = $_POST['produto_servico_id2'];
+                        $_SESSION['produto_servico_preco'] = $_POST['produto_servico_preco'];
+                        $_SESSION['produto_servico_qtd'] = $_POST['produto_servico_qtd'];
+                        $_SESSION['produto_servico_vtotal'] = $_POST['produto_servico_vtotal'];
+                        
+                        echo "<script>window.alert('Selecione um produto!');</script>"; 
+                      }elseif($_POST['produto_servico_qtd']<1){
+                        $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];
+                        $_SESSION['produto_servico_id'] = $_POST['produto_servico_id2'];
+                        $_SESSION['produto_servico_preco'] = $_POST['produto_servico_preco'];
+                        $_SESSION['produto_servico_qtd'] = $_POST['produto_servico_qtd'];
+                        $_SESSION['produto_servico_vtotal'] = $_POST['produto_servico_vtotal'];
+                        echo "<script>window.alert('A quantidade não pode ser menor que 1!');</script>";  
+                      }else{
+                        if($_POST['produto_servico_estoque'] >= $_POST['produto_servico_qtd']){
+                          $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente, cd_servico, titulo_orcamento, cd_produto, vprod_orcamento, qtd_orcamento, vtotal_orcamento, tipo_orcamento, status_orcamento) VALUES(
+                            '".$_SESSION['os_cliente']."',
+                            '".$_SESSION['os_servico']."',
+                            '".$_POST['produto_servico_nome']."',
+                            '".$_POST['produto_servico_id2']."',
+                            '".$_POST['produto_servico_preco']."',
+                            '".$_POST['produto_servico_qtd']."',
+                            '".$_POST['produto_servico_vtotal']."',
+                            'CADASTRADO',
+                            '0')
+                          ";
+                          //mysqli_query($conn, $insertOrcamento);
+  
+                          if (mysqli_query($conn, $insertOrcamento)) {
+                            // Obtém o último ID inserido
+                            $cd_orcamento = mysqli_insert_id($conn);
+                            
+  
+                            $insertReserva = "INSERT INTO tb_reserva(cd_cliente, cd_servico, cd_orcamento, cd_prod_serv, qtd_reservado, dt_reservado) VALUES(
+                              '".$_SESSION['os_cliente']."',
+                              '".$_SESSION['os_servico']."',
+                              ".$cd_orcamento.",
+                              '".$_POST['produto_servico_id2']."',
+                              '".$_POST['produto_servico_qtd']."',
+                              '".date('Y-m-d H:i')."')
+                            ";
+                            mysqli_query($conn, $insertReserva);
+                          } else {
+                            echo "Erro ao inserir os dados: " . mysqli_error($conn);
+                          }
+  
+                          $_SESSION['vtotal_orcamento'] = $_SESSION['vtotal_orcamento'] + $_POST['produto_servico_vtotal'];
                               
                           $updateOrcamentoServico = "UPDATE tb_servico SET
                             orcamento_servico = ".$_SESSION['vtotal_orcamento']."
                             WHERE cd_servico = ".$_SESSION['os_servico']."";
-                            mysqli_query($conn, $updateOrcamentoServico);
-                          }            
+                          mysqli_query($conn, $updateOrcamentoServico);
+  
+                          $_SESSION['produto_servico'] = false;
+                          $_SESSION['produto_servico_preco'] = false;
+                          $_SESSION['produto_servico_qtd'] = false;
+                          $_SESSION['produto_servico_vtotal'] = false;
+                        }else{
+                          echo "<script>window.alert('A quantidade não pode ser maior que o estoque disponível (".$_POST['produto_servico_estoque'].")!');</script>";
                         }
+                        
+                      }            
+                    }
+                        
+                    if(isset($_SESSION['os_servico'])){
+                      if($_SESSION['os_servico'] > 0){
+                        $query = "SELECT * FROM tb_servico WHERE cd_servico = '".$_SESSION['os_servico']."'";
+                        $result = mysqli_query($conn, $query);
+                        $row = mysqli_fetch_assoc($result);
+                        // Exibe as informações do usuário no formulário
+                        if($row) {
+                          $_SESSION['os_servico'] = $row['cd_servico'];
+                          $_SESSION['os_cliente'] = $row['cd_cliente'];  
+                          $_SESSION['titulo_servico'] = $row['titulo_servico'];
+                          $_SESSION['obs_servico'] = $row['obs_servico'];
+                          $_SESSION['prioridade_servico'] = $row['prioridade_servico'];
+                          $_SESSION['entrada_servico'] = $row['entrada_servico'];
+                          $_SESSION['prazo_servico'] = $row['prazo_servico'];
+                          $_SESSION['orcamento_servico'] = $row['orcamento_servico'];
+                          $_SESSION['vpag_servico'] = $row['vpag_servico'];
+                        }
+                        echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
+                        echo '<script>document.getElementById("cadOs").style.display = "none";</script>';
+                        echo '<form method="POST">';
+                        echo '<div class="card-body" id="abrirOS2"><!--FORMULÁRIO PARA CRIAR OS-->';
+                        echo '<div class="kt-portlet__body">';
+                        echo '<div class="row">';
+                        echo '<div class="col-12 col-md-12">';
+                        echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                        echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+                        echo '<script>document.getElementById("abrirOS").style.display = "block";</script>';
+                        //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
+                        echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" style="display:none;">';
+                        echo '<input value="'.$_SESSION['os_cliente'].'" name="showcd_cliente" type="text" id="showcd_cliente" class="aspNetDisabled form-control form-control-sm" style="display: none;"/>';
+                        echo '<label for="showpnome_cliente">Nome</label>';
+                        echo '<input value="'.$_SESSION['pnome_cliente'].'" name="editpnome_cliente" type="text" id="showpnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
+                        echo '<label for="showsnome_cliente">sobrenome</label>';
+                        echo '<input value="'.$_SESSION['snome_cliente'].'" name="showsnome_cliente" type="text" id="showsnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
+                        echo '<label for="showtel_cliente">Telefone</label>';
+                        echo '<input value="'.$_SESSION['tel_cliente'].'" name="showtel_cliente" type="tel"  id="showtel_cliente" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                        echo '</div>';
+                        echo '<h3 class="kt-portlet__head-title">Dados do serviço</h3>';
+                        echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead">';
+                        echo '<label for="editos_servico">OS</label>';
+                        echo '<input value="'.$_SESSION['os_servico'].'" type="tel" name="editos_servico" id="editos_servico" class="aspNetDisabled form-control form-control-sm" readonly>';
+                        echo '<label for="editobs_servico">Descrição Geral</label>';
+                        echo '<input value="'.$_SESSION['obs_servico'].'" type="text" name="editobs_servico" maxlength="999" id="editobs_servico"  class="aspNetDisabled form-control form-control-sm" placeholder="Caracteristica geral do serviço">';                              
+                        echo '<label for="editprioridade_servico">Prioridade</label>';
+                        echo '<select name="editprioridade_servico" id="editprioridade_servico"  class="aspNetDisabled form-control form-control-sm">';                              
+                        if($_SESSION['prioridade_servico'] == "U"){
+                          echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >Urgente</option>';
+                        }
+                        if($_SESSION['prioridade_servico'] == "A"){
+                          echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >Alta</option>';
+                        }
+                        if($_SESSION['prioridade_servico'] == "M"){
+                          echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >Média</option>';
+                        }
+                        if($_SESSION['prioridade_servico'] == "B"){
+                          echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >Baixa</option>';
+                        }
+                        echo '<option value="U" >Urgente</option>';
+                        echo '<option value="A" >Alta</option>';
+                        echo '<option value="M" >Média</option>';
+                        echo '<option value="B" >Baixa</option>';
+                        echo '</select>';
+                        echo '<label>Entrada</label>';
+                        echo '<input value="'.$_SESSION['entrada_servico'].'" type="datetime-local" class="aspNetDisabled form-control form-control-sm" style="display: block; " readonly/>';
+                        echo '<label for="editprazo_servico">Prazo</label>';
+                        echo '<input value="'.$_SESSION['prazo_servico'].'" name="editprazo_servico" type="datetime-local" id="editprazo_servico" class="aspNetDisabled form-control form-control-sm"/>';
+                        echo '<td><button type="submit" name="edit_os" id="edit_os" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Salvar</button></td>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        ////echo '</div>';
+                        echo '<style>';
+                        echo '.horizontal-form {';
+                        echo 'display: table;';
+                        echo 'width: 100%;';
+                        echo '}';
+                        echo '.form-group {';
+                        echo 'display: table-row;';
+                        echo '}';
+                        echo '.form-group label,';
+                        echo '.form-group input {';
+                        echo 'display: table-cell;';
+                        echo 'padding: 5px;';
+                        echo '}';
+                        echo '</style>';
                         ?>
-                        <?php
-                          if(isset($_SESSION['os_servico'])){
-                            if($_SESSION['os_servico'] > 0){
-                              echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
-                              echo '<script>document.getElementById("cadOs").style.display = "none";</script>';
-                              echo '<form method="POST">';
-                              echo '<div class="card-body" id="abrirOS2"><!--FORMULÁRIO PARA CRIAR OS-->';
-                              echo '<div class="kt-portlet__body">';
-                              echo '<div class="row">';
-                              echo '<div class="col-12 col-md-12">';
-                              echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
-                              
-                              echo '<script>document.getElementById("consulta").style.display = "none";</script>';
-                              echo '<script>document.getElementById("abrirOS").style.display = "block";</script>';
-                              //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
-                              echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" style="display:none;">';
-                              echo '<input value="'.$_SESSION['os_cliente'].'" name="showcd_cliente" type="text" id="showcd_cliente" class="aspNetDisabled form-control form-control-sm" style="display: none;"/>';
-                              echo '<label for="showpnome_cliente">Nome</label>';
-                              echo '<input value="'.$_SESSION['pnome_cliente'].'" name="editpnome_cliente" type="text" id="showpnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
-                              echo '<label for="showsnome_cliente">sobrenome</label>';
-                              echo '<input value="'.$_SESSION['snome_cliente'].'" name="showsnome_cliente" type="text" id="showsnome_cliente" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
-                              echo '<label for="showtel_cliente">Telefone</label>';
-                              echo '<input value="'.$_SESSION['tel_cliente'].'" name="showtel_cliente" type="tel"  id="showtel_cliente" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
-                              echo '</div>';
-                              
-                              echo '<h3 class="kt-portlet__head-title">Dados do serviço</h3>';
-                              echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead">';
-                              echo '<label for="editos_servico">OS</label>';
-                              echo '<input value="'.$_SESSION['os_servico'].'" type="tel" name="editos_servico" id="editos_servico" class="aspNetDisabled form-control form-control-sm" readonly>';
-                              echo '<label for="editobs_servico">Descrição Geral</label>';
-                              echo '<input value="'.$_SESSION['obs_servico'].'" type="text" name="editobs_servico" maxlength="999" id="editobs_servico"  class="aspNetDisabled form-control form-control-sm" placeholder="Caracteristica geral do serviço">';
-                              
-                              
-                              echo '<label for="editprioridade_servico">Prioridade</label>';
-                              echo '<select name="editprioridade_servico" id="editprioridade_servico"  class="aspNetDisabled form-control form-control-sm">';
-                              
-                              if($_SESSION['prioridade_servico'] == "U"){
-                                echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >Urgente</option>';
-                              }
-                              if($_SESSION['prioridade_servico'] == "A"){
-                                echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >Alta</option>';
-                              }
-                              if($_SESSION['prioridade_servico'] == "M"){
-                                echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >Média</option>';
-                              }
-                              if($_SESSION['prioridade_servico'] == "B"){
-                                echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >Baixa</option>';
-                              }
-                              echo '<option value="U" >Urgente</option>';
-                              echo '<option value="A" >Alta</option>';
-                              echo '<option value="M" >Média</option>';
-                              echo '<option value="B" >Baixa</option>';
-                              echo '</select>';
-                              echo '<label>Entrada</label>';
-                              echo '<input value="'.$_SESSION['entrada_servico'].'" type="datetime-local" class="aspNetDisabled form-control form-control-sm" style="display: block; " readonly/>';
-                              echo '<label for="editprazo_servico">Prazo</label>';
-                              echo '<input value="'.$_SESSION['prazo_servico'].'" name="editprazo_servico" type="datetime-local" id="editprazo_servico" class="aspNetDisabled form-control form-control-sm"/>';
-                              echo '<td><button type="submit" name="edit_os" id="edit_os" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Salvar</button></td>';
-                              
-                              echo '</div>';
-                              
-                              echo '</div>';
-                              echo '</div>';
-                              echo '</div>';
-                              echo '</div>';
-                              echo '</div>';
-                              ////echo '</div>';
-                              
-                              echo '<style>';
-                              echo '.horizontal-form {';
-                              echo 'display: table;';
-                              echo 'width: 100%;';
-                              echo '}';
-                              echo '.form-group {';
-                              echo 'display: table-row;';
-                              echo '}';
-                              echo '.form-group label,';
-                              echo '.form-group input {';
-                              echo 'display: table-cell;';
-                              echo 'padding: 5px;';
-                              echo '}';
-                              echo '</style>';
-                              
-                              echo '<h3 class="kt-portlet__head-title">Adicionar Serviço</h3>';
-                              echo '<script>document.getElementById("listaOrcamento").style.display = "block";</script>';
-                              echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" style="background-color: #C6C6C6;">';
-                              echo '<div class="horizontal-form">';
-                              echo '<div class="form-group">';
-                              echo '<label for="titulo_orcamento"></label>';
-                              echo '<input type="text" name="titulo_orcamento" id="titulo_orcamento" class="aspNetDisabled form-control form-control-sm" placeholder="Título do serviço">';
-                              echo '<label for="vcusto_orcamento"></label>';
-                              echo '<input type="tel" id="vcusto_orcamento" name="vcusto_orcamento" class="aspNetDisabled form-control form-control-sm" placeholder="Quanto custa este serviço?">';
-                              echo '<label for="lancarOrcamento"></label>';
-                              echo '<button type="submit" name="lancarOrcamento" id="lancarOrcamento" class="btn btn-success">Enviar</button>';
-                              echo '</div>';
-                              echo '</div>';
-                              echo '</div>';
-                              
-                              //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
-                              //echo '<button type="submit" name="imprimir_os" class="btn btn-success">Imprimir OS</button>';
-                              //echo '<button type="submit" name="via_cliente" class="btn btn-success">Via do Cliente (Impressão)</button>';
-                              //echo '<button type="button" class="btn btn-success" onclick="enviarMensagemWhatsApp()">Via do Cliente (Whatsapp)</button>';
-                              
-                              echo '</form>';
-                              //echo '</div>';
+                          <script>
+                            function showSection(sectionId, buttonId) {
+                              // Esconde todas as seções
+                              document.getElementById('ProdutosServicos').style.display = 'none';
+                              document.getElementById('ProdutosServicosCadastro').style.display = 'none';
+
+                              // Remove classes de ambos os botões
+                              document.getElementById('ProdutosServicosBtn').style.display = 'block';
+                              document.getElementById('ProdutosServicosCadastroBtn').style.display = 'block';
+
+                              // Mostra a seção selecionada
+                              document.getElementById(sectionId).style.display = 'block';
+
+                              // Adiciona a classe ao botão correspondente
+                              document.getElementById(buttonId).style.display = 'none';
                             }
+                          </script>
+                        <?php
+                        echo '<button type="button" id="ProdutosServicosBtn" onclick="showSection(\'ProdutosServicos\', \'ProdutosServicosBtn\')" class="btn btn-outline-success" style="text-align:left; display:none;">Mudar para: Serviço Avulso</button>';
+                        echo '<button type="button" id="ProdutosServicosCadastroBtn" onclick="showSection(\'ProdutosServicosCadastro\', \'ProdutosServicosCadastroBtn\')" class="btn btn-outline-success" style="text-align:left;">Mudar para: Produtos/Serviços</button>';
+                        echo '<script>document.getElementById("listaOrcamento").style.display = "block";</script>';
+                        echo '<div id="ProdutosServicos" class="typeahead" style="background-color: #C6C6C6; display: block;">';
+                        echo '<h3 class="kt-portlet__head-title">Serviço avulso</h3>';
+                        echo '<div class="horizontal-form">';
+                        echo '<div class="form-group">';
+                        echo '<label for="titulo_orcamento"></label>';
+                        echo '<input type="text" name="titulo_orcamento" id="titulo_orcamento" class="aspNetDisabled form-control form-control-sm" placeholder="Título do serviço">';
+                        echo '<label for="vtotal_orcamento"></label>';
+                        echo '<input type="tel" id="vtotal_orcamento" name="vtotal_orcamento" class="aspNetDisabled form-control form-control-sm" placeholder="Quanto custa este serviço?">';
+                        echo '<label for="lancarOrcamento"></label>';
+                        echo '<button type="submit" name="lancarOrcamento" id="lancarOrcamento" class="btn btn-success">Enviar</button>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>'; 
+                        echo '<div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: none;">';
+                        echo '<h3 class="kt-portlet__head-title">Produtos/Serviços</h3>';
+                        echo '<div class="horizontal-form">';
+                        echo '<div class="form-group">';
+                        //echo '<label for="titulo_orcamento"></label>';
+                        //echo '<input type="text" name="titulo_orcamento" id="titulo_orcamento" class="aspNetDisabled form-control form-control-sm" placeholder="Título do serviço">';
+                        //$sql_prod_serv = "SELECT * FROM tb_prod_serv WHERE estoque_prod_serv > 0 AND status_prod_serv = '1' ORDER BY cd_prod_serv;";
+										    $sql_prod_serv = "SELECT tps.*, 
+                          COALESCE(SUM(tr.qtd_reservado), 0) AS total_reservado
+                        FROM tb_prod_serv tps
+                        LEFT JOIN tb_reserva tr ON tps.cd_prod_serv = tr.cd_prod_serv
+                          AND tr.qtd_efetivado IS NULL
+                        WHERE tps.estoque_prod_serv > 0 
+                          AND tps.status_prod_serv = '1'
+                        GROUP BY tps.cd_prod_serv
+                        ORDER BY tps.cd_prod_serv;";
+
+                        $resulta_prod_serv = $conn->query($sql_prod_serv);
+											  if ($resulta_prod_serv->num_rows > 0){
+												  echo '<div class="col-lg-12 col-sm-12">';
+                          echo '<div class="input-group">';
+                          echo '<div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">';
+                          echo '<div class="input-group-prepend">';
+                          echo '<span id="produto_servico_id1" name="produto_servico_id1" class="input-group-text btn-outline-info">**</span>';
+                          echo '<input type="tel" id="produto_servico_id2" name="produto_servico_id2" class="form-control form-control-sm" style="display:none" readonly>';
+                          echo '<input type="text" id="produto_servico_nome" name="produto_servico_nome" class="form-control form-control-sm" style="display:none" readonly>';
+                          echo '<select name="produto_servico" id="produto_servico" class="form-control" onchange="updatePriceAndCode()">';
+                          echo '<option value=""></option>';
+                          while ($row_prod_serv = $resulta_prod_serv->fetch_assoc()) {
+                            echo '<option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">' . $row_prod_serv['titulo_prod_serv'] . '</option>';
                           }
-                          ?>
-                    <?php
-                  if(isset($_POST['limparOS'])){
-                    //echo "<script>window.alert('Mostrar botão de limpar OS!');</script>";
-                    ////session_start();
-                    $_SESSION['os_cliente'] = 0;
-                    $_SESSION['os_servico'] = 0;
-                    $_SESSION['vtotal_orcamento'] = 0;
-                    $_SESSION['vpag_servico'] = 0;
-                    
-                    echo '<script>document.getElementById("consulta").style.display = "block";</script>';//botoes
-                    echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
-                    
-                    
-                }
-                ?>
-
-
-                <?php
-
-
-
-                  if(isset($_POST['lancar1'])) { //CADASTRAR SERVICO E CHAMAR SERVICO CADASTRADO CADASTRADOS
-                    //include("../../partials/load.html");
-                    // Atualiza as informações do usuário no banco de dados
-                    $insert_servico = "INSERT INTO tb_servico(cd_cliente, titulo_servico, obs_servico, prioridade_servico, entrada_servico, prazo_servico, orcamento_servico, vpag_servico, status_servico) VALUES(
-                      '".$_POST['os_cliente']."',
-                      '".$_POST['titulo_servico']."',
-                      '".$_POST['obs_servico']."',
-                      '".$_POST['prioridade_servico']."',
-                      '".$_POST['data_hora_ponto']."',
-                      '".$_POST['prazo_servico']."',
-                      '".$_POST['orcamento_servico']."',
-                      '".$_POST['vpag_servico']."',
-                      '0')
-                    ";
-                    mysqli_query($conn, $insert_servico);
-                    echo "<script>window.alert('Ordem de Serviço criada com sucesso!');</script>";
-                    //echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
-                    $select_servico = "SELECT * FROM tb_servico WHERE cd_cliente = '".$_POST['os_cliente']."' AND status_servico = 0 ORDER BY cd_servico DESC LIMIT 1";
-                    $result = mysqli_query($conn, $select_servico);
-                    $row = mysqli_fetch_assoc($result);
-                    // Exibe as informações do usuário no formulário
-                    if($row) {
-                      echo "<script>window.alert('OS: ".$row['cd_servico']." Prioridade: ".$row['prioridade_servico'].", cadastrado com sucesso!');</script>";
-                      
-                      $_SESSION['os_servico'] = $row['cd_servico'];
-                      
-                      $_SESSION['titulo_servico'] = $row['titulo_servico'];
-                      $_SESSION['obs_cliente'] = $row['obs_cliente'];
-                      $_SESSION['prioridade_cliente'] = $row['prioridade_cliente'];
-                      $_SESSION['prazo_servico'] = $row['prazo_servico'];
-                      $_SESSION['orcamento_servico'] = $row['orcamento_servico'];
-                      $_SESSION['vpag_servico'] = $row['vpag_servico'];
-
-                      $query3 = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
-                        '".$row['cd_servico']."',
-                        'A',
-                        '".$row['obs_servico']."',
-                        '".$_SESSION['cd_colab']."',
-                        '".$_POST['data_hora_ponto']."',
-                        '".$_POST['data_hora_ponto']."')
-                      ";
-                      mysqli_query($conn, $query3);
-                      echo "<script>window.alert('Atividade Lançada!');</script>";           
-
-                      $_SESSION['tel_cliente'] = $row['tel_cliente'];
-                      header("Location: ".$_SERVER['REQUEST_URI']); // Redireciona para a mesma página
-                       
+                          echo '</select>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '<div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">';
+                          echo '<div class="input-group-prepend">';
+                          echo '<span class="input-group-text btn-outline-info">Valor</span>';
+                          echo '<input type="tel" id="produto_servico_preco" name="produto_servico_preco" class="form-control form-control-sm" readonly>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '<div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">';
+                          echo '<div class="input-group-prepend">';
+                          echo '<span class="input-group-text btn-outline-info">QTD</span>';
+                          echo '<input type="tel" id="produto_servico_estoque" name="produto_servico_estoque" class="form-control form-control-sm" style="display:block;" readonly>';
+                          echo '<input type="tel" id="produto_servico_reserva" name="produto_servico_reserva" class="form-control form-control-sm" style="display:block" readonly>';
+                          
+                          echo '<input type="tel" id="produto_servico_qtd" name="produto_servico_qtd" value="1" class="form-control form-control-sm" oninput="tel(this), calculateTotal()">';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '<div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">';
+                          echo '<div class="input-group-prepend">';
+                          echo '<span class="input-group-text btn-outline-info">Total</span>';
+                          echo '<input type="tel" id="produto_servico_vtotal" name="produto_servico_vtotal" value="0" class="form-control form-control-sm" readonly>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '<label for="lancarOrcamentoCadastro"></label>';
+                          echo '<button type="submit" name="lancarOrcamentoCadastro" id="lancarOrcamentoCadastro" class="btn btn-success">Enviar</button>';                              
+											  }else{
+                          echo '<div class="col-lg-12 col-sm-12">';
+                          echo '<div class="input-group">';  
+                          echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                          echo '<div class="input-group-prepend">';
+                          echo '<a href="'.$_SESSION['dominio'].'pages/cad_geral/cadastro_produto.php" class="btn btn-lg btn-block btn-success">Ops, alimente seu estoque para proseguir - Clique Aqui</a>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</div>';
+                          echo '</div>';
+                        }
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
+                        //echo '<button type="submit" name="imprimir_os" class="btn btn-success">Imprimir OS</button>';
+                        //echo '<button type="submit" name="via_cliente" class="btn btn-success">Via do Cliente (Impressão)</button>';
+                        //echo '<button type="button" class="btn btn-success" onclick="enviarMensagemWhatsApp()">Via do Cliente (Whatsapp)</button>';
+                        echo '</form>';
+                        //echo '</div>';
+                      }
                     }
                     
-                  }
+                    if(isset($_POST['limparOS'])){
+                      //echo "<script>window.alert('Mostrar botão de limpar OS!');</script>";
+                      ////session_start();
+                      $_SESSION['os_cliente'] = 0;
+                      $_SESSION['os_servico'] = 0;
+                      $_SESSION['vtotal_orcamento'] = 0;
+                      $_SESSION['vpag_servico'] = 0;
+                      echo '<script>document.getElementById("consulta").style.display = "block";</script>';//botoes
+                      echo '<script>document.getElementById("botoes").style.display = "none";</script>';//    
+                    }
+                    
+                    if(isset($_POST['lancar1'])) { //CADASTRAR SERVICO E CHAMAR SERVICO CADASTRADO CADASTRADOS
+                      //include("../../partials/load.html");
+                      // Atualiza as informações do usuário no banco de dados
+                      $insert_servico = "INSERT INTO tb_servico(cd_cliente, titulo_servico, obs_servico, prioridade_servico, entrada_servico, prazo_servico, orcamento_servico, vpag_servico, status_servico) VALUES(
+                        '".$_POST['os_cliente']."',
+                        '".$_POST['titulo_servico']."',
+                        '".$_POST['obs_servico']."',
+                        '".$_POST['prioridade_servico']."',
+                        '".$_POST['data_hora_ponto']."',
+                        '".$_POST['prazo_servico']."',
+                        '".$_POST['orcamento_servico']."',
+                        '".$_POST['vpag_servico']."',
+                        '0')
+                      ";
+                      mysqli_query($conn, $insert_servico);
+                      echo "<script>window.alert('Ordem de Serviço criada com sucesso!');</script>";
+                      //echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
+                      $select_servico = "SELECT * FROM tb_servico WHERE cd_cliente = '".$_POST['os_cliente']."' AND status_servico = 0 ORDER BY cd_servico DESC LIMIT 1";
+                      $result = mysqli_query($conn, $select_servico);
+                      $row = mysqli_fetch_assoc($result);
+                      // Exibe as informações do usuário no formulário
+                      if($row) {
+                        echo "<script>window.alert('OS: ".$row['cd_servico']." Prioridade: ".$row['prioridade_servico'].", cadastrado com sucesso!');</script>";
+                        $_SESSION['os_servico'] = $row['cd_servico'];
+                        $_SESSION['titulo_servico'] = $row['titulo_servico'];
+                        $_SESSION['obs_cliente'] = $row['obs_cliente'];
+                        $_SESSION['prioridade_cliente'] = $row['prioridade_cliente'];
+                        $_SESSION['prazo_servico'] = $row['prazo_servico'];
+                        $_SESSION['orcamento_servico'] = $row['orcamento_servico'];
+                        $_SESSION['vpag_servico'] = $row['vpag_servico'];
+                        $query3 = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
+                          '".$row['cd_servico']."',
+                          'A',
+                          '".$row['obs_servico']."',
+                          '".$_SESSION['cd_colab']."',
+                          '".$_POST['data_hora_ponto']."',
+                          '".$_POST['data_hora_ponto']."')
+                        ";
+                        mysqli_query($conn, $query3);
+                        echo "<script>window.alert('Atividade Lançada!');</script>";           
+                        $_SESSION['tel_cliente'] = $row['tel_cliente'];
+                        header("Location: ".$_SERVER['REQUEST_URI']); // Redireciona para a mesma página
+                      }  
+                    }
                   
                   
-                  if(isset($_POST['pagar_servico'])){
-                    $insert_pagar_servico = "INSERT INTO tb_movimento_financeiro(tipo_movimento, cd_caixa_movimento, cd_cliente_movimento, cd_colab_movimento, cd_os_movimento, fpag_movimento, valor_movimento, data_movimento, obs_movimento) VALUES(
+                    if(isset($_POST['pagar_servico'])){
+                      $insert_pagar_servico = "INSERT INTO tb_movimento_financeiro(tipo_movimento, cd_caixa_movimento, cd_cliente_movimento, cd_colab_movimento, cd_os_movimento, fpag_movimento, valor_movimento, data_movimento, obs_movimento) VALUES(
                         1,
                         '".$_SESSION['cd_caixa']."',
                         '".$_SESSION['os_cliente']."',
@@ -893,12 +1103,12 @@
                         '".date('Y-m-d H:i', strtotime('+1 hour'))."',
                         'PAGAMENTO DA OS: ".$_SESSION['os_servico']."'
                          )
-                     ";
-                    mysqli_query($conn, $insert_pagar_servico);
-                    //echo "<script>window.alert('Movimento Financeiro Lançado!');</script>";
+                      ";
+                      mysqli_query($conn, $insert_pagar_servico);
+                      //echo "<script>window.alert('Movimento Financeiro Lançado!');</script>";
                     
         
-                    $fechar_caixa = "UPDATE tb_servico SET
+                      $fechar_caixa = "UPDATE tb_servico SET
                         vpag_servico = '".($_POST['vpag_movimento'] + $_SESSION['vpag_servico'])."'
                         WHERE cd_servico = ".$_SESSION['os_servico']."";
                         mysqli_query($conn, $fechar_caixa);
@@ -914,65 +1124,159 @@
                         //$_SESSION['cd_servico'] = 0;
                         //$_SESSION['cd_cliente'] = 0;
                         //echo '<script>location.href="../../index.php";</script>';
-                  }
-                  if(isset($_POST['lancarPagamento'])) {
-                    $updateVpagServico = "UPDATE tb_servico SET
-                    vpag_servico = ".$_POST['btnvpag_orcamento']."
-                    WHERE cd_servico = ".$_SESSION['os_servico']."";
-                    mysqli_query($conn, $updateVpagServico);
-                    $_SESSION['vpag_servico'] = $_POST['btnvpag_orcamento'];
-                    
-                    echo  '<script>document.getElementById("btnvpag_orcamento").value = "'.$_POST['btnvpag_orcamento'].'";</script>';
-                  }
+                      }
+                      if(isset($_POST['lancarPagamento'])) {
+                        $updateVpagServico = "UPDATE tb_servico SET
+                          vpag_servico = ".$_POST['btnvpag_orcamento']."
+                          WHERE cd_servico = ".$_SESSION['os_servico']."";
+                        mysqli_query($conn, $updateVpagServico);
+                        $_SESSION['vpag_servico'] = $_POST['btnvpag_orcamento'];                
+                        echo  '<script>document.getElementById("btnvpag_orcamento").value = "'.$_POST['btnvpag_orcamento'].'";</script>';
+                      }
+                      if(isset($_SESSION['os_servico'])){
+                        if($_SESSION['os_servico'] > 0){
+                        //$_SESSION['vpag_servico'] = 0;
+                        //$select_orcamento = "SELECT * FROM tb_orcamento_servico toc, tb_reserva tr WHERE tos.cd_servico = '".$_SESSION['os_servico']."' ORDER BY tos.cd_orcamento ASC";
+                        $select_orcamento = "
+                          SELECT tr.*, tos.*
+                          FROM tb_orcamento_servico tos
+                          LEFT JOIN tb_reserva tr ON tr.cd_orcamento = tos.cd_orcamento
+                          WHERE tos.cd_servico = '" . $_SESSION['os_servico'] . "'
+                          ORDER BY tos.cd_orcamento ASC
+                        ";
+                        $result_orcamento = mysqli_query($conn, $select_orcamento);
+                        //$row_atividade = mysqli_fetch_assoc($result_atividade);
+                        // Exibe as informações do usuário no formulário
+                        echo '<style>';
+                        echo '.horizontal-form {';
+                        echo 'display: table;';
+                        echo 'width: 100%;';
+                        echo '}';
+                        echo '.form-group {';
+                        echo 'display: table-row;';
+                        echo '}';
+                        echo '.form-group label,';
+                        echo '.form-group input {';
+                        echo 'display: table-cell;';
+                        echo 'padding: 5px;';
+                        echo '}';
+                        echo '</style>';
+                        echo '';
+                        //echo '<h3 class="kt-portlet__head-title">Serviços adicionados</h3>';
+                        //$_SESSION['vtotal_orcamento'] = 0;
+                        $count = 0;
+                        $vtotal = 0;
+                        while($row_orcamento = $result_orcamento->fetch_assoc()) {
+                          echo '<div name="listaOrcamento" id="listaOrcamento" class="typeahead">';
+                          
+                          echo '<div class="horizontal-form">';
+                          echo '<div class="form-group">';
+                          $count = $count + 1;
+                          if($row_orcamento['tipo_orcamento'] == 'AVULSO'){
+                            echo '<form method="POST">';
+                            echo '<div class="col-lg-12 col-sm-12">';
+                            echo '<div class="input-group">';
+                            echo '<div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">';
+                            echo '<div class="input-group-prepend">';
+                            echo '<span class="input-group-text btn-outline-info">'.$count.'</span>';
+                            echo '<input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:block;">';
+                            echo '<input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" style="display:none">';
+                            echo '<input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" readonly>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '<div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">';
+                            echo '<div class="input-group-prepend">';
+                            echo '<span class="input-group-text btn-outline-info">SubTotal</span>';
+                            echo '<input value="'.$row_orcamento['vtotal_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
+                            echo '<input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
+                            echo '</div>';
+                            echo '</div>';
+                            //echo '<input type="submit" value="X" onclick="location.reload()" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</form>';
+                            $vtotal = $vtotal + $row_orcamento['vtotal_orcamento'];
+                            $_SESSION['vtotal_orcamento'] = $vtotal;
+                          }else if($row_orcamento['tipo_orcamento'] == 'CADASTRADO'){
+                            echo '<form method="POST">';
+                            echo '<div class="col-lg-12 col-sm-12">';
+                            echo '<div class="input-group">';
+                            echo '<div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">';
+                            echo '<div class="input-group-prepend">';
+                            echo '<span class="input-group-text btn-outline-info">'.$count.'</span>';
+                            echo '<input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:none;">';
+                            echo '<input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" style="display:none">';
+                            echo '<input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" readonly>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '<div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">';
+                            echo '<div class="input-group-prepend">';
+                            echo '<span class="input-group-text btn-outline-info">Valor</span>';
+                            echo '<input value="'.$row_orcamento['vprod_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '<div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">';
+                            echo '<div class="input-group-prepend">';
+                            echo '<span class="input-group-text btn-outline-info">QTD</span>';
+                            echo '<input value="'.$row_orcamento['qtd_orcamento'].'" name="listaqtd_orcamento" id="listaqtd_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '<div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">';
+                            echo '<div class="input-group-prepend">';
+                            echo '<span class="input-group-text btn-outline-info">SubTotal</span>';
+                            echo '<input value="'.$row_orcamento['vtotal_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
+                            echo '<input value="'.$row_orcamento['qtd_reservado'].'" name="qtd_reservado" id="qtd_reservado" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" style="display:none;" readonly>';
+                            echo '<input value="'.$row_orcamento['qtd_efetivado'].'" name="qtd_efetivado" id="qtd_efetivado" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" style="display:none;" readonly>';
+                            
+                            if($row_orcamento['qtd_reservado'] == $row_orcamento['qtd_efetivado']){
+                              echo '<input type="submit" value="X" name="listaremover_orcamento_efetivado" id="listaremover_orcamento_efetivado" class="btn btn-warning">';
+                            }else{
+                              echo '<input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
+                            }
+                            
+                            echo '</div>';
+                            echo '</div>';
+                            //echo '<label for="listaremover_orcamento"></label>';
+                            //echo '<input type="submit" value="X" onclick="location.reload()" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</form>';
+                            $vtotal = $vtotal + $row_orcamento['vtotal_orcamento'];
+                            $_SESSION['vtotal_orcamento'] = $vtotal;
+                          }
+                          echo '</div>';
+                          echo '</div>';
+                          //echo '</form>';
+                          echo '</div>';
+                          $i = 0;
+                        }
+                        if($count == 0){
+                          $_SESSION['vtotal_orcamento'] = 0;
+                        }
+                      
 
-                  
-
-                
-
-                  if(isset($_SESSION['os_servico'])){
-                    if($_SESSION['os_servico'] > 0){
-                      $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['os_servico']."' ORDER BY cd_orcamento ASC";
-                      $result_orcamento = mysqli_query($conn, $select_orcamento);
-                      //$row_atividade = mysqli_fetch_assoc($result_atividade);
-          
-                      // Exibe as informações do usuário no formulário
-                      echo '<style>';
-                      echo '.horizontal-form {';
-                      echo 'display: table;';
-                      echo 'width: 100%;';
-                      echo '}';
-                      echo '.form-group {';
-                      echo 'display: table-row;';
-                      echo '}';
-                                
-                      echo '.form-group label,';
-                      echo '.form-group input {';
-                      echo 'display: table-cell;';
-                      echo 'padding: 5px;';
-                      echo '}';
-                      echo '</style>';
-                      echo '';
-                      //echo '<h3 class="kt-portlet__head-title">Serviços adicionados</h3>';
-                      $_SESSION['vtotal_orcamento'] = 0;
+                      $select_orcamento_cadastro = "SELECT * FROM tb_orcamento_servico WHERE tipo_orcamento = 'CADASTRO' AND cd_servico = '".$_SESSION['os_servico']."' ORDER BY cd_orcamento ASC";
+                      $result_orcamento_cadastro = mysqli_query($conn, $select_orcamento_cadastro);
+                      //$_SESSION['vtotal_orcamento'] = 0;
                       $count = 0;
-                      $vtotal = 0;
-                      while($row_orcamento = $result_orcamento->fetch_assoc()) {
+                      //$vtotal = 0;
+                      while($row_orcamento_cadastro = $result_orcamento_cadastro->fetch_assoc()) {
                         echo '<div name="listaOrcamento" id="listaOrcamento" class="typeahead">';
                         echo '<form method="POST">';
                         echo '<div class="horizontal-form">';
                         echo '<div class="form-group">';
                         $count = $count + 1;
                         
-                        echo '<input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:none;">';
+                        echo '<input value="'.$row_orcamento_cadastro['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:none;">';
                         echo '<label for="listatitulo_orcamento">'.$count.'</label>';
-                        echo '<input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" readonly>';
+                        echo '<input value="'.$row_orcamento_cadastro['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" readonly>';
                         echo '<label for="listavalor_orcamento">R$: </label>';
-                        echo '<input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
+                        echo '<input value="'.$row_orcamento_cadastro['vtotal_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
                         echo '<label for="listaremover_orcamento"></label>';
                         //echo '<input type="submit" value="X" onclick="location.reload()" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
                         echo '<input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
                         
-                        $vtotal = $vtotal + $row_orcamento['vcusto_orcamento'];
+                        $vtotal = $vtotal + $row_orcamento_cadastro['vtotal_orcamento'];
                         $_SESSION['vtotal_orcamento'] = $vtotal;
                         echo '</div>';
                         echo '</div>';
@@ -985,18 +1289,127 @@
                         if(($_SESSION['vtotal_orcamento'] - $_POST['listavalor_orcamento'])>=$_SESSION['vpag_servico']){
                           //echo "<script>window.alert('OK, pode remover');</script>";
                           $vtotal = $vtotal - $_POST['listavalor_orcamento'];
-                          $removeOrcamento = "DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = ".$_POST['listaid_orcamento']."";
+                          $removeOrcamento = "DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = '".$_POST['listaid_orcamento']."'";
                           mysqli_query($conn, $removeOrcamento);
                           
                           $updateVtotalServico = "UPDATE tb_servico SET
                             orcamento_servico = ".$vtotal."
                             WHERE cd_servico = ".$_SESSION['os_servico']."";
-                            mysqli_query($conn, $updateVtotalServico);
-                            echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';             
+                          mysqli_query($conn, $updateVtotalServico);
+                          if($_POST['listatipo_orcamento'] == 'CADASTRADO'){
+                            $removeReserva = "DELETE FROM `tb_reserva` WHERE `tb_reserva`.`cd_orcamento` = ".$_POST['listaid_orcamento']."";
+                            mysqli_query($conn, $removeReserva);
+                          }
+                          //echo "<script>window.alert('a!');</script>";  
+
+                            echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';          
                         }else{
                           echo "<script>window.alert('Valor pago não pode ser maior que o total do serviço!');</script>";  
                         }
                       }
+
+                      if (isset($_POST['listaremover_orcamento_efetivado']) && !isset($_POST['confirmacao'])) {
+                        // Construir a mensagem com os itens separados por quebra de linha
+                        $mensagem = "O item selecionado retornará ao estoque?";
+    
+                        // Gerar o modal via PHP
+                        echo '
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Confirmação</h5>
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>-->
+                        </div>
+                        <div class="modal-body">
+                        <p>' . htmlspecialchars($mensagem, ENT_QUOTES) . '</p>
+                        </div>
+                        <div class="modal-footer">
+                        <form method="POST" action="">';
+    
+                        // Preservar os dados do POST no modal
+                        foreach ($_POST as $key => $value) {
+                          if (is_array($value)) {
+                            foreach ($value as $subValue) {
+                              echo '<input type="hidden" name="' . htmlspecialchars($key, ENT_QUOTES) . '[]" value="' . htmlspecialchars($subValue, ENT_QUOTES) . '">';
+                            }
+                          } else {
+                            echo '<input type="hidden" name="' . htmlspecialchars($key, ENT_QUOTES) . '" value="' . htmlspecialchars($value, ENT_QUOTES) . '">';
+                          }
+                        }
+                        echo '
+                        <button type="submit" name="confirmacao" value="sim" class="btn btn-success">Sim</button>
+                        <button type="submit" name="confirmacao" value="nao" class="btn btn-danger">Não</button>
+                        <button type="submit" name="confirmacao" value="cancelar" class="btn btn-secondary">Cancelar</button>
+                        </form>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <script>
+                        $(document).ready(function() {
+                        $("#exampleModalCenter").modal("show");
+                        });
+                        </script>';
+                      }
+
+if (isset($_POST['confirmacao'])) {
+
+  if ($_POST['confirmacao'] === 'sim') {
+    $updateEstoque = "
+        UPDATE `tb_prod_serv` 
+        INNER JOIN `tb_orcamento_servico` 
+        ON `tb_prod_serv`.`cd_prod_serv` = `tb_orcamento_servico`.`cd_produto` 
+        SET `tb_prod_serv`.`estoque_prod_serv` = `tb_prod_serv`.`estoque_prod_serv` + `tb_orcamento_servico`.`qtd_orcamento` 
+        WHERE `tb_orcamento_servico`.`cd_orcamento` = " . intval($_POST['listaid_orcamento']);
+        
+    if(mysqli_query($conn, $updateEstoque)){
+      echo '<script>alert("1");</script>';
+
+    }
+
+    $removeReserva = "DELETE FROM `tb_reserva` WHERE `cd_orcamento` = " . intval($_POST['listaid_orcamento']);
+    
+    if(mysqli_query($conn, $removeReserva)){
+      echo '<script>alert("2");</script>';
+
+    }
+    $removeOrcamentoServico = "DELETE FROM `tb_orcamento_servico` WHERE `cd_orcamento` = " . intval($_POST['listaid_orcamento']);
+    if (mysqli_query($conn, $removeOrcamentoServico)) {
+      // Atualizar o estoque
+      
+        
+      
+        echo '<script>alert("Reserva removida e estoque atualizado com sucesso!");</script>';
+        echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';          
+      
+          
+    
+    } else {
+        echo '<script>alert("Erro ao remover a reserva: ' . mysqli_error($conn) . '");</script>';
+    }
+
+  } elseif ($_POST['confirmacao'] === 'nao') {
+      echo '<script>alert("Não retornou ao estoque!");</script>';
+      // Lógica para confirmação "Não"
+  } elseif ($_POST['confirmacao'] === 'cancelar') {
+      echo '<script>alert("Operação cancelada pelo usuário.");</script>';
+      // Lógica para "Cancelar"
+  }
+}
+
+
+                    
+                    
+
+                      //echo '<p>vtotal_orcamento: '.$_SESSION['vtotal_orcamento'].'</p>';
+                      //echo '<p>orcamento_servico: '.$_SESSION['orcamento_servico'].'</p>';
+                      //echo '<p>listavalor_orcamento: '.$_SESSION['listavalor_orcamento'].'</p>';
+                      //echo '<p>vpag_servico: '.$_SESSION['vpag_servico'].'</p>';
+                      //echo '<p>vtotal: '.$vtotal.'</p>';
+
                       echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" style="background-color: #C6C6C6; display:none;">';
                       echo '<div class="horizontal-form">';
                       echo '<div class="form-group">';
@@ -1245,8 +1658,8 @@ faltaPagar = vtotalServico - vpagServico;
                         
   while($row_orcamento_whatsapp = $result_orcamento_whatsapp->fetch_assoc()) {
     $counter = $counter + 1;
-    //echo 'mensagem += count + " - '.$row_orcamento_whatsapp['titulo_orcamento'].' - '.$row_orcamento_whatsapp['vcusto_orcamento'].'"\n";';
-    ?>mensagem += "<?php echo '*'.$counter.'* - '.$row_orcamento_whatsapp['titulo_orcamento'].' - R$:'.$row_orcamento_whatsapp['vcusto_orcamento']; ?>\n";<?php
+    //echo 'mensagem += count + " - '.$row_orcamento_whatsapp['titulo_orcamento'].' - '.$row_orcamento_whatsapp['vtotal_orcamento'].'"\n";';
+    ?>mensagem += "<?php echo '*'.$counter.'* - '.$row_orcamento_whatsapp['titulo_orcamento'].' - R$:'.$row_orcamento_whatsapp['vtotal_orcamento']; ?>\n";<?php
   }
   echo 'mensagem += "\n";';
 

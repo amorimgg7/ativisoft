@@ -136,7 +136,7 @@
           </li>
 
 
-          <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>>
+          <li class="nav-item" <?php echo $_SESSION['md_fornecedor'];?>>
             <a class="nav-link" data-toggle="collapse" href="#vendas" aria-expanded="false" aria-controls="vendas">
               <i class="icon-disc menu-icon" <?php echo $_SESSION['c_sidebar']?>></i>
               <span class="menu-title" <?php echo $_SESSION['c_sidebar']?>>Vendas</span>

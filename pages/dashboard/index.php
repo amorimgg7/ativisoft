@@ -5,13 +5,13 @@
     if(!isset($_SESSION['cd_colab']))
     {
         //header("location: http://amorimgg77.lovestoblog.com/pages/samples/login.php");
-        echo '<script>location.href="'.$_SESSION['dominio'].'../samples/login.php";</script>';    
+        echo '<script>location.href="'.$_SESSION['dominio'].'pages/samples/login.php";</script>'; 
         exit; 
     }
     if($_SESSION['senha_colab'] == "")
     {
       //header("location: http://amorimgg77.lovestoblog.com/pages/samples/lock-screen.php");
-      echo '<script>location.href="'.$_SESSION['dominio'].'../../samples/lock-screen.php";</script>';  
+      echo '<script>location.href="'.$_SESSION['dominio'].'pages/samples/lock-screen.php";</script>';
       exit;
     }
     require_once '../../classes/conn.php';
