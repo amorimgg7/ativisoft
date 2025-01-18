@@ -1179,7 +1179,7 @@
                             echo '<div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">';
                             echo '<div class="input-group-prepend">';
                             echo '<span class="input-group-text btn-outline-info">'.$count.'</span>';
-                            echo '<input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:block;">';
+                            echo '<input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:none;">';
                             echo '<input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" style="display:none">';
                             echo '<input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="aspNetDisabled form-control form-control-sm" readonly>';
                             echo '</div>';
