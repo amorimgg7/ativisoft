@@ -766,7 +766,7 @@
                             '0')
                           ";
                           if(mysqli_query($conn, $insertOrcamento)){
-                            echo "<script>window.alert('Sucesso orcamento!');</script>";
+                            //echo "<script>window.alert('Sucesso orcamento!');</script>";
                           }
                           
                           $_SESSION['vtotal_orcamento'] = $_SESSION['vtotal_orcamento'] + $_POST['vtotal_orcamento'];
@@ -776,7 +776,7 @@
                             orcamento_servico = ".$_SESSION['vtotal_orcamento']."
                             WHERE cd_servico = ".$_SESSION['os_servico']."";
                           if(mysqli_query($conn, $updateOrcamentoServico)){
-                            echo "<script>window.alert('Sucesso Serviço!');</script>";
+                            //echo "<script>window.alert('Sucesso Serviço!');</script>";
                           }
                       }            
                     }
