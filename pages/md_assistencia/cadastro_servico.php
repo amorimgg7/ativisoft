@@ -532,7 +532,24 @@
                         GROUP BY 
                             cd_cliente;
                        */
-                      $select_divida = "SELECT SUM(orcamento_servico) AS total_orcamento, SUM(vpag_servico) AS total_pago, SUM(orcamento_servico) - SUM(vpag_servico) AS saldo_faltante FROM tb_servico WHERE cd_cliente = ".$row['cd_cliente']." GROUP BY cd_cliente HAVING saldo_faltante > 0;";
+                      //$select_divida = "SELECT SUM(orcamento_servico) AS total_orcamento, SUM(vpag_servico) AS total_pago, SUM(orcamento_servico) - SUM(vpag_servico) AS saldo_faltante FROM tb_servico WHERE saldo_faltante > 0 AND cd_cliente = ".$row['cd_cliente']." GROUP BY cd_cliente;";
+                      
+                      $select_divida = "SELECT 
+                            SUM(orcamento_servico) AS total_orcamento, 
+                            SUM(COALESCE(vpag_servico, 0)) AS total_pago, 
+                            SUM(orcamento_servico) - SUM(COALESCE(vpag_servico, 0)) AS saldo_faltante
+                        FROM 
+                            tb_servico
+                        WHERE 
+                            status_servico != 4 AND
+                            cd_cliente = ".$row['cd_cliente']."
+                        GROUP BY 
+                            cd_cliente
+                        HAVING 
+                            SUM(orcamento_servico) - SUM(COALESCE(vpag_servico, 0)) > 0;
+                      ";
+
+                      
                       $result_divida = mysqli_query($conn, $select_divida);
                       $row_divida = mysqli_fetch_assoc($result_divida);
                       if($row_divida) {
@@ -547,6 +564,7 @@
                       echo '<script>document.getElementById("tel_cliente").value = "'.$_POST['cd_pais'].$_POST['contel_cliente'].'"</script>';
                     }
                   }
+                  
                 ?>
                 
                 <?php
@@ -561,7 +579,8 @@
                       echo '<div class="col-12 col-md-12">';
                       echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
-                              
+                      //echo '<p>'.$select_divida.'</p>';
+                      
                       echo '<form method="POST">';
                       echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
                       echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead">';

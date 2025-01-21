@@ -82,7 +82,8 @@
                     
                     
                   }else{
-                    $_SESSION['concd_colab'] = "NULL";
+                    $_SESSION['concd_colab'] = 0;
+                    $_SESSION['cadEmail_colab'] = $_POST['email_colab'];
                   }
                 }
                 
@@ -129,6 +130,7 @@
                 }
                 if(isset($_POST['outroColab'])) { 
                   $_SESSION['concd_colab'] = false;
+                  //echo '<script>document.getElementById("consulta").style.display = "block";</script>';
                 }
               ?>
               <?php
@@ -146,31 +148,30 @@
 
                   // Exibe as informações do usuário no formulário
                   if($row_colab) {
-                      echo '<div class="col-12 col-md-12">';
-                      echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
-                      echo '<h3 class="card-title">Dados Pessoais</h3>';
-                      echo '<form method="POST">';
-                      //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
-                      echo '<input value="'.$row_colab['cd_colab'].'" name="btncd_colab" type="text" id="btncd_colab" class="aspNetDisabled form-control form-control-sm" style="display: none;"/>';
-                      echo '<label for="btnpnome_colab">Nome</label>';
-                      echo '<input value="'.$row_colab['pnome_colab'].'" name="btnpnome_colab" type="text" id="btnpnome_colab" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
-                      echo '<label for="btnsnome_colab">sobrenome</label>';
-                      echo '<input value="'.$row_colab['snome_colab'].'" name="btnsnome_colab" type="text" id="btnsnome_colab" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
-                      echo '<label for="btntel_colab">Telefone</label>';
-                      echo '<input value="'.$row_colab['tel_colab'].'" name="btntel_colab" type="tel"  id="btntel_colab" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)"/>';
-                      echo '<label for="btnemail_colab">Email</label>';
-                      echo '<input value="'.$row_colab['email_colab'].'" name="btnemail_colab" type="email"  id="btnemail_colab" maxlenth="40" class="aspNetDisabled form-control form-control-sm"/>';
-                      
-                      //echo '</div>';        
-                      echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="atualizaColab" id="atualizaColab" style="margin-top: 20px; margin-bottom: 20px;">Atualizar cadastro</button>';
-                      echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="outroColab" id="outroColab" style="margin-top: 20px; margin-bottom: 20px;">Outro Cliente</button>';
+                    echo '<div class="col-12 col-md-12">';
+                    echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                    echo '<h3 class="card-title">Dados Pessoais</h3>';
+                    echo '<form method="POST">';
+                    //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
+                    echo '<input value="'.$row_colab['cd_colab'].'" name="btncd_colab" type="text" id="btncd_colab" class="aspNetDisabled form-control form-control-sm" style="display: none;"/>';
+                    echo '<label for="btnpnome_colab">Nome</label>';
+                    echo '<input value="'.$row_colab['pnome_colab'].'" name="btnpnome_colab" type="text" id="btnpnome_colab" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
+                    echo '<label for="btnsnome_colab">sobrenome</label>';
+                    echo '<input value="'.$row_colab['snome_colab'].'" name="btnsnome_colab" type="text" id="btnsnome_colab" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
+                    echo '<label for="btntel_colab">Telefone</label>';
+                    echo '<input value="'.$row_colab['tel_colab'].'" name="btntel_colab" type="tel"  id="btntel_colab" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)"/>';
+                    echo '<label for="btnemail_colab">Email</label>';
+                    echo '<input value="'.$row_colab['email_colab'].'" name="btnemail_colab" type="email"  id="btnemail_colab" maxlenth="40" class="aspNetDisabled form-control form-control-sm"/>';
+                    //echo '</div>';        
+                    echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="atualizaColab" id="atualizaColab" style="margin-top: 20px; margin-bottom: 20px;">Atualizar cadastro</button>';
+                    echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="outroColab" id="outroColab" style="margin-top: 20px; margin-bottom: 20px;">Outro Cliente</button>';
                     
-                      echo '</form>';
-                      echo '</div>';
-                      echo '</div>';
+                    echo '</form>';
+                    echo '</div>';
+                    echo '</div>';
                       
-                    }
-                    ?>
+                  }
+                  ?>
                           
                           
 
@@ -290,7 +291,7 @@
                     echo '</form>';
                     */
 
-                }elseif($_SESSION['concd_colab'] == "NULL"){
+                }elseif($_SESSION['concd_colab'] == 0){
 
                   echo '<script>document.getElementById("consulta").style.display = "none";</script>';
                   echo '<div class="col-12 grid-margin">';
@@ -314,7 +315,7 @@
                   echo '<label for="cadtel_colab">Telefone</label>';
                   echo '<input name="cadtel_colab" type="tel"  id="cadtel_colab" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)"/>';
                   echo '<label for="cademail_colab">Email</label>';
-                  echo '<input value="'.$_POST['email_colab'].'" name="cademail_colab" type="email"  id="cademail_colab" maxlenth="40" class="aspNetDisabled form-control form-control-sm"/>';
+                  echo '<input value="'.$_SESSION['cadEmail_colab'].'" name="cademail_colab" type="email"  id="cademail_colab" maxlenth="40" class="aspNetDisabled form-control form-control-sm"/>';
                   
                   echo '<h3 class="kt-portlet__head-title">Funções e Permissões</h3>';
                   $select_estilo = "SELECT * FROM tb_estilo";

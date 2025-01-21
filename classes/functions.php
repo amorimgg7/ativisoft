@@ -141,7 +141,7 @@ class Usuario
 
             }
             //echo '<script>location.href="'.$_SESSION['dominio'].'pages/dashboard/index.php";</script>';
-            echo '<script>location.href="../../pages/dashboard/";</script>';
+            echo '<script>location.href="../../pages/dashboard/index.php";</script>';
             return true;
         }
         else

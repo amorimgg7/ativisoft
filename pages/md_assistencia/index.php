@@ -7,31 +7,50 @@
             <?php //Financeiro
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-              
+              /*
               $sql_devendo = "  SELECT 
-    CONCAT(c.pnome_cliente, ' ', c.snome_cliente, ' ', c.tel_cliente) AS full_cliente,
-    c.tel_cliente, 
-    SUM(s.orcamento_servico) AS total_orcamento, 
-    SUM(COALESCE(s.vpag_servico, 0)) AS total_pago, 
-    SUM(s.orcamento_servico) - SUM(COALESCE(s.vpag_servico, 0)) AS saldo_faltante
-FROM 
-    tb_servico s
-JOIN 
-    tb_cliente c 
-ON 
-    s.cd_cliente = c.cd_cliente
-WHERE 
-    s.status_servico != 4
-GROUP BY 
-    c.cd_cliente, c.pnome_cliente, c.snome_cliente, c.tel_cliente
-HAVING 
-    saldo_faltante > 0
-ORDER BY 
-    saldo_faltante DESC;
+                  CONCAT(c.pnome_cliente, ' ', c.snome_cliente, ' ', c.tel_cliente) AS full_cliente,
+                  c.tel_cliente, 
+                  SUM(s.orcamento_servico) AS total_orcamento, 
+                  SUM(COALESCE(s.vpag_servico, 0)) AS total_pago, 
+                  SUM(s.orcamento_servico) - SUM(COALESCE(s.vpag_servico, 0)) AS saldo_faltante
+              FROM 
+                  tb_servico s
+              JOIN 
+                  tb_cliente c 
+              ON 
+                  s.cd_cliente = c.cd_cliente
+              WHERE 
+                  s.status_servico != 4
+              GROUP BY 
+                  c.cd_cliente, c.pnome_cliente, c.snome_cliente, c.tel_cliente
+              HAVING 
+                  saldo_faltante > 0
+              ORDER BY 
+                  saldo_faltante DESC;";
+              */
 
-
-
-                                ";
+              $sql_devendo = "SELECT 
+                  CONCAT(c.pnome_cliente, ' ', c.snome_cliente, ' ', c.tel_cliente) AS full_cliente,
+                  c.tel_cliente, 
+                  SUM(s.orcamento_servico) AS total_orcamento, 
+                  SUM(COALESCE(s.vpag_servico, 0)) AS total_pago, 
+                  SUM(s.orcamento_servico) - SUM(COALESCE(s.vpag_servico, 0)) AS saldo_faltante
+              FROM 
+                  tb_servico s
+              JOIN 
+                  tb_cliente c 
+              ON 
+                  s.cd_cliente = c.cd_cliente
+              WHERE 
+                  s.status_servico != 4
+              GROUP BY 
+                  c.cd_cliente, c.pnome_cliente, c.snome_cliente, c.tel_cliente
+              HAVING 
+                  SUM(s.orcamento_servico) - SUM(COALESCE(s.vpag_servico, 0)) > 0
+              ORDER BY 
+                  saldo_faltante DESC;
+              ";
                 //full_cliente              
                 //total_orcamento
                 //total_pago
@@ -44,7 +63,7 @@ ORDER BY
                     WHEN prioridade_servico = 'M' THEN 3 
                     ELSE 4
                 END, cd_servico";*/
-
+                //echo '<p>'. $sql_devendo.'</p>';
               $resulta_devendo = $conn->query($sql_devendo);
               if ($resulta_devendo->num_rows > 0){
                 echo '<div class="col-lg-12 grid-margin stretch-card" data-toggle="collapse" href="#clientes_devendo" aria-expanded="false" aria-controls="clientes_devendo">';
@@ -116,6 +135,18 @@ ORDER BY
 
 
             <?php //À FAZER
+              $extrapolado = 0;
+              $extrapoladoafaser = 0;
+              $parahoje = 0;
+              $parahojeafazer = 0;
+              $noprazo = 0;
+              $noprazoafaser = 0;
+              $extrapoladoemandamento = 0;
+              $parahojeemandamento = 0;
+              $noprazoemandamento = 0;
+
+
+
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
               $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0 
@@ -153,12 +184,7 @@ ORDER BY
                 echo '</tr>';
                 echo '</thead>';
                 echo '<tbody>';
-                $extrapolado = 0;
-                $extrapoladoafaser = 0;
-                $parahoje = 0;
-                $parahojeafazer = 0;
-                $noprazo = 0;
-                $noprazoafaser = 0;
+                
                 while ( $servico = $resulta_servico->fetch_assoc()){
                   echo '<tr>';
                   echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
@@ -280,12 +306,7 @@ ORDER BY
                 echo '</tr>';
                 echo '</thead>';
                 echo '<tbody>';
-                $extrapolado = 0;
-                $extrapoladoemandamento = 0;
-                $parahoje = 0;
-                $parahojeemandamento = 0;
-                $noprazo = 0;
-                $noprazoemandamento = 0;
+                
                 while ( $servico = $resulta_servico->fetch_assoc()){
                   echo '<tr>';
                   echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';

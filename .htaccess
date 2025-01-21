@@ -38,3 +38,8 @@ DirectoryIndex index.php index.html index.htm index2.html
 # RewriteCond %{HTTP_HOST} ^www\.assistent\.lovestoblog\.com$
 # RewriteRule ^(.*)$ "http\:\/\/ativisoft\.com\.br\/$1" [R=301,L]
 
+ErrorDocument 401 https://ativisoft.com.br/pages/error/page_401.html
+ErrorDocument 403 https://ativisoft.com.br/pages/error/page_403.html
+ErrorDocument 404 https://ativisoft.com.br/pages/error/page_404.html
+ErrorDocument 500 https://ativisoft.com.br/pages/error/page_500.html
+ErrorDocument 503 https://ativisoft.com.br/pages/error/page_503.html

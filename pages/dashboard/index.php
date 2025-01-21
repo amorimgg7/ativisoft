@@ -1,22 +1,24 @@
 <?php
     session_start();
-
+    
     
     if(!isset($_SESSION['cd_colab']))
     {
         //header("location: http://amorimgg77.lovestoblog.com/pages/samples/login.php");
-        echo '<script>location.href="'.$_SESSION['dominio'].'pages/samples/login.php";</script>'; 
+        //$dominio = $_SESSION['dominio']."pages/samples/login.php";
+        echo '<script>location.href="../samples/login.php";</script>';
         exit; 
     }
     if($_SESSION['senha_colab'] == "")
     {
       //header("location: http://amorimgg77.lovestoblog.com/pages/samples/lock-screen.php");
-      echo '<script>location.href="'.$_SESSION['dominio'].'pages/samples/lock-screen.php";</script>';
+      echo '<script>location.href="../samples/lock-screen.php";</script>';
       exit;
     }
-    require_once '../../classes/conn.php';
     
+    require_once '../../classes/conn.php';
     include("../../classes/functions.php");
+    
     //conectar($_SESSION['cnpj_empresa']);
 
     $u = new Usuario;

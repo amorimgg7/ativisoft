@@ -31,6 +31,30 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+
+  <script>
+                            function showSection(tab) {
+                              if(tab == "tabBasicos"){
+                                document.getElementById('tabBasicos').style.display = 'block';
+                                document.getElementById('tabFiscais').style.display = 'none';
+                                document.getElementById('tabComplementares').style.display = 'none';
+                              }
+
+                              if(tab == "tabFiscais"){
+                                document.getElementById('tabBasicos').style.display = 'none';
+                                document.getElementById('tabFiscais').style.display = 'block';
+                                document.getElementById('tabComplementares').style.display = 'none';
+                              }
+
+                              if(tab == "tabComplementares"){
+                                document.getElementById('tabBasicos').style.display = 'none';
+                                document.getElementById('tabFiscais').style.display = 'none';
+                                document.getElementById('tabComplementares').style.display = 'block';
+                              }
+                              
+                            }
+                          </script>
+
 </head>
 
 <body>
@@ -147,6 +171,21 @@
 
                   $_SESSION['statusCadastros']    = 2;
                 }
+
+                if(isset($_POST['editGrupo'])) { 
+                  $query = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_POST['con_cd_Grupo']."'";
+                  $result = mysqli_query($conn, $query);
+                  $row = mysqli_fetch_assoc($result);
+
+                  // Exibe as informações do usuário no formulário
+                  if($row) {
+                    $_SESSION['editcd_grupo']       = $row['cd_grupo'];
+                    $_SESSION['edittitulo_grupo']   = $row['titulo_grupo'];
+                    $_SESSION['editobs_grupo']      = $row['obs_grupo'];
+                    $_SESSION['statusCadastros']    = 4;
+                  }    
+                }
+                
                 if(isset($_POST['cadGrupo'])) { 
                   $_SESSION['cd_grupo'] = "";
                   $_SESSION['cd_classe_fiscal_gupo'] = "";
@@ -267,6 +306,19 @@
                   //echo "<script>window.alert('Produto Atualizado com sucesso!');</script>";
                   $_SESSION['statusCadastros'] = FALSE;
                 }
+
+                if(isset($_POST['gravaGrupo_funcao'])) {
+                  $query = "UPDATE tb_grupo SET
+                    titulo_grupo = '".$_POST['edittitulo_grupo']."',
+                    obs_grupo = '".$_POST['editobs_grupo']."'
+                    WHERE cd_grupo = '".$_POST['editcd_grupo']."'
+                  ";
+                  mysqli_query($conn, $query);
+                  //echo "<script>window.alert('Grupo Atualizado com sucesso!');</script>";
+                  $_SESSION['statusCadastros'] = FALSE;
+                }
+
+                
               ?>
               
               <?php
@@ -334,20 +386,112 @@
                 echo '<div class="col text-center">';
                  
                 
-                echo '</label>';
+                //echo '</label>';
                 echo '</div>';
                 echo '</div>';
                 //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
-                echo '<label class="card-title" for="cd_prod_serv">CD</label>';
-                echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="cd_prod_serv" type="tel" id="cd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
-                echo '<label class="card-title"for="editcdbarras_prod_serv">Código de Barras</label>';
-                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="cdbarras_prod_serv" type="tel"  id="cdbarras_prod_serv" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)" required/>';
-                echo '<label class="card-title"for="cdbarras_prod_serv">Grupo</label>';
                 echo '<div class="input-group">';
+
+                echo '<div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">';
+                echo '<span class="card-title">Código</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<span class="input-group-text">Grupo: </span>';
-                echo '</div>'; 
-                echo '<select id="grupo_prod_serv" name="grupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg " required>';
+                echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="cd_prod_serv" type="tel" id="cd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Código de Barras</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="cdbarras_prod_serv" type="tel"  id="cdbarras_prod_serv" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<span class="card-title">Nome / Descrição</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="titulo_prod_serv" type="text" id="titulo_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                //echo '<div class="input-group-prepend">';
+                echo '<span class="card-title"></span>';
+
+                echo "<div class='card' style='max-width: 100%; max-height: 50vh;'>";
+                $caminho_pasta_produto = "../web/imagens/".$_SESSION['cnpj_filial']."//produto/";
+                $foto_produto = $_SESSION['cd_prod_serv']."-foto.jpg"; // Nome do arquivo que será salvo
+                $caminho_foto_produto = $caminho_pasta_produto . $foto_produto;
+
+                if (file_exists($caminho_foto_produto)) {
+                  $tipo_foto_produto = mime_content_type($caminho_foto_produto);
+                  echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-produto' style='width: 200px; height: 200px;' src='data:$tipo_foto_produto;base64," . base64_encode(file_get_contents($caminho_foto_produto)) . "' alt='Imagem'>"; 
+                }else{
+                  echo "<img class='card-img-top img-thumbnail mx-auto' id='imagem-preview-produto' style='width: 200px; height: 200px;' src='https://lh3.googleusercontent.com/pw/AP1GczMtcne3DnCiab9YcotaYOwWr-VwlW7ue4Us3dPaVXp51TNFSvwxI_6S4UDf26DplSgSiNW8hm3S5V1Zv5r7WSe1DW_hhs4hpioRd5LoLdvnkRz493kr2_m0EpmY3dL0T1H3oD52Qk9c77fR4hY5Jg9OOw=w272-h273-s-no-gm?authuser=0' alt='Imagem'>";
+                }
+
+                echo '<div class="card-body text-center">';
+                echo '<label for="fotoProduto" class="btn btn-block btn-lg btn-outline-success">';
+                echo '<i class="bi bi-paperclip"></i> Escolher arquivo';
+                echo '<input type="file" name="fotoProduto" id="fotoProduto" style="display: none;">';
+                echo '</label>';
+                echo '</div>';
+                echo '</div>';
+
+                //echo '</div>';
+                echo '</div>';
+
+
+                ?>
+                <script>
+                    const imagemInputCliente = document.getElementById('fotoProduto');
+                    const imagemPreviewCliente = document.getElementById('imagem-preview-produto');
+
+                    imagemInputCliente.addEventListener('change', function(event) {
+                        const arquivo = event.target.files[0];
+                        if (arquivo) {
+                            const leitor = new FileReader();
+                            leitor.onload = function(e) {
+                                imagemPreviewCliente.src = e.target.result;
+                            }
+                            leitor.readAsDataURL(arquivo);
+                        } else {
+                            imagemPreviewCliente.src = '#';
+                        }
+                    });
+                </script>
+        
+                <?php
+
+
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+								
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuBasicos" name="menuBasicos" onclick="showSection(\'tabBasicos\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuFiscais" name="menuFiscais" onclick="showSection(\'tabFiscais\')" class="btn btn-outline-secondary btn-lg btn-block">Fiscais</button>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuComplementares" name="menuComplementares" onclick="showSection(\'tabComplementares\')" class="btn btn-outline-secondary btn-lg btn-block">Complementares</button>';
+                echo '</div>';
+                echo '</div>';
+
+								echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicos" name="tabBasicos">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                echo '<span class="card-title">Grupo</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<select id="grupo_prod_serv" name="grupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg" required>';
                 $select_show_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_SESSION['cd_grupo_prod_serv']."'";
                 $resulta_show_grupo = $conn->query($select_show_grupo);
                 if ($resulta_show_grupo->num_rows > 0){
@@ -364,26 +508,59 @@
                 }
                 echo '</select>';
                 echo '</div>';
-                echo '<label class="card-title"for="titulo_prod_serv">Nome / Descrição</label>';
-                echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="titulo_prod_serv" type="text" id="titulo_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '<label class="card-title"for="obs_prod_serv">Observações</label>';
+                echo '</div>';
+                
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Observações</span>';
+                echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="obs_prod_serv" type="text" id="obs_prod_serv" maxlength="999"   class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '<label class="card-title"for="estoque_prod_serv">QTD Estoque</label>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">QTD Estoque</span>';
+                echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['estoque_prod_serv'].'" name="estoque_prod_serv" type="tel" id="estoque_prod_serv" class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '<label class="card-title"for="preco_prod_serv">Valor de Venda</label>';
-                echo '<div class="input-group">';
-                echo '<div class="input-group-prepend">';
-                echo '<span class="input-group-text btn-outline-info">R$:</span>';
-                echo '</div>'; 
-                echo '<input value="'.$_SESSION['preco_prod_serv'].'" name="preco_prod_serv" type="tel"  id="preco_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
-                echo '<label class="card-title"for="custo_prod_serv">Valor de compra</label>';
-                echo '<div class="input-group">';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Valor de Venda</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<span class="input-group-text btn-outline-info">R$:</span>';
-                echo '</div>'; 
+                echo '<input value="'.$_SESSION['preco_prod_serv'].'" name="preco_prod_serv" type="tel"  id="preco_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';                
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Valor de Compra</span>';
+                echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['custo_prod_serv'].'" name="custo_prod_serv" type="tel"  id="custo_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '</div>';
+                echo '</div>';
+
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabFiscais" name="tabFiscais" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                
+                echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+                
+                echo '</div>';
+                echo '</div>';
+
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabComplementares" name="tabComplementares" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+
+                echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+
                 echo '</div>';
                 echo '</div>';
 
@@ -409,8 +586,6 @@
                 echo '<div class="form-group row justify-content-center">';
                 echo '<div class="col text-center">';
                  
-                
-                echo '</label>';
                 echo '</div>';
                 echo '</div>';
                 //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
@@ -449,10 +624,36 @@
                 
                 echo '<input value="'.$_SESSION['status_prod_serv'].'" name="editstatus_prod_serv" type="tel" id="editstatus_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: none;" required/>';
                 
-                echo '<label class="card-title" for="editcd_prod_serv">CD</label>';
-                echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="editcd_prod_serv" type="tel" id="editcd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+
                 
-                echo '<label for="imagem-preview-produto"></label>';
+
+                echo '<div class="input-group">';
+
+                echo '<div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">';
+                echo '<span class="card-title">Código</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="editcd_prod_serv" type="tel" id="editcd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Código de Barras</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="editcdbarras_prod_serv" type="tel"  id="editcdbarras_prod_serv" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<span class="card-title">Nome / Descrição</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="edittitulo_prod_serv" type="text" id="edittitulo_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                //echo '<div class="input-group-prepend">';
+                echo '<span class="card-title"></span>';
+
                 echo "<div class='card' style='max-width: 100%; max-height: 50vh;'>";
                 $caminho_pasta_produto = "../web/imagens/".$_SESSION['cnpj_filial']."//produto/";
                 $foto_produto = $_SESSION['cd_prod_serv']."-foto.jpg"; // Nome do arquivo que será salvo
@@ -471,6 +672,9 @@
                 echo '<input type="file" name="fotoProduto" id="fotoProduto" style="display: none;">';
                 echo '</label>';
                 echo '</div>';
+                echo '</div>';
+
+                //echo '</div>';
                 echo '</div>';
 
 
@@ -494,14 +698,37 @@
                 </script>
         
                 <?php
-                echo '<label class="card-title"for="editcdbarras_prod_serv">Código de Barras</label>';
-                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="editcdbarras_prod_serv" type="tel"  id="editcdbarras_prod_serv" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)" required/>';
-                echo '<label class="card-title"for="editcdbarras_prod_serv">Grupo</label>';
-                echo '<div class="input-group">';
+
+
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+								
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
-                echo '<span class="input-group-text">Grupo: </span>';
-                echo '</div>'; 
-                echo '<select id="editgrupo_prod_serv" name="editgrupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg " required>';
+                echo '<button type="button" id="menuBasicos" name="menuBasicos" onclick="showSection(\'tabBasicos\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuFiscais" name="menuFiscais" onclick="showSection(\'tabFiscais\')" class="btn btn-outline-secondary btn-lg btn-block">Fiscais</button>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuComplementares" name="menuComplementares" onclick="showSection(\'tabComplementares\')" class="btn btn-outline-secondary btn-lg btn-block">Complementares</button>';
+                echo '</div>';
+                echo '</div>';
+
+								echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicos" name="tabBasicos">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                echo '<span class="card-title">Grupo</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<select id="editgrupo_prod_serv" name="editgrupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg" required>';
                 $select_show_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_SESSION['cd_grupo_prod_serv']."'";
                 $resulta_show_grupo = $conn->query($select_show_grupo);
                 if ($resulta_show_grupo->num_rows > 0){
@@ -518,30 +745,68 @@
                 }
                 echo '</select>';
                 echo '</div>';
-                echo '<label class="card-title"for="edittitulo_prod_serv">Nome / Descrição</label>';
-                echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="edittitulo_prod_serv" type="text" id="edittitulo_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '<label class="card-title"for="editobs_prod_serv">Observações</label>';
+                echo '</div>';
+                
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Observações</span>';
+                echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="editobs_prod_serv" type="text" id="editobs_prod_serv" maxlength="999"   class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '<label class="card-title"for="editestoque_prod_serv">QTD Estoque</label>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">QTD Estoque</span>';
+                echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['estoque_prod_serv'].'" name="editestoque_prod_serv" type="tel" id="editestoque_prod_serv" class="aspNetDisabled form-control form-control-sm" required/>';
-                echo '<label class="card-title"for="editpreco_prod_serv">Valor de Venda</label>';
-                echo '<div class="input-group">';
-                echo '<div class="input-group-prepend">';
-                echo '<span class="input-group-text btn-outline-info">R$:</span>';
-                echo '</div>'; 
-                echo '<input value="'.$_SESSION['preco_prod_serv'].'" name="editpreco_prod_serv" type="tel"  id="editpreco_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
-                echo '<label class="card-title"for="editcusto_prod_serv">Valor de compra</label>';
-                echo '<div class="input-group">';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Valor de Venda</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<span class="input-group-text btn-outline-info">R$:</span>';
-                echo '</div>'; 
+                echo '<input value="'.$_SESSION['preco_prod_serv'].'" name="editpreco_prod_serv" type="tel"  id="editpreco_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';                
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Valor de Compra</span>';
+                echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['custo_prod_serv'].'" name="editcusto_prod_serv" type="tel"  id="editcusto_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
 
-                    
+                echo '</div>';
+                echo '</div>';
+
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabFiscais" name="tabFiscais" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                
+                echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+                
+                echo '</div>';
+                echo '</div>';
+
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabComplementares" name="tabComplementares" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+
+                echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+
+                echo '</div>';
+                echo '</div>';
+
+
+                echo '</div>';
+
+                echo '</div>';
+                echo '</div>';
+
                 echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="gravaProdServ_funcao" id="gravaProdServ_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar</button>';
                                 
                 echo '</form>';
@@ -551,7 +816,7 @@
               
                 echo '</div>';
               
-              }else if($_SESSION['statusCadastros'] == 4){//editar produto
+              }else if($_SESSION['statusCadastros'] == 4){//editar grupo
                 echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
                 echo '<div class="card-body">';
@@ -559,9 +824,54 @@
                 echo '<div class="col-12 col-md-12">';
                 echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
                 echo '<h3 class="card-title">-_'.$_SESSION['statusCadastros'].'_-</h3>';
+                echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="POST" enctype="multipart/form-data">';
+                echo '<div class="form-group row justify-content-center">';
+                echo '<div class="col text-center">';
+                 
+                echo '</div>';
+                echo '</div>';
                 
+                echo '<div class="input-group">';
+
+                echo '<div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">';
+                echo '<span class="card-title">Código</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['editcd_grupo'].'" name="editcd_grupo" type="tel" id="editcd_grupo" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Código de Barras</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['edittitulo_grupo'].'" name="edittitulo_grupo" type="text"  id="edittitulo_grupo" maxlength="40" class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<span class="card-title">Nome / Descrição</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['editobs_grupo'].'" name="editobs_grupo" type="text" id="editobs_grupo" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
+                echo '</div>';
+                echo '</div>';
+                
+                
+                //echo '</div>';
+                //echo '</div>';
+
+                //echo '</div>';
+
+                //echo '</div>';
+                //echo '</div>';
+
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="gravaGrupo_funcao" id="gravaGrupo_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar</button>';
+                                
+                echo '</form>';
+                echo '<form method="POST">';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="menuPrincipal" id="menuPrincipal" style="margin-top: 20px; margin-bottom: 20px;">Sair</button>';
+                echo '</form>';
               
                 echo '</div>';
+              
               }else{
                 $select_grupo = "SELECT * FROM tb_grupo ORDER BY cd_grupo ASC";
                 $resulta_grupo = $conn->query($select_grupo);
@@ -570,9 +880,15 @@
                     echo '<div class="col-lg-12 grid-margin stretch-card"  data-toggle="collapse" href="#grupo_'.$row_grupo['cd_grupo'].'" aria-expanded="false" aria-controls="grupo_'.$row_grupo['cd_grupo'].'">';
                     echo '<div class="card" '.$_SESSION['c_card'].'>';
                     echo '<div class="card-body">';
-                  
+                    
+                    echo '<form method="POST">';
+
+                    echo '<input type="tel" id="con_cd_Grupo" name="con_cd_Grupo" value="'.$row_grupo['cd_grupo'].'" style="display:none;">';
+                    echo '<button type="submit" class="btn  btn-outline-warning" name="editGrupo" id="editGrupo" >Editar <i class="icon-open"></i></button>';
+                    echo '</form>';
                     echo '<h4 class="card-title" style="text-align: center;">'.$row_grupo['titulo_grupo'].'</h4>';
                     echo '<h6 class="card-title" style="text-align: center;">'.$row_grupo['obs_grupo'].'</h6>';
+                    
                     echo '<div class="collapse table-responsive" id="grupo_'.$row_grupo['cd_grupo'].'">';
                   
                     echo '<form method="POST">';
@@ -638,8 +954,7 @@
 
   ?>
 
-                </div>
-              </div>
+                
             </div>
           </div>
         

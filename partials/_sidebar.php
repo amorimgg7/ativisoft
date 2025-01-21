@@ -107,7 +107,7 @@
             
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/unidade_operacional.php">Empresa</a></li>
-                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_colaborador.php">Funcionario</a></li>
+                <!--<li class="nav-item"><a <?php //echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php //echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_colaborador.php">Funcionario</a></li>-->
                 <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/consulta_cliente.php">Cliente</a></li>
                 <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_produto.php">Produtos</a></li>
                 <li class="nav-item" <?php echo $_SESSION['md_patrimonio'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_patrimonio/cadastro_patrimonio.php">Patrimônio</a></li>
