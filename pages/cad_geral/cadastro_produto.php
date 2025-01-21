@@ -352,7 +352,7 @@
                 echo '<div class="input-group-prepend">';
                 echo '<span class="input-group-text" style="width:150px;">Título: </span>';
                 echo '</div>';
-                echo '<input id="edittitulo_grupo" name="edittitulo_grupo" type="text" class="input-group-text form-control form-control-lg "/>';
+                echo '<input id="edittitulo_grupo" name="edittitulo_grupo" type="text" class="form-control form-control-lg " placeholder="Digite aqui"/>';
                 echo '</div>';
 
                 echo '<label class="card-title"for="editdescricao_grupo"></label>';
@@ -360,7 +360,7 @@
                 echo '<div class="input-group-prepend">';
                 echo '<span class="input-group-text" style="width:150px;">Descrição: </span>';
                 echo '</div>';
-                echo '<input id="editdescricao_grupo" name="editdescricao_grupo" type="text" class="input-group-text form-control form-control-lg "/>';
+                echo '<input id="editdescricao_grupo" name="editdescricao_grupo" type="text" class="form-control form-control-lg "placeholder="Digite aqui"/>';
                 echo '</div>';
 
                 
