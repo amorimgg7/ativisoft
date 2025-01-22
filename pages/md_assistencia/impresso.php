@@ -128,7 +128,7 @@ require_once('fpdf/fpdf.php');
                 $count = 0;
                 while($row_orcamento = $result_orcamento->fetch_assoc()) {
                     $count ++;
-                    $this->MultiCell(0, 5, $this->WrapText($count .'__'. utf8_decode($row_orcamento['titulo_orcamento']).'__R$:'.$row_orcamento['vcusto_orcamento']), 0, 'L');
+                    $this->MultiCell(0, 5, $this->WrapText($count .'__'. utf8_decode($row_orcamento['titulo_orcamento']).'__R$:'.$row_orcamento['vtotal_orcamento']), 0, 'L');
                     $this->Cell(40, 10, '__________________________________________________________________________________________________', 0, 1, 'C');
                     //$this->Ln(2);
                 }
@@ -309,7 +309,7 @@ require_once('fpdf/fpdf.php');
                 $count = 0;
                 while($row_orcamento = $result_orcamento->fetch_assoc()) {
                     $count ++;
-                    $this->MultiCell(0, 5, $this->WrapText($count .' - '. utf8_decode($row_orcamento['titulo_orcamento']).' - R$:'.$row_orcamento['vcusto_orcamento']), 0, 'L');
+                    $this->MultiCell(0, 5, $this->WrapText($count .' - '. utf8_decode($row_orcamento['titulo_orcamento']).' - R$:'.$row_orcamento['vtotal_orcamento']), 0, 'L');
                 }
                 $this->Ln(5);
                 //$this->Cell(0, 5, 'Prioridade: ' . $showprioridade_servico, 0, 1, 'L');

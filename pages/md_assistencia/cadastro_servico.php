@@ -715,7 +715,6 @@
 
                     }
 
-
                     if(isset($_POST['edit_os'])) {
                       $edit_os = "UPDATE tb_servico SET
                         obs_servico = '".$_POST['editobs_servico']."',
@@ -731,9 +730,7 @@
                       // Exibe as informações do usuário no formulário
                       if($row) {
                           $_SESSION['os_servico'] = $row['cd_servico'];
-                          $_SESSION['os_cliente'] = $row['cd_cliente'];
-                                
-                                
+                          $_SESSION['os_cliente'] = $row['cd_cliente'];  
                           $_SESSION['titulo_servico'] = $row['titulo_servico'];
                           $_SESSION['obs_servico'] = $row['obs_servico'];
                           $_SESSION['prioridade_servico'] = $row['prioridade_servico'];
