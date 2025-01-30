@@ -724,68 +724,99 @@ if ($_POST['marcartitulo_atividade'] == 'D' && !isset($_POST['confirmacao'])) {
   $itens = [];
 
   $select_orcamento = "
-    SELECT 
-        ROW_NUMBER() OVER (ORDER BY tos.cd_orcamento ASC) AS linha,
-        tr.qtd_reservado,
-        tos.vtotal_orcamento,
-        tps.titulo_prod_serv
-    FROM tb_orcamento_servico tos
-    INNER JOIN tb_prod_serv tps ON tos.cd_produto = tps.cd_prod_serv
-    LEFT JOIN tb_reserva tr ON tos.cd_orcamento = tr.cd_orcamento
-    WHERE tos.tipo_orcamento = 'CADASTRADO'
-      AND tr.qtd_efetivado IS NULL
-      AND tos.cd_servico = '" . $_SESSION['cd_servico'] . "'
-    ORDER BY tos.cd_orcamento ASC
-";
-
-  $result_orcamento = mysqli_query($conn, $select_orcamento);
-
-  while ($row_orcamento = $result_orcamento->fetch_assoc()) {
-    $itens[] =  $row_orcamento['linha'] . " - ".$row_orcamento['titulo_prod_serv'] . " | QTD:".$row_orcamento['qtd_reservado'] . " | R$:".$row_orcamento['vtotal_orcamento'];
-  }
-
-  // Construir a mensagem com os itens separados por quebra de linha
-  $mensagem = "Deseja confirmar a saída dos itens:\n" . implode("\n", $itens);
-
-  // Gerar o JavaScript dinamicamente com json_encode para evitar problemas com caracteres especiais
-  echo "
-  <script>
-    const mensagem = " . json_encode($mensagem) . ";
-    if (confirm(mensagem)) {
-        // Cria um formulário com todos os dados do POST
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = ''; // Mesma página
-
-        // Adiciona os campos existentes no POST ao formulário
-        const postData = " . json_encode($_POST) . ";
-        for (const key in postData) {
-            if (postData.hasOwnProperty(key)) {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = postData[key];
-                form.appendChild(input);
-            }
-        }
-
-        // Adiciona o campo de confirmação
-        const confirmInput = document.createElement('input');
-        confirmInput.type = 'hidden';
-        confirmInput.name = 'confirmacao';
-        confirmInput.value = 'sim';
-        form.appendChild(confirmInput);
-
-        document.body.appendChild(form);
-        form.submit();
-    } else {
-        alert('Operação cancelada pelo usuário.');
-    }
-  </script>
+      SELECT 
+          tr.qtd_reservado,
+          tos.vtotal_orcamento,
+          tps.titulo_prod_serv
+      FROM tb_orcamento_servico tos
+      INNER JOIN tb_prod_serv tps ON tos.cd_produto = tps.cd_prod_serv
+      LEFT JOIN tb_reserva tr ON tos.cd_orcamento = tr.cd_orcamento
+      WHERE tos.tipo_orcamento = 'CADASTRADO'
+        AND tr.qtd_efetivado IS NULL
+        AND tos.cd_servico = '" . $_SESSION['cd_servico'] . "'
+      ORDER BY tos.cd_orcamento ASC
   ";
 
+  if ($result_orcamento = mysqli_query($conn, $select_orcamento)) {
+      while ($row_orcamento = $result_orcamento->fetch_assoc()) {
+          $itens[] = $row_orcamento['titulo_prod_serv'] . " | QTD: " . $row_orcamento['qtd_reservado'] . " | R$: " . $row_orcamento['vtotal_orcamento'];
+      }
+  }
 
+  // Se houver itens, exibe a mensagem, caso contrário, confirma o formulário automaticamente
+  if (!empty($itens)) {
+      // Construir a mensagem com os itens separados por quebra de linha
+      $mensagem = "Deseja confirmar a saída dos itens:\n" . implode("\n", $itens);
+
+      // Gerar o JavaScript dinamicamente com json_encode para evitar problemas com caracteres especiais
+      echo "
+      <script>
+          const mensagem = " . json_encode($mensagem) . ";
+          if (confirm(mensagem)) {
+              // Cria um formulário com todos os dados do POST
+              const form = document.createElement('form');
+              form.method = 'POST';
+              form.action = ''; // Mesma página
+
+              // Adiciona os campos existentes no POST ao formulário
+              const postData = " . json_encode($_POST) . ";
+              for (const key in postData) {
+                  if (postData.hasOwnProperty(key)) {
+                      const input = document.createElement('input');
+                      input.type = 'hidden';
+                      input.name = key;
+                      input.value = postData[key];
+                      form.appendChild(input);
+                  }
+              }
+
+              // Adiciona o campo de confirmação
+              const confirmInput = document.createElement('input');
+              confirmInput.type = 'hidden';
+              confirmInput.name = 'confirmacao';
+              confirmInput.value = 'sim';
+              form.appendChild(confirmInput);
+
+              document.body.appendChild(form);
+              form.submit();
+          } else {
+              alert('Operação cancelada pelo usuário.');
+          }
+      </script>
+      ";
+  } else {
+      // Se não houver itens, confirma automaticamente
+      echo "
+      <script>
+          const form = document.createElement('form');
+          form.method = 'POST';
+          form.action = ''; // Mesma página
+
+          const postData = " . json_encode($_POST) . ";
+          for (const key in postData) {
+              if (postData.hasOwnProperty(key)) {
+                  const input = document.createElement('input');
+                  input.type = 'hidden';
+                  input.name = key;
+                  input.value = postData[key];
+                  form.appendChild(input);
+              }
+          }
+
+          // Adiciona o campo de confirmação automaticamente
+          const confirmInput = document.createElement('input');
+          confirmInput.type = 'hidden';
+          confirmInput.name = 'confirmacao';
+          confirmInput.value = 'sim';
+          form.appendChild(confirmInput);
+
+          document.body.appendChild(form);
+          form.submit();
+      </script>
+      ";
+  }
 }
+
 
 if (isset($_POST['confirmacao']) && $_POST['confirmacao'] === 'sim') {
     // Conexão com o banco de dados
@@ -830,7 +861,7 @@ if (isset($_POST['confirmacao']) && $_POST['confirmacao'] === 'sim') {
               WHERE cd_servico = '" . $_POST['atividadecd_servico'] . "'
             ";
             if (mysqli_query($conn, $updateReserva)) {
-              echo "<script>alert('Operação realizada com sucesso!');</script>";
+              echo "<script>alert('Entregue ao cliente com sucesso!');</script>";
             }else{
               echo "<script>alert('Erro ao atualizar a reserva: " . mysqli_error($conn) . "');</script>";
 
