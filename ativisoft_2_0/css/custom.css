@@ -1,0 +1,36 @@
+.form-group-custom {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group-custom label {
+    position: absolute;
+    top: 0px;
+    left: 12px;
+    background: white;
+    font-size: 0.75rem;
+    padding: 0 4px;
+    color: #666;
+    z-index: 1;
+
+    border-bottom: 2px solid #3e3e3e; /* Azul */
+        border-radius: 0 0 0.5rem 0.5rem; /* Arredondado na parte inferior */
+
+
+}
+
+.form-group-custom input {
+    padding-top: 1.25rem;
+}
+
+.horizontal-form {
+    display: table;
+    width: 100%;
+}
+.form-group {
+    display: table-row;
+}
+.form-group label,.form-group input {
+    display: table-cell;
+    padding: 5px;
+}

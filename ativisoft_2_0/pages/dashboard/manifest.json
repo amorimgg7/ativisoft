@@ -1,0 +1,20 @@
+{
+  "name": "Ativi Soft 2.0",
+  "short_name": "AtiviSoft 2.0",
+  "start_url": "/pages/dashboard/index.php",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "../web/imagens/123/logos/LogoEmpresa.jpg",
+      "type": "image/jpg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "../web/imagens/123/logos/LogoEmpresa.jpg",
+      "type": "image/jpg",
+      "sizes": "512x512"
+    }
+  ]
+}

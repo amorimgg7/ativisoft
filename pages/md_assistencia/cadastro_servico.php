@@ -11,6 +11,11 @@
     if(isset($_SESSION['os_cliente'])){
       echo '<script>document.getElementById("abrirOS").style.display = "block";</script>';      
     }
+
+
+    $_SESSION['falta_pagar_servico'] = 0;
+    $dataHoraAtual = date('Y-m-d H:i', strtotime('+1 hour'));
+
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>

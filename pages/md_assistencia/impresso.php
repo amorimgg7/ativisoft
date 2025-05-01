@@ -189,7 +189,7 @@ require_once('fpdf/fpdf.php');
         // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'OS_' . $showcd_servico . '.pdf';
 
-        $pdf->Output($nomeArquivo, 'I');
+        $pdf->Output($nomeArquivo, 'D');
 
     } elseif (isset($_POST['via_cliente'])) {
         
@@ -366,7 +366,7 @@ require_once('fpdf/fpdf.php');
         // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'VIA_CLIENTE_OS_' . $showcd_servico . '.pdf';
 
-        $pdf->Output($nomeArquivo, 'I');
+        $pdf->Output($nomeArquivo, 'D');
         
     } elseif (isset($_POST['lancar_composto'])) {
             include("../../partials/load.html");
@@ -665,7 +665,7 @@ require_once('fpdf/fpdf.php');
         // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'HISTORICO_OS_' . $showcd_servico . '.pdf';
 
-        $pdf->Output($nomeArquivo, 'I');
+        $pdf->Output($nomeArquivo, 'D');
 
 
 

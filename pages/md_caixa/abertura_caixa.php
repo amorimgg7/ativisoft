@@ -51,7 +51,7 @@
 	?>
   <!-- endinject -->
   <script src="../../js/functions.js"></script>
-  <link rel="shortcut icon" href="<?php echo $_SESSION['logo_empresa']; ?>" />
+  <!--<link rel="shortcut icon" href="<?php //echo $_SESSION['logo_empresa']; ?>" />-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
