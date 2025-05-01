@@ -1,9 +1,9 @@
 # Arquivos de acesso local: git add -f .\classes\conn.php
-#classes/conn.php
-#ativihouse_1_0/classes/conn.php
-#classes/conn_revenda.php
-#pages/web/imagens/
-#ativihouse_2_0/classes/conn.php
-#ativisoft_2_0/classes/conn.php
-#ondeabastecer_1_0/classes/conn.php
-#ondeabastecer_1_0/credentials.json
+classes/conn.php
+ativihouse_1_0/classes/conn.php
+classes/conn_revenda.php
+pages/web/imagens/
+ativihouse_2_0/classes/conn.php
+ativisoft_2_0/classes/conn.php
+ondeabastecer_1_0/classes/conn.php
+ondeabastecer_1_0/credentials.json
