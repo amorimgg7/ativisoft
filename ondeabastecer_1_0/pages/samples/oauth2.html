@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login com Google</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        img { border-radius: 50%; margin-top: 10px; }
+        .container { width: 60%; margin: auto; text-align: left; }
+    </style>
+</head>
+<body>
+    <h2>Login com Google</h2>
+    <div id="g_id_onload"
+         data-client_id="107976644534-8knc18ps4i830labkk0petk6a7doo3pa.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_select="true">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+
+    <div class="container">
+        <h3>Dados do Usuário:</h3>
+        <p id="user-info">Nenhum usuário logado</p>
+    </div>
+
+    <script>
+        function handleCredentialResponse(response) {
+            console.log("Token JWT recebido:", response.credential);
+
+            // Decodifica o token JWT para obter os dados do usuário
+            const userData = parseJwt(response.credential);
+
+            // Exibe as informações na tela
+            document.getElementById("user-info").innerHTML = `
+                <p><strong>ID do Google:</strong> ${userData.sub}</p>
+                <p><strong>Nome:</strong> ${userData.name}</p>
+                <p><strong>Email:</strong> ${userData.email}</p>
+                <p><strong>Foto:</strong> <br> <img src="${userData.picture}" width="100"></p>
+                <p><strong>Verificado:</strong> ${userData.email_verified ? 'Sim' : 'Não'}</p>
+                <p><strong>Idioma da Conta:</strong> ${userData.locale}</p>
+                <p><strong>Fuso Horário:</strong> ${Intl.DateTimeFormat().resolvedOptions().timeZone}</p>
+            `;
+        }
+
+        function parseJwt(token) {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            return JSON.parse(decodeURIComponent(escape(atob(base64))));
+        }
+    </script>
+</body>
+</html>
