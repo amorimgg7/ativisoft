@@ -204,19 +204,139 @@
                       'N',
                       'cliente')
                     ";
-                    mysqli_query($conn, $query);
-                      
-                    $query = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_POST['cd_pais'].$_POST['tel_cliente']."'";
-                    $result = mysqli_query($conn, $query);
-                    $row = mysqli_fetch_assoc($result);
+                    if(mysqli_query($conn, $query)){
+                      $last_id = mysqli_insert_id($conn);
+                      echo "<script>alert('| - | - | - | Cliente cadastrado com sucesso (".$last_id.") | - | - | - |');</script>";
 
-                    // Exibe as informações do usuário no formulário
-                    if($row) {
-                      $_SESSION['os_cliente'] = $row['cd_pessoa'];
-                      $_SESSION['pnome_cliente'] = $row['pnome_pessoa'];
-                      $_SESSION['snome_cliente'] = $row['snome_pessoa'];
-                      $_SESSION['tel_cliente'] = $row['tel1_pessoa'];                
+                      $result_cliente = $u->conPessoa('cliente', 'codigo', $last_id);
+
+                    if($result_cliente['status'] == 'OK'){
+                      
+                      echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
+                      echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+
+                      echo '<div class="card-body" id="cadOs"><!--FORMULÁRIO PARA CRIAR OS-->';
+                      echo '<div class="kt-portlet__body">';
+                      echo '<div class="row">';
+                      echo '<div class="col-12 col-md-12">';
+                      echo '<div class="nc-form-tac">';
+                      
+                      echo '<form method="POST">';
+                      echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
+                      echo '<div  class="typeahead">';
+
+                      echo '<div class="form-group-custom">';
+                      echo '<input value="'.$result_cliente['cd_cliente'].'" name="cd_cliente" type="text" id="cd_cliente" class=" form-control form-control-sm" style="display: none;"/>';
+                      echo '</div>';
+                      echo '<div class="form-group-custom">';
+                      echo '<label for="showpnome_cliente">Nome</label>';
+                      echo '<input value="'.$result_cliente['pnome_cliente'].'" name="showpnome_cliente" type="text" id="showpnome_cliente" maxlength="40"   class=" form-control form-control-sm" readonly/>';
+                      echo '</div>';
+                      echo '<div class="form-group-custom">';
+                      echo '<label for="showsnome_cliente">sobrenome</label>';
+                      echo '<input value="'.$result_cliente['snome_cliente'].'" name="showsnome_cliente" type="text" id="showsnome_cliente" maxlength="40"   class=" form-control form-control-sm" readonly/>';
+                      echo '</div>';
+                      echo '<div class="form-group-custom">';
+                      echo '<label for="showtel_cliente">Telefone</label>';
+                      echo '<input value="'.$result_cliente['tel1_cliente'].'" name="showtel_cliente" type="tel"  id="showtel_cliente" oninput="tel(this)" class=" form-control form-control-sm" readonly/>';
+                      echo '</div>';
+                      if($result_cliente['alerta_financeiro'] != 'OK'){
+                        echo "<script>alert('" . $result_cliente['alerta_financeiro'] . "');</script>";
+                        echo $result_cliente['acao_alerta'];
+                      }
+                      
+                      echo '</div>';
+                              
+                      echo '<h3 class="kt-portlet__head-title">Dados do serviço</h3>';
+                      echo '<div  class="typeahead">';
+                      echo '<input type="tel" name="cd_servico" id="cd_servico" style="display: none;">';
+                      echo '<div class="form-group-custom">';
+                      echo '<label for="obs_servico">Descrição Geral</label>';
+                      echo '<input type="text" name="obs_servico" maxlength="999" id="obs_servico"  class="form-control form-control-sm" placeholder="Caracteristica geral do serviço" required>';
+                      echo '<!--<textarea name="obs_servico" maxlength="999" id="obs_servico"  class="form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?" ></textarea>-->';
+                      echo '</div>';
+                      echo '<div class="form-group-custom">';   
+                      echo '<label for="prioridade_servico">Prioridade</label>';
+                      echo '<select name="prioridade_servico" id="prioridade_servico"  class="form-control form-control-sm" required>';
+                      
+                      echo '<option value="B">Baixa</option>';
+                      echo '<option selected="selected" value="M">Média</option>';
+                      echo '<option value="A">Alta</option>';
+                      echo '<option value="U">Urgente</option>';
+                      echo '</select>';
+                      echo '</div>';
+                      
+                      echo '<!--<label for="showprazo_servico">Entrada</label>-->';
+                      echo '<input name="data_hora_ponto" type="datetime-local" id="data_hora_ponto" placeholder="Data" class=" form-control form-control-sm" style="display: none;" />';
+                      
+                      echo '<div class="form-group-custom">';
+                      echo '<label for="prazo_servico">Prazo</label>';
+                      echo '<input name="prazo_servico" type="datetime-local" id="prazo_servico" placeholder="Data" class=" form-control form-control-sm" value="16:"/>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '<button type="submit" name="cadServico" class="btn btn-block btn-lg btn-success" onclick="fechacadServico()">Lançar</button>';
+                      echo '</form>';
+                              
+                      echo '</form>';
+                      echo '<form method="post">';//echo '<button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Nova Consulta</button>';
+                      echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin:10px 0px;">Refazer</button>';
+                      echo '</form>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+
+                    }else if($result_cliente['status'] == 'Não encontrado cliente'){
+                      echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
+                      echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+
+                      echo '<div class="card-body" id="cadastroCliente" style="display:block;">
+                  <h3 class="kt-portlet__head-title">Dados do cliente</h3>
+                  <div class="kt-portlet__body">
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">
+                          <form method="POST">
+                            <div  class="typeahead">
+                              <div class="form-group-custom">
+                                <label for="pnome_cliente">Nome</label>
+                                <input name="pnome_cliente" type="text" id="pnome_cliente" maxlength="40"   class=" form-control form-control-sm" required/>
+                              </div>
+
+                              <div class="form-group-custom">
+                                <label for="snome_cliente">sobrenome</label>
+                                <input name="snome_cliente" type="text" id="snome_cliente" maxlength="40"   class=" form-control form-control-sm" />
+                              </div>
+
+                              <div class="form-group-custom">
+                                <label for="tel_cliente">Telefone</label>
+                                <input name="tel_cliente" type="tel" value="'.$_POST['cd_pais'].$_POST['contel_cliente'].'" id="tel_cliente" oninput="tel(this)" class=" form-control form-control-sm" readonly/>
+                              <!--<input type="submit" class="btn btn-success" value="Salvar">-->
+                              </div>
+                            </div>
+                            <button type="submit" name="cad_cliente" class="btn btn-block btn-lg btn-success" >Salvar</button>
+                          </form>
+                          <form method="post">
+                            <button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin: 5px;">Refazer</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>';
+                      echo '<script>document.getElementById("tel_cliente").value = "'.$_POST['cd_pais'].$_POST['contel_cliente'].'"</script>';
+                    }else{
+                      echo "<script>alert('| - | - | - | ". $result_cliente['status'] . " | - | - | - |');</script>";
                     }
+
+                    }else{
+                      echo "<script>alert('| - | - | - | Falha ao cadastrar | - | - | - |');</script>";
+
+                    }
+                      
+                    
+
                   }
 
                   if(isset($_POST['contel_cliente'])) { //CHAMAR CLIENTE CADASTRADO PARA SESSION

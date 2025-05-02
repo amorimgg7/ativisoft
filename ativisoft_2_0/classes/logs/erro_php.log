@@ -1679,3 +1679,15 @@ Stack trace:
 #2 C:\xampp\htdocs\ativisoft_2_0\pages\md_assistencia\a4.php(231): FPDF->Output('I', 'VIA_CLIENTE_OS_...')
 #3 {main}
   thrown in C:\xampp\htdocs\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271
+[01-May-2025 09:22:30 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
+[01-May-2025 09:22:30 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 209
+[01-May-2025 23:42:58 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
+[01-May-2025 23:42:58 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 215
+[02-May-2025 00:01:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
+[02-May-2025 00:01:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 215
+[02-May-2025 00:03:39 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
+[02-May-2025 00:03:39 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 216
+[02-May-2025 00:05:22 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
+[02-May-2025 00:08:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
+[02-May-2025 00:09:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
+[02-May-2025 00:11:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
