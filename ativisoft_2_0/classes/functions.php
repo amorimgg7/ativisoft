@@ -637,8 +637,8 @@ class Usuario
 
         try {
             // Insere o serviço
-            $insert_servico = "INSERT INTO tb_servico(cd_cliente, cd_filial, obs_servico, prioridade_servico, entrada_servico, prazo_servico, status_servico)
-                VALUES('$cd_cliente', '$cd_filial', '$obs_servico', '$prioridade_servico', '$entrada_servico', '$prazo_servico', '0')";
+            $insert_servico = "INSERT INTO tb_servico(cd_cliente, cd_filial, obs_servico, prioridade_servico, entrada_servico, prazo_servico, orcamento_servico, vpag_servico, status_servico)
+                VALUES('$cd_cliente', '$cd_filial', '$obs_servico', '$prioridade_servico', '$entrada_servico', '$prazo_servico', 0, 0, '0')";
             mysqli_query($conn, $insert_servico);
             
             // Recupera o serviço inserido
