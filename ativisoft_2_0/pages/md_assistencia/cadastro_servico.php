@@ -7,7 +7,9 @@
     }
     require_once '../../classes/conn.php';
     include("../../classes/functions.php");
+    include("../../classes/financeiro.php");
     $u = new Usuario;
+    $f = new Financeiro;
     if(isset($_SESSION['os_cliente'])){
       echo '<script>document.getElementById("abrirOS").style.display = "block";</script>';      
     }

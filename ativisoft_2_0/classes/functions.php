@@ -1362,7 +1362,7 @@ class Usuario
 
 
 
-                if($vpag_servico == $row_financeiro_servico['vpag_servico']){
+                if($falta_pagar_servico == 0){
                     $partial_financeiro = $partial_financeiro.'
                                 <h6 style="color:#000;">total pago: ('.$vpag_servico.') - ('.$row_financeiro_servico['orcamento_servico'].')</h6>
                     ';     
@@ -1431,7 +1431,7 @@ class Usuario
                                                 errorMessageElement.style.color = "green";
                                                 borderForm.style.border = "1px solid green";
                                                 errorMessageElement.textContent = "OK";
-                                                inputElement.setCustomValidity("OK");
+                                                inputElement.setCustomValidity("");
                                             }
                                         }
                                     </script>  

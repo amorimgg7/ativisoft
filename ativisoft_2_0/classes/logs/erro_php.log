@@ -1691,3 +1691,27 @@ Stack trace:
 [02-May-2025 00:08:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
 [02-May-2025 00:09:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
 [02-May-2025 00:11:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 202
+[02-May-2025 14:11:53 America/Sao_Paulo] PHP Warning:  Undefined variable $lista_sql in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1266
+[02-May-2025 14:11:53 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1266
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(1266): implode(' ', NULL)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(520): Usuario->cadOrcamento('AVULSO', '33', 11, '31', 'testehh', '150,15')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1266
+[02-May-2025 14:12:14 America/Sao_Paulo] PHP Warning:  Undefined variable $lista_sql in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1266
+[02-May-2025 14:12:14 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1266
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(1266): implode(' ', NULL)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(520): Usuario->cadOrcamento('AVULSO', '33', 11, '31', '49.75', '')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1266
+[03-May-2025 00:40:24 America/Sao_Paulo] PHP Warning:  Undefined variable $f in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 730
+[03-May-2025 00:40:24 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function movimentoFinanceiro() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php:730
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 730
+[03-May-2025 00:41:24 America/Sao_Paulo] PHP Warning:  Undefined variable $f in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 730
+[03-May-2025 00:41:24 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function movimentoFinanceiro() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php:730
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 730
