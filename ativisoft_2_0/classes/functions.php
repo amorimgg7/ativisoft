@@ -266,6 +266,7 @@ class Usuario
                 $_SESSION['cnpj_empresa'] = $tb_empresa['cnpj_empresa'];
                 $_SESSION['nfantasia_empresa'] = $tb_empresa['nfantasia_empresa'];
                 $_SESSION['rsocial_empresa'] = $tb_empresa['rsocial_empresa'];
+                $_SESSION['tipo_impressao'] = $tb_empresa['tipo_impressao'];
                 
 
             }
@@ -730,7 +731,7 @@ class Usuario
                 <div  class="typeahead">
 
                 <div class="form-group-custom">
-                <label for="nome_cliente_servico">cd_cliente</label>
+                <label for="nome_cliente_servico">Cliente</label>
                 <input value="'.$row_servico['cd_pessoa'].' '.$row_servico['snome_pessoa'].'" type="hidden" name="cd_cliente_servico" id="cd_cliente_servico" class=" form-control form-control-sm" readonly>
                 <input value="'.$row_servico['pnome_pessoa'].' '.$row_servico['snome_pessoa'].'" type="text" name="nome_cliente_servico" id="nome_cliente_servico" class=" form-control form-control-sm" readonly>
                 </div>

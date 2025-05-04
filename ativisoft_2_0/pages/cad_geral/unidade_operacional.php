@@ -295,20 +295,27 @@
 														
 													}
 
-													if(isset($_POST['gravaInfoPreferencias_Funcao'])) {
+													if(isset($_POST['gravaInfoImpressao_Funcao'])) {
 														// Atualiza as informações do usuário no banco de dados
-														$query = "UPDATE rel_user SET
-														cd_estilo = '".$_POST['editcd_estilo']."',
-														cd_seg = '".$_POST['editcd_seg']."',
-														cd_funcao = '".$_POST['editcd_funcao']."'
-														WHERE cd_colab = '".$_SESSION['cd_colab']."';";
+														$query = "UPDATE tb_empresa SET
+														tipo_impressao = '".$_POST['edittipo_impressao']."'
+														WHERE cd_empresa = '".$_POST['cd_empresa']."'";
 														if(mysqli_query($conn, $query)){
 															echo "<script>window.alert('Cadastro Atualizado com sucesso!');</script>";
+															$_SESSION['tipo_impressao'] = $_POST['edittipo_impressao'];
 														}else{
 															echo "<script>window.alert('Erro ao atualizar Cadastro!');</script>";
 														}
-														
-													} 
+														?>
+															<script>// Limpa os cookies
+												        		// Remove as informações do formulário do histórico de navegação';
+														        history.replaceState({}, document.title, window.location.href.split('?')[0]);
+														        // Recarrega a página
+				                                    			window.location.reload();
+													        </script>
+														<?php
+													}
+
 
 													if(isset($_POST['gravaInfoSenha_Funcao'])){			//atualizar_senha						
 														$query = "SELECT * FROM tb_colab WHERE cd_colab = '".$_SESSION['cd_colab']."'";
@@ -804,7 +811,7 @@
 														echo ' <div class="kt-portlet__head">';
 														echo ' <div class="kt-portlet__head-label">';
 														echo ' <h3 class="kt-portlet__head-title">Mensagens</h3>';
-														echo ' </div>															';
+														echo ' </div>';
 														echo ' </div>';
 
 														echo ' <div class="kt-form kt-form--label-right">';
@@ -848,8 +855,8 @@
 														echo ' </div>';
 														echo ' </div>';
 														echo ' <div class="kt-form kt-form--label-right">';
-														echo ' <h3 class="kt-portlet__head-title">Em Breve</h3>';
-														echo '<!--';
+														//echo ' <h3 class="kt-portlet__head-title">Em Breve</h3>';
+														//echo '<!--';
 														echo ' <form method="POST">';
 														echo ' <div class="kt-portlet__body">';
 					                                	echo ' <div class="kt-section kt-section--first">';
@@ -857,19 +864,39 @@
 					                                	
 														echo ' <div class="form-group row">';
                                 						
-														echo ' </div>';
-														echo ' <div>';
-														echo ' <div class="float-left">';
-														echo ' <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--danger kt-switch--xs">';
-														echo ' <label class="mb-0 pb-0">';
-														echo ' <input id="ContentPlaceHolder1_iCkTemaFontBold" type="checkbox" name="ctl00$ContentPlaceHolder1$iCkTemaFontBold" /> ';
-														echo ' <span></span>';
-														echo ' </label>';
-														echo ' </span>   ';
-														echo ' </div>   ';
-														echo ' <div  class="float-left pl-2" style="padding-top: 0.15rem !important;">';
-														echo ' <label>Usar Font Bold</label>';
-														echo ' </div>';
+
+														
+														echo '<input value="'. $_SESSION['cd_empresa'] .'" name="cd_empresa" type="hidden"  id="cd_empresa" class="form-control form-control-sm"/>';
+															
+
+
+														
+														echo '<label class="col-xl-3 col-lg-3 col-form-label">Perfil de Impressão</label>';
+														echo '<div class="col-lg-9 col-xl-6">';
+														if ($_SESSION['tipo_impressao'] == ''){
+															echo '<span>Selecione seu modelo de impressão</span>';
+													  	}
+														$opcoes = [
+															"TERMICA1" => "Térmica 1",
+															"TERMICA2" => "Térmica 2",
+															"A4" => "A4"
+														];
+														$selecionado = $_SESSION['tipo_impressao'] ?? '';
+														echo '<select name="edittipo_impressao" id="edittipo_impressao" class="form-control">';
+														if ($selecionado == '') {
+															echo '<option value="" selected></option>';
+														}
+														if (array_key_exists($selecionado, $opcoes)) {
+															echo '<option value="'.$selecionado.'" selected>'.$opcoes[$selecionado].'</option>';
+															unset($opcoes[$selecionado]); // remove para não repetir
+														}
+														foreach ($opcoes as $valor => $texto) {
+															echo '<option value="'.$valor.'">'.$texto.'</option>';
+														}
+														echo '</select>';
+														echo '</div>';
+														
+														
 														echo ' </div>';
 														echo ' </div>';
 														echo ' </div>';
@@ -877,18 +904,20 @@
 														echo ' <div class="kt-portlet__foot">';
 														echo ' <div class="kt-form__actions">';
 														echo ' <div class="row">';
-														echo ' <div class="col-lg-3 col-xl-3">';
-														echo ' </div>';
-														echo ' <div class="col-lg-9 col-xl-9">';
-														echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfoPreferencias_Funcao" name="gravaInfoPreferencias_Funcao">';
-														echo ' &nbsp;';
-														echo ' <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>';
-														echo ' </div>';
+														
+														echo '<div class="mt-3 col-lg-12 col-xl-12">';
+															echo '<input type="submit" class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" name="gravaInfoImpressao_Funcao" id="gravaInfoImpressao_Funcao" value="Gravar">';
+															echo '</div>';
+														//echo ' <div class="col-lg-9 col-xl-9">';
+														//echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfoImpressao_Funcao" name="gravaInfoImpressao_Funcao">';
+														//echo ' &nbsp;';
+														//echo ' <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>';
+														//echo ' </div>';
 														echo ' </div>';
 														echo ' </div>';
 														echo ' </div>';
 														echo ' </form>';
-														echo '-->';
+														//echo '-->';
 														                            							
 													}else if($_SESSION['opcaoMenu'] == 5){
 														echo ' <!--begin: Personal Information-->';

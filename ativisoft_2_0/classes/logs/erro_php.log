@@ -1715,3 +1715,4 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 730
+[04-May-2025 14:11:43 America/Sao_Paulo] PHP Warning:  Undefined array key "edittipo_impressao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 301
