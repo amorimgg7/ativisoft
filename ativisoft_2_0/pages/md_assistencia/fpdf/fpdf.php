@@ -2184,11 +2184,22 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
         }
         $this->Ln(1);
 	}elseif($modelo == 'A4'){
+
+		$this->SetFont('Arial', 'B', 14);
+		$this->Cell(0, 8, 'Dados do Cliente', 1, 1, 'L');
+		$this->SetFont('Arial', '', 10);
+		$cliente = "Cliente: $nomeCompleto\nTelefone: +$telefone\nEndereço: asd,123";
+		$this->MultiCell(0, 5, mb_convert_encoding($cliente, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
+		$this->SetFont('Arial', '', 10);
+		$obs_formatado = 'OBS: ' . mb_convert_encoding($this->WrapText($obs), $_SESSION['toEncoding'], $_SESSION['fromEncoding']);
+		$this->MultiCell(0, 10, $obs_formatado, 1, 'L');
+		$this->Ln(3);
+
+
+
 		// Título da seção
 		$this->SetFont('Arial', 'B', 14);
-        $this->MultiCell(0, 7, mb_convert_encoding('Detalhes do Serviço', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'L');
-        //$this->Cell(40, 7, 'Prioridade', 1, 0, 'C');
-        //$this->Cell(40, 7, mb_convert_encoding('Previsão', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 1, 'C');
+        $this->Cell(0, 7, mb_convert_encoding('Detalhes do Serviço', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'L');
         $this->SetFont('Arial', '', 10);
         if($prioridade == "U"){
 			$prioridadee = 'Urgente';
@@ -2297,6 +2308,94 @@ function dadosFinanceiros($modelo, $vorcamento, $vpago,) {
 
 function detalhesAtividadesServico($modelo, $os) {
 	if($modelo == 'M1'){
+		$this->SetFont('Arial', 'B', 15);
+    	$this->MultiCell(80, 7, mb_convert_encoding('Histórico Detalhado', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'C');
+
+                
+        $this->Cell(30, 7, 'Tipo', 1, 0, 'C');
+        $this->Cell(25, 7, mb_convert_encoding('Início', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
+        $this->Cell(25, 7, 'Fim', 1, 1, 'C'); // último parâmetro 1 = quebra linha
+
+        // Lista de orçamentos feitos
+        //session_start();
+        require_once '../../classes/conn.php';
+        include("../../classes/functions.php");
+
+        $this->SetFont('Arial', 'B', 10);
+        $select_servico = "SELECT * FROM (
+        	SELECT @rownum:=@rownum+1 'rownum', t.* 
+            FROM tb_atividade t, (SELECT @rownum:=0) r 
+            WHERE cd_servico = '".$_SESSION['cd_servico']."' 
+            ORDER BY cd_atividade ASC
+            ) as temp_table 
+            WHERE temp_table.rownum < (SELECT COUNT(*) FROM tb_atividade WHERE cd_servico = '".$os."')";
+                  
+        //$select_servico = "SELECT * FROM tb_atividade WHERE cd_servico = '".$_SESSION['servico']."' ORDER BY cd_atividade ASC";
+        $result_servico = mysqli_query($conn, $select_servico);
+        $count = 0;
+        while($row_servico = $result_servico->fetch_assoc()) {
+        	$count ++;
+            if($row_servico['titulo_atividade'] == 'A'){
+            	$status = 'ENTRADA';
+            }elseif($row_servico['titulo_atividade'] == 'B'){
+            	$status = 'EM ANDAMENTO';
+            }elseif($row_servico['titulo_atividade'] == 'C'){
+            	$status = 'FINALIZADO';
+            }elseif($row_servico['titulo_atividade'] == 'D'){
+            	$this->SetFont('Arial', 'B', 6);
+                $status = 'ENTREGUE / DEVOLVIDO';
+            }
+                    
+            $this->Cell(30, 7, mb_convert_encoding($status, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'L');
+            $this->SetFont('Arial', 'B', 8);
+            $this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_servico['inicio_atividade'])), 1, 0, 'L');
+            $this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_servico['fim_atividade'])), 1, 1, 'L');
+            $this->Cell(80, 7, $this->WrapText(mb_convert_encoding('OBS: '.$row_servico['obs_atividade'], $_SESSION['toEncoding'], $_SESSION['fromEncoding'])), 1, 1, 'L');
+
+
+                    
+        }
+        $this->Ln(1);
+        //$this->Cell(40, 0, '-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|', 0, 1, 'C'); 
+
+        $this->SetFont('Arial', 'B', 15);
+        $this->Cell(80, 7, mb_convert_encoding('Última atividade', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 1, 'C');
+        $this->SetFont('Arial', 'B', 10);
+        $select_lastservico = "SELECT * FROM tb_atividade WHERE cd_servico = '".$os."' ORDER BY cd_atividade DESC LIMIT 1";
+
+
+        //$select_servico = "SELECT * FROM tb_atividade WHERE cd_servico = '".$_SESSION['servico']."' ORDER BY cd_atividade ASC";
+        $result_lastservico = mysqli_query($conn, $select_lastservico);
+        $count = 0;
+        while($row_lastservico = $result_lastservico->fetch_assoc()) {
+        	$count ++;
+            if($row_lastservico['titulo_atividade'] == 'A'){
+            	$status = 'ENTRADA';
+            }elseif($row_lastservico['titulo_atividade'] == 'B'){
+            	$status = 'EM ANDAMENTO';
+            }elseif($row_lastservico['titulo_atividade'] == 'C'){
+            	$status = 'FINALIZADO';
+            }elseif($row_lastservico['titulo_atividade'] == 'D'){
+            	$this->SetFont('Arial', 'B', 6);
+                $status = 'ENTREGUE / DEVOLVIDO';
+            }
+               
+
+                    
+            $this->Cell(30, 7, mb_convert_encoding($status, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'L');
+            $this->SetFont('Arial', 'B', 8);
+            $this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_lastservico['inicio_atividade'])), 1, 0, 'L');
+            if(isset($row_lastservico['fim_atividade'])){
+				$this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_lastservico['fim_atividade'])), 1, 1, 'L');
+			}else{
+				$this->Cell(25, 7, '-', 1, 1, 'L');
+			}
+				$this->Cell(80, 7, $this->WrapText(mb_convert_encoding('OBS: '.$row_lastservico['obs_atividade'], $_SESSION['toEncoding'], $_SESSION['fromEncoding'])), 1, 1, 'L');
+
+        }
+
+        $this->Ln(5);
+	}elseif($modelo == 'A4'){
 		$this->SetFont('Arial', 'B', 15);
     	$this->MultiCell(80, 7, mb_convert_encoding('Histórico Detalhado', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'C');
 

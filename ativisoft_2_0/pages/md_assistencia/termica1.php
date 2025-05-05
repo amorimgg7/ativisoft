@@ -413,6 +413,7 @@ require_once('fpdf/fpdf.php');
         exit;
     }
 
+    ob_end_clean();
 
 ?>
 

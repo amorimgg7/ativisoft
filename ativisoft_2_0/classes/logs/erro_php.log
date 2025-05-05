@@ -1716,3 +1716,18 @@ Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 730
 [04-May-2025 14:11:43 America/Sao_Paulo] PHP Warning:  Undefined array key "edittipo_impressao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 301
+[05-May-2025 00:09:05 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1753) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php:271
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1051): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1008): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php(83): FPDF->Output('I', 'OS_30.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271
+[05-May-2025 00:09:12 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1753) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php:271
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1051): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1008): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php(83): FPDF->Output('I', 'OS_30.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271
+[05-May-2025 00:10:02 America/Sao_Paulo] PHP Warning:  Undefined array key "vtotal_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\movimento_financeiro.php on line 361

@@ -871,8 +871,8 @@
 
 
 														
-														echo '<label class="col-xl-3 col-lg-3 col-form-label">Perfil de Impressão</label>';
-														echo '<div class="col-lg-9 col-xl-6">';
+														echo '<label class="col-2">Modelo</label>';
+														echo '<div class="col-12">';
 														if ($_SESSION['tipo_impressao'] == ''){
 															echo '<span>Selecione seu modelo de impressão</span>';
 													  	}
@@ -906,8 +906,8 @@
 														echo ' <div class="row">';
 														
 														echo '<div class="mt-3 col-lg-12 col-xl-12">';
-															echo '<input type="submit" class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" name="gravaInfoImpressao_Funcao" id="gravaInfoImpressao_Funcao" value="Gravar">';
-															echo '</div>';
+														echo '<input type="submit" class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" name="gravaInfoImpressao_Funcao" id="gravaInfoImpressao_Funcao" value="Gravar">';
+														echo '</div>';
 														//echo ' <div class="col-lg-9 col-xl-9">';
 														//echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfoImpressao_Funcao" name="gravaInfoImpressao_Funcao">';
 														//echo ' &nbsp;';

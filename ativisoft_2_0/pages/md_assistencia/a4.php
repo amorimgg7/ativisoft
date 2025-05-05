@@ -1,6 +1,7 @@
 <?php
 
 
+
 require_once('fpdf/fpdf.php');
 
     if (isset($_POST['imprimir_os'])) {
@@ -368,19 +369,18 @@ require_once('fpdf/fpdf.php');
             }
 
             function GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico) {
-                $this->AddPage('P', array(80, 1000)); // Tamanho do papel em milímetros
-                $this->SetAutoPageBreak(false);
-                $this->SetLeftMargin(0);
-                $this->SetFont('Arial', 'B', 20);
-                $this->Cell(60, 10, '.', 0, 1, 'C');
-
-                $this->customHeader('M1', 'Histórico do serviço', $showcd_servico);
-
-                $this->dadosCliente('M1',$nome.$sobrenome, $telefone, $showobs_servico );
+                $this->AddPage('P', 'A4'); // Tamanho do papel em milímetros
+                $this->SetFont('Arial', '', 10);
+                // Cabeçalho
                 
-                $this->detalhesAtividadesServico('M1', $showcd_servico);
+                $this->Ln(20);
+                $this->customHeader('A4', 'Histórico do serviço', $showcd_servico);
+
+                $this->dadosCliente('A4',$nome.$sobrenome, $telefone, $showobs_servico );
                 
-                $this->customFooter('M1', ''); 
+                $this->detalhesAtividadesServico('A4', $showcd_servico);
+                
+                $this->customFooter('A4', ''); 
             }
 
         }
@@ -392,7 +392,7 @@ require_once('fpdf/fpdf.php');
         // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'HISTORICO_OS_' . $showcd_servico . '.pdf';
 
-        $pdf->Output($nomeArquivo, 'D');
+        $pdf->Output($nomeArquivo, 'I');
 
 
 
@@ -407,6 +407,9 @@ require_once('fpdf/fpdf.php');
         exit;
     }
 
+
+//ob_end_clean(); // limpa o buffer de saída antes de enviar o PDF
+//$pdf->Output();
 
 ?>
 
