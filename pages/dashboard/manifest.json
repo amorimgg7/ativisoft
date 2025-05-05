@@ -1,6 +1,6 @@
 {
-  "name": "Ativi Soft",
-  "short_name": "AtiviSoft",
+  "name": "Ativi Soft 1.0",
+  "short_name": "AtiviSoft 1.0",
   "start_url": "/pages/dashboard/index.php",
   "display": "standalone",
   "background_color": "#ffffff",

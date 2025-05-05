@@ -1,4 +1,5 @@
 <?php
+session_start();
 class Usuario  
 {
     //public function conectar($cnpj_empresa)
@@ -27,7 +28,7 @@ class Usuario
         if($sql->rowCount() > 0)
         {
             $colab = $sql->fetch();
-            session_start();
+            //session_start();
             $_SESSION['cd_colab'] = $colab['cd_colab'];
             $_SESSION['email_colab'] = $colab['email_colab'];
             $_SESSION['senha_colab'] = $colab['senha_colab'];
