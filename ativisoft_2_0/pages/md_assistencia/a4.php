@@ -303,6 +303,7 @@ require_once('fpdf/fpdf.php');
             
             //echo "<script>window.alert('Usuário atualizado com sucesso!');</script>";
     } elseif(isset($_POST['historico_os'])){
+        //ob_end_clean();
         unset($_POST['historico_os']);
         $showcd_servico = $_POST['btncd_servico'];
         $nome = $_POST['btnpnome_cliente'];
@@ -394,7 +395,7 @@ require_once('fpdf/fpdf.php');
 
         $pdf->Output($nomeArquivo, 'I');
 
-
+        ob_end_clean();
 
     }elseif(isset($_POST['limparOS'])){
         //echo "<script>window.alert('Mostrar botão de limpar OS!');</script>";
@@ -408,7 +409,7 @@ require_once('fpdf/fpdf.php');
     }
 
 
-//ob_end_clean(); // limpa o buffer de saída antes de enviar o PDF
+ob_end_clean(); // limpa o buffer de saída antes de enviar o PDF
 //$pdf->Output();
 
 ?>

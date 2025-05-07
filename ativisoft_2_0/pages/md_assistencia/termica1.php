@@ -85,7 +85,7 @@ require_once('fpdf/fpdf.php');
         // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'OS_' . $showcd_servico . '.pdf';
 
-        $pdf->Output($nomeArquivo, 'D');
+        $pdf->Output($nomeArquivo, 'I');
 
     } elseif (isset($_POST['via_cliente'])) {
         unset($_POST['via_cliente']);

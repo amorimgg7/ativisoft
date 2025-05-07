@@ -2186,20 +2186,13 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
 	}elseif($modelo == 'A4'){
 
 		$this->SetFont('Arial', 'B', 14);
-		$this->Cell(0, 8, 'Dados do Cliente', 1, 1, 'L');
-		$this->SetFont('Arial', '', 10);
-		$cliente = "Cliente: $nomeCompleto\nTelefone: +$telefone\nEndereço: asd,123";
-		$this->MultiCell(0, 5, mb_convert_encoding($cliente, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
-		$this->SetFont('Arial', '', 10);
-		$obs_formatado = 'OBS: ' . mb_convert_encoding($this->WrapText($obs), $_SESSION['toEncoding'], $_SESSION['fromEncoding']);
-		$this->MultiCell(0, 10, $obs_formatado, 1, 'L');
-		$this->Ln(3);
+		
 
 
 
 		// Título da seção
 		$this->SetFont('Arial', 'B', 14);
-        $this->Cell(0, 7, mb_convert_encoding('Detalhes do Serviço', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'L');
+        $this->Cell(0, 8, mb_convert_encoding('Detalhes do Serviço', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'L');
         $this->SetFont('Arial', '', 10);
         if($prioridade == "U"){
 			$prioridadee = 'Urgente';
@@ -2213,6 +2206,14 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
         if($prioridade == "B"){
 			$prioridadee = 'Baixa';
         }
+
+		$complementares = "Pprioridade: $prioridade\nPrevisão de entrega/Finalização: date('d/m/Y \a\s H:i', strtotime($previsao))";
+		 
+		$this->MultiCell(0, 5, mb_convert_encoding($complementares, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
+		$this->SetFont('Arial', '', 10);
+		//$obs_formatado = 'OBS: ' . mb_convert_encoding($this->WrapText($obs), $_SESSION['toEncoding'], $_SESSION['fromEncoding']);
+		//$this->MultiCell(0, 10, $obs_formatado, 1, 'L');
+		$this->Ln(3);
         //$this->Cell(40, 7, date('d/m/Y \a\s H:i', strtotime($previsao)), 1, 1, 'C');
         //$this->Ln(1);
 		$previsao = date('d/m/Y \a\s H:i', strtotime($previsao));
@@ -2395,14 +2396,20 @@ function detalhesAtividadesServico($modelo, $os) {
         }
 
         $this->Ln(5);
+
 	}elseif($modelo == 'A4'){
 		$this->SetFont('Arial', 'B', 15);
-    	$this->MultiCell(80, 7, mb_convert_encoding('Histórico Detalhado', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'C');
+    	$this->MultiCell(0, 8, mb_convert_encoding('Histórico Detalhado', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'C');
 
-                
-        $this->Cell(30, 7, 'Tipo', 1, 0, 'C');
-        $this->Cell(25, 7, mb_convert_encoding('Início', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
-        $this->Cell(25, 7, 'Fim', 1, 1, 'C'); // último parâmetro 1 = quebra linha
+//		$complementares = "Pprioridade: $prioridade\nPrevisão de entrega/Finalização: date('d/m/Y \a\s H:i', strtotime($previsao))";
+		 
+//		$this->MultiCell(0, 5, mb_convert_encoding($complementares, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
+		
+
+          //190      
+        $this->Cell(90, 7, 'Tipo', 1, 0, 'C');
+        $this->Cell(50, 7, mb_convert_encoding('Início', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
+        $this->Cell(50, 7, 'Fim', 1, 1, 'C'); // último parâmetro 1 = quebra linha
 
         // Lista de orçamentos feitos
         //session_start();
@@ -2434,11 +2441,11 @@ function detalhesAtividadesServico($modelo, $os) {
                 $status = 'ENTREGUE / DEVOLVIDO';
             }
                     
-            $this->Cell(30, 7, mb_convert_encoding($status, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'L');
+            $this->Cell(90, 7, mb_convert_encoding($status, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'L');
             $this->SetFont('Arial', 'B', 8);
-            $this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_servico['inicio_atividade'])), 1, 0, 'L');
-            $this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_servico['fim_atividade'])), 1, 1, 'L');
-            $this->Cell(80, 7, $this->WrapText(mb_convert_encoding('OBS: '.$row_servico['obs_atividade'], $_SESSION['toEncoding'], $_SESSION['fromEncoding'])), 1, 1, 'L');
+            $this->Cell(50, 7, date('d/m/Y H:i', strtotime($row_servico['inicio_atividade'])), 1, 0, 'L');
+            $this->Cell(50, 7, date('d/m/Y H:i', strtotime($row_servico['fim_atividade'])), 1, 1, 'L');
+            $this->Cell(0, 7, $this->WrapText(mb_convert_encoding('OBS: '.$row_servico['obs_atividade'], $_SESSION['toEncoding'], $_SESSION['fromEncoding'])), 1, 1, 'L');
 
 
                     
@@ -2447,7 +2454,7 @@ function detalhesAtividadesServico($modelo, $os) {
         //$this->Cell(40, 0, '-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|', 0, 1, 'C'); 
 
         $this->SetFont('Arial', 'B', 15);
-        $this->Cell(80, 7, mb_convert_encoding('Última atividade', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 1, 'C');
+        $this->Cell(0, 7, mb_convert_encoding('Última atividade', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 1, 'C');
         $this->SetFont('Arial', 'B', 10);
         $select_lastservico = "SELECT * FROM tb_atividade WHERE cd_servico = '".$os."' ORDER BY cd_atividade DESC LIMIT 1";
 
@@ -2470,15 +2477,15 @@ function detalhesAtividadesServico($modelo, $os) {
                
 
                     
-            $this->Cell(30, 7, mb_convert_encoding($status, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'L');
+            $this->Cell(90, 7, mb_convert_encoding($status, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'L');
             $this->SetFont('Arial', 'B', 8);
-            $this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_lastservico['inicio_atividade'])), 1, 0, 'L');
+            $this->Cell(50, 7, date('d/m/Y H:i', strtotime($row_lastservico['inicio_atividade'])), 1, 0, 'L');
             if(isset($row_lastservico['fim_atividade'])){
-				$this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_lastservico['fim_atividade'])), 1, 1, 'L');
+				$this->Cell(50, 7, date('d/m/Y H:i', strtotime($row_lastservico['fim_atividade'])), 1, 1, 'L');
 			}else{
-				$this->Cell(25, 7, '-', 1, 1, 'L');
+				$this->Cell(50, 7, '-', 1, 1, 'L');
 			}
-				$this->Cell(80, 7, $this->WrapText(mb_convert_encoding('OBS: '.$row_lastservico['obs_atividade'], $_SESSION['toEncoding'], $_SESSION['fromEncoding'])), 1, 1, 'L');
+				$this->Cell(0, 7, $this->WrapText(mb_convert_encoding('OBS: '.$row_lastservico['obs_atividade'], $_SESSION['toEncoding'], $_SESSION['fromEncoding'])), 1, 1, 'L');
 
         }
 

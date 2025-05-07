@@ -522,8 +522,8 @@
                     $result_orcamento = $u->cadOrcamento('AVULSO', $_POST['cd_cliente'],$_SESSION['cd_empresa'], $_POST['cd_servico'], $_POST['titulo_orcamento'], $_POST['vcusto_orcamento']);
                     if($result_orcamento['status'] == 'OK'){
                       //echo "<script>alert('Orçamento gerado: " . $result_orcamento['cd_orcamento'] . "');</script>";
-                      echo "<script>alert('SQL: " . addslashes(json_encode($result_orcamento['SQL'], JSON_PRETTY_PRINT)) . "');</script>";
-                      echo "<script>alert('| - | - | - | ". $result_orcamento['status'] . " | - | - | - |');</script>";
+                      //echo "<script>alert('SQL: " . addslashes(json_encode($result_orcamento['SQL'], JSON_PRETTY_PRINT)) . "');</script>";
+                      //echo "<script>alert('| - | - | - | ". $result_orcamento['status'] . " | - | - | - |');</script>";
                     }else{
                       echo "<script>alert('SQL: " . addslashes(json_encode($result_orcamento['SQL'], JSON_PRETTY_PRINT)) . "');</script>";
                       echo "<script>alert('| - | - | - | ".$result_orcamento['cd_orcamento'].' - '. $result_orcamento['status'] . " | - | - | - |');</script>";

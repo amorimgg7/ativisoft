@@ -1731,3 +1731,38 @@ Stack trace:
 #3 {main}
   thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271
 [05-May-2025 00:10:02 America/Sao_Paulo] PHP Warning:  Undefined array key "vtotal_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\movimento_financeiro.php on line 361
+[05-May-2025 18:01:34 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php:271
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1062): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1008): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php(82): FPDF->Output('I', 'OS_33.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271
+[05-May-2025 18:01:56 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php:271
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1062): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1008): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php(82): FPDF->Output('I', 'OS_33.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271
+[05-May-2025 18:15:42 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1754) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php:271
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1051): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1008): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php(396): FPDF->Output('I', 'HISTORICO_OS_33...')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271
+[05-May-2025 18:16:47 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[05-May-2025 18:20:08 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[05-May-2025 18:20:18 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[05-May-2025 18:20:25 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[05-May-2025 18:20:47 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[05-May-2025 18:21:18 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[05-May-2025 18:21:21 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[05-May-2025 18:22:00 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[05-May-2025 18:22:29 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[05-May-2025 18:23:12 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[06-May-2025 19:25:31 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 152
+[06-May-2025 19:25:31 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 153
+[06-May-2025 19:25:31 America/Sao_Paulo] PHP Warning:  Undefined array key "telefone_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 155
+[06-May-2025 19:25:31 America/Sao_Paulo] PHP Warning:  Undefined array key "email_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 156

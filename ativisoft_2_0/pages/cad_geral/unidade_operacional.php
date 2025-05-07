@@ -135,15 +135,13 @@
 													}
 
 													if(isset($_POST['cad_unidade'])){
-														$select_empresa = "SELECT * FROM TB_EMPRESA WHERE CNPJ_EMPRESA = '".$_POST['cnpj_filial']."'";
+														$_SESSION['opcaoMenu'] = 1;
+														$select_empresa = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_POST['cnpj_filial']."'";
 														$result_empresa = mysqli_query($conn, $select_empresa);
 														$count = 0;
-														while($row_empresa = $result_empresa->fetch_assoc()) {
-															$count ++;
-														}
-
-														if($count > 0){
+														if($row_empresa = $result_empresa->fetch_assoc()) {
 															echo "<script>window.alert('CNPJ ja foi cadastrado');</script>";
+															
 														}else{
 															
 															$query = "INSERT INTO tb_empresa(cd_proprietario, tipo_empresa, rsocial_empresa, nfantasia_empresa, cnpj_empresa, tel1_empresa, email_empresa, status_empresa) VALUES(
@@ -156,24 +154,32 @@
 																'".$_POST['email_filial']."',
 																1)
 															  ";
-															mysqli_query($conn, $query);
-															// Obtém o ID recém-criado (cd_empresa)
-															$cd_empresa = mysqli_insert_id($conn);
+															  if(mysqli_query($conn, $query)){
+																echo "<script>window.alert('sucesso');</script>";
 
-															// Atualiza o campo cd_matriz com o valor de cd_empresa
-															$updateEmpresa = "UPDATE tb_empresa SET cd_matriz = $cd_empresa WHERE cd_empresa = $cd_empresa";
-															mysqli_query($conn, $updateEmpresa);
+																// Obtém o ID recém-criado (cd_empresa)
+																$cd_empresa = mysqli_insert_id($conn);
 
-															$updateEmpresa = "UPDATE rel_master SET cd_empresa = $cd_empresa WHERE cd_empresa is null and cd_pessoa = ".$_SESSION['cd_colab']."";
-															mysqli_query($conn, $updateEmpresa);
+																// Atualiza o campo cd_matriz com o valor de cd_empresa
+																$updateEmpresa = "UPDATE tb_empresa SET cd_matriz = $cd_empresa WHERE cd_empresa = $cd_empresa";
+																mysqli_query($conn, $updateEmpresa);
 
-															$select_empresa = "SELECT * FROM TB_EMPRESA WHERE CNPJ_EMPRESA = '".$_POST['cnpj_filial']."'";
-															$result_empresa = mysqli_query($conn, $select_empresa);
-															while($row_empresa = $result_empresa->fetch_assoc()) {
-																$_SESSION['cd_empresa'] = $row_empresa['cd_empresa'];
-																echo "<script>window.alert('Complete seu cadastro!');</script>";
-																echo '<script>location.href="unidade_operacional.php";</script>';
-															}
+																$updateEmpresa = "UPDATE rel_master SET cd_empresa = $cd_empresa WHERE cd_empresa is null and cd_pessoa = ".$_SESSION['cd_colab']."";
+																mysqli_query($conn, $updateEmpresa);
+
+																$select_empresa = "SELECT * FROM TB_EMPRESA WHERE CNPJ_EMPRESA = '".$_POST['cnpj_filial']."'";
+																$result_empresa = mysqli_query($conn, $select_empresa);
+																while($row_empresa = $result_empresa->fetch_assoc()) {
+																	$_SESSION['cd_empresa'] = $row_empresa['cd_empresa'];
+																	echo "<script>window.alert('Complete seu cadastro!');</script>";
+																	echo '<script>location.href="unidade_operacional.php";</script>';
+																}
+
+															  }else{
+																echo "<script>window.alert('falha');</script>";
+
+															  }
+															
 															
 															//echo "<script>window.alert('".$cd_empresa.": Empresa Cadastrada!');</script>";
 														}
