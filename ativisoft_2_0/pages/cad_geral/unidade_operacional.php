@@ -162,10 +162,14 @@
 
 																// Atualiza o campo cd_matriz com o valor de cd_empresa
 																$updateEmpresa = "UPDATE tb_empresa SET cd_matriz = $cd_empresa WHERE cd_empresa = $cd_empresa";
-																mysqli_query($conn, $updateEmpresa);
+																if(!mysqli_query($conn, $updateEmpresa)){
+																	echo "<script>window.alert('falha1');</script>";
+																}
 
 																$updateEmpresa = "UPDATE rel_master SET cd_empresa = $cd_empresa WHERE cd_empresa is null and cd_pessoa = ".$_SESSION['cd_colab']."";
-																mysqli_query($conn, $updateEmpresa);
+																if(mysqli_query($conn, $updateEmpresa)){
+																	echo "<script>window.alert('falha2');</script>";
+																}
 
 																$select_empresa = "SELECT * FROM TB_EMPRESA WHERE CNPJ_EMPRESA = '".$_POST['cnpj_filial']."'";
 																$result_empresa = mysqli_query($conn, $select_empresa);

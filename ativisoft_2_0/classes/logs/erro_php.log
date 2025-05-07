@@ -1766,3 +1766,7 @@ Stack trace:
 [06-May-2025 19:25:31 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 153
 [06-May-2025 19:25:31 America/Sao_Paulo] PHP Warning:  Undefined array key "telefone_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 155
 [06-May-2025 19:25:31 America/Sao_Paulo] PHP Warning:  Undefined array key "email_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 156
+[07-May-2025 11:39:53 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 150
+[07-May-2025 11:39:53 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 151
+[07-May-2025 11:39:53 America/Sao_Paulo] PHP Warning:  Undefined array key "telefone_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 153
+[07-May-2025 11:39:53 America/Sao_Paulo] PHP Warning:  Undefined array key "email_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 154
