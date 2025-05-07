@@ -141,50 +141,24 @@
 														$count = 0;
 														if($row_empresa = $result_empresa->fetch_assoc()) {
 															echo "<script>window.alert('CNPJ ja foi cadastrado');</script>";
-															
 														}else{
-															
-															$query = "INSERT INTO tb_empresa(cd_proprietario, tipo_empresa, rsocial_empresa, nfantasia_empresa, cnpj_empresa, tel1_empresa, email_empresa, status_empresa) VALUES(
-																'".$_SESSION['cd_colab']."',
+
+															$retornaCadastro = $u->cadUnidadeOperacional(
+																$_POST['cnpj_filial'],
 																'matriz',
-																'".$_POST['rsocial_filial']."',
-																'".$_POST['nfantasia_filial']."',
-																'".$_POST['cnpj_filial']."',
-																'".$_POST['telefone_filial']."',
-																'".$_POST['email_filial']."',
-																1)
-															  ";
-															  if(mysqli_query($conn, $query)){
-																echo "<script>window.alert('sucesso');</script>";
-
-																// Obtém o ID recém-criado (cd_empresa)
-																$cd_empresa = mysqli_insert_id($conn);
-
-																// Atualiza o campo cd_matriz com o valor de cd_empresa
-																$updateEmpresa = "UPDATE tb_empresa SET cd_matriz = $cd_empresa WHERE cd_empresa = $cd_empresa";
-																if(!mysqli_query($conn, $updateEmpresa)){
-																	echo "<script>window.alert('falha1');</script>";
-																}
-
-																$updateEmpresa = "UPDATE rel_master SET cd_empresa = $cd_empresa WHERE cd_empresa is null and cd_pessoa = ".$_SESSION['cd_colab']."";
-																if(mysqli_query($conn, $updateEmpresa)){
-																	echo "<script>window.alert('falha2');</script>";
-																}
-
-																$select_empresa = "SELECT * FROM TB_EMPRESA WHERE CNPJ_EMPRESA = '".$_POST['cnpj_filial']."'";
-																$result_empresa = mysqli_query($conn, $select_empresa);
-																while($row_empresa = $result_empresa->fetch_assoc()) {
-																	$_SESSION['cd_empresa'] = $row_empresa['cd_empresa'];
-																	echo "<script>window.alert('Complete seu cadastro!');</script>";
-																	echo '<script>location.href="unidade_operacional.php";</script>';
-																}
-
-															  }else{
-																echo "<script>window.alert('falha');</script>";
-
-															  }
-															
-															
+																$_SESSION['cd_colab'],
+																$_POST['rsocial_filial'],
+																$_POST['nfantasia_filial'],
+																$_POST['telefone_filial'],
+																$_POST['email_filial']
+															);
+															if($retornaCadastro['status'] == 'OK'){
+																echo "<script>window.alert('".$retornaCadastro['status']."');</script>";
+																$_SESSION['cd_empresa'] = $retornaCadastro['cd_empresa'];
+																echo '<script>location.href="unidade_operacional.php";</script>';
+															}else{
+																echo "<script>window.alert('".$retornaCadastro['status']."');</script>";
+															}															
 															//echo "<script>window.alert('".$cd_empresa.": Empresa Cadastrada!');</script>";
 														}
 													}
@@ -454,10 +428,17 @@
 
 
 															$resultado = $t->telefone($row_selecionada['tel1_empresa']);
+															if($resultado['codigo_pais'] == ''){
+																$codigo_pais = 55;
+																$nome_pais = "+55 Brasil";
+															}else{
+																$codigo_pais = $resultado['codigo_pais'];
+																$nome_pais = $resultado['nome_pais'];
+															}
                                 							echo '<div class="input-group form-group-custom">';
                                 							echo '    <div class="input-group-prepend">';
                                 							echo '      <select name="cd_pais" id="cd_pais"  class="input-group-text" required>';
-                                							echo '      <option selected="selected" value="'.$resultado['codigo_pais'].'">'.$resultado['nome_pais'].'</option>';
+                                							echo '      <option selected="selected" value="'.$codigo_pais.'">'.$nome_pais.'</option>';
                                 							echo $resultado['lista_paises'];
                                 							echo '      </select>  ';
                                 							echo '    </div>';
@@ -861,7 +842,7 @@
 														echo ' <div class="kt-portlet">';
 														echo ' <div class="kt-portlet__head">';
 														echo ' <div class="kt-portlet__head-label">';
-														echo ' <h3 class="kt-portlet__head-title">Inpressões</h3>';
+														echo ' <h3 class="kt-portlet__head-title">Impressões</h3>';
 														echo ' </div>';
 														echo ' </div>';
 														echo ' <div class="kt-form kt-form--label-right">';

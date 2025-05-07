@@ -1738,6 +1738,87 @@ class Usuario
 
     }
 
+    public function cadUnidadeOperacional($cnpj_empresa, $tipo_empresa, $cd_colab, $rsocial_filial, $nfantasia_filial, $telefone_filial, $email_filial) 
+    {
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+            $insert_empresa = "INSERT INTO tb_empresa(cd_proprietario, tipo_empresa, rsocial_empresa, nfantasia_empresa, cnpj_empresa, tel1_empresa, email_empresa, status_empresa) VALUES(
+                '$cd_colab', '$tipo_empresa', '$rsocial_filial', '$nfantasia_filial', '$cnpj_empresa', '$telefone_filial', '$email_filial', 1)
+            ";
+            mysqli_query($conn, $insert_empresa);
+            $conn->commit();
+
+            $select_empresa = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '$cnpj_empresa' LIMIT 1";
+            $result_empresa = mysqli_query($conn, $select_empresa);
+            $row_empresa = mysqli_fetch_assoc($result_empresa);
+            
+            if (!$row_empresa) {
+                return [
+                    'status'        =>  'Cadastro não realizado',
+                    'cd_empresa'    =>  '0'
+                ];
+            }
+
+            // Obtém o ID recém-criado (cd_empresa)
+            $cd_empresa = $row_empresa['cd_empresa'];
+
+            if($tipo_empresa == 'matriz'){
+                // Atualiza o campo cd_matriz com o valor de cd_empresa
+                $updateEmpresa = "UPDATE tb_empresa SET cd_matriz = $cd_empresa WHERE cd_empresa = $cd_empresa";
+                mysqli_query($conn, $updateEmpresa);
+            }
+
+            $updateRelMaster = "UPDATE rel_master SET cd_empresa = $cd_empresa WHERE cd_empresa is null and cd_pessoa = ".$_SESSION['cd_colab']."";
+
+            mysqli_query($conn, $updateRelMaster);
+
+            
+
+            if (!$row_empresa) {
+                return [
+                    'status'        =>  'Empresa não encontrada',
+                    'cd_empresa'    =>  '0'
+                ];
+            }
+            
+            $conn->commit();
+        
+            return [
+                'status'                =>  'OK',
+                'cd_empresa'            =>  $row_empresa['cd_empresa'],    
+                'cd_matriz'             =>  $row_empresa['cd_matriz'],
+                'rsocial_empresa'       =>  $row_empresa['rsocial_empresa'],    
+                'nfantasia_empresa'     =>  $row_empresa['nfantasia_empresa'],    
+                'cnpj_empresa'          =>  $row_empresa['cnpj_empresa'],        
+                'tel1_empresa'          =>  $row_empresa['tel1_empresa'],    
+                'email_empresa'         =>  $row_empresa['email_empresa'],            
+                'endereco_empresa'      =>  $row_empresa['endereco_empresa'],        
+                'saudacoes_empresa'     =>  $row_empresa['saudacoes_empresa'],    
+                'tipo_impressao'        =>  $row_empresa['tipo_impressao'],    
+                'status_empresa'        =>  $row_empresa['status_empresa']        
+            ];
+
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'status'        => addslashes($e->getMessage()),
+                'cd_empresa'  => '0'
+            ];
+        }
+
+            
+
+
+            
+            
+
+    }
+
 
 }
 
