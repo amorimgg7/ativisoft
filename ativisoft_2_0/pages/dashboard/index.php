@@ -196,10 +196,13 @@
                   if($_SESSION['cd_acesso'] == 0)
                   {
                     if($_SESSION['cd_empresa'] == ""){
-                      echo "<h1>Realize a configuração da sua base de conhecimento</h1>";
-                      echo '<form method="post" action="../cad_geral/unidade_operacional.php">';
-                      echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Clique Aqui" >';
-                      echo '</form>';
+                      echo '<div class="container text-center mt-5">';
+                      echo '  <h1 class="mb-3">Vamos começar!</h1>';
+                      echo '  <h4 class="mb-4">Conte um pouco sobre o seu negócio para que possamos te ajudar melhor.</h4>';
+                      echo '  <form method="post" action="../cad_geral/unidade_operacional.php">';
+                      echo '    <input class="btn btn-info btn-lg font-weight-medium" type="submit" value="Começar agora">';
+                      echo '  </form>';
+                      echo '</div>';
                     }else{
                       include '../../pages/cad_acesso/index.php';
                     }
@@ -211,10 +214,13 @@
                   if($_SESSION['cd_funcao'] == 1)
                   {
                     if($_SESSION['cd_empresa'] == ""){
-                      echo "<h1>Realize a configuração da sua base de conhecimento</h1>";
-                      echo '<form method="post" action="../cad_geral/unidade_operacional.php">';
-                      echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Clique Aqui" >';
-                      echo '</form>';
+                      echo '<div class="container text-center mt-5">';
+                      echo '  <h1 class="mb-3">Vamos começar!</h1>';
+                      echo '  <h4 class="mb-4">Conte um pouco sobre o seu negócio para que possamos te ajudar melhor.</h4>';
+                      echo '  <form method="post" action="../cad_geral/unidade_operacional.php">';
+                      echo '    <input class="btn btn-info btn-lg font-weight-medium" type="submit" value="Começar agora">';
+                      echo '  </form>';
+                      echo '</div>';
                     }else{
                       ////include '../../pages/auto_pagamento/index.php';
                       include '../../pages/md_caixa/index.php';
