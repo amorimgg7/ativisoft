@@ -4,6 +4,13 @@
     require_once '../../classes/conn.php'; 
     
     session_start();
+
+
+    include("../../classes/functions.php");
+															
+
+    $u = new Usuario;
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -96,6 +103,77 @@ $idacesso = isset($_GET['id']) ? $_GET['id'] : '';
   $dia_hoje = date('Y-m-d'); // Formatando a data de hoje para o formato do banco de dados (ano-mês-dia)
   $dia_ontem = date('Y-m-d', strtotime('-1 day'));
   //$dia_hoje = date('Y-m-d H:i', strtotime('+1 hour'));
+
+  if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['quero_testar_confirma'])){
+
+    $cd_empresa = intval($_SESSION['cd_empresa']);
+    $cd_contrato = intval($_SESSION['cd_contrato']);
+    $cd_colab = intval($_SESSION['cd_colab']);
+
+    $updateContrato = "
+      UPDATE tb_contrato 
+      SET dt_validade = DATE_ADD(NOW(), INTERVAL 1 MONTH),
+      vl_contrato = 0,
+      status_contrato = 'F',
+      ds_contrato = CONCAT(ds_contrato, ' Teste gratuito')
+      WHERE cd_contrato = $cd_contrato;
+    ";
+
+    $updateRelMaster = "
+      UPDATE rel_master 
+      JOIN tb_contrato ON tb_contrato.cd_contrato = $cd_contrato 
+      SET rel_master.cd_acesso = tb_contrato.cd_acesso 
+      WHERE rel_master.cd_pessoa = $cd_colab 
+        AND rel_master.cd_empresa = 20;
+    ";
+
+    
+
+
+
+    //echo "<script>window.alert('Teste gratuito!);</script>";
+
+    
+    /*$update_movimento_financeiro = "UPDATE tb_movimento_financeiro SET
+    valor_movimento = '".$row_contrato['vl_contrato']."'
+    WHERE cd_movimento = ".$_SESSION['cd_movimento'];
+    */
+    if(mysqli_query($conn, $updateContrato)){
+      //echo "<script>window.alert('Movimento alterado!');</script>";
+      if(mysqli_query($conn, $updateRelMaster)){
+/*
+        $selectAcesso = "SELECT * FROM rel_master WHERE cd_pessoa = $cd_colab AND cd_empresa = $cd_empresa";
+        $resultaAcesso = $conn->query($selectAcesso);
+        while ($rowAcesso = $resultaAcesso->fetch_assoc()){
+          $_SESSION['cd_acesso']  = $rowAcesso['cd_acesso'];
+          $_SESSION['cd_funcao']  = $rowAcesso['cd_acesso'];
+        }
+*/
+        $u->conectar();
+        if ($msgErro == ""){
+          $u->logar($_SESSION['email_colab'], $_SESSION['senha_colab'], 'colab', 'N', 'N');
+          echo "<script>window.alert('Teste gratuito!');</script>";
+			  	echo '<script>location.href="../dashboard/index.php";</script>';
+      
+        }else{
+          echo "<script>window.alert('erro!');</script>";
+  				//echo '<script>location.href="../dashboard/index.php";</script>';
+      
+        }
+
+        }else{
+        echo "<script>window.alert('RelMaster não editado!');</script>";
+      }
+    }else{
+      echo "<script>window.alert('Contrato não atualizado!');</script>";
+    }
+
+                          
+
+
+
+                          
+  }
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['contrato_mensal'])){
     //A - Aberto
     //F - Fechado
@@ -205,6 +283,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['contrato_mensal'])){
             $resulta_contrato = $conn->query($select_contrato);
             if ($resulta_contrato->num_rows > 0){ 
                 while ( $row_contrato = $resulta_contrato->fetch_assoc()){
+                  $_SESSION['cd_contrato'] = $row_contrato['cd_contrato'];
                   switch ($row_contrato['status_contrato']){
                     case "A":
                       echo '<h1>Aberto</h1>';
@@ -227,6 +306,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['contrato_mensal'])){
                     echo '<td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalGooglePay">Google Pay</button></td>';
                     echo '<td id="mostrar_pix1" name="mostrar_pix1"><button type="submit" id="tratar_pix" name="tratar_pix" class="btn btn-secondary">PIX</button></td>';
                     echo '<td id="mostrar_pix2" name="mostrar_pix2"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalPix">PIX Gerado</button></td>';
+                    echo '<td id="quero_testar" name="quero_testar"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalQueroTestar">Quero testar</button></td>';
                     echo '</tr>';
                     echo '</thead>';
                     echo '</table>';
@@ -516,6 +596,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['contrato_mensal'])){
                     echo '</div>';
                     echo '</div>';
                     
+
+                    // Modal Pix
+                    echo '<div class="modal fade" id="ModalQueroTestar" tabindex="-1" role="dialog" aria-labelledby="QueroTestarLabel" aria-hidden="true">';
+                    echo '<div class="modal-dialog modal-dialog-centered" role="document">';
+                    echo '<div class="modal-content">';
+                    echo '<div class="modal-header">';
+
+                    echo '<h5 class="modal-title" id="PixLabel">Ative seu teste gratuito por 30 dias</h5>';
+                    
+                    echo '<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">';
+                    echo '<span aria-hidden="true">&times;</span>';
+                    echo '</button>';
+                    echo '</div>';
+                    echo '<div class="modal-body">';
+                    echo 'Você poderá usar todos os recursos do sistema gratuitamente por 30 dias, sem precisar cadastrar cartão e sem nenhuma obrigação futura.';
+                    echo '</div>';
+                    echo '<div class="modal-footer">';
+                    echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>';
+                    echo '<form method="POST">';
+                    echo '<input type="submit" id="quero_testar_confirma" name="quero_testar_confirma" class="btn btn-success" value="Ativar Teste Gratuito">';
+                    echo '</form>';
+
+
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+
+
                     // Modal Pix
                     //echo '<div class="modal fade" id="ModalPix" tabindex="-1" role="dialog" aria-labelledby="PixLabel" aria-hidden="true">';
                     //echo '<div class="modal-dialog modal-dialog-centered" role="document">';

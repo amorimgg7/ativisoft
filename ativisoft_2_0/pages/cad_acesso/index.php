@@ -10,22 +10,26 @@
         
 
         if($_SESSION['cd_acesso'] != "0"){
-            $select_cliente_comercial = "SELECT * FROM tb_cliente_comercial where cnpj_cliente_comercial = ".$_SESSION['cnpj_filial'];
-            $resulta_cliente_comercial = $conn_revenda->query($select_cliente_comercial);
-            if ($resulta_cliente_comercial->num_rows > 0){ 
-            while ( $cliente_matriz = $resulta_cliente_comercial->fetch_assoc()){
-            $data_fornecida = $cliente_matriz['dtvalidlicenca_cliente_comercial'];
-            $diferenca_dias = round((strtotime($data_fornecida) - strtotime($dia_hoje)) / (60 * 60 * 24));
-            if($diferenca_dias > 5){
-                $_SESSION['bloqueado'] = 0;
-                //echo '<div class="col-lg-12 grid-margin stretch-card btn-secondary">';//
-                //echo '<div class="card" '.$_SESSION['c_card'].'>';
-                //echo '<div class="card-body">';
-                //echo '<h6 class="card-title">Sistema Licenciado.</h6>';
-                //echo '</div>';
-                //echo '</div>';
-                //echo '</div>';
-            }else if($diferenca_dias <= 5 && $diferenca_dias > 0){
+            
+            $select_contrato = "SELECT * FROM tb_contrato where cd_empresa = ".$_SESSION['cd_empresa']." AND status_contrato = 'F'";
+            $resulta_contrato = $conn->query($select_contrato);
+            if ($resulta_contrato->num_rows > 0){ 
+                while ( $row_contrato = $resulta_contrato->fetch_assoc()){
+                    
+                    $validade_contrato = $row_contrato['dt_validade'];
+                    $diferenca_dias = round((strtotime($validade_contrato) - strtotime($dia_hoje)) / (60 * 60 * 24));
+                    //echo '<h1>*'.$diferenca_dias.'*</h1>';
+                    if($diferenca_dias > 5){
+                        $_SESSION['bloqueado'] = 0;
+                        //echo '<h1>*</h1>';
+                        //echo '<div class="col-lg-12 grid-margin stretch-card btn-secondary">';//
+                        //echo '<div class="card" '.$_SESSION['c_card'].'>';
+                        //echo '<div class="card-body">';
+                        //echo '<h6 class="card-title">Sistema Licenciado.</h6>';
+                        //echo '</div>';
+                        //echo '</div>';
+                        //echo '</div>';
+                    }else if($diferenca_dias <= 5 && $diferenca_dias > 0){
                 $_SESSION['bloqueado'] = 0;
                 echo '<div class="col-lg-12 grid-margin stretch-card btn-secondary">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
@@ -35,13 +39,14 @@
                 echo '<thead>';      
                 echo '<th>';
                 echo '<h6 class="card-title">Sistema Licenciado.</h6>';
+                echo '<h6 class="card-title">Contrato válido até: '.date("d/m/Y", strtotime($row_contrato['dt_validade'])).'.</h6>';
                 echo '<h6 class="card-title">Expira em: '.$diferenca_dias.' dia(s).</h6>';
                 echo '</th>';
                 echo '<th><form method="POST" action="'.$_SESSION['dominio'].'pages/auto_pagamento/payment.php">';
                 echo '<input type="text" style="display: none;" readonly id="cd_cliente_comercial_pagamento" name="cd_cliente_comercial_pagamento" value="'.$_SESSION['cd_empresa'].'">';
                 echo '<input type="text" style="display: none;" readonly id="cnpj_cliente_comercial_pagamento" name="cnpj_cliente_comercial_pagamento" value="'.$_SESSION['cnpj_empresa'].'">';
-                echo '<input type="text" style="display: none;" readonly id="valor_pagamento" name="valor_pagamento" value="'.$cliente_matriz['fatura_prevista_cliente_fiscal'].'">';
-                echo '<button type="submit" class="btn btn-secondary" name="pagar_pagamento" id="pagar_pagamento">Antecipar Renovação</button>';
+                //echo '<input type="text" style="display: none;" readonly id="valor_pagamento" name="valor_pagamento" value="'.$r['fatura_prevista_cliente_fiscal'].'">';
+                //echo '<button type="submit" class="btn btn-secondary" name="pagar_pagamento" id="pagar_pagamento">Antecipar Renovação</button>';
                 echo '</form></th>';
                 echo '</thead>';
                 echo '<tbody>';
@@ -50,7 +55,7 @@
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
-            } else if($diferenca_dias == 0){
+                    } else if($diferenca_dias == 0){
                 $_SESSION['bloqueado'] = 0;
                 echo '<div class="col-lg-12 grid-margin stretch-card btn-success">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
@@ -59,13 +64,13 @@
                 echo '<table class="table">';
                 echo '<thead>';      
                 echo '<th>';
-                echo '<h6 class="card-title">Sua Licença Expira hoje.</h6>';
+                echo '<h6 class="card-title">Seu Contrato Expira hoje.</h6>';
                 echo '</th>';
                 echo '<th><form method="POST" action="'.$_SESSION['dominio'].'pages/auto_pagamento/payment.php">';
                 echo '<input type="text" style="display: none;" readonly id="cd_cliente_comercial_pagamento" name="cd_cliente_comercial_pagamento" value="'.$_SESSION['cd_empresa'].'">';
                 echo '<input type="text" style="display: none;" readonly id="cnpj_cliente_comercial_pagamento" name="cnpj_cliente_comercial_pagamento" value="'.$_SESSION['cnpj_empresa'].'">';
-                echo '<input type="text" style="display: none;" readonly id="valor_pagamento" name="valor_pagamento" value="'.$cliente_matriz['fatura_prevista_cliente_fiscal'].'">';
-                echo '<button type="submit" class="btn btn-success" name="pagar_pagamento" id="pagar_pagamento">Antecipar Renovação</button>';
+                //echo '<input type="text" style="display: none;" readonly id="valor_pagamento" name="valor_pagamento" value="'.$cliente_matriz['fatura_prevista_cliente_fiscal'].'">';
+                //echo '<button type="submit" class="btn btn-success" name="pagar_pagamento" id="pagar_pagamento">Antecipar Renovação</button>';
                 echo '</form></th>';
                 echo '</thead>';
                 echo '<tbody>';
@@ -75,7 +80,8 @@
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
-            }else if($diferenca_dias < 0 && $diferenca_dias > -10){
+                    }else if($diferenca_dias < 0 && $diferenca_dias > -10){
+                        echo '<h1>*</h1>';
                 $_SESSION['bloqueado'] = 1;
                 echo '<div class="col-lg-12 grid-margin stretch-card btn-warning">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
@@ -85,14 +91,14 @@
                 echo '<table class="table">';
                 echo '<thead>';      
                 echo '<th>';
-                echo '<h6 class="card-title">Licenciamento vencido a '.-$diferenca_dias.' dia(s)</h6>';
-                echo '<label class="badge badge-warning">Parcela prevista: R$:'. $cliente_matriz['fatura_prevista_cliente_fiscal'] .'</label>';
+                echo '<h6 class="card-title">Contrato vencido a '.-$diferenca_dias.' dia(s)</h6>';
+                //echo '<label class="badge badge-warning">Parcela prevista: R$:'. $cliente_matriz['fatura_prevista_cliente_fiscal'] .'</label>';
                 echo '</th>';
                 echo '<th><form method="POST" action="'.$_SESSION['dominio'].'pages/auto_pagamento/payment.php">';
                 echo '<input type="text" style="display: none;" readonly id="cd_cliente_comercial_pagamento" name="cd_cliente_comercial_pagamento" value="'.$_SESSION['cd_empresa'].'">';
                 echo '<input type="text" style="display: none;" readonly id="cnpj_cliente_comercial_pagamento" name="cnpj_cliente_comercial_pagamento" value="'.$_SESSION['cnpj_empresa'].'">';
-                echo '<input type="text" style="display: none;" readonly id="valor_pagamento" name="valor_pagamento" value="'.$cliente_matriz['fatura_prevista_cliente_fiscal'].'">';
-                echo '<button type="submit" class="btn btn-warning" name="pagar_pagamento" id="pagar_pagamento">Renovar Licenciamento</button>';
+                //echo '<input type="text" style="display: none;" readonly id="valor_pagamento" name="valor_pagamento" value="'.$cliente_matriz['fatura_prevista_cliente_fiscal'].'">';
+                //echo '<button type="submit" class="btn btn-warning" name="pagar_pagamento" id="pagar_pagamento">Renovar Licenciamento</button>';
                 echo '</form></th>';
                 echo '</thead>';
                 echo '<tbody>';
@@ -104,7 +110,7 @@
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';  
-            }else{
+                    }else{
                 $_SESSION['bloqueado'] = 2;
                 echo '<div class="col-lg-12 grid-margin stretch-card btn-danger">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
@@ -113,15 +119,15 @@
                 echo '<table class="table">';
                 echo '<thead>';
                 echo '<th>';
-                echo '<h6 class="card-title">Licenciamento vencido a '.-$diferenca_dias.' dia(s)</h6>';     
-                echo '<h6 class="card-title">Tolerância de 10 dias para multa prevista em contrato</h6>';
-                echo '<label class="badge badge-danger">Parcela prevista R$:' . ($cliente_matriz['fatura_prevista_cliente_fiscal'] + (-$diferenca_dias)) . '</label>';
+                echo '<h6 class="card-title">Contrato vencido a '.-$diferenca_dias.' dia(s)</h6>';     
+                echo '<h6 class="card-title">Renove já seu contrato e evite a interrupção do seu sistema</h6>';
+                //echo '<label class="badge badge-danger">Parcela prevista R$:' . ($cliente_matriz['fatura_prevista_cliente_fiscal'] + (-$diferenca_dias)) . '</label>';
                 echo '</th>';
                 echo '<th><form method="POST" action="'.$_SESSION['dominio'].'pages/auto_pagamento/payment.php">';
                 echo '<input type="text" style="display: none;" readonly id="cd_cliente_comercial_pagamento" name="cd_cliente_comercial_pagamento" value="'.$_SESSION['cd_empresa'].'">';
                 echo '<input type="text" style="display: none;" readonly id="cnpj_cliente_comercial_pagamento" name="cnpj_cliente_comercial_pagamento" value="'.$_SESSION['cnpj_empresa'].'">';
-                echo '<input type="text" style="display: none;" readonly id="valor_pagamento" name="valor_pagamento" value="'.$cliente_matriz['fatura_prevista_cliente_fiscal'].'">';
-                echo '<button type="submit" class="btn btn-danger" name="pagar_pagamento" id="pagar_pagamento">Renovar Licenciamento</button>';
+                //echo '<input type="text" style="display: none;" readonly id="valor_pagamento" name="valor_pagamento" value="'.$cliente_matriz['fatura_prevista_cliente_fiscal'].'">';
+                //echo '<button type="submit" class="btn btn-danger" name="pagar_pagamento" id="pagar_pagamento">Renovar Licenciamento</button>';
                 echo '</form></th>';
                 echo '</thead>';
                 echo '<tbody>';
@@ -131,8 +137,16 @@
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';  
-            }
-        } 
+                }
+                }
+            }else{
+                echo '<div class="col-lg-12 grid-margin stretch-card btn-secondary">';
+                echo '<div class="card" '.$_SESSION['c_card'].'>';
+                echo '<div class="card-body">';
+                echo '<h6 class="card-title">Sem contrato.</h6>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
             }
         }else{
 

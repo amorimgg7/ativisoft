@@ -192,7 +192,9 @@
               <div class="row flex-grow">
                 
                 <?php
-                //echo '<h1>'.$_SESSION['cd_acesso'].'</h1>';
+                  //echo '<h1>'.$_SESSION['cd_acesso'].'</h1>';
+                  include '../../pages/cad_acesso/index.php';
+
                   if($_SESSION['cd_acesso'] == 0)
                   {
                     if($_SESSION['cd_empresa'] == ""){

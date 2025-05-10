@@ -165,19 +165,32 @@
 
 													if(isset($_POST['gravaInfo_Geral'])) {
 														$_SESSION['opcaoMenu'] = 1;
-														// Atualiza as informações do usuário no banco de dados
-														$query = "UPDATE tb_empresa SET
-														rsocial_empresa = '".$_POST['rsocial_empresa']."',
-														nfantasia_empresa = '".$_POST['nfantasia_empresa']."',
-														tel1_empresa = '".$_POST['cd_pais'].$_POST['tel1_empresa']."',
-														email_empresa = '".$_POST['email_empresa']."',
-														endereco_empresa = '".$_POST['endereco_empresa']."',
-														saudacoes_empresa = '".$_POST['saudacoes_empresa']."'
-														WHERE cd_empresa = '".$_POST['cd_empresa']."'";
-														if(mysqli_query($conn, $query)){
-															echo "<script>window.alert('Cadastro Atualizado com sucesso!');</script>";
+
+														$retornaEdicao = $u->editUnidadeOperacional(
+																$_POST['cd_empresa'],
+																$_POST['rsocial_empresa'],
+																$_POST['nfantasia_empresa'],
+																$_POST['cd_pais'].$_POST['tel1_empresa'],
+																$_POST['email_empresa'],
+																$_POST['endereco_empresa'],
+																$_POST['saudacoes_empresa']
+														);
+														if($retornaEdicao['status'] == 'OK'){
+															echo "<script>window.alert('".$retornaEdicao['status']."');</script>";
+															$_SESSION['cd_empresa'] = $retornaEdicao['cd_empresa'];
+
+															$_SESSION['nfantasia_empresa']		=	$retornaEdicao['cd_empresa'];
+															$_SESSION['rsocial_empresa']		=	$retornaEdicao['rsocial_empresa'];
+															$_SESSION['cnpj_empresa']			=	$retornaEdicao['cnpj_empresa'];
+															$_SESSION['cnpj_filial']			=	$retornaEdicao['cnpj_empresa'];
+															$_SESSION['email_empresa']			=	$retornaEdicao['nfantasia_empresa'];
+															$_SESSION['endereco_empresa']		=	$retornaEdicao['tel1_empresa'];
+															$_SESSION['saudacoes_empresa']		=	$retornaEdicao['email_empresa'];
+															$_SESSION['endereco_empresa']		=	$retornaEdicao['endereco_empresa'];
+
+															echo '<script>location.href="unidade_operacional.php";</script>';
 														}else{
-															echo "<script>window.alert('Erro ao atualizar Cadastro!');</script>";
+															echo "<script>window.alert('".json_encode($retornaEdicao['status'])."');</script>";
 														}
 													}
 

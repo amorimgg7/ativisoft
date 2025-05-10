@@ -1819,6 +1819,103 @@ class Usuario
 
     }
 
+    public function editUnidadeOperacional($cd_empresa, $rsocial_empresa, $nfantasia_empresa, $tel1_empresa, $email_empresa, $endereco_empresa, $saudacoes_empresa) 
+    {
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+            $updateEmpresa = "UPDATE tb_empresa SET 
+                rsocial_empresa = '$rsocial_empresa',
+                nfantasia_empresa = '$nfantasia_empresa',
+                tel1_empresa = '$tel1_empresa',
+                email_empresa = '$email_empresa',
+                endereco_empresa = '$endereco_empresa',
+                saudacoes_empresa = '$saudacoes_empresa'
+                WHERE cd_empresa = $cd_empresa";
+            mysqli_query($conn, $updateEmpresa);
+            $conn->commit();
+            return [
+                'status'                    =>  'OK',
+                'cd_empresa'                =>  $cd_empresa,    
+                'rsocial_empresa'           =>  $rsocial_empresa,
+                'nfantasia_empresa'         =>  $nfantasia_empresa,    
+                'tel1_empresa'              =>  $tel1_empresa,    
+                'email_empresa'             =>  $email_empresa,        
+                'saudacoes_empresa'         =>  $saudacoes_empresa,
+                'endereco_empresa'          =>  $endereco_empresa    
+            ];
+
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'status'        => addslashes($e->getMessage()),
+                'cd_empresa'    => '0'
+            ];
+        }
+
+            
+
+
+            
+            
+
+    }
+
+    public function conUnidadeOperacional($cd_empresa) 
+    {
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+            $selectEmpresa = "SELECT tb_empresa WHERE cd_empresa = $cd_empresa LIMIT 1";
+
+
+            $result_empresa = mysqli_query($conn, $selectEmpresa);
+            $row_empresa = mysqli_fetch_assoc($result_empresa);
+            
+            if (!$row_empresa) {
+                return [
+                    'status'        =>  'Empresa não encontrada',
+                    'cd_empresa'    =>  '0'
+                ];
+            }
+
+            $conn->commit();
+            return [
+                'status'                    =>  'OK',
+                'cd_empresa'                =>  $row_empresa['cd_empresa'],    
+                'cd_matriz'                 =>  $row_empresa['cd_matriz'],    
+                'rsocial_empresa'           =>  $row_empresa['rsocial_empresa'],
+                'nfantasia_empresa'         =>  $row_empresa['nfantasia_empresa'],    
+                'tel1_empresa'              =>  $row_empresa['tel1_empresa'],    
+                'email_empresa'             =>  $row_empresa['email_empresa'],        
+                'saudacoes_empresa'         =>  $row_empresa['saudacoes_empresa'],
+                'endereco_empresa'          =>  $row_empresa['endereco_empresa']    
+            ];
+
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'status'        => addslashes($e->getMessage()),
+                'cd_empresa'    => '0'
+            ];
+        }
+
+            
+
+
+            
+            
+
+    }
+
 
 }
 
