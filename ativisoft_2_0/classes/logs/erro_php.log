@@ -2008,3 +2008,766 @@ Stack trace:
 [10-May-2025 08:27:36 America/Sao_Paulo] PHP Warning:  Undefined variable $cliente_matriz in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_acesso\index.php on line 94
 [10-May-2025 08:27:36 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_acesso\index.php on line 94
 [10-May-2025 08:36:01 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[10-May-2025 08:52:50 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[10-May-2025 08:53:24 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[10-May-2025 09:00:35 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:00:39 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:00:39 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:00:39 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente_comercial' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php:77
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php(77): mysqli->query('SELECT * FROM t...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php(95): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 77
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 80
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 84
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 84
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 86
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 87
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 91
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 102
+[10-May-2025 09:03:12 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php:103
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php(103): mysqli->query('SELECT * FROM t...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php(95): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 103
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtcadastro_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtcadastro_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtcadastro_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtcadastro_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtcadastro_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 112
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 113
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 108
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 109
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:05:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 114
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 115
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:06:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 128
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 125
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 126
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 125
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 126
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 125
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 126
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 125
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 126
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 119
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 125
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 126
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:11:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 139
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:16:42 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[10-May-2025 09:16:42 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:17:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:17:15 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[10-May-2025 09:17:15 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:17:27 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:17:34 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:17:37 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:17:39 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[10-May-2025 09:17:39 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:18:21 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:18:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:18:31 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[10-May-2025 09:18:31 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "validade_contrato" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 118
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "validade_contrato" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 118
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:26 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:19:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:19:52 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[10-May-2025 09:19:52 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:19:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "validade_contrato" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 118
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "validade_contrato" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 118
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:23:28 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php:118
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php(118): date('d/m/Y', '2025-06-10 09:1...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php(95): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 118
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:24:08 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php:118
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php(118): date('d-m-Y', '2025-06-10 09:1...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php(95): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 118
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:24:23 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php:118
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php(118): date('Y-m-d', '2025-06-10 09:1...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php(95): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 118
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:25:58 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 31
+[10-May-2025 09:25:58 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:25:58 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente_comercial' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php:94
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php(94): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 94
+[10-May-2025 09:26:31 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:26:32 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "md_fornecedor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 86
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 111
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 123
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "dtvalidlicenca_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 129
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 130
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 134
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
+[10-May-2025 09:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\index.php on line 143
