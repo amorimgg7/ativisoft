@@ -104,42 +104,42 @@
                             echo '<tr>';
                             echo '<form method="POST" action="../../pages/md_fornecedor/consultar_cliente_comercial.php">';
                             echo '<td style="display: none;"><input type="tel" id="concnpj_cliente_comercial" name="concnpj_cliente_comercial" value="'.$cliente_filial['cnpj_empresa'].'"></td>';
-                            echo '<td><button type="submit" class="btn btn-info" name="btn_cnpj_'.$cliente_filial['cnpj_empresa'].'" id="btn_cd_'.$cliente_filial['cnpj_empresa'].'">'.$cliente_filial['cnpj_empresa'].'</button></td>';
+                            echo '<td><input type="submit" class="btn btn-info" name="btn_cnpj_'.$cliente_filial['cnpj_empresa'].'" id="btn_cd_'.$cliente_filial['cnpj_empresa'].'" value="'.$cliente_filial['cnpj_empresa'].'"></td>';
                             echo '</form>';
                             //echo '<td><p>'.$cliente_filial['rsocial_cliente_comercial'].'</p></td>';
 
-                            $sql_contrato_filial = "SELECT * FROM tb_contrato where cd_empresa = ".$cliente_filial['cd_empresa'];
+                            $sql_contrato_filial = "SELECT * FROM tb_contrato where cd_empresa = ".$cliente_filial['cd_empresa']." ORDER BY cd_contrato DESC LIMIT 1";
                             $resulta_contrato_filial = $conn->query($sql_contrato_filial);
                             if ($resulta_contrato_filial->num_rows > 0){
                               while ( $row_contrato_filial = $resulta_contrato_filial->fetch_assoc()){
-                                if($row_contrato_filial['status_contrato'] == 'F'){
-                                  echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").innerHTML = "<p class=\"badge badge-success\">Contrato vigente.</p><br><p>Vencimento em ('.date('d/m/Y',strtotime($row_contrato_filial['dt_validade'])).') </p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").style.display = "block";</script>';
+                                $status_contrato = $row_contrato_filial['status_contrato'];
 
+
+                                switch ($status_contrato) {
+                                  case 'A':
+                                      echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").innerHTML = "<p class=\"badge badge-info\">Contrato aberto</p><br><p>Aguardando cliente assinar</p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
+                                      //echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").innerHTML = "<p class=\"badge badge-success\">Contrato vigente.</p><br><p>Vencimento em ('.date('d/m/Y',strtotime($row_contrato_filial['dt_validade'])).') </p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").style.display = "block";</script>';
+                                    break;
+                                  case 'F':
+                                      echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").innerHTML = "<p class=\"badge badge-success\">Contrato vigente.</p><br><p>Vencimento em ('.date('d/m/Y',strtotime($row_contrato_filial['dt_validade'])).') </p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").style.display = "block";</script>';
+                                    break;
+                                  case 'C':
+                                      echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").innerHTML = "<p class=\"badge badge-danger\">Contrato Cancelado.</p><br><p>Vencimento em ('.date('d/m/Y',strtotime($row_contrato_filial['dt_validade'])).') </p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").style.display = "block";</script>';
+                                    break;
+                                  default:
+                                      echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").innerHTML = "<p class=\"badge badge-success\">Status desconhecido.</p><br><p>Necessário analisar o contrato para entender melhor. </p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").style.display = "block";</script>';
+                                    break;
                                 }
+    
                               }
                             }else{
-                              echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").innerHTML = "<p class=\"badge badge-danger\">Sem contrato.</p><br><p>Tolerância de 10 dias para multa estipulada em contrato</p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
+                              echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").innerHTML = "<p class=\"badge badge-muted\">Sem contrato.</p><br><p>Necessário criar um contrato</p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_empresa'].'").style.display = "block";</script>';
                             }
 
 
                             //echo '<td><p>'.date('d/m/y', strtotime($cliente_filial['dtcadastro_cliente_comercial'])).'</p></td>';
                             //echo '<td><p>'.date('d/m/y', strtotime($cliente_filial['dtvalidlicenca_cliente_comercial'])).'</p></td>';
-                            $data_fornecida = $cliente_filial['dtvalidlicenca_cliente_comercial'];
-                            $diferenca_dias = round((strtotime($data_fornecida) - time()) / (60 * 60 * 24));
-                            if($diferenca_dias >= 0){
-                              echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "<td><p>Expira em: '.$diferenca_dias.' dia(s).</p></td>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
-                            }else{
-                              echo '<script>document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "<p class=\"badge badge-danger\">Expirado a: '.-$diferenca_dias.' dia(s) .</p><br><p>Tolerância de 10 dias para multa estipulada em contrato</p>"; document.getElementById("status_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
-                            }
-                            if($diferenca_dias >= 0){
-                              echo '<script>document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "Prevista: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'"; document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
-                            }else if($diferenca_dias < 0 && $diferenca_dias > -10){
-                              echo '<script>document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "Prevista com atraso: R$:'. $cliente_filial['fatura_prevista_cliente_fiscal'] .'"; document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
-                            }else{
-                              $fatura_prevista = isset($cliente_filial['fatura_prevista_cliente_fiscal']) && is_numeric($cliente_filial['fatura_prevista_cliente_fiscal']) ? $cliente_filial['fatura_prevista_cliente_fiscal'] : 0;
-                              $fatura_devida = isset($cliente_filial['fatura_devida_cliente_fiscal']) && is_numeric($cliente_filial['fatura_devida_cliente_fiscal']) ? $cliente_filial['fatura_devida_cliente_fiscal'] : 0;
-                              echo '<script>document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").innerHTML = "Vencida com juros: R$:' . ($fatura_prevista - $diferenca_dias) . '"; document.getElementById("statusfinanceiro_cd_cliente_comercial_'.$cliente_filial['cd_cliente_comercial'].'").style.display = "block";</script>';
-                            }
+                            
                             echo '</tr>';
                         }
                         echo '</tbody>';

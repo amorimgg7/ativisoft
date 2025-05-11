@@ -123,7 +123,7 @@
                     echo '<label for="btntel_cliente">Email Filial</label>';
                     echo '<input value="'.$row_cliente_comercial['email_empresa'].'" name="showemail_cliente_comercial" type="tel"  id="showemail_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="btntel_cliente">Observações dos contatos</label>';
-                    echo '<input value="'.$row_cliente_comercial['obs_tel1_empresa'].'" name="showobs_tel_cliente_comercial" type="tel"  id="showobs_tel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<input value="'.$row_cliente_comercial['obstel1_empresa'].'" name="showobs_tel_cliente_comercial" type="tel"  id="showobs_tel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="btntel_cliente">Valor da Licença</label>';
                     echo '<input value="'.$row_cliente_comercial['vl_licenca'].'" name="showfatura_prevista_cliente_fiscal" type="tel"  id="showfatura_prevista_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="btntel_cliente">Total do Contrato</label>';
@@ -213,6 +213,131 @@
                     echo '</form>';
 
 
+                  }else {
+                    $select_cliente_comercial = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_POST['concnpj_cliente_comercial']."' LIMIT 1";
+                    $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
+                    $row_cliente_comercial = mysqli_fetch_assoc($result_cliente_comercial);
+                    // Exibe as informações do usuário no formulário
+                    if($row_cliente_comercial) {
+                      echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+                  
+                      echo '<div class="card-body" id="abrirOS2" '.$_SESSION['c_card'].'><!--FORMULÁRIO PARA CRIAR OS-->';
+                      echo '<div class="kt-portlet__body">';
+                      echo '<div class="row">';
+                      echo '<div class="col-12 col-md-12">';
+                      echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                    
+                      echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" '.$_SESSION['c_card'].' style="display:block;">';
+                      echo '<form method="POST" action="cadastrar_cliente_comercial.php">';
+                      echo '<input value="'.$row_cliente_comercial['cd_empresa'].'" name="showcd_cliente_comercial" type="text" id="showcd_cliente_comercial" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                      echo '<label for="showrsocial_cliente_comercial">Razão Social</label>';
+                      echo '<input value="'.$row_cliente_comercial['rsocial_empresa'].'" name="showrsocial_cliente_comercial" type="text" id="showrsocial_cliente_comercial" maxlength="100"   class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      echo '<label for="shownfantasia_cliente_comercial">Nome Fantasia</label>';
+                      echo '<input value="'.$row_cliente_comercial['nfantasia_empresa'].'" name="shownfantasia_cliente_comercial" type="text" id="shownfantasia_cliente_comercial" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      echo '<label for="showcnpj_cliente_comercial">CNPJ</label>';
+                      echo '<input value="'.$row_cliente_comercial['cnpj_empresa'].'" name="concnpj_cliente_comercial" type="tel" id="concnpj_cliente_comercial" maxlength="90"   class="aspNetDisabled form-control form-control-sm" readonly/>';          
+                      //echo '<label for="btntel_cliente">Data do Cadastro</label>';
+                      //echo '<input value="'.$row_cliente_comercial['dtcadastro_empresa'].'" name="showdtcadastro_cliente_comercial" type="tel"  id="showdtcadastro_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      //echo '<label for="btntel_cliente">Data do Vencimento</label>';
+                     // echo '<input value="'.$row_cliente_comercial['dt_validade'].'" name="showdtvalidlicenca_cliente_comercial" type="tel"  id="showdtvalidlicenca_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      echo '<label for="btntel_cliente">Obs Contrato.</label>';
+                      echo '<input value="Empresa sem contrato" name="showobs_cliente_comercial" type="tel"  id="showobs_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      echo '<label for="btntel_cliente">Telefone Filial</label>';
+                      echo '<input value="'.$row_cliente_comercial['tel1_empresa'].'" name="showtel_cliente_comercial" type="tel"  id="showtel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      echo '<label for="btntel_cliente">Email Filial</label>';
+                      echo '<input value="'.$row_cliente_comercial['email_empresa'].'" name="showemail_cliente_comercial" type="tel"  id="showemail_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      echo '<label for="btntel_cliente">Observações dos contatos</label>';
+                      echo '<input value="'.$row_cliente_comercial['obstel1_empresa'].'" name="showobs_tel_cliente_comercial" type="tel"  id="showobs_tel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      //echo '<label for="btntel_cliente">Valor da Licença</label>';
+                      //echo '<input value="'.$row_cliente_comercial['vl_licenca'].'" name="showfatura_prevista_cliente_fiscal" type="tel"  id="showfatura_prevista_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      //echo '<label for="btntel_cliente">Total do Contrato</label>';
+                      //echo '<input value="'.$row_cliente_comercial['vl_contrato'].'" name="showfatura_devida_cliente_fiscal" type="tel"  id="showfatura_devida_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                      
+                      echo '<td><button type="submit" name="#" id="#" class="btn btn-block btn-outline-warning"><i class="icon-cog">Editar</i></button></td>';
+                      echo '</form>';
+                      echo '</div>';
+                      
+
+                      
+                      
+                      
+                      echo '</div>';
+                      echo '</div>';
+                      echo '</div>';
+
+                      echo '</div>';
+                      echo '</div>';
+
+
+                      
+
+                      
+
+
+                      echo '<!--';
+                      echo '<form action="impresso.php" method="POST" target="_blank" '.$_SESSION['c_card'].'>';
+                      echo '<div style="display:none; '.$_SESSION['c_card'].'">';
+                      //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
+                      echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" style="display: none;"/>';
+                      //echo '<label for="btnpnome_cliente">Nome</label>';
+                      echo '<input value="'.$_SESSION['pnome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40" readonly/>';
+                      //echo '<label for="btnsnome_cliente">sobrenome</label>';
+                      echo '<input value="'.$_SESSION['snome_cliente'].'" name="btnsnome_cliente" type="text" id="btnsnome_cliente" maxlength="40" readonly/>';
+                      //echo '<label for="btntel_cliente">Telefone</label>';
+                      echo '<input value="'.$_SESSION['tel_cliente'].'" name="btntel_cliente" type="tel"  id="btntel_cliente" oninput="tel(this)" readonly/>';
+                      echo '<script>document.getElementById("showcd_cliente").value = "'.$_SESSION['cd_cliente'].'"</script>';
+                      echo '<script>document.getElementById("btnpnome_cliente").value = "'.$_SESSION['pnome_cliente'].'"</script>';
+                      echo '<script>document.getElementById("btnsnome_cliente").value = "'.$_SESSION['snome_cliente'].'"</script>';
+                      echo '<script>document.getElementById("btntel_cliente").value = "'.$_SESSION['tel_cliente'].'"</script>';
+
+                      //echo '<label for="btncd_servico">OS</label>';
+                      echo '<input value="'.$_SESSION['cd_servico'].'" type="tel" name="btncd_servico" id="btncd_servico" readonly>';
+                      //echo '<label for="btnobs_servico">Descrição Geral</label>';
+                      echo '<input value="'.$_SESSION['obs_con_servico'].'" type="text" name="btnobs_servico" maxlength="999" id="btnobs_servico" placeholder="Caracteristica geral do serviço" readonly>';
+                      //echo '<label for="btnprioridade_servico">Prioridade</label>';
+                      echo '<select name="btnprioridade_servico" id="btnprioridade_servico">';
+                      echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >'.$_SESSION['prioridade_servico'].'</option>';
+                      echo '</select>';
+                      //echo '<!--<label for="btnprazo_servico">Entrada</label>-->';
+                      echo '<input value="'.$_SESSION['entrada_servico'].'" name="btnentrada_servico" type="datetime-local" id="btnentrada_servico" readonly/>';
+                      //echo '<label for="btnprazo_servico">Prazo</label>';
+                      echo '<input value="'.$_SESSION['prazo_servico'].'" name="btnprazo_servico" type="datetime-local" id="btnprazo_servico" readonly/>';
+                      
+                      
+                      echo '<script>document.getElementById("btncd_servico").value = "'.$_SESSION['cd_servico'].'"</script>';
+                      echo '<script>document.getElementById("btnobs_servico").value = "'.$_SESSION['obs_con_servico'].'"</script>';
+                      echo '<script>document.getElementById("btnprioridade_servico").value = "'.$_SESSION['prioridade_servico'].'"</script>';
+                      echo '<script>document.getElementById("btnentrada_servico").value = "'.$_SESSION['entrada_servico'].'"</script>';
+                      echo '<script>document.getElementById("btnprazo_servico").value = "'.$_SESSION['prazo_servico'].'"</script>';
+
+                      //echo '<label for="showobs_servico">Total</label>';
+                      ////echo '<input value="'.$_SESSION['vtotal_orcamento'].'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" readonly>';
+                      //echo '<label for="showobs_servico">Pago</label>';
+                      echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" readonly>';
+                      
+
+                      
+                      
+                      echo '</div>';
+
+                      
+                      //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
+                      echo '<button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">OS <i class="mdi mdi-printer btn-icon-append"></i></button>';
+                      echo '<button type="submit" name="historico_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Histórico <i class="mdi mdi-printer btn-icon-append"></i></button>';
+                      echo '<button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-printer btn-icon-append"></i></button>';
+                      echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-whatsapp"></i></button>';
+                      //echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarPosicaoMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Localização<i class="mdi mdi-whatsapp"></i></button>';
+                      //echo '<button type="submit" class="btn btn-danger" name="limparDados-" style="margin: 5px;">Nova Consulta</button>';     
+                      echo '</form>';
+                      echo '-->';
+                      echo '<form method="post"'.$_SESSION['c_card'].'>';//echo '<button type="submit" class="btn btn-danger" name="limparDados" style="margin: 5px;">Nova Consulta</button>';
+                      //echo '<button type="submit" class="btn btn-block btn-lg btn-warning" name="editaOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-file-check btn-icon-append"></i> Editar</button>';
+                      echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparDados" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
+                      //<i class="mdi mdi-alert btn-icon-prepend"></i>  
+                      echo '</form>';
+
+
+                    }
                   }
 
                   if(isset($_POST['lancarPagamento'])) {

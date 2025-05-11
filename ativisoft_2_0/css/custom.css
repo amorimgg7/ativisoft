@@ -7,19 +7,6 @@
 }
 
 
-.contract-count {
-    display: flex; /* Definindo como flex para que ocupe toda a altura da div */
-    align-items: center; /* Alinha o texto verticalmente ao centro */
-    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
-    width: 2rem; /* Largura do retângulo */
-    height: 100%; /* Faz com que o span ocupe toda a altura disponível da div */
-    background-color: #f0f0f0; /* Cor de fundo do retângulo */
-    color: #666; /* Cor do texto */
-    font-weight: bold; /* Aumenta o peso da fonte para destacar o número */
-    text-align: center; /* Alinha o texto no centro do retângulo */
-    padding-right: 10px; /* Ajuste o espaçamento à direita */
-}
-
 .form-group-custom.full-width {
     flex: 0 0 100%;
 }
@@ -90,3 +77,67 @@
     width: 100%;
     box-sizing: border-box;
 }
+
+
+
+
+.horizontal-count {
+    display: flex; /* Definindo como flex para que ocupe toda a altura da div */
+    align-items: center; /* Alinha o texto verticalmente ao centro */
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    width: 2rem; /* Largura do retângulo */
+    height: 100%; /* Faz com que o span ocupe toda a altura disponível da div */
+    background-color: #f0f0f0; /* Cor de fundo do retângulo */
+    color: #666; /* Cor do texto */
+    font-weight: bold; /* Aumenta o peso da fonte para destacar o número */
+    text-align: center; /* Alinha o texto no centro do retângulo */
+    padding-right: 10px; /* Ajuste o espaçamento à direita */
+}
+
+.horizontal-wrapper {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 16px;
+  background: #f9f9f9;
+  align-items: stretch; /* importante para o retângulo ocupar 100% da altura */
+}
+
+.horizontal-id {
+  width: 40px;
+  background-color: #e6e6e6;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.horizontal-content {
+  flex: 1;
+  padding: 16px;
+}
+
+
+
+.horizontal-action  {
+  width: 40px;
+  background-color: #e6e6e6;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  writing-mode: vertical-rl;
+  transform: rotate(360deg);
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border:none;
+}
+
+
+

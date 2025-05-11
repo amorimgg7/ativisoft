@@ -321,7 +321,6 @@
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
                       echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
                       $_SESSION['cd_cliente_comercial'] = $row_cliente_comercial['cd_empresa'];
-                      $_SESSION['fatura_devida_cliente_fiscal'] = $row_cliente_comercial['fatura_devida_cliente_fiscal'];
                       $_SESSION['servico'] = 0;
                       $data_fatura_prevista = date('Y-m-d', strtotime('+1 month', strtotime($row_cliente_comercial['dt_validade'])));
                       echo '<script>document.getElementById("cadcd_cliente_comercial").value = "'. $row_cliente_comercial['cd_empresa'] .'";</script>';
@@ -329,7 +328,7 @@
                       echo '<script>document.getElementById("cadrsocial_cliente_comercial").value = "'. $row_cliente_comercial['rsocial_empresa'] .'";</script>';
                       echo '<script>document.getElementById("cadnfantasia_cliente_comercial").value = "'. $row_cliente_comercial['nfantasia_empresa'] .'";</script>';
                       echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. strval($row_cliente_comercial['cnpj_empresa']) .'";</script>';
-//                      echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtcadastro_cliente_comercial'])) . '";</script>';
+                      //                      echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtcadastro_cliente_comercial'])) . '";</script>';
                       echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dt_validade'])) .'";</script>';
                       echo '<script>document.getElementById("cadobs_cliente_comercial").value = "'. $row_cliente_comercial['ds_contrato'] .'";</script>';
                       echo '<script>document.getElementById("cadtel_cliente_comercial").value = "'. $row_cliente_comercial['tel1_empresa'] .'";</script>';
@@ -347,11 +346,7 @@
                       if($row_cliente_comercial['cd_empresa'] > 0){
                         $select_contrato = "SELECT * FROM tb_contrato WHERE cd_empresa = '".$_SESSION['cd_cliente_comercial']."' ORDER BY cd_contrato ASC";
                         $result_contrato = mysqli_query($conn, $select_contrato);
-                        //$row_atividade = mysqli_fetch_assoc($result_atividade);
-                        // Exibe as informações do usuário no formulário
-                        
-                        
-                              
+                                                      
                         echo '<h3 class="kt-portlet__head-title">Lançar novo Contrato</h3>';
                         echo '<script>document.getElementById("listaContrato").style.display = "block";</script>';
                         echo '<form method="post">';
@@ -384,28 +379,6 @@
                         while($row_contrato = $result_contrato->fetch_assoc()) {
                           $count = $count + 1;
                           
-                          
-                          
-                          echo '<div name="listaContrato" id="listaContrato" class="typeahead" '.$_SESSION['c_card'].'>';
-                          echo '<form method="POST">';
-                          echo '<div class="horizontal-form-custom">';
-                          //echo '<div class="form-group-custom">';
-                          
-                          echo '<span class="contract-count">#'.$count.'</span>';
-
-                          //echo '<div class="form-group-custom">';
-                          
-                          //echo '<span>#'.$count.'</span>';
-                          echo '<input value="'.$row_contrato['cd_contrato'].'" name="listaid_contrato" id="listaid_contrato" class="form-control form-control-sm" style="display:none;" readonly>';
-                          //echo '</div>';
-                          echo '<div class="form-group-custom full-width">';
-                          
-                          //echo '<label for="listatitulo_contrato">#'.$count.'</label>';
-                          echo '<label for="listatitulo_contrato">Descrição</label>';
-                          echo '<input value="'.$row_contrato['ds_contrato'].'" name="listatitulo_contrato" id="listatitulo_contrato" type="text" class="form-control form-control-sm" readonly>';
-                          echo '</div>';
-                          
-
                           // Criando os objetos DateTime para as datas de contrato e validade
                           $data_inicial = new DateTime($row_contrato['dt_contrato']);
                           $data_final = new DateTime($row_contrato['dt_validade']);
@@ -422,58 +395,70 @@
                                       ($anos > 0 && $meses > 0 ? ' e ' : '') .
                                       ($meses > 0 ? $meses . ' mês' . ($meses > 1 ? 'es' : '') : '');
 
-                          // Exibindo o campo com a data formatada e a vigência
-                          echo '<div class="form-group-custom">';
-                          echo '<label for="listavigencia_contrato">Vigência (' . $vigencia . ')</label>';
-                          echo '<input value="'.date('d/m/Y', strtotime($row_contrato['dt_contrato'])).' a '.date('d/m/Y', strtotime($row_contrato['dt_validade'])).'" name="listavigencia_contrato" id="listavigencia_contrato" type="tel" class="form-control form-control-sm" readonly>';
-                          echo '</div>';
-
-                          echo '<div class="form-group-custom">';
-                          echo '<label for="listavalor_licenca">Valor da Licença</label>';
-                          echo '<input value="'.$row_contrato['vl_licenca'].'" name="listavalor_licenca" id="listavalor_licenca" type="tel" class="form-control form-control-sm" readonly>';
-                          echo '</div>';
-                          
-                          echo '<div class="form-group-custom">';
-                          echo '<label for="listavalor_contrato">Valor do contrato</label>';
-                          echo '<input value="'.$row_contrato['vl_contrato'].'" name="listavalor_contrato" id="listavalor_contrato" type="tel" class="form-control form-control-sm" readonly>';
-                          echo '</div>';
-                          
+                                      
                           $status_contrato = $row_contrato['status_contrato'];
 
-switch ($status_contrato) {
-    case 'A':
-        $ds_status_contrato = "Aberto";
-        break;
-    case 'F':
-        $ds_status_contrato = "Fechado";
-        break;
-    case 'C':
-        $ds_status_contrato = "Cancelado";
-        break;
-    default:
-        $ds_status_contrato = "Desconhecido";
-        break;
-}
+                          switch ($status_contrato) {
+                              case 'A':
+                                  $ds_status_contrato = "Aberto";
+                                  break;
+                              case 'F':
+                                  $ds_status_contrato = "Fechado";
+                                  break;
+                              case 'C':
+                                  $ds_status_contrato = "Cancelado";
+                                  break;
+                              default:
+                                  $ds_status_contrato = "Desconhecido";
+                                  break;
+                          }
+                          //echo '<div name="listaContrato" id="listaContrato" class="typeahead" '.$_SESSION['c_card'].'>';
+                          echo '<form method="POST">';
 
-                          echo '<div class="form-group-custom">';
-                          echo '<label for="listastatus_contrato">Status</label>';
-                          echo '<input value="'.$ds_status_contrato.'" name="listastatus_contrato" id="listastatus_contrato" type="text" class="form-control form-control-sm" placeholder="" readonly>';
-                          echo '</div>';
+                          echo '
+                            <div class="horizontal-wrapper">
+                              <div class="horizontal-id">#'.$count.'/'.$row_contrato['cd_contrato'].' </div>
+                              <input value="'.$row_contrato['cd_contrato'].'" name="listaid_contrato" id="listaid_contrato" class="form-control form-control-sm" style="display:none;" readonly>
+                              <div class="horizontal-content">
+                                <div class="form-group-custom full-width">
+                                  <label for="listatitulo_contrato">Descrição</label>
+                                  <input value="'.$row_contrato['ds_contrato'].'" name="listatitulo_contrato" id="listatitulo_contrato" type="text" class="form-control form-control-sm" readonly>
+                                </div>
+                                <div class="horizontal-form-custom">
+                                  <div class="form-group-custom">
+                                  <label for="listavigencia_contrato">Vigência (' . $vigencia . ')</label>
+                                  <input value="'.date('d/m/Y', strtotime($row_contrato['dt_contrato'])).' a '.date('d/m/Y', strtotime($row_contrato['dt_validade'])).'" name="listavigencia_contrato" id="listavigencia_contrato" type="tel" class="form-control form-control-sm" readonly>
+                                  </div>
+                                  <div class="form-group-custom">
+                                  <label for="listavalor_licenca">Valor da Licença</label>
+                                  <input value="'.$row_contrato['vl_licenca'].'" name="listavalor_licenca" id="listavalor_licenca" type="tel" class="form-control form-control-sm" readonly>
+                                  </div>                       
+                                  <div class="form-group-custom">
+                                  <label for="listavalor_contrato">Valor do contrato</label>
+                                  <input value="'.$row_contrato['vl_contrato'].'" name="listavalor_contrato" id="listavalor_contrato" type="tel" class="form-control form-control-sm" readonly>
+                                  </div>
+                                  <div class="form-group-custom">
+                                  <label for="listastatus_contrato">Status</label>
+                                  <input value="'.$ds_status_contrato.'" name="listastatus_contrato" id="listastatus_contrato" type="text" class="form-control form-control-sm" placeholder="" readonly>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              
+                                <input class="horizontal-action" type="submit" value="Editar">
+                              
+                            </div>
+                          ';
                           
-                          
-                          //echo '<label for="listaremover_contrato"></label>';
-                          
-                          //echo '<input type="submit" value="X" name="listaremover_contrato" id="listaremover_contrato" class="btn btn-danger">';
-                        
                           $vcusto_contrato = $vcusto_contrato + $row_contrato['vcusto_contrato'];
                           $vpag_contrato += $row_contrato['vpag_contrato'];
                           $_SESSION['vcusto_contrato'] = $vcusto_contrato;
                           $_SESSION['vtotal_contrato'] = $vcusto_contrato;
                           $_SESSION['vpag_servico'] = $vpag_contrato;
                           //echo '</div>';
-                          echo '</div>';
+                          //echo '</div>';
                           echo '</form>';
-                          echo '</div>';
+                          //echo '</div>';
                         }
                         
                         $select_pagamentos = "SELECT * FROM tb_movimento_financeiro WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."'";
@@ -635,11 +620,41 @@ switch ($status_contrato) {
                       echo '</div>';
 
                     }else{
-                      echo '<script>document.getElementById("consulta").style.display = "none";</script>';
-                      echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
-                      echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. $_SESSION['concnpj_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "'. date('Y-m-d') .'";</script>';
-                      echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "' .date('Y-m-d', strtotime('+1 month')). '";</script>';
+                      $select_cliente_comercial = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_SESSION['concnpj_cliente_comercial']."' LIMIT 1";
+                      //$select_cliente_comercial = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_SESSION['concnpj_cliente_comercial']."' ORDER BY cd_empresa DESC";
+                      $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
+                      $row_cliente_comercial = mysqli_fetch_assoc($result_cliente_comercial);
+                      // Exibe as informações do usuário no formulário
+                      if($row_cliente_comercial) {
+                        //echo "<script>window.alert('Cliente encontrado!');</script>";
+                        echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+                        echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
+                        $_SESSION['cd_cliente_comercial'] = $row_cliente_comercial['cd_empresa'];
+                        //$_SESSION['fatura_devida_cliente_fiscal'] = $row_cliente_comercial['fatura_devida_cliente_fiscal'];
+                        $_SESSION['servico'] = 0;
+                        //$data_fatura_prevista = date('Y-m-d', strtotime('+1 month', strtotime($row_cliente_comercial['dt_validade'])));
+                        echo '<script>document.getElementById("cadcd_cliente_comercial").value = "'. $row_cliente_comercial['cd_empresa'] .'";</script>';
+                        $_SESSION['cd_empresa'] = $row_cliente_comercial['cd_empresa'];
+                        echo '<script>document.getElementById("cadrsocial_cliente_comercial").value = "'. $row_cliente_comercial['rsocial_empresa'] .'";</script>';
+                        echo '<script>document.getElementById("cadnfantasia_cliente_comercial").value = "'. $row_cliente_comercial['nfantasia_empresa'] .'";</script>';
+                        echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. strval($row_cliente_comercial['cnpj_empresa']) .'";</script>';
+//                        echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtcadastro_cliente_comercial'])) . '";</script>';
+                        //echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dt_validade'])) .'";</script>';
+                        echo '<script>document.getElementById("cadobs_cliente_comercial").value = "Cliente sem contrato";</script>';
+                        echo '<script>document.getElementById("cadtel_cliente_comercial").value = "'. $row_cliente_comercial['tel1_empresa'] .'";</script>';
+                        echo '<script>document.getElementById("cademail_cliente_comercial").value = "'. $row_cliente_comercial['email_empresa'] .'";</script>';
+                        //echo '<script>document.getElementById("cadobs_tel_cliente_comercial").value = "'. $row_cliente_comercial['obs_tel1_empresa'] .'";</script>';
+
+
+
+                      }else{
+                      
+                        echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+                        echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
+                        echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. $_SESSION['concnpj_cliente_comercial'] .'";</script>';
+                        echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "'. date('Y-m-d') .'";</script>';
+                        echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "' .date('Y-m-d', strtotime('+1 month')). '";</script>';
+                      }
                     }
                   }
                 ?>     

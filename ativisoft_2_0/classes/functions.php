@@ -971,7 +971,7 @@ class Usuario
                 </script>
             ";
 //INICIO DO FRAGMENTO
-            $partial_orcamento  =   $partial_orcamento.' 
+            $partial_orcamento  =   $partial_orcamento.'
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-md-12">
@@ -1089,10 +1089,10 @@ class Usuario
 
 
 
-            $partial_orcamento  =   $partial_orcamento.' 
+            /*$partial_orcamento  =   $partial_orcamento.' 
                 <div name="listaOrcamento" id="listaOrcamento" class="typeahead">
                     <div class="horizontal-form">                
-            ';
+            ';*/
 
 
 
@@ -1100,70 +1100,70 @@ class Usuario
                 $count ++;
                 $vtotal_orcamento = $vtotal_orcamento + $row_orcamento['vcusto_orcamento'];
 
+
+
                 if($row_orcamento['tipo_orcamento'] == 'AVULSO'){
 
+                    $partial_orcamento  =   $partial_orcamento.'<form method="POST">';
+
+
                     $partial_orcamento = $partial_orcamento.'
-                        <div class="form-group">
-                            <form method="POST">
-                                <div class="col-lg-12 col-sm-12">
-                                    <div class="input-group">
-                                        <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text btn-outline-info">'.$count.'</span>
-                                                <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class=" form-control form-control-sm" style="display:none;">
-                                                <input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class=" form-control form-control-sm" style="display:none">
-                                                <input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class=" form-control form-control-sm" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text btn-outline-info">R$:</span>
-                                                <input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class=" form-control form-control-sm" placeholder="" readonly>
-                                                <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">
-                                            </div>
+                            <div class="horizontal-wrapper">
+                                <div class="horizontal-id">#'.$count.'/'.$row_orcamento['cd_orcamento'].' </div>
+                                <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="form-control form-control-sm" style="display:none;" readonly>
+                                <div class="horizontal-content">
+                                    <div class="form-group-custom full-width">
+                                        <label for="listatitulo_orcamento">Descrição</label>
+                                        <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class=" form-control form-control-sm" style="display:none;">
+                                        <input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class=" form-control form-control-sm" style="display:none">
+                                        <input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="form-control form-control-sm" readonly>
+                                    </div>
+                                    <div class="horizontal-form-custom">
+                                        <div class="form-group-custom">
+                                            <label for="listavalor_licenca">Valor da Licença</label>
+                                            <input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="form-control form-control-sm" readonly>
                                         </div>
                                     </div>
                                 </div>
-                            </form>   
-                        </div>
+                                <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="horizontal-action" style="background-color:#f00;">
+                            </div>
 
                     ';
+                    $partial_orcamento  =   $partial_orcamento.'</form>';
                 }else if($row_orcamento['tipo_orcamento'] == 'CADASTRO'){
                     $partial_orcamento = $partial_orcamento.'
-                        <div class="form-group">
-                            <form method="POST">
-                                <div class="col-lg-12 col-sm-12">
-                                    <div class="input-group">
-                                        <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text btn-outline-info">'.$count.'</span>
-                                                <input type="hidden" value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class=" form-control form-control-sm" style="display:block;">
-                                                <input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class=" form-control form-control-sm" readonly>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text btn-outline-info">R$: </span>
-                                                <input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class=" form-control form-control-sm" placeholder="" readonly>
-                                                <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">
-                                            </div>
-                                        </div>
+
+
+                        <div class="horizontal-wrapper">
+                            <div class="horizontal-id">#'.$count.'/'.$row_orcamento['cd_orcamento'].' </div>
+                            <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="form-control form-control-sm" style="display:none;" readonly>
+                            <div class="horizontal-content">
+                                <div class="form-group-custom full-width">
+                                <label for="listatitulo_orcamento">Descrição</label>
+                                    <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class=" form-control form-control-sm" style="display:none;">
+                                    <input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class=" form-control form-control-sm" style="display:none">
+                                    <input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="form-control form-control-sm" readonly>
+                                </div>
+                                <div class="horizontal-form-custom">
+                                    <div class="form-group-custom">
+                                        <label for="listavalor_licenca">Valor da Licença</label>
+                                        <input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="form-control form-control-sm" readonly>
                                     </div>
                                 </div>
-                           
-                            </form>
+                            </div>
+                            <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="horizontal-action">
                         </div>
-
                     ';
                 }
+            
+
                     
             }
-
+/*
             $partial_orcamento  =   $partial_orcamento.'
                     </div>
                 </div> 
-            ';
+            ';*/
 
             $falta_pagar = $vtotal_orcamento - $row_pagamento['total_pago'];
             

@@ -761,7 +761,7 @@ if ($_POST['confirmacao'] === 'sim') {
                         $result_servico     = $u->conServico($_SESSION['cd_servico'], $_SESSION['cd_empresa']);
                         $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);
                         $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $_SESSION['cd_empresa']);
-                        $result_financeiro  = $u->movimentoFinanceiro('HOJE', $_SESSION['cd_empresa'], $_SESSION['cd_servico'], '', $result_orcamento['falta_pagar']);
+                        $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], $_SESSION['cd_servico'], '', $result_orcamento['falta_pagar']);
                         $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
                         echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 
@@ -770,7 +770,7 @@ if ($_POST['confirmacao'] === 'sim') {
                         
                         //echo '<p>Servico</p>';
                         echo $result_servico['partial_servico']; 
-    
+     
                         //echo '<p>Orcamento</p>';
                         echo $result_orcamento['partial_orcamento']; 
                         
