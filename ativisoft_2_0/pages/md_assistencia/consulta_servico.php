@@ -338,7 +338,7 @@
                           $vtotal = $vtotal + $row_orcamento['vcusto_orcamento'];
                           $_SESSION['vcusto_orcamento'] = $vtotal;
                         }else if($row_orcamento['tipo_orcamento'] == 'CADASTRADO'){
-
+ 
                           echo '<div class="col-lg-12 col-sm-12">';
                           echo '<div class="input-group">';
                           echo '<div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">';
@@ -668,6 +668,7 @@ if(isset($_POST['marcartitulo_atividade'])){
       '".$_POST['data_hora_ponto']."'
       )
     ";
+
     mysqli_query($conn, $query);
     if(isset($_POST['novadataentrega_atividade'])){
       $query = "UPDATE tb_servico SET
@@ -815,6 +816,7 @@ if(isset($_POST['marcartitulo_atividade'])){
   }
 
   if($_POST['marcartitulo_atividade'] == 'E') {// SQL ARQUIVAR SERVIÇO
+    
     $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
       '".$_POST['atividadecd_servico']."',
       '".$_POST['marcartitulo_atividade']."',
@@ -824,13 +826,32 @@ if(isset($_POST['marcartitulo_atividade'])){
       '".$_POST['data_hora_ponto']."'
       )
     ";
-    mysqli_query($conn, $query);
+    if(mysqli_query($conn, $query)){
+      $conn->commit();
+       
+      echo "<script>window.alert('".addslashes($query)."');</script>";
+      echo "<script>window.alert('ATIVIDADE ARQUIVADA!');</script>";
+
+    }else{
+            echo "<script>window.alert('".addslashes($e->getMessage())."');</script>";
+
+    }
+    
     $query = "UPDATE tb_servico SET
       status_servico = '4'
       WHERE cd_servico = '".$_POST['atividadecd_servico']."'
     ";
-    mysqli_query($conn, $query);
-    echo "<script>window.alert('ARQUIVADO!');</script>";
+    if(mysqli_query($conn, $query)){
+
+      $conn->commit();
+      echo "<script>window.alert('".addslashes($query)."');</script>";
+
+      echo "<script>window.alert('SERVICO ARQUIVADO!');</script>";
+
+    }else{
+      echo "<script>window.alert('".addslashes($e->getMessage())."');</script>";
+    }
+    
   }
 
   

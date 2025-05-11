@@ -5443,3 +5443,4 @@ Stack trace:
 #0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php(474): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
 #1 {main}
   thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 474
+[11-May-2025 14:46:17 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412

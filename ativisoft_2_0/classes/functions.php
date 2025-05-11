@@ -1,8 +1,8 @@
 <?php
 
 // Ativa a exibição de erros (útil em ambiente de desenvolvimento)
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Ativa o registro de erros (útil para produção)
@@ -1729,9 +1729,19 @@ class Usuario
                     'partial_impressao'       =>  $partial_impressao
                 ];
             }else{
+
+                $partial_impressao = '
+                    <form action="../cad_geral/unidade_operacional.php" method="POST" target="_blank">
+                            <h1>Configure seu modelo de impressão</h1>
+                            
+                                <button type="submit" name="tabInfoImpressao" id="tabInfoImpressao" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Clique aqui</button>
+                            
+                        </form>
+                ';
+
                 return [
                     'status'                =>  '($modelo_documento) espera (TERMICA1 ou TERMICA2 ou A4)',
-                    'partial_impressao'     =>  ''
+                    'partial_impressao'     =>  $partial_impressao
                 ];
             }     
         } catch (Exception $e) {
