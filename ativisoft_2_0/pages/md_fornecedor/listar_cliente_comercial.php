@@ -92,7 +92,7 @@
             <div class="col-xl-3 flex-column d-flex grid-margin stretch-card">
               <div class="row flex-grow">
                 <?php                   
-                    include '../../pages/md_fornecedor/index.php';
+                  include '../../pages/md_fornecedor/index.php';
                 ?>
               </div>
             </div>

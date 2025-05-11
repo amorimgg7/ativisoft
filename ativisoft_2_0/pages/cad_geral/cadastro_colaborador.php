@@ -149,7 +149,7 @@
                   // Exibe as informações do usuário no formulário
                   if($row_colab) {
                       echo '<div class="col-12 col-md-12">';
-                      echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                      echo '<div class="nc-form-tac">';
                       echo '<h3 class="card-title">Dados Pessoais</h3>';
                       echo '<form method="POST">';
                       echo '<label for="btncd_colab">CD</label>';

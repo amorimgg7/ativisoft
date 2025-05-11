@@ -448,93 +448,93 @@
 																echo ' </div>';
 															}
 
-															echo '<script>document.getElementById("editcd_acesso").value = "'.$row_rel_user['cd_acesso'].'"</script>';
+															////echo '<script>document.getElementById("editcd_acesso").value = "'.$row_rel_user['cd_acesso'].'"</script>';
 															//$sql_estilo = "SELECT * FROM tb_seguranca";
-															if($row_rel_user['cd_acesso'] != ""){
-																$sql_seg = "SELECT * FROM tb_acesso ORDER BY CASE WHEN cd_acesso = '".$row_rel_user['cd_acesso']."' THEN 0 ELSE 1 END, cd_acesso;";	
-																$resulta_seg = $conn->query($sql_seg);
-																if ($resulta_seg->num_rows > 0){
-																	echo ' <label class="col-xl-3 col-lg-3 col-form-label">Perfil de Permissões</label>';
-																	echo ' <div class="col-lg-9 col-xl-6">';
-																	echo ' <select name="editcd_acesso" id="editcd_acesso" class="form-control">';
-																	//echo ' <option value="">Selecione Permissão</option>';
-																	while ( $row_seg = $resulta_seg->fetch_assoc()){
-																		echo ' <option value="'.$row_seg['cd_acesso'].'">'.$row_seg['titulo_acesso'].'</option>';
-																	}
-																	echo ' </select>';
-																	echo ' </div>';
-																}
-															}else{
-																
-																echo ' <input type="text" style="display:none;"name="editcd_acesso" id="editcd_acesso" value="0">';
-																
+															////if($row_rel_user['cd_acesso'] != ""){
+															////	$sql_seg = "SELECT * FROM tb_acesso ORDER BY CASE WHEN cd_acesso = '".$row_rel_user['cd_acesso']."' THEN 0 ELSE 1 END, cd_acesso;";	
+															////	$resulta_seg = $conn->query($sql_seg);
+															////	if ($resulta_seg->num_rows > 0){
+															////		echo ' <label class="col-xl-3 col-lg-3 col-form-label">Perfil de Permissões</label>';
+															////		echo ' <div class="col-lg-9 col-xl-6">';
+															////		echo ' <select name="editcd_acesso" id="editcd_acesso" class="form-control">';
+															////		//echo ' <option value="">Selecione Permissão</option>';
+															////		while ( $row_seg = $resulta_seg->fetch_assoc()){
+															////			echo ' <option value="'.$row_seg['cd_acesso'].'">'.$row_seg['titulo_acesso'].'</option>';
+															////		}
+															////		echo ' </select>';
+															////		echo ' </div>';
+															////	}
+															////}else{
+															////	
+															////	echo ' <input type="text" style="display:none;"name="editcd_acesso" id="editcd_acesso" value="0">';
+															////	
 
 
-																echo '<div class=" text-center">';
-                      echo "<h3>Escolha seu plano de acesso - ".$_SESSION['cd_empresa']."</h3>";
-                      echo '<div>';
-                      echo '<div class="card-deck">';
-
-                      echo '<div class="card text-center">';
-  
-                        echo '<div class="card-header">R$: 50,00 por Mês ou 450 por Ano</div>';
-                      
-                        echo '<div class="card-body">';
-                        echo '<h5 class="card-title">Vantagens</h5>';
-                        echo '<p class="card-text"><i class="icon-circle-check"></i> Controle de Caixa</p>';
-                        echo '<p class="card-text"><i class="icon-circle-check"></i> Ordem de serviço</p>';
-                        echo '<p class="card-text"><i class="icon-circle-check"></i> Folha de Ponto</p>';
-                        echo '<h5 class="card-title">Desvantagens</h5>';
-                        echo '<p class="card-text"><i class="icon-circle-cross"></i> PIX Dinâmico</p>';
-                        echo '<p class="card-text"><i class="icon-circle-cross"></i> Site</p>';
-                        echo '<p class="card-text"><i class="icon-circle-cross"></i> Loja</p>';
-                        echo '</div>';
-
-                        echo '<div class="card-footer text-muted">';
-                        echo '<form method="post" action="../cad_geral/unidade_operacional.php">';
-                        echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Plano Básico" >';
-                        echo '</form>';
-                        echo '</div>';
-
-                      echo '</div>';
-
-
-                      echo '<div class="card text-center">';
-  
-                        echo '<div class="card-header">R$: 80,00 por Mês ou 750 por Ano</div>';
-
-                        echo '<div class="card-body">';
-                        echo '<h5 class="card-title">Vantagens</h5>';
-                        echo '<p class="card-text"><i class="icon-circle-check"></i> Controle de Caixa</p>';
-                        echo '<p class="card-text"><i class="icon-circle-check"></i> Ordem de serviço</p>';
-                        echo '<p class="card-text"><i class="icon-circle-check"></i> Folha de Ponto</p>';
-                        echo '<p class="card-text"><i class="icon-circle-cross"></i> Site</p>';
-                        echo '<p class="card-text"><i class="icon-circle-cross"></i> Loja</p>';
-                        echo '<h5 class="card-title">Desvantagens</h5>';
-                        echo '<p class="card-text"><i class="icon-circle-cross"></i> PIX Dinâmico</p>';
-                        echo '</div>';
-
-                        echo '<div class="card-footer text-muted">';
-                        echo '<form method="post" action="../cad_geral/unidade_operacional.php">';
-                        echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Plano Intermediário" >';
-                        echo '</form>';
-                        echo '</div>';
-                        
-                      echo '</div>';
-
-                      
-
-                      
-
-                     
-
-                      
-
-                      echo '</div>';
-
-					  
-															}
-															
+															////	echo '<div class=" text-center">';
+															////                      echo "<h3>Escolha seu plano de acesso - ".$_SESSION['cd_empresa']."</h3>";
+															////                      echo '<div>';
+															////                      echo '<div class="card-deck">';
+															////
+															////                      echo '<div class="card text-center">';
+															////  
+															////                        echo '<div class="card-header">R$: 50,00 por Mês ou 450 por Ano</div>';
+															////                      
+															////                        echo '<div class="card-body">';
+															////                        echo '<h5 class="card-title">Vantagens</h5>';
+															////                        echo '<p class="card-text"><i class="icon-circle-check"></i> Controle de Caixa</p>';
+															////                        echo '<p class="card-text"><i class="icon-circle-check"></i> Ordem de serviço</p>';
+															////                        echo '<p class="card-text"><i class="icon-circle-check"></i> Folha de Ponto</p>';
+															////                        echo '<h5 class="card-title">Desvantagens</h5>';
+															////                        echo '<p class="card-text"><i class="icon-circle-cross"></i> PIX Dinâmico</p>';
+															////                        echo '<p class="card-text"><i class="icon-circle-cross"></i> Site</p>';
+															////                        echo '<p class="card-text"><i class="icon-circle-cross"></i> Loja</p>';
+															////                        echo '</div>';
+															////
+															////                        echo '<div class="card-footer text-muted">';
+															////                        echo '<form method="post" action="../cad_geral/unidade_operacional.php">';
+															////                        echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Plano Básico" >';
+															////                        echo '</form>';
+															////                        echo '</div>';
+															////
+															////                      echo '</div>';
+															////
+															////
+															////                      echo '<div class="card text-center">';
+															////  
+															////                        echo '<div class="card-header">R$: 80,00 por Mês ou 750 por Ano</div>';
+															////
+															////                        echo '<div class="card-body">';
+															////                        echo '<h5 class="card-title">Vantagens</h5>';
+															////                        echo '<p class="card-text"><i class="icon-circle-check"></i> Controle de Caixa</p>';
+															////                        echo '<p class="card-text"><i class="icon-circle-check"></i> Ordem de serviço</p>';
+															////                        echo '<p class="card-text"><i class="icon-circle-check"></i> Folha de Ponto</p>';
+															////                        echo '<p class="card-text"><i class="icon-circle-cross"></i> Site</p>';
+															////                        echo '<p class="card-text"><i class="icon-circle-cross"></i> Loja</p>';
+															////                        echo '<h5 class="card-title">Desvantagens</h5>';
+															////                        echo '<p class="card-text"><i class="icon-circle-cross"></i> PIX Dinâmico</p>';
+															////                        echo '</div>';
+															////
+															////                        echo '<div class="card-footer text-muted">';
+															////                        echo '<form method="post" action="../cad_geral/unidade_operacional.php">';
+															////                        echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Plano Intermediário" >';
+															////                        echo '</form>';
+															////                        echo '</div>';
+															////                        
+															////                      echo '</div>';
+															////
+															////                      
+															////
+															////                      
+															////
+															////                     
+															////
+															////                      
+															////
+															////                      echo '</div>';
+															////
+															////					  
+															////															}
+															////															
 
 															
 														}

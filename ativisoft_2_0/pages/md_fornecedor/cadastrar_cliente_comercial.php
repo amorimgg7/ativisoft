@@ -28,6 +28,7 @@
   <!-- endinject -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/custom.css">
   <!-- endinject -->
   <script src="../../js/functions.js"></script>
   <link rel="shortcut icon" href="<?php echo $_SESSION['logo_empresa']; ?>" />
@@ -138,14 +139,14 @@
                     }else{
                       $_SESSION['data_fatura'] = false;
                       $_SESSION['vcusto_fatura'] = false;
-                      $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente_comercial, titulo_orcamento, vcusto_orcamento, status_orcamento) VALUES(
+                      $insertcontrato = "INSERT INTO tb_contrato_servico(cd_cliente_comercial, titulo_contrato, vcusto_contrato, status_contrato) VALUES(
                         '".$_SESSION['cadcd_cliente_comercial']."',
                         '".$_POST['data_fatura']."',
                         '".$_POST['vcusto_fatura']."',
                         '0')
                       ";
-                      if(!mysqli_query($conn, $insertOrcamento)){
-                        echo "<script>window.alert('Erro ao lançar a fatura na TB_ORCAMENTO_SERVICO!');</script>"; 
+                      if(!mysqli_query($conn, $insertcontrato)){
+                        echo "<script>window.alert('Erro ao lançar a fatura na TB_contrato_SERVICO!');</script>"; 
                       }
                       $fatura = $_POST['vcusto_fatura'] + $_SESSION['falta_pagar_servico'];
                       $_SESSION['vtotal_servico'] = $_SESSION['vtotal_servico'] + $_POST['vcusto_fatura'];
@@ -182,8 +183,8 @@
                         }
                         
                         $_SESSION['vpag_servico'] = $_POST['vpag_movimento'] - $_SESSION['fatura_devida_cliente_fiscal'];
-                        $_SESSION['falta_pagar_servico'] = $_SESSION['vtotal_orcamento'] - $_SESSION['vpag_servico'];
-                        echo  '<script>document.getElementById("btn_falta_pagar_orcamento").value = "'.$_SESSION['fatura_devida_cliente_fiscal'].'";</script>';
+                        $_SESSION['falta_pagar_servico'] = $_SESSION['vtotal_contrato'] - $_SESSION['vpag_servico'];
+                        echo  '<script>document.getElementById("btn_falta_pagar_contrato").value = "'.$_SESSION['fatura_devida_cliente_fiscal'].'";</script>';
         
                         if($_SESSION['fatura_devida_cliente_fiscal'] == 0){
                             echo '<script>document.getElementById("tela_pagamento").style.display = "none";</script>';//tela_pagamento
@@ -195,17 +196,17 @@
                   }
 
 
-                  if(isset($_POST['listaremover_orcamento'])) {//DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = 198
-                    if(($_SESSION['vtotal_orcamento'] - $_POST['listavalor_orcamento'])>=$_SESSION['vpag_servico']){
+                  if(isset($_POST['listaremover_contrato'])) {//DELETE FROM `tb_contrato_servico` WHERE `tb_contrato_servico`.`cd_contrato` = 198
+                    if(($_SESSION['vtotal_contrato'] - $_POST['listavalor_contrato'])>=$_SESSION['vpag_servico']){
                       //echo "<script>window.alert('OK, pode remover');</script>";
-                      //$vtotal = $_SESSION['falta_pagar_servico'] - $_POST['listavalor_orcamento'];
-                      $removeOrcamento = "DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = ".$_POST['listaid_orcamento']."";
-                      if(!mysqli_query($conn, $removeOrcamento)){
-                        echo "<script>window.alert('Erro ao deletar da tb_orcamento_servico!');</script>";  
+                      //$vtotal = $_SESSION['falta_pagar_servico'] - $_POST['listavalor_contrato'];
+                      $removecontrato = "DELETE FROM `tb_contrato_servico` WHERE `tb_contrato_servico`.`cd_contrato` = ".$_POST['listaid_contrato']."";
+                      if(!mysqli_query($conn, $removecontrato)){
+                        echo "<script>window.alert('Erro ao deletar da tb_contrato_servico!');</script>";  
                       }
-                      $fatura = $_SESSION['falta_pagar_servico'] - $_POST['listavalor_orcamento'];
+                      $fatura = $_SESSION['falta_pagar_servico'] - $_POST['listavalor_contrato'];
 
-                      $dtvalidlicenca_cliente_comercial = date('Y-m-d', strtotime('-1 month', strtotime($_POST['listatitulo_orcamento'])));
+                      $dtvalidlicenca_cliente_comercial = date('Y-m-d', strtotime('-1 month', strtotime($_POST['listatitulo_contrato'])));
 
                       $updateVtotalServico = "UPDATE tb_cliente_comercial SET
                         dtvalidlicenca_cliente_comercial = '".$dtvalidlicenca_cliente_comercial."',
@@ -249,30 +250,53 @@
                         <div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">
                           <form method="POST">
                             <div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead">
-                              <input  name="cadcd_cliente_comercial" type="tel" id="cadcd_cliente_comercial" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>
+                              <input  name="cadcd_cliente_comercial" type="hidden" id="cadcd_cliente_comercial" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>
+                              <div class="form-group-custom">
                               <label for="cadrsocial_cliente_comercial">Razão Social</label>
                               <input name="cadrsocial_cliente_comercial" type="text" id="cadrsocial_cliente_comercial" maxlength="100"   class="aspNetDisabled form-control form-control-sm" required/>
+                              </div>
+                              
+                              <div class="form-group-custom">
                               <label for="cadnfantasia_cliente_comercial">Nome Fantasia</label>
                               <input name="cadnfantasia_cliente_comercial" type="text" id="cadnfantasia_cliente_comercial" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>
+                              </div>
+                              
+                              <div class="form-group-custom">
                               <label for="cadcnpj_cliente_comercial">CNPJ</label>
                               <input name="cadcnpj_cliente_comercial" type="text" id="cadcnpj_cliente_comercial" maxlength="90" oninput="cnpj(this)" class="aspNetDisabled form-control form-control-sm" readonly/>                            
-                              <label for="btntel_cliente">Data do Cadastro</label>
-                              <input name="caddtcadastro_cliente_comercial" type="date"  id="caddtcadastro_cliente_comercial"  class="aspNetDisabled form-control form-control-sm" readonly/>
+                              </div>
+                              
+                              <div class="form-group-custom">
                               <label for="btntel_cliente">Data do Vencimento</label>
                               <input name="caddtvalidlicenca_cliente_comercial" type="date" id="caddtvalidlicenca_cliente_comercial" class="aspNetDisabled form-control form-control-sm" required/>
-                              <label for="btntel_cliente">Obs Cliente _ Status.</label>
+                              </div>
+                              
+                              <div class="form-group-custom">
+                              <label for="btntel_cliente">Observações dos contatos</label>
                               <input name="cadobs_cliente_comercial" type="text"  id="cadobs_cliente_comercial" class="aspNetDisabled form-control form-control-sm"/>
+                              </div>
+                              
+                              <div class="form-group-custom">
                               <label for="btntel_cliente">Telefone Filial</label>
                               <input name="cadtel_cliente_comercial" type="tel"  id="cadtel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
+                              </div>
+                              
+                              <div class="form-group-custom">
                               <label for="btntel_cliente">Email Filial</label>
                               <input name="cademail_cliente_comercial" type="email"  id="cademail_cliente_comercial" class="aspNetDisabled form-control form-control-sm" required/>
-                              <label for="btntel_cliente">Observações dos contatos</label>
-                              <input name="cadobs_tel_cliente_comercial" type="text"  id="cadobs_tel_cliente_comercial" class="aspNetDisabled form-control form-control-sm"/>
+                              </div>
+                              
+                              <div class="form-group-custom">
                               <label for="btntel_cliente">Fatura Prevista</label>
-                              <input name="cadfatura_prevista_cliente_fiscal" type="tel"  id="cadfatura_prevista_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
+                              <input name="cadfatura_prevista_cliente_fiscal" type="tel"  id="cadfatura_prevista_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly required/>
+                              </div>
+                              
+                              <div class="form-group-custom">
                               <label for="btntel_cliente">Fatura Devida</label>
-                              <input name="cadfatura_devida_cliente_fiscal" type="tel"  id="cadfatura_devida_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
-                              <td><button type="submit" name="cad_cliente_comercial" id="cad_cliente_comercial" class="btn btn-block btn-outline-success"><i class="icon-cog">Gravar</i></button></td>
+                              <input name="cadfatura_devida_cliente_fiscal" type="tel"  id="cadfatura_devida_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly required/>
+                              </div>
+                              
+                              <td><button type="hidden" name="cad_cliente_comercial" id="cad_cliente_comercial" class="btn btn-block btn-outline-success"><i class="icon-cog">Gravar</i></button></td>
                             </div>
                           </form>
                         </div>
@@ -287,7 +311,8 @@
                     $_SESSION['concnpj_cliente_comercial'] = $_POST['concnpj_cliente_comercial'];
                   }
                   if($_SESSION['concnpj_cliente_comercial'] > 0) { //CHAMAR CLIENTE CADASTRADO PARA SESSION
-                    $select_cliente_comercial = "SELECT * FROM tb_cliente_comercial WHERE cnpj_cliente_comercial = '".$_SESSION['concnpj_cliente_comercial']."' ORDER BY cd_cliente_comercial DESC";
+                    $select_cliente_comercial = "SELECT * FROM tb_empresa e, tb_contrato c WHERE e.cnpj_empresa = '".$_SESSION['concnpj_cliente_comercial']."' AND e.cd_empresa = c.cd_empresa ORDER BY c.cd_contrato DESC LIMIT 1";
+                    //$select_cliente_comercial = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_SESSION['concnpj_cliente_comercial']."' ORDER BY cd_empresa DESC";
                     $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
                     $row_cliente_comercial = mysqli_fetch_assoc($result_cliente_comercial);
                     // Exibe as informações do usuário no formulário
@@ -295,64 +320,51 @@
                       //echo "<script>window.alert('Cliente encontrado!');</script>";
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
                       echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
-                      $_SESSION['cd_cliente_comercial'] = $row_cliente_comercial['cd_cliente_comercial'];
+                      $_SESSION['cd_cliente_comercial'] = $row_cliente_comercial['cd_empresa'];
                       $_SESSION['fatura_devida_cliente_fiscal'] = $row_cliente_comercial['fatura_devida_cliente_fiscal'];
                       $_SESSION['servico'] = 0;
-                      $data_fatura_prevista = date('Y-m-d', strtotime('+1 month', strtotime($row_cliente_comercial['dtvalidlicenca_cliente_comercial'])));
-                      echo '<script>document.getElementById("cadcd_cliente_comercial").value = "'. $row_cliente_comercial['cd_cliente_comercial'] .'";</script>';
-                      $_SESSION['cadcd_cliente_comercial'] = $row_cliente_comercial['cd_cliente_comercial'];
-                      echo '<script>document.getElementById("cadrsocial_cliente_comercial").value = "'. $row_cliente_comercial['rsocial_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("cadnfantasia_cliente_comercial").value = "'. $row_cliente_comercial['nfantasia_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. strval($row_cliente_comercial['cnpj_cliente_comercial']) .'";</script>';
-                      echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtcadastro_cliente_comercial'])) . '";</script>';
-                      echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtvalidlicenca_cliente_comercial'])) .'";</script>';
-                      echo '<script>document.getElementById("cadobs_cliente_comercial").value = "'. $row_cliente_comercial['obs_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("cadtel_cliente_comercial").value = "'. $row_cliente_comercial['tel_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("cademail_cliente_comercial").value = "'. $row_cliente_comercial['email_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("cadobs_tel_cliente_comercial").value = "'. $row_cliente_comercial['obs_tel_cliente_comercial'] .'";</script>';
-                      echo '<script>document.getElementById("cadfatura_prevista_cliente_fiscal").value = "'. $row_cliente_comercial['fatura_prevista_cliente_fiscal'] .'";</script>';
-                      echo '<script>document.getElementById("cadfatura_devida_cliente_fiscal").value = "'. $row_cliente_comercial['fatura_devida_cliente_fiscal'] .'";</script>';
+                      $data_fatura_prevista = date('Y-m-d', strtotime('+1 month', strtotime($row_cliente_comercial['dt_validade'])));
+                      echo '<script>document.getElementById("cadcd_cliente_comercial").value = "'. $row_cliente_comercial['cd_empresa'] .'";</script>';
+                      $_SESSION['cd_empresa'] = $row_cliente_comercial['cd_empresa'];
+                      echo '<script>document.getElementById("cadrsocial_cliente_comercial").value = "'. $row_cliente_comercial['rsocial_empresa'] .'";</script>';
+                      echo '<script>document.getElementById("cadnfantasia_cliente_comercial").value = "'. $row_cliente_comercial['nfantasia_empresa'] .'";</script>';
+                      echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. strval($row_cliente_comercial['cnpj_empresa']) .'";</script>';
+//                      echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtcadastro_cliente_comercial'])) . '";</script>';
+                      echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dt_validade'])) .'";</script>';
+                      echo '<script>document.getElementById("cadobs_cliente_comercial").value = "'. $row_cliente_comercial['ds_contrato'] .'";</script>';
+                      echo '<script>document.getElementById("cadtel_cliente_comercial").value = "'. $row_cliente_comercial['tel1_empresa'] .'";</script>';
+                      echo '<script>document.getElementById("cademail_cliente_comercial").value = "'. $row_cliente_comercial['email_empresa'] .'";</script>';
+                      //echo '<script>document.getElementById("cadobs_tel_cliente_comercial").value = "'. $row_cliente_comercial['obs_tel1_empresa'] .'";</script>';
+                      echo '<script>document.getElementById("cadfatura_prevista_cliente_fiscal").value = "'. $row_cliente_comercial['vl_licenca'] .'";</script>';
+                      echo '<script>document.getElementById("cadfatura_devida_cliente_fiscal").value = "'. $row_cliente_comercial['vl_contrato'] .'";</script>';
                       
                       echo '<div class="card-body" '.$_SESSION['c_card'].'>';
                       echo '<div class="kt-portlet__body">';
                       echo '<div class="row">';
                       echo '<div class="col-12 col-md-12">';
-                      echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                      echo '<div  class="nc-form-tac">';
                       
-                      if($row_cliente_comercial['cd_cliente_comercial'] > 0){
-                        $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."' ORDER BY cd_orcamento ASC";
-                        $result_orcamento = mysqli_query($conn, $select_orcamento);
+                      if($row_cliente_comercial['cd_empresa'] > 0){
+                        $select_contrato = "SELECT * FROM tb_contrato WHERE cd_empresa = '".$_SESSION['cd_cliente_comercial']."' ORDER BY cd_contrato ASC";
+                        $result_contrato = mysqli_query($conn, $select_contrato);
                         //$row_atividade = mysqli_fetch_assoc($result_atividade);
                         // Exibe as informações do usuário no formulário
                         
-                        echo '<style>';
-                        echo '.horizontal-form {';
-                        echo 'display: table;';
-                        echo 'width: 100%;';
-                        echo '}';
-                        echo '.form-group {';
-                        echo 'display: table-row;';
-                        echo '}';
-                        echo '.form-group label,';
-                        echo '.form-group input {';
-                        echo 'display: table-cell;';
-                        echo 'padding: 5px;';
-                        echo '}';
-                        echo '</style>';
+                        
                               
-                        echo '<h3 class="kt-portlet__head-title">Lançar nova Fatura</h3>';
-                        echo '<script>document.getElementById("listaOrcamento").style.display = "block";</script>';
+                        echo '<h3 class="kt-portlet__head-title">Lançar novo Contrato</h3>';
+                        echo '<script>document.getElementById("listaContrato").style.display = "block";</script>';
                         echo '<form method="post">';
-                        echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" style="background-color: #C6C6C6;">';
+                        echo '<div class="typeahead" style="background-color: #C6C6C6;">';
                         echo '<div class="horizontal-form">';
                         echo '<div class="form-group">';
                         
                         echo '<label for="data_fatura"></label>';
                         
 
-                        echo '<input value="'.$data_fatura_prevista.'"type="date" style="width: 20%;" name="data_fatura" id="data_fatura" class="aspNetDisabled form-control form-control-sm">';
+                        echo '<input value="'.$data_fatura_prevista.'"type="date" style="width: 20%;" name="data_fatura" id="data_fatura" class="form-control form-control-sm">';
                         echo '<label for="vcusto_fatura"></label>';
-                        echo '<input type="tel" oninput="tel(this)" id="vcusto_fatura" name="vcusto_fatura" class="aspNetDisabled form-control form-control-sm" placeholder="Quanto custa este serviço?">';
+                        echo '<input type="tel" oninput="tel(this)" id="vcusto_fatura" name="vcusto_fatura" class="form-control form-control-sm" placeholder="Quanto custa este serviço?">';
                         
                         echo '<label for="lancarFatura"></label>';
                         echo '<button type="submit" name="lancarFatura" id="lancarFatura" class="btn btn-success">Enviar</button>';
@@ -362,33 +374,103 @@
                         echo '</div>';
                         echo '</form>';
                         
-                        echo '<h3 class="kt-portlet__head-title">Faturas Geradas</h3>';
-                        $_SESSION['vtotal_orcamento'] = 0;
-                        $_SESSION['vpag_orcamento'] = 0;
+                        echo '<h3 class="kt-portlet__head-title">Contratos gerados</h3>';
+                        $_SESSION['vtotal_contrato'] = 0;
+                        $_SESSION['vpag_contrato'] = 0;
                         $count = 0;
-                        $vcusto_orcamento = 0;
-                        $vpag_orcamento = 0;
+                        $vcusto_contrato = 0;
+                        $vpag_contrato = 0;
                         $_SESSION['vpag_servico'] = 10;
-                        while($row_orcamento = $result_orcamento->fetch_assoc()) {
-                          echo '<div name="listaOrcamento" id="listaOrcamento" class="typeahead" '.$_SESSION['c_card'].'>';
-                          echo '<form method="POST">';
-                          echo '<div class="horizontal-form">';
-                          echo '<div class="form-group">';
+                        while($row_contrato = $result_contrato->fetch_assoc()) {
                           $count = $count + 1;
-                          echo '<input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="aspNetDisabled form-control form-control-sm" style="display:none;">';
-                          echo '<label for="listatitulo_orcamento">#'.$count.'</label>';
-                          echo '<input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="date" style="width: 20%;" class="aspNetDisabled form-control form-control-sm" readonly>';
-                          echo '<label for="listavalor_orcamento">R$: </label>';
-                          echo '<input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="aspNetDisabled form-control form-control-sm" placeholder="" readonly>';
-                          echo '<label for="listaremover_orcamento"></label>';
-                          echo '<input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="btn btn-danger">';
-                        
-                          $vcusto_orcamento = $vcusto_orcamento + $row_orcamento['vcusto_orcamento'];
-                          $vpag_orcamento += $row_orcamento['vpag_orcamento'];
-                          $_SESSION['vcusto_orcamento'] = $vcusto_orcamento;
-                          $_SESSION['vtotal_orcamento'] = $vcusto_orcamento;
-                          $_SESSION['vpag_servico'] = $vpag_orcamento;
+                          
+                          
+                          
+                          echo '<div name="listaContrato" id="listaContrato" class="typeahead" '.$_SESSION['c_card'].'>';
+                          echo '<form method="POST">';
+                          echo '<div class="horizontal-form-custom">';
+                          //echo '<div class="form-group-custom">';
+                          
+                          echo '<span class="contract-count">#'.$count.'</span>';
+
+                          //echo '<div class="form-group-custom">';
+                          
+                          //echo '<span>#'.$count.'</span>';
+                          echo '<input value="'.$row_contrato['cd_contrato'].'" name="listaid_contrato" id="listaid_contrato" class="form-control form-control-sm" style="display:none;" readonly>';
+                          //echo '</div>';
+                          echo '<div class="form-group-custom full-width">';
+                          
+                          //echo '<label for="listatitulo_contrato">#'.$count.'</label>';
+                          echo '<label for="listatitulo_contrato">Descrição</label>';
+                          echo '<input value="'.$row_contrato['ds_contrato'].'" name="listatitulo_contrato" id="listatitulo_contrato" type="text" class="form-control form-control-sm" readonly>';
                           echo '</div>';
+                          
+
+                          // Criando os objetos DateTime para as datas de contrato e validade
+                          $data_inicial = new DateTime($row_contrato['dt_contrato']);
+                          $data_final = new DateTime($row_contrato['dt_validade']);
+
+                          // Calculando a diferença entre as duas datas
+                          $intervalo = $data_inicial->diff($data_final);
+
+                          // Obtendo os anos e meses da diferença
+                          $anos = $intervalo->y;
+                          $meses = $intervalo->m;
+
+                          // Exibindo a diferença no formato desejado
+                          $vigencia = ($anos > 0 ? $anos . ' ano' . ($anos > 1 ? 's' : '') : '') .
+                                      ($anos > 0 && $meses > 0 ? ' e ' : '') .
+                                      ($meses > 0 ? $meses . ' mês' . ($meses > 1 ? 'es' : '') : '');
+
+                          // Exibindo o campo com a data formatada e a vigência
+                          echo '<div class="form-group-custom">';
+                          echo '<label for="listavigencia_contrato">Vigência (' . $vigencia . ')</label>';
+                          echo '<input value="'.date('d/m/Y', strtotime($row_contrato['dt_contrato'])).' a '.date('d/m/Y', strtotime($row_contrato['dt_validade'])).'" name="listavigencia_contrato" id="listavigencia_contrato" type="tel" class="form-control form-control-sm" readonly>';
+                          echo '</div>';
+
+                          echo '<div class="form-group-custom">';
+                          echo '<label for="listavalor_licenca">Valor da Licença</label>';
+                          echo '<input value="'.$row_contrato['vl_licenca'].'" name="listavalor_licenca" id="listavalor_licenca" type="tel" class="form-control form-control-sm" readonly>';
+                          echo '</div>';
+                          
+                          echo '<div class="form-group-custom">';
+                          echo '<label for="listavalor_contrato">Valor do contrato</label>';
+                          echo '<input value="'.$row_contrato['vl_contrato'].'" name="listavalor_contrato" id="listavalor_contrato" type="tel" class="form-control form-control-sm" readonly>';
+                          echo '</div>';
+                          
+                          $status_contrato = $row_contrato['status_contrato'];
+
+switch ($status_contrato) {
+    case 'A':
+        $ds_status_contrato = "Aberto";
+        break;
+    case 'F':
+        $ds_status_contrato = "Fechado";
+        break;
+    case 'C':
+        $ds_status_contrato = "Cancelado";
+        break;
+    default:
+        $ds_status_contrato = "Desconhecido";
+        break;
+}
+
+                          echo '<div class="form-group-custom">';
+                          echo '<label for="listastatus_contrato">Status</label>';
+                          echo '<input value="'.$ds_status_contrato.'" name="listastatus_contrato" id="listastatus_contrato" type="text" class="form-control form-control-sm" placeholder="" readonly>';
+                          echo '</div>';
+                          
+                          
+                          //echo '<label for="listaremover_contrato"></label>';
+                          
+                          //echo '<input type="submit" value="X" name="listaremover_contrato" id="listaremover_contrato" class="btn btn-danger">';
+                        
+                          $vcusto_contrato = $vcusto_contrato + $row_contrato['vcusto_contrato'];
+                          $vpag_contrato += $row_contrato['vpag_contrato'];
+                          $_SESSION['vcusto_contrato'] = $vcusto_contrato;
+                          $_SESSION['vtotal_contrato'] = $vcusto_contrato;
+                          $_SESSION['vpag_servico'] = $vpag_contrato;
+                          //echo '</div>';
                           echo '</div>';
                           echo '</form>';
                           echo '</div>';
@@ -403,12 +485,12 @@
                         }
 
                         $_SESSION['falta_pagar_servico'] = 0;
-                        $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."'";
-                        if(!$result_orcamento = mysqli_query($conn, $select_orcamento)){
+                        $select_contrato = "SELECT * FROM tb_contrato_servico WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."'";
+                        if(!$result_contrato = mysqli_query($conn, $select_contrato)){
                           echo "<script>window.alert('Erro ao consultar uma fatura na tb_movimento_financeiro!');</script>"; 
                         }
-                        while($row_orcamento = $result_orcamento->fetch_assoc()) {
-                          $_SESSION['falta_pagar_servico'] = $_SESSION['vpag_servico'] + $row_orcamento['vcusto_orcamento'];
+                        while($row_contrato = $result_contrato->fetch_assoc()) {
+                          $_SESSION['falta_pagar_servico'] = $_SESSION['vpag_servico'] + $row_contrato['vcusto_contrato'];
                         }
                         //$_SESSION['falta_pagar_servico']
 
@@ -423,11 +505,11 @@
                         echo '<div class="horizontal-form">';
                         echo '<div class="form-group">';
                                     
-                        //$_SESSION['falta_pagar_servico'] = $_SESSION['vtotal_orcamento'] - $_SESSION['vpag_servico'];
+                        //$_SESSION['falta_pagar_servico'] = $_SESSION['vtotal_contrato'] - $_SESSION['vpag_servico'];
                         echo '<label for="cadobs_servico">Total:</label>';
-                        echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                        echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_contrato" id="btnvpag_contrato" class="aspNetDisabled form-control form-control-sm" readonly>';
                         echo '<label for="cadobs_servico">Falta:</label>';
-                        echo '<input value="'.$_SESSION['fatura_devida_cliente_fiscal'].'" type="tel" name="btn_falta_pagar_orcamento" id="btn_falta_pagar_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                        echo '<input value="'.$_SESSION['fatura_devida_cliente_fiscal'].'" type="tel" name="btn_falta_pagar_contrato" id="btn_falta_pagar_contrato" class="aspNetDisabled form-control form-control-sm" readonly>';
                                       
                         echo '</div>';
                         echo '</div>';
@@ -437,7 +519,7 @@
                                     
                                     
                 
-                        if($vcusto_orcamento == 0){
+                        if($vcusto_contrato == 0){
                         }else{
                           echo '<form method="POST">';
                           echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="totalizador" name="totalizador" style="display: none;">';
@@ -447,17 +529,17 @@
                           echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" style="background-color: #C6C6C6;">';
                           echo '<div class="horizontal-form">';
                           echo '<div class="form-group">';
-                          if($vpag_orcamento == $vcusto_orcamento){
+                          if($vpag_contrato == $vcusto_contrato){
                             echo '<label for="cadobs_servico">Total Pago:</label>';
-                            echo '<input value="'.$vpag_orcamento.'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                            echo '<input value="'.$vpag_contrato.'" type="tel" name="btnvpag_contrato" id="btnvpag_contrato" class="aspNetDisabled form-control form-control-sm" readonly>';
                           }else{
-                            $_SESSION['falta_pagar_servico'] = $vcusto_orcamento - $_SESSION['vpag_servico'];
+                            $_SESSION['falta_pagar_servico'] = $vcusto_contrato - $_SESSION['vpag_servico'];
                             echo '<label for="cadobs_servico">Total:</label>';
-                            echo '<input value="'.$vcusto_orcamento.'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                            echo '<input value="'.$vcusto_contrato.'" type="tel" name="btnvtotal_contrato" id="btnvtotal_contrato" class="aspNetDisabled form-control form-control-sm" readonly>';
                             echo '<label for="cadobs_servico">Pago:</label>';
-                            echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                            echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_contrato" id="btnvpag_contrato" class="aspNetDisabled form-control form-control-sm" readonly>';
                             echo '<label for="cadobs_servico">Falta:</label>';
-                            echo '<input value="'.$_SESSION['falta_pagar_servico'].'" type="tel" name="btn_falta_pagar_orcamento" id="btn_falta_pagar_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                            echo '<input value="'.$_SESSION['falta_pagar_servico'].'" type="tel" name="btn_falta_pagar_contrato" id="btn_falta_pagar_contrato" class="aspNetDisabled form-control form-control-sm" readonly>';
                             //echo '<label for="lancarPagamento"></label>';
                             //echo '<input type="submit" name="lancarPagamento" id="lancarPagamento" class="btn btn-success"">';
                           }
@@ -514,9 +596,9 @@
                         echo '<div class="horizontal-form">';
                         echo '<div class="form-group">';
                         echo '<label for="cadobs_servico">Total</label>';
-                        echo '<input value="999'.$_SESSION['vtotal_orcamento'].'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" class="aspNetDisabled form-control form-control-sm" readonly>';
+                        echo '<input value="999'.$_SESSION['vtotal_contrato'].'" type="tel" name="btnvtotal_contrato" id="btnvtotal_contrato" class="aspNetDisabled form-control form-control-sm" readonly>';
                         echo '<label for="cadobs_servico">Pago</label>';
-                        echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class="aspNetDisabled form-control form-control-sm" placeholder="Valor Pago">';
+                        echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_contrato" id="btnvpag_contrato" class="aspNetDisabled form-control form-control-sm" placeholder="Valor Pago">';
                         echo '<label for="lancarPagamento"></label>';
                         echo '<input type="submit" name="lancarPagamento" id="lancarPagamento" class="btn btn-success"">';
                         echo '</div>';
@@ -530,7 +612,7 @@
                                     
                                             
                                             
-                        //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
+                        //echo '<button type="submit" name="lancarcontrato" class="btn btn-success">Lançarcontrato</button>';
                         echo '<button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Imprimir OS</button>';
                         echo '<button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Impressão)</button>';
                         echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Whatsapp)</button>';
@@ -592,8 +674,8 @@ function enviarMensagemWhatsApp() {
   var prioridadeServico = document.getElementById("btnprioridade_servico").value;
   var prazoServico = document.getElementById("btnprazo_servico").value;
 
-  var vtotalServico = document.getElementById("btnvtotal_orcamento").value;
-  var vpagServico = document.getElementById("btnvpag_orcamento").value;
+  var vtotalServico = document.getElementById("btnvtotal_contrato").value;
+  var vpagServico = document.getElementById("btnvpag_contrato").value;
 
 
   var anoEntrada = entradaServico.substring(0, 4);
@@ -636,14 +718,14 @@ faltaPagar = vtotalServico - vpagServico;
   <?php 
   
 
-  $select_orcamento_whatsapp = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['os_servico']."' ORDER BY cd_orcamento ASC";
-  $result_orcamento_whatsapp = mysqli_query($conn, $select_orcamento_whatsapp);
+  $select_contrato_whatsapp = "SELECT * FROM tb_contrato_servico WHERE cd_servico = '".$_SESSION['os_servico']."' ORDER BY cd_contrato ASC";
+  $result_contrato_whatsapp = mysqli_query($conn, $select_contrato_whatsapp);
   echo 'mensagem += "*Lista detalhada*\n";';
                         
-  while($row_orcamento_whatsapp = $result_orcamento_whatsapp->fetch_assoc()) {
+  while($row_contrato_whatsapp = $result_contrato_whatsapp->fetch_assoc()) {
     $counter = $counter + 1;
-    //echo 'mensagem += count + " - '.$row_orcamento_whatsapp['titulo_orcamento'].' - '.$row_orcamento_whatsapp['vcusto_orcamento'].'"\n";';
-    ?>mensagem += "<?php echo '*'.$counter.'* - '.$row_orcamento_whatsapp['titulo_orcamento'].' - R$:'.$row_orcamento_whatsapp['vcusto_orcamento']; ?>\n";<?php
+    //echo 'mensagem += count + " - '.$row_contrato_whatsapp['titulo_contrato'].' - '.$row_contrato_whatsapp['vcusto_contrato'].'"\n";';
+    ?>mensagem += "<?php echo '*'.$counter.'* - '.$row_contrato_whatsapp['titulo_contrato'].' - R$:'.$row_contrato_whatsapp['vcusto_contrato']; ?>\n";<?php
   }
   echo 'mensagem += "\n";';
 
@@ -698,7 +780,7 @@ faltaPagar = vtotalServico - vpagServico;
                             var obsServico = document.getElementById("cadobs_servico").value;
                             var prioridadeServico = document.getElementById("cadprioridade_servico").value;
                             var prazoServico = document.getElementById("cadprazo_servico").value;
-                            var orcamentoServico = document.getElementById("cadorcamento_servico").value;
+                            var contratoServico = document.getElementById("cadcontrato_servico").value;
                             var vpagServico = document.getElementById("cadvpag_servico").value;
 
                             // Defina as posições da tabela no documento
@@ -709,8 +791,8 @@ faltaPagar = vtotalServico - vpagServico;
 
                             // Defina a estrutura da tabela
                             var rows = [
-                              ["Nome", "Sobrenome", "Telefone", "cadcd_servico", "cadtitulo_servico", "cadobs_servico", "cadprioridade_servico","cadprazo_servico", "cadorcamento_servico", "cadvpag_servico"],
-                              [nome, sobrenome, telefone, cadcd_servico, cadtitulo_servico, cadobs_servico, cadprioridade_servico, cadprazo_servico, cadorcamento_servico, cadvpag_servico]
+                              ["Nome", "Sobrenome", "Telefone", "cadcd_servico", "cadtitulo_servico", "cadobs_servico", "cadprioridade_servico","cadprazo_servico", "cadcontrato_servico", "cadvpag_servico"],
+                              [nome, sobrenome, telefone, cadcd_servico, cadtitulo_servico, cadobs_servico, cadprioridade_servico, cadprazo_servico, cadcontrato_servico, cadvpag_servico]
                             ];
 
                             // Adicione a tabela ao documento PDF

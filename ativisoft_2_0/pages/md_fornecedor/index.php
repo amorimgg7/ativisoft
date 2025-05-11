@@ -4,6 +4,7 @@
 
             <?php
             
+            /*
               $sql_cliente_novo = "SELECT * FROM tb_empresa where cd_matriz IS NULL";
               $resulta_cliente_novo = $conn->query($sql_cliente_novo);
               if ($resulta_cliente_novo->num_rows > 0){
@@ -24,9 +25,9 @@
                     echo '<thead>';
                     echo '<tr>';
                     echo '<th>Código</th>';
-                    echo '<th>Razão Social</th>';
-                    echo '<th>Data de Cadastro</th>';
-                    echo '<th>Vencimento do Contrato</th>';
+                    
+                    //echo '<th>Data de Cadastro</th>';
+                    //echo '<th>Vencimento do Contrato</th>';
                     echo '</tr>';
                     echo '</thead>';
                     echo '<tbody>';
@@ -38,9 +39,9 @@
                             echo '<td><button type="submit" class="btn btn-info" name="btn_cnpj_'.$cliente_novo['cnpj_cliente_comercial'].'" id="btn_cd_'.$cliente_novo['cnpj_cliente_comercial'].'">'.$cliente_novo['cnpj_cliente_comercial'].'</button></td>';
                             echo '<td><button type="submit" class="btn btn-info" name="btn_cnpj_'.$cliente_novo['cnpj_cliente_comercial'].'" id="btn_cd_'.$cliente_novo['cnpj_cliente_comercial'].'">'.$cliente_novo['cnpj_cliente_comercial'].'</button></td>';
                             echo '</form>';
-                            echo '<td><p>'.$cliente_novo['rsocial_cliente_comercial'].'</p></td>';
-                            echo '<td><p>'.date('d/m/y', strtotime($cliente_novo['dtcadastro_cliente_comercial'])).'</p></td>';
-                            echo '<td><p>'.date('d/m/y', strtotime($cliente_novo['dtvalidlicenca_cliente_comercial'])).'</p></td>';
+                            echo '<td><p>'.$cliente_novo['rsocial_empresa'].'</p></td>';
+                            //echo '<td><p>'.date('d/m/y', strtotime($cliente_novo['dtcadastro_cliente_comercial'])).'</p></td>';
+                            //echo '<td><p>'.date('d/m/y', strtotime($cliente_novo['dtvalidlicenca_cliente_comercial'])).'</p></td>';
                             $data_fornecida = $cliente_novo['dtvalidlicenca_cliente_comercial'];
                             $diferenca_dias = round((strtotime($data_fornecida) - time()) / (60 * 60 * 24));
                             if($diferenca_dias >= 0){
@@ -68,7 +69,7 @@
               echo '</div>';
               echo '</div>';
               echo '</div>';
-                
+                */
               
 
 
@@ -93,9 +94,6 @@
                     echo '<thead>';
                     echo '<tr>';
                     echo '<th>Código</th>';
-                    echo '<th>Razão Social</th>';
-                    echo '<th>Data de Cadastro</th>';
-                    echo '<th>Vencimento do Contrato</th>';
                     echo '</tr>';
                     echo '</thead>';
                     echo '<tbody>';
@@ -108,7 +106,7 @@
                             echo '<td style="display: none;"><input type="tel" id="concnpj_cliente_comercial" name="concnpj_cliente_comercial" value="'.$cliente_filial['cnpj_empresa'].'"></td>';
                             echo '<td><button type="submit" class="btn btn-info" name="btn_cnpj_'.$cliente_filial['cnpj_empresa'].'" id="btn_cd_'.$cliente_filial['cnpj_empresa'].'">'.$cliente_filial['cnpj_empresa'].'</button></td>';
                             echo '</form>';
-                            echo '<td><p>'.$cliente_filial['rsocial_cliente_comercial'].'</p></td>';
+                            //echo '<td><p>'.$cliente_filial['rsocial_cliente_comercial'].'</p></td>';
 
                             $sql_contrato_filial = "SELECT * FROM tb_contrato where cd_empresa = ".$cliente_filial['cd_empresa'];
                             $resulta_contrato_filial = $conn->query($sql_contrato_filial);

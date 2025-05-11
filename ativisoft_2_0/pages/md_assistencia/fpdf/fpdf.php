@@ -2011,7 +2011,7 @@ function customHeader($modelo, $text, $os) {
 		$this->Cell(80, 7, 'OS: '.$os, 1, 1, 'C');
 		$this->Ln(1);
 	}elseif($modelo == 'A4'){
-		$this->Image('images/tecbg.png', 10, 10, 50); // imagem a 10mm da esquerda e do topo, com 50mm de largura
+		$this->Image('images/logo_padrao.png', 10, 10, 50); // imagem a 10mm da esquerda e do topo, com 50mm de largura
         $this->SetFont('Arial', 'B', 20);
         $this->Cell(0, 10, mb_convert_encoding($text, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 0, 1, 'C');
         $larguraPagina = $this->GetPageWidth();
@@ -2207,20 +2207,10 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
 			$prioridadee = 'Baixa';
         }
 
-		$complementares = "Pprioridade: $prioridade\nPrevisão de entrega/Finalização: date('d/m/Y \a\s H:i', strtotime($previsao))";
-		 
-		$this->MultiCell(0, 5, mb_convert_encoding($complementares, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
-		$this->SetFont('Arial', '', 10);
-		//$obs_formatado = 'OBS: ' . mb_convert_encoding($this->WrapText($obs), $_SESSION['toEncoding'], $_SESSION['fromEncoding']);
-		//$this->MultiCell(0, 10, $obs_formatado, 1, 'L');
-		$this->Ln(3);
-        //$this->Cell(40, 7, date('d/m/Y \a\s H:i', strtotime($previsao)), 1, 1, 'C');
-        //$this->Ln(1);
 		$previsao = date('d/m/Y \a\s H:i', strtotime($previsao));
-		$detalhe = "Prioridade: $prioridadee\nPrevisão: $previsao";
-		$this->MultiCell(0, 5, mb_convert_encoding($detalhe, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
-
-
+		$complementares = "Prioridade: $prioridadee\nPrevisão de Entrega/Finalização: $previsao";
+		
+		$this->MultiCell(0, 5, mb_convert_encoding($complementares, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
         //session_start();
         require_once '../../classes/conn.php';
         include("../../classes/functions.php");

@@ -90,7 +90,7 @@
                 ?>
                 
                 <?php
-                  $select_cliente_comercial = "SELECT * FROM tb_cliente_comercial WHERE cnpj_cliente_comercial = '".$_POST['concnpj_cliente_comercial']."'";
+                  $select_cliente_comercial = "SELECT * FROM tb_empresa e, tb_contrato c WHERE e.cnpj_empresa = '".$_POST['concnpj_cliente_comercial']."' AND e.cd_empresa = c.cd_empresa ORDER BY c.cd_contrato DESC LIMIT 1";
                   $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
                   $row_cliente_comercial = mysqli_fetch_assoc($result_cliente_comercial);
                   // Exibe as informações do usuário no formulário
@@ -105,29 +105,29 @@
                     
                     echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" '.$_SESSION['c_card'].' style="display:block;">';
                     echo '<form method="POST" action="cadastrar_cliente_comercial.php">';
-                    echo '<input value="'.$row_cliente_comercial['cd_cliente_comercial'].'" name="showcd_cliente_comercial" type="text" id="showcd_cliente_comercial" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                    echo '<input value="'.$row_cliente_comercial['cd_empresa'].'" name="showcd_cliente_comercial" type="text" id="showcd_cliente_comercial" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
                     echo '<label for="showrsocial_cliente_comercial">Razão Social</label>';
-                    echo '<input value="'.$row_cliente_comercial['rsocial_cliente_comercial'].'" name="showrsocial_cliente_comercial" type="text" id="showrsocial_cliente_comercial" maxlength="100"   class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<input value="'.$row_cliente_comercial['rsocial_empresa'].'" name="showrsocial_cliente_comercial" type="text" id="showrsocial_cliente_comercial" maxlength="100"   class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="shownfantasia_cliente_comercial">Nome Fantasia</label>';
-                    echo '<input value="'.$row_cliente_comercial['nfantasia_cliente_comercial'].'" name="shownfantasia_cliente_comercial" type="text" id="shownfantasia_cliente_comercial" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<input value="'.$row_cliente_comercial['nfantasia_empresa'].'" name="shownfantasia_cliente_comercial" type="text" id="shownfantasia_cliente_comercial" maxlength="40"   class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="showcnpj_cliente_comercial">CNPJ</label>';
-                    echo '<input value="'.$row_cliente_comercial['cnpj_cliente_comercial'].'" name="concnpj_cliente_comercial" type="tel" id="concnpj_cliente_comercial" maxlength="90"   class="aspNetDisabled form-control form-control-sm" readonly/>';          
-                    echo '<label for="btntel_cliente">Data do Cadastro</label>';
-                    echo '<input value="'.$row_cliente_comercial['dtcadastro_cliente_comercial'].'" name="showdtcadastro_cliente_comercial" type="tel"  id="showdtcadastro_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<input value="'.$row_cliente_comercial['cnpj_empresa'].'" name="concnpj_cliente_comercial" type="tel" id="concnpj_cliente_comercial" maxlength="90"   class="aspNetDisabled form-control form-control-sm" readonly/>';          
+                    //echo '<label for="btntel_cliente">Data do Cadastro</label>';
+                    //echo '<input value="'.$row_cliente_comercial['dtcadastro_empresa'].'" name="showdtcadastro_cliente_comercial" type="tel"  id="showdtcadastro_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="btntel_cliente">Data do Vencimento</label>';
-                    echo '<input value="'.$row_cliente_comercial['dtvalidlicenca_cliente_comercial'].'" name="showdtvalidlicenca_cliente_comercial" type="tel"  id="showdtvalidlicenca_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
-                    echo '<label for="btntel_cliente">Obs Cliente _ Status.</label>';
-                    echo '<input value="'.$row_cliente_comercial['obs_cliente_comercial'].'" name="showobs_cliente_comercial" type="tel"  id="showobs_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<input value="'.$row_cliente_comercial['dt_validade'].'" name="showdtvalidlicenca_cliente_comercial" type="tel"  id="showdtvalidlicenca_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<label for="btntel_cliente">Obs Contrato.</label>';
+                    echo '<input value="'.$row_cliente_comercial['ds_contrato'].'" name="showobs_cliente_comercial" type="tel"  id="showobs_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="btntel_cliente">Telefone Filial</label>';
-                    echo '<input value="'.$row_cliente_comercial['tel_cliente_comercial'].'" name="showtel_cliente_comercial" type="tel"  id="showtel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<input value="'.$row_cliente_comercial['tel1_empresa'].'" name="showtel_cliente_comercial" type="tel"  id="showtel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="btntel_cliente">Email Filial</label>';
-                    echo '<input value="'.$row_cliente_comercial['email_cliente_comercial'].'" name="showemail_cliente_comercial" type="tel"  id="showemail_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<input value="'.$row_cliente_comercial['email_empresa'].'" name="showemail_cliente_comercial" type="tel"  id="showemail_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     echo '<label for="btntel_cliente">Observações dos contatos</label>';
-                    echo '<input value="'.$row_cliente_comercial['obs_tel_cliente_comercial'].'" name="showobs_tel_cliente_comercial" type="tel"  id="showobs_tel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
-                    echo '<label for="btntel_cliente">Fatura Prevista</label>';
-                    echo '<input value="'.$row_cliente_comercial['fatura_prevista_cliente_fiscal'].'" name="showfatura_prevista_cliente_fiscal" type="tel"  id="showfatura_prevista_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
-                    echo '<label for="btntel_cliente">Fatura Devida</label>';
-                    echo '<input value="'.$row_cliente_comercial['fatura_devida_cliente_fiscal'].'" name="showfatura_devida_cliente_fiscal" type="tel"  id="showfatura_devida_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<input value="'.$row_cliente_comercial['obs_tel1_empresa'].'" name="showobs_tel_cliente_comercial" type="tel"  id="showobs_tel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<label for="btntel_cliente">Valor da Licença</label>';
+                    echo '<input value="'.$row_cliente_comercial['vl_licenca'].'" name="showfatura_prevista_cliente_fiscal" type="tel"  id="showfatura_prevista_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
+                    echo '<label for="btntel_cliente">Total do Contrato</label>';
+                    echo '<input value="'.$row_cliente_comercial['vl_contrato'].'" name="showfatura_devida_cliente_fiscal" type="tel"  id="showfatura_devida_cliente_fiscal" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" readonly/>';
                     
                     echo '<td><button type="submit" name="#" id="#" class="btn btn-block btn-outline-warning"><i class="icon-cog">Editar</i></button></td>';
                     echo '</form>';
