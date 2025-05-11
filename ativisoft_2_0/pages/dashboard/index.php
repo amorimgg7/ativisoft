@@ -197,6 +197,7 @@
 
                   if($_SESSION['cd_acesso'] == 0)
                   {
+                    /*
                     if($_SESSION['cd_empresa'] == ""){
                       echo '<div class="container text-center mt-5">';
                       echo '  <h1 class="mb-3">Vamos começar!</h1>';
@@ -208,7 +209,7 @@
                     }else{
                       include '../../pages/cad_acesso/index.php';
                     }
-                    
+                    */
                     
                     
 

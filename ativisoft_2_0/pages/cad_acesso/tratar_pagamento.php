@@ -124,7 +124,7 @@ $idacesso = isset($_GET['id']) ? $_GET['id'] : '';
       JOIN tb_contrato ON tb_contrato.cd_contrato = $cd_contrato 
       SET rel_master.cd_acesso = tb_contrato.cd_acesso 
       WHERE rel_master.cd_pessoa = $cd_colab 
-        AND rel_master.cd_empresa = 20;
+        AND rel_master.cd_empresa = $cd_empresa;
     ";
 
     

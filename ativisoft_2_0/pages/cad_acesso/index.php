@@ -149,175 +149,118 @@
                 echo '</div>';
             }
         }else{
+            if($_SESSION['cd_empresa'] != '0'){
 
 
-            $sql_acesso = "SELECT * FROM tb_acesso"; 
-$resulta = $conn->query($sql_acesso);
+                $sql_acesso = "SELECT * FROM tb_acesso"; 
+                $resulta = $conn->query($sql_acesso);
 
-if ($resulta->num_rows > 0) {
-    echo '<div class="col-12 grid-margin stretch-card btn-success" ' . $_SESSION['c_card'] . '>';
-    echo '<div class="card" ' . $_SESSION['c_card'] . '>';
-    echo '<div class="card-body" ' . $_SESSION['c_card'] . '>';
+                if ($resulta->num_rows > 0) {
+                    echo '<div class="col-12 grid-margin stretch-card btn-success" ' . $_SESSION['c_card'] . '>';
+                    echo '<div class="card" ' . $_SESSION['c_card'] . '>';
+                    echo '<div class="card-body" ' . $_SESSION['c_card'] . '>';
 
-    $count = 0; // Contador de cards
+                    $count = 0; // Contador de cards
 
-    echo '<div class="row">'; // Abre a primeira linha
+                    echo '<div class="row">'; // Abre a primeira linha
 
-    while ($row = $resulta->fetch_assoc()) {
+                    while ($row = $resulta->fetch_assoc()) {
 
-        //$modulos_vantagens = []; // Inicia o array vazio
-        //$modulos_vantagens_str = ""; // Inicia a string vazia
+                        //$modulos_vantagens = []; // Inicia o array vazio
+                        //$modulos_vantagens_str = ""; // Inicia a string vazia
 
 
-        if ($count > 0 && $count % 3 == 0) {
-            echo '</div><div class="row">'; // Fecha a linha atual e abre uma nova a cada 3 cards
-        }
+                        if ($count > 0 && $count % 3 == 0) {
+                            echo '</div><div class="row">'; // Fecha a linha atual e abre uma nova a cada 3 cards
+                        }
 
-        echo '<div class="col-md-4 d-flex align-items-stretch" style="margin: 20px 0;">'; // Define 3 colunas por linha
-        echo '<div class="card text-center">';
-        if($row['vl_preco'] > 0){
-            echo '<div class="card-title">' . $row['cd_acesso'] . ' - ' . $row['titulo_acesso'] . '</br>R$: '.$row['vl_preco'].' por Mês ou R$: '.number_format(($row['vl_preco'] * 12) - $row['vl_desconto_ano'], 2, ',', '.').' por Ano</div>';
-        }else{
-            echo '<div class="card-title">' . $row['cd_acesso'] . ' - ' . $row['titulo_acesso'] . '</br>Free</div>';
-        }
-        echo '<div class="card-body">';
-        echo '<div class="table-responsive">';
-        echo '<table class="table table-sm"><tbody>';
+                        echo '<div class="col-md-4 d-flex align-items-stretch" style="margin: 20px 0;">'; // Define 3 colunas por linha
+                        echo '<div class="card text-center">';
+                        if($row['vl_preco'] > 0){
+                            echo '<div class="card-title">' . $row['cd_acesso'] . ' - ' . $row['titulo_acesso'] . '</br>R$: '.$row['vl_preco'].' por Mês ou R$: '.number_format(($row['vl_preco'] * 12) - $row['vl_desconto_ano'], 2, ',', '.').' por Ano</div>';
+                        }else{
+                            echo '<div class="card-title">' . $row['cd_acesso'] . ' - ' . $row['titulo_acesso'] . '</br>Free</div>';
+                        }
+                        echo '<div class="card-body">';
+                        echo '<div class="table-responsive">';
+                        echo '<table class="table table-sm"><tbody>';
 
-                // Consultar vantagens (módulos do cd_acesso = 1)
-        $acesso_modulo_vantagens = "SELECT ds_modulo FROM acesso_modulo WHERE cd_acesso = '". $row['cd_acesso']."'"; 
-        $resulta_acesso_vantagens = $conn->query($acesso_modulo_vantagens);
+                        // Consultar vantagens (módulos do cd_acesso = 1)
+                        $acesso_modulo_vantagens = "SELECT ds_modulo FROM acesso_modulo WHERE cd_acesso = '". $row['cd_acesso']."'"; 
+                        $resulta_acesso_vantagens = $conn->query($acesso_modulo_vantagens);
 
-        if ($resulta_acesso_vantagens->num_rows > 0) {
-            echo '<tr class="table-active"><td><p>Vantagens</p></td></tr>';
+                        if ($resulta_acesso_vantagens->num_rows > 0) {
+                            echo '<tr class="table-active"><td><p>Vantagens</p></td></tr>';
 
-            $modulos_vantagens = [];
-            while ($row_acesso_modulo = $resulta_acesso_vantagens->fetch_assoc()) {
-                $modulos_vantagens[] = "'" . $row_acesso_modulo['ds_modulo'] . "'"; // Salva os módulos para usar na consulta de desvantagens
-                echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-check"></i> ' . $row_acesso_modulo['ds_modulo'] . '</p></td></tr>';
-            }
-        } else {
-            echo '<tr class="table-dark"><td><p class="card-text">Em Breve</p></td></tr>';
-        }
+                            $modulos_vantagens = [];
+                            while ($row_acesso_modulo = $resulta_acesso_vantagens->fetch_assoc()) {
+                                $modulos_vantagens[] = "'" . $row_acesso_modulo['ds_modulo'] . "'"; // Salva os módulos para usar na consulta de desvantagens
+                                echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-check"></i> ' . $row_acesso_modulo['ds_modulo'] . '</p></td></tr>';
+                            }
+                        } else {
+                            echo '<tr class="table-dark"><td><p class="card-text">Em Breve</p></td></tr>';
+                        }
 
-        // Consultar desvantagens (módulos que NÃO estão na lista de vantagens)
-        if (!empty($modulos_vantagens)) {
-            $modulos_vantagens_str = implode(",", $modulos_vantagens);
-            $acesso_modulo_desvantagens = "
-                SELECT ds_modulo 
-                FROM acesso_modulo 
-                WHERE cd_acesso != '" . $row['cd_acesso'] . "'
-                AND ds_modulo NOT IN ($modulos_vantagens_str)
-                GROUP BY ds_modulo;
-            ";
-            $resulta_acesso_desvantagens = $conn->query($acesso_modulo_desvantagens);
-        
-            if ($resulta_acesso_desvantagens->num_rows > 0) {
-                echo '<tr class="table-active"><td><p>Desvantagens</p></td></tr>';
-                while ($row_acesso_modulo = $resulta_acesso_desvantagens->fetch_assoc()) {
-                    echo '<tr class="table-warning"><td><p class="card-text"><i class="icon-circle-cross"></i> ' . $row_acesso_modulo['ds_modulo'] . '</p></td></tr>';
+                        // Consultar desvantagens (módulos que NÃO estão na lista de vantagens)
+                        if (!empty($modulos_vantagens)) {
+                            $modulos_vantagens_str = implode(",", $modulos_vantagens);
+                            $acesso_modulo_desvantagens = "
+                                SELECT ds_modulo 
+                                FROM acesso_modulo 
+                                WHERE cd_acesso != '" . $row['cd_acesso'] . "'
+                                AND ds_modulo NOT IN ($modulos_vantagens_str)
+                                GROUP BY ds_modulo;
+                            ";
+                            $resulta_acesso_desvantagens = $conn->query($acesso_modulo_desvantagens);
+
+                            if ($resulta_acesso_desvantagens->num_rows > 0) {
+                                echo '<tr class="table-active"><td><p>Desvantagens</p></td></tr>';
+                                while ($row_acesso_modulo = $resulta_acesso_desvantagens->fetch_assoc()) {
+                                    echo '<tr class="table-warning"><td><p class="card-text"><i class="icon-circle-cross"></i> ' . $row_acesso_modulo['ds_modulo'] . '</p></td></tr>';
+                                }
+                            } else {
+                                echo '<tr class="table-success"><td><p class="card-text">Plano Full Services</p></td></tr>';
+                            }
+                        }
+
+
+                        echo '</tbody></table>';
+                        echo '</div>'; // Fecha div table-responsive
+
+                        echo '<div class="card-footer text-muted">';
+                        echo '<form method="post" action="../cad_acesso/tratar_pagamento.php?id='.$row['cd_acesso'].'">';
+                        echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Plano Básico">';
+                        echo '</form>';
+                        echo '</div>'; // Fecha card-footer
+
+                        echo '</div>'; // Fecha card-body
+                        echo '</div>'; // Fecha card
+                        echo '</div>'; // Fecha col-md-4
+
+                        $count++;
+                    }
+                
+                    //echo '<div class="card-title">Módulos Vantagens: </strong>' . implode(", ", array_keys($modulos_vantagens)) . '</div>';
+                    //echo '<br><div class="card-title">Módulos Vantagens STR:' . $modulos_vantagens_str.'</div>';
+                
+                
+                    echo '</div>'; // Fecha a última linha
+                    echo '</div>'; // Fecha card-body
+                    echo '</div>'; // Fecha card
+                    echo '</div>'; // Fecha col-12 grid-margin
                 }
-            } else {
-                echo '<tr class="table-success"><td><p class="card-text">Plano Full Services</p></td></tr>';
+
+
+
+            }else{
+                echo '<div class="container text-center mt-5">';
+                      echo '  <h1 class="mb-3">Vamos começar!</h1>';
+                      echo '  <h4 class="mb-4">Conte um pouco sobre o seu negócio para que possamos te ajudar melhor.</h4>';
+                      echo '  <form method="post" action="../cad_geral/unidade_operacional.php">';
+                      echo '    <input class="btn btn-info btn-lg font-weight-medium" type="submit" value="Começar agora">';
+                      echo '  </form>';
+                      echo '</div>';
             }
-        }
-
-
-        echo '</tbody></table>';
-        echo '</div>'; // Fecha div table-responsive
-
-        echo '<div class="card-footer text-muted">';
-        echo '<form method="post" action="../cad_acesso/tratar_pagamento.php?id='.$row['cd_acesso'].'">';
-        echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Plano Básico">';
-        echo '</form>';
-        echo '</div>'; // Fecha card-footer
-
-        echo '</div>'; // Fecha card-body
-        echo '</div>'; // Fecha card
-        echo '</div>'; // Fecha col-md-4
-
-        $count++;
-    }
-
-    //echo '<div class="card-title">Módulos Vantagens: </strong>' . implode(", ", array_keys($modulos_vantagens)) . '</div>';
-    //echo '<br><div class="card-title">Módulos Vantagens STR:' . $modulos_vantagens_str.'</div>';
-
-
-    echo '</div>'; // Fecha a última linha
-    echo '</div>'; // Fecha card-body
-    echo '</div>'; // Fecha card
-    echo '</div>'; // Fecha col-12 grid-margin
-}
-
-
-
-
-            
-
-
-
-/*
-                        echo '<div class=" text-center">';
-                        //echo '<h3 class="card-title">Escolha seu plano de acesso - '.$_SESSION['cd_empresa'].'</h3>';
-                        echo '<div>';
-                        echo '<div class="card-deck">';
-                        echo '<div class="card text-center">';
-                        echo '<div class="card-title">R$: 50,00 por Mês ou 450 por Ano</div>';
-                        echo '<div class="card-body">';
-                        echo '<div class="table-responsive">';
-                        echo '<table class="table table-sm">';
-                        echo '<tbody>';
-                        echo '<tr class="table-active"><td><p>Vantagens</p></td></tr>';
-                        echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-check"></i> Controle de Caixa</p></td></tr>';
-                        echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-check"></i> Ordem de serviço</p></td></tr>';
-                        echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-check"></i> Folha de Ponto</p></td></tr>';
-                        echo '<tr class="table-active"><td><p>Desvantagens</p></td></tr>';
-                        echo '<tr class="table-warning"><td><p class="card-text"><i class="icon-circle-cross"></i> PIX Dinâmico</p></td></tr>';
-                        echo '<tr class="table-warning"><td><p class="card-text"><i class="icon-circle-cross"></i> Site</p></td></tr>';
-                        echo '<tr class="table-warning"><td><p class="card-text"><i class="icon-circle-cross"></i> Loja</p></td></tr>';
-                        echo '</tbody>';
-                        echo '</table>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '<div class="card-footer text-muted">';
-                        echo '<form method="post" action="../cad_geral/unidade_operacional.php">';
-                        echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Plano Básico" >';
-                        echo '</form>';
-                        echo '</div>';
-                        echo '</div>';
-
-
-                        echo '<div class="card text-center">';
-                        echo '<div class="card-title">R$: 80,00 por Mês ou 750 por Ano</div>';
-                        echo '<div class="card-body">';
-                        echo '<div class="table-responsive">';
-                        echo '<table class="table table-sm">';
-                        echo '<tbody>';
-                        echo '<tr class="table-active"><td><p>Vantagens</p></td></tr>';
-                        echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-check"></i> Controle de Caixa</p></td></tr>';
-                        echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-check"></i> Ordem de serviço</p></td></tr>';
-                        echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-check"></i> Folha de Ponto</p></td></tr>';
-                        echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-cross"></i> Site</p></td></tr>';
-                        echo '<tr class="table-info"><td><p class="card-text"><i class="icon-circle-cross"></i> Loja</p></td></tr>';
-                        echo '<tr class="table-active"><td><p>Desvantagens</p></td></tr>';
-                        echo '<tr class="table-warning"><td><p class="card-text"><i class="icon-circle-cross"></i> PIX Dinâmico</p></td></tr>';
-                        echo '</tbody>';
-                        echo '</table>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '<div class="card-footer text-muted">';
-                        echo '<form method="post" action="../cad_geral/unidade_operacional.php">';
-                        echo '<input class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit" value="Plano Intermediário" >';
-                        echo '</form>';
-                        echo '</div>';
-                        echo '</div>';
-
-                        echo '</div>';
-                        
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>'; 
-                        */
         }
 
 ?>

@@ -117,9 +117,15 @@ class Usuario
                     }else{
                         $_SESSION['cd_acesso'] = 0;
                     }
+
+                    if(isset($rel_master['cd_empresa'])){
+                        $_SESSION['cd_empresa'] = $rel_master['cd_empresa'];
+                    }else{
+                        $_SESSION['cd_empresa'] = 0;
+                    }
                      
                     $_SESSION['cd_funcao'] = $rel_master['cd_acesso'];
-                    $_SESSION['cd_empresa'] = $rel_master['cd_empresa'];
+                    
                     $_SESSION['cd_pessoa'] = $rel_master['cd_pessoa'];
 
                     
