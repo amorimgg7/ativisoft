@@ -678,6 +678,8 @@ if(isset($_POST['marcartitulo_atividade'])){
         WHERE cd_servico = '".$_POST['atividadecd_servico']."'
       ";
       mysqli_query($conn, $query);
+            $conn->commit();
+
       //echo "<script>window.alert('Prazo para entrega alterado!');</script>";
     }
   }
@@ -707,6 +709,8 @@ if(isset($_POST['marcartitulo_atividade'])){
         WHERE cd_servico = '".$_POST['atividadecd_servico']."'
       ";
       mysqli_query($conn, $query);
+            $conn->commit();
+
       //echo "<script>window.alert('Prazo para entrega alterado!');</script>";
     }
     
@@ -743,7 +747,10 @@ if(isset($_POST['marcartitulo_atividade'])){
       status_servico = '2'
       WHERE cd_servico = '".$_POST['atividadecd_servico']."'
     ";
+
     mysqli_query($conn, $query);
+      $conn->commit();
+
     //echo "<script>window.alert('ATIVIDADE FINALIZADA!');</script>";
   }
   
@@ -829,11 +836,12 @@ if(isset($_POST['marcartitulo_atividade'])){
     if(mysqli_query($conn, $query)){
       $conn->commit();
        
-      echo "<script>window.alert('".addslashes($query)."');</script>";
+      //echo "<script>window.alert('".addslashes($query)."');</script>";
       echo "<script>window.alert('ATIVIDADE ARQUIVADA!');</script>";
 
     }else{
-            echo "<script>window.alert('".addslashes($e->getMessage())."');</script>";
+            echo "<script>window.alert('ERRO');</script>";
+            //echo "<script>window.alert('".addslashes($e->getMessage())."');</script>";
 
     }
     
@@ -844,11 +852,13 @@ if(isset($_POST['marcartitulo_atividade'])){
     if(mysqli_query($conn, $query)){
 
       $conn->commit();
-      echo "<script>window.alert('".addslashes($query)."');</script>";
+      //echo "<script>window.alert('".addslashes($query)."');</script>";
 
       echo "<script>window.alert('SERVICO ARQUIVADO!');</script>";
 
     }else{
+      echo "<script>window.alert('ERRO');</script>";
+
       echo "<script>window.alert('".addslashes($e->getMessage())."');</script>";
     }
     
@@ -903,6 +913,8 @@ if (isset($_POST['confirmacao']) && $_POST['confirmacao'] === 'sim') {
               WHERE cd_servico = '" . $_POST['atividadecd_servico'] . "'
             ";
             if (mysqli_query($conn, $updateReserva)) {
+      $conn->commit();
+
               echo "<script>alert('Operação realizada com sucesso!');</script>";
             }else{
               echo "<script>alert('Erro ao atualizar a reserva: " . mysqli_error($conn) . "');</script>";
