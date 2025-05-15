@@ -1,3 +1,7 @@
+<script>
+    setTimeout(finalizarCarregamento, 500);
+    //finalizarCarregamento();
+  </script>
 <footer class="footer" <?php echo $_SESSION['c_card'];?>>
   <div class="d-sm-flex justify-content-center justify-content-sm-between"<?php echo $_SESSION['c_card'];?>>
     <span class="text-muted d-block text-center text-sm-left d-sm-inline-block" <?php echo $_SESSION['c_card'];?>>AtiviSoft © sistema.ativisoft.com.br 2025</span>

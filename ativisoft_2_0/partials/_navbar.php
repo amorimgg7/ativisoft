@@ -1,3 +1,6 @@
+  <div id="load" class="" style="z-index: 1050; dosplay:none;">
+    <?php include("../../partials/load.html");?>
+  </div>
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" >
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" <?php echo $_SESSION['c_navbar']?>>
         <a class="navbar-brand brand-logo" href="<?php $_SESSION['dominio'];?>"><img src="<?php $_SESSION['dominio'];?>images/logo-mini.svg" alt="logo"/></a>

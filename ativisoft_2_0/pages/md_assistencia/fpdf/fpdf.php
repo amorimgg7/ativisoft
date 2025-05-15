@@ -2339,12 +2339,18 @@ function detalhesAtividadesServico($modelo, $os) {
                     
             $this->Cell(30, 7, mb_convert_encoding($status, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'L');
             $this->SetFont('Arial', 'B', 8);
-            $this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_servico['inicio_atividade'])), 1, 0, 'L');
-            $this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_servico['fim_atividade'])), 1, 1, 'L');
+            if(isset($row_servico['inicio_atividade'])){
+				$this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_servico['inicio_atividade'])), 1, 0, 'L');
+			}else{
+				$this->Cell(25, 7, '. . .', 1, 0, 'L');
+			}
+            if(isset($row_servico['fim_atividade'])){
+				$this->Cell(25, 7, date('d/m/Y H:i', strtotime($row_servico['fim_atividade'])), 1, 1, 'L');
+			}else{
+				$this->Cell(25, 7, '. . .', 1, 1, 'L');
+			}
             $this->Cell(80, 7, $this->WrapText(mb_convert_encoding('OBS: '.$row_servico['obs_atividade'], $_SESSION['toEncoding'], $_SESSION['fromEncoding'])), 1, 1, 'L');
-
-
-                    
+       
         }
         $this->Ln(1);
         //$this->Cell(40, 0, '-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|', 0, 1, 'C'); 
@@ -2433,10 +2439,17 @@ function detalhesAtividadesServico($modelo, $os) {
                     
             $this->Cell(90, 7, mb_convert_encoding($status, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'L');
             $this->SetFont('Arial', 'B', 8);
-            $this->Cell(50, 7, date('d/m/Y H:i', strtotime($row_servico['inicio_atividade'])), 1, 0, 'L');
-            $this->Cell(50, 7, date('d/m/Y H:i', strtotime($row_servico['fim_atividade'])), 1, 1, 'L');
-            $this->Cell(0, 7, $this->WrapText(mb_convert_encoding('OBS: '.$row_servico['obs_atividade'], $_SESSION['toEncoding'], $_SESSION['fromEncoding'])), 1, 1, 'L');
-
+            if(isset($row_servico['inicio_atividade'])){
+				$this->Cell(50, 7, date('d/m/Y H:i', strtotime($row_servico['inicio_atividade'])), 1, 0, 'L');
+			}else{
+				$this->Cell(50, 7, '. . .', 1, 0, 'L');
+			}
+			if(isset($row_servico['fim_atividade'])){
+				$this->Cell(50, 7, date('d/m/Y H:i', strtotime($row_servico['fim_atividade'])), 1, 1, 'L');
+			}else{
+				$this->Cell(50, 7, '. . .', 1, 1, 'L');
+			}
+			$this->Cell(0, 7, $this->WrapText(mb_convert_encoding('OBS: '.$row_servico['obs_atividade'], $_SESSION['toEncoding'], $_SESSION['fromEncoding'])), 1, 1, 'L');
 
                     
         }

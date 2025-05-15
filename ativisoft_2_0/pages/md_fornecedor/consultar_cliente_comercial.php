@@ -499,52 +499,7 @@
 
                 </script>
                 </div>
-                <div class="card" <?php $_SESSION['c_card'];?>>
                 
-
-
-
-                
-
-              <?php
-              //    if(isset($_POST['consulta'])) {
-              //      // Consulta o usuário pelo CPF
-              //      $sql_os = "SELECT * FROM tb_servico WHERE cd_servico = '".$_POST['conos_servico']."'";
-              //      $result_os = mysqli_query($conn, $sql_os);
-              //      $row_os = mysqli_fetch_assoc($result_os);
-
-              //      // Exibe as informações do usuário no formulário
-              //      if($row_os) {
-              //        $_SESSION['os_servico'] = $_POST['conos_servico'];
-              //        // Consulta o usuário pelo CPF
-              //      }
-
-
-              //    }
-
-
-                    
-                ?>
-                <?php
-
-
-
-
-
-
-                  //$sql_atividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_atividade ASC";
-                  //$sql_atividade = "SELECT * FROM (
-                  //  SELECT * FROM tb_atividade 
-                  //  WHERE cd_servico = '".$_SESSION['cd_servico']."' 
-                  //  ORDER BY cd_atividade ASC
-                  //) as temp_table 
-                  //WHERE temp_table.rownum < (SELECT COUNT(*) FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."')";
-
-
-                  //Um exemplo alternativo usando MySQL é usar variáveis de usuário para emular a função ROW_NUMBER():
-                  //Isso atribuirá um número de linha a cada linha na tabela tb_atividade e a consulta principal então selecionará todas as linhas exceto a última.
-                  ?>
-              </div>
 
                 
 

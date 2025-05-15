@@ -153,21 +153,9 @@ require_once('fpdf/fpdf.php');
         // Criação da classe MeuPDF que estende a classe FPDF
         class MeuPDF extends FPDF {
             function Header() {
-                //$this->SetFont('Arial', 'B', 10);
-                //$this->Cell(58, 10, utf8_decode('Via do clienteee'), 0, 1, 'C');
-                //$this->Cell(60, 7, utf8_decode('Via do cliente'), 1, 1, 'C');
-
-
-                //$this->Ln(1);
             }
 
             function Footer() {
-                //$this->SetY(-20);
-                //$this->SetFont('Arial', 'B', 6);
-                //$this->Cell(40, 10, '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-', 0, 1, 'C'); 
-                //$this->Cell(40, 5, '______________________________________________________________________________________________________________', 0, 1, 'C');
-                //$this->Cell(80, 10, $this->WrapText(utf8_decode('Ativisoft © sistema.ativisoft.com.br 2025  Version 2.0 | Release: 0.00')), 0, 1, 'C');
-                //$this->Cell(40, 10, '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-', 0, 1, 'C'); 
             }
 
             function GerarViaCliente($nfantasia_filial, $cnpj_filial, $endereco_filial, $saudacoes_filial, $showcd_servico, $showdtinicio_atividade, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico, $falta_pagar) {
@@ -176,18 +164,11 @@ require_once('fpdf/fpdf.php');
                 $this->SetLeftMargin(0);
                 $this->SetFont('Arial', 'B', 20);
                 $this->Cell(60, 10, '.', 0, 1, 'C');
-
                 $this->customHeader('M1', 'Via do cliente', $showcd_servico, );
-
                 $this->dadosEmpresa('M1', $nfantasia_filial, $cnpj_filial, $endereco_filial);
-                
                 $this->detalheServico('M1', $showprioridade_servico, $showprazo_servico, $showcd_servico);
-                
                 $this->dadosFinanceiros('M1', $showorcamento_servico, $showvpag_servico);
-
                 $this->customFooter('M1', $saudacoes_filial);
-
-
             }
 
             function WrapText($text) {
@@ -208,14 +189,11 @@ require_once('fpdf/fpdf.php');
                 if (!empty($currentLine)) {
                     $lines[] = trim($currentLine);
                 }
-
                 return implode("\n", $lines);
             }
 
-            //$this->AddPage('P', array(80, 300));
-
-
         }
+
         $pdf = '';
         // Instanciar a classe MeuPDF e gerar o PDF
         $pdf = new MeuPDF();
@@ -223,8 +201,7 @@ require_once('fpdf/fpdf.php');
 
         // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'VIA_CLIENTE_OS_' . $showcd_servico . '.pdf';
-
-        $pdf->Output($nomeArquivo, 'D');
+        $pdf->Output($nomeArquivo, 'I');
         
     } elseif (isset($_POST['lancar_composto'])) {
             include("../../partials/load.html");
@@ -398,7 +375,7 @@ require_once('fpdf/fpdf.php');
         // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'HISTORICO_OS_' . $showcd_servico . '.pdf';
 
-        $pdf->Output($nomeArquivo, 'D');
+        $pdf->Output($nomeArquivo, 'I');
 
 
 
@@ -413,7 +390,7 @@ require_once('fpdf/fpdf.php');
         exit;
     }
 
-    ob_end_clean();
+    //ob_end_clean();
 
 ?>
 

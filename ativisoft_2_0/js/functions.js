@@ -160,3 +160,14 @@ function Mudarestado(el) {
   else
     document.getElementById(el).style.display = 'none';
 }
+
+
+
+function iniciarCarregamento() {
+      document.getElementById("load").style.display = 'flex';
+    }
+    function finalizarCarregamento() {
+      document.getElementById("load").style.display = 'none';
+    }
+
+    

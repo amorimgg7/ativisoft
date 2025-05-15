@@ -49,6 +49,13 @@
   <!-- endinject -->
   <script src="../../js/functions.js"></script>
   <!--<link rel="shortcut icon" href="<?php //echo $_SESSION['logo_empresa']; ?>" />-->
+
+
+  
+  
+
+
+
 </head>
 
 <body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">
@@ -67,6 +74,9 @@
             <div class="col-12 grid-margin">
               <h1><?php //echo $_SESSION['bloqueado'];?></h1>
               <div class="card" <?php $_SESSION['c_card'];?>>
+                
+
+
                 <div class="card-body" id="consulta" <?php echo $_SESSION['c_card'];?> style="display: block;" >
                   <h3 class="card-title"<?php echo $_SESSION['c_card'];?>>Consultar pela OS</h3>
                   <p class="card-description"<?php echo $_SESSION['c_card'];?>>Consulte a Ordem de Serviço para lançar as atividades e avisar ao cliente sobre o status atual.</p>
@@ -99,14 +109,12 @@
                     echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
                     
                     
-                }else{
-                  if(!isset($_SESSION['cd_servico'])){
-                    $_SESSION['cd_servico'] = 0;
+                  }else{
+                    if(!isset($_SESSION['cd_servico'])){
+                      $_SESSION['cd_servico'] = 0;
+                    }
                   }
-                }
-                ?>
                 
-                <?php
 
                   if(isset($_POST['pagar_servico'])){
 
@@ -126,6 +134,27 @@
                       echo "<script>alert('Total pago: " . $retorno['servico_vpag'] . "');</script>";
                     }else{
                       echo "<script>alert('| - | - | - | ". $retorno['status'] . " | - | - | - |');</script>";
+                    }
+                  }
+
+                  if(isset($_POST['marcartitulo_atividade'])){
+                    if(isset($_POST['confirmacao'])){
+                      $confirmacao = isset($_POST['confirmacao']);
+                    }else{
+                      $confirmacao = '';
+                    }
+
+                    $nova_atividade = $u->lancaAtividade(
+                      $_POST['atividadecd_servico'],
+                      $_POST['atividadecd_colab'],
+                      $_POST['marcartitulo_atividade'],
+                      $confirmacao,
+                      $_POST['obs_atividade']
+                    );
+                    if($nova_atividade['status'] == 'OK'){
+                      echo "<script>alert('| - | - | - | Atividade gerada (".$nova_atividade['cd_atividade'].") | - | - | - |');</script>";
+                    }else{
+                      echo "<script>alert('| - | - | - | ".$nova_atividade['status']." | - | - | - |');</script>";
                     }
                   }
 
@@ -453,11 +482,14 @@
 
                       $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
 
+                      $result_atividade   = $u->fragAtividade($_SESSION['cd_servico']);
 
 
 
                       echo $result_impressao['partial_impressao'];
-/*
+
+
+                      /*
                     echo '<form action="impresso.php" method="POST" target="_blank" '.$_SESSION['c_card'].'>';
                     echo '<div style="display:none; '.$_SESSION['c_card'].'">';
                     //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
@@ -527,6 +559,8 @@
                     //<i class="mdi mdi-alert btn-icon-prepend"></i>  
                     echo '</form>';
 
+
+                      echo $result_atividade['partial_atividade'];
 
                   }
                 ?>
@@ -629,538 +663,18 @@
                 </script>
 
                 </div>
-                <div class="card" <?php $_SESSION['c_card'];?>>
                 
 
 
-
                 
 
-              <?php
-              //    if(isset($_POST['consulta'])) {
-              //      // Consulta o usuário pelo CPF
-              //      $sql_os = "SELECT * FROM tb_servico WHERE cd_servico = '".$_POST['conos_servico']."'";
-              //      $result_os = mysqli_query($conn, $sql_os);
-              //      $row_os = mysqli_fetch_assoc($result_os);
 
-              //      // Exibe as informações do usuário no formulário
-              //      if($row_os) {
-              //        $_SESSION['os_servico'] = $_POST['conos_servico'];
-              //        // Consulta o usuário pelo CPF
-              //      }
-
-
-              //    }
-
-
-                    
-                ?>
+              
                 <?php
-if(isset($_POST['marcartitulo_atividade'])){
-  if($_POST['marcartitulo_atividade'] == 'A') {// CRIAR NOVA ATIVIDADE A FAZER PARA O SERVICO
-    //include("../../partials/load.html");
-    // Atualiza as informações do usuário no banco de dados
-    $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade) VALUES(
-      '".$_POST['atividadecd_servico']."',
-      '".$_POST['marcartitulo_atividade']."',
-      '".$_POST['obs_atividade']."',
-      '".$_POST['atividadecd_colab']."',
-      '".$_POST['data_hora_ponto']."'
-      )
-    ";
-
-    mysqli_query($conn, $query);
-    if(isset($_POST['novadataentrega_atividade'])){
-      $query = "UPDATE tb_servico SET
-        prazo_servico = '".$_POST['novadataentrega_atividade']."',
-        prioridade_servico = 'U',
-        status_servico = '0'
-        WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-      ";
-      mysqli_query($conn, $query);
-            $conn->commit();
-
-      //echo "<script>window.alert('Prazo para entrega alterado!');</script>";
-    }
-  }
-
-  if($_POST['marcartitulo_atividade'] == 'B') {// SQL DAR INICIO A ATIVIDADE
-    //include("../../partials/load.html");
-    // Atualiza as informações do usuário no banco de dados
-    $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade) VALUES(
-      '".$_POST['atividadecd_servico']."',
-      '".$_POST['marcartitulo_atividade']."',
-      '".$_POST['obs_atividade']."',
-      '".$_POST['atividadecd_colab']."',
-      '".$_POST['data_hora_ponto']."'
-      )
-    ";
-    mysqli_query($conn, $query);
-    $query = "UPDATE tb_servico SET
-        status_servico = '1'
-        WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-      ";
-      mysqli_query($conn, $query);
-    if(isset($_POST['novadataentrega_atividade'])){
-      $query = "UPDATE tb_servico SET
-        prazo_servico = '".$_POST['novadataentrega_atividade']."',
-        prioridade_servico = 'U',
-        status_servico = '1'
-        WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-      ";
-      mysqli_query($conn, $query);
-            $conn->commit();
-
-      //echo "<script>window.alert('Prazo para entrega alterado!');</script>";
-    }
-    
-    echo "<script>window.alert('ATIVIDADE INICIADA COM SUCESSO!');</script>";
-  }
   
-  if($_POST['marcartitulo_atividade'] == 'C') {// SQL FINALIZAR A ATIVIDDE / ANDAMENTO
-    $select_atividade_finalizar = "SELECT * FROM tb_atividade where titulo_atividade = 'B' AND cd_servico = '".$_POST['atividadecd_servico']."'";
-    $result_atividade_finalizar = mysqli_query($conn, $select_atividade_finalizar);
-    $row_atividade_finalizar = mysqli_fetch_assoc($result_atividade_finalizar);
-    if($row_atividade_finalizar){
-      $query = "UPDATE tb_atividade SET
-      titulo_atividade = '".$_POST['marcartitulo_atividade']."',
-      obs_atividade = '".$_POST['obs_atividade']."',
-      fim_atividade = '".$_POST['data_hora_ponto']."'
-      WHERE titulo_atividade = 'B' AND cd_servico = '".$_POST['atividadecd_servico']."'
-    ";
-    mysqli_query($conn, $query);
-    //echo "<script>window.alert('FINALIZAR APÓS ANDAMENTO!');</script>";
-    }else{
-      $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
-        '".$_POST['atividadecd_servico']."',
-        '".$_POST['marcartitulo_atividade']."',
-        '".$_POST['obs_atividade']."',
-        '".$_POST['atividadecd_colab']."',
-        '".$_POST['data_hora_ponto']."',
-        '".$_POST['data_hora_ponto']."'
-        )
-      ";
-      mysqli_query($conn, $query);
-      //echo "<script>window.alert('FINALIZAR DIRETO!');</script>";
-    }
-    $query = "UPDATE tb_servico SET
-      status_servico = '2'
-      WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-    ";
-
-    mysqli_query($conn, $query);
-      $conn->commit();
-
-    //echo "<script>window.alert('ATIVIDADE FINALIZADA!');</script>";
-  }
-  
-  if ($_POST['marcartitulo_atividade'] == 'D' && !isset($_POST['confirmacao'])) {
-    // Obter os itens dinamicamente do banco de dados
-    $itens = [];
-  
-    $select_orcamento = "
-      SELECT 
-          (@rownum := @rownum + 1) AS linha,
-          tr.qtd_reservado,
-          tos.vcusto_orcamento,
-          tps.titulo_prod_serv
-      FROM tb_orcamento_servico tos
-      INNER JOIN tb_prod_serv tps ON tos.cd_produto = tps.cd_prod_serv
-      LEFT JOIN tb_reserva tr ON tos.cd_orcamento = tr.cd_orcamento
-      WHERE tos.tipo_orcamento = 'CADASTRADO'
-        AND tr.qtd_efetivado IS NULL
-        AND tos.cd_servico = '" . $_SESSION['cd_servico'] . "'
-      ORDER BY tos.cd_orcamento ASC
-  ";
-  
-    $result_orcamento = mysqli_query($conn, $select_orcamento);
-  
-    while ($row_orcamento = $result_orcamento->fetch_assoc()) {
-      $itens[] =  $row_orcamento['linha'] . " - ".$row_orcamento['titulo_prod_serv'] . " | QTD:".$row_orcamento['qtd_reservado'] . " | R$:".$row_orcamento['vcusto_orcamento'];
-    }
-  
-    // Construir a mensagem com os itens separados por quebra de linha
-    $mensagem = "Deseja confirmar a saída dos itens:\n" . implode("\n", $itens);
-  
-    // Gerar o JavaScript dinamicamente com json_encode para evitar problemas com caracteres especiais
-    echo "
-    <script>
-      const mensagem = " . json_encode($mensagem) . ";
-      if (confirm(mensagem)) {
-          // Cria um formulário com todos os dados do POST
-          const form = document.createElement('form');
-          form.method = 'POST';
-          form.action = ''; // Mesma página
-  
-          // Adiciona os campos existentes no POST ao formulário
-          const postData = " . json_encode($_POST) . ";
-          for (const key in postData) {
-              if (postData.hasOwnProperty(key)) {
-                  const input = document.createElement('input');
-                  input.type = 'hidden';
-                  input.name = key;
-                  input.value = postData[key];
-                  form.appendChild(input);
-              }
-          }
-  
-          // Adiciona o campo de confirmação
-          const confirmInput = document.createElement('input');
-          confirmInput.type = 'hidden';
-          confirmInput.name = 'confirmacao';
-          confirmInput.value = 'sim';
-          form.appendChild(confirmInput);
-  
-          document.body.appendChild(form);
-          form.submit();
-      } else {
-          alert('Operação cancelada pelo usuário.');
-      }
-    </script>
-    ";
-  
-  
-  }
-
-  if($_POST['marcartitulo_atividade'] == 'E') {// SQL ARQUIVAR SERVIÇO
-    
-    $query = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
-      '".$_POST['atividadecd_servico']."',
-      '".$_POST['marcartitulo_atividade']."',
-      '".$_POST['obs_atividade']."',
-      '".$_POST['atividadecd_colab']."',
-      '".$_POST['data_hora_ponto']."',
-      '".$_POST['data_hora_ponto']."'
-      )
-    ";
-    if(mysqli_query($conn, $query)){
-      $conn->commit();
-       
-      //echo "<script>window.alert('".addslashes($query)."');</script>";
-      echo "<script>window.alert('ATIVIDADE ARQUIVADA!');</script>";
-
-    }else{
-            echo "<script>window.alert('ERRO');</script>";
-            //echo "<script>window.alert('".addslashes($e->getMessage())."');</script>";
-
-    }
-    
-    $query = "UPDATE tb_servico SET
-      status_servico = '4'
-      WHERE cd_servico = '".$_POST['atividadecd_servico']."'
-    ";
-    if(mysqli_query($conn, $query)){
-
-      $conn->commit();
-      //echo "<script>window.alert('".addslashes($query)."');</script>";
-
-      echo "<script>window.alert('SERVICO ARQUIVADO!');</script>";
-
-    }else{
-      echo "<script>window.alert('ERRO');</script>";
-
-      echo "<script>window.alert('".addslashes($e->getMessage())."');</script>";
-    }
-    
-  }
-
-  
-}
-
-
-
-
-if (isset($_POST['confirmacao']) && $_POST['confirmacao'] === 'sim') {
-    // Conexão com o banco de dados
-    
-
-    // Inserir no banco de dados
-    $queryInsert = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
-        '" . $_POST['atividadecd_servico'] . "',
-        '" . $_POST['marcartitulo_atividade'] . "',
-        '" . $_POST['obs_atividade'] . "',
-        '" . $_POST['atividadecd_colab'] . "',
-        '" . $_POST['data_hora_ponto'] . "',
-        '" . $_POST['data_hora_ponto'] . "'
-    )";
-
-    if (mysqli_query($conn, $queryInsert)) {
-        // Atualizar no banco de dados
-        $updateServico = "UPDATE tb_servico SET
-            status_servico = '3'
-            WHERE cd_servico = '" . $_POST['atividadecd_servico'] . "'
-        ";
-        if (mysqli_query($conn, $updateServico)) {
-
-          $updateEstoque = "
-            UPDATE tb_prod_serv tps
-            INNER JOIN (
-                SELECT cd_prod_serv, SUM(qtd_reservado) AS total_reservado
-                FROM tb_reserva
-                WHERE cd_servico = '" . $_POST['atividadecd_servico'] . "'
-                  AND qtd_reservado IS NOT NULL
-                  AND qtd_reservado > 0
-                  AND qtd_efetivado IS NULL
-                GROUP BY cd_prod_serv
-            ) tr ON tps.cd_prod_serv = tr.cd_prod_serv
-            SET tps.estoque_prod_serv = tps.estoque_prod_serv - tr.total_reservado
-            WHERE (tps.estoque_prod_serv - tr.total_reservado) >= 0
-          ";
-            if (mysqli_query($conn, $updateEstoque)) {
-              $updateReserva = "UPDATE tb_reserva SET
-              qtd_efetivado = qtd_reservado,
-              dt_efetivado = '".date('Y-m-d H:i')."'
-              WHERE cd_servico = '" . $_POST['atividadecd_servico'] . "'
-            ";
-            if (mysqli_query($conn, $updateReserva)) {
-      $conn->commit();
-
-              echo "<script>alert('Operação realizada com sucesso!');</script>";
-            }else{
-              echo "<script>alert('Erro ao atualizar a reserva: " . mysqli_error($conn) . "');</script>";
-
-            }
-            
-          }else{
-            echo "<script>alert('Erro ao atualizar o estoque: " . mysqli_error($conn) . "');</script>";
-          }
-        } else {
-            echo "<script>alert('Erro ao atualizar o serviço: " . mysqli_error($conn) . "');</script>";
-        }
-    } else {
-        echo "<script>alert('Erro ao inserir a atividade: " . mysqli_error($conn) . "');</script>";
-    }
-}
-
-
-
-
-
-
-
-
-                  //$sql_atividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_atividade ASC";
-                  //$sql_atividade = "SELECT * FROM (
-                  //  SELECT * FROM tb_atividade 
-                  //  WHERE cd_servico = '".$_SESSION['cd_servico']."' 
-                  //  ORDER BY cd_atividade ASC
-                  //) as temp_table 
-                  //WHERE temp_table.rownum < (SELECT COUNT(*) FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."')";
-
-
-                  //Um exemplo alternativo usando MySQL é usar variáveis de usuário para emular a função ROW_NUMBER():
-                  //Isso atribuirá um número de linha a cada linha na tabela tb_atividade e a consulta principal então selecionará todas as linhas exceto a última.
-                  $sql_atividade = "SELECT * FROM (
-                    SELECT @rownum:=@rownum+1 'rownum', t.* 
-                    FROM tb_atividade t, (SELECT @rownum:=0) r 
-                    WHERE cd_servico = '".$_SESSION['cd_servico']."' 
-                    ORDER BY cd_atividade ASC
-                  ) as temp_table 
-                  WHERE temp_table.rownum < (SELECT COUNT(*) FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."')";
-                  $result_atividade = mysqli_query($conn, $sql_atividade);
-                  //echo '<h3>HISTÓRICO PASSADO</h3>';
-                  while($row_atividade = $result_atividade->fetch_assoc()) { //mostrar historico
-                    echo '<div class="col-lg-12 grid-margin stretch-card" '.$_SESSION['c_card'].'>';
-                    echo '<div class="card" '.$_SESSION['c_card'].'>';
-                    echo '<div class="card-body">';
-                    if($row_atividade['titulo_atividade'] == "A"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' Entrada</h4>';
-                    }
-                    if($row_atividade['titulo_atividade'] == "B"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' Em Andamento / Fazendo</h4>';
-                    }
-                    if($row_atividade['titulo_atividade'] == "C"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' Finalizado / Liberado para Entrega</h4>';
-                    }
-                    if($row_atividade['titulo_atividade'] == "D"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' Entregue / Devolvido ao Cliente</h4>';
-                    }
-                    if($row_atividade['titulo_atividade'] == "E"){
-                      echo '<h4 class="card-title">'.$row_atividade['cd_atividade'].' ARQUIVADO</h4>';
-                    }
-                    echo '<div class="table-responsive">';
-                    echo '<table class="table" '.$_SESSION['c_card'].'>';
-                    echo '<thead>';
-                    echo '<tr>';
-                    echo '<th>Início</th>';
-                    echo '<th>Observações</th>';
-                    echo '<th>Fim</th>';
-                    echo '</tr>';
-                    echo '</thead>';
-                    echo '<tbody>';
-                    echo '<td>'.date('d/m/Y', strtotime($row_atividade['inicio_atividade'])).'</td>';
-                    echo '<td>'.$row_atividade['obs_atividade'].'</td>';
-                    echo '<td>'.date('d/m/Y', strtotime($row_atividade['fim_atividade'])).'</td>';
-                    echo '</tbody>';
-                    echo '</table>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';  
-                  }
-                    //$sql_lastatividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$_POST['conos_servico']."'";
-                    $sql_lastatividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_atividade DESC LIMIT 1";
-
-                    $result_lastatividade = mysqli_query($conn, $sql_lastatividade);
-                    $row_lastatividade = mysqli_fetch_assoc($result_lastatividade);
-                    //echo '<h3>ULTIMA ATIVIDADE EXECUTADA</h3>';
-                    // Exibe as informações do usuário no formulário
-                    if($row_lastatividade) {//MOSTRAR FORMULÁRIO DE ANDAMENTO DA ATIVIDADE ATUAL / ULTIMA ATIVIDADE REGISTRADA
-                      echo '<div class="col-lg-12 grid-margin stretch-card" style="background-color: #23A5F6;">';
-                      echo '<div class="card" '.$_SESSION['c_card'].'>';
-                      echo '<div class="card-body">';
-                      if($row_lastatividade['titulo_atividade'] == "A"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' Entrada</h4>';
-                      }
-                      if($row_lastatividade['titulo_atividade'] == "B"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' Em Andamento / Fazendo</h4>';
-                      }
-                      if($row_lastatividade['titulo_atividade'] == "C"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' Finalizado / Liberado para Entrega</h4>';
-                      }
-                      if($row_lastatividade['titulo_atividade'] == "D"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' Entregue / Devolvido ao Cliente</h4>';
-                      }
-                      if($row_lastatividade['titulo_atividade'] == "E"){
-                        echo '<h4 class="card-title">'.$row_lastatividade['cd_atividade'].' ARQUIVADO</h4>';
-                      }
-                      echo '<div class="table-responsive" '.$_SESSION['c_card'].'>';
-                      echo '<table class="table" '.$_SESSION['c_card'].'>';
-                      echo '<thead>';
-                      echo '<tr>';
-                      echo '<th>Início</th>';
-                      echo '<th>Observações</th>';
-                      echo '<th>Fim</th>';
-                      echo '</tr>';
-                      echo '</thead>';
-                      echo '<tbody>';
-                      echo '<td>'.date('d/m/Y', strtotime($row_lastatividade['inicio_atividade'])).'</td>';
-                      echo '<td>'.$row_lastatividade['obs_atividade'].'</td>';
-                      if(isset($row_lastatividade['fim_atividade'])){
-                        echo '<td>'.date('d/m/Y', strtotime($row_lastatividade['fim_atividade'])).'</td>';
-                      }else{
-                        echo '<td></td>';
-                      }
-                      echo '</tbody>';
-                      echo '</table>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-
-                      echo '<div class="card-body" id="novaAtividade" '.$_SESSION['c_card'].'>';
-                      echo '<div class="kt-portlet__body" '.$_SESSION['c_card'].'>';
-                      echo '<div class="row">';
-                      echo '<div class="col-12 col-md-12">';
-                      echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
-                      echo '<h3>LANÇAR ATIVIDADE</h3>';
-                      echo '<form method="POST">';
-                      //echo '<h3 class="kt-portlet__head-title">Nova Atividade</h3> ';
-                      echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead">';
-                      echo '<input value="'.$row_lastatividade['cd_servico'].'" style="display: none;" name="atividadecd_servico" type="text" id="atividadecd_servico" class="aspNetDisabled form-control form-control-sm" readonly/>       ';
-                      echo '<input value="'.$row_lastatividade['cd_colab'].'" style="display: none;" name="atividadecd_colab" type="text" id="atividadecd_colab" class="aspNetDisabled form-control form-control-sm" readonly/>';
-                      
-                      if($row_lastatividade['titulo_atividade'] == "A"){//INICIAR ATENDIMENTO
-                        echo '<label for="marcartitulo_atividade">Entrada</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="B">EM ANDAMENTO</option>';
-                        echo '<option value="C">FINALIZAR</option>';
-                        echo '<option value="E">ARQUIVAR</option>';
-                        //echo '<option value="C">FINALIZAR</option>';
-                        echo '</select>';
-                        echo '<label for="showobs_servico">Observações</label>';
-                        echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
-                      }
-
-                      if($row_lastatividade['titulo_atividade'] == "B"){//FINALIZAR ATENDIMENTO
-                        echo '<label for="marcartitulo_atividade">Serviço em Andamento</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="C">FINALIZAR</option>';
-                        echo '</select>';
-                        echo '<label for="obs_atividade">Observações</label>';
-                        echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="finalizarAtividade" id="finalizarAtividade" value="Finalizar Atividade">';
-                      
-                      }
-
-                      if($row_lastatividade['titulo_atividade'] == "C"){//ENTREGAR / DEVOLVER OU REABRIR
-                        echo '<label for="marcartitulo_atividade">Serviço Realizado</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="D">ENTREGAR / DEVOLVER</option>';
-                        echo '<option value="B">REFAZER AGORA</option>';
-                        echo '<option value="A">REFAZER DEPOIS</option>';
-                        echo '<option value="E">ARQUIVAR</option>';
-                        echo '</select>';
-                        echo '<label for="obs_atividade">Observações</label>';
-                        echo '<input name="obs_atividade" type="text" maxlength="999" id="obs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?" />';
-                        echo '<label for="novadataentrega_atividade">Prazo Para Revisão</label>';
-                        echo '<input name="novadataentrega_atividade" type="datetime-local" value="'.date('Y-m-d\T16:00', strtotime('+30 days')).'" id="novadataentrega_atividade" class="form-control form-control-sm">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
-                      }
-
-                      if($row_lastatividade['titulo_atividade'] == "D"){//ENTREGUE / DEVOLVIDO
-                        echo '<label for="marcartitulo_atividade">Entregue / Devolvido</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="B">REFAZER AGORA</option>';
-                        echo '<option value="A">REFAZER DEPOIS</option>';
-                        echo '<option value="E">ARQUIVAR</option>';
-                        echo '</select>';
-                        echo '<label for="obs_atividade">Observações</label>';
-                        //echo '<input name="novaobs_atividade" type="text" maxlength="999" id="novaobs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="O que precisa fazer para resolver este problema?" />';
-                        echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="novadataentrega_atividade">Prazo Para Revisão</label>';
-                        echo '<input name="novadataentrega_atividade" type="datetime-local" value="'.date('Y-m-d\T16:00', strtotime('+30 days')).'" id="novadataentrega_atividade" class="form-control form-control-sm">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
-                      }
-                      
-                      if($row_lastatividade['titulo_atividade'] == "E"){//ARQUIVADO
-                        echo '<label for="marcartitulo_atividade">Atividade Arquivada</label>';
-                        echo '<select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>';
-                        echo '<option selected="selected"value="B">REFAZER AGORA</option>';
-                        echo '<option value="A">REFAZER DEPOIS</option>';
-                        echo '</select>';
-                        echo '<label for="obs_atividade">Observações</label>';
-                        //echo '<input name="novaobs_atividade" type="text" maxlength="999" id="novaobs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="O que precisa fazer para resolver este problema?" />';
-                        echo '<input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">';
-                        echo '<label for="novadataentrega_atividade">Prazo Para Revisão</label>';
-                        echo '<input name="novadataentrega_atividade" type="datetime-local" value="'.date('Y-m-d\T16:00', strtotime('+30 days')).'" id="novadataentrega_atividade" class="form-control form-control-sm">';
-                        echo '<label for="data_hora_ponto">Data e Hora</label>';
-                        echo '<input name="data_hora_ponto" type="datetime-local" value="'.date('Y-m-d\TH:i', time()).'" id="data_hora_ponto" class="form-control form-control-sm" readonly>';
-                        echo '<input type="submit" class="btn btn-success" name="novaAtividade" id="novaAtividade" value="Adicionar Atividade">';
-                      }
-                      
-                      
-                                       
-                    
-                      //echo '<label for="obs_atividade">Observações</label>';
-                      //echo '<input name="obs_atividade" type="text"  id="obs_atividade" class="aspNetDisabled form-control form-control-sm"/>';
-                      //echo '';
-                      //echo '<label for="showtel_cliente">Fim</label>';
-                      //echo '<input name="showtel_cliente" type="date"  id="showtel_cliente" class="aspNetDisabled form-control form-control-sm"/>';
-                      echo '</div>';
-                      echo '</form>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                    }
-                    
-
-                    
-                    
-                    ?>
+?>
                 
-              </div>
+             
 
                 
 
