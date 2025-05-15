@@ -41,7 +41,7 @@
                 */
             ?>
           </div>
-          <div class="user-name">
+          <div class="user-name" id="user_name">
             <?php echo 'Olá, '.$_SESSION['pnome_colab'].' '.$_SESSION['snome_colab']?>
           </div>
 
@@ -74,7 +74,7 @@
           </div>
 
         </div>
-        <ul class="nav">
+        <ul class="nav" id="sidebar_geral">
           <li class="nav-item">
             <a class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/dashboard">
               <i class="icon-box menu-icon" <?php echo $_SESSION['c_sidebar']?>></i>

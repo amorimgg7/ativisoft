@@ -162,9 +162,9 @@
 														// Atualiza as informações do usuário no banco de dados
 														$query = "UPDATE rel_master SET
 														cd_estilo = '".$_POST['editcd_estilo']."', ";
-														if($_POST['editcd_acesso'] != "0"){
+														/*if($_POST['editcd_acesso'] != "0"){
 															$query =$query." cd_acesso = '".$_POST['editcd_acesso']."', ";
-														}
+														}*/
 														$query =$query." status_rel = 'ativo' ";
 														$query = $query." WHERE cd_pessoa = '".$_SESSION['cd_colab']."';";
 														if(mysqli_query($conn, $query)){
@@ -920,15 +920,23 @@
                                 </div>
                             </div>
                         </div>
+					</div>
+        		</div>
 			</div>
         </div>
+    </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
-        <footer class="footer">
+        <!--<footer class="footer">
         	<div class="d-sm-flex justify-content-center justify-content-sm-between">
             	<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Erp-NuvemSoft</span>
         	</div>
         </footer>
+															-->
+		<?php
+          include("../../partials/_footer.php");
+        ?>
+
         <!-- partial -->
       </div>
       <!-- main-panel ends -->

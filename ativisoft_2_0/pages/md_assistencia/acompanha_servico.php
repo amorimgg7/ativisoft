@@ -26,8 +26,6 @@ if ($cnpj && $tel) {
     // Você pode fazer qualquer outra coisa com o telefone aqui
     $_SESSION['contel_cliente'] = $tel;
     
-    
-    
     // Redirecionar para onde desejar ou exibir uma mensagem de sucesso
     //header('Location: pagina_anterior.php');
     //exit;
@@ -44,14 +42,12 @@ if ($cnpj && $tel) {
 
 <?php 
     //session_start();  
-//    if(!isset($_SESSION['cd_colab']))
-//    {
-//        header("location: ../../pages/samples/login.php");
-//        exit;
-//    }
+    
     require_once '../../classes/conn.php';
     include("../../classes/functions.php");
     $u = new Usuario;
+    ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>
@@ -1183,11 +1179,11 @@ if ($cnpj && $tel) {
                           $resulta_atividade = $conn->query($sql_atividade);
                           if ($resulta_atividade->num_rows > 0){
                             while($atividade = $resulta_atividade->fetch_assoc()){
-                              $sql_pessoa_atividade = "SELECT * FROM tb_colab WHERE cd_colab = '".$atividade['cd_colab']."'";
+                              $sql_pessoa_atividade = "SELECT * FROM tb_pessoa WHERE cd_pessoa = '".$atividade['cd_colab']."'";
                               $resulta_pessoa_atividade = $conn->query($sql_pessoa_atividade);
                               if ($resulta_pessoa_atividade->num_rows > 0){
                                 while($pessoa_atividade = $resulta_pessoa_atividade->fetch_assoc()){
-                                  echo '<td>'.$pessoa_atividade['pnome_colab'].' '.$pessoa_atividade['snome_colab'].'. OBS: '.$atividade['obs_atividade'].'</td>';
+                                  echo '<td>'.$pessoa_atividade['pnome_pessoa'].' '.$pessoa_atividade['snome_pessoa'].'. OBS: '.$atividade['obs_atividade'].'</td>';
                                 }}
                               //echo '<td>'.$atividade['obs_atividade'].'</td>';
                               echo '<td>'.date('d/m/y', strtotime($atividade['fim_atividade'])).'</td>';
@@ -1227,6 +1223,20 @@ if ($cnpj && $tel) {
         <!-- partial:../../partials/_footer.html -->
         <?php
           include("../../partials/_footer.php");
+
+          if(!isset($_SESSION['cd_colab']))
+    {
+      //echo '<script>document.getElementById("sidebar").style.display = "none";</script>';
+      echo '<script>document.getElementById("sidebar_geral").style.display = "none";</script>';
+      echo '<script>document.getElementById("user_name").innerHTML = "Olá, seja bem vindo!";</script>';
+      //echo '<script>document.getElementById("sidebar").style.display = "none";</script>';
+      //sidebar_geral display = "none"
+      //user-name = Olá, seja bem vindo
+//        header("location: ../../pages/samples/login.php");
+//        exit;
+    }
+
+
         ?>
         <!-- partial -->
       </div>

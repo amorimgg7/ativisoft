@@ -6,7 +6,7 @@
         <a class="navbar-brand brand-logo" href="<?php $_SESSION['dominio'];?>"><img src="<?php $_SESSION['dominio'];?>images/logo-mini.svg" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="<?php $_SESSION['dominio'];?>"><img src="<?php $_SESSION['dominio'];?>images/logo-mini.svg" alt="logo"/></a>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" <?php echo $_SESSION['c_sidebar']?>>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"  <?php echo $_SESSION['c_sidebar']?>>
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
