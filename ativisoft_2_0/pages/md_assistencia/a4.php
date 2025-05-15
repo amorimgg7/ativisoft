@@ -3,7 +3,7 @@
 
 
 require_once('fpdf/fpdf.php');
-
+ob_start();
     if (isset($_POST['imprimir_os'])) {
         unset($_POST['imprimir_os']);
         $showcd_servico = $_POST['btncd_servico'];
@@ -43,18 +43,14 @@ require_once('fpdf/fpdf.php');
         class MeuPDF extends FPDF {
             
             function Header() {
-            
             }
 
-            function Footer() {
-                
+            function Footer() {  
             }
 
             function GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico) {
                 $this->AddPage('P', 'A4');
                 $this->SetFont('Arial', '', 10);
-                // Cabeçalho
-                
                 
                 $this->Ln(20);
                 $this->customHeader('A4', 'Ordem de Serviço', $showcd_servico );
@@ -65,21 +61,59 @@ require_once('fpdf/fpdf.php');
 
                 $this->customFooter('A4', '');
 
-            
-                
             }
             
 
         }
         $pdf = '';
-        // Instanciar a classe MeuPDF e gerar o PDF
         $pdf = new MeuPDF();
         $pdf->GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico);
-
-        // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'OS_' . $showcd_servico . '.pdf';
         ob_end_clean();
-        $pdf->Output($nomeArquivo, 'I');
+        //$pdf->Output($nomeArquivo, 'I');
+
+
+     // Gerar base64 do PDF
+$pdfString = $pdf->Output('S');
+$pdfBase64 = base64_encode($pdfString);
+
+echo '
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Abrindo PDF</title>
+</head>
+<body>
+<script>
+    window.onload = function() {
+        const pdfBase64 = "' . $pdfBase64 . '";
+        const blob = b64toBlob(pdfBase64, "application/pdf");
+        const blobUrl = URL.createObjectURL(blob);
+        window.location.href = blobUrl; // Abre na mesma aba
+    };
+
+    function b64toBlob(b64Data, contentType = "", sliceSize = 512) {
+        const byteCharacters = atob(b64Data);
+        const byteArrays = [];
+
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            const slice = byteCharacters.slice(offset, offset + sliceSize);
+            const byteNumbers = new Array(slice.length);
+            for (let i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+            byteArrays.push(new Uint8Array(byteNumbers));
+        }
+
+        return new Blob(byteArrays, { type: contentType });
+    }
+</script>
+</body>
+</html>';
+
+
+
 
     } elseif (isset($_POST['via_cliente'])) {
         unset($_POST['via_cliente']);
@@ -219,7 +253,46 @@ require_once('fpdf/fpdf.php');
         // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'VIA_CLIENTE_OS_' . $showcd_servico . '.pdf';
         ob_end_clean();
-        $pdf->Output($nomeArquivo, 'I');
+        //$pdf->Output($nomeArquivo, 'I');
+
+        // Gerar base64 do PDF
+$pdfString = $pdf->Output('S');
+$pdfBase64 = base64_encode($pdfString);
+
+echo '
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Abrindo PDF</title>
+</head>
+<body>
+<script>
+    window.onload = function() {
+        const pdfBase64 = "' . $pdfBase64 . '";
+        const blob = b64toBlob(pdfBase64, "application/pdf");
+        const blobUrl = URL.createObjectURL(blob);
+        window.location.href = blobUrl; // Abre na mesma aba
+    };
+
+    function b64toBlob(b64Data, contentType = "", sliceSize = 512) {
+        const byteCharacters = atob(b64Data);
+        const byteArrays = [];
+
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            const slice = byteCharacters.slice(offset, offset + sliceSize);
+            const byteNumbers = new Array(slice.length);
+            for (let i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+            byteArrays.push(new Uint8Array(byteNumbers));
+        }
+
+        return new Blob(byteArrays, { type: contentType });
+    }
+</script>
+</body>
+</html>';
         
     } elseif (isset($_POST['lancar_composto'])) {
             include("../../partials/load.html");
@@ -354,26 +427,15 @@ require_once('fpdf/fpdf.php');
         // Criação da classe MeuPDF que estende a classe FPDF
         class MeuPDF extends FPDF {
             function Header() {
-                //$this->SetFont('Arial', 'B', 10);
-                //$this->Cell(58, 10, utf8_decode('Histórico do serviço'), 0, 1, 'C');
-                //$this->Ln(5);
             }
 
             function Footer() {
-                //$this->SetY(-20);
-                //$this->SetFont('Arial', 'B', 6);
-                //$this->Cell(40, 10, '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-', 0, 1, 'C'); 
-                //$this->Cell(40, 5, '______________________________________________________________________________________________________________', 0, 1, 'C');
-                //$this->Cell(80, 10, $this->WrapText(utf8_decode('Ativisoft © sistema.ativisoft.com.br 2025  Version 2.0 | Release: 0.00')), 0, 1, 'C');
-                //$this->Cell(40, 10, '_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-', 0, 1, 'C'); 
-                
             }
 
             function GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico) {
                 $this->AddPage('P', 'A4'); // Tamanho do papel em milímetros
                 $this->SetFont('Arial', '', 10);
-                // Cabeçalho
-                
+                                
                 $this->Ln(20);
                 $this->customHeader('A4', 'Histórico do serviço', $showcd_servico);
 
@@ -386,16 +448,53 @@ require_once('fpdf/fpdf.php');
 
         }
         $pdf = '';
-        // Instanciar a classe MeuPDF e gerar o PDF
+        
         $pdf = new MeuPDF();
         $pdf->GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico);
 
-        // Concatenar o número de telefone com o nome do arquivo
+       
         $nomeArquivo = 'HISTORICO_OS_' . $showcd_servico . '.pdf';
         ob_end_clean();
-        $pdf->Output($nomeArquivo, 'I');
+        //$pdf->Output($nomeArquivo, 'I');
 
-        
+        // Gerar base64 do PDF
+$pdfString = $pdf->Output('S');
+$pdfBase64 = base64_encode($pdfString);
+
+echo '
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Abrindo PDF</title>
+</head>
+<body>
+<script>
+    window.onload = function() {
+        const pdfBase64 = "' . $pdfBase64 . '";
+        const blob = b64toBlob(pdfBase64, "application/pdf");
+        const blobUrl = URL.createObjectURL(blob);
+        window.location.href = blobUrl; // Abre na mesma aba
+    };
+
+    function b64toBlob(b64Data, contentType = "", sliceSize = 512) {
+        const byteCharacters = atob(b64Data);
+        const byteArrays = [];
+
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            const slice = byteCharacters.slice(offset, offset + sliceSize);
+            const byteNumbers = new Array(slice.length);
+            for (let i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+            byteArrays.push(new Uint8Array(byteNumbers));
+        }
+
+        return new Blob(byteArrays, { type: contentType });
+    }
+</script>
+</body>
+</html>';
 
     }elseif(isset($_POST['limparOS'])){
         //echo "<script>window.alert('Mostrar botão de limpar OS!');</script>";
@@ -409,7 +508,7 @@ require_once('fpdf/fpdf.php');
     }
 
 
-ob_end_clean(); // limpa o buffer de saída antes de enviar o PDF
+//ob_end_clean(); // limpa o buffer de saída antes de enviar o PDF
 //$pdf->Output();
 
 ?>

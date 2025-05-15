@@ -332,3 +332,29 @@ Stack trace:
 #2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\termica1.php(378): FPDF->Output('I', 'HISTORICO_OS_34...')
 #3 {main}
   thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271
+[15-May-2025 14:57:12 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 156
+[15-May-2025 14:57:17 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 156
+[15-May-2025 21:49:46 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 14
+[15-May-2025 21:49:46 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 15
+[15-May-2025 16:49:46 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[15-May-2025 16:50:09 America/Sao_Paulo] PHP Warning:  Undefined variable $id_atividade in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2474
+[15-May-2025 16:51:06 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[15-May-2025 16:51:21 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[15-May-2025 16:51:24 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[15-May-2025 16:51:32 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[15-May-2025 16:51:38 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[15-May-2025 16:51:41 America/Sao_Paulo] PHP Notice:  ob_end_clean(): Failed to delete buffer. No buffer to delete in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php on line 412
+[15-May-2025 17:00:18 America/Sao_Paulo] PHP Warning:  file_put_contents(temp/arquivo.pdf): Failed to open stream: No such file or directory in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 1030
+[15-May-2025 17:00:18 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Unable to create output file: temp/arquivo.pdf in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php:271
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1031): FPDF->Error('Unable to creat...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php(77): FPDF->Output('F', 'temp/arquivo.pd...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271
+[15-May-2025 17:00:21 America/Sao_Paulo] PHP Warning:  file_put_contents(temp/arquivo.pdf): Failed to open stream: No such file or directory in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 1030
+[15-May-2025 17:00:21 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Unable to create output file: temp/arquivo.pdf in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php:271
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php(1031): FPDF->Error('Unable to creat...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\a4.php(77): FPDF->Output('F', 'temp/arquivo.pd...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\fpdf\fpdf.php on line 271

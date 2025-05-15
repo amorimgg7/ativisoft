@@ -11,7 +11,8 @@ ini_set('log_errors', 1);
 // Caminho absoluto e gravável pelo servidor web
 ini_set('error_log', __DIR__ . '/logs/erro_php.log'); // Corrigido para caminho relativo ao script
 
-
+//header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+//header("Pragma: no-cache");
 
 
 class Usuario  
