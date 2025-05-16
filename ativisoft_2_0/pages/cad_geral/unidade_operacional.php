@@ -292,6 +292,27 @@
 														
 													}
 
+													if(isset($_POST['gravaInfoMensagem_Funcao'])) {
+														// Atualiza as informações do usuário no banco de dados
+														$query = "UPDATE tb_empresa SET
+														tipo_mensagem = '".$_POST['edittipo_mensagem']."'
+														WHERE cd_empresa = '".$_POST['cd_empresa']."'";
+														if(mysqli_query($conn, $query)){
+															echo "<script>window.alert('Cadastro Atualizado com sucesso!');</script>";
+															$_SESSION['tipo_mensagem'] = $_POST['edittipo_mensagem'];
+														}else{
+															echo "<script>window.alert('Erro ao atualizar Cadastro!');</script>";
+														}
+														?>
+															<script>// Limpa os cookies
+												        		// Remove as informações do formulário do histórico de navegação';
+														        history.replaceState({}, document.title, window.location.href.split('?')[0]);
+														        // Recarrega a página
+				                                    			window.location.reload();
+													        </script>
+														<?php
+													}
+													
 													if(isset($_POST['gravaInfoImpressao_Funcao'])) {
 														// Atualiza as informações do usuário no banco de dados
 														$query = "UPDATE tb_empresa SET
@@ -819,34 +840,77 @@
 														echo ' </div>';
 
 														echo ' <div class="kt-form kt-form--label-right">';
-														echo ' <h3 class="kt-portlet__head-title">Em Breve</h3>';
-														echo '<!--';
+														//echo ' <h3 class="kt-portlet__head-title">Em Breve</h3>';
+														//echo '<!--';
 														echo ' <form method="POST">';
 														echo ' <div class="kt-portlet__body">';
 														echo ' <div class="kt-section kt-section--first">';
                                 						echo ' <div class="kt-section__body">';
 
+														echo ' <div class="form-group row">';
 														
+														echo '<input value="'. $_SESSION['cd_empresa'] .'" name="cd_empresa" type="hidden"  id="cd_empresa" class="form-control form-control-sm"/>';
+														
+														echo '<label class="col-2">Modelo</label>';
+														echo '<div class="col-12">';
+														if ($_SESSION['tipo_mensagem'] == ''){
+															echo '<span>Selecione seu meio de mensagens</span>';
+													  	}
+														$opcoes = [
+															"WHATSAPP" => "WhatsApp",
+															"TELEGRAM" => "Telegram",
+															"EMAIL" => "E-Mail"
+														];
+														$selecionado = $_SESSION['tipo_mensagem'] ?? '';
+														echo '<select name="edittipo_mensagem" id="edittipo_mensagem" class="form-control">';
+														if ($selecionado == '') {
+															echo '<option value="" selected></option>';
+														}
+														if (array_key_exists($selecionado, $opcoes)) {
+															echo '<option value="'.$selecionado.'" selected>'.$opcoes[$selecionado].'</option>';
+															unset($opcoes[$selecionado]); // remove para não repetir
+														}
+														foreach ($opcoes as $valor => $texto) {
+															echo '<option value="'.$valor.'">'.$texto.'</option>';
+														}
+														echo '</select>';
+														echo '</div>';
+														
+														
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' </div>';
+														echo ' <div class="kt-portlet__foot">';
+														echo ' <div class="kt-form__actions">';
+														echo ' <div class="row">';
+														
+														echo '<div class="mt-3 col-lg-12 col-xl-12">';
+														echo '<input type="submit" class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" name="gravaInfoMensagem_Funcao" id="gravaInfoMensagem_Funcao" value="Gravar">';
+														echo '</div>';
+														//echo ' <div class="col-lg-9 col-xl-9">';
+														//echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfoImpressao_Funcao" name="gravaInfoImpressao_Funcao">';
+														//echo ' &nbsp;';
+														//echo ' <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>';
+														//echo ' </div>';
+
+
+
+
+
+
+
+
+
+
 														
 														
                     	                                echo ' </div>';
                         	                            echo ' </div>';
                             	                        echo ' </div>';
-										                echo ' <div class="kt-portlet__foot">';
-														echo ' <div>';
-														echo ' <div class="row">';
-														echo ' <div class="col-lg-3 col-xl-3">';
-														echo ' </div>';
-														echo ' <div class="col-lg-9 col-xl-9">';
-														echo ' <input type="submit" value="Confirmar" class="btn btn-success" id="gravaInfoContatos_Funcao" name="gravaInfoContatos_Funcao">';
-														echo ' &nbsp;';
-                                                        echo ' <a id="ContentPlaceHolder1_iBtCancelar" class="btn btn-secondary" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$iBtCancelar&#39;,&#39;&#39;)"> Cancelar </a>';
-														echo ' </div>';
-	    										        echo ' </div>';
-    	                            					echo ' </div>';
-        	                        					echo ' </div>';
+														
 														echo ' </form>';
-														echo '-->';
+														//echo '-->';
 														
 
 													}else if($_SESSION['opcaoMenu'] == 4){
@@ -977,9 +1041,6 @@
 														echo ' </form>';
 														echo '-->';
 
-															
-																
-															
 													}
 
 												?>

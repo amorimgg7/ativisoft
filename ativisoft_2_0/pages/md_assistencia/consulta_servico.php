@@ -481,187 +481,34 @@
                     
 
                       $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
+                      
+                      $result_mensagem   = $u->mensagem1($_SESSION['tipo_mensagem'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
 
                       $result_atividade   = $u->fragAtividade($_SESSION['cd_servico']);
 
+                      echo $result_mensagem['partial_mensagem'];
 
 
                       echo $result_impressao['partial_impressao'];
 
 
-                      /*
-                    echo '<form action="impresso.php" method="POST" target="_blank" '.$_SESSION['c_card'].'>';
-                    echo '<div style="display:none; '.$_SESSION['c_card'].'">';
-                    //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
-                    echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" style="display: none;"/>';
-                    //echo '<label for="btnpnome_cliente">Nome</label>';
-                    echo '<input value="'.$_SESSION['pnome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40" readonly/>';
-                    //echo '<label for="btnsnome_cliente">sobrenome</label>';
-                    echo '<input value="'.$_SESSION['snome_cliente'].'" name="btnsnome_cliente" type="text" id="btnsnome_cliente" maxlength="40" readonly/>';
-                    //echo '<label for="btntel_cliente">Telefone</label>';
-                    echo '<input value="'.$_SESSION['tel_cliente'].'" name="btntel_cliente" type="tel"  id="btntel_cliente" oninput="tel(this)" readonly/>';
-                    echo '<script>document.getElementById("showcd_cliente").value = "'.$_SESSION['cd_cliente'].'"</script>';
-                    echo '<script>document.getElementById("btnpnome_cliente").value = "'.$_SESSION['pnome_cliente'].'"</script>';
-                    echo '<script>document.getElementById("btnsnome_cliente").value = "'.$_SESSION['snome_cliente'].'"</script>';
-                    echo '<script>document.getElementById("btntel_cliente").value = "'.$_SESSION['tel_cliente'].'"</script>';
-
-                    //echo '<label for="btncd_servico">OS</label>';
-                    echo '<input value="'.$_SESSION['cd_servico'].'" type="tel" name="btncd_servico" id="btncd_servico" readonly>';
-                    //echo '<label for="btnobs_servico">Descrição Geral</label>';
-                    echo '<input value="'.$_SESSION['obs_con_servico'].'" type="text" name="btnobs_servico" maxlength="999" id="btnobs_servico" placeholder="Caracteristica geral do serviço" readonly>';
-                    //echo '<label for="btnprioridade_servico">Prioridade</label>';
-                    echo '<select name="btnprioridade_servico" id="btnprioridade_servico">';
-                    echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >'.$_SESSION['prioridade_servico'].'</option>';
-                    echo '</select>';
-                    //echo '<!--<label for="btnprazo_servico">Entrada</label>-->';
-                    echo '<input value="'.$_SESSION['entrada_servico'].'" name="btnentrada_servico" type="datetime-local" id="btnentrada_servico" readonly/>';
-                    //echo '<label for="btnprazo_servico">Prazo</label>';
-                    echo '<input value="'.$_SESSION['prazo_servico'].'" name="btnprazo_servico" type="datetime-local" id="btnprazo_servico" readonly/>';
-                    
-                    echo '<script>document.getElementById("btncd_servico").value = "'.$_SESSION['cd_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnobs_servico").value = "'.$_SESSION['obs_con_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprioridade_servico").value = "'.$_SESSION['prioridade_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnentrada_servico").value = "'.$_SESSION['entrada_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprazo_servico").value = "'.$_SESSION['prazo_servico'].'"</script>';
-
-                    //echo '<label for="showobs_servico">Total</label>';
-                    echo '<input value="'.$_SESSION['vcusto_orcamento'].'" type="tel" name="btnvcusto_orcamento" id="btnvcusto_orcamento" readonly>';
-                    //echo '<label for="showobs_servico">Pago</label>';
-                    echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" readonly>';
-                    
-
-                    echo '<script>document.getElementById("btnvcusto_orcamento").value = "'.$_SESSION['vcusto_orcamento'].'"</script>';
-                    echo '<script>document.getElementById("btnvpag_orcamento").value = "'.$_SESSION['vpag_servico'].'"</script>';
-
-                    echo '<input value="'.$_SESSION['endereco_filial'].'" type="tel" name="btnendereco_filial" id="btnendereco_filial" readonly>';
-                    echo '<input value="'.$_SESSION['saudacoes_filial'].'" type="tel" name="btnsaudacoes_filial" id="btnsaudacoes_filial" readonly>';
-                    
-
-                    echo '<script>document.getElementById("btnendereco_filial").value = "'.$_SESSION['endereco_filial'].'"</script>';
-                    echo '<script>document.getElementById("btnsaudacoes_filial").value = "'.$_SESSION['saudacoes_filial'].'"</script>';
-
-
-                    echo '</div>';
-
-                    
-                    //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
-                    echo '<button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">OS <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    echo '<button type="submit" name="historico_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Histórico <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    echo '<button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-whatsapp"></i></button>';
-                    //echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarPosicaoMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Localização<i class="mdi mdi-whatsapp"></i></button>';
-                    //echo '<button type="submit" class="btn btn-danger" name="limparOS-" style="margin: 5px;">Nova Consulta</button>';     
-                    echo '</form>';
-                    */
-                    echo '<form method="post"'.$_SESSION['c_card'].'>';//echo '<button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Nova Consulta</button>';
+                    ////echo '<form method="post"'.$_SESSION['c_card'].'>';//echo '<button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Nova Consulta</button>';
                     //echo '<button type="submit" class="btn btn-block btn-lg btn-warning" name="editaOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-file-check btn-icon-append"></i> Editar</button>';
-                    echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
+                    ////echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
                     //<i class="mdi mdi-alert btn-icon-prepend"></i>  
-                    echo '</form>';
+                    ////echo '</form>';
 
 
                       echo $result_atividade['partial_atividade'];
+                      
 
                   }
                 ?>
+ <!-- #region -->
+  
+ 
 
-                <script>
-                          function enviarMensagemWhatsApp() {
-                            // Obter os valores dos campos do formulário
-                            var nomeCliente = document.getElementById("btnpnome_cliente").value;
-                            var telefoneCliente = document.getElementById("btntel_cliente").value;
-                            var numeroOS = document.getElementById("btncd_servico").value;
-                            var entradaServico = document.getElementById("btnentrada_servico").value;
-
-                            var observacoesServico = document.getElementById("btnobs_servico").value;
-                            var prioridadeServico = document.getElementById("btnprioridade_servico").value;
-                            var prazoServico = document.getElementById("btnprazo_servico").value;
-
-                            var vtotalServico = document.getElementById("btnvcusto_orcamento").value;
-                            var vpagServico = document.getElementById("btnvpag_orcamento").value;
-                            
-                            var enderecoFilial = document.getElementById("btnendereco_filial").value;
-                            var saudacoesFilial = document.getElementById("btnsaudacoes_filial").value;
-                            
-                            
-
-                            var anoEntrada = entradaServico.substring(0, 4);
-                            var mesEntrada = entradaServico.substring(5, 7);
-                            var diaEntrada = entradaServico.substring(8, 10);
-                            var horaEntrada = entradaServico.substring(11, 13);
-                            var minutoEntrada = entradaServico.substring(14, 16);
-
-                            var anoPrazo = prazoServico.substring(0, 4);
-                            var mesPrazo = prazoServico.substring(5, 7);
-                            var diaPrazo = prazoServico.substring(8, 10);
-                            var horaPrazo = prazoServico.substring(11, 13);
-                            var minutoPrazo = prazoServico.substring(14, 16)
-
-                            // Montar a data organizada
-                            var entradaOrganizada = diaEntrada + "/" + mesEntrada + "/" + anoEntrada + " às " + horaEntrada + ":" + minutoEntrada;
-                            var prazoOrganizado = diaPrazo + "/" + mesPrazo + "/" + anoPrazo + " às " + horaPrazo + ":" + minutoPrazo;
-                            if(prioridadeServico == "U"){
-                              prioridadeOrganizada = "Urgente";
-                            }
-                            if(prioridadeServico == "A"){
-                              prioridadeOrganizada = "Alta";
-                            }
-                            if(prioridadeServico == "M"){
-                              prioridadeOrganizada = "Média";
-                            }
-                            if(prioridadeServico == "B"){
-                              prioridadeOrganizada = "Baixa";
-                            }
-                            faltaPagar = vtotalServico - vpagServico;
-                              // Construir a mensagem com todos os dados do formulário
-                            var mensagem = "*Olá, " + nomeCliente + "!*\n";
-                            mensagem += "Sou *<?php echo $_SESSION['pnome_colab'].' '.$_SESSION['snome_colab'];?>* , da empresa *<?php echo $_SESSION['nfantasia_filial'];?>* e fico no endereço *"+enderecoFilial+"*.\n\n";
-                            
-                            mensagem += "Sua ordem de serviço de número *OS" + numeroOS + "*, deu entrada em nossa loja *" + entradaOrganizada + "*.\n";
-                            mensagem += "Descrição da atividade: " + observacoesServico + "\n";
-                            //mensagem += "Prioridade Requerida: *" + prioridadeOrganizada + "*\n";//Marcia pediu para tirar
-                            mensagem += "O prazo previsto para entrega é: *" + prazoOrganizado + "*\n\n";
-                            <?php
-                            if(isset($_SESSION['cd_servico'])){
-                              $select_orcamento_whatsapp = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_orcamento ASC";
-                              $result_orcamento_whatsapp = mysqli_query($conn, $select_orcamento_whatsapp);
-                              echo 'mensagem += "*Lista detalhada*\n";';
-                              $counter = 0;
-                              while($row_orcamento_whatsapp = $result_orcamento_whatsapp->fetch_assoc()) {
-                                $counter = $counter + 1;
-                                //echo 'mensagem += count + " - '.$row_orcamento_whatsapp['titulo_orcamento'].' - '.$row_orcamento_whatsapp['vcusto_orcamento'].'"\n";';
-                                ?>mensagem += "<?php echo '*'.$counter.'* - '.$row_orcamento_whatsapp['titulo_orcamento'].' - R$:'.$row_orcamento_whatsapp['vcusto_orcamento']; ?>\n";<?php
-                              }
-                              echo 'mensagem += "\n";';
-                            }
-                            ?>
-                            mensagem += "Total: *R$:" + vtotalServico + "*\n";
-                            mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
-                            mensagem += "Falta pagar: R$:*" + faltaPagar + "*\n\n";
-
-                            mensagem += "\n__________________________________\n";
-                            <?php
-                              echo 'mensagem += "Acompanhe seu histórico pelo link:'.$_SESSION['dominio'].'pages/md_assistencia/acompanha_servico.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel=" + telefoneCliente + "\n";';
-                            ?>
-                            mensagem += "\n__________________________________\n";
-
-
-                            mensagem += "OBS: *_"+saudacoesFilial+"_*\n\n";//$_SESSION['endereco_filial']
-                            mensagem += "```AtiviSoft © | Release: B E T A```";//$_SESSION['endereco_filial']
-                            // Codificar a mensagem para uso na URL
-                            var mensagemCodificada = encodeURIComponent(mensagem);
-                            // Construir a URL do WhatsApp
-                            var urlWhatsApp = "https://api.whatsapp.com/send?phone=" + telefoneCliente + "&text=" + mensagemCodificada;
-                            // Abrir a janela do WhatsApp com a mensagem preenchida
-                            window.open(urlWhatsApp, "_blank");
-                          }
-
-
-
-                          
-
-                </script>
-
+ <!-- #endregion -->
                 </div>
                 
 
