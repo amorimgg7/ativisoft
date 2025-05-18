@@ -602,7 +602,6 @@ require_once('fpdf/fpdf.php');
 
 
     } elseif(isset($_POST['rel_fechamento_caixa'])){
-        
 
         $dt_emissao = $_POST['dt_emissao'];
         $dt_emissao_format = date('d/m/Y', strtotime($dt_emissao));
@@ -619,12 +618,6 @@ require_once('fpdf/fpdf.php');
         }
 
         
-        
-
-        
-        
-       
-        
         class MeuPDF extends FPDF {
             function Header() {
                 // Seu código de cabeçalho aqui
@@ -634,27 +627,38 @@ require_once('fpdf/fpdf.php');
                 // Seu código de rodapé aqui
             }
         
-            function GerarOrdemServico($dt_emissao, $dt_inicio, $dt_fim, $dt_emissao_format, $dt_inicio_format, $dt_fim_format) {
-                $this->AddPage('P', array(80, 150));
-                $this->SetLeftMargin(0);
+            function RelFechamentoCaixa($dt_emissao, $dt_inicio, $dt_fim, $dt_emissao_format, $dt_inicio_format, $dt_fim_format) {
+                
+
+                $this->AddPage('P', 'A4');
+                $this->SetFont('Arial', '', 10);
+                
+                $this->Ln(20);
+                $this->customHeader('A4', 'Relatório de Caixa', $dt_emissao,$dt_inicio_format, $dt_fim_format);
+
+                //$this->dadosCliente('A4', $nome.$sobrenome, $telefone, $showobs_servico);
+                
+                $this->listaCaixas('A4', $dt_inicio_format, $dt_fim_format);
+
+                //$this->customFooter('A4', '');
         
-                $this->SetFont('Arial', 'B', 20);
-                $this->Cell(0, 5, utf8_decode('Histórico de Caixa'), 0, 1, 'C');
-                $this->Ln(5);
-                $this->SetFont('Arial', 'B', 10);
+                //$this->SetFont('Arial', 'B', 20);
+                //$this->Cell(0, 5, utf8_decode('Histórico de Caixa'), 0, 1, 'C');
+                //$this->Ln(5);
+                //$this->SetFont('Arial', 'B', 10);
                 //$this->Cell(0, 5, 'dia_caixa '.$_POST['dia_caixa_check'].' / dia_fiscal '.$_POST['dia_fiscal_check'], 0, 1, 'C');
                 
-                $this->Cell(0, 5, utf8_decode('Emissão: ') . $dt_emissao, 0, 1, 'C');
-                $this->Cell(0, 5, utf8_decode('Início: ') . $dt_inicio_format, 0, 1, 'C');
-                $this->Cell(0, 5, utf8_decode('Fim: ') . $dt_fim_format, 0, 1, 'C');
-                $this->Ln(5);
+                //$this->Cell(0, 5, utf8_decode('Emissão: ') . $dt_emissao, 0, 1, 'C');
+                //$this->Cell(0, 5, utf8_decode('Início: ') . $dt_inicio_format, 0, 1, 'C');
+                //$this->Cell(0, 5, utf8_decode('Fim: ') . $dt_fim_format, 0, 1, 'C');
+                //$this->Ln(5);
         
                 
                 // Lista de orçamentos feitos
-                session_start();
-                require_once '../../classes/conn.php';
-                include("../../classes/functions.php");
-
+                //session_start();
+                //require_once '../../classes/conn.php';
+                //include("../../classes/functions.php");
+/*
                 
                 
             if(isset($_POST['dia_fiscal_check'])){
@@ -818,7 +822,7 @@ require_once('fpdf/fpdf.php');
                 
                 
             }
-
+*/
             }
         
             function WrapText($text) {
@@ -845,12 +849,53 @@ require_once('fpdf/fpdf.php');
         }
         
         $pdf = new MeuPDF();
-        $pdf->GerarOrdemServico($dt_emissao, $dt_inicio, $dt_fim, $dt_emissao_format, $dt_inicio_format, $dt_fim_format);
+        $pdf->RelFechamentoCaixa($dt_emissao, $dt_inicio, $dt_fim, $dt_emissao_format, $dt_inicio_format, $dt_fim_format);
         
         $nomeArquivo = 'HISTORICO_DE_CAIXA_' . $dt_emissao . '.pdf';
         
-        $pdf->Output($nomeArquivo, 'I');
-        
+        //$pdf->Output($nomeArquivo, 'I');
+        ob_end_clean();
+        //$pdf->Output($nomeArquivo, 'I');
+
+
+     // Gerar base64 do PDF
+$pdfString = $pdf->Output('S');
+$pdfBase64 = base64_encode($pdfString);
+
+echo '
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Abrindo PDF</title>
+</head>
+<body>
+<script>
+    window.onload = function() {
+        const pdfBase64 = "' . $pdfBase64 . '";
+        const blob = b64toBlob(pdfBase64, "application/pdf");
+        const blobUrl = URL.createObjectURL(blob);
+        window.location.href = blobUrl; // Abre na mesma aba
+    };
+
+    function b64toBlob(b64Data, contentType = "", sliceSize = 512) {
+        const byteCharacters = atob(b64Data);
+        const byteArrays = [];
+
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            const slice = byteCharacters.slice(offset, offset + sliceSize);
+            const byteNumbers = new Array(slice.length);
+            for (let i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+            byteArrays.push(new Uint8Array(byteNumbers));
+        }
+
+        return new Blob(byteArrays, { type: contentType });
+    }
+</script>
+</body>
+</html>';
 
 
 

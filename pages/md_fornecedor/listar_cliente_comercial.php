@@ -100,6 +100,10 @@
 
         </div>
 
+        <?php
+          include("../../partials/_footer.php");
+        ?>
+        
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <!--<footer class="footer">

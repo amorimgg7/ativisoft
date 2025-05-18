@@ -739,6 +739,11 @@ faltaPagar = vtotalServico - vpagServico;
 
 
         <!-- content-wrapper ends -->
+
+        <?php
+          include("../../partials/_footer.php");
+        ?>
+        
         <!-- partial:../../partials/_footer.html -->
         <?php
           include("../../partials/_footer.php");

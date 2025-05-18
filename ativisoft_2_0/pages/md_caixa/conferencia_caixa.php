@@ -151,6 +151,7 @@ $u = new Usuario;
                                         echo '<tr>';
                                         echo '<th>Caixa</th>';
                                         echo '<th>Abertura</th>';
+                                        echo '<th>Faturado</th>';
                                         echo '<th>Fechamento</th>';
                 
                                         echo '</tr>';
@@ -164,6 +165,7 @@ $u = new Usuario;
                                             echo '</form>';
 
                                             echo '<td><label>'.date('d/m/y', strtotime($caixa['dt_abertura'])).'</label></td>';
+                                            echo '<td><label>R$: '.$caixa['total_movimento'].'</label></td>';
                                             echo '<td><label>'.date('d/m/y', strtotime($caixa['dt_fechamento'])).'</label></td>';
 
                                         }

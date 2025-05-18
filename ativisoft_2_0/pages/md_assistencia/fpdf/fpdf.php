@@ -2056,8 +2056,6 @@ function customFooter($modelo, $text) {
 		$this->Cell(0, 0, $linhaDecorativa, 0, 1, 'C');
 	}
 }
- 
-
 function dadosCliente($modelo, $nomeCompleto, $telefone, $obs) {
 	if($modelo == 'M1'){
 		$this->SetFont('Arial', 'B', 15);

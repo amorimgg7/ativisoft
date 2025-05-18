@@ -30,3 +30,532 @@ Stack trace:
 [15-May-2025 21:00:15 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_mensagem" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 856
 [15-May-2025 21:03:33 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
 [15-May-2025 21:09:13 America/Sao_Paulo] PHP Warning:  Undefined property: Usuario::$ in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\lock-screen.php on line 79
+[17-May-2025 00:27:16 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[17-May-2025 18:56:33 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[17-May-2025 19:18:36 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[17-May-2025 19:18:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 209
+[17-May-2025 19:18:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 235
+[17-May-2025 19:18:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 240
+[17-May-2025 19:18:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 245
+[17-May-2025 19:18:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 250
+[17-May-2025 19:18:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 255
+[17-May-2025 19:18:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 260
+[17-May-2025 19:18:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 265
+[17-May-2025 19:18:40 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 667
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 671
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Warning:  Undefined variable $movimento_analitico_cx_dia_fiscal in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 675
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Warning:  Undefined variable $total_analitico_cx_dia_fiscal in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 676
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 667
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 671
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 667
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 671
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 667
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 671
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 696
+[17-May-2025 19:25:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 698
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 667
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 671
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Warning:  Undefined variable $movimento_analitico_cx_dia_fiscal in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 675
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Warning:  Undefined variable $total_analitico_cx_dia_fiscal in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 676
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 667
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 671
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 667
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 671
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 667
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 671
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 696
+[17-May-2025 19:25:25 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php on line 698
+[17-May-2025 20:12:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 209
+[17-May-2025 20:12:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 235
+[17-May-2025 20:12:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 240
+[17-May-2025 20:12:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 245
+[17-May-2025 20:12:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 250
+[17-May-2025 20:12:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 255
+[17-May-2025 20:12:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 260
+[17-May-2025 20:12:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 265
+[17-May-2025 20:12:08 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 20:12:31 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[17-May-2025 20:12:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 209
+[17-May-2025 20:12:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 235
+[17-May-2025 20:12:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 240
+[17-May-2025 20:12:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 245
+[17-May-2025 20:12:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 250
+[17-May-2025 20:12:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 255
+[17-May-2025 20:12:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 260
+[17-May-2025 20:12:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 265
+[17-May-2025 20:12:36 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 20:13:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 209
+[17-May-2025 20:13:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 235
+[17-May-2025 20:13:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 240
+[17-May-2025 20:13:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 245
+[17-May-2025 20:13:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 250
+[17-May-2025 20:13:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 255
+[17-May-2025 20:13:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 260
+[17-May-2025 20:13:29 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 265
+[17-May-2025 20:13:29 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 20:13:37 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 14
+[17-May-2025 20:13:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 209
+[17-May-2025 20:13:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 235
+[17-May-2025 20:13:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 240
+[17-May-2025 20:13:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 245
+[17-May-2025 20:13:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 250
+[17-May-2025 20:13:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 255
+[17-May-2025 20:13:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 260
+[17-May-2025 20:13:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 265
+[17-May-2025 20:13:42 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 20:47:11 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method MeuPDF::NbLines() in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2112
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/03/2025', '17/05/2025')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 21:1...', '2025-03-01', '2025-05-17', '01/01/1970', '01/03/2025', '17/05/2025')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2112
+[17-May-2025 20:51:06 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method MeuPDF::NbLines() in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2112
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/03/2025', '17/05/2025')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 21:1...', '2025-03-01', '2025-05-17', '01/01/1970', '01/03/2025', '17/05/2025')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2112
+[17-May-2025 20:52:05 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method MeuPDF::NbLines() in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2112
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/03/2025', '17/05/2025')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 21:1...', '2025-03-01', '2025-05-17', '01/01/1970', '01/03/2025', '17/05/2025')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2112
+[17-May-2025 20:54:00 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method MeuPDF::NbLines() in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2114
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/03/2025', '17/05/2025')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 21:1...', '2025-03-01', '2025-05-17', '01/01/1970', '01/03/2025', '17/05/2025')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2114
+[17-May-2025 20:55:25 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method MeuPDF::NbLines() in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2107
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/03/2025', '17/05/2025')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 21:1...', '2025-03-01', '2025-05-17', '01/01/1970', '01/03/2025', '17/05/2025')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2107
+[17-May-2025 20:56:08 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method MeuPDF::NbLines() in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2107
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/03/2025', '17/05/2025')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 21:1...', '2025-03-01', '2025-05-17', '01/01/1970', '01/03/2025', '17/05/2025')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2107
+[17-May-2025 21:22:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 209
+[17-May-2025 21:22:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 235
+[17-May-2025 21:22:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 240
+[17-May-2025 21:22:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 245
+[17-May-2025 21:22:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 250
+[17-May-2025 21:22:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 255
+[17-May-2025 21:22:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 260
+[17-May-2025 21:22:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 265
+[17-May-2025 21:22:57 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 21:23:07 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'p1.pnome' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2174
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php(2174): mysqli_query(Object(mysqli), '\n\t\t\tSELECT \n\t\t\t...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '15/05/2025', '17/05/2025')
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 22:2...', '2025-05-15', '2025-05-17', '01/01/1970', '15/05/2025', '17/05/2025')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2174
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:48:42 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:52:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 209
+[17-May-2025 21:52:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 235
+[17-May-2025 21:52:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 240
+[17-May-2025 21:52:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 245
+[17-May-2025 21:52:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 250
+[17-May-2025 21:52:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 255
+[17-May-2025 21:52:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 260
+[17-May-2025 21:52:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 265
+[17-May-2025 21:52:57 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:07 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:53:59 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 21:54:51 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2205
+[17-May-2025 22:00:02 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 156
+[17-May-2025 22:00:05 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 156
+[17-May-2025 22:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 22:08:14 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '23:59:59', '%d/%m/%Y %H:%i:%s')
+			ORDER BY 
+			    c.dt_abertura ASC' at line 11 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2171
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php(2171): mysqli_query(Object(mysqli), '\n\t\t\tSELECT \n\t\t\t...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '16/05/2025', '17/05/2025')
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 23:0...', '2025-05-16', '2025-05-17', '01/01/1970', '16/05/2025', '17/05/2025')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2171
+[17-May-2025 22:16:09 America/Sao_Paulo] PHP Warning:  Undefined variable $a in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2196
+[17-May-2025 22:16:09 America/Sao_Paulo] PHP Warning:  Undefined variable $f in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2197
+[17-May-2025 22:16:09 America/Sao_Paulo] PHP Warning:  Undefined variable $d in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2198
+[17-May-2025 22:16:09 America/Sao_Paulo] PHP Warning:  Undefined variable $de in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2199
+[17-May-2025 22:16:09 America/Sao_Paulo] PHP Warning:  Undefined variable $c in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2200
+[17-May-2025 22:16:09 America/Sao_Paulo] PHP Warning:  Undefined variable $p in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2201
+[17-May-2025 22:16:09 America/Sao_Paulo] PHP Warning:  Undefined variable $co in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2202
+[17-May-2025 22:16:09 America/Sao_Paulo] PHP Warning:  Undefined variable $b in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2203
+[17-May-2025 22:16:09 America/Sao_Paulo] PHP Warning:  Undefined variable $tm in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 22:17:11 America/Sao_Paulo] PHP Warning:  Undefined variable $a in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2196
+[17-May-2025 22:17:11 America/Sao_Paulo] PHP Warning:  Undefined variable $f in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2197
+[17-May-2025 22:17:11 America/Sao_Paulo] PHP Warning:  Undefined variable $d in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2198
+[17-May-2025 22:17:11 America/Sao_Paulo] PHP Warning:  Undefined variable $de in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2199
+[17-May-2025 22:17:11 America/Sao_Paulo] PHP Warning:  Undefined variable $c in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2200
+[17-May-2025 22:17:11 America/Sao_Paulo] PHP Warning:  Undefined variable $p in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2201
+[17-May-2025 22:17:11 America/Sao_Paulo] PHP Warning:  Undefined variable $co in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2202
+[17-May-2025 22:17:11 America/Sao_Paulo] PHP Warning:  Undefined variable $b in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2203
+[17-May-2025 22:17:11 America/Sao_Paulo] PHP Warning:  Undefined variable $tm in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2204
+[17-May-2025 22:26:39 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:26:39 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Value of type null is not callable in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2210
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '16/05/2025', '17/05/2025')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 23:0...', '2025-05-16', '2025-05-17', '01/01/1970', '16/05/2025', '17/05/2025')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:28:15 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:28:15 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Value of type null is not callable in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2210
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '16/05/2025', '17/05/2025')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 23:0...', '2025-05-16', '2025-05-17', '01/01/1970', '16/05/2025', '17/05/2025')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:28:19 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:28:19 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Value of type null is not callable in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2210
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '16/05/2025', '17/05/2025')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('17/05/2025 23:0...', '2025-05-16', '2025-05-17', '01/01/1970', '16/05/2025', '17/05/2025')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2211
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2212
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2213
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2214
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2215
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2216
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2217
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2218
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $dinheiro_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $debito_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $credito_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $pix_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $boleto_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2258
+[17-May-2025 22:28:59 America/Sao_Paulo] PHP Warning:  Undefined variable $total_movimento_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2258
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2211
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2212
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2213
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2214
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2215
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2216
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2217
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2218
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $dinheiro_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $debito_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $credito_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $pix_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $boleto_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $abertura_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2258
+[17-May-2025 22:29:53 America/Sao_Paulo] PHP Warning:  Undefined variable $total_movimento_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2258
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2211
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2212
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2213
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2214
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2215
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2216
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2217
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2218
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2259
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2260
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2261
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2262
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2263
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2264
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2265
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2266
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $dinheiro_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2271
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $debito_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2271
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $credito_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2271
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $pix_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2271
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $cofre_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2271
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $boleto_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2271
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2271
+[17-May-2025 22:31:16 America/Sao_Paulo] PHP Warning:  Undefined variable $total_movimento_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2272
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2211
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2212
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2213
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2214
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2215
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2216
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2217
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2218
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2266
+[17-May-2025 22:33:17 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2271
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2206
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2207
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2208
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2209
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2211
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2212
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2213
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2214
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:37:38 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2259
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2206
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2207
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2208
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2209
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2211
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2212
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2213
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2214
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2259
+[17-May-2025 22:39:44 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2206
+[17-May-2025 22:39:44 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2207
+[17-May-2025 22:39:45 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2208
+[17-May-2025 22:39:45 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2209
+[17-May-2025 22:39:45 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2210
+[17-May-2025 22:39:45 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2211
+[17-May-2025 22:39:45 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2212
+[17-May-2025 22:39:45 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2213
+[17-May-2025 22:39:45 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2214
+[17-May-2025 22:39:45 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:39:45 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2259
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2250
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2251
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2252
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2253
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2254
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2255
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2256
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2257
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2258
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2301
+[17-May-2025 22:41:23 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2303
+[17-May-2025 22:43:26 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2305
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2306
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2307
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2308
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2309
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2310
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2311
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2312
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2313
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2356
+[17-May-2025 22:43:35 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2358
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2294
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2295
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2296
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2297
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2298
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2299
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2300
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2301
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2302
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2345
+[17-May-2025 22:47:06 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2347
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2294
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2295
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2296
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2297
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2298
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2299
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2300
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2301
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2302
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2345
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2347
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $w in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2367
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $h in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2367
+[17-May-2025 22:49:28 America/Sao_Paulo] PHP Warning:  Undefined variable $r in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2367
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2294
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2295
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2296
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2297
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2298
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2299
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2300
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2301
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2302
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2345
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2347
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $w in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2368
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $h in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2368
+[17-May-2025 22:49:58 America/Sao_Paulo] PHP Warning:  Undefined variable $r in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2368
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2294
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2295
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2296
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2297
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2298
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2299
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2300
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2301
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2302
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2345
+[17-May-2025 22:50:22 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2347
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2294
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2295
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2296
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2297
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2298
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2299
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2300
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2301
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2302
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2345
+[17-May-2025 22:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2347
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2290
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2291
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2292
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2293
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2294
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2295
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2296
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2297
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2298
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2343
+[17-May-2025 22:53:34 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2345
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2290
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2291
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2292
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2293
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2294
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2295
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2296
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2297
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2298
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2343
+[17-May-2025 22:53:56 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2345
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2290
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2291
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2292
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2293
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2294
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2295
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2296
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2297
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2298
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2343
+[17-May-2025 22:54:34 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2345
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_abertura in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2290
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_fechamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2291
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_dinheiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2292
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_debito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2293
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_credito in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2294
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_pix in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2295
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_cofre in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2296
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_boleto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2297
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_total_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2298
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2343
+[17-May-2025 22:55:14 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2345
+[17-May-2025 23:03:18 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 371
+[17-May-2025 23:07:07 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2344
+[17-May-2025 23:07:07 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2346
+[17-May-2025 23:08:28 America/Sao_Paulo] PHP Warning:  Undefined variable $soma_movimento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2344
+[17-May-2025 23:08:28 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2346
+[17-May-2025 23:10:00 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2346
+[17-May-2025 23:11:27 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2346
+[17-May-2025 23:11:56 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2346
+[17-May-2025 23:12:31 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2346
+[17-May-2025 23:21:55 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2346
+[17-May-2025 23:22:32 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2346
+[17-May-2025 23:22:42 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2346
+[17-May-2025 23:27:31 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2340
+[17-May-2025 23:30:22 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 370
+[17-May-2025 23:30:46 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2341
+[17-May-2025 23:30:57 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 370
+[17-May-2025 23:31:59 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2341
+[17-May-2025 23:33:07 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 370
+[17-May-2025 23:33:49 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\relatorios_caixa.php on line 370
+[17-May-2025 23:35:46 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2341
+[17-May-2025 23:40:39 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2341
+[17-May-2025 23:41:43 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2341
+[17-May-2025 23:42:11 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2341
+[17-May-2025 23:42:32 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2341
+[17-May-2025 23:43:42 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2342
+[17-May-2025 23:45:42 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2344

@@ -1,7 +1,14 @@
 <script>
-    setTimeout(finalizarCarregamento, 500);
-    //finalizarCarregamento();
-  </script>
+  window.addEventListener('load', function () {
+    document.getElementById('load').style.display = 'none';
+  });
+
+  // Garantia extra: esconde após 10 segundos no máximo
+  setTimeout(function () {
+    document.getElementById('load').style.display = 'none';
+  }, 10000); // 10 segundos
+
+</script>
 <footer class="footer" <?php echo $_SESSION['c_card'];?>>
   <div class="d-sm-flex justify-content-center justify-content-sm-between"<?php echo $_SESSION['c_card'];?>>
     <span class="text-muted d-block text-center text-sm-left d-sm-inline-block" <?php echo $_SESSION['c_card'];?>>AtiviSoft © sistema.ativisoft.com.br 2025</span>
