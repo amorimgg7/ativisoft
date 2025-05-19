@@ -41,6 +41,7 @@
                 echo '<h6 class="card-title">Sistema Licenciado.</h6>';
                 echo '<h6 class="card-title">Contrato válido até: '.date("d/m/Y", strtotime($row_contrato['dt_validade'])).'.</h6>';
                 echo '<h6 class="card-title">Expira em: '.$diferenca_dias.' dia(s).</h6>';
+                echo '<h6 class="card-title">Entre em contato para renovar (21) 9 6554 3094</h6>';
                 echo '</th>';
                 echo '<th><form method="POST" action="'.$_SESSION['dominio'].'pages/auto_pagamento/payment.php">';
                 echo '<input type="text" style="display: none;" readonly id="cd_cliente_comercial_pagamento" name="cd_cliente_comercial_pagamento" value="'.$_SESSION['cd_empresa'].'">';
@@ -65,6 +66,7 @@
                 echo '<thead>';      
                 echo '<th>';
                 echo '<h6 class="card-title">Seu Contrato Expira hoje.</h6>';
+                echo '<h6 class="card-title">Entre em contato para renovar (21) 9 6554 3094</h6>';
                 echo '</th>';
                 echo '<th><form method="POST" action="'.$_SESSION['dominio'].'pages/auto_pagamento/payment.php">';
                 echo '<input type="text" style="display: none;" readonly id="cd_cliente_comercial_pagamento" name="cd_cliente_comercial_pagamento" value="'.$_SESSION['cd_empresa'].'">';
@@ -92,6 +94,7 @@
                 echo '<thead>';      
                 echo '<th>';
                 echo '<h6 class="card-title">Contrato vencido a '.-$diferenca_dias.' dia(s)</h6>';
+                echo '<h6 class="card-title">Entre em contato para renovar (21) 9 6554 3094</h6>';
                 //echo '<label class="badge badge-warning">Parcela prevista: R$:'. $cliente_matriz['fatura_prevista_cliente_fiscal'] .'</label>';
                 echo '</th>';
                 echo '<th><form method="POST" action="'.$_SESSION['dominio'].'pages/auto_pagamento/payment.php">';
@@ -120,7 +123,8 @@
                 echo '<thead>';
                 echo '<th>';
                 echo '<h6 class="card-title">Contrato vencido a '.-$diferenca_dias.' dia(s)</h6>';     
-                echo '<h6 class="card-title">Renove já seu contrato e evite a interrupção do seu sistema</h6>';
+                echo '<h6 class="card-title">Entre em contato para renovar (21) 9 6554 3094</h6>';
+                //echo '<h6 class="card-title">Renove já seu contrato e evite a interrupção do seu sistema</h6>';
                 //echo '<label class="badge badge-danger">Parcela prevista R$:' . ($cliente_matriz['fatura_prevista_cliente_fiscal'] + (-$diferenca_dias)) . '</label>';
                 echo '</th>';
                 echo '<th><form method="POST" action="'.$_SESSION['dominio'].'pages/auto_pagamento/payment.php">';
@@ -152,7 +156,7 @@
             if($_SESSION['cd_empresa'] != '0'){
 
 
-                $sql_acesso = "SELECT * FROM tb_acesso"; 
+                $sql_acesso = "SELECT * FROM tb_acesso WHERE cd_acesso = '2'"; 
                 $resulta = $conn->query($sql_acesso);
 
                 if ($resulta->num_rows > 0) {

@@ -155,6 +155,15 @@
 															if($retornaCadastro['status'] == 'OK'){
 																echo "<script>window.alert('".$retornaCadastro['status']."');</script>";
 																$_SESSION['cd_empresa'] = $retornaCadastro['cd_empresa'];
+																$_SESSION['rsocial_empresa'] = $retornaCadastro['rsocial_empresa'];
+																$_SESSION['nfantasia_empresa'] = $retornaCadastro['nfantasia_empresa'];
+																$_SESSION['cnpj_empresa'] = $retornaCadastro['cnpj_empresa'];
+																$_SESSION['cnpj_filial'] = $retornaCadastro['cnpj_empresa'];
+																$_SESSION['email_filial'] = $retornaCadastro['email_empresa'];
+																$_SESSION['endereco_filial'] = $retornaCadastro['endereco_empresa'];
+																$_SESSION['saudacoes_filial'] = $retornaCadastro['saudacoes_empresa'];
+																$_SESSION['tipo_impressao'] = $retornaCadastro['tipo_impressao'];
+
 																echo '<script>location.href="unidade_operacional.php";</script>';
 															}else{
 																echo "<script>window.alert('".$retornaCadastro['status']."');</script>";

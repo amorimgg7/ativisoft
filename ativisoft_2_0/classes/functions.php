@@ -1,8 +1,8 @@
 <?php
 
 // Ativa a exibição de erros (útil em ambiente de desenvolvimento)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
 
 // Ativa o registro de erros (útil para produção)
@@ -1768,6 +1768,105 @@ $_SESSION['fromEncoding'] = 'UTF-8';
 
         try {
             if($modelo_mensagem == 'WHATSAPP'){
+                if($tipo_mensagem == 'SERVICO'){
+                    $result_servico     = $u->conServico($chave_busca, $cd_empresa);
+                    $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);
+                    //$result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa);
+                    $partial_mensagem  = '
+
+                        <button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Whatsapp)</button>
+                    
+                        <script>
+                            function enviarMensagemWhatsApp() {
+                                // Obter os valores dos campos do formulário
+                                var nomeCliente = "'.$result_cliente['pnome_cliente'].'";
+                                var telefoneCliente = "'.$result_cliente['tel1_cliente'].'";
+                                var numeroOS = "'.$result_servico['cd_servico'].'";
+                                var entradaServico = "'.$result_servico['entrada_servico'].'";
+                                var observacoesServico = "'.$result_servico['obs_servico'].'";
+                                var prioridadeServico = "'.$result_servico['prioridade_servico'].'";
+                                var prazoServico = "'.$result_servico['prazo_servico'].'";
+                                var vtotalServico = "'.$result_servico['orcamento_servico'].'";
+                                var vpagServico = "'.$result_servico['vpag_servico'].'";
+                                var anoEntrada = entradaServico.substring(0, 4);
+                                var mesEntrada = entradaServico.substring(5, 7);
+                                var diaEntrada = entradaServico.substring(8, 10);
+                                var horaEntrada = entradaServico.substring(11, 13);
+                                var minutoEntrada = entradaServico.substring(14, 16);
+                                var anoPrazo = prazoServico.substring(0, 4);
+                                var mesPrazo = prazoServico.substring(5, 7);
+                                var diaPrazo = prazoServico.substring(8, 10);
+                                var horaPrazo = prazoServico.substring(11, 13);
+                                var minutoPrazo = prazoServico.substring(14, 16)
+
+                                // Montar a data organizada
+                                var entradaOrganizada = diaEntrada + "/" + mesEntrada + "/" + anoEntrada + " às " + horaEntrada + ":" + minutoEntrada;
+                                var prazoOrganizado = diaPrazo + "/" + mesPrazo + "/" + anoPrazo + " às " + horaPrazo + ":" + minutoPrazo;
+                                if(prioridadeServico == "U"){
+                                    prioridadeOrganizada = "Urgente";
+                                }
+                                if(prioridadeServico == "A"){
+                                    prioridadeOrganizada = "Alta";
+                                }
+                                if(prioridadeServico == "M"){
+                                prioridadeOrganizada = "Média";
+                                }
+                                if(prioridadeServico == "B"){
+                                    prioridadeOrganizada = "Baixa";
+                                }
+                                faltaPagar = vtotalServico - vpagServico;
+                                // Construir a mensagem com todos os dados do formulário
+                                var mensagem = "*Olá, " + nomeCliente + "!*\n";
+                                mensagem += "Somos da *'.$_SESSION['nfantasia_filial'].'* e ficamos no endereço *'.$_SESSION['endereco_filial'].'*.\n\n";
+                                mensagem += "Sua ordem de serviço de número *OS" + numeroOS + "*, deu entrada em nossa loja *" + entradaOrganizada + "*.\n";
+                                mensagem += "Descrição da atividade: " + observacoesServico + "\n";
+                                //mensagem += "Prioridade Requerida: *" + prioridadeOrganizada + "*\n";
+                                mensagem += "O prazo previsto para entrega é: *" + prazoOrganizado + "*\n\n";
+                    ';
+                    $select_orcamento_whatsapp = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = ".$result_servico['cd_servico']." ORDER BY cd_orcamento ASC";
+                    $result_orcamento_whatsapp = mysqli_query($conn, $select_orcamento_whatsapp);
+                    
+                    $partial_mensagem =  $partial_mensagem.'mensagem += "*Lista detalhada*\n";';
+                    $count = 0;                  
+                    while($row_orcamento_whatsapp = $result_orcamento_whatsapp->fetch_assoc()) {
+                        $count ++;
+                        $partial_mensagem =  $partial_mensagem.'mensagem += "*'.$count.'* - '.$row_orcamento_whatsapp['titulo_orcamento'].' - R$:'.$row_orcamento_whatsapp['vcusto_orcamento'].' \n";';
+                    }
+                    $partial_mensagem =  $partial_mensagem.'
+                                mensagem += "\n";
+                                if (faltaPagar > 0) {
+                                    mensagem += "Total: *R$ " + vtotalServico + "*\n";
+                                    // mensagem += "Valor pago: *R$ " + vpagServico + "*\n";
+                                    mensagem += "Falta pagar: *R$ " + faltaPagar + "*\n\n";
+                                } else if (faltaPagar < 0) {
+                                    mensagem += "Você tem um crédito (cupom) de: *R$ " + Math.abs(faltaPagar) + "* conosco!\n\n";
+                                } else {
+                                    mensagem += "Total Pago: *R$ " + vpagServico + "*\n";
+                                }
+
+                                mensagem += "\n __________________________________\n";
+                                mensagem += "Acompanhe seu histórico pelo link:\n'.$_SESSION['dominio'].'pages/md_assistencia/acompanha_servico.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel=" + telefoneCliente + "\n";                              
+                                mensagem += "\n __________________________________\n";
+                                mensagem += "OBS: *_'.$_SESSION['saudacoes_filial'].'_*\n\n";
+                                mensagem += "```AtiviSoft © | Release: B E T A```";
+                                var mensagemCodificada = encodeURIComponent(mensagem);
+                                var urlWhatsApp = "https://api.whatsapp.com/send?phone=" + telefoneCliente + "&text=" + mensagemCodificada;
+                                window.open(urlWhatsApp, "_blank");
+                            }
+                        </script>
+                    ';
+                    
+                }else{
+                    return [
+                        'status'                =>  '($tipo_mensagem) espera (SERVICO)',
+                        'partial_mensagem'     =>  ''
+                    ];
+                }
+                return [
+                    'status'                =>  'OK',
+                    'partial_mensagem'       =>  $partial_mensagem
+                ];
+            }else if($modelo_mensagem == 'TELEGRAM BOT'){
                 if($tipo_mensagem == 'SERVICO'){
                     $result_servico     = $u->conServico($chave_busca, $cd_empresa);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);

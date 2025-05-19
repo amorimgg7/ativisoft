@@ -2229,6 +2229,7 @@ function listaCaixas($modelo, $inicio, $fim) {
 require_once '../../classes/conn.php';
 include("../../classes/functions.php");
 
+
 $this->SetFont('Arial', 'B', 14);
 $this->Cell(10, 7, '#', 1, 0, 'C');
 $this->Cell(130, 7, mb_convert_encoding('Descrição', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
@@ -2300,8 +2301,12 @@ while ($row_caixa = $result_caixa->fetch_assoc()) {
 	$soma_boleto          += (($b = $row_caixa['fpag_boleto'])        != 0 && $b !== null) ? $b : 0;
 	$soma_total_movimento += (($tm = $row_caixa['total_movimento'])   != 0 && $tm !== null) ? $tm : 0;
 
-	$caixa .= "$dinheiro$debito$credito$pix$cofre$boleto\n";
-	$caixa .= "$abertura$total_movimento\n\n";
+	if($dinheiro > 0 || $debito > 0 || $credito > 0 || $pix > 0 || $cofre > 0 || $boleto){
+		$caixa .= "$dinheiro$debito$credito$pix$cofre$boleto\n";
+	}
+	if($abertura > 0 || $total_movimento > 0){
+		$caixa .= "$abertura$total_movimento\n\n";
+	}
 	$caixa .= "Suprimento: R$: em breve     Sangria: R$: em breve\n\n";
 
 	$nb_linhas = $this->NbLines($w_caixa, $caixa);
