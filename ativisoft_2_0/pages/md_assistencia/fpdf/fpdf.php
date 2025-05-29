@@ -2087,7 +2087,7 @@ function dadosCliente($modelo, $nomeCompleto, $telefone, $obs) {
 		$this->SetFont('Arial', 'B', 14);
 		$this->Cell(0, 8, 'Dados do Cliente', 1, 1, 'L');
 		$this->SetFont('Arial', '', 10);
-		$cliente = "Cliente: $nomeCompleto\nTelefone: +$telefone\nEndereço: asd,123";
+		$cliente = "Cliente: $nomeCompleto\nTelefone: +$telefone\nEndereço: ";
 		$this->MultiCell(0, 5, mb_convert_encoding($cliente, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
 		$this->SetFont('Arial', '', 10);
 		$obs_formatado = 'OBS: ' . mb_convert_encoding($this->WrapText($obs), $_SESSION['toEncoding'], $_SESSION['fromEncoding']);
@@ -2111,7 +2111,7 @@ function dadosEmpresa($modelo, $nfantasia_filial, $cnpj_filial, $endereco_filial
 		$this->SetFont('Arial', 'B', 14);
 		$this->Cell(0, 8, 'Dados do Empresa', 1, 1, 'L');
 		$this->SetFont('Arial', '', 10);
-		$cliente = "Nome Fantasia: $nfantasia_filial\nRazão Social: \nCNPJ: $cnpj_filial\nEndereço Filial: $endereco_filial";
+		$cliente = "Nome Fantasia: $nfantasia_filial\nCNPJ: $cnpj_filial\nEndereço Filial: $endereco_filial";
 		$this->MultiCell(0, 5, mb_convert_encoding($cliente, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
 		$this->Ln(3);
 	}
@@ -2221,6 +2221,7 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
         $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$os."' ORDER BY cd_orcamento ASC";
         $result_orcamento = mysqli_query($conn, $select_orcamento);
         $count = 0;
+		$total_servico = 0;
         while($row_orcamento = $result_orcamento->fetch_assoc()) {
             $count++;
             // Define as larguras
@@ -2249,7 +2250,15 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
             $this->Cell($w_valor, $h_linha, mb_convert_encoding('R$:' . $row_orcamento['vcusto_orcamento'], $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
             // Vai para a linha de baixo
             $this->SetY($y + $h_linha);
+			$total_servico = $total_servico + $row_orcamento['vcusto_orcamento'];
         }
+
+			$this->SetX(155); // garante que está na margem esquerda
+			$this->SetFont('Arial', 'B', 10);
+			$this->Cell(0, 7, 'Total: R$: ' . number_format($total_servico, 2, '.'), 1, 1, 'R');
+			$this->Ln(1);
+
+
         $this->Ln(1);
 
 
