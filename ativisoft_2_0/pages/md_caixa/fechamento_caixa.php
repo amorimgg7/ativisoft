@@ -586,7 +586,9 @@
                                              ";
                                             mysqli_query($conn, $insert_conferencia);
                                             //echo "<script>window.alert('Caixa Conferido foi lançado!');</script>";
-                                            echo '<script>location.href="../../index.php";</script>';
+                                            //echo '<script>location.href="../../index.php";</script>';
+                                            echo '<script>location.href="'.$_SESSION['dominio'].'/pages/dashboard/index.php";</script>';
+
                                         }
 
 
@@ -1112,7 +1114,9 @@
                                              ";
                                             mysqli_query($conn, $insert_conferencia);
                                             //echo "<script>window.alert('Caixa Conferido foi lançado!');</script>";
-                                            echo '<script>location.href="../../index.php";</script>';
+                                            //echo '<script>location.href="../../index.php";</script>';
+                                            echo '<script>location.href="'.$_SESSION['dominio'].'/pages/dashboard/index.php";</script>';
+
                                         }
 
                                     }
@@ -1608,7 +1612,9 @@
                                              ";
                                             mysqli_query($conn, $insert_conferencia);
                                             echo "<script>window.alert('Caixa Conferido foi lançado!');</script>";
-                                            echo '<script>location.href="../../index.php";</script>';
+                                            //echo '<script>location.href="../../index.php";</script>';
+                                            echo '<script>location.href="'.$_SESSION['dominio'].'/pages/dashboard/index.php";</script>';
+
                                         }
                                     }
                                 ?>
@@ -1679,7 +1685,9 @@
                                          ";
                                         mysqli_query($conn, $insert_conferencia);
                                         echo "<script>window.alert('Caixa Conferido foi lançado!');</script>";
-                                        echo '<script>location.href="../../index.php";</script>';
+                                        //echo '<script>location.href="../../index.php";</script>';
+                                        echo '<script>location.href="'.$_SESSION['dominio'].'/pages/dashboard/index.php";</script>';
+
 
                                     }
                                     

@@ -1,3 +1,12 @@
+<?php
+    
+    if(!isset($_SESSION['dominio']))
+    {
+      session_start();
+      require_once('classes/conn.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,7 +22,7 @@
     <div class="container">
 
         <a 
-      href="https://sistema.ativisoft.com.br/pages/samples/login.php" 
+      href="<?php echo $_SESSION['dominio']?>/pages/samples/login.php"  
       class="btn btn-light position-absolute top-0 end-0 m-3"
       style="z-index: 10;"
     >

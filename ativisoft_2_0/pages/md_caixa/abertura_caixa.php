@@ -231,7 +231,7 @@
                                                 //echo "<script>window.alert('Acabo de abrir dia fiscal!');</script>";
                                             }
                                             //echo "<script>window.alert('Caixa Aberto!');</script>";
-                                            echo '<script>location.href="../../index.php";</script>';
+                                            echo '<script>location.href="'.$_SESSION['dominio'].'/pages/dashboard/index.php";</script>';
                                             }
                                         }
                                     }
