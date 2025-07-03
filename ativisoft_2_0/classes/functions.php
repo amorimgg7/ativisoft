@@ -36,7 +36,7 @@ class Usuario
     {
 
         $_SESSION['toEncoding'] = 'ISO-8859-1';
-$_SESSION['fromEncoding'] = 'UTF-8';
+        $_SESSION['fromEncoding'] = 'UTF-8';
 
 
         global $pdo;
@@ -68,6 +68,8 @@ $_SESSION['fromEncoding'] = 'UTF-8';
 
 
                 $_SESSION['md_assistencia'] = "style='display:none;'";
+                $_SESSION['md_lanchonete'] = "style='display:none;'";
+                $_SESSION['md_venda'] = "style='display:none;'";
                         $_SESSION['cad_geral'] = "style='display:none;'";
                         $_SESSION['md_cliente'] = "style='display:none;'";//$tb_acesso['md_cliente'];
                         $_SESSION['md_fornecedor'] = "style='display:none;'";// $tb_acesso['md_fornecedor'];
@@ -903,6 +905,235 @@ $_SESSION['fromEncoding'] = 'UTF-8';
 
     }
 
+    public function cadVenda($cd_cliente, $cd_colab, $cd_filial) 
+    {
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+            // Insere o serviço
+            $insert_venda = "INSERT INTO tb_venda(cd_cliente, cd_filial, abertura_venda, orcamento_venda, vpag_venda, status_venda)
+                VALUES('$cd_cliente', '$cd_filial', NOW(), 0, 0, '0')";
+            mysqli_query($conn, $insert_venda);
+            
+            // Recupera o serviço inserido
+            $select_venda = "SELECT * FROM tb_venda WHERE cd_filial = '$cd_filial' AND cd_cliente = '$cd_cliente' AND status_servico = 0 ORDER BY cd_servico DESC LIMIT 1";
+            $result_venda = mysqli_query($conn, $select_venda);
+            $row_venda = mysqli_fetch_assoc($result_venda);
+            
+            if (!$row_venda) {
+                return [
+                    'status'        =>  'Não encontrado serviço',
+                    'cd_servico'    =>  '0'
+                ];
+            }
+            
+            $result_venda = $u->conVenda($row_venda['cd_venda'], $cd_filial);
+        
+            if ($result_venda['status'] != 'OK') {
+                return [
+                    'status'        =>  'conVenda: '.$result_venda['status'],
+                    'cd_venda'      =>  '0'
+                ];
+            }
+            
+            $conn->commit();
+        
+            return [
+                'status'                =>  $result_venda['status'],
+                'cd_venda'              =>  $result_venda['cd_venda'],    
+                'cd_filial'             =>  $result_venda['cd_filial'],
+                'cd_cliente'            =>  $result_venda['cd_cliente'],    
+                'id_venda'              =>  $result_venda['id_venda'],                
+                'abertura_venda'        =>  $result_venda['abertura_venda'],        
+                'orcamento_venda'       =>  $result_venda['orcamento_venda'],    
+                'vpag_venda'            =>  $result_venda['vpag_venda'],        
+                'status_venda'        =>  $result_venda['status_servico']        
+            ];
+
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'status'        => addslashes($e->getMessage()),
+                'cd_venda'      => '0'
+            ];
+        }
+
+            
+
+
+            
+            
+
+    }
+
+    public function conVenda($cd_venda, $cd_filial) 
+    {
+        global $conn;
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+            // Recupera o serviço inserido
+            $select_venda = "SELECT * FROM tb_venda v, tb_pessoa c WHERE c.cd_pessoa = v.cd_venda AND v.cd_filial = '$cd_filial' AND v.cd_venda = '$cd_venda' LIMIT 1";
+            $result_venda = mysqli_query($conn, $select_venda);
+            $row_venda = mysqli_fetch_assoc($result_venda);
+            
+            if (!$row_venda) {
+                return [
+                    'status'        =>  'Venda não encontrada',
+                    'cd_venda'      =>  '0'
+                ];
+            }
+            
+            $partial_venda = '
+                <form method="POST">
+
+                <div class="card-body" id="abrirVenda">
+                <div class="kt-portlet__body">
+                <div class="row">
+                <div class="col-12 col-md-12">
+                <h3 class="kt-portlet__head-title">Dados da Venda</h3>
+                <div  class="typeahead">
+
+                <div class="form-group-custom">
+                <label for="nome_cliente_venda">Cliente</label>
+                <input value="'.$row_venda['cd_pessoa'].' '.$row_venda['snome_pessoa'].'" type="hidden" name="cd_cliente_venda" id="cd_cliente_venda" class=" form-control form-control-sm" readonly>
+                <input value="'.$row_venda['pnome_pessoa'].' '.$row_venda['snome_pessoa'].'" type="text" name="nome_cliente_venda" id="nome_cliente_venda" class=" form-control form-control-sm" readonly>
+                </div>
+
+                <div class="form-group-custom">
+                <label for="cliente_venda">Telefone</label>
+                <input value="+'.$row_venda['tel1_pessoa'].'" type="text" name="cliente_venda" id="cliente_venda" class=" form-control form-control-sm" readonly>
+                </div>
+
+                <div class="form-group-custom">
+                <label for="editcd_venda">Venda</label>
+                <input value="'.$row_venda['cd_venda'].'" type="tel" name="cd_venda" id="cd_venda" class=" form-control form-control-sm" readonly>
+                </div>
+
+                <div class="form-group-custom">
+                <label>Abertura</label>
+                <input value="'.$row_venda['abertura_venda'].'" type="datetime-local" class=" form-control form-control-sm" style="display: block; " readonly/>
+                </div>
+
+                <div class="form-group-custom">
+                <label for="fechamento_venda">Fechamento</label>
+                <input value="'.$row_venda['fechamento_venda'].'" name="fechamento_venda" type="datetime-local" id="fechamento_venda" class=" form-control form-control-sm"/>
+                </div>
+
+                <td><button type="submit" name="editVenda" id="editVenda" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Salvar</button></td>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+                </form>
+            ';
+                    
+
+
+
+
+                $conn->commit();
+            
+                // Oculta o formulário
+                //echo '<script>document.getElementById("cadOs").style.display = "none";</script>';
+            
+
+                return [
+                    'status'                =>  'OK',
+                    'cd_venda'              =>  $row_venda['cd_venda'],    
+                    'cd_filial'             =>  $row_venda['cd_filial'],
+                    'cd_cliente'            =>  $row_venda['cd_cliente'],    
+                    'id_venda'              =>  $row_venda['id_venda'],    
+                    'abertura_venda'        =>  $row_venda['abertura_venda'],        
+                    'fechamento_venda'      =>  $row_venda['fechamento_venda'],    
+                    'orcamento_venda'       =>  $row_venda['orcamento_venda'],        
+                    'vpag_venda'            =>  $row_venda['vpag_venda'],    
+                    'status_venda'          =>  $row_venda['status_servico'],
+                    'partial_venda'         =>  $partial_venda
+                ];
+
+
+                
+                
+            } catch (Exception $e) {
+                $conn->rollback();
+                return [
+                    'status'        => addslashes($e->getMessage()),
+                    'cd_venda'      => '0'
+                ];
+            }
+
+    }
+
+    public function editVenda($cd_venda, $cd_filial, $titulo_venda, $fechamento_venda, $orcamento_venda, $vpag_venda, $status_venda) 
+    {
+        global $conn;
+        $u = new Usuario();
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+            $update_venda = "UPDATE tb_venda SET
+                        titulo_venda = '".$titulo_venda."',
+                        fechamento_venda = '".$fechamento_venda."',
+                        orcamento_venda = '".$orcamento_venda."',
+                        vpag_venda = '".$vpag_venda."',
+                        status_venda = '".$status_venda."'
+                        WHERE cd_venda = '".$cd_venda."'";
+            mysqli_query($conn, $update_venda);
+            
+            // Recupera o serviço inserido
+            $result_venda = $u->conVenda($cd_venda, $cd_filial);
+            
+            if ($result_venda['status'] != 'OK') {
+                return [
+                    'status'        =>  'conVenda: '.$result_venda['status'],
+                    'cd_venda'      =>  '0'
+                ];
+            }
+            
+            // Commit na transação
+            $conn->commit();
+
+            return [
+                'status'                =>  'OK',
+                'cd_venda'              =>  $result_venda['cd_venda'],
+                'cd_filial'             =>  $result_venda['cd_filial'],
+                'cd_cliente'            =>  $result_venda['cd_cliente'],
+                'id_venda'              =>  $result_venda['id_venda'],
+                'abertura_venda'        =>  $result_venda['abertura_venda'],
+                'fechamento_venda'      =>  $result_venda['fechamento_venda'],
+                'orcamento_venda'       =>  $result_venda['orcamento_venda'],
+                'vpag_venda'            =>  $result_venda['vpag_venda'],
+                'status_venda'          =>  $result_venda['status_venda']
+            ];
+
+
+                
+                
+            } catch (Exception $e) {
+                $conn->rollback();
+                return [
+                    'status'        => addslashes($e->getMessage()),
+                    'cd_venda'  => '0'
+                ];
+            }
+
+            
+
+
+            
+            
+
+    }
+
     public function listOrcamentoServico($cd_servico, $cd_filial) 
     {
         global $conn;
@@ -984,7 +1215,7 @@ $_SESSION['fromEncoding'] = 'UTF-8';
                         <div class="col-12 col-md-12">
                             <h3 class="kt-portlet__head-title">Composição do Orcamento</h3>
                             <form method="post">
-                                <div class="typeahead">
+                                <!--<div class="typeahead">-->
             ';
             
             $partial_orcamento  =   $partial_orcamento.'
@@ -1086,7 +1317,7 @@ $_SESSION['fromEncoding'] = 'UTF-8';
                 
             }
             $partial_orcamento  =   $partial_orcamento.'
-                                </div>
+                                <!--</div>-->
                             </form>
                         </div>
                     </div>

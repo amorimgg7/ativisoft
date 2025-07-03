@@ -159,6 +159,7 @@ if($_SESSION['cd_acesso'] == 1){
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_vendas/nova_venda.php">Nova Venda</a></li>
                 <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_vendas/historico_vendas.php">Histórico</a></li>
+                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_lanchonete/nova_conta.php">Fiado</a></li>
               </ul>
             </div> 
           </li>

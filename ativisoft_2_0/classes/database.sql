@@ -170,6 +170,24 @@ CREATE TABLE tb_servico(
 ALTER TABLE tb_servico
 ADD CONSTRAINT fk_rel_cliente FOREIGN KEY (cd_cliente) REFERENCES tb_pessoa (cd_pessoa);
 
+
+CREATE TABLE tb_venda(
+    cd_venda integer PRIMARY KEY AUTO_INCREMENT,
+    cd_filial integer not null,
+    cd_cliente integer,
+    id_venda varchar(40),
+    titulo_venda varchar(100),
+    abertura_venda varchar(40),
+    fechamento_venda varchar(40),
+    orcamento_venda varchar(40),
+    vpag_venda varchar(40),
+    status_venda varchar(10)
+);
+ALTER TABLE tb_venda
+ADD CONSTRAINT fk_rel_cliente_venda FOREIGN KEY (cd_cliente) REFERENCES tb_pessoa (cd_pessoa);
+
+
+
 CREATE TABLE tb_orcamento_servico(
     cd_orcamento integer PRIMARY KEY AUTO_INCREMENT,
     cd_filial integer not null,
@@ -187,6 +205,21 @@ ALTER TABLE tb_orcamento_servico
 ADD CONSTRAINT fk_rel_orcamento1 FOREIGN KEY (cd_servico) REFERENCES tb_servico (cd_servico),
 ADD CONSTRAINT fk_rel_orcamento2 FOREIGN KEY (cd_cliente) REFERENCES tb_pessoa (cd_pessoa);
 
+CREATE TABLE tb_orcamento_venda(
+    cd_orcamento integer PRIMARY KEY AUTO_INCREMENT,
+    cd_filial integer not null,
+    cd_venda integer,
+    cd_cliente integer,
+    titulo_orcamento varchar(999),
+    vcusto_orcamento varchar(40),
+    vpag_orcamento varchar(40),
+    vtotal_orcamento varchar(40),
+    tipo_orcamento varchar(40),
+    status_orcamento integer
+);
+ALTER TABLE tb_orcamento_venda
+ADD CONSTRAINT fk_rel_orcamento_venda1 FOREIGN KEY (cd_venda) REFERENCES tb_venda (cd_venda),
+ADD CONSTRAINT fk_rel_orcamento_venda2 FOREIGN KEY (cd_cliente) REFERENCES tb_pessoa (cd_pessoa);
 
 
 CREATE TABLE tb_atividade(

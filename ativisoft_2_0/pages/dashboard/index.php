@@ -274,9 +274,10 @@
                   }
                   if($_SESSION['cd_funcao'] == 6)
                   {
-                    echo '<h1>Módulo Patrimônio!</h1>';
-                    echo '<h6>&nbsp&nbsp&nbsp&nbsp Licença ao módulo de controle patrimônial.</h6>';
-                    //include '../../pages/md_patrimonio/index.php';
+                    //include '../../pages/auto_pagamento/index.php';
+                    include '../../pages/md_caixa/index.php';
+                    //include '../../pages/md_vendas/index.php';
+                    include '../../pages/md_lanchonete/index.php';
                   }
                   if($_SESSION['cd_funcao'] == 7)
                   {
@@ -286,9 +287,6 @@
                     ////include '../../pages/md_hospedagem/index.php';
                     //include '../../pages/md_patrimonio/index.php';
                   }
-
-
-                  
 
                 ?>
               </div>
