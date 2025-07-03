@@ -197,7 +197,8 @@
                   $_SESSION['statusCadastros'] = 1;
                 }
                 if(isset($_POST['cadGrupo_funcao'])) {
-                  $query = "INSERT INTO tb_grupo(titulo_grupo, obs_grupo) VALUES(
+                  $query = "INSERT INTO tb_grupo(cd_filial, titulo_grupo, obs_grupo) VALUES(
+                    '".$_SESSION['cd_empresa']."',
                     '".$_POST['edittitulo_grupo']."',
                     '".$_POST['editdescricao_grupo']."')
                   ";
@@ -206,7 +207,9 @@
                   $_SESSION['statusCadastros'] = FALSE;
                 }
                 if(isset($_POST['cadProdServ_funcao'])) {
-                  $query = "INSERT INTO tb_prod_serv(cd_grupo, cdbarras_prod_serv, titulo_prod_serv, obs_prod_serv, estoque_prod_serv, preco_prod_serv, custo_prod_serv, status_prod_serv) VALUES(
+                  $query = "INSERT INTO tb_prod_serv(cd_empresa, cd_filial, cd_grupo, cdbarras_prod_serv, titulo_prod_serv, obs_prod_serv, estoque_prod_serv, preco_prod_serv, custo_prod_serv, status_prod_serv) VALUES(
+                    '".$_SESSION['cd_empresa']."',
+                    '".$_SESSION['cd_filial']."',
                     '".$_POST['grupo_prod_serv']."',
                     '".$_POST['cdbarras_prod_serv']."',
                     '".$_POST['titulo_prod_serv']."',
@@ -873,7 +876,7 @@
                 echo '</div>';
               
               }else{
-                $select_grupo = "SELECT * FROM tb_grupo ORDER BY cd_grupo ASC";
+                $select_grupo = "SELECT * FROM tb_grupo where cd_filial = ".$_SESSION['cd_empresa']." ORDER BY cd_grupo ASC";
                 $resulta_grupo = $conn->query($select_grupo);
                 if ($resulta_grupo->num_rows > 0){
                   while ( $row_grupo = $resulta_grupo->fetch_assoc()){

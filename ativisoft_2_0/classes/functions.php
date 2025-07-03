@@ -1165,6 +1165,7 @@ class Usuario
                  AND tr.qtd_efetivado IS NULL
              WHERE tps.estoque_prod_serv > 0 
                AND tps.status_prod_serv = '1'
+               AND tps.cd_empresa = ".$_SESSION['cd_empresa']."
              GROUP BY tps.cd_prod_serv
              ORDER BY tps.cd_prod_serv;";
 
@@ -1274,8 +1275,8 @@ class Usuario
                                                         <div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text btn-outline-info">QTD</span>
-                                                                <input type="tel" id="produto_servico_estoque" name="produto_servico_estoque" class="form-control form-control-sm" style="display:block;" readonly>
-                                                                <input type="tel" id="produto_servico_reserva" name="produto_servico_reserva" class="form-control form-control-sm" style="display:block" readonly>         
+                                                                <input type="hidden" id="produto_servico_estoque" name="produto_servico_estoque" class="form-control form-control-sm" style="display:block;" readonly>
+                                                                <input type="hidden" id="produto_servico_reserva" name="produto_servico_reserva" class="form-control form-control-sm" style="display:block" readonly>         
                                                                 <input type="tel" id="produto_servico_qtd" name="produto_servico_qtd" value="1" class="form-control form-control-sm" oninput="tel(this), calculateTotal()">
                                                             </div>
                                                         </div>
