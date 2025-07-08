@@ -47,66 +47,7 @@
   
   
   
-<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
 
-  <script>
-
-    function updatePriceAndCode() {
-    const select = document.getElementById('produto_venda');
-    const selectedOption = select.options[select.selectedIndex];
-
-    // Atualizar o preço
-    const preco = selectedOption.getAttribute('data-preco') || 0;
-    document.getElementById('produto_venda_preco').value = parseFloat(preco).toFixed(2);
-
-    // Atualizar o ID do produto
-    const cdProduto = selectedOption.value || '**';
-    document.getElementById('produto_venda_id1').textContent = cdProduto;
-    document.getElementById('produto_venda_id2').value = cdProduto;
-
-    const tituloProdServ = selectedOption.text || '';
-    document.getElementById('produto_venda_nome').value = tituloProdServ;
-
-    const estoque = selectedOption.getAttribute('data-estoque') || 0;
-    document.getElementById('produto_venda_estoque').value = estoque;
-
-    const reserva = selectedOption.getAttribute('data-reserva') || 0;
-    document.getElementById('produto_venda_reserva').value = reserva;
-
-
-    // Recalcular o total
-    calculateTotal();
-}
-
-
-    function calculateTotal() {
-      const preco = parseFloat(document.getElementById('produto_venda_preco').value) || 0;
-      const quantidade = parseFloat(document.getElementById('produto_venda_qtd').value) || 0;
-      const estoque = parseFloat(document.getElementById('produto_venda_estoque').value) || 0;
-      const reserva = parseFloat(document.getElementById('produto_venda_reserva').value) || 0;
-
-
-      const total = preco * quantidade;
-
-      // Validar se a quantidade excede o estoque
-    if (quantidade > estoque) {
-        // Adicionar borda vermelha
-        document.getElementById('produto_venda_qtd').style.border = "2px solid red";
-    } else if(quantidade > (estoque - reserva)){
-      document.getElementById('produto_venda_qtd').style.border = "2px solid orange";
-    }else{
-        // Restaurar borda normal
-        document.getElementById('produto_venda_qtd').style.border = "";
-    }
-
-
-      document.getElementById('produto_venda_vtotal').value = total.toFixed(2);
-    }
-</script>
 
 <script>
               		function abrirCadastro() {
@@ -220,31 +161,7 @@
                       echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 
-                      echo '<div class="card-body" id="cadOs"><!--FORMULÁRIO PARA CRIAR Venda-->';
-                      echo '<div class="kt-portlet__body">';
-                      echo '<div class="row">';
-                      echo '<div class="col-12 col-md-12">';
-                      echo '<div class="nc-form-tac">';
                       
-                      echo '<form method="POST">';
-                      echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
-                      echo '<div  class="typeahead">';
-
-                      echo '<div class="form-group-custom">';
-                      echo '<input value="'.$result_cliente['cd_cliente'].'" name="cd_cliente" type="text" id="cd_cliente" class=" form-control form-control-sm" style="display: none;"/>';
-                      echo '</div>';
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="showpnome_cliente">Nome</label>';
-                      echo '<input value="'.$result_cliente['pnome_cliente'].'" name="showpnome_cliente" type="text" id="showpnome_cliente" maxlength="40"   class=" form-control form-control-sm" readonly/>';
-                      echo '</div>';
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="showsnome_cliente">sobrenome</label>';
-                      echo '<input value="'.$result_cliente['snome_cliente'].'" name="showsnome_cliente" type="text" id="showsnome_cliente" maxlength="40"   class=" form-control form-control-sm" readonly/>';
-                      echo '</div>';
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="showtel_cliente">Telefone</label>';
-                      echo '<input value="'.$result_cliente['tel1_cliente'].'" name="showtel_cliente" type="tel"  id="showtel_cliente" oninput="tel(this)" class=" form-control form-control-sm" readonly/>';
-                      echo '</div>';
                       if($result_cliente['alerta_financeiro'] != 'OK'){
                         echo "<script>alert('" . $result_cliente['alerta_financeiro'] . "');</script>";
                         echo $result_cliente['acao_alerta'];
@@ -252,52 +169,13 @@
                       
                       echo '</div>';
                               
-                      echo '<h3 class="kt-portlet__head-title">Dados do Venda</h3>';
-                      echo '<div  class="typeahead">';
-                      echo '<input type="tel" name="cd_venda" id="cd_venda" style="display: none;">';
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="obs_venda">Descrição Geral</label>';
-                      echo '<input type="text" name="obs_venda" maxlength="999" id="obs_venda"  class="form-control form-control-sm" placeholder="Caracteristica geral do Venda" required>';
-                      echo '<!--<textarea name="obs_venda" maxlength="999" id="obs_venda"  class="form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?" ></textarea>-->';
-                      echo '</div>';
-                      echo '<div class="form-group-custom">';   
-                      echo '<label for="prioridade_venda">Prioridade</label>';
-                      echo '<select name="prioridade_venda" id="prioridade_venda"  class="form-control form-control-sm" required>';
                       
-                      echo '<option value="B">Baixa</option>';
-                      echo '<option selected="selected" value="M">Média</option>';
-                      echo '<option value="A">Alta</option>';
-                      echo '<option value="U">Urgente</option>';
-                      echo '</select>';
-                      echo '</div>';
-                      
-                      echo '<!--<label for="showprazo_venda">Entrada</label>-->';
-                      echo '<input name="data_hora_ponto" type="datetime-local" id="data_hora_ponto" placeholder="Data" class=" form-control form-control-sm" style="display: none;" />';
-                      
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="prazo_venda">Prazo</label>';
-                      echo '<input name="prazo_venda" type="datetime-local" id="prazo_venda" placeholder="Data" class=" form-control form-control-sm" value="16:"/>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '<button type="submit" name="cadServico" class="btn btn-block btn-lg btn-success" onclick="fechacadServico()">Lançar</button>';
-                      echo '</form>';
-                              
-                      echo '</form>';
-                      echo '<form method="post">';//echo '<button type="submit" class="btn btn-danger" name="limparConta" style="margin: 5px;">Nova Consulta</button>';
-                      echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparConta" style="margin:10px 0px;">Refazer</button>';
-                      echo '</form>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-
                     }else if($result_cliente['status'] == 'Não encontrado cliente'){
                       echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 
                       echo '<div class="card-body" id="cadastroCliente" style="display:block;">
-                  <h3 class="kt-portlet__head-title">Dados do cliente</h3>
+                  <h3 class="kt-portlet__head-title">Dados do clientessss</h3>
                   <div class="kt-portlet__body">
                     <div class="row">
                       <div class="col-12 col-md-12">
@@ -353,78 +231,39 @@
                       echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 
-                      echo '<div class="card-body" id="cadOs"><!--FORMULÁRIO PARA CRIAR Venda-->';
-                      echo '<div class="kt-portlet__body">';
-                      echo '<div class="row">';
-                      echo '<div class="col-12 col-md-12">';
-                      echo '<div class="nc-form-tac">';
                       
-                      echo '<form method="POST">';
-                      echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
-                      echo '<div  class="typeahead">';
-
-                      echo '<div class="form-group-custom">';
-                      echo '<input value="'.$result_cliente['cd_cliente'].'" name="cd_cliente" type="text" id="cd_cliente" class=" form-control form-control-sm" style="display: none;"/>';
-                      echo '</div>';
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="showpnome_cliente">Nome</label>';
-                      echo '<input value="'.$result_cliente['pnome_cliente'].'" name="showpnome_cliente" type="text" id="showpnome_cliente" maxlength="40"   class=" form-control form-control-sm" readonly/>';
-                      echo '</div>';
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="showsnome_cliente">sobrenome</label>';
-                      echo '<input value="'.$result_cliente['snome_cliente'].'" name="showsnome_cliente" type="text" id="showsnome_cliente" maxlength="40"   class=" form-control form-control-sm" readonly/>';
-                      echo '</div>';
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="showtel_cliente">Telefone</label>';
-                      echo '<input value="'.$result_cliente['tel1_cliente'].'" name="showtel_cliente" type="tel"  id="showtel_cliente" oninput="tel(this)" class=" form-control form-control-sm" readonly/>';
-                      echo '</div>';
                       if($result_cliente['alerta_financeiro'] != 'OK'){
                         echo "<script>alert('" . $result_cliente['alerta_financeiro'] . "');</script>";
                         echo $result_cliente['acao_alerta'];
                       }
                       
-                      echo '</div>';
-                              
-                      echo '<h3 class="kt-portlet__head-title">Dados do Venda</h3>';
-                      echo '<div  class="typeahead">';
-                      echo '<input type="tel" name="cd_venda" id="cd_venda" style="display: none;">';
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="obs_venda">Descrição Geral</label>';
-                      echo '<input type="text" name="obs_venda" maxlength="999" id="obs_venda"  class="form-control form-control-sm" placeholder="Caracteristica geral do Venda" required>';
-                      echo '<!--<textarea name="obs_venda" maxlength="999" id="obs_venda"  class="form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?" ></textarea>-->';
-                      echo '</div>';
-                      echo '<div class="form-group-custom">';   
-                      echo '<label for="prioridade_venda">Prioridade</label>';
-                      echo '<select name="prioridade_venda" id="prioridade_venda"  class="form-control form-control-sm" required>';
                       
-                      echo '<option value="B">Baixa</option>';
-                      echo '<option selected="selected" value="M">Média</option>';
-                      echo '<option value="A">Alta</option>';
-                      echo '<option value="U">Urgente</option>';
-                      echo '</select>';
-                      echo '</div>';
-                      
-                      echo '<!--<label for="showprazo_venda">Entrada</label>-->';
-                      echo '<input name="data_hora_ponto" type="datetime-local" id="data_hora_ponto" placeholder="Data" class=" form-control form-control-sm" style="display: none;" />';
-                      
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="prazo_venda">Prazo</label>';
-                      echo '<input name="prazo_venda" type="datetime-local" id="prazo_venda" placeholder="Data" class=" form-control form-control-sm" value="16:"/>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '<button type="submit" name="cadServico" class="btn btn-block btn-lg btn-success" onclick="fechacadServico()">Lançar</button>';
-                      echo '</form>';
-                              
-                      echo '</form>';
-                      echo '<form method="post">';//echo '<button type="submit" class="btn btn-danger" name="limparConta" style="margin: 5px;">Nova Consulta</button>';
-                      echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparConta" style="margin:10px 0px;">Refazer</button>';
-                      echo '</form>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
+                      $result_venda = $u->conVenda(
+                        'CC',
+                        $result_cliente['cd_cliente'],
+                        $_SESSION['cd_filial']
+                      );
+                      if($result_venda['status'] == 'OK'){
+                        //echo '<h1>Venda</h1>';
+                        //echo $result_venda['partial_venda'];
+                        
+                        
+                        $_SESSION['cd_venda']         = $retornoCadVenda['cd_venda'];
+                        $_SESSION['venda']            = $retornoCadVenda['cd_venda'];
+                        $_SESSION['cd_cliente']       = $retornoCadVenda['cd_cliente'];
+                        $_SESSION['titulo_venda']     = $retornoCadVenda['titulo_venda'];
+                        $_SESSION['obs_venda']        = $retornoCadVenda['obs_venda'];        
+                        $_SESSION['prioridade_venda'] = $retornoCadVenda['prioridade_venda']; 
+                        $_SESSION['entrada_venda']    = $retornoCadVenda['entrada_venda'];    
+                        $_SESSION['prazo_venda']      = $retornoCadVenda['prazo_venda'];      
+                        $_SESSION['orcamento_venda']  = $retornoCadVenda['orcamento_venda'];  
+                        $_SESSION['vpag_venda']       = $retornoCadVenda['vpag_venda'];    
 
+                      }else{
+                        echo "<h1>".$result_venda['status']."</h1>";
+                        echo $result_venda['partial_venda'];
+                      }
+                      
                     }else if($result_cliente['status'] == 'Não encontrado cliente'){
                       echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
@@ -478,20 +317,20 @@
                       $_SESSION['cd_empresa']
                     );
                     
-                    if($retornoCadServico['status'] == 'OK'){
+                    if($retornoCadVenda['status'] == 'OK'){
 
-                      echo "<script>alert('Conta Gerada: " . $retornoCadServico['cd_venda'] . "');</script>";
+                      echo "<script>alert('Conta Gerada: " . $retornoCadVenda['cd_venda'] . "');</script>";
                       ////$_SESSION['cd_venda'] = $retornoCadServico[''];
-                      $_SESSION['cd_venda']         = $retornoCadServico['cd_venda'];
-                      $_SESSION['venda']            = $retornoCadServico['cd_venda'];
-                      $_SESSION['cd_cliente']         = $retornoCadServico['cd_cliente'];
-                      $_SESSION['titulo_venda']     = $retornoCadServico['titulo_venda'];
-                      $_SESSION['obs_venda']        = $retornoCadServico['obs_venda'];        
-                      $_SESSION['prioridade_venda'] = $retornoCadServico['prioridade_venda']; 
-                      $_SESSION['entrada_venda']    = $retornoCadServico['entrada_venda'];    
-                      $_SESSION['prazo_venda']      = $retornoCadServico['prazo_venda'];      
-                      $_SESSION['orcamento_venda']  = $retornoCadServico['orcamento_venda'];  
-                      $_SESSION['vpag_venda']       = $retornoCadServico['vpag_venda'];       
+                      $_SESSION['cd_venda']         = $retornoCadVenda['cd_venda'];
+                      $_SESSION['venda']            = $retornoCadVenda['cd_venda'];
+                      $_SESSION['cd_cliente']       = $retornoCadVenda['cd_cliente'];
+                      $_SESSION['titulo_venda']     = $retornoCadVenda['titulo_venda'];
+                      $_SESSION['obs_venda']        = $retornoCadVenda['obs_venda'];        
+                      $_SESSION['prioridade_venda'] = $retornoCadVenda['prioridade_venda']; 
+                      $_SESSION['entrada_venda']    = $retornoCadVenda['entrada_venda'];    
+                      $_SESSION['prazo_venda']      = $retornoCadVenda['prazo_venda'];      
+                      $_SESSION['orcamento_venda']  = $retornoCadVenda['orcamento_venda'];  
+                      $_SESSION['vpag_venda']       = $retornoCadVenda['vpag_venda'];       
                   
                     }else{
                       echo "<script>alert('| - | - | - | ". $retornoCadServico['status'] . " | - | - | - |');</script>";
@@ -757,9 +596,9 @@ if ($_POST['confirmacao'] === 'sim') {
 
 
                       if($_SESSION['cd_venda'] > 0){
-                        $result_venda     = $u->conServico($_SESSION['cd_venda'], $_SESSION['cd_empresa']);
+                        $result_venda       = $u->conVenda('CV', $_SESSION['cd_venda'], $_SESSION['cd_empresa']);
                         $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
-                        $result_orcamento   = $u->listOrcamentoServico($result_venda['cd_venda'], $_SESSION['cd_empresa']);
+                        $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $_SESSION['cd_empresa']);
                         $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], $_SESSION['cd_venda'], '', $result_orcamento['falta_pagar']);
                         $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_venda']);
                         $result_mensagem   = $u->mensagem1($_SESSION['tipo_mensagem'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_venda']);

@@ -126,7 +126,7 @@ $u = new Usuario;
                                     echo '<div class="collapse" style="display:block;">';
 
                                     //$select_caixa_lista = "SELECT * FROM tb_caixa WHERE DATE(dt_abertura) >= '".$dt_inicio."' AND DATE(dt_abertura) <= '".$dt_fim."' ORDER by cd_caixa ASC";
-                                    $select_caixa_lista = "SELECT * FROM tb_caixa where status_caixa > 0 ORDER by cd_caixa DESC";
+                                    $select_caixa_lista = "SELECT * FROM tb_caixa ORDER by cd_caixa DESC";
                 
 
 
@@ -157,14 +157,24 @@ $u = new Usuario;
                                         echo '</thead>';
                                         echo '<tbody>';
                                         while ( $caixa = $resulta_caixa->fetch_assoc()){
-                                            echo '<tr>';
-                                            echo '<form method="POST" action="form_conf_caixa.php">';
-                                            echo '<td style="display: none;"><input type="tel" id="con_conf_cd_caixa" name="con_conf_cd_caixa" value="'.$caixa['cd_caixa'].'"></td>';
-                                            echo '<td><button type="submit" class="btn btn-outline-dark" name="btn_cd_'.$caixa['cd_caixa'].'" id="btn_cd_'.$caixa['cd_caixa'].'">'.$caixa['cd_caixa'].'</button></td>';
-                                            echo '</form>';
-
-                                            echo '<td><label>'.date('d/m/y', strtotime($caixa['dt_abertura'])).'</label></td>';
-                                            echo '<td><label>'.date('d/m/y', strtotime($caixa['dt_fechamento'])).'</label></td>';
+                                            if($caixa['status_caixa'] == 0){
+                                                echo '<tr class="table-dark">';
+                                                echo '<form method="POST" action="form_conf_caixa.php">';
+                                                echo '<td style="display: none;"><input type="tel" id="con_conf_cd_caixa" name="con_conf_cd_caixa" value="'.$caixa['cd_caixa'].'"></td>';
+                                                echo '<td><button type="submit" class="btn btn-outline-dark" name="btn_cd_'.$caixa['cd_caixa'].'" id="btn_cd_'.$caixa['cd_caixa'].'">'.$caixa['cd_caixa'].'</button></td>';
+                                                echo '</form>';
+                                                echo '<td><label>'.date('d/m/y', strtotime($caixa['dt_abertura'])).'</label></td>';
+                                                echo '<td><label>Aberto</label></td>';
+                                            }else{
+                                                echo '<tr class="table-info">';
+                                                echo '<form method="POST" action="form_conf_caixa.php">';
+                                                echo '<td style="display: none;"><input type="tel" id="con_conf_cd_caixa" name="con_conf_cd_caixa" value="'.$caixa['cd_caixa'].'"></td>';
+                                                echo '<td><button type="submit" class="btn btn-outline-dark" name="btn_cd_'.$caixa['cd_caixa'].'" id="btn_cd_'.$caixa['cd_caixa'].'">'.$caixa['cd_caixa'].'</button></td>';
+                                                echo '</form>';
+                                                echo '<td><label>'.date('d/m/y', strtotime($caixa['dt_abertura'])).'</label></td>';
+                                                echo '<td><label>'.date('d/m/y', strtotime($caixa['dt_fechamento'])).'</label></td>';
+                                                echo '</tr>';
+                                            }
 
                                         }
                                         echo '</tbody>';

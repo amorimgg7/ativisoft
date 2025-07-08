@@ -17,6 +17,8 @@ $u = new Usuario;
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
     <title>Análise de caixa</title>
     <!-- base:css -->
     <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
@@ -39,6 +41,7 @@ $u = new Usuario;
 
 <!--<body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">-->
 
+
 <body>
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
@@ -55,8 +58,127 @@ $u = new Usuario;
                             <?php
                                 if(isset($_POST['con_conf_cd_caixa']))
                                 {
-                                    echo '<h1>Conferir Caixa Passado</h1>';
-                                    $select_caixa_conferido = "SELECT * FROM tb_caixa WHERE cd_caixa = '".$_POST['con_conf_cd_caixa']."'";
+                                    if($_SESSION['status_caixa'] != 0){
+                                        echo '<h1>Conferir Caixa Passado</h1>';
+                                    }
+                                        $select_caixa_conferido = "SELECT * FROM tb_caixa WHERE status_caixa = 0 and cd_caixa = '".$_POST['con_conf_cd_caixa']."'";
+                                    //echo '<h3>'.$dia_hoje.'</h3>';
+                                    //insert into tb_caixa(dt_abertura, cd_colab_abertura, saldo_abertura, status_caixa) VALUES('2023-08-12T13:00','1','15','0')
+                                    $resulta_caixa_conferido = $conn->query($select_caixa_conferido);
+                                    if ($resulta_caixa_conferido->num_rows > 0){
+                                        //echo '<div class="col-lg-6 grid-margin stretch-card" style="background-color: #FF0000;">';//dia anterior aberto
+                                        
+                                        echo '<div class="card" '.$_SESSION['c_card'].'';
+                                        echo '<div class="card-body">';
+                                          
+                                        echo '<h4 class="card-title">Dados Analíticos</h4>';
+                                        echo '<div class="table-responsive">';
+                                        echo '<table class="table">';
+                                        echo '<thead>';
+                                        echo '<tr>';
+                                        echo '<th>Abertura</th>';
+                                        echo '<th>Responsável</th>';
+                                        echo '<th>Total Abertura</th>'; 
+                                        echo '</tr>';
+                                        echo '</thead>';
+                                        echo '<tbody>';
+                                        while ( $row_caixa_conferido = $resulta_caixa_conferido->fetch_assoc()){
+                                            //$_SESSION['cd_caixa_conferido']
+                                            
+
+                                        echo '
+                                            <h5 id="timer">Atualizando em 30s...</h5>
+                                                                                
+                                            <script>
+                                                let t = 30;
+                                                const timer = document.getElementById("timer");
+                                                                                
+                                                const intervalo = setInterval(() => {
+                                                    t--;
+                                                    timer.textContent = `Atualizando em ${t}s...`;
+                                                    if (t <= 0) {
+                                                        clearInterval(intervalo);
+                                                        location.reload(); // faz o "F5"
+                                                    }
+                                                }, 1000);
+                                            </script>
+                                        ';
+
+                                            $_SESSION['cd_caixa_conferido'] = $row_caixa_conferido['cd_caixa'];
+                                            $_SESSION['status_caixa'] = $row_caixa_conferido['status_caixa'];
+
+                                            echo '<tr>';
+                                            echo '<td>'.date('d/m/y H:i', strtotime($row_caixa_conferido['dt_abertura'])).'</td>';
+                                            
+                                            //echo '<td>'.$row_caixa['dt_abertura'].'/'.$row_caixa['dt_fechamento'].'</td>';
+                                            $select_responsavel_conferido = "SELECT * FROM tb_colab WHERE cd_colab = '".$row_caixa_conferido['cd_colab_abertura']."'";
+                                            //insert into tb_caixa(dt_abertura, cd_colab_abertura, saldo_abertura, status_caixa) VALUES('2023-08-12T13:00','1','15','0')
+                                            $resulta_responsavel_conferido = $conn->query($select_responsavel_conferido);
+                                            while ($row_responsavel_conferido = $resulta_responsavel_conferido->fetch_assoc()){
+                                                echo '<td>'.$row_responsavel_conferido['pnome_colab'].' '.$row_responsavel_conferido['snome_colab'].'</td>';
+                                            }
+                                            $total_abertura_caixa = $row_caixa_conferido['saldo_abertura'];
+                                            echo '<td>R$: '.$row_caixa_conferido['saldo_abertura'].'</td>';
+                                        }
+                                        echo '</tr>';
+                                        echo '</tbody>';
+                                        echo '</table>';
+                                        echo '</div>';
+                                        
+                                        
+                                        $select_caixa_conferido2 = "SELECT * FROM tb_caixa_conferido WHERE cd_caixa_analitico = '".$_POST['con_conf_cd_caixa']."'";
+
+                                        $resulta_caixa_conferido2 = $conn->query($select_caixa_conferido2);
+                                        if ($resulta_caixa_conferido2->num_rows > 0){ 
+                                            //echo '<div class="col-lg-6 grid-margin stretch-card" style="background-color: #FF0000;">';//dia anterior aberto
+
+                                            echo '<h4 class="card-title">Conferencias realizadas</h4>';
+                                            echo '<div class="table-responsive">';
+                                            echo '<table class="table">';
+                                            
+                                            echo '<thead>';
+                                            echo '<tr>';
+                                            echo '<th>CD</th>';
+                                            echo '<th>Data Conferencia</th>';
+                                            echo '<th>Responsável Conferencia</th>';
+                                            echo '<th>Abertura Conferida</th>';
+                                            echo '<th>Movimento Conferido</th>';
+                                            echo '<th>Fechamento Conferido</th>';
+                                            echo '<th>OBS Conferencia</th>'; 
+                                            echo '</tr>';
+                                            echo '</thead>';
+                                            echo '<tbody>';
+                                            while ( $row_caixa_conferido2 = $resulta_caixa_conferido2->fetch_assoc()){
+                                                echo '<tr>';
+                                                echo '<td>'.$row_caixa_conferido2['cd_caixa_conferido'].'</td>';
+                                                
+                                                echo '<td>'.date('d/m/y H:i', strtotime($row_caixa_conferido2['dt_conferencia'])).'</td>';
+                                                
+                                                
+                                                //echo '<td>'.$row_caixa['dt_abertura'].'/'.$row_caixa['dt_fechamento'].'</td>';
+                                                $select_responsavel_conferido = "SELECT * FROM tb_colab WHERE cd_colab = '".$row_caixa_conferido2['cd_colab_conferencia']."'";
+                                                //insert into tb_caixa(dt_abertura, cd_colab_abertura, saldo_abertura, status_caixa) VALUES('2023-08-12T13:00','1','15','0')
+                                                $resulta_responsavel_conferido = $conn->query($select_responsavel_conferido);
+                                                while ($row_responsavel_conferido = $resulta_responsavel_conferido->fetch_assoc()){
+                                                    echo '<td>'.$row_responsavel_conferido['pnome_colab'].' '.$row_responsavel_conferido['snome_colab'].'</td>';
+                                                }
+                                                echo '<td>R$: '.$row_caixa_conferido2['saldo_abertura_conferido'].'</td>';
+                                                echo '<td>R$: '.$row_caixa_conferido2['saldo_movimento_conferido'].'</td>';
+                                                echo '<td>R$: '.$row_caixa_conferido2['saldo_fechamento_conferido'].'</td>';
+                                                echo '<td>R$: '.$row_caixa_conferido2['obs_conferencia'].'</td>';
+                                            }
+                                            echo '</tbody>';
+											echo '</table>';
+	                                        echo '</div>';
+
+
+											
+	                                    }
+											echo '</div>';
+											echo '</div>';	
+                                    }
+
+                                    $select_caixa_conferido = "SELECT * FROM tb_caixa WHERE status_caixa > 0 and cd_caixa = '".$_POST['con_conf_cd_caixa']."'";
                                     //echo '<h3>'.$dia_hoje.'</h3>';
                                     //insert into tb_caixa(dt_abertura, cd_colab_abertura, saldo_abertura, status_caixa) VALUES('2023-08-12T13:00','1','15','0')
                                     $resulta_caixa_conferido = $conn->query($select_caixa_conferido);
@@ -82,6 +204,7 @@ $u = new Usuario;
                                         echo '<tbody>';
                                         while ( $row_caixa_conferido = $resulta_caixa_conferido->fetch_assoc()){
                                             $_SESSION['cd_caixa_conferido'] = $row_caixa_conferido['cd_caixa'];
+                                            $_SESSION['status_caixa'] = $row_caixa_conferido['status_caixa'];
                                             echo '<tr>';
                                             echo '<td>'.date('d/m/y H:i', strtotime($row_caixa_conferido['dt_abertura'])).'</td>';
                                             echo '<td>'.date('d/m/y H:i', strtotime($row_caixa_conferido['dt_fechamento'])).'</td>';
@@ -425,28 +548,29 @@ $u = new Usuario;
                                                 echo '</table>';
                                                 echo '</div>';
                                             }
-                                        ?>
-                                        <div class="table-responsive" id="conf_por_movimento">
-                                            <form action="post">
+                                        if($row_caixa_conferido['status_caixa'] != 0){
 
-                                                    <div class="typeahead">
-                                                        <h4>Conferir por Movimento</h4>
-                                                        <label></label>
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text btn-outline-info">Tipo</span>
-                                                            <select name="tipo_movimento" id="tipo_movimento" class="form-control form-control-sm" onchange="selectTipo()" required>
-                                                                <option value='' selected ></option>
-                                                                <option value='1'>Pagamento de OS</option>
-                                                                <option value='2'>Suprimento</option>
-                                                                <option value='3'>Sangria</option>
-                                                            </select>
-                                                        </div>
-                                                        <label></label>
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text btn-outline-info">#</span>
-                                                            <select id="fpag_movimento" name="fpag_movimento" class="form-control form-control-sm" style="display:none;">
-                                                                <option value=""></option>
-                                                                <?php
+                                            echo '
+                                                <div class="table-responsive" id="conf_por_movimento">
+                                                    <form action="post">
+                                                        <div class="typeahead">
+                                                            <h4>Conferir por Movimento</h4>
+                                                            <label></label>
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text btn-outline-info">Tipo</span>
+                                                                <select name="tipo_movimento" id="tipo_movimento" class="form-control form-control-sm" onchange="selectTipo()" required>
+                                                                    <option value="" selected ></option>
+                                                                    <option value="1">Pagamento de OS</option>
+                                                                    <option value="2">Suprimento</option>
+                                                                    <option value="3">Sangria</option>
+                                                                </select>
+                                                            </div>
+                                                            <label></label>
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text btn-outline-info">#</span>
+                                                                <select id="fpag_movimento" name="fpag_movimento" class="form-control form-control-sm" style="display:none;">
+                                                                    <option value=""></option>
+                                            ';
                                                                     $sql_describe = "DESCRIBE tb_caixa";
                                                                     $result_describe = mysqli_query($conn, $sql_describe);
                                                                     $found_start = false;
@@ -471,7 +595,7 @@ $u = new Usuario;
                                                                     } else {
                                                                         echo "Erro na consulta: " . mysqli_error($conn);
                                                                     }
-                                                                ?>
+                                            echo '
                                                             </select>
                                                             <input id="vpag_movimento" name="vpag_movimento" type="tel" class="form-control form-control-sm" placeholder="Valor" style="display:none;">
                                                         </div>
@@ -484,18 +608,18 @@ $u = new Usuario;
                                                                 document.getElementById("os_movimento").style.display = "block";
                                                                 document.getElementById("fpag_movimento").style.display = "block";
                                                                 document.getElementById("vpag_movimento").style.display = "block";
-                                                                document.getElementById("motivo_movimento").innerHTML = '<option value="" selected></option><option value="liquidacaoOS">Liquida OS</option><option value="Suprimento">Suprimento</option>';
+                                                                document.getElementById("motivo_movimento").innerHTML = "<option value="" selected></option><option value="liquidacaoOS">Liquida OS</option><option value="Suprimento">Suprimento</option>";
                                                             } else
                                                             if (tipoSelecionado === 2) {
                                                                 document.getElementById("os_movimento").style.display = "none";
                                                                 document.getElementById("fpag_movimento").style.display = "none";
                                                                 document.getElementById("vpag_movimento").style.display = "block"; 
-                                                                document.getElementById("motivo_movimento").innerHTML = '<option value="" selected></option><option value="Sangria">Sangria</option><option value="Outros">Outros</option>';
+                                                                document.getElementById("motivo_movimento").innerHTML = "<option value="" selected></option><option value="Sangria">Sangria</option><option value="Outros">Outros</option>";
                                                             }
                                                             else
                                                             if (tipoSelecionado === 3) {
                                                                 document.getElementById("motivo_movimento").style.display = "block";
-                                                                document.getElementById("motivo_movimento").innerHTML = '<option value="" selected></option><option value="Sangria">Sangria</option><option value="Outros">Outros</option>';
+                                                                document.getElementById("motivo_movimento").innerHTML = "<option value="" selected></option><option value="Sangria">Sangria</option><option value="Outros">Outros</option>";
                                                             }
                                                             else{//vpag_movimento
                                                                 document.getElementById("os_movimento").style.display = "none";
@@ -504,21 +628,25 @@ $u = new Usuario;
                                                             }
                                                         }
                                                     </script>
-
-        
-                                               
                                                 <button type="submit" class="btn btn-lg btn-block btn-outline-success"><i class="mdi mdi-file-check"></i>Lançar</button>
-
                                             </form>
-                                        </div>
+                                            </div>
+                                            ';
+
+                                        }
+                                    ?>
+                                        
+
 					                </div>
 								</div>
 					        </div>
 
 
 
-
-                            <div class="col-sm-12 mb-4 mb-xl-0">
+<?php
+    if($_SESSION['status_caixa'] != 0){
+        echo '
+            <div class="col-sm-12 mb-4 mb-xl-0">
                                 <div class="card">
                                     <div class="card-body">
                                         <form action="" method="post">
@@ -530,10 +658,9 @@ $u = new Usuario;
                                     </div><!-- form_confer_totalizadores -->
                                 </div>
                             </div>
+        ';
+    }
 
-
-
-                            <?php
 
 
 

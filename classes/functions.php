@@ -1,5 +1,19 @@
 <?php
 session_start();
+
+
+// Ativa a exibição de erros (útil em ambiente de desenvolvimento)
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
+
+// Ativa o registro de erros (útil para produção)
+ini_set('log_errors', 1);
+
+// Caminho absoluto e gravável pelo servidor web
+ini_set('error_log', __DIR__ . '/logs/erro_php.log'); // Corrigido para caminho relativo ao script
+
+
 class Usuario  
 {
     //public function conectar($cnpj_empresa)

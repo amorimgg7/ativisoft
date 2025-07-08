@@ -1,0 +1,268 @@
+[08-Jul-2025 00:11:46 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'ass_08057969.tb_reserva' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php:993
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php(993): mysqli->query('SELECT tps.*, \n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 993
+[08-Jul-2025 00:11:49 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'ass_08057969.tb_reserva' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php:993
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php(993): mysqli->query('SELECT tps.*, \n...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 993
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 109
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 127
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 186
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 567
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 571
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 633
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 657
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 688
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 722
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 886
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 920
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 923
+[08-Jul-2025 00:15:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 966
+[08-Jul-2025 00:15:47 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[08-Jul-2025 00:15:47 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[08-Jul-2025 00:15:47 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 571
+[08-Jul-2025 00:15:47 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 633
+[08-Jul-2025 00:15:47 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 657
+[08-Jul-2025 00:15:47 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 688
+[08-Jul-2025 00:15:47 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 722
+[08-Jul-2025 00:15:47 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 886
+[08-Jul-2025 00:15:47 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 1003
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 109
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 571
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 633
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 657
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 688
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 722
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 886
+[08-Jul-2025 00:15:57 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 1003
+[08-Jul-2025 00:16:03 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:16:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:16:05 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 87
+[08-Jul-2025 00:16:05 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 334
+[08-Jul-2025 00:16:28 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:16:33 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:16:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:16:34 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 87
+[08-Jul-2025 00:16:34 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 334
+[08-Jul-2025 00:19:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:20:01 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:20:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:20:05 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 353
+[08-Jul-2025 00:24:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:24:45 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:24:47 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:24:47 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= 0 and cd_caixa = '429'' at line 1 in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php:62
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php(62): mysqli->query('SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 62
+[08-Jul-2025 00:25:03 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:25:03 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 447
+[08-Jul-2025 00:25:35 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:25:35 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 447
+[08-Jul-2025 00:36:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 30
+[08-Jul-2025 00:36:44 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 449
+[08-Jul-2025 00:36:44 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 543
+[08-Jul-2025 00:44:36 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:44:36 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\partials\_navbar.php:28) in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 85
+[08-Jul-2025 00:44:36 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 442
+[08-Jul-2025 00:44:36 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 536
+[08-Jul-2025 00:45:30 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:45:30 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\partials\_navbar.php:28) in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 85
+[08-Jul-2025 00:45:30 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 442
+[08-Jul-2025 00:45:30 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 536
+[08-Jul-2025 00:45:52 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:45:52 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\partials\_navbar.php:28) in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 85
+[08-Jul-2025 00:45:52 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 442
+[08-Jul-2025 00:45:52 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 536
+[08-Jul-2025 00:46:51 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:46:51 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\partials\_navbar.php:28) in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 86
+[08-Jul-2025 00:46:51 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 448
+[08-Jul-2025 00:46:51 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 542
+[08-Jul-2025 00:47:12 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:47:12 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\partials\_navbar.php:28) in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 86
+[08-Jul-2025 00:47:12 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 448
+[08-Jul-2025 00:47:12 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 542
+[08-Jul-2025 00:49:33 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:49:38 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:49:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:49:40 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:49:40 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:10 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:10 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:10 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:15 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:15 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:15 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:20 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:20 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:25 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:25 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:25 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:30 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:30 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:30 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:35 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:35 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:35 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:40 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:40 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:45 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:45 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:45 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:51 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:51 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:51 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:50:56 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:50:56 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:50:56 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:51:02 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:02 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:51:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:51:08 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:08 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:51:08 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:51:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:14 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:51:14 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:51:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:20 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:51:20 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:51:26 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:26 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:51:26 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:51:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:32 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:51:32 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:51:38 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:38 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:51:38 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:51:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:44 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 454
+[08-Jul-2025 00:51:44 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 548
+[08-Jul-2025 00:51:50 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:50 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:51:50 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:51:56 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:51:56 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:51:56 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:02 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:02 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:02 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:08 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:08 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:08 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:14 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:14 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:20 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:20 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:26 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:26 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:26 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:32 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:32 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:37 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:37 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:37 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:42 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:42 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:42 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:48 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:48 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:48 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:52:54 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:52:54 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:52:54 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:53:05 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[08-Jul-2025 00:53:05 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[08-Jul-2025 00:53:05 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[08-Jul-2025 00:53:10 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:53:26 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[08-Jul-2025 00:53:26 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[08-Jul-2025 00:53:26 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[08-Jul-2025 00:53:29 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:53:31 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:53:31 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:53:31 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:53:36 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:53:36 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:53:36 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:53:41 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:53:41 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:53:41 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:53:46 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:53:46 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:53:46 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:53:51 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:53:51 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:53:51 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:53:56 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:53:56 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:53:56 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:54:01 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:54:01 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:54:01 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:54:07 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:54:07 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:54:07 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:54:13 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:54:13 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:54:13 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:54:18 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:54:18 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:54:18 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:54:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:54:20 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:54:20 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:54:50 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:54:50 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:54:50 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:55:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:55:20 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:55:20 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:55:51 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:55:51 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:55:51 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:56:22 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:56:22 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:56:22 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:56:53 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:56:53 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:56:53 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:56:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:56:57 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:56:57 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:57:12 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:57:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:57:14 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 456
+[08-Jul-2025 00:57:14 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 550
+[08-Jul-2025 00:58:09 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:58:09 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 457
+[08-Jul-2025 00:58:09 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 551
+[08-Jul-2025 00:58:17 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:58:17 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 457
+[08-Jul-2025 00:58:17 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 551
+[08-Jul-2025 00:58:24 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:58:25 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:58:25 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 457
+[08-Jul-2025 00:58:25 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 551
+[08-Jul-2025 00:58:55 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:58:56 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 457
+[08-Jul-2025 00:58:56 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 551
+[08-Jul-2025 00:59:06 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
+[08-Jul-2025 00:59:08 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:59:08 America/Sao_Paulo] PHP Warning:  Undefined array key "soma_suprimento" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 457
+[08-Jul-2025 00:59:08 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 551
+[08-Jul-2025 00:59:18 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
+[08-Jul-2025 00:59:18 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 571

@@ -1,5 +1,5 @@
 <?php
-
+ 
 // Ativa a exibição de erros (útil em ambiente de desenvolvimento)
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
@@ -906,71 +906,54 @@ class Usuario
     }
 
     public function cadVenda($cd_cliente, $cd_colab, $cd_filial) 
-    {
-        global $conn;
-        $u = new Usuario();
+{
+    global $conn;
+    $u = new Usuario();
 
-        $conn->autocommit(false); // Desliga o autocommit
-        $conn->begin_transaction(); // Inicia a transação manualmente
+    $conn->autocommit(false); // Desliga o autocommit
+    $conn->begin_transaction(); // Inicia a transação
 
-        try {
-            // Insere o serviço
-            $insert_venda = "INSERT INTO tb_venda(cd_cliente, cd_filial, abertura_venda, orcamento_venda, vpag_venda, status_venda)
-                VALUES('$cd_cliente', '$cd_filial', NOW(), 0, 0, '0')";
-            mysqli_query($conn, $insert_venda);
-            
-            // Recupera o serviço inserido
-            $select_venda = "SELECT * FROM tb_venda WHERE cd_filial = '$cd_filial' AND cd_cliente = '$cd_cliente' AND status_servico = 0 ORDER BY cd_servico DESC LIMIT 1";
-            $result_venda = mysqli_query($conn, $select_venda);
-            $row_venda = mysqli_fetch_assoc($result_venda);
-            
-            if (!$row_venda) {
-                return [
-                    'status'        =>  'Não encontrado serviço',
-                    'cd_servico'    =>  '0'
-                ];
-            }
-            
-            $result_venda = $u->conVenda($row_venda['cd_venda'], $cd_filial);
-        
-            if ($result_venda['status'] != 'OK') {
-                return [
-                    'status'        =>  'conVenda: '.$result_venda['status'],
-                    'cd_venda'      =>  '0'
-                ];
-            }
-            
-            $conn->commit();
-        
-            return [
-                'status'                =>  $result_venda['status'],
-                'cd_venda'              =>  $result_venda['cd_venda'],    
-                'cd_filial'             =>  $result_venda['cd_filial'],
-                'cd_cliente'            =>  $result_venda['cd_cliente'],    
-                'id_venda'              =>  $result_venda['id_venda'],                
-                'abertura_venda'        =>  $result_venda['abertura_venda'],        
-                'orcamento_venda'       =>  $result_venda['orcamento_venda'],    
-                'vpag_venda'            =>  $result_venda['vpag_venda'],        
-                'status_venda'        =>  $result_venda['status_servico']        
-            ];
+    try {
+        // Prepared statement para evitar SQL Injection
+        $stmt = $conn->prepare("INSERT INTO tb_venda(cd_cliente, cd_filial, abertura_venda, orcamento_venda, vpag_venda, status_venda) VALUES (?, ?, NOW(), 0, 0, '0')");
+        $stmt->bind_param("ii", $cd_cliente, $cd_filial);
+        $stmt->execute();
 
-        } catch (Exception $e) {
-            $conn->rollback();
-            return [
-                'status'        => addslashes($e->getMessage()),
-                'cd_venda'      => '0'
-            ];
+        // Recupera o ID da venda inserida
+        $cd_venda = $conn->insert_id;
+
+        // Busca os dados da venda
+        $result_venda = $u->conVenda('CV', $cd_venda, $cd_filial);
+
+        if ($result_venda['status'] != 'OK') {
+            throw new Exception("conVenda: " . $result_venda['cd_venda']);
         }
 
-            
+        $conn->commit();
 
+        return [
+            'status'                => 'OK',
+            'cd_venda'              => $result_venda['cd_venda'],    
+            'cd_filial'             => $result_venda['cd_filial'],
+            'cd_cliente'            => $result_venda['cd_cliente'],    
+            'id_venda'              => $result_venda['id_venda'],                
+            'abertura_venda'        => $result_venda['abertura_venda'],        
+            'orcamento_venda'       => $result_venda['orcamento_venda'],    
+            'vpag_venda'            => $result_venda['vpag_venda'],        
+            'status_venda'          => $result_venda['status_venda']        
+        ];
 
-            
-            
-
+    } catch (Exception $e) {
+        $conn->rollback();
+        return [
+            'status'    => addslashes($e->getMessage()),
+            'cd_venda'  => '0'
+        ];
     }
+}
 
-    public function conVenda($cd_venda, $cd_filial) 
+
+    public function conVenda($tipo_consulta, $key_consulta, $cd_filial) 
     {
         global $conn;
         $conn->autocommit(false); // Desliga o autocommit
@@ -978,14 +961,46 @@ class Usuario
 
         try {
             // Recupera o serviço inserido
-            $select_venda = "SELECT * FROM tb_venda v, tb_pessoa c WHERE c.cd_pessoa = v.cd_venda AND v.cd_filial = '$cd_filial' AND v.cd_venda = '$cd_venda' LIMIT 1";
+            $select_venda = "SELECT * FROM tb_venda v, tb_pessoa c WHERE c.cd_pessoa = v.cd_cliente AND v.cd_filial = '$cd_filial' "; 
+            if($tipo_consulta == 'CV'){
+                $select_venda = $select_venda." AND v.cd_venda = '$key_consulta' ";
+            }else if($tipo_consulta == 'CC'){
+                $select_venda = $select_venda." AND v.cd_cliente = '$key_consulta' ";
+                $cd_cliente = $key_consulta;
+            }else{
+                return [
+                    'status'        =>  'tipo_consulta espera CV(Consulta Venda), CC(Consulta Cliente)',
+                    'cd_venda'      =>  '0'
+                ];
+            }
+            $select_venda = $select_venda." LIMIT 1 ";
+            
             $result_venda = mysqli_query($conn, $select_venda);
             $row_venda = mysqli_fetch_assoc($result_venda);
             
             if (!$row_venda) {
+                $partial_venda = '
+                <form method="POST">
+
+                <div class="card-body" id="abrirVenda">
+                <div class="kt-portlet__body">
+                <div class="row">
+
+                <input value="'.$cd_cliente.'" name="cd_cliente" type="hidden" id="cd_cliente" class=" form-control form-control-sm"/>
+                
+                <td><button type="submit" name="cadVenda" id="cadVenda" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Criar Venda</button></td>
+                
+                </div>
+                </div>
+                </div>
+                
+                </form>
+            ';
+
                 return [
-                    'status'        =>  'Venda não encontrada',
-                    'cd_venda'      =>  '0'
+                    'status'            =>  'Nenhuma venda encontrada em aberto',
+                    'partial_venda'     =>  $partial_venda,
+                    'cd_venda'          =>  '0'
                 ];
             }
             
@@ -1447,6 +1462,312 @@ class Usuario
 
     }
 
+    public function listOrcamentoVenda($cd_venda, $cd_filial) 
+    {
+        global $conn;
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+
+            $select_venda = "
+                SELECT * FROM tb_venda WHERE cd_venda = '".$cd_venda."' AND cd_filial = '".$cd_filial."'
+            ";
+
+            $select_pagamento = "
+                SELECT cd_venda_movimento, SUM(valor_movimento) As total_pago FROM tb_movimento_financeiro WHERE cd_venda_movimento = '".$cd_venda."' AND cd_filial = '".$cd_filial."'
+            ";
+            
+            $select_orcamento = "
+              SELECT tr.*, tov.*
+              FROM tb_orcamento_venda tov
+              LEFT JOIN tb_reserva tr ON tr.cd_orcamento = tov.cd_orcamento
+              WHERE tov.cd_venda = '" . $cd_venda . "' AND tov.cd_filial = '" . $cd_filial . "'
+              ORDER BY tov.cd_venda ASC
+            ";
+
+            $select_prod_serv = "SELECT tps.*, 
+               COALESCE(SUM(tr.qtd_reservado), 0) AS total_reservado
+             FROM tb_prod_serv tps
+               LEFT JOIN tb_reserva tr ON tps.cd_prod_serv = tr.cd_prod_serv
+                 AND tr.qtd_efetivado IS NULL
+             WHERE tps.estoque_prod_serv > 0 
+               AND tps.status_prod_serv = '1'
+               AND tps.cd_empresa = ".$_SESSION['cd_empresa']."
+             GROUP BY tps.cd_prod_serv
+             ORDER BY tps.cd_prod_serv;";
+
+            
+            $result_venda = mysqli_query($conn, $select_venda);
+            $row_venda = mysqli_fetch_assoc($result_venda);
+            
+            $result_pagamento = mysqli_query($conn, $select_pagamento);
+            $row_pagamento = mysqli_fetch_assoc($result_pagamento);
+            
+            $result_orcamento = mysqli_query($conn, $select_orcamento);
+
+            $result_prod_serv = mysqli_query($conn,$select_prod_serv);
+            
+            $count = 0;
+            $vtotal_orcamento = 0;
+
+            /*
+            $lista = $result_orcamento['list_orcamento'];
+            foreach ($lista as $item) {
+              echo $item['descricao'] . " - R$ " . $item['valor'] . "<br>";
+            }
+            */
+
+            
+//INICIO DO FRAGMENTO
+            $partial_orcamento  =   '
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-md-12">
+                            <h3 class="kt-portlet__head-title">Composição do Orcamento</h3>
+                            <form method="post">
+                                <!--<div class="typeahead">-->
+            ';
+            
+            $partial_orcamento  =   $partial_orcamento."
+                                    <script>document.getElementById('listaOrcamento').style.display = 'block';</script> 
+
+                                    <script>
+
+    function updatePriceAndCode() {
+    const select = document.getElementById('produto_venda');
+    const selectedOption = select.options[select.selectedIndex];
+
+    // Atualizar o preço
+    const preco = selectedOption.getAttribute('data-preco') || 0;
+    document.getElementById('produto_venda_preco').value = parseFloat(preco).toFixed(2);
+
+    // Atualizar o ID do produto
+    const cdProduto = selectedOption.value || '**';
+    document.getElementById('produto_venda_id1').textContent = cdProduto;
+    document.getElementById('produto_venda_id2').value = cdProduto;
+
+    const tituloProdServ = selectedOption.text || '';
+    document.getElementById('produto_venda_nome').value = tituloProdServ;
+
+    const estoque = selectedOption.getAttribute('data-estoque') || 0;
+    document.getElementById('produto_venda_estoque').value = estoque;
+
+    const reserva = selectedOption.getAttribute('data-reserva') || 0;
+    document.getElementById('produto_venda_reserva').value = reserva;
+
+
+    // Recalcular o total
+    calculateTotal();
+}
+
+
+    function calculateTotal() {
+      const preco = parseFloat(document.getElementById('produto_venda_preco').value) || 0;
+      const quantidade = parseFloat(document.getElementById('produto_venda_qtd').value) || 0;
+      const estoque = parseFloat(document.getElementById('produto_venda_estoque').value) || 0;
+      const reserva = parseFloat(document.getElementById('produto_venda_reserva').value) || 0;
+
+
+      const total = preco * quantidade;
+
+      // Validar se a quantidade excede o estoque
+    if (quantidade > estoque) {
+        // Adicionar borda vermelha
+        document.getElementById('produto_venda_qtd').style.border = '2px solid red';
+        //alert('O estque livre é '+estoque);
+    } else if(quantidade > (estoque - reserva)){
+      document.getElementById('produto_venda_qtd').style.border = '2px solid orange';
+    }else{
+        // Restaurar borda normal
+        document.getElementById('produto_venda_qtd').style.border = '';
+    }
+
+
+      document.getElementById('produto_venda_vtotal').value = total.toFixed(2);
+    }
+</script>                              
+            "; 
+               
+			if ($result_prod_serv->num_rows > 0){
+
+                $partial_orcamento  =   $partial_orcamento.'
+                                    <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: block;">
+                                        <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
+                                        <div class="horizontal-form">
+                                            <div class="form-group"> 
+                	                	        <div class="col-lg-12 col-sm-12">
+                                                    <div class="input-group">
+                                                        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                                                            <div class="input-group-prepend">
+                                                                <span id="produto_venda_id1" name="produto_venda_id1" class="input-group-text btn-outline-info">**</span>
+                                                                <input type="tel" id="produto_venda_id2" name="produto_venda_id2" class="form-control form-control-sm" style="display:none" readonly>
+                                                                <input type="text" id="produto_venda_nome" name="produto_venda_nome" class="form-control form-control-sm" style="display:none" readonly>
+                                                                <select name="produto_venda" id="produto_venda" class="form-control" onchange="updatePriceAndCode()">
+                                                                    <option value=""></option>
+                ';
+                while ($row_prod_serv = $result_prod_serv->fetch_assoc()) {
+                    $partial_orcamento  =   $partial_orcamento.'
+                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">' . $row_prod_serv['titulo_prod_serv'] . '</option>
+                    ';
+                }
+                $partial_orcamento  =   $partial_orcamento.'
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text btn-outline-info">Valor</span>
+                                                                <input type="tel" id="produto_venda_preco" name="produto_venda_preco" class="form-control form-control-sm" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text btn-outline-info">QTD</span>
+                                                                <input type="hidden" id="produto_venda_estoque" name="produto_venda_estoque" class="form-control form-control-sm" style="display:block;" readonly>
+                                                                <input type="hidden" id="produto_venda_reserva" name="produto_venda_reserva" class="form-control form-control-sm" style="display:block" readonly>         
+                                                                <input type="tel" id="produto_venda_qtd" name="produto_venda_qtd" value="1" class="form-control form-control-sm" oninput="tel(this), calculateTotal()">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text btn-outline-info">Total</span>
+                                                                <input type="tel" id="produto_venda_vtotal" name="produto_venda_vtotal" value="0" class="form-control form-control-sm" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <label for="lancarOrcamentoCadastro"></label>
+                                                <button type="submit" name="lancarOrcamentoCadastro" id="lancarOrcamentoCadastro" class="btn btn-success">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                '; 
+                                          
+			}else{
+                
+                $partial_orcamento  =   $partial_orcamento.'
+                                    <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: none;">
+                                        <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
+                                        <div class="horizontal-form">
+                                            <div class="form-group"> 
+                                                <div class="col-lg-12 col-sm-12">
+                                                    <div class="input-group">
+                                                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                            <div class="input-group-prepend">
+                                                                <a href="'.$_SESSION['dominio'].'pages/cad_geral/cadastro_produto.php" class="btn btn-lg btn-block btn-success">Ops, alimente seu estoque para proseguir - Clique Aqui</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                ';
+                
+            }
+            $partial_orcamento  =   $partial_orcamento.'
+                                <!--</div>-->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            ';
+//FIM DO FRAGMENTO         
+
+
+
+            /*$partial_orcamento  =   $partial_orcamento.' 
+                <div name="listaOrcamento" id="listaOrcamento" class="typeahead">
+                    <div class="horizontal-form">                
+            ';*/
+
+
+
+            while ($row_orcamento = $result_orcamento->fetch_assoc()) {
+                $count ++;
+                $vtotal_orcamento = $vtotal_orcamento + $row_orcamento['vtotal_orcamento'];
+
+
+
+                
+                    $partial_orcamento = $partial_orcamento.'
+
+
+                        <div class="horizontal-wrapper">
+                            <div class="horizontal-id">#'.$count.'/'.$row_orcamento['cd_orcamento'].' </div>
+                            <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="form-control form-control-sm" style="display:none;" readonly>
+                            <div class="horizontal-content">
+                                <div class="form-group-custom full-width">
+                                <label for="listatitulo_orcamento">Descrição</label>
+                                    <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class=" form-control form-control-sm" style="display:none;">
+                                    <input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class=" form-control form-control-sm" style="display:none">
+                                    <input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="form-control form-control-sm" readonly>
+                                </div>
+                                <div class="horizontal-form-custom">
+                                    <div class="form-group-custom">
+                                        <label for="listavalor_licenca">Valor da Licença</label>
+                                        <input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="form-control form-control-sm" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="horizontal-action">
+                        </div>
+                    ';
+                
+            
+
+                    
+            }
+/*
+            $partial_orcamento  =   $partial_orcamento.'
+                    </div>
+                </div> 
+            ';*/
+
+            $falta_pagar = $vtotal_orcamento - $row_pagamento['total_pago'];
+            
+            $partial_orcamento = $partial_orcamento.'
+                <div  class="typeahead" style="background-color: #C6C6C6; display:block;">
+                    <div class="horizontal-form">
+                        <div class="form-group">
+                            <label for="showobs_servico">Total:</label>
+                            <input value="'.$vtotal_orcamento.'" type="tel" name="btnvcusto_orcamento" id="btnvcusto_orcamento" class=" form-control form-control-sm" readonly>
+                            <label for="showobs_servico">Pago:</label>
+                            <input value="'.$row_pagamento['total_pago'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class=" form-control form-control-sm" readonly>
+                            <label for="showobs_servico">Falta:</label>
+                            <input value="'.$falta_pagar.'" type="tel" name="btn_falta_pagar_orcamento" id="btn_falta_pagar_orcamento" class=" form-control form-control-sm" readonly>                     
+                        </div>
+                    </div>
+                </div>
+            ';
+
+
+
+
+
+
+            return [
+                'status'            =>  'OK',
+                'cd_venda'          =>  $cd_venda,
+                'vtotal_orcamento'  =>  $vtotal_orcamento,
+                'falta_pagar'       =>  $falta_pagar,
+                'partial_orcamento' =>  $partial_orcamento
+            ];
+
+
+
+               
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'status'        => addslashes($e->getMessage()),
+                'cd_venda'    => '0'
+            ];
+        }
+
+    }
+
     public function cadOrcamento($tipo, $cd_cliente, $cd_empresa, $cd_servico, $titulo_orcamento, $vcusto_orcamento) 
     {
         global $conn;
@@ -1540,6 +1861,9 @@ class Usuario
                     <div class="card-body">
                     <h1 class="card-title">Abra já seu caixa</h1>
                     <p class="card-title">Para realizar movimento financeiro, o seu caixa deve estar devidamente aberto</p>
+                    <form action="../../pages/md_caixa/abertura_caixa.php" method="POST">
+                    <button type="submit" class="btn btn-lg btn-block btn-outline-info" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Abra já seu caixa</button>
+                    </form>
                     </div>
                     </div>
                     </div>
