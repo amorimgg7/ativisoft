@@ -209,6 +209,7 @@ $u = new Usuario;
                                             echo '<td>'.date('d/m/y H:i', strtotime($row_caixa_conferido['dt_abertura'])).'</td>';
                                             echo '<td>'.date('d/m/y H:i', strtotime($row_caixa_conferido['dt_fechamento'])).'</td>';
                                             
+                                            
                                             //echo '<td>'.$row_caixa['dt_abertura'].'/'.$row_caixa['dt_fechamento'].'</td>';
                                             $select_responsavel_conferido = "SELECT * FROM tb_colab WHERE cd_colab = '".$row_caixa_conferido['cd_colab_abertura']."'";
                                             //insert into tb_caixa(dt_abertura, cd_colab_abertura, saldo_abertura, status_caixa) VALUES('2023-08-12T13:00','1','15','0')

@@ -266,3 +266,7 @@ Stack trace:
 [08-Jul-2025 00:59:08 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 551
 [08-Jul-2025 00:59:18 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\form_conf_caixa.php on line 32
 [08-Jul-2025 00:59:18 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 571
+[08-Jul-2025 22:02:20 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[08-Jul-2025 22:02:20 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[08-Jul-2025 22:02:20 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[08-Jul-2025 22:02:23 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\conferencia_caixa.php on line 30
