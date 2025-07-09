@@ -123,21 +123,20 @@
 
 
             <?php //À FAZER
-              $extrapolado = 0;
-              $extrapoladoafaser = 0;
-              $parahoje = 0;
-              $parahojeafazer = 0;
-              $noprazo = 0;
-              $noprazoafaser = 0;
-              $extrapoladoemandamento = 0;
-              $parahojeemandamento = 0;
-              $noprazoemandamento = 0;
-
-
+              
 
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-              $sql_venda = "SELECT * FROM tb_venda WHERE status_venda = 0 and cd_filial = '".$_SESSION['cd_empresa']."' ORDER BY cd_venda";
+              //$sql_venda = "SELECT * FROM tb_venda WHERE status_venda = 0 and cd_filial = '".$_SESSION['cd_empresa']."' ORDER BY cd_venda";
+
+              $sql_venda = "
+                  SELECT v.*, p.pnome_pessoa 
+                  FROM tb_venda v
+                  INNER JOIN tb_pessoa p ON v.cd_cliente = p.cd_pessoa
+                  WHERE v.status_venda = 0 
+                    AND v.cd_filial = '".$_SESSION['cd_empresa']."' 
+                  ORDER BY v.cd_venda
+              ";
 
               $resulta_venda = $conn->query($sql_venda);
               if ($resulta_venda->num_rows > 0){
@@ -147,9 +146,6 @@
                 while ( $venda = $resulta_venda->fetch_assoc()){
 
                   echo '
-
-
-
                   <!--<div class="col" style="margin: 10pt 0;">
                     <div class="card">
                       <img src="..." class="card-img-top" alt="...">
@@ -160,42 +156,47 @@
                     </div>
                   </div>-->
 
-
-
                     <div class="col" style="margin: 10pt 0;">
                       <div class="card">
-                        <div class="card-header bg-transparent">Conta Aberta: '.$venda['cd_venda'].'</div>
+                        <div class="card-header bg-transparent">
+                          <form method="POST" action="'.$_SESSION['dominio'].'/pages/md_lanchonete/consulta_venda.php">
+                          <td style="display: none;"><input type="hidden" id="concd_venda" name="concd_venda" value="'.$venda['cd_venda'].'"></td>
+                          <td><button type="submit" class="btn btn-lg btn-block btn-light" name="btn_cd_'.$venda['cd_venda'].'" id="btn_cd_'.$venda['cd_venda'].'">Conta Aberta: '.$venda['cd_venda'].'</button></td>
+                          </form>
+                        </div>
                         <div class="card-body">
-                        ';
-                        if($venda['prioridade_servico'] == "B"){
-                          echo '<td><label class="badge badge-success">Baixa</label></td>';            
-                        }
-                        if($venda['prioridade_servico'] == "M"){
-                          echo '<td><label class="badge badge-info">Média</label></td>';
-                        }
-                        if($venda['prioridade_servico'] == "A"){
-                          echo '<td><label class="badge badge-warning">Alta</label></td>';
-                        }
-                        if($venda['prioridade_servico'] == "U"){
-                          echo '<td><label class="badge badge-danger">Urgente</label></td>';
-                        }
-                        echo '
-                          <h5 class="card-title">Nome do Cliente</h5>
+                        
+                          <h5 class="card-title">'.$venda['pnome_pessoa'].'</h5>
                           <table class="table">
                           <tr><th scope="row">Abertura</th><td>'.date('d/m/Y', strtotime($venda['abertura_venda'])).'</td></tr>
                           </table>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                          <p class="card-text">'.$venda['titulo_venda'].'</p>
+';
+                          $sql_orcamento_venda = "SELECT * FROM tb_orcamento_venda WHERE cd_venda = '".$venda['cd_venda']."'";
 
-                          <table class="table">
-                          <tr><th scope="col">#</th><th scope="col">Produto</th><th scope="col">Preço</th></tr>
-                          <tr><th scope="row">1</th><td>Titulo Produto</td><td>R$: 10.50</td></tr>
-                          </table>
+                          $resulta_orcamento_venda = $conn->query($sql_orcamento_venda);
+                          if ($resulta_orcamento_venda->num_rows > 0){
+
+                            echo '
+                              <table class="table">
+                              <tr><th scope="col">#</th><th scope="col">Produto</th><th scope="col">Preço</th></tr>
+                            ';
+                            
+                            
+                            while ( $orcamento_venda = $resulta_orcamento_venda->fetch_assoc()){
+                              echo '<tr><th scope="row">1</th><td>'.$orcamento_venda['titulo_orcamento'].'</td><td>R$: '.$orcamento_venda['vcusto_orcamento'].'</td></tr>';
+                            }
+                            echo '</table>';
+                          }else{
+                            echo '<p class="card-text">Venda Limpa</p>';
+                          }
+                          echo '
 
                           </div>
                           <div class="card-footer bg-transparent border-success">
                         ';
                         if($venda['orcamento_venda'] == 0){
-                          echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
+                          echo '<td><label class="badge badge-secondary">R$: 0.00</label></td>';
                         }else{
                           if($venda['orcamento_venda'] == $venda['vpag_venda']){
                             echo '<td><label class="badge badge-success">Liquidado: R$:'. $venda['vpag_venda'] .'</label></td>';

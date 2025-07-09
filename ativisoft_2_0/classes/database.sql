@@ -210,16 +210,19 @@ CREATE TABLE tb_orcamento_venda(
     cd_filial integer not null,
     cd_venda integer,
     cd_cliente integer,
+    cd_produto integer,
     titulo_orcamento varchar(999),
     vcusto_orcamento varchar(40),
     vpag_orcamento varchar(40),
+    qtd_orcamento varchar(40),
     vtotal_orcamento varchar(40),
     tipo_orcamento varchar(40),
     status_orcamento integer
 );
 ALTER TABLE tb_orcamento_venda
 ADD CONSTRAINT fk_rel_orcamento_venda1 FOREIGN KEY (cd_venda) REFERENCES tb_venda (cd_venda),
-ADD CONSTRAINT fk_rel_orcamento_venda2 FOREIGN KEY (cd_cliente) REFERENCES tb_pessoa (cd_pessoa);
+ADD CONSTRAINT fk_rel_orcamento_venda2 FOREIGN KEY (cd_cliente) REFERENCES tb_pessoa (cd_pessoa),
+ADD CONSTRAINT fk_rel_orcamento_venda3 FOREIGN KEY (cd_produto) REFERENCES tb_prod_serv (cd_prod_serv);
 
 
 CREATE TABLE tb_atividade(

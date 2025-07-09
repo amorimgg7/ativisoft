@@ -1105,7 +1105,7 @@ class Usuario
             mysqli_query($conn, $update_venda);
             
             // Recupera o serviço inserido
-            $result_venda = $u->conVenda($cd_venda, $cd_filial);
+            $result_venda = $u->conVenda('CV', $cd_venda, $cd_filial);
             
             if ($result_venda['status'] != 'OK') {
                 return [
@@ -1462,7 +1462,7 @@ class Usuario
 
     }
 
-    public function listOrcamentoVenda($cd_venda, $cd_filial) 
+    public function listOrcamentoVenda($cd_venda, $cd_filial, $lancar_venda) 
     {
         global $conn;
         $conn->autocommit(false); // Desliga o autocommit
@@ -1483,7 +1483,7 @@ class Usuario
               FROM tb_orcamento_venda tov
               LEFT JOIN tb_reserva tr ON tr.cd_orcamento = tov.cd_orcamento
               WHERE tov.cd_venda = '" . $cd_venda . "' AND tov.cd_filial = '" . $cd_filial . "'
-              ORDER BY tov.cd_venda ASC
+              ORDER BY tov.cd_orcamento DESC
             ";
 
             $select_prod_serv = "SELECT tps.*, 
@@ -1590,8 +1590,8 @@ class Usuario
             "; 
                
 			if ($result_prod_serv->num_rows > 0){
-
-                $partial_orcamento  =   $partial_orcamento.'
+                if($lancar_venda){
+                    $partial_orcamento  =   $partial_orcamento.'
                                     <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: block;">
                                         <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
                                         <div class="horizontal-form">
@@ -1601,17 +1601,17 @@ class Usuario
                                                         <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
                                                             <div class="input-group-prepend">
                                                                 <span id="produto_venda_id1" name="produto_venda_id1" class="input-group-text btn-outline-info">**</span>
-                                                                <input type="tel" id="produto_venda_id2" name="produto_venda_id2" class="form-control form-control-sm" style="display:none" readonly>
+                                                                <input type="text" id="produto_venda_id2" name="produto_venda_id2" class="form-control form-control-sm" style="display:none" readonly>
                                                                 <input type="text" id="produto_venda_nome" name="produto_venda_nome" class="form-control form-control-sm" style="display:none" readonly>
                                                                 <select name="produto_venda" id="produto_venda" class="form-control" onchange="updatePriceAndCode()">
                                                                     <option value=""></option>
-                ';
-                while ($row_prod_serv = $result_prod_serv->fetch_assoc()) {
-                    $partial_orcamento  =   $partial_orcamento.'
-                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">' . $row_prod_serv['titulo_prod_serv'] . '</option>
                     ';
-                }
-                $partial_orcamento  =   $partial_orcamento.'
+                    while ($row_prod_serv = $result_prod_serv->fetch_assoc()) {
+                        $partial_orcamento  =   $partial_orcamento.'
+                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">' . $row_prod_serv['titulo_prod_serv'] . '</option>
+                        ';
+                    }
+                    $partial_orcamento  =   $partial_orcamento.'
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -1642,7 +1642,8 @@ class Usuario
                                             </div>
                                         </div>
                                     </div>
-                '; 
+                    ';
+                } 
                                           
 			}else{
                 
@@ -1706,8 +1707,8 @@ class Usuario
                                 </div>
                                 <div class="horizontal-form-custom">
                                     <div class="form-group-custom">
-                                        <label for="listavalor_licenca">Valor da Licença</label>
-                                        <input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="form-control form-control-sm" readonly>
+                                        <label for="listavalor_total">Valor total</label>
+                                        <input value="'.$row_orcamento['vtotal_orcamento'].'" name="listavalor_orcamento" id="listavalor_total" type="tel" class="form-control form-control-sm" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -1888,6 +1889,7 @@ class Usuario
        
                 $select_financeiro = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$cd_servico."' ORDER BY cd_movimento ASC";
                 $select_financeiro_servico = "SELECT * FROM tb_servico WHERE cd_servico = '".$cd_servico."' LIMIT 1";
+                $select_financeiro_venda = "SELECT * FROM tb_venda WHERE cd_venda = '".$cd_venda."' LIMIT 1";
 
                 $result_financeiro = mysqli_query($conn, $select_financeiro);
                 //$row_atividade = mysqli_fetch_assoc($result_atividade);
@@ -1905,7 +1907,7 @@ class Usuario
                 
                 while($row_financeiro = $result_financeiro->fetch_assoc()) {
                     $count ++;
-                    $vpag_servico = $row_financeiro['valor_movimento'];
+                    $vpag = $row_financeiro['valor_movimento'];
                     $partial_financeiro = $partial_financeiro.'
                                 <div class="typeahead" style="background-color: #C6C6C6;">
                                     <div class="horizontal-form">
@@ -1922,19 +1924,32 @@ class Usuario
                     ';
                 }
 
-                $result_financeiro_servico = mysqli_query($conn, $select_financeiro_servico);
-                $row_financeiro_servico = mysqli_fetch_assoc($result_financeiro_servico);
+                if($cd_servico != ''){
+                    $result_financeiro_servico = mysqli_query($conn, $select_financeiro_servico);
+                    $row_financeiro_servico = mysqli_fetch_assoc($result_financeiro_servico);
 
-                $falta_pagar_servico = $row_financeiro_servico['orcamento_servico'] - $vpag_servico;
+                    $falta_paga = $row_financeiro_servico['orcamento_servico'] - $vpag;
+                    $orcamento = $row_financeiro_servico['orcamento_servico'];
                             
-                $result_financeiro_servico = mysqli_query($conn, $select_financeiro_servico);
-                $row_financeiro_servico = mysqli_fetch_assoc($result_financeiro_servico);
+                    //$result_financeiro_servico = mysqli_query($conn, $select_financeiro_servico);
+                    //$row_financeiro_servico = mysqli_fetch_assoc($result_financeiro_servico);
+                }
+
+                if($cd_venda != ''){
+                    $result_financeiro_venda = mysqli_query($conn, $select_financeiro_venda);
+                    $row_financeiro_venda = mysqli_fetch_assoc($result_financeiro_venda);
+
+                    $falta_pagar = $row_financeiro_venda['orcamento_venda'] - $vpag;
+                    $orcamento = $row_financeiro_venda['orcamento_venda'];
+                    
+                }
+                
 
 
 
-                if($falta_pagar_servico == 0){
+                if($falta_pagar == 0){
                     $partial_financeiro = $partial_financeiro.'
-                                <h6 style="color:#000;">total pago: ('.$vpag_servico.') - ('.$row_financeiro_servico['orcamento_servico'].')</h6>
+                                <h6 style="color:#000;">total pago: ('.$vpag.') - ('.$orcamento.')</h6>
                     ';     
                 }else{
                     $partial_financeiro = $partial_financeiro.'
@@ -1992,11 +2007,11 @@ class Usuario
                                             var inputValue = inputElement.value;
                                             var errorMessageElement = document.getElementById("mensagem-financeira");
                                             var borderForm = document.getElementById("vpag_movimento");
-                                            if (isNaN(inputValue) || inputValue < 0.1 || inputValue > '.$falta_pagar_servico.') {
+                                            if (isNaN(inputValue) || inputValue < 0.1 || inputValue > '.$falta_pagar.') {
                                                 errorMessageElement.style.color = "red";
                                                 borderForm.style.border = "2px solid red";
-                                                errorMessageElement.textContent = "O valor pago deve ser maior que 1 e menor ou igual a '.$falta_pagar_servico.'.";
-                                                inputElement.setCustomValidity("O valor pago deve ser maior que 1 e menor ou igual a '.$falta_pagar_servico.'.");
+                                                errorMessageElement.textContent = "O valor pago deve ser maior que 1 e menor ou igual a '.$falta_pagar.'.";
+                                                inputElement.setCustomValidity("O valor pago deve ser maior que 1 e menor ou igual a '.$falta_pagar.'.");
                                             } else {
                                                 errorMessageElement.style.color = "green";
                                                 borderForm.style.border = "1px solid green";
@@ -2005,7 +2020,7 @@ class Usuario
                                             }
                                         }
                                     </script>  
-                                    <button type="submit" name="pagar_servico" id="pagar_servico" class="btn btn-lg btn-block btn-outline-success btn-light"><i class="mdi mdi-file-check"></i>Lançar Pagamento</button>
+                                    <button type="submit" name="pagar_venda" id="pagar_venda" class="btn btn-lg btn-block btn-outline-success btn-light"><i class="mdi mdi-file-check"></i>Lançar Pagamento</button>
                                 </form>
                     ';
 
@@ -2133,6 +2148,60 @@ class Usuario
                                 <button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Imprimir OS</button>
                                 <button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Impressão)</button>
                                 <button type="submit" name="historico_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Histórico <i class="mdi mdi-printer btn-icon-append"></i></button>                                
+                            </div>
+                        </form>
+                        <form method="post">
+                            <button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;">Novo Serviço</button>
+                        </form>
+                    ';
+                }else if($tipo_impressao == 'VENDA'){
+                    $result_venda       = $u->conVenda('CV', $chave_busca, $cd_empresa);
+                    $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
+                    $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $cd_empresa, false);
+                    $partial_impressao  = '
+                        <form action="termica1.php" method="POST" target="_blank">
+                            <div class="card-body" id="formBtn"><!--FORMULÁRIO DOS BOTOES-->
+                                <div class="kt-portlet__body">
+                                    <div class="row">
+                                        <div class="col-12 col-md-12">
+                                            <div id="" class="" style="display:none;">
+                                                <h3 class="kt-portlet__head-title">FORM DE IMPRESSÃO</h3> 
+                                                <div  class="typeahead" id="botoes" name="botoes">
+                                                    <input value="'.$result_cliente['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" class=" form-control form-control-sm" style="display: none;"/>
+                                                    <label for="btnpnome_cliente">Nome</label>
+                                                    <input value="'.$result_cliente['pnome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40"   class=" form-control form-control-sm"/>
+                                                    <label for="btnsnome_cliente">sobrenome</label>
+                                                    <input value="'.$result_cliente['snome_cliente'].'" name="btnsnome_cliente" type="text" id="btnsnome_cliente" maxlength="40"   class=" form-control form-control-sm"/>
+                                                    <label for="btntel_cliente">Telefone</label>
+                                                    <input value="'.$result_cliente['tel1_cliente'].'" name="btntel_cliente" type="tel"  id="btntel_cliente" oninput="tel(this)" class=" form-control form-control-sm"/>
+                                                </div>
+                                                <div  class="typeahead" >
+                                                    <label for="btncd_venda">Venda</label>
+                                                    <input value="'.$result_venda['cd_venda'].'" type="tel" name="btncd_venda" id="btncd_venda" class=" form-control form-control-sm">
+                                                    <label for="btntitulo_venda">Descrição Geral</label>
+                                                    <input value="'.$result_venda['titulo_venda'].'" type="text" name="btntitulo_venda" maxlength="999" id="btntitulo_venda"  class=" form-control form-control-sm" placeholder="Caracteristica geral do serviço">
+                                                    
+                                                    <!--<label for="btnabertura_venda">Abertura</label>-->
+                                                    <input value="'.$result_venda['abertura_venda'].'" name="btnabertura_venda" type="datetime-local" id="btnabertura_venda" class=" form-control form-control-sm" />
+                                                    <label for="btnfechamento_venda">Fechamento</label>
+                                                    <input value="'.$result_venda['fechamento_venda'].'" name="btnfechamento_venda" type="datetime-local" id="btnfechamento_venda" class=" form-control form-control-sm"/>
+                                                </div>
+                                                <div  class="typeahead" style="background-color: #C6C6C6; display:block;">
+                                                    <div class="horizontal-form">
+                                                        <div class="form-group">
+                                                            <label for="showobs_servico">Total</label>
+                                                            <input value="'.$result_orcamento['vtotal_orcamento'].'" type="tel" name="btnvcusto_orcamento" id="btnvcusto_orcamento" class=" form-control form-control-sm" readonly>
+                                                            <label for="showobs_servico">Pago</label>
+                                                            <input value="'.$result_venda['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" class=" form-control form-control-sm" placeholder="Valor Pago">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" name="imprimir_venda" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Imprimir OS</button>
+                                <button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Impressão)</button>
                             </div>
                         </form>
                         <form method="post">

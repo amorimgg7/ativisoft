@@ -157,7 +157,7 @@
                       $result_cliente = $u->conPessoa('cliente', 'codigo', $last_id);
 
                     if($result_cliente['status'] == 'OK'){
-                      
+                      $_SESSION['venda_cliente'] = $result_cliente['cd_cliente'];
                       echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 
@@ -227,7 +227,7 @@
                     $result_cliente = $u->conPessoa('cliente', 'telefone', $_POST['cd_pais'].$_POST['contel_cliente']);
 
                     if($result_cliente['status'] == 'OK'){
-                      
+                      $_SESSION['venda_cliente'] = $result_cliente['cd_cliente'];
                       echo '<script>document.getElementById("pergunta1").style.display = "none";</script>';
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 
@@ -248,20 +248,15 @@
                         //echo $result_venda['partial_venda'];
                         
                         
-                        $_SESSION['cd_venda']         = $retornoCadVenda['cd_venda'];
-                        $_SESSION['venda']            = $retornoCadVenda['cd_venda'];
-                        $_SESSION['cd_cliente']       = $retornoCadVenda['cd_cliente'];
-                        $_SESSION['titulo_venda']     = $retornoCadVenda['titulo_venda'];
-                        $_SESSION['obs_venda']        = $retornoCadVenda['obs_venda'];        
-                        $_SESSION['prioridade_venda'] = $retornoCadVenda['prioridade_venda']; 
-                        $_SESSION['entrada_venda']    = $retornoCadVenda['entrada_venda'];    
-                        $_SESSION['prazo_venda']      = $retornoCadVenda['prazo_venda'];      
-                        $_SESSION['orcamento_venda']  = $retornoCadVenda['orcamento_venda'];  
-                        $_SESSION['vpag_venda']       = $retornoCadVenda['vpag_venda'];    
+                        $_SESSION['cd_venda']         = $result_venda['cd_venda'];
+                        $_SESSION['venda']            = $result_venda['cd_venda'];
+                          
 
                       }else{
                         echo "<h1>".$result_venda['status']."</h1>";
                         echo $result_venda['partial_venda'];
+                        echo "<script>alert('| - | - | - | ... | - | - | - |');</script>";
+
                       }
                       
                     }else if($result_cliente['status'] == 'Não encontrado cliente'){
@@ -338,14 +333,16 @@
 
                   }
 
-                  if(isset($_POST['editServico'])) {
+                  if(isset($_POST['editVenda'])) {
                     
-                    $result_venda = $u->editServico(
+                    $result_venda = $u->editVenda(
                       $_POST['cd_venda'],
                       $_SESSION['cd_empresa'],
-                      $_POST['obs_venda'],
-                      $_POST['prioridade_venda'],
-                      $_POST['prazo_venda']
+                      $_POST['titulo_venda'],
+                      $_POST['fechamento_venda'],
+                      $_POST['orcamento_venda'],
+                      $_POST['vpag_venda'],
+                      $_POST['status_venda']
                     );
                     /*
                     if($result_venda['status'] == 'OK') {                          
@@ -386,19 +383,24 @@
                       echo "<script>window.alert('A quantidade não pode ser menor que 1!');</script>";  
                     }else{
                       if($_POST['produto_venda_estoque'] >= $_POST['produto_venda_qtd']){
-                        $insertOrcamento = "INSERT INTO tb_orcamento_venda(cd_cliente, cd_venda, titulo_orcamento, cd_produto, vprod_orcamento, qtd_orcamento, vcusto_conta, tipo_orcamento, status_orcamento) VALUES(
+                          //echo "<script>window.alert('1');</script>";
+                        $insertOrcamento = "INSERT INTO tb_orcamento_venda(cd_cliente, cd_filial, cd_venda, titulo_orcamento, cd_produto, vcusto_orcamento, qtd_orcamento, vtotal_orcamento, status_orcamento) VALUES(
                           '".$_SESSION['venda_cliente']."',
+                          '".$_SESSION['cd_filial']."',
                           '".$_SESSION['cd_venda']."',
                           '".$_POST['produto_venda_nome']."',
                           '".$_POST['produto_venda_id2']."',
                           '".str_replace(',', '.', $_POST['produto_venda_preco'])."',
                           '".$_POST['produto_venda_qtd']."',
                           '".str_replace(',', '.', $_POST['produto_venda_vtotal'])."',
-                          'CADASTRADO',
                           '0')
                         ";
+                        //echo "<script>window.alert(" . json_encode($insertOrcamento) . ");</script>";
+                        //echo "<script>window.alert('".addslashes($insertOrcamento)."');</script>";
                         //mysqli_query($conn, $insertOrcamento);
                         if (mysqli_query($conn, $insertOrcamento)) {
+                          //echo "<script>window.alert('3');</script>";
+
                           // Obtém o último ID inserido
                           $cd_orcamento = mysqli_insert_id($conn);
                           $insertReserva = "INSERT INTO tb_reserva(cd_cliente, cd_venda, cd_orcamento, cd_prod_serv, qtd_reservado, dt_reservado) VALUES(
@@ -407,18 +409,23 @@
                             ".$cd_orcamento.",
                             '".$_POST['produto_venda_id2']."',
                             '".$_POST['produto_venda_qtd']."',
-                            '".date('Y-m-d H:i')."')
+                            now())
                           ";
+                          //echo "<script>window.alert(" . json_encode($insertReserva) . ");</script>";
+
                           mysqli_query($conn, $insertReserva);
                         } else {
                           echo "Erro ao inserir os dados: " . mysqli_error($conn);
-                        }  
+                        }
                         $_SESSION['vcusto_conta'] = $_SESSION['orcamento_venda'] + str_replace(',', '.', $_POST['produto_venda_vtotal']);   
-                        $updateOrcamentoServico = "UPDATE tb_venda SET
-                          orcamento_venda = ".$_SESSION['vcusto_conta']."
+                        $updateVenda = "UPDATE tb_venda SET
+                          orcamento_venda = orcamento_venda + ".$_POST['produto_venda_vtotal']."
                           WHERE cd_venda = ".$_SESSION['cd_venda']."";
-                        if(mysqli_query($conn, $updateOrcamentoServico)){
-                          echo "<script>window.alert('".$_POST['vcusto_conta']." + ".$_SESSION['orcamento_venda']." = ".$_SESSION['vcusto_conta']."');</script>";
+                        if(mysqli_query($conn, $updateVenda)){
+                          //echo "<script>window.alert(" . json_encode($updateVenda) . ");</script>";
+                          //echo "<script>window.alert('".$_POST['vcusto_conta']." + ".$_SESSION['orcamento_venda']." = ".$_SESSION['vcusto_conta']."');</script>";
+                        }else{
+                          echo "<script>window.alert('erro');</script>";
                         }
                         $_SESSION['produto_venda'] = false;
                         $_SESSION['produto_venda_preco'] = false;
@@ -571,10 +578,10 @@ if ($_POST['confirmacao'] === 'sim') {
                                     'R',
                                     $_SESSION['cd_empresa'],
                                     $_SESSION['cd_caixa'],
-                                    $_SESSION['cd_cliente'],
+                                    $_SESSION['venda_cliente'],
                                     $_SESSION['cd_colab'],
-                                    $_SESSION['cd_venda'],
                                     '',
+                                    $_SESSION['cd_venda'],
                                     $_POST['fpag_movimento'],
                                     $_POST['vpag_movimento']
                                   );
@@ -598,12 +605,13 @@ if ($_POST['confirmacao'] === 'sim') {
                       if($_SESSION['cd_venda'] > 0){
                         $result_venda       = $u->conVenda('CV', $_SESSION['cd_venda'], $_SESSION['cd_empresa']);
                         $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
-                        $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $_SESSION['cd_empresa']);
-                        $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], $_SESSION['cd_venda'], '', $result_orcamento['falta_pagar']);
-                        $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_venda']);
-                        $result_mensagem   = $u->mensagem1($_SESSION['tipo_mensagem'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_venda']);
+                        $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $_SESSION['cd_empresa'], true);
+                        $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], '', $_SESSION['cd_venda'], $result_orcamento['falta_pagar']);
+                        $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'VENDA', $_SESSION['cd_empresa'], $_SESSION['cd_venda']);
+                        $result_mensagem   = $u->mensagem1($_SESSION['tipo_mensagem'], 'VENDA', $_SESSION['cd_empresa'], $_SESSION['cd_venda']);
                         echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 
+                        $_SESSION['venda_cliente'] = $result_cliente['cd_cliente'];
                         //echo '<p>Cliente</p>';
                         //echo $result_cliente['partial_cliente'];
                         
