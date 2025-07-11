@@ -116,7 +116,7 @@
                   }
                 
 
-                  if(isset($_POST['pagar_servico'])){
+                  if(isset($_POST['pagar'])){
 
                     $retorno = $f->movimentoFinanceiro(
                                 'R',
@@ -131,7 +131,7 @@
                               );
 
                     if($retorno['status'] == 'OK'){
-                      echo "<script>alert('Total pago: " . $retorno['servico_vpag'] . "');</script>";
+                      echo "<script>alert('Total pago: " . $retorno['vpag'] . "');</script>";
                     }else{
                       echo "<script>alert('| - | - | - | ". $retorno['status'] . " | - | - | - |');</script>";
                     }

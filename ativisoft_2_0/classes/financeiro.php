@@ -28,7 +28,7 @@
                     now(),
                     'PAGAMENTO DA OS: ".$cd_servico."'
                 )";
-                echo "<script>window.alert(" . json_encode(    $insert_movimento_financeiro) . ");</script>";
+                //echo "<script>window.alert(" . json_encode(    $insert_movimento_financeiro) . ");</script>";
 
 
                     $update_servico = "UPDATE tb_servico SET
@@ -59,7 +59,7 @@
                     now(),
                     'PAGAMENTO DA VENDA: ".$cd_venda."'
                 )";
-                echo "<script>window.alert(" . json_encode(    $insert_movimento_financeiro) . ");</script>";
+                //echo "<script>window.alert(" . json_encode(    $insert_movimento_financeiro) . ");</script>";
 
 
                     $update_venda = "UPDATE tb_venda SET
@@ -98,10 +98,10 @@
                         if ($result_venda->num_rows > 0) {
                             $row_venda = $result_venda->fetch_assoc(); // Pega a linha como array associativo
                             
-                            $conn->commit(); // ❗ Se quiser salvar de verdade, troque por $conn->commit();
+                            $conn->commit(); // 
                             return [
                                 'status'        => 'sucesso',
-                                'vpag'  => $row_venda['venda']
+                                'vpag'  => $row_venda['vpag_venda']
                             ];
 
                         } else {
@@ -122,7 +122,7 @@
                             $conn->commit(); // ❗ Se quiser salvar de verdade, troque por $conn->commit();
                             return [
                                 'status'        => 'sucesso',
-                                'vpag'  => $row_servico['servico']
+                                'vpag'  => $row_servico['vpag_servico']
                             ];
 
                         } else {

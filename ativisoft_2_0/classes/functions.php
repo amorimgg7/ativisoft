@@ -1874,40 +1874,48 @@ class Usuario
                     'partial_financeiro'    =>  $partial_financeiro
                 ];
             }elseif($referencia == 'HOJE'){
+                //$select_financeiro = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$cd_servico."' ORDER BY cd_movimento ASC";
+                $select_financeiro = "SELECT * FROM tb_movimento_financeiro WHERE cd_filial = '".$cd_filial."' ";
+                if($cd_servico != ''){
+                    $select_financeiro_servico  = "SELECT * FROM tb_servico WHERE cd_servico = '".$cd_servico."' LIMIT 1";
 
-                /*
-                $partial_financeiro = '                
-                    <div class="col-12 grid-margin stretch-card btn-warning" '.$_SESSION['c_card'].'>
-                    <div class="card" '.$_SESSION['c_card'].'>
-                    <div class="card-body">
-                    <h1 class="card-title">Abra já seu caixa</h1>
-                    <p class="card-title">Para realizar movimento financeiro, o seu caixa deve estar devidamente aberto</p>
-                    </div>
-                    </div>
-                    </div>
-                ';*/
-       
-                $select_financeiro = "SELECT * FROM tb_movimento_financeiro WHERE cd_os_movimento = '".$cd_servico."' ORDER BY cd_movimento ASC";
-                $select_financeiro_servico = "SELECT * FROM tb_servico WHERE cd_servico = '".$cd_servico."' LIMIT 1";
-                $select_financeiro_venda = "SELECT * FROM tb_venda WHERE cd_venda = '".$cd_venda."' LIMIT 1";
+                    $select_financeiro = $select_financeiro." AND cd_os_movimento = '".$cd_servico."' ORDER BY cd_movimento ASC";
 
-                $result_financeiro = mysqli_query($conn, $select_financeiro);
-                //$row_atividade = mysqli_fetch_assoc($result_atividade);
+                    $result_financeiro = mysqli_query($conn, $select_financeiro);
+                    //$row_atividade = mysqli_fetch_assoc($result_atividade);
                     
-                // Exibe as informações do usuário no formulário
+                    // Exibe as informações do usuário no formulário
                     
-                $count = 0;
-                $vpag_servico = 0;
-                $partial_financeiro = '
+                    $count = 0;
+                    $vpag = 0;
+                    $partial_financeiro = '
                     <div class="col-12 grid-margin stretch-card btn-success">
                         <div class="card" '.$_SESSION['c_card'].'>
                             <div class="card-body">
-                                <h4 class="card-title" style="text-align: center;">Histórico de Pagamento</h4>
-                ';
+                                <h4 class="card-title" style="text-align: center;">Histórico de Pagamento de Serviços</h4>
+                    ';
+
+
+                }
+                if($cd_venda != ''){
+                    $select_financeiro_venda    = "SELECT * FROM tb_venda WHERE cd_venda = '".$cd_venda."' LIMIT 1";
+                    $select_financeiro = $select_financeiro." AND cd_venda_movimento = '".$cd_venda."' ORDER BY cd_movimento ASC";
+                    $result_financeiro = mysqli_query($conn, $select_financeiro);
+                    
+                    $count = 0;
+                    $vpag = 0;
+                    $partial_financeiro = $partial_financeiro.'
+                    <div class="col-12 grid-margin stretch-card btn-success">
+                        <div class="card" '.$_SESSION['c_card'].'>
+                            <div class="card-body">
+                                <h4 class="card-title" style="text-align: center;">Histórico de Pagamento da Venda</h4>
+                    ';
+
+                }
                 
                 while($row_financeiro = $result_financeiro->fetch_assoc()) {
                     $count ++;
-                    $vpag = $row_financeiro['valor_movimento'];
+                    
                     $partial_financeiro = $partial_financeiro.'
                                 <div class="typeahead" style="background-color: #C6C6C6;">
                                     <div class="horizontal-form">
@@ -1928,6 +1936,8 @@ class Usuario
                     $result_financeiro_servico = mysqli_query($conn, $select_financeiro_servico);
                     $row_financeiro_servico = mysqli_fetch_assoc($result_financeiro_servico);
 
+                    $vpag = $row_financeiro_servico['vpag_servico'];
+
                     $falta_paga = $row_financeiro_servico['orcamento_servico'] - $vpag;
                     $orcamento = $row_financeiro_servico['orcamento_servico'];
                             
@@ -1939,6 +1949,7 @@ class Usuario
                     $result_financeiro_venda = mysqli_query($conn, $select_financeiro_venda);
                     $row_financeiro_venda = mysqli_fetch_assoc($result_financeiro_venda);
 
+                    $vpag = $row_financeiro_venda['vpag_venda'];
                     $falta_pagar = $row_financeiro_venda['orcamento_venda'] - $vpag;
                     $orcamento = $row_financeiro_venda['orcamento_venda'];
                     
@@ -1947,7 +1958,7 @@ class Usuario
 
 
 
-                if($falta_pagar == 0){
+                if($valor_max  == 0){
                     $partial_financeiro = $partial_financeiro.'
                                 <h6 style="color:#000;">total pago: ('.$vpag.') - ('.$orcamento.')</h6>
                     ';     
@@ -2007,11 +2018,11 @@ class Usuario
                                             var inputValue = inputElement.value;
                                             var errorMessageElement = document.getElementById("mensagem-financeira");
                                             var borderForm = document.getElementById("vpag_movimento");
-                                            if (isNaN(inputValue) || inputValue < 0.1 || inputValue > '.$falta_pagar.') {
+                                            if (isNaN(inputValue) || inputValue < 0.1 || inputValue > '.$valor_max.') {
                                                 errorMessageElement.style.color = "red";
                                                 borderForm.style.border = "2px solid red";
-                                                errorMessageElement.textContent = "O valor pago deve ser maior que 1 e menor ou igual a '.$falta_pagar.'.";
-                                                inputElement.setCustomValidity("O valor pago deve ser maior que 1 e menor ou igual a '.$falta_pagar.'.");
+                                                errorMessageElement.textContent = "O valor pago deve ser maior que 1 e menor ou igual a '.$valor_max.'.";
+                                                inputElement.setCustomValidity("O valor pago deve ser maior que 1 e menor ou igual a '.$valor_max.'.");
                                             } else {
                                                 errorMessageElement.style.color = "green";
                                                 borderForm.style.border = "1px solid green";
@@ -2020,7 +2031,7 @@ class Usuario
                                             }
                                         }
                                     </script>  
-                                    <button type="submit" name="pagar_venda" id="pagar_venda" class="btn btn-lg btn-block btn-outline-success btn-light"><i class="mdi mdi-file-check"></i>Lançar Pagamento</button>
+                                    <button type="submit" name="pagar" id="pagar" class="btn btn-lg btn-block btn-outline-success btn-light"><i class="mdi mdi-file-check"></i>Lançar Pagamento</button>
                                 </form>
                     ';
 
@@ -2348,6 +2359,60 @@ class Usuario
                             <button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;">Novo Serviço</button>
                         </form>
                     ';
+                }else if($tipo_impressao == 'VENDA'){
+                    $result_venda       = $u->conVenda('CV', $chave_busca, $cd_empresa);
+                    $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
+                    $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_servico'], $cd_empresa, false);
+                    $partial_impressao  = '
+                        <form action="a4.php" method="POST" target="_blank">
+                            <h1>A4</h1>
+                            <div class="card-body" id="formBtn"><!--FORMULÁRIO DOS BOTOES-->
+                                <div class="kt-portlet__body">
+                                    <div class="row">
+                                        <div class="col-12 col-md-12">
+                                            <div id="" class="" style="display:block;">
+                                                <h3 class="kt-portlet__head-title">FORM DE IMPRESSÃO</h3> 
+                                                <div  class="typeahead" id="botoes" name="botoes">
+                                                    <input value="'.$result_cliente['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" class=" form-control form-control-sm" style="display: none;"/>
+                                                    <label for="btnpnome_cliente">Nome</label>
+                                                    <input value="'.$result_cliente['pnome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40"   class=" form-control form-control-sm"/>
+                                                    <label for="btnsnome_cliente">sobrenome</label>
+                                                    <input value="'.$result_cliente['snome_cliente'].'" name="btnsnome_cliente" type="text" id="btnsnome_cliente" maxlength="40"   class=" form-control form-control-sm"/>
+                                                    <label for="btntel_cliente">Telefone</label>
+                                                    <input value="'.$result_cliente['tel1_cliente'].'" name="btntel_cliente" type="tel"  id="btntel_cliente" oninput="tel(this)" class=" form-control form-control-sm"/>
+                                                </div>
+                                                <div  class="typeahead" >
+                                                    <label for="btncd_venda">Vendas</label>
+                                                    <input value="'.$result_venda['cd_venda'].'" type="tel" name="btncd_venda" id="btncd_venda" class=" form-control form-control-sm">
+                                                    <label for="btntitulo_venda">Descrição Geral</label>
+                                                    <input value="'.$result_venda['titulo_venda'].'" type="text" name="btntitulo_venda" maxlength="999" id="btntitulo_venda"  class=" form-control form-control-sm" placeholder="Caracteristica geral da Venda">
+                                                    <!--<label for="btnabertura_venda">Abertura</label>-->
+                                                    <input value="'.$result_venda['abertura_venda'].'" name="btnabertura_venda" type="datetime-local" id="btnabertura_venda" class=" form-control form-control-sm" />
+                                                    <label for="btnfechamento_venda">Fechamento</label>
+                                                    <input value="'.$result_venda['fechamento_venda'].'" name="btnfechamento_venda" type="datetime-local" id="btnfechamento_venda" class=" form-control form-control-sm"/>
+                                                </div>
+                                                <div  class="typeahead" style="background-color: #C6C6C6; display:block;">
+                                                    <div class="horizontal-form">
+                                                        <div class="form-group">
+                                                            <label for="showobs_servico">Total</label>
+                                                            <input value="'.$result_orcamento['vtotal_orcamento'].'" type="tel" name="btnvcusto_orcamento" id="btnvcusto_orcamento" class=" form-control form-control-sm" readonly>
+                                                            <label for="showobs_servico">Pago</label>
+                                                            <input value="'.$result_venda['vpag_venda'].'" type="tel" name="btnvpag_venda" id="btnvpag_venda" class=" form-control form-control-sm" placeholder="Valor Pago">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" name="imprimir_venda" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Imprimir Venda</button>
+                                <button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Impressão)</button>
+                            </div>
+                        </form>
+                        <form method="post">
+                            <button type="submit" class="btn btn-block btn-lg btn-danger" name="limparVenda" style="margin-top: 20px; margin-bottom: 20px;">Nova Venda</button>
+                        </form>
+                    ';
                 }else{
                     return [
                         'status'                =>  '($tipo_impressao) espera (SERVICO)',
@@ -2481,9 +2546,82 @@ class Usuario
                         </script>
                     ';
                     
+                }else if($tipo_mensagem == 'VENDA'){
+                    $result_venda     = $u->conVenda($chave_busca, $cd_empresa, $cd_empresa);
+                    $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
+                    //$result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa);
+                    $partial_mensagem  = '
+                        <button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Whatsapp)</button>
+                    
+                        <script>
+                            function enviarMensagemWhatsApp() {
+                                // Obter os valores dos campos do formulário
+                                var nomeCliente = "'.$result_cliente['pnome_cliente'].'";
+                                var telefoneCliente = "'.$result_cliente['tel1_cliente'].'";
+                                var numeroVenda = "'.$result_venda['cd_venda'].'";
+                                var aberturaVenda = "'.$result_venda['abertura_venda'].'";
+                                var fechamentoVenda = "'.$result_venda['fechamento_venda'].'";
+                                var tituloVenda = "'.$result_venda['titulo_venda'].'";
+                                var orcamentoVenda = "'.$result_venda['orcamento_venda'].'";
+                                var vpagVenda = "'.$result_venda['vpag_venda'].'";
+                                var anoAbertura = aberturaVenda.substring(0, 4);
+                                var mesAbertura = aberturaVenda.substring(5, 7);
+                                var diaAbertura = aberturaVenda.substring(8, 10);
+                                var horaAbertura = aberturaVenda.substring(11, 13);
+                                var minutoAbertura = aberturaVenda.substring(14, 16);
+                                var anoFechamento = fechamentoVenda.substring(0, 4);
+                                var mesFechamento = fechamentoVenda.substring(5, 7);
+                                var diaFechamento = fechamentoVenda.substring(8, 10);
+                                var horaFechamento = fechamentoVenda.substring(11, 13);
+                                var minutoFechamento = fechamentoVenda.substring(14, 16)
+
+                                // Montar a data organizada
+                                var aberturaOrganizada = diaAbertura + "/" + mesAbertura + "/" + anoAbertura + " às " + horaAbertura + ":" + minutoAbertura;
+                                var fechamentoOrganizado = diaFechamento + "/" + mesFechamento + "/" + anoFechamento + " às " + horaFechamento + ":" + minutoFechamento;
+                                
+                                faltaPagar = orcamentoVenda - vpagVenda;
+                                // Construir a mensagem com todos os dados do formulário
+                                var mensagem = "*Olá, " + nomeCliente + "!*\n";
+                                mensagem += "Somos da *'.$_SESSION['nfantasia_filial'].'* e ficamos no endereço *'.$_SESSION['endereco_filial'].'*.\n\n";
+                                mensagem += "Sua Compra *" + numeroVenda + "*, foi aberta em nossa loja *" + aberturaOrganizada + "*.\n";
+                                mensagem += "E finalizada em: *" + fechamentoOrganizado + "*\n\n";
+                    ';
+                    $select_orcamento_whatsapp = "SELECT * FROM tb_orcamento_venda WHERE cd_venda = ".$result_venda['cd_venda']." ORDER BY cd_orcamento ASC";
+                    $result_orcamento_whatsapp = mysqli_query($conn, $select_orcamento_whatsapp);
+                    
+                    $partial_mensagem =  $partial_mensagem.'mensagem += "*Lista detalhada*\n";';
+                    $count = 0;                  
+                    while($row_orcamento_whatsapp = $result_orcamento_whatsapp->fetch_assoc()) {
+                        $count ++;
+                        $partial_mensagem =  $partial_mensagem.'mensagem += "*'.$count.'* - '.$row_orcamento_whatsapp['titulo_orcamento'].' - R$:'.$row_orcamento_whatsapp['vtotal_orcamento'].' \n";';
+                    }
+                    $partial_mensagem =  $partial_mensagem.'
+                                mensagem += "\n";
+                                if (faltaPagar > 0) {
+                                    mensagem += "Total: *R$ " + vtotalVenda + "*\n";
+                                    // mensagem += "Valor pago: *R$ " + vpagVenda + "*\n";
+                                    mensagem += "Falta pagar: *R$ " + faltaPagar + "*\n\n";
+                                } else if (faltaPagar < 0) {
+                                    mensagem += "Você tem um crédito (cupom) de: *R$ " + Math.abs(faltaPagar) + "* conosco!\n\n";
+                                } else {
+                                    mensagem += "Total Pago: *R$ " + vpagVenda + "*\n";
+                                }
+
+                                mensagem += "\n __________________________________\n";
+                                mensagem += "Acompanhe seu histórico pelo link:\n'.$_SESSION['dominio'].'pages/md_assistencia/acompanha_servico.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel=" + telefoneCliente + "\n";                              
+                                mensagem += "\n __________________________________\n";
+                                mensagem += "OBS: *_'.$_SESSION['saudacoes_filial'].'_*\n\n";
+                                mensagem += "```AtiviSoft © | Release: B E T A```";
+                                var mensagemCodificada = encodeURIComponent(mensagem);
+                                var urlWhatsApp = "https://api.whatsapp.com/send?phone=" + telefoneCliente + "&text=" + mensagemCodificada;
+                                window.open(urlWhatsApp, "_blank");
+                            }
+                        </script>
+                    ';
+                    
                 }else{
                     return [
-                        'status'                =>  '($tipo_mensagem) espera (SERVICO)',
+                        'status'                =>  '($tipo_mensagem) espera (SERVICO, VENDA)',
                         'partial_mensagem'     =>  ''
                     ];
                 }

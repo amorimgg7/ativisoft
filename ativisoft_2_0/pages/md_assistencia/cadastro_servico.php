@@ -731,7 +731,7 @@ if ($_POST['confirmacao'] === 'sim') {
                   
                   
                     
-                      if(isset($_POST['pagar_servico'])){
+                      if(isset($_POST['pagar'])){
                         $retorno = $f->movimentoFinanceiro(
                                     'R',
                                     $_SESSION['cd_empresa'],
@@ -745,7 +745,7 @@ if ($_POST['confirmacao'] === 'sim') {
                                   );
     
                         if($retorno['status'] == 'sucesso'){
-                          echo "<script>alert('Total pago: " . $retorno['servico_vpag'] . "');</script>";
+                          echo "<script>alert('Total pago: " . $retorno['vpag'] . "');</script>";
                         }else{
                           echo "<script>alert('| - | - | - | ". $retorno['status'] . " | - | - | - |');</script>";
                         }

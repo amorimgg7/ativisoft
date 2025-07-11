@@ -240,19 +240,20 @@
                                     {
                                         if(isset($_POST['listaremover_pagamento'])) {//DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = 198
                                             //echo "<script>window.alert('OK, pode remover');</script>";
-                                            $select_os_movimento = "SELECT * FROM tb_servico WHERE cd_servico = '".$_POST['cd_os_movimento']."'";
-                                            $resulta_os_movimento = $conn->query($select_os_movimento);
-                                            if ($resulta_os_movimento->num_rows > 0){
-                                                while ( $row_os_movimento = $resulta_os_movimento->fetch_assoc()){
-                                                $vpagtroco = $row_os_movimento['vpag_servico'] - $_POST['valor_servico'];                                              
-                                                }
+                                            
+                                            if(isset($_POST['cd_venda_movimento']) && $_POST['cd_venda_movimento'] > 0){
+                                                $update_venda_movimento = "UPDATE tb_venda SET
+                                                    vpag_venda = vpag_venda - '".$_POST['valor_servico']."'
+                                                    WHERE cd_venda = '".$_POST['cd_venda_movimento']."'";
+                                                mysqli_query($conn, $update_venda_movimento);
                                             }
-
-                                            $update_os_movimento = "UPDATE tb_servico SET
-                                                vpag_servico = '".$vpagtroco."'
-                                            WHERE cd_servico = '".$_POST['cd_os_movimento']."'";
-                                            mysqli_query($conn, $update_os_movimento);
-
+                                            if(isset($_POST['cd_os_movimento']) && $_POST['cd_os_movimento'] > 0){
+                                                $update_os_movimento = "UPDATE tb_servico SET
+                                                    vpag_servico = vpag_servico - '".$_POST['valor_servico']."'
+                                                    WHERE cd_servico = '".$_POST['cd_os_movimento']."'";
+                                                mysqli_query($conn, $update_os_movimento);
+                                            }
+                                            
                                                                                 //cd_os_movimento
                                                                                 //cd_movimento
                                                                                 //valor_movimento
@@ -345,6 +346,7 @@
                                                 echo '<form method="POST">';
                                                 echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['cd_movimento'].'" id="cd_movimento" name="cd_movimento"></td>';
                                                 echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['cd_os_movimento'].'" id="cd_os_movimento" name="cd_os_movimento" ></td>';
+                                                echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['cd_venda_movimento'].'" id="cd_venda_movimento" name="cd_venda_movimento" ></td>';
                                                 echo '<td style="display:none;"><input type="tel" value="'.$row_movimento_caixa['valor_movimento'].'" id="valor_servico" name="valor_servico"></td>';
                                                 echo '<td><button type="submit" name="listaremover_pagamento" id="listaremover_pagamento" class="btn btn-danger">X</button></td>';
                                                 echo '</form>';
