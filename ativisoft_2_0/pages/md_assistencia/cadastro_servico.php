@@ -519,10 +519,24 @@
                       $_SESSION['prazo_servico']      = $result_servico['prazo_servico'];
                     }*/
 
+                      /*echo '
+                        <script>
+                          if (window.history.replaceState) {
+                            window.history.replaceState(null, null, window.location.href);
+                            console.log("Histórico de formulário limpo");
+                          }
+                        </script>
+                      ';
+*/
+
                   }
 
-                  if(isset($_POST['lancarOrcamento'])) { 
-                    $result_orcamento = $u->cadOrcamento('AVULSO', $_POST['cd_cliente'],$_SESSION['cd_empresa'], $_POST['cd_servico'], $_POST['titulo_orcamento'], $_POST['vcusto_orcamento']);
+                  if(isset($_POST['lancarOrcamento'])) {
+                    $valor_br = $_POST['vcusto_orcamento']; 
+                    $valor = str_replace(',', '.', $valor_br); 
+                    $valor_float = floatval($valor); 
+
+                    $result_orcamento = $u->cadOrcamento('AVULSO', $_POST['cd_cliente'],$_SESSION['cd_empresa'], $_POST['cd_servico'], $_POST['titulo_orcamento'],  number_format($valor_float, 2, '.', '.'));
                     if($result_orcamento['status'] == 'OK'){
                       //echo "<script>alert('Orçamento gerado: " . $result_orcamento['cd_orcamento'] . "');</script>";
                       //echo "<script>alert('SQL: " . addslashes(json_encode($result_orcamento['SQL'], JSON_PRETTY_PRINT)) . "');</script>";
@@ -598,12 +612,19 @@
                         
 
                   if(isset($_POST['listaremover_orcamento'])) {//DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = 198
-                    if(($_SESSION['vcusto_orcamento'] - $_POST['listavalor_orcamento'])>=$_SESSION['vpag_servico']){
+                    
+                    $retorno = $u->conServico($_POST['listaid_servico'],$_SESSION['cd_filial'],false);
+                    //$retorno['status'];
+                    $valor_orcamento  = str_replace('.', '.', $_POST['listavalor_orcamento']);
+                    $valor_orcamento  = floatval($valor_orcamento);
+                    $vpag_servico   = floatval($retorno['vpag_servico']);                  
+                    $orcamento_servico   = floatval($retorno['orcamento_servico']);                  
+                    if (($orcamento_servico - $valor_orcamento) >= $vpag_servico) {
                       //echo "<script>window.alert('OK, pode remover');</script>";
                       $removeOrcamento = "DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = '".$_POST['listaid_orcamento']."'";
                       mysqli_query($conn, $removeOrcamento);
                       $updateVtotalServico = "UPDATE tb_servico SET
-                        orcamento_servico = orcamento_servico - ".$_POST['listavalor_orcamento']."
+                        orcamento_servico = orcamento_servico - ".$valor_orcamento."
                         WHERE cd_servico = ".$_SESSION['cd_servico']."";
                       mysqli_query($conn, $updateVtotalServico);
                       if($_POST['listatipo_orcamento'] == 'CADASTRADO'){
@@ -613,7 +634,8 @@
                       //echo "<script>window.alert('a!');</script>";  
                         echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';          
                     }else{
-                      echo "<script>window.alert('Valor pago não pode ser maior que o total do serviço!');</script>";  
+                      echo "<script>window.alert('!: ".$retorno['status'].", vPag:".$vpag_servico.", vOrcamento".$orcamento_servico.", vOrcamentoRemover".$valor_orcamento."');</script>";
+                      echo "<script>window.alert('Valor pago não pode ser maior que o total do Orcamento!');</script>";  
                     }
                   }
 
@@ -729,6 +751,23 @@ if ($_POST['confirmacao'] === 'sim') {
                     
                     
                   
+                    if(isset($_POST['corrige_inconsistencia'])){
+
+                    $retorno = $u->corrigeInconsistencia(
+                      $_SESSION['cd_filial'],
+                      $_POST['os_corrigir'],
+                      '',
+                      $_POST['valor_correto'],
+                      'FINANCEIRO SERVICO'
+                    );
+
+                    if($retorno['status'] == 'OK'){
+                      echo "<script>alert('Parametro Corrigido: " . $retorno['param_corrigido'] . "');</script>";
+                    }else{
+                      echo "<script>alert('| - | - | - | ". $retorno['status'] . " | - | - | - |');</script>";
+                    }
+                  }
+
                   
                     
                       if(isset($_POST['pagar'])){
@@ -752,21 +791,13 @@ if ($_POST['confirmacao'] === 'sim') {
                       }
 
 
-                
-                  
-                  
-                  
-                          
-                  
-
-
                       if($_SESSION['cd_servico'] > 0){
-                        $result_servico     = $u->conServico($_SESSION['cd_servico'], $_SESSION['cd_empresa']);
+                        $result_servico     = $u->conServico($_SESSION['cd_servico'], $_SESSION['cd_empresa'], true);
                         $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);
-                        $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $_SESSION['cd_empresa']);
+                        $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $_SESSION['cd_empresa'], true, true);
                         $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], $_SESSION['cd_servico'], '', $result_orcamento['falta_pagar']);
                         $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
-                        $result_mensagem   = $u->mensagem1($_SESSION['tipo_mensagem'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
+                        $result_mensagem    = $u->mensagem1($_SESSION['tipo_mensagem'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
                         echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 
                         //echo '<p>Cliente</p>';
@@ -835,151 +866,9 @@ if ($_POST['confirmacao'] === 'sim') {
             
             
 
-<script>
-function enviarMensagemWhatsApp() {
-  // Obter os valores dos campos do formulário
-  var nomeCliente = document.getElementById("btnpnome_cliente").value;
-  var telefoneCliente = document.getElementById("btntel_cliente").value;
-  var numeroOS = document.getElementById("btncd_servico").value;
-  var entradaServico = document.getElementById("btnentrada_servico").value;
-
-  var observacoesServico = document.getElementById("btnobs_servico").value;
-  var prioridadeServico = document.getElementById("btnprioridade_servico").value;
-  var prazoServico = document.getElementById("btnprazo_servico").value;
-
-  var vtotalServico = document.getElementById("btnvcusto_orcamento").value;
-  var vpagServico = document.getElementById("btnvpag_orcamento").value;
 
 
-  var anoEntrada = entradaServico.substring(0, 4);
-  var mesEntrada = entradaServico.substring(5, 7);
-  var diaEntrada = entradaServico.substring(8, 10);
-  var horaEntrada = entradaServico.substring(11, 13);
-  var minutoEntrada = entradaServico.substring(14, 16);
 
-  var anoPrazo = prazoServico.substring(0, 4);
-  var mesPrazo = prazoServico.substring(5, 7);
-  var diaPrazo = prazoServico.substring(8, 10);
-  var horaPrazo = prazoServico.substring(11, 13);
-  var minutoPrazo = prazoServico.substring(14, 16)
-
-// Montar a data organizada
-var entradaOrganizada = diaEntrada + "/" + mesEntrada + "/" + anoEntrada + " às " + horaEntrada + ":" + minutoEntrada;
-var prazoOrganizado = diaPrazo + "/" + mesPrazo + "/" + anoPrazo + " às " + horaPrazo + ":" + minutoPrazo;
-if(prioridadeServico == "U"){
-  prioridadeOrganizada = "Urgente";
-}
-if(prioridadeServico == "A"){
-  prioridadeOrganizada = "Alta";
-}
-if(prioridadeServico == "M"){
-  prioridadeOrganizada = "Média";
-}
-if(prioridadeServico == "B"){
-  prioridadeOrganizada = "Baixa";
-}
-faltaPagar = vtotalServico - vpagServico;
-
-  // Construir a mensagem com todos os dados do formulário
-  var mensagem = "*Olá, " + nomeCliente + "!*\n";
-  mensagem += "Somos da *<?php echo $_SESSION['nfantasia_filial'];?>* e ficamos no endereço *<?php echo $_SESSION['endereco_filial'];?>*.\n\n";
-                            
-  mensagem += "Sua ordem de serviço de número *OS" + numeroOS + "*, deu entrada em nossa loja *" + entradaOrganizada + "*.\n";
-  mensagem += "Descrição da atividade: " + observacoesServico + "\n";
-  //mensagem += "Prioridade Requerida: *" + prioridadeOrganizada + "*\n";
-  mensagem += "O prazo previsto para entrega é: *" + prazoOrganizado + "*\n\n";
-  <?php 
-  
-
-  $select_orcamento_whatsapp = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['cd_servico']."' ORDER BY cd_orcamento ASC";
-  $result_orcamento_whatsapp = mysqli_query($conn, $select_orcamento_whatsapp);
-  echo 'mensagem += "*Lista detalhada*\n";';
-  $count = 0;                  
-  while($row_orcamento_whatsapp = $result_orcamento_whatsapp->fetch_assoc()) {
-    $count ++;
-    //echo 'mensagem += count + " - '.$row_orcamento_whatsapp['titulo_orcamento'].' - '.$row_orcamento_whatsapp['vcusto_orcamento'].'"\n";';
-    ?>mensagem += "<?php echo '*'.$count.'* - '.$row_orcamento_whatsapp['titulo_orcamento'].' - R$:'.$row_orcamento_whatsapp['vcusto_orcamento']; ?>\n";<?php
-  }
-  echo 'mensagem += "\n";';
-
-
-  ?>
-  if(faltaPagar > 0 ){
-    mensagem += "Total: *R$:" + vtotalServico + "*\n";
-    //mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
-    mensagem += "Falta pagar: R$:" + faltaPagar + "*\n\n";
-  }else if(faltaPagar < 0){
-    mensagem += "Voce tem cupom de: *R$:" + faltaPagar + "* conosco!\n\n";
-  }else{
-    mensagem += "Total Pago: R$:*" + vpagServico + "*\n";
-  }
-  //mensagem += "Total: *R$:" + vtotalServico + "*\n";
-  //mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
-  //mensagem += "Falta pagar: R$:" + faltaPagar + "*\n\n";
-
-  mensagem += "\n __________________________________\n";
-  <?php
-    echo 'mensagem += "Acompanhe seu histórico pelo link:\n'.$_SESSION['dominio'].'pages/md_assistencia/acompanha_servico.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel=" + telefoneCliente + "\n";';
-  ?>
-  mensagem += "\n __________________________________\n";
-
-
-  mensagem += "OBS: *_<?php echo $_SESSION['saudacoes_filial'];?>_*\n\n";//$_SESSION['endereco_filial']
-                            mensagem += "```NuvemSoft © | Release: B E T A```";//$_SESSION['endereco_filial']
-                            
-  // Codificar a mensagem para uso na URL
-  var mensagemCodificada = encodeURIComponent(mensagem);
-
-  // Construir a URL do WhatsApp
-  var urlWhatsApp = "https://api.whatsapp.com/send?phone=" + telefoneCliente + "&text=" + mensagemCodificada;
-
-  // Abrir a janela do WhatsApp com a mensagem preenchida
-  window.open(urlWhatsApp, "_blank");
-}
-</script>
-
-<script>
-                          function generatePDF() {
-                            // Crie uma instância do objeto jsPDF
-                            var doc = new jsPDF();
-
-                            // Defina os campos do formulário
-                            var nome = document.getElementById("showpnome_cliente").value;
-                            var sobrenome = document.getElementById("showsnome_cliente").value;
-                            var telefone = document.getElementById("showtel_cliente").value;
-
-                            var cdServico = document.getElementById("showcd_servico").value;
-                            var tituloServico = document.getElementById("showtitulo_servico").value;
-                            var obsServico = document.getElementById("showobs_servico").value;
-                            var prioridadeServico = document.getElementById("showprioridade_servico").value;
-                            var prazoServico = document.getElementById("showprazo_servico").value;
-                            var orcamentoServico = document.getElementById("showorcamento_servico").value;
-                            var vpagServico = document.getElementById("showvpag_servico").value;
-
-                            // Defina as posições da tabela no documento
-                            var startX = 10;
-                            var startY = 10;
-                            var rowHeight = 10;
-                            var columnWidth = 40;
-
-                            // Defina a estrutura da tabela
-                            var rows = [
-                              ["Nome", "Sobrenome", "Telefone", "showcd_servico", "showtitulo_servico", "showobs_servico", "showprioridade_servico","showprazo_servico", "showorcamento_servico", "showvpag_servico"],
-                              [nome, sobrenome, telefone, showcd_servico, showtitulo_servico, showobs_servico, showprioridade_servico, showprazo_servico, showorcamento_servico, showvpag_servico]
-                            ];
-
-                            // Adicione a tabela ao documento PDF
-                            for (var i = 0; i < rows.length; i++) {
-                              var rowData = rows[i];
-                              for (var j = 0; j < rowData.length; j++) {
-                                doc.text(startX + j * columnWidth, startY + (i + 1) * rowHeight, rowData[j]);
-                              }
-                            }
-
-                              // Salve ou abra o arquivo PDF
-                            doc.save("formulario.pdf");
-                          }
-                        </script>
 
   <script>
     

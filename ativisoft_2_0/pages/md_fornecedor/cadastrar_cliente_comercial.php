@@ -160,19 +160,19 @@
                     }            
                   }
 
-                  if(isset($_POST['pagar_servico'])){//pagar a fatura
-                    $insert_pagar_servico = "INSERT INTO tb_movimento_financeiro(tipo_movimento, cd_caixa_movimento, cd_cliente_comercial, cd_colab_movimento, fpag_movimento, valor_movimento, data_movimento, obs_movimento) VALUES(
+                  if(isset($_POST['pagar'])){//pagar a fatura
+                    $insert_pagar = "INSERT INTO tb_movimento_financeiro(tipo_movimento, cd_caixa_movimento, cd_cliente_comercial, cd_colab_movimento, fpag_movimento, valor_movimento, data_movimento, obs_movimento) VALUES(
                         1,
                         '".$_SESSION['cd_caixa']."',
                         '".$_SESSION['cd_cliente_comercial']."',
                         '".$_SESSION['cd_colab']."',
                         '".$_POST['fpag_movimento']."',
                         '".$_POST['vpag_movimento']."',
-                        '".date('Y-m-d H:i', strtotime('+1 hour'))."',
+                        now(),
                         'PAGAMENTO DA FATURA DO CLIENTE: ".$_SESSION['cd_cliente_comercial']."'
                          )
                      ";
-                    mysqli_query($conn, $insert_pagar_servico);
+                    mysqli_query($conn, $insert_pagar);
                     //echo "<script>window.alert('Movimento Financeiro Lançado!');</script>";
                     
                     $fechar_caixa = "UPDATE tb_cliente_comercial SET
@@ -309,14 +309,21 @@
                 <?php
                   if(isset($_POST['concnpj_cliente_comercial'])){
                     $_SESSION['concnpj_cliente_comercial'] = $_POST['concnpj_cliente_comercial'];
+                    //echo "<script>window.alert('...');</script>";
+
                   }
                   if($_SESSION['concnpj_cliente_comercial'] > 0) { //CHAMAR CLIENTE CADASTRADO PARA SESSION
+                    //echo "<script>window.alert('.".$_SESSION['concnpj_cliente_comercial'].".');</script>";
+
                     $select_cliente_comercial = "SELECT * FROM tb_empresa e, tb_contrato c WHERE e.cnpj_empresa = '".$_SESSION['concnpj_cliente_comercial']."' AND e.cd_empresa = c.cd_empresa ORDER BY c.cd_contrato DESC LIMIT 1";
                     //$select_cliente_comercial = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_SESSION['concnpj_cliente_comercial']."' ORDER BY cd_empresa DESC";
                     $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
                     $row_cliente_comercial = mysqli_fetch_assoc($result_cliente_comercial);
                     // Exibe as informações do usuário no formulário
                     if($row_cliente_comercial) {
+                      
+                      echo "<script>window.alert('.".$_SESSION['concnpj_cliente_comercial'].".');</script>";
+
                       //echo "<script>window.alert('Cliente encontrado!');</script>";
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
                       echo '<script>document.getElementById("cadastroCliente").style.display = "block";</script>';
@@ -328,7 +335,7 @@
                       echo '<script>document.getElementById("cadrsocial_cliente_comercial").value = "'. $row_cliente_comercial['rsocial_empresa'] .'";</script>';
                       echo '<script>document.getElementById("cadnfantasia_cliente_comercial").value = "'. $row_cliente_comercial['nfantasia_empresa'] .'";</script>';
                       echo '<script>document.getElementById("cadcnpj_cliente_comercial").value = "'. strval($row_cliente_comercial['cnpj_empresa']) .'";</script>';
-                      //                      echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtcadastro_cliente_comercial'])) . '";</script>';
+                      //echo '<script>document.getElementById("caddtcadastro_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dtcadastro_cliente_comercial'])) . '";</script>';
                       echo '<script>document.getElementById("caddtvalidlicenca_cliente_comercial").value = "' . date('Y-m-d', strtotime($row_cliente_comercial['dt_validade'])) .'";</script>';
                       echo '<script>document.getElementById("cadobs_cliente_comercial").value = "'. $row_cliente_comercial['ds_contrato'] .'";</script>';
                       echo '<script>document.getElementById("cadtel_cliente_comercial").value = "'. $row_cliente_comercial['tel1_empresa'] .'";</script>';
@@ -677,151 +684,8 @@
 
 ?>
 
-<script>
-function enviarMensagemWhatsApp() {
-  // Obter os valores dos campos do formulário
-  var nomeCliente = document.getElementById("btnpnome_cliente").value;
-  var telefoneCliente = document.getElementById("btntel_cliente").value;
-  var numeroOS = document.getElementById("btncd_servico").value;
-  var entradaServico = document.getElementById("btnentrada_servico").value;
-
-  var observacoesServico = document.getElementById("btnobs_servico").value;
-  var prioridadeServico = document.getElementById("btnprioridade_servico").value;
-  var prazoServico = document.getElementById("btnprazo_servico").value;
-
-  var vtotalServico = document.getElementById("btnvtotal_contrato").value;
-  var vpagServico = document.getElementById("btnvpag_contrato").value;
 
 
-  var anoEntrada = entradaServico.substring(0, 4);
-  var mesEntrada = entradaServico.substring(5, 7);
-  var diaEntrada = entradaServico.substring(8, 10);
-  var horaEntrada = entradaServico.substring(11, 13);
-  var minutoEntrada = entradaServico.substring(14, 16);
-
-  var anoPrazo = prazoServico.substring(0, 4);
-  var mesPrazo = prazoServico.substring(5, 7);
-  var diaPrazo = prazoServico.substring(8, 10);
-  var horaPrazo = prazoServico.substring(11, 13);
-  var minutoPrazo = prazoServico.substring(14, 16)
-
-// Montar a data organizada
-var entradaOrganizada = diaEntrada + "/" + mesEntrada + "/" + anoEntrada + " às " + horaEntrada + ":" + minutoEntrada;
-var prazoOrganizado = diaPrazo + "/" + mesPrazo + "/" + anoPrazo + " às " + horaPrazo + ":" + minutoPrazo;
-if(prioridadeServico == "U"){
-  prioridadeOrganizada = "Urgente";
-}
-if(prioridadeServico == "A"){
-  prioridadeOrganizada = "Alta";
-}
-if(prioridadeServico == "M"){
-  prioridadeOrganizada = "Média";
-}
-if(prioridadeServico == "B"){
-  prioridadeOrganizada = "Baixa";
-}
-faltaPagar = vtotalServico - vpagServico;
-
-  // Construir a mensagem com todos os dados do formulário
-  var mensagem = "*Olá, " + nomeCliente + "!*\n";
-  mensagem += "Somos da *<?php echo $_SESSION['nfantasia_filial'];?>* e ficamos no endereço *<?php echo $_SESSION['endereco_filial'];?>*.\n\n";
-                            
-  mensagem += "Sua ordem de serviço de número *OS" + numeroOS + "*, deu entrada em nossa loja *" + entradaOrganizada + "*.\n";
-  mensagem += "Descrição da atividade: " + observacoesServico + "\n";
-  //mensagem += "Prioridade Requerida: *" + prioridadeOrganizada + "*\n";
-  mensagem += "O prazo previsto para entrega é: *" + prazoOrganizado + "*\n\n";
-  <?php 
-  
-
-  $select_contrato_whatsapp = "SELECT * FROM tb_contrato_servico WHERE cd_servico = '".$_SESSION['os_servico']."' ORDER BY cd_contrato ASC";
-  $result_contrato_whatsapp = mysqli_query($conn, $select_contrato_whatsapp);
-  echo 'mensagem += "*Lista detalhada*\n";';
-                        
-  while($row_contrato_whatsapp = $result_contrato_whatsapp->fetch_assoc()) {
-    $counter = $counter + 1;
-    //echo 'mensagem += count + " - '.$row_contrato_whatsapp['titulo_contrato'].' - '.$row_contrato_whatsapp['vcusto_contrato'].'"\n";';
-    ?>mensagem += "<?php echo '*'.$counter.'* - '.$row_contrato_whatsapp['titulo_contrato'].' - R$:'.$row_contrato_whatsapp['vcusto_contrato']; ?>\n";<?php
-  }
-  echo 'mensagem += "\n";';
-
-
-  ?>
-  if(faltaPagar > 0 ){
-    mensagem += "Total: *R$:" + vtotalServico + "*\n";
-    //mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
-    mensagem += "Falta pagar: R$:" + faltaPagar + "*\n\n";
-  }else if(faltaPagar < 0){
-    mensagem += "Voce tem cupom de: *R$:" + faltaPagar + "* conosco!\n\n";
-  }else{
-    mensagem += "Total Pago: R$:*" + vpagServico + "*\n";
-  }
-  //mensagem += "Total: *R$:" + vtotalServico + "*\n";
-  //mensagem += "Valor pago: R$:*" + vpagServico + "*\n";
-  //mensagem += "Falta pagar: R$:" + faltaPagar + "*\n\n";
-
-  mensagem += "\n __________________________________\n";
-  <?php
-    echo 'mensagem += "Acompanhe seu histórico pelo link:\n'.$_SESSION['dominio'].'pages/md_assistencia/acompanha_servico.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel=" + telefoneCliente + "\n";';
-  ?>
-  mensagem += "\n __________________________________\n";
-
-
-  mensagem += "OBS: *_<?php echo $_SESSION['saudacoes_filial'];?>_*\n\n";//$_SESSION['endereco_filial']
-                            mensagem += "```NuvemSoft © | Release: B E T A```";//$_SESSION['endereco_filial']
-                            
-  // Codificar a mensagem para uso na URL
-  var mensagemCodificada = encodeURIComponent(mensagem);
-
-  // Construir a URL do WhatsApp
-  var urlWhatsApp = "https://api.whatsapp.com/send?phone=" + telefoneCliente + "&text=" + mensagemCodificada;
-
-  // Abrir a janela do WhatsApp com a mensagem preenchida
-  window.open(urlWhatsApp, "_blank");
-}
-</script>
-
-<script>
-                          function generatePDF() {
-                            // Crie uma instância do objeto jsPDF
-                            var doc = new jsPDF();
-
-                            // Defina os campos do formulário
-                            var nome = document.getElementById("cadpnome_cliente").value;
-                            var sobrenome = document.getElementById("cadsnome_cliente").value;
-                            var telefone = document.getElementById("cadtel_cliente").value;
-
-                            var cdServico = document.getElementById("cadcd_servico").value;
-                            var tituloServico = document.getElementById("cadtitulo_servico").value;
-                            var obsServico = document.getElementById("cadobs_servico").value;
-                            var prioridadeServico = document.getElementById("cadprioridade_servico").value;
-                            var prazoServico = document.getElementById("cadprazo_servico").value;
-                            var contratoServico = document.getElementById("cadcontrato_servico").value;
-                            var vpagServico = document.getElementById("cadvpag_servico").value;
-
-                            // Defina as posições da tabela no documento
-                            var startX = 10;
-                            var startY = 10;
-                            var rowHeight = 10;
-                            var columnWidth = 40;
-
-                            // Defina a estrutura da tabela
-                            var rows = [
-                              ["Nome", "Sobrenome", "Telefone", "cadcd_servico", "cadtitulo_servico", "cadobs_servico", "cadprioridade_servico","cadprazo_servico", "cadcontrato_servico", "cadvpag_servico"],
-                              [nome, sobrenome, telefone, cadcd_servico, cadtitulo_servico, cadobs_servico, cadprioridade_servico, cadprazo_servico, cadcontrato_servico, cadvpag_servico]
-                            ];
-
-                            // Adicione a tabela ao documento PDF
-                            for (var i = 0; i < rows.length; i++) {
-                              var rowData = rows[i];
-                              for (var j = 0; j < rowData.length; j++) {
-                                doc.text(startX + j * columnWidth, startY + (i + 1) * rowHeight, rowData[j]);
-                              }
-                            }
-
-                              // Salve ou abra o arquivo PDF
-                            doc.save("formulario.pdf");
-                          }
-                        </script>
 
 <script>
     var data = new Date();

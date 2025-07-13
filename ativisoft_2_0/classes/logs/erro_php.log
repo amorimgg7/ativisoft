@@ -4279,3 +4279,672 @@ Stack trace:
 [10-Jul-2025 23:38:27 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
 [10-Jul-2025 23:38:27 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
 [10-Jul-2025 23:38:27 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[11-Jul-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[11-Jul-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[11-Jul-2025 09:20:43 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[11-Jul-2025 09:20:51 America/Sao_Paulo] PHP Warning:  Undefined variable $select_movimento_analitico in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 1083
+[11-Jul-2025 09:20:51 America/Sao_Paulo] PHP Warning:  Undefined variable $select_movimento_conferido in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 1084
+[11-Jul-2025 09:20:51 America/Sao_Paulo] PHP Warning:  Undefined variable $select_total_analitico in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 1085
+[11-Jul-2025 09:20:51 America/Sao_Paulo] PHP Warning:  Undefined variable $select_total_conferido in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 1086
+[11-Jul-2025 09:20:51 America/Sao_Paulo] PHP Warning:  Undefined variable $select_diferenca_total in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 1087
+[11-Jul-2025 09:20:54 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[11-Jul-2025 09:20:54 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[11-Jul-2025 09:20:54 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[11-Jul-2025 09:20:58 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[11-Jul-2025 09:20:58 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[11-Jul-2025 09:20:58 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1939
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1941
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1942
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2365
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2378
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2380
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2382
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:21:01 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1939
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1941
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1942
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2365
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2378
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2380
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2382
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1939
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1941
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1942
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2365
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2378
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2380
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2382
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1907
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2365
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2378
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2380
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2382
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1907
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2365
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2378
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2380
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2382
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1907
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2365
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1907
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2365
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:45:02 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1907
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "vtotal_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2398
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:46:55 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1907
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "vtotal_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2398
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:47:15 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1907
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 09:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1907
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[11-Jul-2025 13:24:13 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[11-Jul-2025 13:24:15 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[11-Jul-2025 13:24:15 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:24:15 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:24:24 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:24:24 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:24:56 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:24:56 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:24:58 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:24:58 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:24:59 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[11-Jul-2025 13:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:24:59 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[11-Jul-2025 13:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 31
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 281
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 283
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 285
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 287
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 288
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 289
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 290
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 291
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 294
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 296
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 302
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 304
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 307
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 308
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 309
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 310
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 311
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 316
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 465
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 481
+[11-Jul-2025 13:25:13 America/Sao_Paulo] PHP Warning:  Undefined array key "saudacoes_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 486
+[11-Jul-2025 13:25:17 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[11-Jul-2025 13:25:17 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 727
+[11-Jul-2025 13:25:17 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 727
+[11-Jul-2025 13:25:17 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 736
+[11-Jul-2025 13:25:17 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_contrato_servico' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php:737
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php(737): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 737
+[11-Jul-2025 13:28:07 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[11-Jul-2025 13:28:07 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 729
+[11-Jul-2025 13:28:07 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 729
+[11-Jul-2025 13:28:07 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 738
+[11-Jul-2025 13:28:07 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_contrato_servico' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php:739
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php(739): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 739
+[11-Jul-2025 13:28:30 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[11-Jul-2025 13:28:30 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 731
+[11-Jul-2025 13:28:30 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 731
+[11-Jul-2025 13:28:30 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 740
+[11-Jul-2025 13:28:30 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_contrato_servico' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php:741
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php(741): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 741
+[11-Jul-2025 13:28:56 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[11-Jul-2025 13:28:56 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 731
+[11-Jul-2025 13:28:56 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 731
+[11-Jul-2025 13:28:56 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 740
+[11-Jul-2025 13:28:56 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_contrato_servico' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php:741
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php(741): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 741
+[11-Jul-2025 13:29:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[11-Jul-2025 13:29:40 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 733
+[11-Jul-2025 13:29:40 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 733
+[11-Jul-2025 13:29:40 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 742
+[11-Jul-2025 13:29:40 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_contrato_servico' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php:743
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php(743): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 743
+[11-Jul-2025 14:58:09 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 31
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 281
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 283
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 285
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 287
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 288
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 289
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 290
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 291
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 294
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 296
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 302
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 304
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 307
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 308
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 309
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 310
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 311
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 316
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 465
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 481
+[11-Jul-2025 14:58:12 America/Sao_Paulo] PHP Warning:  Undefined array key "saudacoes_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 486
+[13-Jul-2025 11:16:09 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[13-Jul-2025 11:16:09 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 11:16:09 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 11:16:19 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 11:16:19 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 11:16:25 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 11:16:25 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 11:16:25 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 11:16:32 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 11:16:32 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 11:16:32 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 11:16:36 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 11:16:36 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 11:16:36 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1939
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1941
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1942
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2378
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2380
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2382
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2388
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2551
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2559
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2560
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2562
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2563
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2564
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2565
+[13-Jul-2025 11:16:39 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2566
+[13-Jul-2025 11:16:45 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 11:16:45 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 11:16:45 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 11:26:06 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Cannot use object of type mysqli_result as array in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php:471
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 471
+[13-Jul-2025 11:26:10 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Cannot use object of type mysqli_result as array in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php:471
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 471
+[13-Jul-2025 11:30:58 America/Sao_Paulo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::listOrcamentoServico(), 2 passed in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 471 and exactly 3 expected in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1152
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(471): Usuario->listOrcamentoServico('6', 11)
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1152
+[13-Jul-2025 11:31:10 America/Sao_Paulo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::listOrcamentoServico(), 2 passed in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2319 and exactly 3 expected in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1152
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(2319): Usuario->listOrcamentoServico('6', 11)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(475): Usuario->impressao1('A4', 'SERVICO', 11, '6')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1152
+[13-Jul-2025 11:31:12 America/Sao_Paulo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::listOrcamentoServico(), 2 passed in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2319 and exactly 3 expected in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1152
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(2319): Usuario->listOrcamentoServico('6', 11)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(475): Usuario->impressao1('A4', 'SERVICO', 11, '6')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1152
+[13-Jul-2025 12:36:54 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 12:36:54 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 12:36:54 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1947
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2418
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2420
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2422
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2428
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2591
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2599
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2600
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2602
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2603
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2604
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2605
+[13-Jul-2025 12:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2606
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1947
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2418
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2420
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2422
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2428
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2591
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2599
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2600
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2602
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2603
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2604
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2605
+[13-Jul-2025 12:37:42 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2606
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1947
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1073
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2428
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2591
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2599
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2600
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2602
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2603
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2604
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2605
+[13-Jul-2025 12:37:51 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2606
+[13-Jul-2025 12:38:07 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 12:38:07 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 12:38:07 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 12:48:51 America/Sao_Paulo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::conServico(), 2 passed in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2358 and exactly 3 expected in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:719
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(2358): Usuario->conServico('6', 11)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(227): Usuario->impressao1('A4', 'SERVICO', 11, '6')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 719
+[13-Jul-2025 12:52:16 America/Sao_Paulo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::conServico(), 2 passed in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2358 and exactly 3 expected in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:719
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(2358): Usuario->conServico('6', 11)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(227): Usuario->impressao1('A4', 'SERVICO', 11, '6')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 719
+[13-Jul-2025 12:54:10 America/Sao_Paulo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Usuario::conServico(), 2 passed in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2370 and exactly 3 expected in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:719
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(2370): Usuario->conServico('6', 11)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(227): Usuario->impressao1('A4', 'SERVICO', 11, '6')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 719
+[13-Jul-2025 14:11:15 America/Sao_Paulo] PHP Warning:  Undefined variable $retorno in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 131
+[13-Jul-2025 14:11:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 131
+[13-Jul-2025 14:11:16 America/Sao_Paulo] PHP Warning:  Undefined variable $retorno in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 134
+[13-Jul-2025 14:11:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 134
+[13-Jul-2025 14:13:13 America/Sao_Paulo] PHP Warning:  Undefined variable $retorno in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 131
+[13-Jul-2025 14:13:13 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 131
+[13-Jul-2025 14:13:13 America/Sao_Paulo] PHP Warning:  Undefined variable $retorno in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 134
+[13-Jul-2025 14:13:13 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 134
+[13-Jul-2025 14:14:39 America/Sao_Paulo] PHP Warning:  Undefined variable $retorno in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 131
+[13-Jul-2025 14:14:39 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 131
+[13-Jul-2025 14:14:39 America/Sao_Paulo] PHP Warning:  Undefined variable $retorno in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 134
+[13-Jul-2025 14:14:39 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 134
+[13-Jul-2025 14:24:48 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 14:24:48 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 14:24:48 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1174
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2052
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1174
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2554
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2717
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2725
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2726
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2728
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2729
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2730
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2731
+[13-Jul-2025 14:27:59 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2732
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1174
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2052
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1174
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2554
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2717
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2725
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2726
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2728
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2729
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2730
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2731
+[13-Jul-2025 14:28:05 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2732
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1174
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_financeiro in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2052
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1174
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2554
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2717
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2725
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "tel1_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2726
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2728
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "fechamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2729
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2730
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2731
+[13-Jul-2025 14:29:07 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2732
+[13-Jul-2025 14:33:18 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 14:33:18 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 14:33:18 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 14:34:24 America/Sao_Paulo] PHP Warning:  Undefined variable $lista_sql in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1979
+[13-Jul-2025 14:34:24 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1979
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(1979): implode(' ', NULL)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(535): Usuario->cadOrcamento('AVULSO', '7', 11, '35', 'teste', '35,50')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1979
+[13-Jul-2025 14:36:39 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1939
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(1939): number_format('36,20', 2, '.', '.')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(535): Usuario->cadOrcamento('AVULSO', '7', 11, '35', 'teste 2', '36,20')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1939
+[13-Jul-2025 14:38:01 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php:535
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(535): number_format('36,20', 2, '.', '.')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 535
+[13-Jul-2025 14:38:14 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php:535
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(535): number_format('35,20', 2, '.', '.')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 535
+[13-Jul-2025 14:41:50 America/Sao_Paulo] PHP Warning:  Undefined array key "valor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 535
+[13-Jul-2025 14:41:50 America/Sao_Paulo] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 536
+[13-Jul-2025 14:41:50 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1939
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(1939): number_format('0,00', 2, '.', '.')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(539): Usuario->cadOrcamento('AVULSO', '7', 11, '35', 'teste 2', '0,00')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1939
+[13-Jul-2025 14:42:04 America/Sao_Paulo] PHP Warning:  Undefined array key "valor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 535
+[13-Jul-2025 14:42:04 America/Sao_Paulo] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 536
+[13-Jul-2025 14:42:04 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1939
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(1939): number_format('0,00', 2, '.', '.')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(539): Usuario->cadOrcamento('AVULSO', '7', 11, '35', 'teste 2', '0,00')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1939
+[13-Jul-2025 14:42:16 America/Sao_Paulo] PHP Warning:  Undefined array key "valor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 535
+[13-Jul-2025 14:42:16 America/Sao_Paulo] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 536
+[13-Jul-2025 14:42:16 America/Sao_Paulo] PHP Warning:  Undefined array key "SQL" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 545
+[13-Jul-2025 14:42:27 America/Sao_Paulo] PHP Warning:  Undefined array key "valor" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 535
+[13-Jul-2025 14:42:27 America/Sao_Paulo] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 536
+[13-Jul-2025 14:42:27 America/Sao_Paulo] PHP Warning:  Undefined array key "SQL" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 545
+[13-Jul-2025 14:46:21 America/Sao_Paulo] PHP Warning:  Undefined variable $lista_sql in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1983
+[13-Jul-2025 14:46:21 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: implode(): Argument #1 ($array) must be of type array, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1983
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(1983): implode(' ', NULL)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(536): Usuario->cadOrcamento('AVULSO', '7', 11, '35', 'teste 4', '50,23')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1983
+[13-Jul-2025 14:46:38 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: number_format(): Argument #1 ($num) must be of type float, string given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php:536
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php(536): number_format('50,23', 2, '.', '.')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 536
+[13-Jul-2025 14:54:35 America/Sao_Paulo] PHP Warning:  Undefined array key "btnvpag_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 630
+[13-Jul-2025 14:54:50 America/Sao_Paulo] PHP Warning:  Undefined array key "btnvpag_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 630
+[13-Jul-2025 14:55:10 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 14:55:10 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 14:55:10 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 14:55:40 America/Sao_Paulo] PHP Warning:  Undefined array key "btnvpag_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 630
+[13-Jul-2025 15:01:22 America/Sao_Paulo] PHP Warning:  Undefined array key "listaid_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 616
+[13-Jul-2025 15:01:22 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 633
+[13-Jul-2025 15:01:50 America/Sao_Paulo] PHP Warning:  Undefined array key "listaid_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 616
+[13-Jul-2025 15:01:50 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 633
+[13-Jul-2025 15:02:09 America/Sao_Paulo] PHP Warning:  Undefined array key "listaid_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 616
+[13-Jul-2025 15:02:09 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 618
+[13-Jul-2025 15:02:09 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 633
+[13-Jul-2025 15:03:45 America/Sao_Paulo] PHP Warning:  Undefined array key "listaid_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 616
+[13-Jul-2025 15:03:45 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 618
+[13-Jul-2025 15:03:45 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 633
+[13-Jul-2025 15:05:02 America/Sao_Paulo] PHP Warning:  Undefined array key "listaid_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 616
+[13-Jul-2025 15:05:02 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 618
+[13-Jul-2025 15:17:57 America/Sao_Paulo] PHP Warning:  Undefined variable $noprazoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 228
+[13-Jul-2025 15:17:57 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafazer in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 232
+[13-Jul-2025 15:17:57 America/Sao_Paulo] PHP Warning:  Undefined variable $extrapoladoafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_lanchonete\index.php on line 236
+[13-Jul-2025 15:30:44 America/Sao_Paulo] PHP Warning:  Undefined array key "SQL" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 545
+[13-Jul-2025 15:56:43 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[13-Jul-2025 15:56:43 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 15:56:43 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 15:56:46 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 31
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 281
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 283
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 285
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 287
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 288
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 289
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 290
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 291
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 294
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 296
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 302
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 304
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 307
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 308
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 309
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 310
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 311
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 316
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 465
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 481
+[13-Jul-2025 15:56:50 America/Sao_Paulo] PHP Warning:  Undefined array key "saudacoes_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 486
+[13-Jul-2025 15:56:52 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[13-Jul-2025 15:56:52 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 734
+[13-Jul-2025 15:56:52 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 734
+[13-Jul-2025 15:56:52 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 743
+[13-Jul-2025 15:56:52 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_contrato_servico' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php:744
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php(744): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 744
+[13-Jul-2025 15:57:07 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[13-Jul-2025 15:57:07 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 734
+[13-Jul-2025 15:57:07 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 734
+[13-Jul-2025 15:57:07 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 743
+[13-Jul-2025 15:57:07 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_contrato_servico' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php:744
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php(744): mysqli_query(Object(mysqli), 'SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 744
+[13-Jul-2025 15:57:39 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[13-Jul-2025 15:57:49 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[13-Jul-2025 15:57:53 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[13-Jul-2025 16:01:28 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[13-Jul-2025 16:01:49 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[13-Jul-2025 16:02:04 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[13-Jul-2025 16:02:37 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[13-Jul-2025 16:02:37 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 16:02:37 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 16:03:35 America/Sao_Paulo] PHP Warning:  Undefined array key "rsocial_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 150
+[13-Jul-2025 16:03:35 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 151
+[13-Jul-2025 16:03:35 America/Sao_Paulo] PHP Warning:  Undefined array key "telefone_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 152
+[13-Jul-2025 16:03:35 America/Sao_Paulo] PHP Warning:  Undefined array key "email_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 153
+[13-Jul-2025 16:04:04 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 193
+[13-Jul-2025 16:04:04 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 194
+[13-Jul-2025 16:06:32 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[13-Jul-2025 16:06:32 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 16:06:32 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[13-Jul-2025 16:06:38 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 31
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 281
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 283
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 285
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 287
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 288
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 289
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 290
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 291
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 294
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 296
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 302
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 304
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 307
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 308
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 309
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 310
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 311
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 316
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 465
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 481
+[13-Jul-2025 16:06:42 America/Sao_Paulo] PHP Warning:  Undefined array key "saudacoes_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 486
+[13-Jul-2025 16:06:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[13-Jul-2025 16:06:49 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 31
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 281
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 283
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 285
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 287
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 288
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 289
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 290
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 291
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 294
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 296
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 302
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 304
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 307
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 308
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 309
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 310
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 311
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 316
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "endereco_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 458
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 465
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cnpj_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 481
+[13-Jul-2025 16:06:52 America/Sao_Paulo] PHP Warning:  Undefined array key "saudacoes_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 486
+[13-Jul-2025 16:07:00 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34

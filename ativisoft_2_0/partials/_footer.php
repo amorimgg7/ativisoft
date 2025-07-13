@@ -1,4 +1,11 @@
 <script>
+
+  if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+        console.log("Histórico de formulário limpo, evitando duplicidade de informações.");
+      }
+
+
   window.addEventListener('load', function () {
     document.getElementById('load').style.display = 'none';
   });

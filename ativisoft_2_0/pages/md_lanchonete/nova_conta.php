@@ -605,7 +605,7 @@ if ($_POST['confirmacao'] === 'sim') {
                       if($_SESSION['cd_venda'] > 0){
                         $result_venda       = $u->conVenda('CV', $_SESSION['cd_venda'], $_SESSION['cd_empresa']);
                         $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
-                        $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $_SESSION['cd_empresa'], true);
+                        $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $_SESSION['cd_empresa'], true, true);
                         $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], '', $result_venda['cd_venda'], $result_orcamento['falta_pagar']);
                         $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'VENDA', $_SESSION['cd_empresa'], $result_venda['cd_venda']);
                         $result_mensagem   = $u->mensagem1($_SESSION['tipo_mensagem'], 'VENDA', $_SESSION['cd_empresa'], $result_venda['cd_venda']);

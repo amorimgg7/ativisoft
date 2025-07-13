@@ -368,6 +368,81 @@ class Usuario
         
     }
     
+
+
+
+    ///////////////////////////////////////////////////////////////////////
+    //////////////////CORRECOES ///////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+
+    public function corrigeInconsistencia($cd_filial, $cd_servico, $cd_venda, $param_corrigido, $tipo_inconsistencia) 
+    {
+        global $conn;
+        $u = new Usuario();
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        if($tipo_inconsistencia == 'FINANCEIRO VENDA'){
+
+        }else if($tipo_inconsistencia == 'FINANCEIRO SERVICO'){
+            try {
+
+            $update_servico = "UPDATE tb_servico SET
+                        vpag_servico = '".$param_corrigido."'
+                        WHERE cd_servico = '".$cd_servico."'";
+            mysqli_query($conn, $update_servico);
+            
+            // Recupera o serviço inserido
+            $result_servico = $u->conServico($cd_servico, $cd_filial, false);
+            
+            if ($result_servico['status'] != 'OK') {
+                return [
+                    'status'            =>  'conServico: '.$result_servico['status'],
+                    'cd_servico'        =>  '0',
+                    'param_corrigido'   =>  'Erro'
+                ];
+            }
+            
+            // Commit na transação
+            $conn->commit();
+
+            return [
+                'status'                =>  'OK',
+                'cd_servico'            =>  $result_servico['cd_servico'],   
+                'param_corrigido'       =>  $result_servico['vpag_servico']
+            ];
+
+
+                
+                
+            } catch (Exception $e) {
+                $conn->rollback();
+                return [
+                    'status'            => addslashes($e->getMessage()),
+                    'cd_servico'        => '0',
+                    'param_corrigido'   =>   'Erro'
+                ];
+            }
+        }else{
+            
+                return [
+                    'status'            =>  'tipo_inconsistencia espera(FINANCEIRO VENDA | FINANCEIRO SERVICO)',
+                    'cd_servico'        =>  '0',
+                    'param_corrigido'   =>  ''
+                ];
+            
+        }
+
+        
+
+            
+
+
+            
+            
+
+    }
+
     ///////////////////////////////////////////////////////////////////////
     //////////////////CADASTROS ESSENCIAIS/////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
@@ -673,7 +748,7 @@ class Usuario
                 VALUES('{$row_servico['cd_servico']}', 'A', '{$row_servico['obs_servico']}', '$cd_colab', '$entrada_servico', '$entrada_servico')";
             mysqli_query($conn, $insert_atividade);
          
-            $result_servico = $u->conServico($row_servico['cd_servico'], $cd_filial);
+            $result_servico = $u->conServico($row_servico['cd_servico'], $cd_filial, false);
         
             if ($result_servico['status'] != 'OK') {
                 return [
@@ -716,7 +791,7 @@ class Usuario
 
     }
 
-    public function conServico($cd_servico, $cd_filial) 
+    public function conServico($cd_servico, $cd_filial, $permite_editar) 
     {
         global $conn;
         $conn->autocommit(false); // Desliga o autocommit
@@ -736,7 +811,7 @@ class Usuario
             }
             
             $partial_servico = '
-                <form method="POST">
+                <form method="POST" id="form_servico">
 
                 <div class="card-body" id="abrirOS2">
                 <div class="kt-portlet__body">
@@ -800,15 +875,48 @@ class Usuario
                 <input value="'.$row_servico['prazo_servico'].'" name="prazo_servico" type="datetime-local" id="prazo_servico" class=" form-control form-control-sm"/>
                 </div>
 
-                <td><button type="submit" name="editServico" id="editServico" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Salvar</button></td>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
                 
-                </form>
             ';
+            if($permite_editar){
+                $partial_servico = $partial_servico.'
+                    <td><button type="submit" name="editServico" id="editServico" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Salvar</button></td>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </form>
+                    <script>
+                        document.getElementById("prioridade_servico").disabled = false;
+                        document.getElementById("obs_servico").readOnly = false;
+                        document.getElementById("prioridade_servico").readOnly = false;
+                        document.getElementById("prazo_servico").readOnly = false;
+                    </script>
+                ';
+            }else{
+                $partial_servico = $partial_servico . '
+                    <td>
+                        <button type="submit" name="con_edit_os" id="con_edit_os" class="btn btn-block btn-outline-warning" onclick="enviarPara(\'cadastro_servico.php\')">
+                            <i class="icon-cog"></i>Editar
+                        </button>
+                    </td>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </form>
+                    <script>
+                        function enviarPara(url) {
+                            document.getElementById("form_servico").action = url;
+                        }
+                        document.getElementById("prioridade_servico").disabled = true;
+                        document.getElementById("obs_servico").readOnly = true;
+                        document.getElementById("prioridade_servico").readOnly = true;
+                        document.getElementById("prazo_servico").readOnly = true;
+                    </script>
+                ';
+            }
                     
 
 
@@ -867,7 +975,7 @@ class Usuario
             mysqli_query($conn, $update_servico);
             
             // Recupera o serviço inserido
-            $result_servico = $u->conServico($cd_servico, $cd_filial);
+            $result_servico = $u->conServico($cd_servico, $cd_filial, false);
             
             if ($result_servico['status'] != 'OK') {
                 return [
@@ -1149,11 +1257,22 @@ class Usuario
 
     }
 
-    public function listOrcamentoServico($cd_servico, $cd_filial) 
+    public function listOrcamentoServico($cd_servico, $cd_filial, $permite_remover, $permite_lancar) 
     {
         global $conn;
         $conn->autocommit(false); // Desliga o autocommit
         $conn->begin_transaction(); // Inicia a transação manualmente
+
+        $debug_data = [
+        'cd_servico' => $cd_servico,
+        'cd_filial' => $cd_filial,
+        'permite_remover'   =>  $permite_remover,
+        'permite_lancar'    =>  $permite_lancar
+        ];
+
+        $json_data = json_encode($debug_data);
+
+        $partial_orcamento = "<script>console.log('listOrcamentoServico:', " . $json_data . ");</script>";
 
         try {
 
@@ -1205,7 +1324,7 @@ class Usuario
             }
             */
 
-            $partial_orcamento  =   "
+            $partial_orcamento  =   $partial_orcamento."
                 <script>
                     function showSection(sectionId, buttonId) {
                        // Esconde todas as seções
@@ -1224,17 +1343,19 @@ class Usuario
                     }
                 </script>
             ";
+            
 //INICIO DO FRAGMENTO
-            $partial_orcamento  =   $partial_orcamento.'
+            if($permite_lancar){
+                $partial_orcamento  =   $partial_orcamento.'
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-md-12">
                             <h3 class="kt-portlet__head-title">Composição do Orcamento</h3>
                             <form method="post">
                                 <!--<div class="typeahead">-->
-            ';
+                ';
             
-            $partial_orcamento  =   $partial_orcamento.'
+                $partial_orcamento  =   $partial_orcamento.'
                                     <button type="button" id="ProdutosServicosBtn" onclick="showSection(\'ProdutosServicos\', \'ProdutosServicosBtn\')" class="btn btn-outline-success" style="text-align:left; display:none;">Mudar para: Serviço Avulso</button>
                                     <button type="button" id="ProdutosServicosCadastroBtn" onclick="showSection(\'ProdutosServicosCadastro\', \'ProdutosServicosCadastroBtn\')" class="btn btn-outline-success" style="text-align:left;">Mudar para: Produtos/Serviços</button>
                                     <script>document.getElementById("listaOrcamento").style.display = "block";</script>
@@ -1253,11 +1374,10 @@ class Usuario
                                             </div>
                                         </div>
                                     </div>                                 
-            '; 
+                '; 
                
-			if ($result_prod_serv->num_rows > 0){
-
-                $partial_orcamento  =   $partial_orcamento.'
+			    if ($result_prod_serv->num_rows > 0){
+                    $partial_orcamento  =   $partial_orcamento.'
                                     <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: none;">
                                         <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
                                         <div class="horizontal-form">
@@ -1271,13 +1391,13 @@ class Usuario
                                                                 <input type="text" id="produto_servico_nome" name="produto_servico_nome" class="form-control form-control-sm" style="display:none" readonly>
                                                                 <select name="produto_servico" id="produto_servico" class="form-control" onchange="updatePriceAndCode()">
                                                                     <option value=""></option>
-                ';
-                while ($row_prod_serv = $result_prod_serv->fetch_assoc()) {
-                    $partial_orcamento  =   $partial_orcamento.'
-                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">' . $row_prod_serv['titulo_prod_serv'] . '</option>
                     ';
-                }
-                $partial_orcamento  =   $partial_orcamento.'
+                    while ($row_prod_serv = $result_prod_serv->fetch_assoc()) {
+                        $partial_orcamento  =   $partial_orcamento.'
+                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">' . $row_prod_serv['titulo_prod_serv'] . '</option>
+                        ';
+                    }
+                    $partial_orcamento  =   $partial_orcamento.'
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -1308,11 +1428,9 @@ class Usuario
                                             </div>
                                         </div>
                                     </div>
-                '; 
-                                          
-			}else{
-                
-                $partial_orcamento  =   $partial_orcamento.'
+                    ';
+                }else{
+                    $partial_orcamento  =   $partial_orcamento.'
                                     <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: none;">
                                         <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
                                         <div class="horizontal-form">
@@ -1329,9 +1447,9 @@ class Usuario
                                             </div>
                                         </div>
                                     </div>
-                ';
-                
-            }
+                    ';
+                }
+            
             $partial_orcamento  =   $partial_orcamento.'
                                 <!--</div>-->
                             </form>
@@ -1339,6 +1457,7 @@ class Usuario
                     </div>
                 </div>
             ';
+        }
 //FIM DO FRAGMENTO         
 
 
@@ -1353,9 +1472,6 @@ class Usuario
             while ($row_orcamento = $result_orcamento->fetch_assoc()) {
                 $count ++;
                 $vtotal_orcamento = $vtotal_orcamento + $row_orcamento['vcusto_orcamento'];
-
-
-
                 if($row_orcamento['tipo_orcamento'] == 'AVULSO'){
 
                     $partial_orcamento  =   $partial_orcamento.'<form method="POST">';
@@ -1368,6 +1484,7 @@ class Usuario
                                 <div class="horizontal-content">
                                     <div class="form-group-custom full-width">
                                         <label for="listatitulo_orcamento">Descrição</label>
+                                        <input value="'.$row_orcamento['cd_servico'].'" name="listaid_servico" id="listaid_servico" class=" form-control form-control-sm" style="display:none;">
                                         <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class=" form-control form-control-sm" style="display:none;">
                                         <input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class=" form-control form-control-sm" style="display:none">
                                         <input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="form-control form-control-sm" readonly>
@@ -1379,21 +1496,36 @@ class Usuario
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="horizontal-action" style="background-color:#f00;">
-                            </div>
+                                
+
 
                     ';
+
+                    if($permite_remover == true){
+                        $partial_orcamento  =   $partial_orcamento.'
+                                <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="horizontal-action btn btn-danger">
+                            </div>
+                        ';
+                    }else{
+                        $partial_orcamento  =   $partial_orcamento."
+                            </div>
+                        ";
+                    }
+
                     $partial_orcamento  =   $partial_orcamento.'</form>';
                 }else if($row_orcamento['tipo_orcamento'] == 'CADASTRO'){
+
+                    
+
+
                     $partial_orcamento = $partial_orcamento.'
-
-
                         <div class="horizontal-wrapper">
                             <div class="horizontal-id">#'.$count.'/'.$row_orcamento['cd_orcamento'].' </div>
                             <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="form-control form-control-sm" style="display:none;" readonly>
                             <div class="horizontal-content">
                                 <div class="form-group-custom full-width">
                                 <label for="listatitulo_orcamento">Descrição</label>
+                                    <input value="'.$row_orcamento['cd_servico'].'" name="listaid_servico" id="listaid_servico" class=" form-control form-control-sm" style="display:none;">
                                     <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class=" form-control form-control-sm" style="display:none;">
                                     <input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class=" form-control form-control-sm" style="display:none">
                                     <input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="form-control form-control-sm" readonly>
@@ -1405,13 +1537,20 @@ class Usuario
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="horizontal-action">
-                        </div>
+                            
                     ';
-                }
-            
+                    if($permite_remover == true){
+                        $partial_orcamento  =   $partial_orcamento.'
+                            <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="horizontal-action btn btn-danger">
+                        </div>
+                        ';  
+                    }else{
+                        $partial_orcamento  =   $partial_orcamento."
+                        </div>
+                        ";
+                    }
 
-                    
+                }      
             }
 /*
             $partial_orcamento  =   $partial_orcamento.'
@@ -1420,7 +1559,9 @@ class Usuario
             ';*/
 
             $falta_pagar = $vtotal_orcamento - $row_pagamento['total_pago'];
-            
+            $falta_pagar = number_format($falta_pagar, 2, '.', '.'); // formato brasileiro
+
+
             $partial_orcamento = $partial_orcamento.'
                 <div  class="typeahead" style="background-color: #C6C6C6; display:block;">
                     <div class="horizontal-form">
@@ -1437,7 +1578,7 @@ class Usuario
             ';
 
 
-
+            
 
 
 
@@ -1462,11 +1603,22 @@ class Usuario
 
     }
 
-    public function listOrcamentoVenda($cd_venda, $cd_filial, $lancar_venda) 
+    public function listOrcamentoVenda($cd_venda, $cd_filial, $permite_remover, $permite_lancar) 
     {
         global $conn;
         $conn->autocommit(false); // Desliga o autocommit
         $conn->begin_transaction(); // Inicia a transação manualmente
+
+        $debug_data = [
+        'cd_venda' => $cd_venda,
+        'cd_filial' => $cd_filial,
+        'permite_remover' => $permite_remover,
+        'permite_lancar' => $permite_lancar
+        ];
+
+        $json_data = json_encode($debug_data);
+
+        $partial_orcamento = "<script>console.log('listOrcamentoVenda:', " . $json_data . ");</script>";
 
         try {
 
@@ -1520,7 +1672,7 @@ class Usuario
 
             
 //INICIO DO FRAGMENTO
-            $partial_orcamento  =   '
+            $partial_orcamento  =   $partial_orcamento.'
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-md-12">
@@ -1590,7 +1742,7 @@ class Usuario
             "; 
                
 			if ($result_prod_serv->num_rows > 0){
-                if($lancar_venda){
+                if($permite_lancar){
                     $partial_orcamento  =   $partial_orcamento.'
                                     <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: block;">
                                         <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
@@ -1727,6 +1879,8 @@ class Usuario
             ';*/
 
             $falta_pagar = $vtotal_orcamento - $row_pagamento['total_pago'];
+            $falta_pagar = number_format($falta_pagar, 2, '.', '.'); // formato brasileiro
+
             
             $partial_orcamento = $partial_orcamento.'
                 <div  class="typeahead" style="background-color: #C6C6C6; display:block;">
@@ -1791,6 +1945,7 @@ class Usuario
                 ];
             }else{  
 
+                
                 $insert_orcamento = "INSERT INTO tb_orcamento_servico(cd_cliente, cd_filial, cd_servico, titulo_orcamento, vcusto_orcamento, tipo_orcamento, status_orcamento) VALUES(
                   '".$cd_cliente."',
                   '".$cd_empresa."',
@@ -1912,7 +2067,7 @@ class Usuario
                     ';
 
                 }
-                
+                $conferir_movimento = 0;
                 while($row_financeiro = $result_financeiro->fetch_assoc()) {
                     $count ++;
                     
@@ -1930,6 +2085,7 @@ class Usuario
                                     </div>
                                 </div>
                     ';
+                    $conferir_movimento = $conferir_movimento + $row_financeiro['valor_movimento'];
                 }
 
                 if($cd_servico != ''){
@@ -1940,9 +2096,26 @@ class Usuario
 
                     $falta_paga = $row_financeiro_servico['orcamento_servico'] - $vpag;
                     $orcamento = $row_financeiro_servico['orcamento_servico'];
-                            
+                    
+                    
                     //$result_financeiro_servico = mysqli_query($conn, $select_financeiro_servico);
                     //$row_financeiro_servico = mysqli_fetch_assoc($result_financeiro_servico);
+
+                    if($conferir_movimento != $vpag){
+                        $partial_financeiro = $partial_financeiro.'
+                            <form method="POST">
+                                <div class="input-group">
+                                    <span class="input-group-text btn-outline-danger">Há uma inconsistencia de (R$:'.$vpag-$conferir_movimento.')</span>
+                                    <input type="hidden" id="os_corrigir" name="os_corrigir" value="'.$cd_servico.'">
+                                    <input type="hidden" id="venda_corrigir" name="venda_corrigir" value="'.$cd_venda.'">
+                                    <input type="hidden" id="valor_correto" name="valor_correto" value="'.$conferir_movimento.'">
+                                    <button type="submit" name="corrige_inconsistencia" id="corrige_inconsistencia" class="btn btn-danger"><i class="mdi mdi-file-check"></i>Corrigir</button>
+                                </div>
+                            </form>
+                        ';
+                    }
+
+
                 }
 
                 if($cd_venda != ''){
@@ -1963,7 +2136,8 @@ class Usuario
                                 <h6 style="color:#000;">total pago: ('.$vpag.') - ('.$orcamento.')</h6>
                     ';     
                 }else{
-                    $partial_financeiro = $partial_financeiro.'
+                    
+                        $partial_financeiro = $partial_financeiro.'
                                 <form method="POST" id="tela_pagamento" name="tela_pagamento">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -2033,7 +2207,9 @@ class Usuario
                                     </script>  
                                     <button type="submit" name="pagar" id="pagar" class="btn btn-lg btn-block btn-outline-success btn-light"><i class="mdi mdi-file-check"></i>Lançar Pagamento</button>
                                 </form>
-                    ';
+                    '; 
+                    
+                    
 
 
                     
@@ -2108,9 +2284,9 @@ class Usuario
         try {
             if($modelo_documento == 'TERMICA1'){
                 if($tipo_impressao == 'SERVICO'){
-                    $result_servico     = $u->conServico($chave_busca, $cd_empresa);
+                    $result_servico     = $u->conServico($chave_busca, $cd_empresa, false);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);
-                    $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa);
+                    $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa, false, false);
                     $partial_impressao  = '
                         <form action="termica1.php" method="POST" target="_blank">
                             <div class="card-body" id="formBtn"><!--FORMULÁRIO DOS BOTOES-->
@@ -2168,7 +2344,7 @@ class Usuario
                 }else if($tipo_impressao == 'VENDA'){
                     $result_venda       = $u->conVenda('CV', $chave_busca, $cd_empresa);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
-                    $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $cd_empresa, false);
+                    $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $cd_empresa, false, false);
                     $partial_impressao  = '
                         <form action="termica1.php" method="POST" target="_blank">
                             <div class="card-body" id="formBtn"><!--FORMULÁRIO DOS BOTOES-->
@@ -2232,9 +2408,9 @@ class Usuario
 
             }else if($modelo_documento == 'TERMICA2'){
                 if($tipo_impressao == 'SERVICO'){
-                    $result_servico     = $u->conServico($chave_busca, $cd_empresa);
+                    $result_servico     = $u->conServico($chave_busca, $cd_empresa, false);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);
-                    $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa);
+                    $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa, false, false);
                     $partial_impressao  = '
                         <form action="impresso.php" method="POST" target="_blank">
                             <h1>TERMICA2</h1>
@@ -2301,9 +2477,9 @@ class Usuario
                 ];
             }else if($modelo_documento == 'A4'){
                 if($tipo_impressao == 'SERVICO'){
-                    $result_servico     = $u->conServico($chave_busca, $cd_empresa);
+                    $result_servico     = $u->conServico($chave_busca, $cd_empresa, false);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);
-                    $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa);
+                    $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa, false, false);
                     $partial_impressao  = '
                         <form action="a4.php" method="POST" target="_blank">
                             <h1>A4</h1>
@@ -2362,7 +2538,7 @@ class Usuario
                 }else if($tipo_impressao == 'VENDA'){
                     $result_venda       = $u->conVenda('CV', $chave_busca, $cd_empresa);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
-                    $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_servico'], $cd_empresa, false);
+                    $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $cd_empresa, false, false);
                     $partial_impressao  = '
                         <form action="a4.php" method="POST" target="_blank">
                             <h1>A4</h1>
@@ -2395,9 +2571,9 @@ class Usuario
                                                     <div class="horizontal-form">
                                                         <div class="form-group">
                                                             <label for="showobs_servico">Total</label>
-                                                            <input value="'.$result_orcamento['vtotal_orcamento'].'" type="tel" name="btnvcusto_orcamento" id="btnvcusto_orcamento" class=" form-control form-control-sm" readonly>
+                                                            <input value="'.$result_venda['orcamento_venda'].'" type="tel" name="btnvcusto_orcamento" id="btnvcusto_orcamento" class=" form-control form-control-sm" readonly>
                                                             <label for="showobs_servico">Pago</label>
-                                                            <input value="'.$result_venda['vpag_venda'].'" type="tel" name="btnvpag_venda" id="btnvpag_venda" class=" form-control form-control-sm" placeholder="Valor Pago">
+                                                            <input value="'.$result_venda['vpag_venda'].'" type="tel" name="btnvpag_venda" id="btnvpag_venda" class=" form-control form-control-sm" placeholder="Valor Pago" readonly>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2459,7 +2635,7 @@ class Usuario
         try {
             if($modelo_mensagem == 'WHATSAPP'){
                 if($tipo_mensagem == 'SERVICO'){
-                    $result_servico     = $u->conServico($chave_busca, $cd_empresa);
+                    $result_servico     = $u->conServico($chave_busca, $cd_empresa, false);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);
                     //$result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa);
                     $partial_mensagem  = '
@@ -2487,7 +2663,7 @@ class Usuario
                                 var mesPrazo = prazoServico.substring(5, 7);
                                 var diaPrazo = prazoServico.substring(8, 10);
                                 var horaPrazo = prazoServico.substring(11, 13);
-                                var minutoPrazo = prazoServico.substring(14, 16)
+                                var minutoPrazo = prazoServico.substring(14, 16);
 
                                 // Montar a data organizada
                                 var entradaOrganizada = diaEntrada + "/" + mesEntrada + "/" + anoEntrada + " às " + horaEntrada + ":" + minutoEntrada;
@@ -2631,7 +2807,7 @@ class Usuario
                 ];
             }else if($modelo_mensagem == 'TELEGRAM BOT'){
                 if($tipo_mensagem == 'SERVICO'){
-                    $result_servico     = $u->conServico($chave_busca, $cd_empresa);
+                    $result_servico     = $u->conServico($chave_busca, $cd_empresa, false);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);
                     //$result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa);
                     $partial_mensagem  = '
