@@ -116,47 +116,47 @@
                   }
                 
 
-                  if(isset($_POST['pagar_servico'])){
 
+                  if(isset($_POST['pagar'])){
                     $retorno = $f->movimentoFinanceiro(
-                                'R',
-                                $_SESSION['cd_empresa'],
-                                $_SESSION['cd_caixa'],
-                                $_SESSION['cd_cliente'],
-                                $_SESSION['cd_colab'],
-                                $_SESSION['cd_venda'],
-                                '',
-                                $_POST['fpag_movimento'],
-                                $_POST['vpag_movimento']
-                              );
-
-                    if($retorno['status'] == 'OK'){
-                      echo "<script>alert('Total pago: " . $retorno['servico_vpag'] . "');</script>";
+                      'R',
+                      $_SESSION['cd_empresa'],
+                      $_SESSION['cd_caixa'],
+                      $_SESSION['venda_cliente'],
+                      $_SESSION['cd_colab'],
+                      '',
+                      $_SESSION['cd_venda'],
+                      $_POST['fpag_movimento'],
+                      $_POST['vpag_movimento']
+                    );
+    
+                    if($retorno['status'] == 'sucesso'){
+                      echo "<script>alert('Total pago: " . $retorno['vpag'] . "');</script>";
                     }else{
                       echo "<script>alert('| - | - | - | ". $retorno['status'] . " | - | - | - |');</script>";
                     }
                   }
 
-                  if(isset($_POST['marcartitulo_atividade'])){
-                    if(isset($_POST['confirmacao'])){
-                      $confirmacao = isset($_POST['confirmacao']);
-                    }else{
-                      $confirmacao = '';
-                    }
 
-                    $nova_atividade = $u->lancaAtividade(
-                      $_POST['atividadecd_venda'],
-                      $_POST['atividadecd_colab'],
-                      $_POST['marcartitulo_atividade'],
-                      $confirmacao,
-                      $_POST['obs_atividade']
+                  if(isset($_POST['fecharVenda'])) {
+                    
+                    $result_venda = $u->fecharVenda(
+                      $_POST['cd_venda'],
+                      $_SESSION['cd_filial']
                     );
-                    if($nova_atividade['status'] == 'OK'){
-                      echo "<script>alert('| - | - | - | Atividade gerada (".$nova_atividade['cd_atividade'].") | - | - | - |');</script>";
-                    }else{
-                      echo "<script>alert('| - | - | - | ".$nova_atividade['status']." | - | - | - |');</script>";
-                    }
+                    /*
+                    if($result_venda['status'] == 'OK') {                          
+                      $_SESSION['obs_venda']        = $result_venda['obs_venda'];
+                      $_SESSION['prioridade_venda'] = $result_venda['prioridade_venda'];
+                      $_SESSION['prazo_venda']      = $result_venda['prazo_venda'];
+                    }*/
+
                   }
+
+
+                  
+
+                  
 
 
                   if(isset($_POST['concd_venda']) || $_SESSION['cd_venda'] > 0){
@@ -185,17 +185,19 @@
                     
                   }
                   
-                 //página se for consultado servico
+                 
                   if(isset($_SESSION['cd_venda']) && $_SESSION['cd_venda']  > 0){
 
 
-                      $result_venda       = $u->conVenda('CV', $_SESSION['cd_venda'], $_SESSION['cd_empresa']);
+                        $result_venda       = $u->conVenda('CV', $_SESSION['cd_venda'], $_SESSION['cd_filial'], false);
                         $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
                         $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $_SESSION['cd_empresa'], false, false);
-                        $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], $_SESSION['cd_venda'], '', $result_orcamento['falta_pagar']);
+                        $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], '', $_SESSION['cd_venda'], $result_orcamento['falta_pagar']);
                         $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'VENDA', $_SESSION['cd_empresa'], $_SESSION['cd_venda']);
-                        $result_mensagem   = $u->mensagem1($_SESSION['tipo_mensagem'], 'VENDA', $_SESSION['cd_empresa'], $_SESSION['cd_venda']);
+                        $result_mensagem    = $u->mensagem1($_SESSION['tipo_mensagem'], 'VENDA', $_SESSION['cd_empresa'], $_SESSION['cd_venda']);
                         echo '<script>document.getElementById("consulta").style.display = "none";</script>';
+
+                        $_SESSION['venda_cliente'] = $result_cliente['cd_cliente'];
 
                         //echo '<p>Cliente</p>';
                         //echo $result_cliente['partial_cliente'];

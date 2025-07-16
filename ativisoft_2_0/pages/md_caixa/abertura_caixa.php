@@ -162,7 +162,7 @@
                                         echo '<div class="input-group-prepend">';
                                         echo '<span class="input-group-text btn-outline-info">R$:</span>';
                                         echo '</div>'; 
-                                        echo '<input name="saldo_abertura" id="saldo_abertura" type="tel" class="form-control form-control-sm" aria-label="Amount (to the nearest dollar)" placeholder="Valor de abertura de caixa" required oninput="validateInput(this)">';
+                                        echo '<input name="saldo_abertura" id="saldo_abertura" type="tel" class="form-control form-control-sm" aria-label="Amount (to the nearest dollar)" placeholder="Valor de abertura de caixa" oninput="validateInput(this)" autofocus>';
                                         //echo '<input id="vpag_movimento" name="vpag_movimento" type="tel" class="form-control form-control-sm" aria-label="Amount (to the nearest dollar)" required oninput="validateInput(this)">';
                                         echo '<span id="error-message" style="color: red;"></span>';
 
@@ -173,6 +173,8 @@
                                         echo 'if (isNaN(inputValue) || inputValue < 0) {';
                                         echo 'errorMessageElement.textContent = "Digite um valor numérico maior que 0.";';
                                         echo 'inputElement.setCustomValidity("Digite um valor numérico maior que 0.");';
+                                        echo 'document.getElementById("saldo_abertura").value = "0";';
+                                        echo 'window.alert("Caixa aberto com valor zerado.");';
                                         echo '} else {';
                                         echo 'errorMessageElement.textContent = "";';
                                         echo 'inputElement.setCustomValidity("");';

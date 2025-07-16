@@ -135,6 +135,24 @@
                     echo '<script>document.getElementById("cadastroCliente").style.display = "none";</script>';
                   }
 
+                  if(isset($_POST['fecharVenda'])) {
+                    
+                    $result_venda = $u->fecharVenda(
+                      $_POST['cd_venda'],
+                      $_SESSION['cd_filial']
+                    );
+                    if($result_venda['status'] == 'OK'){
+                      echo '<script>window.location.href = "'.$_SESSION['dominio'].'/pages/dashboard/index.php";</script>';
+                    }
+                    /*
+                    if($result_venda['status'] == 'OK') {                          
+                      $_SESSION['obs_venda']        = $result_venda['obs_venda'];
+                      $_SESSION['prioridade_venda'] = $result_venda['prioridade_venda'];
+                      $_SESSION['prazo_venda']      = $result_venda['prazo_venda'];
+                    }*/
+
+                  }
+
                   if(!isset($_SESSION['cd_venda'])){
                     $_SESSION['cd_venda'] = 0;
                   }
@@ -223,6 +241,7 @@
                   }
 
                   if(isset($_POST['contel_cliente'])) { //CHAMAR CLIENTE CADASTRADO PARA SESSION
+                        echo "<script>alert('telefone: " .$_POST['cd_pais'].$_POST['contel_cliente']. "');</script>";
 
                     $result_cliente = $u->conPessoa('cliente', 'telefone', $_POST['cd_pais'].$_POST['contel_cliente']);
 
@@ -241,7 +260,8 @@
                       $result_venda = $u->conVenda(
                         'CC',
                         $result_cliente['cd_cliente'],
-                        $_SESSION['cd_filial']
+                        $_SESSION['cd_filial'], 
+                        true
                       );
                       if($result_venda['status'] == 'OK'){
                         //echo '<h1>Venda</h1>';
@@ -254,7 +274,7 @@
 
                       }else{
                         echo "<h1>".$result_venda['status']."</h1>";
-                        echo $result_venda['partial_venda'];
+                        //echo $result_venda['partial_venda'];
                         echo "<script>alert('| - | - | - | ... | - | - | - |');</script>";
 
                       }
@@ -299,7 +319,7 @@
                 </div>';
                       echo '<script>document.getElementById("tel_cliente").value = "'.$_POST['cd_pais'].$_POST['contel_cliente'].'"</script>';
                     }else{
-                      echo "<script>alert('| - | - | - | ". $result_cliente['status'] . " | - | - | - |');</script>";
+                      echo "<script>alert('| - | - | - | .......aaa........". $result_cliente['status'] . " | - | - | - |');</script>";
                     }
                     
                   }
@@ -603,7 +623,7 @@ if ($_POST['confirmacao'] === 'sim') {
 
 
                       if($_SESSION['cd_venda'] > 0){
-                        $result_venda       = $u->conVenda('CV', $_SESSION['cd_venda'], $_SESSION['cd_empresa']);
+                        $result_venda       = $u->conVenda('CV', $_SESSION['cd_venda'], $_SESSION['cd_filial'], true);
                         $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
                         $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $_SESSION['cd_empresa'], true, true);
                         $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], '', $result_venda['cd_venda'], $result_orcamento['falta_pagar']);
@@ -614,6 +634,8 @@ if ($_POST['confirmacao'] === 'sim') {
                         $_SESSION['venda_cliente'] = $result_cliente['cd_cliente'];
                         //echo '<p>Cliente</p>';
                         //echo $result_cliente['partial_cliente'];
+                        $_SESSION['falta_pagar']  = $result_financeiro['falta_pagar'];
+                        $_SESSION['vpag_venda']   = $result_venda['vpag_venda'];
                         
                         //echo '<p>Venda</p>';
                         echo $result_venda['partial_venda']; 

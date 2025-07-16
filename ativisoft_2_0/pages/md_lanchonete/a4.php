@@ -4,24 +4,18 @@
 
 require_once('fpdf/fpdf.php');
 ob_start();
-    if (isset($_POST['imprimir_os'])) {
-        unset($_POST['imprimir_os']);
-        $showcd_servico = $_POST['btncd_servico'];
+    if (isset($_POST['imprimir_venda'])) {
+        unset($_POST['imprimir_venda']);
+        $showcd_venda = $_POST['btncd_venda'];
         $nome = $_POST['btnpnome_cliente'];
         $sobrenome = $_POST['btnsnome_cliente'];
         $telefone = $_POST['btntel_cliente'];
-        $showtitulo_servico = "abc";//$_POST['btntitulo_servico'];
-        $showobs_servico = $_POST['btnobs_servico'];
-        $showprioridade_servico = $_POST['btnprioridade_servico'];
-        $showprazo_servico = $_POST['btnprazo_servico'];
-        if(!isset($_POST['btnvcusto_orcamento'])){
-            $showorcamento_servico = 0;
-        }else{
-            $showorcamento_servico = $_POST['btnvcusto_orcamento'];
-        }
-        $showvpag_servico = $_POST['btnvpag_orcamento'];
-        $showdtinicio_atividade = $_POST['btnentrada_servico'];
-        $inicioDatetime = date_create_from_format('d/m/Y H:i', $showdtinicio_atividade);
+        $showabertura_venda = $_POST['btnabertura_venda'];
+        $showfechamento_venda = $_POST['btnfechamento_venda'];
+        
+        //$showvpag_servico = $_POST['btnvpag_orcamento'];
+        //$showdtinicio_atividade = $_POST['btnentrada_servico'];
+        $inicioDatetime = date_create_from_format('d/m/Y H:i', $showabertura_venda);
         if ($inicioDatetime !== false) {
             $dataInicio_formatada = date_format($inicioDatetime, 'd/m/Y');
             $horaInicio_formatada = date_format($inicioDatetime, 'H:i');
@@ -29,11 +23,10 @@ ob_start();
             // Tratar caso em que a data de início não pôde ser criada corretamente
             // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
         }
-        $showprazo_servico = $_POST['btnprazo_servico'];
-        $prazoDatetime = date_create_from_format('d/m/Y H:i', $showprazo_servico);
-        if ($prazoDatetime !== false) {
-            $dataPrazo_formatada = date_format($prazoDatetime, 'd/m/Y');
-            $horaPrazo_formatada = date_format($prazoDatetime, 'H:i');
+        $fimDatetime = date_create_from_format('d/m/Y H:i', $showfechamento_venda);
+        if ($fimDatetime !== false) {
+            $dataFim_formatada = date_format($fimDatetime, 'd/m/Y');
+            $horaFim_formatada = date_format($fimDatetime, 'H:i');
         } else {
             // Tratar caso em que a data de início não pôde ser criada corretamente
             // Por exemplo, lançar uma exceção, registrar um erro, ou definir uma data padrão
@@ -48,16 +41,17 @@ ob_start();
             function Footer() {  
             }
 
-            function GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico) {
+            function GerarOrdemVenda($showcd_venda, $nome, $sobrenome, $telefone, $showabertura_venda, $showfechamento_venda) {
+                
                 $this->AddPage('P', 'A4');
                 $this->SetFont('Arial', '', 10);
                 
                 $this->Ln(20);
-                $this->customHeader('A4', 'Ordem de Serviço', $showcd_servico );
+                $this->customHeader('A4', 'Venda', $showcd_venda );
 
-                $this->dadosCliente('A4', $nome.$sobrenome, $telefone, $showobs_servico);
+                $this->dadosCliente('A4', $nome.$sobrenome, $telefone, '');
                 
-                $this->detalheServico('A4', $showprioridade_servico, $showprazo_servico, $showcd_servico);
+                $this->detalheVenda('A4', $showabertura_venda, $showfechamento_venda, $showcd_venda);
 
                 $this->customFooter('A4', '');
 
@@ -67,8 +61,8 @@ ob_start();
         }
         $pdf = '';
         $pdf = new MeuPDF();
-        $pdf->GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico);
-        $nomeArquivo = 'OS_' . $showcd_servico . '.pdf';
+        $pdf->GerarOrdemVenda($showcd_venda, $nome, $sobrenome, $telefone, $showabertura_venda, $showfechamento_venda);
+        $nomeArquivo = 'VENDA_' . $showcd_venda . '.pdf';
         ob_end_clean();
         //$pdf->Output($nomeArquivo, 'I');
 

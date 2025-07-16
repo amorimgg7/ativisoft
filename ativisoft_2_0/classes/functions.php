@@ -1031,7 +1031,7 @@ class Usuario
         $cd_venda = $conn->insert_id;
 
         // Busca os dados da venda
-        $result_venda = $u->conVenda('CV', $cd_venda, $cd_filial);
+        $result_venda = $u->conVenda('CV', $cd_venda, $cd_filial, false);
 
         if ($result_venda['status'] != 'OK') {
             throw new Exception("conVenda: " . $result_venda['cd_venda']);
@@ -1058,14 +1058,26 @@ class Usuario
             'cd_venda'  => '0'
         ];
     }
-}
+    }
 
 
-    public function conVenda($tipo_consulta, $key_consulta, $cd_filial) 
+    public function conVenda($tipo_consulta, $key_consulta, $cd_filial, $permite_editar) 
     {
         global $conn;
         $conn->autocommit(false); // Desliga o autocommit
         $conn->begin_transaction(); // Inicia a transação manualmente
+
+
+        $debug_data = [
+        'tipo_consulta' => $tipo_consulta,
+        'key_consulta' => $key_consulta,
+        'cd_filial' => $cd_filial,
+        'permite_editar' => $permite_editar
+        ];
+
+        $json_data = json_encode($debug_data);
+
+        $partial_venda = "<script>console.log('conVenda:', " . $json_data . ");</script>";
 
         try {
             // Recupera o serviço inserido
@@ -1112,8 +1124,8 @@ class Usuario
                 ];
             }
             
-            $partial_venda = '
-                <form method="POST">
+            $partial_venda = $partial_venda.'
+                <form method="POST" id="form_venda">
 
                 <div class="card-body" id="abrirVenda">
                 <div class="kt-portlet__body">
@@ -1124,8 +1136,8 @@ class Usuario
 
                 <div class="form-group-custom">
                 <label for="nome_cliente_venda">Cliente</label>
-                <input value="'.$row_venda['cd_pessoa'].' '.$row_venda['snome_pessoa'].'" type="hidden" name="cd_cliente_venda" id="cd_cliente_venda" class=" form-control form-control-sm" readonly>
-                <input value="'.$row_venda['pnome_pessoa'].' '.$row_venda['snome_pessoa'].'" type="text" name="nome_cliente_venda" id="nome_cliente_venda" class=" form-control form-control-sm" readonly>
+                <input value="'.$row_venda['cd_pessoa'].'" type="hidden" name="cd_cliente_venda" id="cd_cliente_venda" class=" form-control form-control-sm" readonly>
+                <input value="'.$row_venda['cd_pessoa'].' - '.$row_venda['pnome_pessoa'].' '.$row_venda['snome_pessoa'].'" type="text" name="nome_cliente_venda" id="nome_cliente_venda" class=" form-control form-control-sm" readonly>
                 </div>
 
                 <div class="form-group-custom">
@@ -1133,30 +1145,109 @@ class Usuario
                 <input value="+'.$row_venda['tel1_pessoa'].'" type="text" name="cliente_venda" id="cliente_venda" class=" form-control form-control-sm" readonly>
                 </div>
 
-                <div class="form-group-custom">
-                <label for="editcd_venda">Venda</label>
-                <input value="'.$row_venda['cd_venda'].'" type="tel" name="cd_venda" id="cd_venda" class=" form-control form-control-sm" readonly>
-                </div>
+                <!--<div class="form-group-custom">
+                <label for="editcd_venda">Venda</label>-->
+                <input value="'.$row_venda['cd_venda'].'" type="hidden" name="cd_venda" id="cd_venda" class=" form-control form-control-sm" readonly>
+                <!--</div>-->
 
                 <div class="form-group-custom">
                 <label>Abertura</label>
                 <input value="'.$row_venda['abertura_venda'].'" type="datetime-local" class=" form-control form-control-sm" style="display: block; " readonly/>
                 </div>
-
-                <div class="form-group-custom">
-                <label for="fechamento_venda">Fechamento</label>
-                <input value="'.$row_venda['fechamento_venda'].'" name="fechamento_venda" type="datetime-local" id="fechamento_venda" class=" form-control form-control-sm"/>
-                </div>
-
-                <td><button type="submit" name="editVenda" id="editVenda" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Salvar</button></td>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                
-                </form>
             ';
+            if(isset($row_venda['fechamento_venda'])){
+                $partial_venda = $partial_venda.'
+                    <div class="form-group-custom">
+                        <label for="fechamento_venda">Fechamento</label>
+                        <input value="'.$row_venda['fechamento_venda'].'" name="fechamento_venda" type="datetime-local" id="fechamento_venda" class=" form-control form-control-sm" readonly/>
+                    </div>
+                ';
+            }else{
+                if($permite_editar){
+                    if($row_venda['orcamento_venda'] == $row_venda['vpag_venda']){
+                        $partial_venda = $partial_venda.'
+                            <div class="form-group-custom">
+                                <label for="fechamento_venda">Fechamento</label>
+                                <td><button type="submit" name="fecharVenda" id="fecharVenda" class="btn btn-block btn-outline-warning"><i class="icon-cog"></i>Fechar Venda</button></td>
+                            </div>
+                        ';    
+                    }else{
+                        $partial_venda = $partial_venda.'
+                            <div class="form-group-custom">
+                                <td><h5>Falta Pagar (R$: '.number_format($row_venda['orcamento_venda'] - $row_venda['vpag_venda'], 2, '.', '.').')</h5></button></td>
+                            </div>
+                        ';
+                    }
+                    $partial_venda = $partial_venda.'
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </form>
+                    ';
+                }else{
+
+                    $partial_venda = $partial_venda . '
+                    <td><button type="submit" name="con_edit_venda" id="con_edit_venda" class="btn btn-block btn-outline-warning" onclick="enviarPara(\'nova_conta.php\')"><i class="icon-cog"></i>Editar</button></td>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </form>
+                    <script>
+                        function enviarPara(url) {
+                            document.getElementById("form_venda").action = url;
+                        }
+                        //document.getElementById("prioridade_servico").disabled = true;
+                        //document.getElementById("obs_servico").readOnly = true;
+                        //document.getElementById("prioridade_servico").readOnly = true;
+                        //document.getElementById("prazo_servico").readOnly = true;
+                    </script>
+                ';
+
+                }
+            }
+            
+/*
+            if($permite_editar){
+                $partial_venda = $partial_venda.'
+                    <td><button type="submit" name="editVenda" id="editVenda" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Salvar</button></td>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </form>
+                    <script>
+                        document.getElementById("prioridade_servico").disabled = false;
+                        document.getElementById("obs_servico").readOnly = false;
+                        document.getElementById("prioridade_servico").readOnly = false;
+                        document.getElementById("prazo_servico").readOnly = false;
+                    </script>
+                ';
+            }else{
+                $partial_venda = $partial_venda . '
+                    <td><button type="submit" name="con_edit_venda" id="con_edit_venda" class="btn btn-block btn-outline-warning" onclick="enviarPara(\'nova_conta.php\')"><i class="icon-cog"></i>Editar</button></td>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </form>
+                    <script>
+                        function enviarPara(url) {
+                            document.getElementById("form_venda").action = url;
+                        }
+                        //document.getElementById("prioridade_servico").disabled = true;
+                        //document.getElementById("obs_servico").readOnly = true;
+                        //document.getElementById("prioridade_servico").readOnly = true;
+                        //document.getElementById("prazo_servico").readOnly = true;
+                    </script>
+                ';
+            }
+*/
                     
 
 
@@ -1213,7 +1304,7 @@ class Usuario
             mysqli_query($conn, $update_venda);
             
             // Recupera o serviço inserido
-            $result_venda = $u->conVenda('CV', $cd_venda, $cd_filial);
+            $result_venda = $u->conVenda('CV', $cd_venda, $cd_filial, false);
             
             if ($result_venda['status'] != 'OK') {
                 return [
@@ -1256,6 +1347,66 @@ class Usuario
             
 
     }
+
+    public function fecharVenda($cd_venda, $cd_filial) 
+    {
+        global $conn;
+        $u = new Usuario();
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+            $update_venda = "UPDATE tb_venda SET
+                        fechamento_venda = now(),
+                        status_venda = '1'
+                        WHERE cd_venda = '".$cd_venda."'";
+            mysqli_query($conn, $update_venda);
+            
+            // Recupera o serviço inserido
+            $result_venda = $u->conVenda('CV', $cd_venda, $cd_filial, false);
+            
+            if ($result_venda['status'] != 'OK') {
+                return [
+                    'status'        =>  'conVenda: '.$result_venda['status'],
+                    'cd_venda'      =>  '0'
+                ];
+            }
+            
+            // Commit na transação
+            $conn->commit();
+
+            return [
+                'status'                =>  'OK',
+                'cd_venda'              =>  $result_venda['cd_venda'],
+                'cd_filial'             =>  $result_venda['cd_filial'],
+                'cd_cliente'            =>  $result_venda['cd_cliente'],
+                'id_venda'              =>  $result_venda['id_venda'],
+                'abertura_venda'        =>  $result_venda['abertura_venda'],
+                'fechamento_venda'      =>  $result_venda['fechamento_venda'],
+                'orcamento_venda'       =>  $result_venda['orcamento_venda'],
+                'vpag_venda'            =>  $result_venda['vpag_venda'],
+                'status_venda'          =>  $result_venda['status_venda']
+            ];
+
+
+                
+                
+            } catch (Exception $e) {
+                $conn->rollback();
+                return [
+                    'status'        => addslashes($e->getMessage()),
+                    'cd_venda'  => '0'
+                ];
+            }
+
+            
+
+
+            
+            
+
+    }
+    
 
     public function listOrcamentoServico($cd_servico, $cd_filial, $permite_remover, $permite_lancar) 
     {
@@ -1358,7 +1509,7 @@ class Usuario
                 $partial_orcamento  =   $partial_orcamento.'
                                     <button type="button" id="ProdutosServicosBtn" onclick="showSection(\'ProdutosServicos\', \'ProdutosServicosBtn\')" class="btn btn-outline-success" style="text-align:left; display:none;">Mudar para: Serviço Avulso</button>
                                     <button type="button" id="ProdutosServicosCadastroBtn" onclick="showSection(\'ProdutosServicosCadastro\', \'ProdutosServicosCadastroBtn\')" class="btn btn-outline-success" style="text-align:left;">Mudar para: Produtos/Serviços</button>
-                                    <script>document.getElementById("listaOrcamento").style.display = "block";</script>
+                                    
                                     <div id="ProdutosServicos" class="typeahead" style="background-color: #C6C6C6; display: block;">
                                         <h3 class="kt-portlet__head-title">Serviço avulso</h3>
                                         <div class="horizontal-form">
@@ -1676,13 +1827,13 @@ class Usuario
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-md-12">
-                            <h3 class="kt-portlet__head-title">Composição do Orcamento</h3>
+                            <!--<h5 class="kt-portlet__head-title">Orcamento da Venda</h5>-->
                             <form method="post">
                                 <!--<div class="typeahead">-->
             ';
             
             $partial_orcamento  =   $partial_orcamento."
-                                    <script>document.getElementById('listaOrcamento').style.display = 'block';</script> 
+                                    
 
                                     <script>
 
@@ -1846,7 +1997,7 @@ class Usuario
                 
                     $partial_orcamento = $partial_orcamento.'
 
-
+<form method="POST">
                         <div class="horizontal-wrapper">
                             <div class="horizontal-id">#'.$count.'/'.$row_orcamento['cd_orcamento'].' </div>
                             <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class="form-control form-control-sm" style="display:none;" readonly>
@@ -1863,10 +2014,21 @@ class Usuario
                                         <input value="'.$row_orcamento['vtotal_orcamento'].'" name="listavalor_orcamento" id="listavalor_total" type="tel" class="form-control form-control-sm" readonly>
                                     </div>
                                 </div>
-                            </div>
-                            <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="horizontal-action">
-                        </div>
-                    ';
+                            </div>';
+
+                            if($permite_remover == true){
+                                $partial_orcamento  =   $partial_orcamento.'
+                                    <input type="submit" value="X" name="listaremover_orcamento" id="listaremover_orcamento" class="horizontal-action btn btn-danger">
+                                    </div>
+                                    </form>
+                                ';  
+                            }else{
+                                $partial_orcamento  =   $partial_orcamento."
+                                    </div>
+                                    </form>
+                                ";
+                            }
+                     
                 
             
 
@@ -2126,11 +2288,24 @@ class Usuario
                     $falta_pagar = $row_financeiro_venda['orcamento_venda'] - $vpag;
                     $orcamento = $row_financeiro_venda['orcamento_venda'];
                     
+
+                    if($conferir_movimento != $vpag){
+                        $partial_financeiro = $partial_financeiro.'
+                            <form method="POST">
+                                <div class="input-group">
+                                    <span class="input-group-text btn-outline-danger">Há uma inconsistencia de (R$:'.$vpag-$conferir_movimento.')</span>
+                                    <input type="hidden" id="os_corrigir" name="os_corrigir" value="'.$cd_servico.'">
+                                    <input type="hidden" id="venda_corrigir" name="venda_corrigir" value="'.$cd_venda.'">
+                                    <input type="hidden" id="valor_correto" name="valor_correto" value="'.$conferir_movimento.'">
+                                    <button type="submit" name="corrige_inconsistencia" id="corrige_inconsistencia" class="btn btn-danger"><i class="mdi mdi-file-check"></i>Corrigir</button>
+                                </div>
+                            </form>
+                        ';
+                    }
+
+                    
                 }
                 
-
-
-
                 if($valor_max  == 0){
                     $partial_financeiro = $partial_financeiro.'
                                 <h6 style="color:#000;">total pago: ('.$vpag.') - ('.$orcamento.')</h6>
@@ -2342,7 +2517,7 @@ class Usuario
                         </form>
                     ';
                 }else if($tipo_impressao == 'VENDA'){
-                    $result_venda       = $u->conVenda('CV', $chave_busca, $cd_empresa);
+                    $result_venda       = $u->conVenda('CV', $chave_busca, $cd_empresa, false);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
                     $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $cd_empresa, false, false);
                     $partial_impressao  = '
@@ -2482,8 +2657,8 @@ class Usuario
                     $result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa, false, false);
                     $partial_impressao  = '
                         <form action="a4.php" method="POST" target="_blank">
-                            <h1>A4</h1>
-                            <div class="card-body" id="formBtn"><!--FORMULÁRIO DOS BOTOES-->
+                            <!--<h1>A4</h1>
+                            <div class="card-body" id="formBtn">--><!--FORMULÁRIO DOS BOTOES-->
                                 <div class="kt-portlet__body">
                                     <div class="row">
                                         <div class="col-12 col-md-12">
@@ -2529,24 +2704,24 @@ class Usuario
                                 <button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Imprimir OS</button>
                                 <button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Impressão)</button>
                                 <button type="submit" name="historico_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Histórico <i class="mdi mdi-printer btn-icon-append"></i></button>                                
-                            </div>
+                            <!--</div>-->
                         </form>
                         <form method="post">
                             <button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;">Novo Serviço</button>
                         </form>
                     ';
                 }else if($tipo_impressao == 'VENDA'){
-                    $result_venda       = $u->conVenda('CV', $chave_busca, $cd_empresa);
+                    $result_venda       = $u->conVenda('CV', $chave_busca, $cd_empresa, false);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
                     $result_orcamento   = $u->listOrcamentoVenda($result_venda['cd_venda'], $cd_empresa, false, false);
                     $partial_impressao  = '
                         <form action="a4.php" method="POST" target="_blank">
-                            <h1>A4</h1>
-                            <div class="card-body" id="formBtn"><!--FORMULÁRIO DOS BOTOES-->
+                            <!--<h1>A4</h1>-->
+                            <!--<div class="card-body" id="formBtn">--><!--FORMULÁRIO DOS BOTOES-->
                                 <div class="kt-portlet__body">
                                     <div class="row">
                                         <div class="col-12 col-md-12">
-                                            <div id="" class="" style="display:block;">
+                                            <div id="" class="" style="display:none;">
                                                 <h3 class="kt-portlet__head-title">FORM DE IMPRESSÃO</h3> 
                                                 <div  class="typeahead" id="botoes" name="botoes">
                                                     <input value="'.$result_cliente['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" class=" form-control form-control-sm" style="display: none;"/>
@@ -2582,8 +2757,8 @@ class Usuario
                                     </div>
                                 </div>
                                 <button type="submit" name="imprimir_venda" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Imprimir Venda</button>
-                                <button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Impressão)</button>
-                            </div>
+                                <!--<button type="submit" name="via_cliente" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente (Impressão)</button>-->
+                            <!--</div>-->
                         </form>
                         <form method="post">
                             <button type="submit" class="btn btn-block btn-lg btn-danger" name="limparVenda" style="margin-top: 20px; margin-bottom: 20px;">Nova Venda</button>
@@ -2723,7 +2898,7 @@ class Usuario
                     ';
                     
                 }else if($tipo_mensagem == 'VENDA'){
-                    $result_venda     = $u->conVenda($chave_busca, $cd_empresa, $cd_empresa);
+                    $result_venda     = $u->conVenda($chave_busca, $cd_empresa, $cd_empresa, false);
                     $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_venda['cd_cliente']);
                     //$result_orcamento   = $u->listOrcamentoServico($result_servico['cd_servico'], $cd_empresa);
                     $partial_mensagem  = '

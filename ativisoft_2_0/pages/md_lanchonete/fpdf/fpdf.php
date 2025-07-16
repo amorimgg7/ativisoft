@@ -2002,13 +2002,13 @@ function WrapText($text) {
 	return implode("\n", $lines);
 }
 
-function customHeader($modelo, $text, $os) {
+function customHeader($modelo, $text, $venda) {
 	if($modelo == 'M1'){
 		$this->SetFont('Arial', 'B', 20);
         $this->Cell(80, 10, mb_convert_encoding($text, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 0, 1, 'C');
         $this->Ln(5);
 		$this->SetFont('Arial', 'B', 20);
-		$this->Cell(80, 7, 'OS: '.$os, 1, 1, 'C');
+		$this->Cell(80, 7, 'OS: '.$venda, 1, 1, 'C');
 		$this->Ln(1);
 	}elseif($modelo == 'A4'){
 		$this->Image('images/logo_padrao.png', 10, 10, 50); // imagem a 10mm da esquerda e do topo, com 50mm de largura
@@ -2020,7 +2020,7 @@ function customHeader($modelo, $text, $os) {
         $posX = $larguraPagina - $margemDireita - $larguraCelula;
         $this->SetX($posX);
         $this->SetFont('Arial', 'B', 15);
-        $servico = "Serviço \n ".$os."";
+        $servico = "Venda \n ".$venda."";
         $this->MultiCell($larguraCelula, 10, mb_convert_encoding($servico, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'C');
             
 	}
@@ -2041,8 +2041,8 @@ function customFooter($modelo, $text) {
 		
 		$this->SetY(-55);
 		$this->SetFont('Arial', '', 10);
-		$this->Cell(90, 10, "Ass. do Cliente: ___________________________", 0, 0);
-		$this->Cell(90, 10, "Ass. do Func. Interno: ____________________", 0, 1);
+		//$this->Cell(90, 10, "Ass. do Cliente: ___________________________", 0, 0);
+		//$this->Cell(90, 10, "Ass. do Func. Interno: ____________________", 0, 1);
 		$this->Ln(5);
 		if($text != ''){
 			$this->SetFont('Arial', 'B', 10);
@@ -2118,26 +2118,16 @@ function dadosEmpresa($modelo, $nfantasia_filial, $cnpj_filial, $endereco_filial
 }
 
 
-function detalheServico($modelo, $prioridade, $previsao, $os) {
+function detalheVenda($modelo, $abertura, $fechamento, $venda) {
 	if($modelo == 'M1'){
 		$this->SetFont('Arial', 'B', 15);
         $this->MultiCell(80, 7, mb_convert_encoding('Detalhes do Serviço', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'C');
         $this->Cell(40, 7, 'Prioridade', 1, 0, 'C');
         $this->Cell(40, 7, mb_convert_encoding('Previsão', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 1, 'C');
         $this->SetFont('Arial', 'B', 10);
-        if($prioridade == "U"){
-            $this->Cell(40, 7, 'Urgente', 1, 0, 'C');
-        }
-        if($prioridade == "A"){
-            $this->Cell(40, 7, 'Alta', 1, 0, 'C');
-        }
-        if($prioridade == "M"){
-            $this->Cell(40, 7, 'Media', 1, 0, 'C');
-        }
-        if($prioridade == "B"){
-            $this->Cell(40, 7, 'Baixa', 1, 0, 'C');
-        }
-        $this->Cell(40, 7, date('d/m/Y \a\s H:i', strtotime($previsao)), 1, 1, 'C');
+        
+        $this->Cell(40, 7, date('d/m/Y \a\s H:i', strtotime($abertura)), 1, 1, 'C');
+        $this->Cell(40, 7, date('d/m/Y \a\s H:i', strtotime($fechamento)), 1, 1, 'C');
         $this->Ln(1);
         //session_start();
         require_once '../../classes/conn.php';
@@ -2148,7 +2138,7 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
         $this->Cell(5, 7, '#', 1, 0, 'C');
         $this->Cell(40, 7, mb_convert_encoding('Descrição', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
         $this->Cell(35, 7, 'Valor', 1, 1, 'C'); // último parâmetro 1 = quebra linha
-        $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$os."' ORDER BY cd_orcamento ASC";
+        $select_orcamento = "SELECT * FROM tb_orcamento_venda WHERE cd_venda = '".$venda."' ORDER BY cd_orcamento ASC";
         $result_orcamento = mysqli_query($conn, $select_orcamento);
         $count = 0;
         while($row_orcamento = $result_orcamento->fetch_assoc()) {
@@ -2182,31 +2172,20 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
         }
         $this->Ln(1);
 	}elseif($modelo == 'A4'){
-
 		$this->SetFont('Arial', 'B', 14);
-		
-
-
-
 		// Título da seção
 		$this->SetFont('Arial', 'B', 14);
-        $this->Cell(0, 8, mb_convert_encoding('Detalhes do Serviço', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'L');
+        $this->Cell(0, 8, mb_convert_encoding('Detalhes da Venda', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'L');
         $this->SetFont('Arial', '', 10);
-        if($prioridade == "U"){
-			$prioridadee = 'Urgente';
-        }
-        if($prioridade == "A"){
-			$prioridadee = 'Alta';
-        }
-        if($prioridade == "M"){
-			$prioridadee = 'Media';
-        }
-        if($prioridade == "B"){
-			$prioridadee = 'Baixa';
-        }
+        
+		$abertura	= date('d/m/Y \a\s H:i', strtotime($abertura));
+		$fechamento	= date('d/m/Y \a\s H:i', strtotime($fechamento));
+		$complementares = '';
+		$complementares = $complementares."Data de Abertura: $abertura\n";
+		//if($abertura > $fechamento){
+		//	$complementares = $complementares."Data de fechamento/Finalização: $fechamento\n";
+		//}
 
-		$previsao = date('d/m/Y \a\s H:i', strtotime($previsao));
-		$complementares = "Prioridade: $prioridadee\nPrevisão de Entrega/Finalização: $previsao";
 		
 		$this->MultiCell(0, 5, mb_convert_encoding($complementares, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
         //session_start();
@@ -2218,7 +2197,7 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
         $this->Cell(5, 7, '#', 1, 0, 'C');
         $this->Cell(150, 7, mb_convert_encoding('Descrição', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
         $this->Cell(35, 7, 'Valor', 1, 1, 'C'); // último parâmetro 1 = quebra linha
-        $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$os."' ORDER BY cd_orcamento ASC";
+        $select_orcamento = "SELECT * FROM tb_orcamento_venda WHERE cd_venda = '".$venda."' ORDER BY cd_orcamento ASC";
         $result_orcamento = mysqli_query($conn, $select_orcamento);
         $count = 0;
 		$total_servico = 0;
@@ -2250,12 +2229,12 @@ function detalheServico($modelo, $prioridade, $previsao, $os) {
             $this->Cell($w_valor, $h_linha, mb_convert_encoding('R$:' . $row_orcamento['vcusto_orcamento'], $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
             // Vai para a linha de baixo
             $this->SetY($y + $h_linha);
-			$total_servico = $total_servico + $row_orcamento['vcusto_orcamento'];
+			$total_venda = $total_venda + $row_orcamento['vcusto_orcamento'];
         }
 
 			$this->SetX(155); // garante que está na margem esquerda
 			$this->SetFont('Arial', 'B', 10);
-			$this->Cell(0, 7, 'Total: R$: ' . number_format($total_servico, 2, '.'), 1, 1, 'R');
+			$this->Cell(0, 7, 'Total: R$: ' . number_format($total_venda, 2, '.'), 1, 1, 'R');
 			$this->Ln(1);
 
 
@@ -2304,7 +2283,7 @@ function dadosFinanceiros($modelo, $vorcamento, $vpago,) {
 	}
 }
 
-function detalhesAtividadesServico($modelo, $os) {
+function detalhesAtividadesVenda($modelo, $os) {
 	if($modelo == 'M1'){
 		$this->SetFont('Arial', 'B', 15);
     	$this->MultiCell(80, 7, mb_convert_encoding('Histórico Detalhado', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 'C');
