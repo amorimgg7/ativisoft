@@ -199,6 +199,10 @@
 
                         $_SESSION['venda_cliente'] = $result_cliente['cd_cliente'];
 
+                        $_SESSION['falta_pagar']  = $result_financeiro['falta_pagar'];
+                        $_SESSION['vcusto_venda'] = $result_venda['orcamento_venda'];
+                        $_SESSION['vpag_venda']   = $result_venda['vpag_venda'];
+
                         //echo '<p>Cliente</p>';
                         //echo $result_cliente['partial_cliente'];
                         
@@ -212,14 +216,9 @@
                         echo $result_financeiro['partial_financeiro'];
                             
                         echo $result_mensagem['partial_mensagem']; 
-
-
+                        
                         //echo '<p>Impressão</p>';
                         echo $result_impressao['partial_impressao'];
-                            
-
-        
-
                   }
                 ?>
  <!-- #region -->

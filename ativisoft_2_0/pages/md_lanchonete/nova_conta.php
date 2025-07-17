@@ -267,9 +267,16 @@
                         //echo '<h1>Venda</h1>';
                         //echo $result_venda['partial_venda'];
                         
+                        if($result_venda['status_venda'] == '0'){
+
+                          $_SESSION['cd_venda']         = $result_venda['cd_venda'];
+                          $_SESSION['venda']            = $result_venda['cd_venda'];
                         
-                        $_SESSION['cd_venda']         = $result_venda['cd_venda'];
-                        $_SESSION['venda']            = $result_venda['cd_venda'];
+                        }else{
+                          //$result_venda       = $u->conVenda('CV', $_SESSION['cd_venda'], $_SESSION['cd_filial'], true);
+                          echo '<h1>Nova venda</h1>';
+                          echo $result_venda['partial_venda']; 
+                        }
                           
 
                       }else{
@@ -468,12 +475,12 @@
                         orcamento_venda = orcamento_venda - ".$_POST['listavalor_orcamento']."
                         WHERE cd_venda = ".$_SESSION['cd_venda']."";
                       mysqli_query($conn, $updateVtotalServico);
-                      if($_POST['listatipo_orcamento'] == 'CADASTRADO'){
+                      
                         $removeReserva = "DELETE FROM `tb_reserva` WHERE `tb_reserva`.`cd_orcamento` = ".$_POST['listaid_orcamento']."";
                         mysqli_query($conn, $removeReserva);
-                      }
-                      //echo "<script>window.alert('a!');</script>";  
-                        echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_venda.php";</script>';          
+                      
+                        //echo "<script>window.alert('".$_SESSION['dominio']."');</script>";  
+                        echo '<script>location.href="'.$_SESSION['dominio'].'/pages/md_lanchonete/nova_conta.php";</script>';          
                     }else{
                       echo "<script>window.alert('Valor pago não pode ser maior que o total do Venda!');</script>";  
                     }
@@ -635,6 +642,7 @@ if ($_POST['confirmacao'] === 'sim') {
                         //echo '<p>Cliente</p>';
                         //echo $result_cliente['partial_cliente'];
                         $_SESSION['falta_pagar']  = $result_financeiro['falta_pagar'];
+                        $_SESSION['vcusto_venda'] = $result_venda['orcamento_venda'];
                         $_SESSION['vpag_venda']   = $result_venda['vpag_venda'];
                         
                         //echo '<p>Venda</p>';

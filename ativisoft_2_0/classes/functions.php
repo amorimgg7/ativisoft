@@ -1081,7 +1081,7 @@ class Usuario
 
         try {
             // Recupera o serviço inserido
-            $select_venda = "SELECT * FROM tb_venda v, tb_pessoa c WHERE c.cd_pessoa = v.cd_cliente AND v.cd_filial = '$cd_filial' "; 
+            $select_venda = "SELECT * FROM tb_venda v, tb_pessoa c WHERE v.status_venda = '0' AND c.cd_pessoa = v.cd_cliente AND v.cd_filial = '$cd_filial' "; 
             if($tipo_consulta == 'CV'){
                 $select_venda = $select_venda." AND v.cd_venda = '$key_consulta' ";
             }else if($tipo_consulta == 'CC'){
@@ -1118,7 +1118,7 @@ class Usuario
             ';
 
                 return [
-                    'status'            =>  'Nenhuma venda encontrada em aberto',
+                    'status'            =>  'OK',
                     'partial_venda'     =>  $partial_venda,
                     'cd_venda'          =>  '0'
                 ];

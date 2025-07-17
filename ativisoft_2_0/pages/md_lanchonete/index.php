@@ -140,21 +140,15 @@
 
               $resulta_venda = $conn->query($sql_venda);
               if ($resulta_venda->num_rows > 0){
-
-                echo '<div class="row row-cols-1 row-cols-md-3 g-4">';
-                
+                if ($resulta_venda->num_rows == 1){
+                  echo '<div class="row row-cols-1 row-cols-md-1 g-4 justify-content-center">';
+                }else if($resulta_venda->num_rows == 2){
+                  echo '<div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">';
+                }else if($resulta_venda->num_rows > 3){
+                  echo '<div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">';
+                }
                 while ( $venda = $resulta_venda->fetch_assoc()){
-
                   echo '
-                  <!--<div class="col" style="margin: 10pt 0;">
-                    <div class="card">
-                      <img src="..." class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                      </div>
-                    </div>
-                  </div>-->
 
                     <div class="col" style="margin: 10pt 0;">
                       <div class="card">
@@ -165,10 +159,9 @@
                           </form>
                         </div>
                         <div class="card-body">
-                        
                           <h5 class="card-title">'.$venda['pnome_pessoa'].'</h5>
                           <table class="table">
-                          <tr><th scope="row">Abertura</th><td>'.date('d/m/Y', strtotime($venda['abertura_venda'])).'</td></tr>
+                            <tr><th scope="row">Abertura</th><td>'.date('d/m/Y', strtotime($venda['abertura_venda'])).'</td></tr>
                           </table>
                           <p class="card-text">'.$venda['titulo_venda'].'</p>
 ';
@@ -178,38 +171,50 @@
                           if ($resulta_orcamento_venda->num_rows > 0){
 
                             echo '
-                              <table class="table">
+                            <table class="table">
                               <tr><th scope="col">#</th><th scope="col">Produto</th><th scope="col">Preço</th></tr>
                             ';
                             
                             
                             while ( $orcamento_venda = $resulta_orcamento_venda->fetch_assoc()){
-                              echo '<tr><th scope="row">1</th><td>'.$orcamento_venda['titulo_orcamento'].'</td><td>R$: '.$orcamento_venda['vcusto_orcamento'].'</td></tr>';
+                              echo '
+                              <tr><th scope="row">1</th><td>'.$orcamento_venda['titulo_orcamento'].'</td><td>R$: '.$orcamento_venda['vcusto_orcamento'].'</td></tr>
+                              ';
                             }
-                            echo '</table>';
+                            echo '
+                            </table>
+                            ';
                           }else{
-                            echo '<p class="card-text">Venda Limpa</p>';
+                            echo '
+                            <p class="card-text">Venda Limpa</p>
+                            ';
                           }
                           echo '
 
-                          </div>
-                          <div class="card-footer bg-transparent border-success">
+                        </div>
+                        <div class="card-footer bg-transparent border-success">
                         ';
                         if($venda['orcamento_venda'] == 0){
-                          echo '<td><label class="badge badge-secondary">R$: 0.00</label></td>';
+                          echo '
+                          <td><label class="badge badge-secondary">R$: 0.00</label></td>
+                          ';
                         }else{
                           if($venda['orcamento_venda'] == $venda['vpag_venda']){
-                            echo '<td><label class="badge badge-success">Liquidado: R$:'. $venda['vpag_venda'] .'</label></td>';
+                            echo '
+                          <td><label class="badge badge-success">Liquidado: R$:'. $venda['vpag_venda'] .'</label></td>
+                            ';
                           }else{
                             $orcamento_venda = isset($venda['orcamento_venda']) && is_numeric($venda['orcamento_venda']) ? $venda['orcamento_venda'] : 0;
                             $vpag_venda = isset($servico['vpag_venda']) && is_numeric($venda['vpag_venda']) ? $venda['vpag_venda'] : 0;
-                            echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_venda - $vpag_venda) . ' de R$:' . $orcamento_venda . '</label></td>';
+                            echo '
+                          <td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_venda - $vpag_venda) . ' de R$:' . $orcamento_venda . '</label></td>
+                            ';
                           }
                         }
                         echo '
-                          </div>
                         </div>
                       </div>
+                    </div>
                   ';
                   //echo '<tr>';
                   //echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
