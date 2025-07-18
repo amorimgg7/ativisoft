@@ -195,7 +195,6 @@
                         //echo '<script>location.href="../../index.php";</script>';
                   }
 
-
                   if(isset($_POST['listaremover_contrato'])) {//DELETE FROM `tb_contrato_servico` WHERE `tb_contrato_servico`.`cd_contrato` = 198
                     if(($_SESSION['vtotal_contrato'] - $_POST['listavalor_contrato'])>=$_SESSION['vpag_servico']){
                       //echo "<script>window.alert('OK, pode remover');</script>";
@@ -315,7 +314,10 @@
                   if($_SESSION['concnpj_cliente_comercial'] > 0) { //CHAMAR CLIENTE CADASTRADO PARA SESSION
                     //echo "<script>window.alert('.".$_SESSION['concnpj_cliente_comercial'].".');</script>";
 
-                    $select_cliente_comercial = "SELECT * FROM tb_empresa e, tb_contrato c WHERE e.cnpj_empresa = '".$_SESSION['concnpj_cliente_comercial']."' AND e.cd_empresa = c.cd_empresa ORDER BY c.cd_contrato DESC LIMIT 1";
+                    $result_empresa = $u->conEmpresa('CCNPJ', $_SESSION['concnpj_cliente_comercial'], true);
+                    echo $result_empresa['partial_empresa'];
+
+                    $select_cliente_comercial = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_SESSION['concnpj_cliente_comercial']."' LIMIT 1";
                     //$select_cliente_comercial = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_SESSION['concnpj_cliente_comercial']."' ORDER BY cd_empresa DESC";
                     $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
                     $row_cliente_comercial = mysqli_fetch_assoc($result_cliente_comercial);
@@ -354,29 +356,24 @@
                         $select_contrato = "SELECT * FROM tb_contrato WHERE cd_empresa = '".$_SESSION['cd_cliente_comercial']."' ORDER BY cd_contrato ASC";
                         $result_contrato = mysqli_query($conn, $select_contrato);
                                                       
-                        echo '<h3 class="kt-portlet__head-title">Lançar novo Contrato</h3>';
-                        echo '<script>document.getElementById("listaContrato").style.display = "block";</script>';
-                        echo '<form method="post">';
-                        echo '<div class="typeahead" style="background-color: #C6C6C6;">';
-                        echo '<div class="horizontal-form">';
-                        echo '<div class="form-group">';
-                        
-                        echo '<label for="data_fatura"></label>';
-                        
-
-                        echo '<input value="'.$data_fatura_prevista.'"type="date" style="width: 20%;" name="data_fatura" id="data_fatura" class="form-control form-control-sm">';
-                        echo '<label for="vcusto_fatura"></label>';
-                        echo '<input type="tel" oninput="tel(this)" id="vcusto_fatura" name="vcusto_fatura" class="form-control form-control-sm" placeholder="Quanto custa este serviço?">';
-                        
-                        echo '<label for="lancarFatura"></label>';
-                        echo '<button type="submit" name="lancarFatura" id="lancarFatura" class="btn btn-success">Enviar</button>';
-                        
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</form>';
-                        
-                        echo '<h3 class="kt-portlet__head-title">Contratos gerados</h3>';
+                        echo '
+                        <h3 class="kt-portlet__head-title">Lançar novo Contrato</h3>
+                        <script>document.getElementById("listaContrato").style.display = "block";</script>
+                        <form method="post">
+                          <div class="typeahead" style="background-color: #C6C6C6;">
+                            <div class="horizontal-form">
+                              <div class="form-group">
+                                <label for="data_fatura"></label>
+                                <input value="'.$data_fatura_prevista.'"type="date" style="width: 20%;" name="data_fatura" id="data_fatura" class="form-control form-control-sm">
+                                <label for="vcusto_fatura"></label>
+                                <input type="tel" oninput="tel(this)" id="vcusto_fatura" name="vcusto_fatura" class="form-control form-control-sm" placeholder="Quanto custa este serviço?">
+                                <label for="lancarFatura"></label>
+                                <button type="submit" name="lancarFatura" id="lancarFatura" class="btn btn-success">Enviar</button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                        <h3 class="kt-portlet__head-title">Contratos gerados</h3>';
                         $_SESSION['vtotal_contrato'] = 0;
                         $_SESSION['vpag_contrato'] = 0;
                         $count = 0;
@@ -420,9 +417,8 @@
                                   break;
                           }
                           //echo '<div name="listaContrato" id="listaContrato" class="typeahead" '.$_SESSION['c_card'].'>';
-                          echo '<form method="POST">';
-
                           echo '
+                          <form method="POST">
                             <div class="horizontal-wrapper">
                               <div class="horizontal-id">#'.$count.'/'.$row_contrato['cd_contrato'].' </div>
                               <input value="'.$row_contrato['cd_contrato'].'" name="listaid_contrato" id="listaid_contrato" class="form-control form-control-sm" style="display:none;" readonly>
@@ -450,10 +446,7 @@
                                   </div>
                                 </div>
                               </div>
-                              
-                              
-                                <input class="horizontal-action" type="submit" value="Editar">
-                              
+                              <input class="horizontal-action" type="submit" value="Editar">
                             </div>
                           ';
                           

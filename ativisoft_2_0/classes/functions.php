@@ -1286,6 +1286,157 @@ class Usuario
 
     }
 
+    public function conEmpresa($tipo_consulta, $key_consulta, $permite_editar) 
+    {
+        global $conn;
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+
+        $debug_data = [
+        'tipo_consulta' => $tipo_consulta,
+        'key_consulta' => $key_consulta,
+        'permite_editar' => $permite_editar
+        ];
+
+        $json_data = json_encode($debug_data);
+
+        $partial_empresa = "<script>console.log('conEmpresa:', " . $json_data . ");</script>";
+
+        try {
+            // Recupera o serviço inserido
+            $select_empresa = "SELECT * FROM tb_empresa e, tb_pessoa p WHERE p.cd_pessoa = e.cd_proprietario "; 
+            if($tipo_consulta == 'CD'){
+                $select_empresa = $select_empresa." AND e.cd_empresa = '$key_consulta' ";
+            }else if($tipo_consulta == 'CCNPJ'){
+                $select_empresa = $select_empresa." AND e.cnpj_empresa = '$key_consulta' ";
+                $cd_proprietario = $key_consulta;
+            }else{
+                return [
+                    'status'        =>  'tipo_consulta espera CV(Consulta Venda), CC(Consulta Cliente)',
+                    'cd_venda'      =>  '0'
+                ];
+            }
+            $select_empresa = $select_empresa." LIMIT 1 ";
+            
+            $result_empresa = mysqli_query($conn, $select_empresa);
+            $row_empresa = mysqli_fetch_assoc($result_empresa);
+            
+            if (!$row_empresa) {
+                $partial_empresa = $partial_empresa.'
+                <form method="POST">
+                <div class="card-body" id="abrirVenda">
+                <div class="kt-portlet__body">
+                <div class="row">
+                <input value="'.$cd_proprietario.'" name="cd_proprietario" type="hidden" id="cd_cliente" class=" form-control form-control-sm"/>
+                <td><button type="submit" name="cadVenda" id="cadVenda" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Criar Venda</button></td>
+                </div>
+                </div>
+                </div>                
+                </form>
+            ';
+
+                return [
+                    'status'              =>  'OK',
+                    'partial_empresa'     =>  $partial_empresa,
+                    'cd_empresa'          =>  '0'
+                ];
+            }
+            
+            $partial_empresa = $partial_empresa.'
+                <form method="POST" id="form_empresa">
+
+                <div class="card-body" id="abrirEmpresa">
+                <div class="kt-portlet__body">
+                <div class="row">
+                <div class="col-12 col-md-12">
+                <h3 class="kt-portlet__head-title">Dados da Empresa</h3>
+                <div  class="typeahead">
+
+                <div class="form-group-custom">
+                <label for="nome_cliente_venda">Cliente</label>
+                <input value="'.$row_empresa['cd_proprietario'].'" type="hidden" name="cd_proprietario_empresa" id="cd_proprietario_empresa" class=" form-control form-control-sm" readonly>
+                <input value="'.$row_empresa['cd_pessoa'].' - '.$row_empresa['pnome_pessoa'].' '.$row_empresa['snome_pessoa'].'" type="text" name="nome_cliente_venda" id="nome_cliente_venda" class=" form-control form-control-sm" readonly>
+                </div>
+
+                <div class="form-group-custom">
+                <label for="cliente_venda">Telefone</label>
+                <input value="+'.$row_empresa['tel1_pessoa'].'" type="text" name="cliente_venda" id="cliente_venda" class=" form-control form-control-sm" readonly>
+                </div>
+
+                <!--<div class="form-group-custom">
+                <label for="editcd_empresa">Venda</label>-->
+                <input value="'.$row_empresa['cd_empresa'].'" type="hidden" name="cd_empresa" id="cd_empresa" class=" form-control form-control-sm" readonly>
+                <!--</div>-->
+
+                <div class="form-group-custom">
+                <label>Abertura</label>
+                <input value="'.$row_empresa['abertura_empresa'].'" type="datetime-local" class=" form-control form-control-sm" style="display: block; " readonly/>
+                </div>
+            ';
+            
+                if($permite_editar){
+                    if($row_empresa['orcamento_empresa'] == $row_empresa['vpag_empresa']){
+                        $partial_venda = $partial_empresa.'
+                            <div class="form-group-custom">
+                                <label for="fechamento_venda">Fechamento</label>
+                                <td><button type="submit" name="fecharVenda" id="fecharVenda" class="btn btn-block btn-outline-warning"><i class="icon-cog"></i>Fechar Venda</button></td>
+                            </div>
+                        ';    
+                    }else{
+                        $partial_empresa = $partial_empresa.'
+                            <div class="form-group-custom">
+                                <td><h5>Falta Pagar (R$: '.number_format($row_empresa['orcamento_venda'] - $row_empresa['vpag_venda'], 2, '.', '.').')</h5></button></td>
+                            </div>
+                        ';
+                    }
+                    $partial_venda = $partial_venda.'
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </form>
+                    ';
+                }else{
+                    $partial_empresa = $partial_empresa . '
+                    <td><button type="submit" name="con_edit_empresa" id="con_edit_empresa" class="btn btn-block btn-outline-warning" onclick="enviarPara(\'cadastrar_cliente_comercial.php\')"><i class="icon-cog"></i>Editar</button></td>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </form>
+                    <script>
+                        function enviarPara(url) {
+                            document.getElementById("form_empresa").action = url;
+                        }
+                        //document.getElementById("prioridade_servico").disabled = true;
+                        //document.getElementById("obs_servico").readOnly = true;
+                        //document.getElementById("prioridade_servico").readOnly = true;
+                        //document.getElementById("prazo_servico").readOnly = true;
+                    </script>
+                ';
+                }
+                $conn->commit();
+                return [
+                    'status'                =>  'OK',
+                    'cd_empresa'            =>  $row_empresa['cd_empresa'],    
+                    'cd_proprietario'       =>  $row_empresa['cd_proprietario'],    
+                    'abertura_empresa'      =>  $row_empresa['abertura_venda'],        
+                    'status_empresa'        =>  $row_empresa['status_servico'],
+                    'partial_empresa'       =>  $partial_venda
+                ];
+            } catch (Exception $e) {
+                $conn->rollback();
+                return [
+                    'status'        => addslashes($e->getMessage()),
+                    'cd_empresa'      => '0'
+                ];
+            }
+
+    }
+
     public function editVenda($cd_venda, $cd_filial, $titulo_venda, $fechamento_venda, $orcamento_venda, $vpag_venda, $status_venda) 
     {
         global $conn;
@@ -1946,12 +2097,10 @@ class Usuario
                                         </div>
                                     </div>
                     ';
-                } 
-                                          
+                }                          
 			}else{
-                
                 $partial_orcamento  =   $partial_orcamento.'
-                                    <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: none;">
+                                    <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6;">
                                         <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
                                         <div class="horizontal-form">
                                             <div class="form-group"> 
@@ -1968,7 +2117,6 @@ class Usuario
                                         </div>
                                     </div>
                 ';
-                
             }
             $partial_orcamento  =   $partial_orcamento.'
                                 <!--</div>-->
