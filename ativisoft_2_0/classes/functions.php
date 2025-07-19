@@ -1305,7 +1305,8 @@ class Usuario
 
         try {
             // Recupera o serviço inserido
-            $select_empresa = "SELECT * FROM tb_empresa e, tb_pessoa p WHERE p.cd_pessoa = e.cd_proprietario "; 
+            $select_empresa     =   "SELECT * FROM tb_empresa e, tb_pessoa p WHERE p.cd_pessoa = e.cd_proprietario ";
+                      
             if($tipo_consulta == 'CD'){
                 $select_empresa = $select_empresa." AND e.cd_empresa = '$key_consulta' ";
             }else if($tipo_consulta == 'CCNPJ'){
@@ -1320,6 +1321,8 @@ class Usuario
             $select_empresa = $select_empresa." LIMIT 1 ";
             
             $result_empresa = mysqli_query($conn, $select_empresa);
+
+            
             $row_empresa = mysqli_fetch_assoc($result_empresa);
             
             if (!$row_empresa) {
@@ -1328,8 +1331,9 @@ class Usuario
                 <div class="card-body" id="abrirVenda">
                 <div class="kt-portlet__body">
                 <div class="row">
-                <input value="'.$cd_proprietario.'" name="cd_proprietario" type="hidden" id="cd_cliente" class=" form-control form-control-sm"/>
-                <td><button type="submit" name="cadVenda" id="cadVenda" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Criar Venda</button></td>
+                <input value="'.$cd_proprietario.'" name="cd_proprietario" type="text" id="cd_cliente" class=" form-control form-control-sm"/>
+                <td><button type="submit" name="cadVenda" id="cadEmpresa" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Criar Empresa</button></td>
+                <h1>'.$select_empresa.'</h1>
                 </div>
                 </div>
                 </div>                
@@ -1343,39 +1347,223 @@ class Usuario
                 ];
             }
             
+            $select_contrato    =   "SELECT * FROM tb_contrato WHERE cd_empresa = '".$row_empresa['cd_empresa']."' ORDER BY cd_contrato ASC";
+            $result_contrato    =   mysqli_query($conn, $select_contrato);
+            
+
             $partial_empresa = $partial_empresa.'
-                <form method="POST" id="form_empresa">
-
-                <div class="card-body" id="abrirEmpresa">
-                <div class="kt-portlet__body">
-                <div class="row">
-                <div class="col-12 col-md-12">
-                <h3 class="kt-portlet__head-title">Dados da Empresa</h3>
-                <div  class="typeahead">
-
-                <div class="form-group-custom">
-                <label for="nome_cliente_venda">Cliente</label>
-                <input value="'.$row_empresa['cd_proprietario'].'" type="hidden" name="cd_proprietario_empresa" id="cd_proprietario_empresa" class=" form-control form-control-sm" readonly>
-                <input value="'.$row_empresa['cd_pessoa'].' - '.$row_empresa['pnome_pessoa'].' '.$row_empresa['snome_pessoa'].'" type="text" name="nome_cliente_venda" id="nome_cliente_venda" class=" form-control form-control-sm" readonly>
-                </div>
-
-                <div class="form-group-custom">
-                <label for="cliente_venda">Telefone</label>
-                <input value="+'.$row_empresa['tel1_pessoa'].'" type="text" name="cliente_venda" id="cliente_venda" class=" form-control form-control-sm" readonly>
-                </div>
-
-                <!--<div class="form-group-custom">
-                <label for="editcd_empresa">Venda</label>-->
-                <input value="'.$row_empresa['cd_empresa'].'" type="hidden" name="cd_empresa" id="cd_empresa" class=" form-control form-control-sm" readonly>
-                <!--</div>-->
-
-                <div class="form-group-custom">
-                <label>Abertura</label>
-                <input value="'.$row_empresa['abertura_empresa'].'" type="datetime-local" class=" form-control form-control-sm" style="display: block; " readonly/>
+                <div class="card-body" id="cadastroCliente">
+                    <h3 class="kt-portlet__head-title">Dados da Empresa</h3>
+                    <div class="kt-portlet__body">
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <div class="nc-form-tac">
+                                    <form method="POST" id="form_empresa">
+                                        <div class="typeahead">
+                                            <input value="'.$row_empresa['cd_empresa'].'" name="cadcd_cliente_comercial" type="hidden" id="cadcd_cliente_comercial" class=" form-control form-control-sm" style="display: block;" readonly/>
+                                            <div class="form-group-custom">
+                                               <label for="nome_proprietario_empresa">Proprietário</label>
+                                               <input value="'.$row_empresa['cd_proprietario'].'" type="hidden" name="cd_proprietario_empresa" id="cd_proprietario_empresa" class=" form-control form-control-sm" readonly>
+                                               <input value="'.$row_empresa['cd_pessoa'].' - '.$row_empresa['pnome_pessoa'].' '.$row_empresa['snome_pessoa'].'" type="text" name="nome_cliente_venda" id="nome_cliente_venda" class=" form-control form-control-sm" readonly>
+                                           </div>
+                                           <div class="form-group-custom">
+                                               <label for="cadrsocial_cliente_comercial">Razão Social</label>
+                                               <input value="'.$row_empresa['rsocial_empresa'].'" name="cadrsocial_cliente_comercial" type="text" id="cadrsocial_cliente_comercial" maxlength="100" class="aspNetDisabled form-control form-control-sm"  value="'.$row_empresa['cd_pessoa'].' - '.$row_empresa['pnome_pessoa'].' '.$row_empresa['snome_pessoa'].'" required/>
+                                           </div>
+                                           <div class="form-group-custom">
+                                               <label for="cadnfantasia_cliente_comercial">Nome Fantasia</label>
+                                               <input value="'.$row_empresa['nfantasia_empresa'].'" name="cadnfantasia_cliente_comercial" type="text" id="cadnfantasia_cliente_comercial" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>
+                                           </div>
+                                            <div class="form-group-custom">
+                                               <label for="cadcnpj_cliente_comercial">CNPJ</label>
+                                               <input value="'.$row_empresa['cnpj_empresa'].'" name="cadcnpj_cliente_comercial" type="text" id="cadcnpj_cliente_comercial" maxlength="90" oninput="cnpj(this)" class="aspNetDisabled form-control form-control-sm" readonly/>                            
+                                           </div>
+                                           <div class="form-group-custom">
+                                               <label for="btntel_cliente">Telefone Filial</label>
+                                               <input value="'.$row_empresa['tel1_empresa'].'" name="cadtel_cliente_comercial" type="tel"  id="cadtel_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
+                                           </div>
+                                           <div class="form-group-custom">
+                                               <label for="cademail_cliente_comercial">Email Filial</label>
+                                               <input value="'.$row_empresa['email_empresa'].'" name="cademail_cliente_comercial" type="tel"  id="cademail_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
+                                           </div>
+                                           <div class="form-group-custom">
+                                               <label for="cadsaudacao_cliente_comercial">Saudações</label>
+                                               <input value="'.$row_empresa['saudacoes_empresa'].'" name="cadsaudacao_cliente_comercial" type="tel"  id="cadsaudacao_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
+                                           </div>
+                                           <div class="form-group-custom">
+                                               <label for="cadtipo_mensagem_cliente_comercial">Tipo de Mensagens</label>
+                                               <input value="'.$row_empresa['tipo_mensagem'].'" name="cadtipo_mensagem_cliente_comercial" type="tel"  id="cadtipo_mensagem_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
+                                           </div>
+                                           <div class="form-group-custom">
+                                               <label for="cadtipo_impressao_cliente_comercial">Tipo de Impressão</label>
+                                               <input value="'.$row_empresa['tipo_impressao'].'" name="cadtipo_impressao_cliente_comercial" type="tel"  id="cadtipo_impressao_cliente_comercial" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" required/>
+                                           </div>
+                                           <td><button type="hidden" name="cad_cliente_comercial" id="cad_cliente_comercial" class="btn btn-block btn-outline-success"><i class="icon-cog">Gravar</i></button></td>
+                                                
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             ';
+
+            $partial_empresa = $partial_empresa.'
+                <div class="card-body">
+                    <div class="kt-portlet__body">
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <div  class="nc-form-tac">
+                                    <h3 class="kt-portlet__head-title">Lançar novo Contrato</h3>
+                                    <form method="post">
+                                        <div class="typeahead" style="background-color: #C6C6C6;">
+                                            <div class="horizontal-form">
+                                                <div class="form-group">
+                                                    <label for="data_fatura"></label>
+                                                    <input value="" type="date" style="width: 20%;" name="data_fatura" id="data_fatura" class="form-control form-control-sm">
+                                                    <label for="vcusto_fatura"></label>
+                                                    <input type="tel" oninput="tel(this)" id="vcusto_fatura" name="vcusto_fatura" class="form-control form-control-sm" placeholder="Quanto custa este serviço?">
+                                                    <label for="lancarFatura"></label>
+                                                    <button type="submit" name="lancarFatura" id="lancarFatura" class="btn btn-success">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <h3 class="kt-portlet__head-title">Contratos gerados</h3>
+            ';
+            $_SESSION['vtotal_contrato'] = 0;
+            $_SESSION['vpag_contrato'] = 0;
+            $count = 0;
+            $vcusto_contrato = 0;
+            $vpag_contrato = 0;
+            $_SESSION['vpag_servico'] = 10;
+            while($row_contrato = $result_contrato->fetch_assoc()) {
+                $count = $count + 1;
+                // Criando os objetos DateTime para as datas de contrato e validade
+                $data_inicial = new DateTime($row_contrato['dt_contrato']);
+                $data_final = new DateTime($row_contrato['dt_validade']);
+                // Calculando a diferença entre as duas datas
+                $intervalo = $data_inicial->diff($data_final);
+                // Obtendo os anos e meses da diferença
+                $anos = $intervalo->y;
+                $meses = $intervalo->m;
+                // Exibindo a diferença no formato desejado
+                $vigencia = ($anos > 0 ? $anos . ' ano' . ($anos > 1 ? 's' : '') : '') .
+                ($anos > 0 && $meses > 0 ? ' e ' : '') .
+                ($meses > 0 ? $meses . ' mês' . ($meses > 1 ? 'es' : '') : '');
+                $status_contrato = $row_contrato['status_contrato'];
+                switch ($status_contrato) {
+                    case 'A':
+                        $ds_status_contrato = "Aberto";
+                        break;
+                    case 'F':
+                        $ds_status_contrato = "Fechado";
+                        break;
+                    case 'C':
+                        $ds_status_contrato = "Cancelado";
+                        break;
+                    default:
+                        $ds_status_contrato = "Desconhecido";
+                        break;
+                }
+                $partial_empresa = $partial_empresa.'
+                                    <form method="POST">
+                                        <div class="horizontal-wrapper">
+                                            <div class="horizontal-id">#'.$count.'/'.$row_contrato['cd_contrato'].' </div>
+                                                <input value="'.$row_contrato['cd_contrato'].'" name="listaid_contrato" id="listaid_contrato" class="form-control form-control-sm" style="display:none;" readonly>
+                                                <div class="horizontal-content">
+                                                    <div class="form-group-custom full-width">
+                                                        <label for="listatitulo_contrato">Descrição</label>
+                                                        <input value="'.$row_contrato['ds_contrato'].'" name="listatitulo_contrato" id="listatitulo_contrato" type="text" class="form-control form-control-sm" readonly>
+                                                    </div>
+                                                    <div class="horizontal-form-custom">
+                                                        <div class="form-group-custom">
+                                                            <label for="listavigencia_contrato">Vigência (' . $vigencia . ')</label>
+                                                            <input value="'.date('d/m/Y', strtotime($row_contrato['dt_contrato'])).' a '.date('d/m/Y', strtotime($row_contrato['dt_validade'])).'" name="listavigencia_contrato" id="listavigencia_contrato" type="tel" class="form-control form-control-sm" readonly>
+                                                        </div>
+                                                        <div class="form-group-custom">
+                                                            <label for="listavalor_licenca">Valor da Licença</label>
+                                                            <input value="'.$row_contrato['vl_licenca'].'" name="listavalor_licenca" id="listavalor_licenca" type="tel" class="form-control form-control-sm" readonly>
+                                                        </div>                       
+                                                        <div class="form-group-custom">
+                                                            <label for="listavalor_contrato">Valor do contrato</label>
+                                                            <input value="'.$row_contrato['vl_contrato'].'" name="listavalor_contrato" id="listavalor_contrato" type="tel" class="form-control form-control-sm" readonly>
+                                                        </div>
+                                                        <div class="form-group-custom">
+                                                            <label for="listastatus_contrato">Status</label>
+                                                            <input value="'.$ds_status_contrato.'" name="listastatus_contrato" id="listastatus_contrato" type="text" class="form-control form-control-sm" placeholder="" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <input class="horizontal-action" type="submit" value="Editar">
+                                        </div>
+                                    </form>
+                ';          
+                $vcusto_contrato = $vcusto_contrato + $row_contrato['vcusto_contrato'];
+                $vpag_contrato += $row_contrato['vpag_contrato'];
+                $_SESSION['vcusto_contrato'] = $vcusto_contrato;
+                $_SESSION['vtotal_contrato'] = $vcusto_contrato;
+                $_SESSION['vpag_servico'] = $vpag_contrato;
+                
+            }
+            $select_pagamentos = "SELECT * FROM tb_movimento_financeiro WHERE cd_cliente_comercial = '".$_SESSION['cd_cliente_comercial']."'";
+            if(!$result_pagamentos = mysqli_query($conn, $select_pagamentos)){
+                echo "<script>window.alert('Erro ao consultar o movimento financeiro na tb_movimento_financeiro!');</script>"; 
+            }
+            while($row_pagamentos = $result_pagamentos->fetch_assoc()) {
+                $_SESSION['vpag_servico'] = $_SESSION['vpag_servico'] + $row_pagamentos['valor_movimento'];
+            }
+            $_SESSION['falta_pagar_servico'] = 0;
+            $select_contrato = "SELECT * FROM tb_contrato WHERE cd_empresa = '".$_SESSION['cd_cliente_comercial']."'";
+            if(!$result_contrato = mysqli_query($conn, $select_contrato)){
+                echo "<script>window.alert('Erro ao consultar uma fatura na tb_movimento_financeiro!');</script>"; 
+            }
+            while($row_contrato = $result_contrato->fetch_assoc()) {
+                $_SESSION['falta_pagar_servico'] = $_SESSION['vpag_servico'] + $row_contrato['vcusto_contrato'];
+            }
+            $partial_empresa = $partial_empresa.'
+                                    <div class="typeahead" style="background-color: #C6C6C6;">
+                                        <div class="horizontal-form">
+                                            <div class="form-group">
+                                                <label for="cadobs_servico">Total:</label>
+                                                <input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_contrato" id="btnvpag_contrato" class="aspNetDisabled form-control form-control-sm" readonly>
+                                                <label for="cadobs_servico">Falta:</label>
+                                                <input value="'.$_SESSION['fatura_devida_cliente_fiscal'].'" type="tel" name="btn_falta_pagar_contrato" id="btn_falta_pagar_contrato" class="aspNetDisabled form-control form-control-sm" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
+            if($vcusto_contrato == 0){
+            }else{
+            }          
+        
+        
             
                 if($permite_editar){
+                    $partial_empresa = $partial_empresa.'
+                        <script>
+                            function enviarPara(url) {
+                                document.getElementById("form_empresa").action = url;
+                            }
+                            //document.getElementById("prioridade_servico").disabled = true;
+                            document.getElementById("cadrsocial_cliente_comercial").readOnly = true;
+                            document.getElementById("cadnfantasia_cliente_comercial").readOnly = true;
+                            document.getElementById("cadcnpj_cliente_comercial").readOnly = true;
+                            document.getElementById("cadtel_cliente_comercial").readOnly = true;
+                            document.getElementById("cademail_cliente_comercial").readOnly = true;
+                            document.getElementById("cadsaudacao_cliente_comercial").readOnly = true;
+                            document.getElementById("cadtipo_mensagem_cliente_comercial").readOnly = true;
+                            document.getElementById("cadtipo_impressao_cliente_comercial").readOnly = true;
+                            document.getElementById("cad_cliente_comercial").style.display = "none";
+                        </script>
+                    ';
+
                     if($row_empresa['orcamento_empresa'] == $row_empresa['vpag_empresa']){
                         $partial_venda = $partial_empresa.'
                             <div class="form-group-custom">
@@ -1411,7 +1599,7 @@ class Usuario
                         function enviarPara(url) {
                             document.getElementById("form_empresa").action = url;
                         }
-                        //document.getElementById("prioridade_servico").disabled = true;
+                        document.getElementById("prioridade_servico").disabled = true;
                         //document.getElementById("obs_servico").readOnly = true;
                         //document.getElementById("prioridade_servico").readOnly = true;
                         //document.getElementById("prazo_servico").readOnly = true;
@@ -1425,15 +1613,15 @@ class Usuario
                     'cd_proprietario'       =>  $row_empresa['cd_proprietario'],    
                     'abertura_empresa'      =>  $row_empresa['abertura_venda'],        
                     'status_empresa'        =>  $row_empresa['status_servico'],
-                    'partial_empresa'       =>  $partial_venda
+                    'partial_empresa'       =>  $partial_empresa
                 ];
-            } catch (Exception $e) {
-                $conn->rollback();
-                return [
-                    'status'        => addslashes($e->getMessage()),
-                    'cd_empresa'      => '0'
-                ];
-            }
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'status'            => addslashes($e->getMessage()),
+                'cd_empresa'      => '0'
+            ];
+        }
 
     }
 
