@@ -8,8 +8,10 @@
     require_once '../../classes/conn.php';
     include("../../classes/functions.php");
     include("../../classes/financeiro.php");
+    include("../../classes/tools.php");
     $u = new Usuario;
     $f = new Financeiro;
+    $t = new Tools;
     if(isset($_SESSION['os_cliente'])){
       echo '<script>document.getElementById("abrirOS").style.display = "block";</script>';      
     }
@@ -156,19 +158,44 @@
                       <div class="col-12 col-md-12">
                         <div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">
                           <form method="POST"> 
-                            <div class="form-group" style="display: flex;">
+                            <!--<div class="form-group" style="display: flex;">
                               <div class="input-group">
                                 <div class="input-group-prepend">
                                   <select name="cd_pais" id="cd_pais"  class="input-group-text" required>
-                                    <option selected="selected" value="55">+55 Brasil</option>
+                                    <option selected="selected" value="55">+55 Brasil</option> 
                                   </select>  
                                 </div>
                                 <input placeholder="Telefone do Cliente" type="tel" name="contel_cliente" id="contel_cliente" oninput="tel(this)" class=" form-control form-control-sm" required oninput="validateInput(this)">
                               </div>
+
+
+                              
                             </div>
                             <p id="error-message" style="color: #DDDDDD;"></p>
                             <br>
                             <button type="submit" name="consulta" class="btn btn-block btn-success">Consulta</button>
+                -->
+
+                <?php 
+                                $resultado = $t->telefone(0);
+                                echo '<div class="input-group">';
+                                echo '    <div class="input-group-prepend">';
+                                echo '      <select name="cd_pais" id="cd_pais"  class="input-group-text" required>';
+                                echo '      <option selected="selected" value="'.$resultado['codigo_pais'].'">'.$resultado['nome_pais'].'</option>';
+                                echo $resultado['lista_paises'];
+                                echo '      </select>  ';
+                                echo '    </div>';
+                                echo '    <input placeholder="Telefone" type="tel" value="'.$resultado['ddd'].$resultado['numero'].'" name="contel_cliente" id="contel_cliente" type="tel" class="form-control form-control-sm" required oninput="tel(this)">';
+                                echo '    <div class="input-group-append">';
+                                echo '    </div>';
+                                echo '    </div>';
+                              ?>
+
+                              
+                            <p id="error-message" style="color: #DDDDDD;"></p>
+                            <br>
+                            <button type="submit" name="consulta" class="btn btn-block btn-success">Consulta</button>
+
                           </form>
                         </div>
                       </div>

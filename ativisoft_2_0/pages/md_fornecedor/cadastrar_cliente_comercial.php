@@ -250,9 +250,7 @@
                   }
                   if($_SESSION['concnpj_cliente_comercial'] > 0) { //CHAMAR CLIENTE CADASTRADO PARA SESSION
                     //echo "<script>window.alert('.".$_SESSION['concnpj_cliente_comercial'].".');</script>";
-
-                //echo '<h1>'.$_SESSION['concnpj_cliente_comercial'] .'</h1>';
-
+                    //echo '<h1>'.$_SESSION['concnpj_cliente_comercial'] .'</h1>';
                     $result_empresa = $u->conEmpresa('CCNPJ', $_SESSION['concnpj_cliente_comercial'], true);
                     if($result_empresa['status'] == 'OK'){
                       echo $result_empresa['partial_empresa'];

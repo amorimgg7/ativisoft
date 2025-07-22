@@ -96,7 +96,8 @@ class Tools
             "252" => "Somália",
             "253" => "Djibouti",
             "254" => "Quênia",
-            "255" => "Tanzânia"
+            "255" => "Tanzânia",
+            "593" => "Equador"
         ];
         
         if($telefone == 0){
@@ -131,7 +132,7 @@ class Tools
         $lista_paises = "";
         foreach ($paises as $codigo => $nome) {
             $selected = ($codigo == $codigo_pais) ? ' selected="selected"' : '';
-            $lista_paises .= '<option value="' . $codigo . '"' . $selected . '>+' . $codigo . ' ' . $nome . '</option>';
+            $lista_paises .= '<option value="' . $codigo . '"' . $selected . '>' . $codigo . ' ' . $nome . '</option>';
         }
 
 
