@@ -498,7 +498,7 @@ $u = new Usuario;
                                                                 document.getElementById("motivo_movimento").innerHTML = '<option value="" selected></option><option value="Sangria">Sangria</option><option value="Outros">Outros</option>';
                                                             }
                                                             else{//vpag_movimento
-                                                                document.getElementById("os_movimento").style.display = "none";
+                                                                document.getElementById("os_movimento").style.display = "block";
                                                                 document.getElementById("fpag_movimento").style.display = "none";
                                                                 document.getElementById("vpag_movimento").style.display = "none";
                                                             }

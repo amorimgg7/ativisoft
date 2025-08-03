@@ -57,7 +57,7 @@ $u = new Usuario;
                         <div class="col-sm-12 mb-4 mb-xl-0">
                             <?php
                                 if(isset($_POST['con_conf_cd_caixa']))
-                                {
+                                { 
                                     if($_SESSION['status_caixa'] != 0){
                                         echo '<h1>Conferir Caixa Passado</h1>';
                                     }

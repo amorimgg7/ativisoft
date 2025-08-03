@@ -575,7 +575,7 @@
           
                   }
 
-                  if(isset($_POST['lancarOrcamentoCadastro'])) {      
+                  if(isset($_POST['lancarOrcamentoCadastro'])) {        
                     if($_POST['produto_servico']==false){
                       $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];
                       $_SESSION['produto_servico_id'] = $_POST['produto_servico_id2'];
@@ -592,39 +592,46 @@
                       echo "<script>window.alert('A quantidade não pode ser menor que 1!');</script>";  
                     }else{
                       if($_POST['produto_servico_estoque'] >= $_POST['produto_servico_qtd']){
-                        $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente, cd_servico, titulo_orcamento, cd_produto, vprod_orcamento, qtd_orcamento, vcusto_orcamento, tipo_orcamento, status_orcamento) VALUES(
-                          '".$_SESSION['os_cliente']."',
+                        //echo "<script>window.alert('1');</script>";
+                        $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente, cd_filial, cd_servico, titulo_orcamento, cd_produto, vprod_orcamento, qtd_orcamento, vcusto_orcamento, tipo_orcamento, status_orcamento) VALUES(
+                          '".$_SESSION['servico_cliente']."',
+                          '".$_SESSION['cd_filial']."',
                           '".$_SESSION['cd_servico']."',
                           '".$_POST['produto_servico_nome']."',
                           '".$_POST['produto_servico_id2']."',
                           '".str_replace(',', '.', $_POST['produto_servico_preco'])."',
                           '".$_POST['produto_servico_qtd']."',
                           '".str_replace(',', '.', $_POST['produto_servico_vtotal'])."',
-                          'CADASTRADO',
+                          'CADASTRO',
                           '0')
                         ";
+                        //echo "<script>window.alert(" . json_encode($insertOrcamento) . ");</script>";
+                        //echo "<script>window.alert('".addslashes($insertOrcamento)."');</script>";
                         //mysqli_query($conn, $insertOrcamento);
                         if (mysqli_query($conn, $insertOrcamento)) {
                           // Obtém o último ID inserido
                           $cd_orcamento = mysqli_insert_id($conn);
-                          $insertReserva = "INSERT INTO tb_reserva(cd_cliente, cd_servico, cd_orcamento, cd_prod_serv, qtd_reservado, dt_reservado) VALUES(
-                            '".$_SESSION['os_cliente']."',
+                          $insertReserva = "INSERT INTO tb_reserva(cd_cliente, cd_empresa, cd_servico, cd_orcamento, cd_prod_serv, qtd_reservado, dt_reservado) VALUES(
+                            '".$_SESSION['servico_cliente']."',
+                            '".$_SESSION['cd_empresa']."',
                             '".$_SESSION['cd_servico']."',
                             ".$cd_orcamento.",
                             '".$_POST['produto_servico_id2']."',
                             '".$_POST['produto_servico_qtd']."',
-                            '".date('Y-m-d H:i')."')
+                            now())
                           ";
                           mysqli_query($conn, $insertReserva);
                         } else {
                           echo "Erro ao inserir os dados: " . mysqli_error($conn);
                         }  
-                        $_SESSION['vcusto_orcamento'] = $_SESSION['orcamento_servico'] + str_replace(',', '.', $_POST['produto_servico_vtotal']);   
+                        $_SESSION['vcusto_orcamento'] = $_SESSION['vcusto_servico'] + str_replace(',', '.', $_POST['produto_servico_vtotal']);   
                         $updateOrcamentoServico = "UPDATE tb_servico SET
                           orcamento_servico = ".$_SESSION['vcusto_orcamento']."
                           WHERE cd_servico = ".$_SESSION['cd_servico']."";
                         if(mysqli_query($conn, $updateOrcamentoServico)){
-                          echo "<script>window.alert('".$_POST['vcusto_orcamento']." + ".$_SESSION['orcamento_servico']." = ".$_SESSION['vcusto_orcamento']."');</script>";
+                          echo "<script>window.alert('".$_POST['produto_servico_vtotal']." + ".$_SESSION['vcusto_servico']." = ".$_SESSION['vcusto_orcamento']."');</script>";
+                        }else{
+                          echo "<script>window.alert('erro');</script>";
                         }
                         $_SESSION['produto_servico'] = false;
                         $_SESSION['produto_servico_preco'] = false;
@@ -639,26 +646,26 @@
                         
 
                   if(isset($_POST['listaremover_orcamento'])) {//DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = 198
-                    
                     $retorno = $u->conServico($_POST['listaid_servico'],$_SESSION['cd_filial'],false);
                     //$retorno['status'];
-                    $valor_orcamento  = str_replace('.', '.', $_POST['listavalor_orcamento']);
-                    $valor_orcamento  = floatval($valor_orcamento);
-                    $vpag_servico   = floatval($retorno['vpag_servico']);                  
-                    $orcamento_servico   = floatval($retorno['orcamento_servico']);                  
+                    $valor_orcamento      = str_replace('.', '.', $_POST['vcusto_orcamento']);
+                    $valor_orcamento      = floatval($valor_orcamento);
+                    $vpag_servico         = floatval($retorno['vpag_servico']);                  
+                    $orcamento_servico    = floatval($retorno['orcamento_servico']);                  
                     if (($orcamento_servico - $valor_orcamento) >= $vpag_servico) {
                       //echo "<script>window.alert('OK, pode remover');</script>";
                       $removeOrcamento = "DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = '".$_POST['listaid_orcamento']."'";
                       mysqli_query($conn, $removeOrcamento);
+                      //echo "<script>window.alert('1 : ".$orcamento_servico." - ".$valor_orcamento." = ".$orcamento_servico-$valor_orcamento."');</script>"; 
                       $updateVtotalServico = "UPDATE tb_servico SET
                         orcamento_servico = orcamento_servico - ".$valor_orcamento."
                         WHERE cd_servico = ".$_SESSION['cd_servico']."";
                       mysqli_query($conn, $updateVtotalServico);
-                      if($_POST['listatipo_orcamento'] == 'CADASTRADO'){
+                      if($_POST['listatipo_orcamento'] == 'CADASTRO'){
                         $removeReserva = "DELETE FROM `tb_reserva` WHERE `tb_reserva`.`cd_orcamento` = ".$_POST['listaid_orcamento']."";
                         mysqli_query($conn, $removeReserva);
                       }
-                      //echo "<script>window.alert('a!');</script>";  
+                        //echo "<script>window.alert('2 - ".$valor_orcamento."');</script>";  
                         echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';          
                     }else{
                       echo "<script>window.alert('!: ".$retorno['status'].", vPag:".$vpag_servico.", vOrcamento".$orcamento_servico.", vOrcamentoRemover".$valor_orcamento."');</script>";
@@ -830,6 +837,16 @@ if ($_POST['confirmacao'] === 'sim') {
                         //echo '<p>Cliente</p>';
                         //echo $result_cliente['partial_cliente'];
                         
+
+                        $_SESSION['servico_cliente'] = $result_cliente['cd_cliente'];
+                        //echo '<p>Cliente</p>';
+                        //echo $result_cliente['partial_cliente'];
+                        $_SESSION['falta_pagar']  = $result_financeiro['falta_pagar'];
+                        $_SESSION['vcusto_servico'] = $result_servico['orcamento_servico'];
+                        //$_SESSION['orcamento_servico']
+                        $_SESSION['vpag_servico']   = $result_servico['vpag_servico'];
+
+
                         //echo '<p>Servico</p>';
                         echo $result_servico['partial_servico']; 
      

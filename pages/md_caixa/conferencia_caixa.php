@@ -157,7 +157,7 @@ $u = new Usuario;
                                         echo '</thead>';
                                         echo '<tbody>';
                                         while ( $caixa = $resulta_caixa->fetch_assoc()){
-                                            if($caixa['status_caixa'] == 0){
+                                            if($caixa['status_caixa'] == 0){ 
                                                 echo '<tr class="table-dark">';
                                                 echo '<form method="POST" action="form_conf_caixa.php">';
                                                 echo '<td style="display: none;"><input type="tel" id="con_conf_cd_caixa" name="con_conf_cd_caixa" value="'.$caixa['cd_caixa'].'"></td>';

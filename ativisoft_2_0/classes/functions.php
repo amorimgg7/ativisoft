@@ -2004,10 +2004,7 @@ class Usuario
 
                     $partial_orcamento  =   $partial_orcamento.'</form>';
                 }else if($row_orcamento['tipo_orcamento'] == 'CADASTRO'){
-
-                    
-
-
+                    $partial_orcamento  =   $partial_orcamento.'<form method="POST">';
                     $partial_orcamento = $partial_orcamento.'
                         <div class="horizontal-wrapper">
                             <div class="horizontal-id">#'.$count.'/'.$row_orcamento['cd_orcamento'].' </div>
@@ -2015,15 +2012,15 @@ class Usuario
                             <div class="horizontal-content">
                                 <div class="form-group-custom full-width">
                                 <label for="listatitulo_orcamento">Descrição</label>
-                                    <input value="'.$row_orcamento['cd_servico'].'" name="listaid_servico" id="listaid_servico" class=" form-control form-control-sm" style="display:none;">
-                                    <input value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class=" form-control form-control-sm" style="display:none;">
-                                    <input value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class=" form-control form-control-sm" style="display:none">
+                                    <input type="hidden" value="'.$row_orcamento['cd_servico'].'" name="listaid_servico" id="listaid_servico" class=" form-control form-control-sm">
+                                    <input type="hidden" value="'.$row_orcamento['cd_orcamento'].'" name="listaid_orcamento" id="listaid_orcamento" class=" form-control form-control-sm">
+                                    <input type="hidden" value="'.$row_orcamento['tipo_orcamento'].'" name="listatipo_orcamento" id="listatipo_orcamento" type="text" class=" form-control form-control-sm">
                                     <input value="'.$row_orcamento['titulo_orcamento'].'" name="listatitulo_orcamento" id="listatitulo_orcamento" type="text" class="form-control form-control-sm" readonly>
                                 </div>
                                 <div class="horizontal-form-custom">
                                     <div class="form-group-custom">
-                                        <label for="listavalor_licenca">Valor da Licença</label>
-                                        <input value="'.$row_orcamento['vcusto_orcamento'].'" name="listavalor_orcamento" id="listavalor_orcamento" type="tel" class="form-control form-control-sm" readonly>
+                                        <label for="vcusto_orcamento">Valor do Produto/Servico</label>
+                                        <input value="'.$row_orcamento['vcusto_orcamento'].'" name="vcusto_orcamento" id="vcusto_orcamento" type="tel" class="form-control form-control-sm" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -2039,6 +2036,7 @@ class Usuario
                         </div>
                         ";
                     }
+                    $partial_orcamento  =   $partial_orcamento.'</form>';
 
                 }      
             }

@@ -8,7 +8,6 @@ class Tools
 {
     public function telefone($telefone) 
     {
-
         // Lista de códigos de países com nomes
         $paises = [
             "1"   => "EUA/Canadá",

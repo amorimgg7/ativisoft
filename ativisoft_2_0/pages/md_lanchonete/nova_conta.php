@@ -464,7 +464,7 @@
                       
                     }            
                   }
-                        
+                         
 
                   if(isset($_POST['listaremover_orcamento'])) {//DELETE FROM `tb_orcamento_venda` WHERE `tb_orcamento_venda`.`cd_orcamento` = 198
                     if(($_SESSION['vcusto_venda'] - $_POST['listavalor_orcamento'])>=$_SESSION['vpag_venda']){
