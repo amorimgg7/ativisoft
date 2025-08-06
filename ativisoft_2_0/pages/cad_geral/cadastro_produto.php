@@ -8,6 +8,12 @@
     require_once '../../classes/conn.php';
     include("../../classes/functions.php");
     $u = new Usuario;
+
+
+
+    $result = $u->retPermissão('md_venda_produto', $_SESSION['md_venda']);
+    
+
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>
@@ -66,7 +72,9 @@
       <!-- partial:partials/_sidebar.html -->
       <?php include ("../../partials/_sidebar.php");?>
       <!-- partial -->
-      <div class="main-panel">        
+      
+      <div class="main-panel">   
+        <?php echo '<spam>'.$result.'</spam>'; ?>     
         <div class="content-wrapper" <?php echo $_SESSION['c_body'];?>>
           <div class="row">
                        
@@ -159,7 +167,7 @@
                 if(isset($_POST['cadProdServ'])) { 
                   $_SESSION['cd_prod_serv']       = "";
                   $_SESSION['cd_classe_fiscal']   = "";
-                  $_SESSION['cd_grupo_prod_serv'] = "";
+                  $_SESSION['cd_grupo_prod_serv'] = $_POST['cadGrupoProdServ'];
                   $_SESSION['cdbarras_prod_serv'] = "";
                   $_SESSION['titulo_prod_serv']   = "";
                   $_SESSION['obs_prod_serv']      = "";
@@ -405,7 +413,7 @@
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Código de Barras</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="cdbarras_prod_serv" type="tel"  id="cdbarras_prod_serv" oninput="tel(this)" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)" required/>';
+                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="cdbarras_prod_serv" type="tel"  id="cdbarras_prod_serv" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)"/>';
                 echo '</div>';
                 echo '</div>';
 
@@ -492,17 +500,17 @@
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
 
                 echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
-                echo '<span class="card-title">Grupo</span>';
+                echo '<span class="card-title">Grupo - '.$_SESSION['cd_grupo_prod_serv'].'</span>';
                 echo '<div class="input-group-prepend">';
                 echo '<select id="grupo_prod_serv" name="grupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg" required>';
-                $select_show_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_SESSION['cd_grupo_prod_serv']."'";
+                $select_show_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_SESSION['cd_grupo_prod_serv']."' and cd_filial = ".$_SESSION['cd_empresa']." ORDER BY titulo_grupo ASC";
                 $resulta_show_grupo = $conn->query($select_show_grupo);
                 if ($resulta_show_grupo->num_rows > 0){
                   while ($row_show_grupo = $resulta_show_grupo->fetch_assoc()){
                     echo '<option selected value="'.$row_show_grupo['cd_grupo'].'">'.$row_show_grupo['titulo_grupo'].'</option>';
                   }
                 }
-                $select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' ORDER BY cd_grupo ASC";
+                $select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' and cd_filial = '".$_SESSION['cd_filial']."' ORDER BY titulo_grupo ASC";
                 $resulta_edit_grupo = $conn->query($select_edit_grupo);
                 if ($resulta_edit_grupo->num_rows > 0){
                   while ($row_edit_grupo = $resulta_edit_grupo->fetch_assoc()){
@@ -517,7 +525,7 @@
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Observações</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="obs_prod_serv" type="text" id="obs_prod_serv" maxlength="999"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="obs_prod_serv" type="text" id="obs_prod_serv" maxlength="999"   class="aspNetDisabled form-control form-control-sm"/>';
                 echo '</div>';
                 echo '</div>';
 
@@ -739,7 +747,7 @@
                     echo '<option selected value="'.$row_show_grupo['cd_grupo'].'">'.$row_show_grupo['titulo_grupo'].'</option>';
                   }
                 }
-                $select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' ORDER BY cd_grupo ASC";
+                $select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' and cd_filial = '".$_SESSION['cd_filial']."' ORDER BY titulo_grupo ASC";
                 $resulta_edit_grupo = $conn->query($select_edit_grupo);
                 if ($resulta_edit_grupo->num_rows > 0){
                   while ($row_edit_grupo = $resulta_edit_grupo->fetch_assoc()){
@@ -876,7 +884,7 @@
                 echo '</div>';
               
               }else{
-                $select_grupo = "SELECT * FROM tb_grupo where cd_filial = ".$_SESSION['cd_empresa']." ORDER BY cd_grupo ASC";
+                $select_grupo = "SELECT * FROM tb_grupo where cd_filial = ".$_SESSION['cd_empresa']." ORDER BY titulo_grupo ASC";
                 $resulta_grupo = $conn->query($select_grupo);
                 if ($resulta_grupo->num_rows > 0){
                   while ( $row_grupo = $resulta_grupo->fetch_assoc()){
@@ -895,6 +903,7 @@
                     echo '<div class="collapse table-responsive" id="grupo_'.$row_grupo['cd_grupo'].'">';
                   
                     echo '<form method="POST">';
+                    echo '<input type="hidden" name="cadGrupoProdServ" id="cadGrupoProdServ" value="'.$row_grupo['cd_grupo'].'" >';
                     echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadProdServ" id="cadProdServ" style="margin-top: 20px; margin-bottom: 20px;">Novo Produto</button>';
                     echo '</form>';
                     $select_produtos = "SELECT * FROM tb_prod_serv WHERE cd_grupo = '".$row_grupo['cd_grupo']."' ORDER BY cd_prod_serv ASC";

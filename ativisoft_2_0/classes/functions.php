@@ -144,7 +144,31 @@ class Usuario
                         //entrar no sistema(sessão)
                         $tb_acesso = $sql4->fetch();
                         //session_start();
-                   
+                        //egurança baseada em crud, ambas seguindo em ordem de 1 a 9
+                        //Ler
+                        //Escrever
+                        //Modificar/inativar/excluir
+                        //acesso total aos tres tópicos do crud é 999
+
+                        $md_venda = str_pad($tb_acesso['md_venda'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                        $_SESSION['md_venda'] = $md_venda;
+                        $_SESSION['md_venda_ler']           =   ((int)$md_venda[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_venda_escrever']      =   ((int)$md_venda[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_venda_modificar']     =   ((int)$md_venda[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_venda_produto']       =   (((int)$md_venda[0]+(int)$md_venda[1]+(int)$md_venda[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+
+                        /*
+                        if($tb_acesso['md_venda'] == '111'){
+                            $_SESSION['md_venda'] = "style='display:none;'";
+                        }
+                        if($tb_acesso['md_venda'] == '222'){
+                            $_SESSION['md_venda'] = "style='display:none;'";
+                        }
+                        if($tb_acesso['md_venda'] == '333'){
+                            $_SESSION['md_venda'] = "style='display:none;'";
+                        }
+*/
+
                         if($tb_acesso['md_assistencia'] == "999"){
                             $_SESSION['md_assistencia'] = "style='display:block;'";
                         }
@@ -158,18 +182,7 @@ class Usuario
                             $_SESSION['md_assistencia'] = "style='display:none;'";
                         }
 
-                        if($tb_acesso['md_venda'] == '999'){
-                            $_SESSION['md_venda'] = "style='display:block;'";
-                        }
-                        if($tb_acesso['md_venda'] == '111'){
-                            $_SESSION['md_venda'] = "style='display:none;'";
-                        }
-                        if($tb_acesso['md_venda'] == '222'){
-                            $_SESSION['md_venda'] = "style='display:none;'";
-                        }
-                        if($tb_acesso['md_venda'] == '333'){
-                            $_SESSION['md_venda'] = "style='display:none;'";
-                        }
+                        
                         
                     
                         /*
@@ -1845,9 +1858,13 @@ class Usuario
                                 <!--<div class="typeahead">-->
                 ';
             
-                $partial_orcamento  =   $partial_orcamento.'
+                if($_SESSION['md_venda'] != '111'){
+                    $partial_orcamento  =   $partial_orcamento.'
                                     <button type="button" id="ProdutosServicosBtn" onclick="showSection(\'ProdutosServicos\', \'ProdutosServicosBtn\')" class="btn btn-outline-success" style="text-align:left; display:none;">Mudar para: Serviço Avulso</button>
                                     <button type="button" id="ProdutosServicosCadastroBtn" onclick="showSection(\'ProdutosServicosCadastro\', \'ProdutosServicosCadastroBtn\')" class="btn btn-outline-success" style="text-align:left;">Mudar para: Produtos/Serviços</button>
+                    ';
+                }
+                $partial_orcamento  =   $partial_orcamento.'
                                     
                                     <div id="ProdutosServicos" class="typeahead" style="background-color: #C6C6C6; display: block;">
                                         <h3 class="kt-portlet__head-title">Serviço avulso</h3>
@@ -1866,8 +1883,10 @@ class Usuario
                                     </div>                                 
                 '; 
                
-			    if ($result_prod_serv->num_rows > 0){
-                    $partial_orcamento  =   $partial_orcamento.'
+                if($_SESSION['md_venda'] != '111'){
+			    
+                    if ($result_prod_serv->num_rows > 0){
+                        $partial_orcamento  =   $partial_orcamento.'
                                     <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: none;">
                                         <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
                                         <div class="horizontal-form">
@@ -1881,13 +1900,13 @@ class Usuario
                                                                 <input type="text" id="produto_servico_nome" name="produto_servico_nome" class="form-control form-control-sm" style="display:none" readonly>
                                                                 <select name="produto_servico" id="produto_servico" class="form-control" onchange="updatePriceAndCode()">
                                                                     <option value=""></option>
-                    ';
-                    while ($row_prod_serv = $result_prod_serv->fetch_assoc()) {
-                        $partial_orcamento  =   $partial_orcamento.'
-                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">' . $row_prod_serv['titulo_prod_serv'] . '</option>
                         ';
-                    }
-                    $partial_orcamento  =   $partial_orcamento.'
+                        while ($row_prod_serv = $result_prod_serv->fetch_assoc()) {
+                            $partial_orcamento  =   $partial_orcamento.'
+                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">' . $row_prod_serv['titulo_prod_serv'] . '</option>
+                            ';
+                        }
+                        $partial_orcamento  =   $partial_orcamento.'
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -1918,9 +1937,9 @@ class Usuario
                                             </div>
                                         </div>
                                     </div>
-                    ';
-                }else{
-                    $partial_orcamento  =   $partial_orcamento.'
+                        ';
+                    }else{
+                        $partial_orcamento  =   $partial_orcamento.'
                                     <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: none;">
                                         <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
                                         <div class="horizontal-form">
@@ -1937,9 +1956,10 @@ class Usuario
                                             </div>
                                         </div>
                                     </div>
-                    ';
+                        ';
+                    }
                 }
-            
+
             $partial_orcamento  =   $partial_orcamento.'
                                 <!--</div>-->
                             </form>
@@ -4173,6 +4193,24 @@ class Usuario
 
     }
 
+    public function retPermissão($tipo, $permissao){
+        if($tipo = 'md_venda_produto'){
+            if($permissao != '111'){
+                http_response_code(200);
+                echo '<script>console.log("Acesso permitido ('.$tipo.' : '.$permissao.')");</script>';
+                //return "Acesso permitido (".$tipo." : ".$permissao.")";
+            }else{
+                header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
+                return "Negado";
+            }
+        }else{
+            //http_response_code(503);
+            header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
+            return "Negado";
+        }
+        //http_response_code(200);
+        //return "Acesso permitido para ";
+    }
 
 }
 
