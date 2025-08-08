@@ -9,6 +9,7 @@ ob_start();
         $showcd_servico = $_POST['btncd_servico'];
         $nome = $_POST['btnpnome_cliente'];
         $sobrenome = $_POST['btnsnome_cliente'];
+        $cpf_cnpj = $_POST['btncpf_cnpj'];
         $telefone = $_POST['btntel_cliente'];
         $showtitulo_servico = "abc";//$_POST['btntitulo_servico'];
         $showobs_servico = $_POST['btnobs_servico'];
@@ -48,14 +49,14 @@ ob_start();
             function Footer() {  
             }
 
-            function GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico) {
+            function GerarOrdemServico($showcd_servico, $nome, $sobrenome, $cpf_cnpj, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico) {
                 $this->AddPage('P', 'A4');
                 $this->SetFont('Arial', '', 10);
                 
                 $this->Ln(20);
                 $this->customHeader('A4', 'Ordem de Serviço', $showcd_servico );
 
-                $this->dadosCliente('A4', $nome.$sobrenome, $telefone, $showobs_servico);
+                $this->dadosCliente('A4', $nome.$sobrenome , $cpf_cnpj, $telefone, $showobs_servico);
                 
                 $this->detalheServico('A4', $showprioridade_servico, $showprazo_servico, $showcd_servico);
 
@@ -67,7 +68,7 @@ ob_start();
         }
         $pdf = '';
         $pdf = new MeuPDF();
-        $pdf->GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico);
+        $pdf->GerarOrdemServico($showcd_servico, $nome, $sobrenome, $cpf_cnpj, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico);
         $nomeArquivo = 'OS_' . $showcd_servico . '.pdf';
         ob_end_clean();
         //$pdf->Output($nomeArquivo, 'I');
@@ -439,7 +440,7 @@ echo '
                 $this->Ln(20);
                 $this->customHeader('A4', 'Histórico do serviço', $showcd_servico);
 
-                $this->dadosCliente('A4',$nome.$sobrenome, $telefone, $showobs_servico );
+                $this->dadosCliente('A4',$nome.$sobrenome, '', $telefone, $showobs_servico );
                 
                 $this->detalhesAtividadesServico('A4', $showcd_servico);
                 

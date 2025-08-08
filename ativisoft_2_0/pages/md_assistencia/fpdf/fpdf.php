@@ -2056,12 +2056,13 @@ function customFooter($modelo, $text) {
 		$this->Cell(0, 0, $linhaDecorativa, 0, 1, 'C');
 	}
 }
-function dadosCliente($modelo, $nomeCompleto, $telefone, $obs) {
+function dadosCliente($modelo, $nomeCompleto, $cpf_cnpj, $telefone, $obs) {
 	if($modelo == 'M1'){
 		$this->SetFont('Arial', 'B', 15);
         $this->MultiCell(80, 7, 'Cliente', 1, 'C');
         $this->SetFont('Arial', 'B', 15);
         $this->Cell(40, 7, 'Nome', 1, 0, 'C');
+        $this->Cell(40, 7, 'CPF / CNPJ', 1, 0, 'C');
         $this->Cell(40, 7, 'Telefone', 1, 1, 'C');
         $this->SetFont('Arial', 'B', 10);
         $this->Cell(40, 7, mb_convert_encoding($nomeCompleto,$_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
@@ -2087,7 +2088,7 @@ function dadosCliente($modelo, $nomeCompleto, $telefone, $obs) {
 		$this->SetFont('Arial', 'B', 14);
 		$this->Cell(0, 8, 'Dados do Cliente', 1, 1, 'L');
 		$this->SetFont('Arial', '', 10);
-		$cliente = "Cliente: $nomeCompleto\nTelefone: +$telefone\nEndereço: ";
+		$cliente = "Cliente: $nomeCompleto\nCPF/CNPJ: $cpf_cnpj\nTelefone: +$telefone\nEndereço: ";
 		$this->MultiCell(0, 5, mb_convert_encoding($cliente, $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1);
 		$this->SetFont('Arial', '', 10);
 		$obs_formatado = 'OBS: ' . mb_convert_encoding($this->WrapText($obs), $_SESSION['toEncoding'], $_SESSION['fromEncoding']);

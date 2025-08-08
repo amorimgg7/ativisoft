@@ -2618,7 +2618,7 @@ class Usuario
                     //$result_financeiro_servico = mysqli_query($conn, $select_financeiro_servico);
                     //$row_financeiro_servico = mysqli_fetch_assoc($result_financeiro_servico);
 
-                    /*if($conferir_movimento != $vpag){
+                    if($conferir_movimento != $vpag){
                         $partial_financeiro = $partial_financeiro.'
                             <form method="POST">
                                 <div class="input-group">
@@ -2630,7 +2630,7 @@ class Usuario
                                 </div>
                             </form>
                         ';
-                    }*/
+                    }
 
 
                 }
@@ -2665,7 +2665,7 @@ class Usuario
                     $partial_financeiro = $partial_financeiro.'
                                 <h6 style="color:#000;">total pago: ('.$vpag.') - ('.$orcamento.')</h6>
                     ';
-                    if($vpag != $orcamento){
+                    if($vpag < $orcamento){
                         $partial_financeiro = $partial_financeiro.'
                             <form method="POST">
                                 <div class="input-group">
@@ -3030,7 +3030,7 @@ class Usuario
                                 <div class="kt-portlet__body">
                                     <div class="row">
                                         <div class="col-12 col-md-12">
-                                            <div id="" class="" style="display:none;">
+                                            <div id="" class="" style="display:block;">
                                                 <h3 class="kt-portlet__head-title">FORM DE IMPRESSÃO</h3> 
                                                 <div  class="typeahead" id="botoes" name="botoes">
                                                     <input value="'.$result_cliente['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" class=" form-control form-control-sm" style="display: none;"/>
@@ -3038,6 +3038,8 @@ class Usuario
                                                     <input value="'.$result_cliente['pnome_cliente'].'" name="btnpnome_cliente" type="text" id="btnpnome_cliente" maxlength="40"   class=" form-control form-control-sm"/>
                                                     <label for="btnsnome_cliente">sobrenome</label>
                                                     <input value="'.$result_cliente['snome_cliente'].'" name="btnsnome_cliente" type="text" id="btnsnome_cliente" maxlength="40"   class=" form-control form-control-sm"/>
+                                                    <label for="btncpf_cnpj">CPF CNPJ</label>
+                                                    <input value="'.$result_cliente['cpf_cliente'].'" name="btncpf_cnpj" type="text" id="btncpf_cnpj" maxlength="40"   class=" form-control form-control-sm"/>
                                                     <label for="btntel_cliente">Telefone</label>
                                                     <input value="'.$result_cliente['tel1_cliente'].'" name="btntel_cliente" type="tel"  id="btntel_cliente" oninput="tel(this)" class=" form-control form-control-sm"/>
                                                 </div>
