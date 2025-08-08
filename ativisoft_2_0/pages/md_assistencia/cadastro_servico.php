@@ -897,8 +897,9 @@ if ($_POST['confirmacao'] === 'sim') {
                       mes = 1;
                       ano++;
                   }
-
-                  document.getElementById("prazo_servico").value = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}T${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
+if(document.getElementById("prazo_servico").value.trim() == ""){
+  document.getElementById("prazo_servico").value = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}T${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
+}
                 </script>
 
 </div>

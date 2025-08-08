@@ -401,6 +401,7 @@ class Usuario
             try {
 
             $update_servico = "UPDATE tb_servico SET
+                        orcamento_servico = '".$param_corrigido."',
                         vpag_servico = '".$param_corrigido."'
                         WHERE cd_servico = '".$cd_servico."'";
             mysqli_query($conn, $update_servico);
@@ -2617,7 +2618,7 @@ class Usuario
                     //$result_financeiro_servico = mysqli_query($conn, $select_financeiro_servico);
                     //$row_financeiro_servico = mysqli_fetch_assoc($result_financeiro_servico);
 
-                    if($conferir_movimento != $vpag){
+                    /*if($conferir_movimento != $vpag){
                         $partial_financeiro = $partial_financeiro.'
                             <form method="POST">
                                 <div class="input-group">
@@ -2629,7 +2630,7 @@ class Usuario
                                 </div>
                             </form>
                         ';
-                    }
+                    }*/
 
 
                 }
@@ -2663,7 +2664,20 @@ class Usuario
                 if($valor_max  == 0){
                     $partial_financeiro = $partial_financeiro.'
                                 <h6 style="color:#000;">total pago: ('.$vpag.') - ('.$orcamento.')</h6>
-                    ';     
+                    ';
+                    if($vpag != $orcamento){
+                        $partial_financeiro = $partial_financeiro.'
+                            <form method="POST">
+                                <div class="input-group">
+                                    <span class="input-group-text btn-outline-danger">Há uma inconsistencia de (R$:'.$vpag - $orcamento.')</span>
+                                    <input type="hidden" id="os_corrigir" name="os_corrigir" value="'.$cd_servico.'">
+                                    <input type="hidden" id="venda_corrigir" name="venda_corrigir" value="'.$cd_venda.'">
+                                    <input type="hidden" id="valor_correto" name="valor_correto" value="'.$vpag.'">
+                                    <button type="submit" name="corrige_inconsistencia" id="corrige_inconsistencia" class="btn btn-danger"><i class="mdi mdi-file-check"></i>Corrigir</button>
+                                </div>
+                            </form>
+                        ';
+                    }
                 }else{
                     
                         $partial_financeiro = $partial_financeiro.'

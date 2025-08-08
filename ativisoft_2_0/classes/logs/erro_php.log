@@ -11134,3 +11134,39 @@ Stack trace:
 [06-Aug-2025 09:51:38 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 387
 [06-Aug-2025 09:51:38 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 588
 [06-Aug-2025 09:51:38 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 830
+[08-Aug-2025 17:09:49 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[08-Aug-2025 17:09:49 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[08-Aug-2025 17:09:49 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[08-Aug-2025 17:09:58 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[08-Aug-2025 17:09:58 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[08-Aug-2025 17:10:01 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[08-Aug-2025 17:10:01 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[08-Aug-2025 17:22:51 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:25:00 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:25:56 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:26:34 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:34:43 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:34:54 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:35:21 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:35:29 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:35:36 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:37:31 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:37:35 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:37:44 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:39:20 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:39:23 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:40:40 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:41:34 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:42:41 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:43:56 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:43:59 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:46:33 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:46:36 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:46:57 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:47:13 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:54:03 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:54:29 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:55:29 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:55:51 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:55:57 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
+[08-Aug-2025 17:56:41 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 844
