@@ -3030,7 +3030,7 @@ class Usuario
                                 <div class="kt-portlet__body">
                                     <div class="row">
                                         <div class="col-12 col-md-12">
-                                            <div id="" class="" style="display:block;">
+                                            <div id="" class="" style="display:none;">
                                                 <h3 class="kt-portlet__head-title">FORM DE IMPRESSÃO</h3> 
                                                 <div  class="typeahead" id="botoes" name="botoes">
                                                     <input value="'.$result_cliente['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" class=" form-control form-control-sm" style="display: none;"/>

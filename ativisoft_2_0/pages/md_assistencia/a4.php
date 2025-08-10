@@ -122,6 +122,7 @@ echo '
         $showcd_servico = $_POST['btncd_servico'];
         $nome = $_POST['btnpnome_cliente'];
         $sobrenome = $_POST['btnsnome_cliente'];
+        $cpf_cnpj = $_POST['btncpf_cnpj'];
         $telefone = $_POST['btntel_cliente'];
 
         $showdtinicio_atividade = $_POST['btnentrada_servico'];
@@ -192,7 +193,7 @@ echo '
 
             }
 
-            function GerarViaCliente($nome, $sobrenome, $telefone, $nfantasia_filial, $cnpj_filial, $endereco_filial, $saudacoes_filial, $showcd_servico, $showdtinicio_atividade, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico, $falta_pagar) {
+            function GerarViaCliente($nome, $sobrenome, $cpf_cnpj, $telefone, $nfantasia_filial, $cnpj_filial, $endereco_filial, $saudacoes_filial, $showcd_servico, $showdtinicio_atividade, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico, $falta_pagar) {
                 $this->AddPage('P', 'A4'); // Tamanho do papel em milímetros
                 $this->SetFont('Arial', '', 10);
                 // Cabeçalho
@@ -203,7 +204,7 @@ echo '
                 $this->dadosEmpresa('A4', $nfantasia_filial, $cnpj_filial, $endereco_filial);
 
                 
-                $this->dadosCliente('A4', $nome.$sobrenome, $telefone, $showobs_servico);
+                $this->dadosCliente('A4', $nome.$sobrenome, $cpf_cnpj,$telefone, $showobs_servico);
                 
                 $this->detalheServico('A4', $showprioridade_servico, $showprazo_servico, $showcd_servico);
 
@@ -249,7 +250,7 @@ echo '
         $pdf = '';
         // Instanciar a classe MeuPDF e gerar o PDF
         $pdf = new MeuPDF();
-        $pdf->GerarViaCliente($nome, $sobrenome, $telefone, $nfantasia_filial, $cnpj_filial, $endereco_filial, $saudacoes_filial, $showcd_servico, $showdtinicio_atividade, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico, $falta_pagar);
+        $pdf->GerarViaCliente($nome, $sobrenome,$cpf_cnpj, $telefone, $nfantasia_filial, $cnpj_filial, $endereco_filial, $saudacoes_filial, $showcd_servico, $showdtinicio_atividade, $showobs_servico, $showprioridade_servico, $showprazo_servico, $showorcamento_servico, $showvpag_servico, $falta_pagar);
 
         // Concatenar o número de telefone com o nome do arquivo
         $nomeArquivo = 'VIA_CLIENTE_OS_' . $showcd_servico . '.pdf';
@@ -382,6 +383,7 @@ echo '
         $showcd_servico = $_POST['btncd_servico'];
         $nome = $_POST['btnpnome_cliente'];
         $sobrenome = $_POST['btnsnome_cliente'];
+        $cpf_cnpj = $_POST['btncpf_cnpj'];
         $telefone = $_POST['btntel_cliente'];
     
         $showtitulo_servico = "ABC";//$_POST['btntitulo_servico'];
@@ -433,14 +435,14 @@ echo '
             function Footer() {
             }
 
-            function GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico) {
+            function GerarOrdemServico($showcd_servico, $nome, $sobrenome, $cpf_cnpj, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico) {
                 $this->AddPage('P', 'A4'); // Tamanho do papel em milímetros
                 $this->SetFont('Arial', '', 10);
                                 
                 $this->Ln(20);
                 $this->customHeader('A4', 'Histórico do serviço', $showcd_servico);
 
-                $this->dadosCliente('A4',$nome.$sobrenome, '', $telefone, $showobs_servico );
+                $this->dadosCliente('A4',$nome.$sobrenome, $cpf_cnpj, $telefone, $showobs_servico );
                 
                 $this->detalhesAtividadesServico('A4', $showcd_servico);
                 
@@ -451,7 +453,7 @@ echo '
         $pdf = '';
         
         $pdf = new MeuPDF();
-        $pdf->GerarOrdemServico($showcd_servico, $nome, $sobrenome, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico);
+        $pdf->GerarOrdemServico($showcd_servico, $nome, $sobrenome, $cpf_cnpj, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico);
 
        
         $nomeArquivo = 'HISTORICO_OS_' . $showcd_servico . '.pdf';
