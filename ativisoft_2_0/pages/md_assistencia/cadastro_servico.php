@@ -523,6 +523,7 @@
                       $_SESSION['prazo_servico']      = $retornoCadServico['prazo_servico'];      
                       $_SESSION['orcamento_servico']  = $retornoCadServico['orcamento_servico'];  
                       $_SESSION['vpag_servico']       = $retornoCadServico['vpag_servico'];       
+                      $_SESSION['cd_colab_resp']      = $retornoCadServico['cd_colab_resp'];       
                   
                     }else{
                       echo "<script>alert('| - | - | - | ". $retornoCadServico['status'] . " | - | - | - |');</script>";
@@ -537,7 +538,10 @@
                       $_SESSION['cd_empresa'],
                       $_POST['obs_servico'],
                       $_POST['prioridade_servico'],
-                      $_POST['prazo_servico']
+                      $_POST['prazo_servico'],
+                      $_POST['cd_colab_resp'],
+                      $_POST['vl_comissao'],
+                      $_POST['pc_comissao']
                     );
                     /*
                     if($result_servico['status'] == 'OK') {                          
@@ -720,52 +724,51 @@
                       $("#exampleModalCenter").modal("show");
                       });
                       </script>';
+                  }
+
+                  if (isset($_POST['confirmacao'])) {
+                    if ($_POST['confirmacao'] === 'sim') {
+                      $updateEstoque = "
+                          UPDATE `tb_prod_serv` 
+                          INNER JOIN `tb_orcamento_servico` 
+                          ON `tb_prod_serv`.`cd_prod_serv` = `tb_orcamento_servico`.`cd_produto` 
+                          SET `tb_prod_serv`.`estoque_prod_serv` = `tb_prod_serv`.`estoque_prod_serv` + `tb_orcamento_servico`.`qtd_orcamento` 
+                          WHERE `tb_orcamento_servico`.`cd_orcamento` = " . intval($_POST['listaid_orcamento']);
+
+                      if(mysqli_query($conn, $updateEstoque)){
+                        echo '<script>alert("1");</script>';
+                      
+                      }
+                    
+                      $removeReserva = "DELETE FROM `tb_reserva` WHERE `cd_orcamento` = " . intval($_POST['listaid_orcamento']);
+
+                      if(mysqli_query($conn, $removeReserva)){
+                        echo '<script>alert("2");</script>';
+                      
+                      }
+                      $removeOrcamentoServico = "DELETE FROM `tb_orcamento_servico` WHERE `cd_orcamento` = " . intval($_POST['listaid_orcamento']);
+                      if (mysqli_query($conn, $removeOrcamentoServico)) {
+                        // Atualizar o estoque
+
+
+
+                          echo '<script>alert("Reserva removida e estoque atualizado com sucesso!");</script>';
+                          echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';          
+
+
+                      
+                      } else {
+                          echo '<script>alert("Erro ao remover a reserva: ' . mysqli_error($conn) . '");</script>';
+                      }
+                    
+                    } elseif ($_POST['confirmacao'] === 'nao') {
+                        echo '<script>alert("Não retornou ao estoque!");</script>';
+                        // Lógica para confirmação "Não"
+                    } elseif ($_POST['confirmacao'] === 'cancelar') {
+                        echo '<script>alert("Operação cancelada pelo usuário.");</script>';
+                        // Lógica para "Cancelar"
                     }
-
-if (isset($_POST['confirmacao'])) {
-
-if ($_POST['confirmacao'] === 'sim') {
-  $updateEstoque = "
-      UPDATE `tb_prod_serv` 
-      INNER JOIN `tb_orcamento_servico` 
-      ON `tb_prod_serv`.`cd_prod_serv` = `tb_orcamento_servico`.`cd_produto` 
-      SET `tb_prod_serv`.`estoque_prod_serv` = `tb_prod_serv`.`estoque_prod_serv` + `tb_orcamento_servico`.`qtd_orcamento` 
-      WHERE `tb_orcamento_servico`.`cd_orcamento` = " . intval($_POST['listaid_orcamento']);
-      
-  if(mysqli_query($conn, $updateEstoque)){
-    echo '<script>alert("1");</script>';
-
-  }
-
-  $removeReserva = "DELETE FROM `tb_reserva` WHERE `cd_orcamento` = " . intval($_POST['listaid_orcamento']);
-  
-  if(mysqli_query($conn, $removeReserva)){
-    echo '<script>alert("2");</script>';
-
-  }
-  $removeOrcamentoServico = "DELETE FROM `tb_orcamento_servico` WHERE `cd_orcamento` = " . intval($_POST['listaid_orcamento']);
-  if (mysqli_query($conn, $removeOrcamentoServico)) {
-    // Atualizar o estoque
-    
-      
-    
-      echo '<script>alert("Reserva removida e estoque atualizado com sucesso!");</script>';
-      echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';          
-    
-        
-  
-  } else {
-      echo '<script>alert("Erro ao remover a reserva: ' . mysqli_error($conn) . '");</script>';
-  }
-
-} elseif ($_POST['confirmacao'] === 'nao') {
-    echo '<script>alert("Não retornou ao estoque!");</script>';
-    // Lógica para confirmação "Não"
-} elseif ($_POST['confirmacao'] === 'cancelar') {
-    echo '<script>alert("Operação cancelada pelo usuário.");</script>';
-    // Lógica para "Cancelar"
-}
-}
+                  }
 
 
 

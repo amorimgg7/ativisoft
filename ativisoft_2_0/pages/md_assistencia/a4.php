@@ -438,7 +438,7 @@ echo '
             function GerarOrdemServico($showcd_servico, $nome, $sobrenome, $cpf_cnpj, $telefone, $showtitulo_servico, $showobs_servico, $showprioridade_servico, $showprazo_servico) {
                 $this->AddPage('P', 'A4'); // Tamanho do papel em milímetros
                 $this->SetFont('Arial', '', 10);
-                                
+
                 $this->Ln(20);
                 $this->customHeader('A4', 'Histórico do serviço', $showcd_servico);
 

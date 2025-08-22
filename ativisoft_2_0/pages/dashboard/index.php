@@ -249,6 +249,101 @@
                     //include '../../pages/md_vendas/index.php';
                     include '../../pages/md_assistencia/index.php';
 
+
+                    if ($_POST['pagar_cd_comissao'] > 0) {
+                      // Construir a mensagem com os itens separados por quebra de linha
+                      $mensagem = "O item selecionado retornará ao estoque?";
+  
+                      // Gerar o modal via PHP
+                      echo '
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Confirmação</h5>
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>-->
+                        </div>
+                        <div class="modal-body">
+                        <p>' . htmlspecialchars($mensagem, ENT_QUOTES) . '</p>
+                        </div>
+                        <div class="modal-footer">
+                        <form method="POST" action="">
+                      ';
+  
+                      // Preservar os dados do POST no modal
+                      foreach ($_POST as $key => $value) {
+                        if (is_array($value)) {
+                          foreach ($value as $subValue) {
+                            echo '<input type="hidden" name="' . htmlspecialchars($key, ENT_QUOTES) . '[]" value="' . htmlspecialchars($subValue, ENT_QUOTES) . '">';
+                          }
+                        } else {
+                          echo '<input type="hidden" name="' . htmlspecialchars($key, ENT_QUOTES) . '" value="' . htmlspecialchars($value, ENT_QUOTES) . '">';
+                        }
+                      }
+
+                      echo '
+                      <button type="submit" name="confirmacao" value="sim" class="btn btn-success">Sim</button>
+                      <button type="submit" name="confirmacao" value="nao" class="btn btn-danger">Não</button>
+                      <button type="submit" name="confirmacao" value="cancelar" class="btn btn-secondary">Cancelar</button>
+                      </form>
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                      <script>
+                      $(document).ready(function() {
+                      $("#exampleModalCenter").modal("show");
+                      });
+                      </script>';
+                  }
+
+                  if (isset($_POST['confirmacao'])) {
+                    if ($_POST['confirmacao'] === 'sim') {
+                      $updateEstoque = "
+                          UPDATE `tb_prod_serv` 
+                          INNER JOIN `tb_orcamento_servico` 
+                          ON `tb_prod_serv`.`cd_prod_serv` = `tb_orcamento_servico`.`cd_produto` 
+                          SET `tb_prod_serv`.`estoque_prod_serv` = `tb_prod_serv`.`estoque_prod_serv` + `tb_orcamento_servico`.`qtd_orcamento` 
+                          WHERE `tb_orcamento_servico`.`cd_orcamento` = " . intval($_POST['listaid_orcamento']);
+
+                      if(mysqli_query($conn, $updateEstoque)){
+                        echo '<script>alert("1");</script>';
+                      
+                      }
+                    
+                      $removeReserva = "DELETE FROM `tb_reserva` WHERE `cd_orcamento` = " . intval($_POST['listaid_orcamento']);
+
+                      if(mysqli_query($conn, $removeReserva)){
+                        echo '<script>alert("2");</script>';
+                      
+                      }
+                      $removeOrcamentoServico = "DELETE FROM `tb_orcamento_servico` WHERE `cd_orcamento` = " . intval($_POST['listaid_orcamento']);
+                      if (mysqli_query($conn, $removeOrcamentoServico)) {
+                        // Atualizar o estoque
+
+
+
+                          echo '<script>alert("Reserva removida e estoque atualizado com sucesso!");</script>';
+                          echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';          
+
+
+                      
+                      } else {
+                          echo '<script>alert("Erro ao remover a reserva: ' . mysqli_error($conn) . '");</script>';
+                      }
+                    
+                    } elseif ($_POST['confirmacao'] === 'nao') {
+                        echo '<script>alert("Não retornou ao estoque!");</script>';
+                        // Lógica para confirmação "Não"
+                    } elseif ($_POST['confirmacao'] === 'cancelar') {
+                        echo '<script>alert("Operação cancelada pelo usuário.");</script>';
+                        // Lógica para "Cancelar"
+                    }
+                  }
+
+                    include '../../pages/md_comissao/index.php';
                   }
                   if($_SESSION['cd_funcao'] == 3)
                   {
@@ -275,6 +370,7 @@
                   if($_SESSION['cd_funcao'] == 6)
                   {
                     //include '../../pages/auto_pagamento/index.php';
+                    
                     include '../../pages/md_caixa/index.php';
                     //include '../../pages/md_vendas/index.php';
                     include '../../pages/md_lanchonete/index.php';

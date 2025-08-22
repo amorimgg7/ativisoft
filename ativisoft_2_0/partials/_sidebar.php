@@ -146,6 +146,22 @@ if($_SESSION['cd_acesso'] == 1){
             </div> 
           </li>
 
+          <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>>
+            
+            <a class="nav-link" data-toggle="collapse" href="#md_financeiro" aria-expanded="false" aria-controls="md_financeiro">
+              <i class="icon-disc menu-icon" <?php echo $_SESSION['c_sidebar']?>></i>
+              <span class="menu-title" <?php echo $_SESSION['c_sidebar']?>>Financeiro</span>
+              <i class="menu-arrow" <?php echo $_SESSION['c_sidebar']?>></i>
+            </a>
+            
+            <div class="collapse" id="md_financeiro">
+            
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_comissao/consulta_comissao.php">Comissões</a></li>
+              </ul>
+            </div> 
+          </li>
+
 
           <li class="nav-item" <?php echo $_SESSION['md_venda_escrever'];?>>
             <a class="nav-link" data-toggle="collapse" href="#vendas" aria-expanded="false" aria-controls="vendas">

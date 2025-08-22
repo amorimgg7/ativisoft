@@ -66,7 +66,7 @@ require_once('fpdf/fpdf.php');
 
                 $this->customHeader('M1', 'Ordem de Serviço', $showcd_servico, );
 
-                $this->dadosCliente('M1', $nome.$sobrenome, $telefone, $showobs_servico);
+                $this->dadosCliente('M1', $nome.$sobrenome,'', $telefone, $showobs_servico);
                 
                 $this->detalheServico('M1', $showprioridade_servico, $showprazo_servico, $showcd_servico);
                 
@@ -359,7 +359,7 @@ require_once('fpdf/fpdf.php');
 
                 $this->customHeader('M1', 'Histórico do serviço', $showcd_servico);
 
-                $this->dadosCliente('M1',$nome.$sobrenome, $telefone, $showobs_servico );
+                $this->dadosCliente('M1',$nome.$sobrenome,'', $telefone, $showobs_servico );
                 
                 $this->detalhesAtividadesServico('M1', $showcd_servico);
                 

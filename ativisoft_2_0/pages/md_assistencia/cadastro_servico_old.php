@@ -779,7 +779,7 @@
                           }
                       }            
                     }
-
+ 
                     if(isset($_POST['lancarOrcamentoCadastro'])) {      
                       if($_POST['produto_servico']==false){
                         $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];

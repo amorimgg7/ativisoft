@@ -854,6 +854,7 @@ class Usuario
                 <label for="obs_servico">Descrição Geral</label>
                 <input value="'.$row_servico['obs_servico'].'" type="text" name="obs_servico" maxlength="999" id="obs_servico"  class=" form-control form-control-sm" placeholder="Caracteristica geral do serviço">
                 </div>
+                
 
                 <div class="form-group-custom">
                 <label for="editprioridade_servico">Prioridade</label>
@@ -888,10 +889,129 @@ class Usuario
                 <label for="prazo_servico">Prazo</label>
                 <input value="'.$row_servico['prazo_servico'].'" name="prazo_servico" type="datetime-local" id="prazo_servico" class=" form-control form-control-sm"/>
                 </div>
+                ';
+                
+            if($permite_editar){
+
+                if($row_servico['cd_colab_resp'] > 0){
+                    $sql_estilo = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."' ORDER BY CASE WHEN cd_pessoa = ".$row_servico['cd_colab_resp']." THEN 0 ELSE 1 END, cd_pessoa" ;       
+                }else{
+                    $sql_estilo = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."'"; 
+                }
 
                 
-            ';
-            if($permite_editar){
+                
+
+				$resulta = $conn->query($sql_estilo);
+				if ($resulta->num_rows > 0){
+                    
+                        $partial_servico = $partial_servico.'
+                        <div class="form-group row">
+                            <select name="cd_colab_resp" id="cd_colab_resp" class="form-control col-12" required>	    
+                        ';
+                        if($row_servico['cd_colab_resp'] > 0){
+                            
+                        }else{
+                            $partial_servico = $partial_servico.'
+                				    <option value="">Quem fez este serviço?</option>
+                                ';
+                        }
+                        while ( $row = $resulta->fetch_assoc()){
+                            $partial_servico = $partial_servico.'
+                                <option value="'.$row['cd_pessoa'].'" vl-comissao="'.$row['vl_comissao_padrao'].'" pc-comissao="'.$row['pc_comissao_padrao'].'">'.$row['pnome_pessoa'].' '.$row['snome_pessoa'].' - '.$row['subtipo_pessoa'].'</option>
+                            
+                            ';
+                        }
+                        $partial_servico = $partial_servico.'
+                        </select>
+                        </div>
+                        ';
+                    
+                    
+					$partial_servico = $partial_servico.' 
+                            
+                    
+                        <!--<div class="form-group-custom">
+                            <label for="vl_comissao">R$:</label>
+                            <input type="tel" id="vl_comissao" name="vl_comissao" class="form-control form-control-sm col-6" >
+                            <label for="pc_comissao">%</label>
+                            <input type="tel" id="pc_comissao" name="pc_comissao" class="form-control form-control-sm col-6" >
+                        </div>-->
+
+
+                        <div class="row">
+                            <div class="form-group-custom col-12" style="display:none;">
+                                <label for="vl_servico">OS</label>
+                                <input type="tel" value="'.$row_servico['orcamento_servico'].'" id="vl_servico" name="vl_servico" class="form-control">
+                            </div>
+                            <div class="form-group-custom col-6">
+                                <label for="vl_comissao">R$:</label>
+                                <input type="tel" value="'.$row_servico['vl_comissao'].'" id="vl_comissao" name="vl_comissao" class="form-control">
+                            </div>
+                            <div class="form-group-custom col-6">
+                                <label for="pc_comissao">%</label>
+                                <input type="tel" value="'.$row_servico['pc_comissao'].'" id="pc_comissao" name="pc_comissao" class="form-control">
+                            </div>
+                        </div>
+
+<script>
+function formatNumber(num) {
+    return parseFloat(num).toFixed(2);
+}
+
+document.getElementById("pc_comissao").addEventListener("input", function() {
+    let vlServico = parseFloat(document.getElementById("vl_servico").value) || 0;
+    let pc = parseFloat(this.value) || 0;
+
+    if(vlServico > 0 && pc >= 0) {
+        let valor = (vlServico * pc) / 100;
+        document.getElementById("vl_comissao").value = formatNumber(valor);
+    }
+});
+
+document.getElementById("vl_comissao").addEventListener("input", function() {
+    let vlServico = parseFloat(document.getElementById("vl_servico").value) || 0;
+    let vl = parseFloat(this.value) || 0;
+
+    if(vlServico > 0 && vl >= 0) {
+        let percentual = (vl * 100) / vlServico;
+        document.getElementById("pc_comissao").value = formatNumber(percentual);
+    }
+});
+</script>
+
+
+                        <script>
+                            document.getElementById("cd_colab_resp").addEventListener("change", function() {
+                                var vlcomissao = this.options[this.selectedIndex].getAttribute("vl-comissao");
+                                var pccomissao = this.options[this.selectedIndex].getAttribute("pc-comissao");
+                                let vlServico = parseFloat(document.getElementById("vl_servico").value) || 0;
+                                document.getElementById("vl_comissao").value = vlcomissao ? vlcomissao : "";
+                                document.getElementById("pc_comissao").value = pccomissao ? pccomissao : "";
+
+
+
+                                if(vlServico > 0 && pccomissao > 0) {
+                                    let valor = (vlServico * pccomissao) / 100;
+                                    document.getElementById("vl_comissao").value = formatNumber(valor);
+                                    console.log("calculo pelo percentual");
+                                }
+
+                                if (vlServico > 0 && vlcomissao > 0) {
+                                    let percentual = (vlcomissao * 100) / vlServico;
+                                    document.getElementById("pc_comissao").value = formatNumber(percentual);
+                                    console.log("cálculo pelo valor");
+                                }
+
+
+                            });
+                        </script>
+    
+                    ';
+				
+            }
+
+
                 $partial_servico = $partial_servico.'
                     <td><button type="submit" name="editServico" id="editServico" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Salvar</button></td>
                     </div>
@@ -954,7 +1074,8 @@ class Usuario
                     'entrada_servico'       =>  $row_servico['entrada_servico'],        
                     'prazo_servico'         =>  $row_servico['prazo_servico'],    
                     'orcamento_servico'     =>  $row_servico['orcamento_servico'],        
-                    'vpag_servico'          =>  $row_servico['vpag_servico'],    
+                    'vpag_servico'          =>  $row_servico['vpag_servico'],
+                    'cd_colab_resp'         =>  $row_servico['cd_colab_resp'],    
                     'status_servico'        =>  $row_servico['status_servico'],
                     'partial_servico'       =>  $partial_servico
                 ];
@@ -972,7 +1093,7 @@ class Usuario
 
     }
 
-    public function editServico($cd_servico, $cd_filial, $obs_servico, $prioridade_servico, $prazo_servico) 
+    public function editServico($cd_servico, $cd_filial, $obs_servico, $prioridade_servico, $prazo_servico, $cd_colab_resp, $vl_comissao, $pc_comissao) 
     {
         global $conn;
         $u = new Usuario();
@@ -984,7 +1105,10 @@ class Usuario
             $update_servico = "UPDATE tb_servico SET
                         obs_servico = '".$obs_servico."',
                         prioridade_servico = '".$prioridade_servico."',
-                        prazo_servico = '".$prazo_servico."'
+                        prazo_servico = '".$prazo_servico."',
+                        cd_colab_resp = '".$cd_colab_resp."',
+                        vl_comissao = '".$vl_comissao."',
+                        pc_comissao = '".$pc_comissao."'
                         WHERE cd_servico = '".$cd_servico."'";
             mysqli_query($conn, $update_servico);
             

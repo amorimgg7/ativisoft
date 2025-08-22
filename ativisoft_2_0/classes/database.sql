@@ -411,3 +411,41 @@ VALUES  (1, 11, 1, 1, '', '', 200, 'teste');
 
 
 
+
+-- daqui para baixo, mudançaas a partir do mes 9
+
+create table tb_comissao(
+    cd_comissao integer PRIMARY KEY AUTO_INCREMENT,
+    cd_filial integer,
+    cd_colab integer,
+    cd_servico integer,
+    cd_venda integer,
+    vl_comissao decimal(10,2),
+    obs_comissao varchar(100),
+    status_comissao integer
+);
+
+ALTER TABLE tb_comissao
+    ADD CONSTRAINT fk_tb_comissao1 FOREIGN KEY(cd_servico) REFERENCES tb_servico (cd_servico),
+    ADD CONSTRAINT fk_tb_comissao2 FOREIGN KEY(cd_venda) REFERENCES tb_venda (cd_venda),
+    ADD CONSTRAINT fk_tb_comissao3 FOREIGN KEY(cd_colab) REFERENCES tb_pessoa (cd_pessoa);
+
+
+INSERT INTO tb_comissao (cd_colab, cd_filial, cd_servico, vl_comissao, status_comissao)
+VALUES  (21, 11, 33, 5, 0);
+
+
+ALTER TABLE `tb_pessoa` ADD `cd_empresa` INT NULL DEFAULT NULL AFTER `subtipo_pessoa`;
+ALTER TABLE `tb_pessoa` ADD `cd_filial` INT NULL DEFAULT NULL AFTER `cd_empresa`;
+ALTER TABLE `tb_pessoa` ADD `vl_comissao_padrao` decimal(10,2) NULL DEFAULT NULL AFTER `subtipo_pessoa`;
+ALTER TABLE `tb_pessoa` ADD `pc_comissao_padrao` decimal(10,2) NULL DEFAULT NULL AFTER `vl_comissao_padrao`;
+
+ALTER TABLE tb_pessoa
+    ADD CONSTRAINT fk_tb_pessoa1 FOREIGN KEY(cd_empresa) REFERENCES tb_empresa (cd_empresa),
+    ADD CONSTRAINT fk_tb_pessoa2 FOREIGN KEY(cd_filial) REFERENCES tb_empresa (cd_empresa);
+
+ALTER TABLE `tb_servico` ADD `cd_colab_resp` INT NULL DEFAULT NULL AFTER `cd_cliente`;
+ALTER TABLE `tb_servico` ADD `vl_comissao` decimal(10,2) NULL DEFAULT NULL AFTER `cd_colab_resp`;
+ALTER TABLE `tb_servico` ADD `pc_comissao` decimal(10,2) NULL DEFAULT NULL AFTER `vl_comissao`;
+ALTER TABLE tb_servico
+    ADD CONSTRAINT fk_tb_servico2 FOREIGN KEY(cd_colab_resp) REFERENCES tb_pessoa (cd_pessoa);
