@@ -29,6 +29,7 @@
         echo "<meta http-equiv='refresh' content='1;url=../auto_pagamento/payment.php'>";
       }
     }
+
   ?>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -48,6 +49,16 @@
   <!-- endinject -->
   <script src="../../js/functions.js"></script>
   <!--<link rel="shortcut icon" href="<?php //echo $_SESSION['logo_empresa']; ?>" />-->
+
+
+  <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Popper e Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+
+</div>
 </head>
 
 <body onmousemove="resetTimer()" onclick="resetTimer()" onkeypress="resetTimer()">
@@ -67,202 +78,182 @@
               <h1><?php //echo $_SESSION['bloqueado'];?></h1>
               <div class="card" <?php $_SESSION['c_card'];?>>
                 
-<?php
-  include 'index.php';
+
+  <div class="col-lg-12 grid-margin stretch-card">
+<i type="submit" class="btn btn-warning"style="margin:auto; display:none;" id="comissao_a_pagar">Comissões a Pagar</i>
+</div>
+
+
+            <?php
+
+
+
+    if (isset($_POST['lanca_comissao']) && !isset($_POST['confirmacao'])) {
+    // Mensagem do modal
+    $mensagem = "Tem certeza que deseja lançar a comissão?";
+
+    // Gerar o modal via PHP
+    echo '
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Confirmação</h5>
+          </div>
+          <div class="modal-body">
+            <p>' . htmlspecialchars($mensagem, ENT_QUOTES) . '</p>
+          </div>
+          <div class="modal-footer">
+            <form method="POST" action="">
+    ';
+
+    // Preservar os dados do POST no modal
+    foreach ($_POST as $key => $value) {
+        if (is_array($value)) {
+            foreach ($value as $subValue) {
+                echo '<input type="hidden" name="' . htmlspecialchars($key, ENT_QUOTES) . '[]" value="' . htmlspecialchars($subValue, ENT_QUOTES) . '">';
+            }
+        } else {
+            echo '<input type="hidden" name="' . htmlspecialchars($key, ENT_QUOTES) . '" value="' . htmlspecialchars($value, ENT_QUOTES) . '">';
+        }
+    }
+
+    echo '
+              <button type="submit" name="confirmacao" value="sim" class="btn btn-success">Sim</button>
+              <button type="submit" name="confirmacao" value="nao" class="btn btn-danger">Não</button>
+              <button type="submit" name="confirmacao" value="cancelar" class="btn btn-secondary">Cancelar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $("#exampleModalCenter").modal("show");
+      });
+    </script>
+    ';
+}
+
+
+                  if (isset($_POST['confirmacao'])) {
+                    if ($_POST['confirmacao'] === 'sim') {
+                      $updateEstoque = "
+                          UPDATE tb_comissao 
+                          SET obs_comissao = CONCAT(obs_comissao, ' Pago por  ".$_SESSION['pnome_colab']." (', DATE_FORMAT(NOW(), '%d/%m/%Y : %H:%i'), ') |'), status_comissao = 1
+                          WHERE cd_colab = " . intval($_POST['lancar_cd_colab']);
+                      if(mysqli_query($conn, $updateEstoque)){
+                        echo '<script>alert("Comissão paga com sucesso!");</script>';
+                      }else{
+                        echo '<script>alert("Erro ao dar baixa na comissão: ' . mysqli_error($conn) . '");</script>';
+                      }
+                    
+                      
+                      
+                          
+                          //echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';          
+
+                    
+                    } elseif ($_POST['confirmacao'] === 'nao') {
+                        echo '<script>alert("Comissões não pagas!");</script>';
+                        // Lógica para confirmação "Não"
+                    } elseif ($_POST['confirmacao'] === 'cancelar') {
+                        echo '<script>alert("Operação cancelada pelo usuário.");</script>';
+                        // Lógica para "Cancelar"
+                    }
+                  }
+
+
+              $comissao_a_pagar = 0;
+
+              $sql_comissao = "
+                SELECT 
+                    p.cd_pessoa,
+                    p.pnome_pessoa AS nome_colab,
+                    SUM(c.vl_comissao) AS total_comissao,
+                    GROUP_CONCAT(CONCAT('OS ', c.cd_servico, ' = R$ ', FORMAT(c.vl_comissao, 2, 'pt_BR')) SEPARATOR ' | ') AS obs
+                FROM tb_comissao c
+                JOIN tb_pessoa p ON p.cd_pessoa = c.cd_colab
+                WHERE c.status_comissao = 0
+                  AND c.cd_filial = '".$_SESSION['cd_filial']."'
+                GROUP BY p.cd_pessoa, p.pnome_pessoa, p.snome_pessoa
+                ORDER BY total_comissao DESC;
+              ";
+
+
+              $resulta_comissao = $conn->query($sql_comissao);
+              if ($resulta_comissao->num_rows > 0){
+                echo '<div class="col-lg-12 grid-margin stretch-card" >';
+                echo '<div class="card" '.$_SESSION['c_card'].'>';
+                
+                echo '<div class="card-body">';
+                echo '<div class="grid-margin stretch-card">';
+                echo '<h4 style="display: inline-block; margin-left: 10px;">COMISSÕES À PAGAR</h4>';
+                echo '</div>';
+
+                echo '<div class=" table-responsive">';
+                
+                echo '<table class="table" '.$_SESSION['c_card'].'>';
+                echo '<thead>';
+                echo '<tr>';
+                //echo '<th>CD</th>';
+                echo '<th>Colaborador</th>';
+                echo '<th>Descrição</th>';
+                echo '<th>Total à pagar</th>';
+                //echo '<th>Prazo</th>';
+                
+                
+                echo '</tr>';
+                echo '</thead>';
+                echo '<tbody>';
+                
+                while ( $comissao = $resulta_comissao->fetch_assoc()){
+                  echo '<tr>';
+                  //echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
+                  //echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$comissao['cd_comissao'].'"></td>';
+                  //echo '<td><button type="submit" class="btn btn-warning" name="btn_cd_'.$comissao['cd_comissao'].'" id="btn_cd_'.$comissao['cd_comissao'].'">'.$comissao['cd_comissao'].'</button></td>';
+                  //echo '</form>';
+                  
+                  echo '<td name="colab_'.$comissao['cd_colab'].'" id="colab_'.$comissao['cd_colab'].'">'.$comissao['nome_colab'].'</td>';
+                  $obs_comissao = '';
+                  //$obs_comissao = $obs_comissao . ' ('.$comissao['obs_comissao'].')';
+
+                  $obs_comissao = $obs_comissao . ' ' . str_replace('|', '<br>', $comissao['obs']);
+
+                  echo '<td name="obs_'.$comissao['cd_comissao'].'" id="obs_'.$comissao['cd_comissao'].'">'.$obs_comissao.'</td>';
+                  echo '<td name="vl_comissao_'.$comissao['cd_comissao'].'" id="vl_comissao_'.$comissao['cd_comissao'].'">R$: '.$comissao['total_comissao'].'</td>';
+
+                  echo '<form name="lanca_comissao" id="lanca_comissao" method="POST">';
+                  echo '<td style="display: none;"><input type="tel" id="lancar_cd_colab" name="lancar_cd_colab" value="'.$comissao['cd_pessoa'].'"></td>';
+                  echo '<td><button type="submit" class="btn btn-warning" name="lanca_comissao" id="lanca_comissao">PAGAR</button></td>';
+                  echo '</form>';
+
+                  $comissao_a_pagar += (float)$comissao['total_comissao']; 
+
+                  // Quando for exibir:
+                  $vl_comissao = number_format($comissao['total_comissao'], 2, ',', '.');
+                  $vl_total = number_format($comissao_a_pagar, 2, ',', '.');
+
+                  echo '<script>document.getElementById("comissao_a_pagar").innerHTML = "R$: '.$vl_total.'";</script>';
+                  echo '<script>document.getElementById("comissao_a_pagar").style.display = "block";</script>';
+                  
+                }
+                echo '</tbody>';
+                echo '</table>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                
+              }
+
+
+
+          
+
+            
 ?>
 
-                <div class="card-body" id="consulta" <?php echo $_SESSION['c_card'];?> style="display: block;" >
-                  <h3 class="card-title"<?php echo $_SESSION['c_card'];?>>Comissões a pagar</h3>
-                  <p class="card-description"<?php echo $_SESSION['c_card'];?>>Consulte a Ordem de Serviço para lançar as atividades e avisar ao cliente sobre o status atual.</p>
-                  <div class="kt-portlet__body" >
-                    <div class="row">
-                      <div class="col-12 col-md-12">
-                        <div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">
-                        <form method="POST">
-                          
-                          <input placeholder="Ordem de Serviço" type="tel" name="conos_servico" id="conos_servico" type="tel" maxlength="10" class="aspNetDisabled form-control form-control-sm" required>
-                          <br>
-                          <button type="submit" name="consulta" class="btn btn-success">Consulta</button>
-                        </form>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <?php
-                  if(isset($_POST['limparOS'])){
-                    //echo "<script>window.alert('Mostrar botão de limpar OS!');</script>";
-                    //session_start();
-                    $_SESSION['cd_cliente'] = 0;
-                    $_SESSION['cd_servico'] = 0;
-                    $_SESSION['vcusto_orcamento'] = 0;
-                    $_SESSION['vpag_servico'] = 0;
-                    
-                    echo '<script>document.getElementById("consulta").style.display = "block";</script>';//botoes
-                    echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
-                    
-                    
-                  }else{
-                    if(!isset($_SESSION['cd_servico'])){
-                      $_SESSION['cd_servico'] = 0;
-                    }
-                  }
-                
-
-                  
-
-                  if(isset($_POST['corrige_inconsistencia'])){
-
-                    $retorno = $u->corrigeInconsistencia(
-                      $_SESSION['cd_filial'],
-                      $_POST['os_corrigir'],
-                      '',
-                      $_POST['valor_correto'],
-                      'FINANCEIRO SERVICO'
-                    );
-
-                    if($retorno['status'] == 'OK'){
-                      echo "<script>alert('Parametro Corrigido: " . $retorno['param_corrigido'] . "');</script>";
-                    }else{
-                      echo "<script>alert('| - | - | - | ". $retorno['status'] . " | - | - | - |');</script>";
-                    }
-                  }
-
-                  if(isset($_POST['pagar'])){
-
-                    $retorno = $f->movimentoFinanceiro(
-                                'R',
-                                $_SESSION['cd_empresa'],
-                                $_SESSION['cd_caixa'],
-                                $_SESSION['cd_cliente'],
-                                $_SESSION['cd_colab'],
-                                $_SESSION['cd_servico'],
-                                '',
-                                $_POST['fpag_movimento'],
-                                $_POST['vpag_movimento']
-                              );
-
-                    if($retorno['status'] == 'OK'){
-                      echo "<script>alert('Total pago: " . $retorno['vpag'] . "');</script>";
-                    }else{
-                      echo "<script>alert('| - | - | - | ". $retorno['status'] . " | - | - | - |');</script>";
-                    }
-                  }
-
-                  if(isset($_POST['marcartitulo_atividade'])){
-                    if(isset($_POST['confirmacao'])){
-                      $confirmacao = isset($_POST['confirmacao']);
-                    }else{
-                      $confirmacao = '';
-                    }
-
-                    $nova_atividade = $u->lancaAtividade(
-                      $_POST['atividadecd_servico'],
-                      $_POST['atividadecd_colab'],
-                      $_POST['marcartitulo_atividade'],
-                      $confirmacao,
-                      $_POST['obs_atividade']
-                    );
-                    if($nova_atividade['status'] == 'OK'){
-                      echo "<script>alert('| - | - | - | Atividade gerada (".$nova_atividade['cd_atividade'].") | - | - | - |');</script>";
-                    }else{
-                      echo "<script>alert('| - | - | - | ".$nova_atividade['status']." | - | - | - |');</script>";
-                    }
-                  }
-
-
-                  if(isset($_POST['conos_servico']) || $_SESSION['cd_servico'] > 0){
-                    if(isset($_POST['conos_servico'])){
-                      $_SESSION['cd_servico'] = $_POST['conos_servico'];
-                    }
-
-                    $select_servico = "SELECT * FROM tb_servico WHERE cd_servico = '".$_SESSION['cd_servico']."' AND cd_filial = '".$_SESSION['cd_empresa']."'";
-                    $result_servico = mysqli_query($conn, $select_servico);
-                    $row_servico = mysqli_fetch_assoc($result_servico);
-                    // Exibe as informações do usuário no formulário
-                    if($row_servico) {
-                      $_SESSION['cd_cliente'] = $row_servico['cd_cliente'];
-                      $_SESSION['servico'] = $row_servico['cd_servico'];
-                      $_SESSION['cd_servico'] = $row_servico['cd_servico'];
-
-                      $_SESSION['titulo_servico'] = $row_servico['titulo_servico'];
-                      $_SESSION['obs_con_servico'] = $row_servico['obs_servico'];
-                      $_SESSION['prioridade_servico'] = $row_servico['prioridade_servico'];
-                      $_SESSION['entrada_servico'] = $row_servico['entrada_servico'];
-                      $_SESSION['prazo_servico'] = $row_servico['prazo_servico'];
-                      $_SESSION['orcamento_servico'] = $row_servico['orcamento_servico'];
-                      $_SESSION['vpag_servico'] = $row_servico['vpag_servico'];
-                    }else{
-                      echo "<script>alert('Serviço (".$_SESSION['cd_servico']."), não encontrado');</script>";
-
-                      $_SESSION['cd_cliente'] = 0;
-                      $_SESSION['cd_servico'] = 0;
-                      $_SESSION['vcusto_orcamento'] = 0;
-                      $_SESSION['vpag_servico'] = 0;
-
-
-
-                    
-                    //echo '<script>document.getElementById("consulta").style.display = "block";</script>';//botoes
-                    //echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
-                    }
-
-                    $select_cliente = "SELECT * FROM tb_pessoa WHERE cd_pessoa = '".$_SESSION['cd_cliente']."'";
-                    $result_cliente = mysqli_query($conn, $select_cliente);
-                    $row_cliente = mysqli_fetch_assoc($result_cliente);
-                    if($row_cliente) {
-                      $_SESSION['cd_cliente'] = $row_cliente['cd_pessoa'];
-                      $_SESSION['pnome_cliente'] = $row_cliente['pnome_pessoa'];
-                      $_SESSION['snome_cliente'] = $row_cliente['snome_pessoa'];
-                      $_SESSION['tel_cliente'] = $row_cliente['tel1_pessoa'];                
-                    }
-                  }
-                  
-                ?>
-                <?php
-
-                  
-
-
-                ?>
-                <?php //página se for consultado servico
-                  if(isset($_SESSION['cd_servico']) && $_SESSION['cd_servico']  > 0){
-
-                      $result_servico     = $u->conServico($_SESSION['cd_servico'], $_SESSION['cd_empresa'], false);
-                      $result_cliente     = $u->conPessoa('cliente', 'codigo', $result_servico['cd_cliente']);
-                      $result_orcamento   = $u->listOrcamentoServico($_SESSION['cd_servico'], $_SESSION['cd_empresa'], false, false);
-                      $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], $_SESSION['cd_servico'], '', $result_orcamento['falta_pagar']);
-                      $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
-                      $result_mensagem   = $u->mensagem1($_SESSION['tipo_mensagem'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
-                      $result_atividade   = $u->fragAtividade($_SESSION['cd_servico']);
-
-                      echo '<script>document.getElementById("consulta").style.display = "none";</script>';
-
-
-                      echo $result_servico['partial_servico']; 
-
-                      echo $result_orcamento['partial_orcamento'];
-
-                      echo $result_financeiro['partial_financeiro'];
-
-                      echo $result_mensagem['partial_mensagem'];
-
-                      echo $result_impressao['partial_impressao'];
-
-
-                    ////echo '<form method="post"'.$_SESSION['c_card'].'>';//echo '<button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Nova Consulta</button>';
-                    //echo '<button type="submit" class="btn btn-block btn-lg btn-warning" name="editaOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-file-check btn-icon-append"></i> Editar</button>';
-                    ////echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
-                    //<i class="mdi mdi-alert btn-icon-prepend"></i>  
-                    ////echo '</form>';
-
-
-                      echo $result_atividade['partial_atividade'];
-                      
-
-                  }
-                ?>
  <!-- #region -->
   
  

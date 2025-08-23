@@ -852,7 +852,8 @@ class Usuario
 
                 <div class="form-group-custom">
                 <label for="obs_servico">Descrição Geral</label>
-                <input value="'.$row_servico['obs_servico'].'" type="text" name="obs_servico" maxlength="999" id="obs_servico"  class=" form-control form-control-sm" placeholder="Caracteristica geral do serviço">
+                <!--<input value="'./*$row_servico['obs_servico']*/'" type="text" name="obs_servico" maxlength="999" id="obs_servico"  class=" form-control form-control-sm" placeholder="Caracteristica geral do serviço">-->
+                <textarea name="obs_servico" maxlength="999" id="obs_servico"  class=" form-control form-control-sm" placeholder="Caracteristica geral do serviço" rows="3">'.$row_servico['obs_servico'].'</textarea>
                 </div>
                 
 
@@ -894,16 +895,16 @@ class Usuario
             if($permite_editar){
 
                 if($row_servico['cd_colab_resp'] > 0){
-                    $sql_estilo = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."' ORDER BY CASE WHEN cd_pessoa = ".$row_servico['cd_colab_resp']." THEN 0 ELSE 1 END, cd_pessoa" ;       
+                    $sql_colab_comissao = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."' ORDER BY CASE WHEN cd_pessoa = ".$row_servico['cd_colab_resp']." THEN 0 ELSE 1 END, cd_pessoa" ;       
                 }else{
-                    $sql_estilo = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."'"; 
+                    $sql_colab_comissao = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."'"; 
                 }
 
                 
                 
 
-				$resulta = $conn->query($sql_estilo);
-				if ($resulta->num_rows > 0){
+				$colab_comissao = $conn->query($sql_colab_comissao);
+				if ($colab_comissao->num_rows > 0){
                     
                         $partial_servico = $partial_servico.'
                         <div class="form-group row">
@@ -916,7 +917,7 @@ class Usuario
                 				    <option value="">Quem fez este serviço?</option>
                                 ';
                         }
-                        while ( $row = $resulta->fetch_assoc()){
+                        while ( $row = $colab_comissao->fetch_assoc()){
                             $partial_servico = $partial_servico.'
                                 <option value="'.$row['cd_pessoa'].'" vl-comissao="'.$row['vl_comissao_padrao'].'" pc-comissao="'.$row['pc_comissao_padrao'].'">'.$row['pnome_pessoa'].' '.$row['snome_pessoa'].' - '.$row['subtipo_pessoa'].'</option>
                             
@@ -953,6 +954,10 @@ class Usuario
                                 <input type="tel" value="'.$row_servico['pc_comissao'].'" id="pc_comissao" name="pc_comissao" class="form-control">
                             </div>
                         </div>
+                        ';
+
+                        
+                        $partial_servico = $partial_servico.' 
 
 <script>
 function formatNumber(num) {
@@ -1038,8 +1043,7 @@ document.getElementById("vl_comissao").addEventListener("input", function() {
                     </div>
                     </div>
                     </div>
-                    </div>
-                    </form>
+                    
                     <script>
                         function enviarPara(url) {
                             document.getElementById("form_servico").action = url;
@@ -1051,6 +1055,65 @@ document.getElementById("vl_comissao").addEventListener("input", function() {
                     </script>
                 ';
             }
+
+            
+            $sql_comissao_lancada = "SELECT c.*, p.*
+                            FROM tb_comissao c
+                            INNER JOIN tb_pessoa p ON p.cd_pessoa = c.cd_colab
+                            WHERE c.cd_servico = '".$row_servico['cd_servico']."'
+                              AND c.cd_filial = '".$_SESSION['cd_filial']."'";
+
+                        $comissao_lancada = $conn->query($sql_comissao_lancada);
+				        if ($comissao_lancada->num_rows > 0){
+                            $partial_servico = $partial_servico.'
+                			    <div class="row">
+                                    <div class="col-12 col-md-12">
+                                        <div  class="typeahead">
+                                            <h3 class="kt-portlet__head-title">Comissão lançada</h3>
+                            ';
+                            while ( $row = $comissao_lancada->fetch_assoc()){
+                                $obs_comissao = str_replace('|', '<br>', $row['obs_comissao']);
+
+                                $partial_servico .= '
+                                    <p>(' . $row['cd_pessoa'] . ') - ' . $row['pnome_pessoa'] . ' ' . $row['snome_pessoa'] . 
+                                    ' - (R$: ' . $row['vl_comissao'] . ') ' . $obs_comissao . '</p>
+                                ';
+
+                                if($row['status_comissao'] == 0){
+                                    $partial_servico = $partial_servico.'
+                                            <span class="bg-danger">Não pago</span></p>
+                                            <script>
+                                                document.getElementById("cd_colab_resp").disabled = false;
+                                                document.getElementById("vl_comissao").disabled = false;
+                                                document.getElementById("pc_comissao").disabled = false;
+                                            </script>
+                                    ';
+                                }else{
+                                    $partial_servico = $partial_servico.'
+                                            <span class="bg-success">Pago</span></p>
+                                            <script>
+                                                document.getElementById("cd_colab_resp").disabled = true;
+                                                document.getElementById("vl_comissao").disabled = true;
+                                                document.getElementById("pc_comissao").disabled = true;
+                                            </script>
+                                    ';
+                                }
+                            }
+                        }else{
+                            $partial_servico = $partial_servico.'
+                			    <div class="row">
+                                    <div class="col-12 col-md-12">
+                                        <div  class="typeahead">
+                                            <h3 class="kt-portlet__head-title">Sem Comissão</h3>
+                                ';
+                        }
+                        $partial_servico = $partial_servico.'
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        ';
+                    
                     
 
 
@@ -1112,6 +1175,42 @@ document.getElementById("vl_comissao").addEventListener("input", function() {
                         WHERE cd_servico = '".$cd_servico."'";
             mysqli_query($conn, $update_servico);
             
+            $select_comissao = "SELECT * FROM tb_comissao WHERE cd_servico = '".$cd_servico."'";
+            $comissao = $conn->query($select_comissao);
+            if ($comissao->num_rows > 0){
+                while ( $row = $comissao->fetch_assoc()){
+                    //$cd_servico = $row['cd_servico'];
+                    
+                    
+                    if($row['cd_colab'] != $cd_colab_resp){
+                        $update_comissao = "UPDATE tb_comissao SET
+                            cd_colab = ".$cd_colab_resp.",
+                            obs_comissao = CONCAT(obs_comissao, ' Colaborador Modificado por ".$_SESSION['pnome_colab']." (', DATE_FORMAT(NOW(), '%d/%m/%Y : %H:%i'), ') |')
+                            WHERE cd_servico = ".$cd_servico;
+                        mysqli_query($conn, $update_comissao);
+                    }
+                    if($row['vl_comissao'] != $vl_comissao){
+                        $update_comissao = "UPDATE tb_comissao SET
+                            vl_comissao = ".$vl_comissao.",
+                            obs_comissao = CONCAT(obs_comissao, ' Valor Modificado por ".$_SESSION['pnome_colab']." (', DATE_FORMAT(NOW(), '%d/%m/%Y : %H:%i'), ') |')
+                            WHERE cd_servico = ".$cd_servico;
+                        mysqli_query($conn, $update_comissao);    
+                    }
+
+                }
+            }else{
+                $insert_comissao = "INSERT INTO tb_comissao(cd_filial, cd_colab, cd_servico, vl_comissao, obs_comissao, status_comissao) VALUES(
+                    '".$cd_filial."',
+                    '".$cd_colab_resp."',
+                    '".$cd_servico."',
+                    ".$vl_comissao.",
+                    CONCAT('Comissão lançada por ".$_SESSION['pnome_colab']." (', DATE_FORMAT(NOW(), '%d/%m/%Y : %H:%i'), ') |'),
+                    0)
+                ";
+                mysqli_query($conn, $insert_comissao);
+
+
+            }
             // Recupera o serviço inserido
             $result_servico = $u->conServico($cd_servico, $cd_filial, false);
             

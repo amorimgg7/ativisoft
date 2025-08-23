@@ -33,7 +33,7 @@
                 echo '<table class="table" '.$_SESSION['c_card'].'>';
                 echo '<thead>';
                 echo '<tr>';
-                echo '<th>CD</th>';
+                //echo '<th>CD</th>';
                 echo '<th>Colaborador</th>';
                 echo '<th>Obs</th>';
                 echo '<th>valor</th>';
@@ -46,10 +46,10 @@
                 
                 while ( $comissao = $resulta_comissao->fetch_assoc()){
                   echo '<tr>';
-                  echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
-                  echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$comissao['cd_comissao'].'"></td>';
-                  echo '<td><button type="submit" class="btn btn-warning" name="btn_cd_'.$comissao['cd_comissao'].'" id="btn_cd_'.$comissao['cd_comissao'].'">'.$comissao['cd_comissao'].'</button></td>';
-                  echo '</form>';
+                  //echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
+                  //echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$comissao['cd_comissao'].'"></td>';
+                  //echo '<td><button type="submit" class="btn btn-warning" name="btn_cd_'.$comissao['cd_comissao'].'" id="btn_cd_'.$comissao['cd_comissao'].'">'.$comissao['cd_comissao'].'</button></td>';
+                  //echo '</form>';
                   
                   echo '<td name="colab_'.$comissao['cd_colab'].'" id="colab_'.$comissao['cd_colab'].'">'.$comissao['nome_colab'].'</td>';
                   $obs_comissao = '';
@@ -59,18 +59,25 @@
                   if($comissao['cd_venda'] > 0){
                     $obs_comissao = $obs_comissao . 'Venda de serviço: ' . $comissao['cd_venda'];
                   }
-                  $obs_comissao = $obs_comissao . ' ('.$comissao['obs_comissao'].')';
+                  //$obs_comissao = $obs_comissao . ' ('.$comissao['obs_comissao'].')';
+
+                  $obs_comissao = $obs_comissao . ' ' . str_replace('|', '<br>', $comissao['obs_comissao']);
 
                   echo '<td name="obs_'.$comissao['cd_comissao'].'" id="obs_'.$comissao['cd_comissao'].'">'.$obs_comissao.'</td>';
                   echo '<td name="vl_comissao_'.$comissao['cd_comissao'].'" id="vl_comissao_'.$comissao['cd_comissao'].'">R$: '.$comissao['vl_comissao'].'</td>';
 
-                  echo '<form method="POST">';
-                  echo '<td style="display: none;"><input type="tel" id="pagar_cd_comissao" name="pagar_cd_comissao" value="'.$comissao['cd_comissao'].'"></td>';
-                  echo '<td><button type="submit" class="btn btn-warning" name="pagar_comissao" id="pagar_comissao">PAGAR ('.$comissao['cd_comissao'].')</button></td>';
-                  echo '</form>';
+                  //echo '<form method="POST">';
+                  //echo '<td style="display: none;"><input type="tel" id="pagar_cd_comissao" name="pagar_cd_comissao" value="'.$comissao['cd_comissao'].'"></td>';
+                  //echo '<td><button type="submit" class="btn btn-warning" name="pagar_comissao" id="pagar_comissao">PAGAR ('.$comissao['cd_comissao'].')</button></td>';
+                  //echo '</form>';
 
-                  $comissao_a_pagar = number_format($comissao_a_pagar + $comissao['vl_comissao'], 2, ',', '.');
-                  echo '<script>document.getElementById("comissao_a_pagar").innerHTML = "R$: '.$comissao_a_pagar.'";</script>';
+                  $comissao_a_pagar += (float)$comissao['vl_comissao']; 
+
+                  // Quando for exibir:
+                  $vl_comissao = number_format($comissao['vl_comissao'], 2, ',', '.');
+                  $vl_total = number_format($comissao_a_pagar, 2, ',', '.');
+
+                  echo '<script>document.getElementById("comissao_a_pagar").innerHTML = "R$: '.$vl_total.'";</script>';
                   echo '<script>document.getElementById("comissao_a_pagar").style.display = "block";</script>';
                   
                 }
