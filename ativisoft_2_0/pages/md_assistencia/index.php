@@ -375,7 +375,7 @@
 
             <?php //LIBERADO
             
-              $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 2 and cd_filial = '".$_SESSION['cd_empresa']."'
+              $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 2 and cd_filial = '".$_SESSION['cd_filial']."'
                 ORDER BY 
                 CASE 
                     WHEN prioridade_servico = 'U' THEN 1

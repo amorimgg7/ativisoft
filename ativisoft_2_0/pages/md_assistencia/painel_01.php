@@ -49,14 +49,22 @@
             if($_POST['tipo_card'] == 2){
               
 
-              $sql_servico = "SELECT concat(c.pnome_pessoa, ' ',c.snome_pessoa) as full_name, s.* FROM tb_servico s, tb_pessoa c WHERE s.cd_cliente = c.cd_pessoa and status_servico = 2 and cd_filial = '".$_SESSION['cd_empresa']."'
-                ORDER BY 
-                CASE 
-                    WHEN prioridade_servico = 'U' THEN 1
-                    WHEN prioridade_servico = 'A' THEN 2
-                    WHEN prioridade_servico = 'M' THEN 3
-                    ELSE 4
-                END, cd_servico limit 200";
+              $sql_servico = "SELECT 
+    CONCAT(c.pnome_pessoa, ' ', c.snome_pessoa) AS full_name,
+    s.*
+FROM tb_servico s
+INNER JOIN tb_pessoa c ON s.cd_cliente = c.cd_pessoa
+WHERE s.status_servico = 2
+  AND s.cd_filial = ".$_SESSION['cd_filial']."
+ORDER BY 
+    CASE 
+        WHEN s.prioridade_servico = 'U' THEN 1
+        WHEN s.prioridade_servico = 'A' THEN 2
+        WHEN s.prioridade_servico = 'M' THEN 3
+        ELSE 4
+    END,
+    s.cd_servico
+LIMIT 200;";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -154,7 +162,23 @@
 
             <?php //RETIRADO / DEVOLVIDO
             if($_POST['tipo_card'] == 3){
-              $sql_servico = "SELECT concat(c.pnome_pessoa, ' ',c.snome_pessoa) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico, s.prioridade_servico, s.obs_servico, s.prazo_servico FROM tb_servico s, tb_pessoa c WHERE s.cd_cliente = c.cd_pessoa and s.status_servico = 3 and cd_filial = '".$_SESSION['cd_empresa']."' order by prazo_servico desc  limit 200";
+              //$sql_servico = "SELECT concat(c.pnome_pessoa, ' ',c.snome_pessoa) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico, s.prioridade_servico, s.obs_servico, s.prazo_servico FROM tb_servico s, tb_pessoa c WHERE s.cd_cliente = c.cd_pessoa and s.status_servico = 3 and cd_filial = '".$_SESSION['cd_empresa']."' order by prazo_servico desc  limit 200";
+              $sql_servico = "SELECT 
+    CONCAT(c.pnome_pessoa, ' ', c.snome_pessoa) AS full_name,
+    s.*
+FROM tb_servico s
+INNER JOIN tb_pessoa c ON s.cd_cliente = c.cd_pessoa
+WHERE s.status_servico = 3
+  AND s.cd_filial = ".$_SESSION['cd_filial']."
+ORDER BY 
+    CASE 
+        WHEN s.prioridade_servico = 'U' THEN 1
+        WHEN s.prioridade_servico = 'A' THEN 2
+        WHEN s.prioridade_servico = 'M' THEN 3
+        ELSE 4
+    END,
+    s.cd_servico
+LIMIT 200;";
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
                 echo '<div class="col-lg-12 grid-margin stretch-card"  data-toggle="collapse" href="#os_retirado" aria-expanded="false" aria-controls="os_retirado">';
@@ -237,8 +261,24 @@
             
             <?php //ARQUIVADO
             if($_POST['tipo_card'] == 4){
-              $sql_servico = "SELECT concat(c.pnome_pessoa, ' ',c.snome_pessoa) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico FROM tb_servico s, tb_pessoa c WHERE s.cd_cliente = c.cd_pessoa and s.status_servico = 4 and cd_filial = '".$_SESSION['cd_empresa']."' order by cd_servico desc ";
+              //$sql_servico = "SELECT concat(c.pnome_pessoa, ' ',c.snome_pessoa) as full_name, s.cd_servico, s.vpag_servico, s.orcamento_servico FROM tb_servico s, tb_pessoa c WHERE s.cd_cliente = c.cd_pessoa and s.status_servico = 4 and cd_filial = '".$_SESSION['cd_empresa']."' order by cd_servico desc ";
 
+              $sql_servico = "SELECT 
+    CONCAT(c.pnome_pessoa, ' ', c.snome_pessoa) AS full_name,
+    s.*
+FROM tb_servico s
+INNER JOIN tb_pessoa c ON s.cd_cliente = c.cd_pessoa
+WHERE s.status_servico = 4
+  AND s.cd_filial = ".$_SESSION['cd_filial']."
+ORDER BY 
+    CASE 
+        WHEN s.prioridade_servico = 'U' THEN 1
+        WHEN s.prioridade_servico = 'A' THEN 2
+        WHEN s.prioridade_servico = 'M' THEN 3
+        ELSE 4
+    END,
+    s.cd_servico
+LIMIT 200;";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){

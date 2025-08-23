@@ -79,18 +79,18 @@
               <div class="card" <?php $_SESSION['c_card'];?>>
                 
 
-  <div class="col-lg-12 grid-margin stretch-card">
-<i type="submit" class="btn btn-warning"style="margin:auto; display:none;" id="comissao_a_pagar">Comissões a Pagar</i>
-</div>
+                <div class="col-lg-12 grid-margin stretch-card">
+                  <i type="submit" class="btn btn-warning"style="margin:auto; display:none;" id="comissao_a_pagar">Comissões a Pagar</i>
+                </div>
 
 
             <?php
 
 
 
-    if (isset($_POST['lanca_comissao']) && !isset($_POST['confirmacao'])) {
+    if (isset($_POST['lanca_comissao']) && !isset($_POST['fpag_comissao'])) {
     // Mensagem do modal
-    $mensagem = "Tem certeza que deseja lançar a comissão?";
+    $mensagem = "Qual a forma de pagamento da comissão?";
 
     // Gerar o modal via PHP
     echo '
@@ -119,9 +119,9 @@
     }
 
     echo '
-              <button type="submit" name="confirmacao" value="sim" class="btn btn-success">Sim</button>
-              <button type="submit" name="confirmacao" value="nao" class="btn btn-danger">Não</button>
-              <button type="submit" name="confirmacao" value="cancelar" class="btn btn-secondary">Cancelar</button>
+              <button type="submit" name="fpag_comissao" value="DINHEIRO" class="btn btn-success">Dinheiro</button>
+              <button type="submit" name="fpag_comissao" value="PIX" class="btn btn-info">PIX</button>
+              <button type="submit" name="fpag_comissao" value="cancelar" class="btn btn-danger">Cancelar</button>
             </form>
           </div>
         </div>
@@ -136,14 +136,28 @@
 }
 
 
-                  if (isset($_POST['confirmacao'])) {
-                    if ($_POST['confirmacao'] === 'sim') {
+                  if (isset($_POST['fpag_comissao'])) {
+                    if ($_POST['fpag_comissao'] === 'DINHEIRO') {
                       $updateEstoque = "
-                          UPDATE tb_comissao 
-                          SET obs_comissao = CONCAT(obs_comissao, ' Pago por  ".$_SESSION['pnome_colab']." (', DATE_FORMAT(NOW(), '%d/%m/%Y : %H:%i'), ') |'), status_comissao = 1
-                          WHERE cd_colab = " . intval($_POST['lancar_cd_colab']);
+                        UPDATE tb_comissao 
+                        SET obs_comissao = CONCAT(obs_comissao, ' Pago por  ".$_SESSION['pnome_colab']." (', DATE_FORMAT(NOW(), '%d/%m/%Y : %H:%i'), ') |'), status_comissao = 1
+                        WHERE cd_colab = " . intval($_POST['lancar_cd_colab']);
+                      
+                      $insert_suprimento = "INSERT INTO tb_movimento_financeiro(cd_filial, tipo_movimento, cd_caixa_movimento, cd_colab_movimento, fpag_movimento, valor_movimento, data_movimento, obs_movimento) VALUES(
+                        '".$_SESSION['cd_empresa']."',
+                        3,
+                        '".$_SESSION['cd_caixa']."',
+                        '".$_SESSION['cd_colab']."',
+                        'dinheiro',
+                        '".$_POST['vpag_comissao']."',
+                        NOW(),
+                        'COMISSÕES: ".$_POST['obs_comissao']."'
+                        )
+                      ";
+                      mysqli_query($conn, $insert_suprimento);
+
                       if(mysqli_query($conn, $updateEstoque)){
-                        echo '<script>alert("Comissão paga com sucesso!");</script>';
+                        echo '<script>alert("Comissão paga no DINHEIRO com sucesso!");</script>';
                       }else{
                         echo '<script>alert("Erro ao dar baixa na comissão: ' . mysqli_error($conn) . '");</script>';
                       }
@@ -154,10 +168,31 @@
                           //echo '<script>location.href="'.$_SESSION['dominio'].'pages/md_assistencia/cadastro_servico.php";</script>';          
 
                     
-                    } elseif ($_POST['confirmacao'] === 'nao') {
-                        echo '<script>alert("Comissões não pagas!");</script>';
-                        // Lógica para confirmação "Não"
-                    } elseif ($_POST['confirmacao'] === 'cancelar') {
+                    } elseif ($_POST['fpag_comissao'] === 'PIX') {
+                        $updateEstoque = "
+                        UPDATE tb_comissao 
+                        SET obs_comissao = CONCAT(obs_comissao, ' Pago por  ".$_SESSION['pnome_colab']." (', DATE_FORMAT(NOW(), '%d/%m/%Y : %H:%i'), ') |'), status_comissao = 1
+                        WHERE cd_colab = " . intval($_POST['lancar_cd_colab']);
+                      
+                      $insert_suprimento = "INSERT INTO tb_movimento_financeiro(cd_filial, tipo_movimento, cd_caixa_movimento, cd_colab_movimento, fpag_movimento, valor_movimento, data_movimento, obs_movimento) VALUES(
+                        '".$_SESSION['cd_empresa']."',
+                        3,
+                        '".$_SESSION['cd_caixa']."',
+                        '".$_SESSION['cd_colab']."',
+                        'pix',
+                        '".$_POST['vpag_comissao']."',
+                        NOW(),
+                        'COMISSÕES: ".$_POST['obs_comissao']."'
+                        )
+                      ";
+                      mysqli_query($conn, $insert_suprimento);
+
+                      if(mysqli_query($conn, $updateEstoque)){
+                        echo '<script>alert("Comissão paga no PIX com sucesso!");</script>';
+                      }else{
+                        echo '<script>alert("Erro ao dar baixa na comissão: ' . mysqli_error($conn) . '");</script>';
+                      }
+                    } elseif ($_POST['fpag_comissao'] === 'cancelar') {
                         echo '<script>alert("Operação cancelada pelo usuário.");</script>';
                         // Lógica para "Cancelar"
                     }
@@ -225,6 +260,8 @@
 
                   echo '<form name="lanca_comissao" id="lanca_comissao" method="POST">';
                   echo '<td style="display: none;"><input type="tel" id="lancar_cd_colab" name="lancar_cd_colab" value="'.$comissao['cd_pessoa'].'"></td>';
+                  echo '<td style="display: none;"><input type="tel" id="vpag_comissao" name="vpag_comissao" value="'.$comissao['total_comissao'].'"></td>';
+                  echo '<td style="display: none;"><input type="tel" id="obs_comissao" name="obs_comissao" value="'.$comissao['obs'].'"></td>';
                   echo '<td><button type="submit" class="btn btn-warning" name="lanca_comissao" id="lanca_comissao">PAGAR</button></td>';
                   echo '</form>';
 
@@ -245,13 +282,11 @@
                 echo '</div>';
                 echo '</div>';
                 
-              }
-
-
-
-          
-
-            
+              }else{
+                echo '<div class="grid-margin stretch-card">';
+                echo '<h4 style="display: inline-block; margin-left: 10px;">Sem comissões pendentes</h4>';
+                echo '</div>';
+              }        
 ?>
 
  <!-- #region -->

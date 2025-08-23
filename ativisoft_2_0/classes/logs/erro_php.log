@@ -13420,3 +13420,378 @@ Stack trace:
 [23-Aug-2025 14:43:33 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
 [23-Aug-2025 14:44:07 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
 [23-Aug-2025 14:44:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 16:53:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 16:54:00 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 16:55:15 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 217
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 217
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 223
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 223
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 224
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 224
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 217
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 217
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 223
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 223
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 224
+[23-Aug-2025 16:57:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 224
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 217
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 217
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 223
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 223
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 224
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 224
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 217
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 217
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 223
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 223
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 224
+[23-Aug-2025 16:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 224
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:07:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "confirmacao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 174
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "confirmacao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 174
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:08:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:09:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:12:06 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:19 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:20 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:20 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 231
+[23-Aug-2025 17:15:20 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:20 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 237
+[23-Aug-2025 17:15:20 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:15:20 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 238
+[23-Aug-2025 17:17:17 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:21:47 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 252
+[23-Aug-2025 17:21:47 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 252
+[23-Aug-2025 17:21:47 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 258
+[23-Aug-2025 17:21:47 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 258
+[23-Aug-2025 17:21:47 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 259
+[23-Aug-2025 17:21:47 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 259
+[23-Aug-2025 17:21:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 252
+[23-Aug-2025 17:21:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 252
+[23-Aug-2025 17:21:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 258
+[23-Aug-2025 17:21:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 258
+[23-Aug-2025 17:21:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 259
+[23-Aug-2025 17:21:50 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 259
+[23-Aug-2025 17:25:29 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:26:52 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:27:22 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_navbar.php:28) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\abertura_caixa.php on line 131
+[23-Aug-2025 17:28:45 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:28:49 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'cd_filial' in where clause is ambiguous in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:243
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(243): mysqli->query('SELECT concat(c...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 243
+[23-Aug-2025 17:29:06 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:29:09 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'cd_filial' in where clause is ambiguous in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:158
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(158): mysqli->query('SELECT concat(c...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 158
+[23-Aug-2025 17:29:18 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:29:23 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:29:30 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'cd_filial' in where clause is ambiguous in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:158
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(158): mysqli->query('SELECT concat(c...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 158
+[23-Aug-2025 17:37:20 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'cd_filial' in where clause is ambiguous in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:166
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(166): mysqli->query('SELECT concat(c...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 166
+[23-Aug-2025 17:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:37:30 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'cd_filial' in where clause is ambiguous in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:166
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(166): mysqli->query('SELECT concat(c...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 166
+[23-Aug-2025 17:38:21 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:38:28 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'cd_filial' in where clause is ambiguous in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:251
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(251): mysqli->query('SELECT concat(c...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 251
+[23-Aug-2025 17:38:30 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:40:29 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:40:38 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'cd_filial' in where clause is ambiguous in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:166
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(166): mysqli->query('SELECT concat(c...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 166
+[23-Aug-2025 17:40:41 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:40:44 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'cd_filial' in where clause is ambiguous in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:251
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(251): mysqli->query('SELECT concat(c...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 251
+[23-Aug-2025 17:40:46 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:43:25 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY 
+    CASE 
+        WHEN s.prioridade_servico = 'U' THEN 1
+        WH...' at line 8 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:182
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(182): mysqli->query('SELECT \n    CON...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 182
+[23-Aug-2025 17:43:41 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:43:43 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:43:44 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:43:44 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:43:47 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY 
+    CASE 
+        WHEN s.prioridade_servico = 'U' THEN 1
+        WH...' at line 8 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:182
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(182): mysqli->query('SELECT \n    CON...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 182
+[23-Aug-2025 17:44:20 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:45:07 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_card" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 49
+[23-Aug-2025 17:45:07 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_card" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 164
+[23-Aug-2025 17:45:07 America/Sao_Paulo] PHP Warning:  Undefined array key "tipo_card" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 263
+[23-Aug-2025 17:45:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:45:16 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:45:19 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'cd_filial' in where clause is ambiguous in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(267): mysqli->query('SELECT concat(c...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 267
+[23-Aug-2025 17:45:21 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:45:53 America/Sao_Paulo] PHP Warning:  Undefined variable $id_atividade in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 4414
+[23-Aug-2025 17:45:56 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:46:16 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY 
+    CASE 
+        WHEN s.prioridade_servico = 'U' THEN 1
+        WH...' at line 8 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php:69
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php(69): mysqli->query('SELECT \n    CON...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\painel_01.php on line 69
+[23-Aug-2025 17:46:18 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:47:52 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:48:02 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[23-Aug-2025 17:48:10 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
