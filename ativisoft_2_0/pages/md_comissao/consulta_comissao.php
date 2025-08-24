@@ -201,92 +201,113 @@
 
               $comissao_a_pagar = 0;
 
-              $sql_comissao = "
-                SELECT 
-                    p.cd_pessoa,
-                    p.pnome_pessoa AS nome_colab,
-                    SUM(c.vl_comissao) AS total_comissao,
-                    GROUP_CONCAT(CONCAT('OS ', c.cd_servico, ' = R$ ', FORMAT(c.vl_comissao, 2, 'pt_BR')) SEPARATOR ' | ') AS obs
-                FROM tb_comissao c
-                JOIN tb_pessoa p ON p.cd_pessoa = c.cd_colab
-                WHERE c.status_comissao = 0
-                  AND c.cd_filial = '".$_SESSION['cd_filial']."'
-                GROUP BY p.cd_pessoa, p.pnome_pessoa, p.snome_pessoa
-                ORDER BY total_comissao DESC;
-              ";
-
-
-              $resulta_comissao = $conn->query($sql_comissao);
-              if ($resulta_comissao->num_rows > 0){
-                echo '<div class="col-lg-12 grid-margin stretch-card" >';
+              if($_SESSION['dt_caixa'] == FALSE){
+                echo '<div class="col-12 grid-margin stretch-card btn-info">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
-                
                 echo '<div class="card-body">';
-                echo '<div class="grid-margin stretch-card">';
-                echo '<h4 style="display: inline-block; margin-left: 10px;">COMISSÕES À PAGAR</h4>';
+
+                echo '<h4 class="card-title">Nenhum caixa aberto</h4>';
+                echo '<h1 class="card-title">Abra já seu caixa</h1>';
+                echo '<p class="card-title">Para realizar movimento financeiro, o seu caixa deve estar devidamente aberto</p>';
+                echo '<div class="table-responsive">';
                 echo '</div>';
-
-                echo '<div class=" table-responsive">';
-                
-                echo '<table class="table" '.$_SESSION['c_card'].'>';
-                echo '<thead>';
-                echo '<tr>';
-                //echo '<th>CD</th>';
-                echo '<th>Colaborador</th>';
-                echo '<th>Descrição</th>';
-                echo '<th>Total à pagar</th>';
-                //echo '<th>Prazo</th>';
-                
-                
-                echo '</tr>';
-                echo '</thead>';
-                echo '<tbody>';
-                
-                while ( $comissao = $resulta_comissao->fetch_assoc()){
-                  echo '<tr>';
-                  //echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
-                  //echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$comissao['cd_comissao'].'"></td>';
-                  //echo '<td><button type="submit" class="btn btn-warning" name="btn_cd_'.$comissao['cd_comissao'].'" id="btn_cd_'.$comissao['cd_comissao'].'">'.$comissao['cd_comissao'].'</button></td>';
-                  //echo '</form>';
-                  
-                  echo '<td name="colab_'.$comissao['cd_colab'].'" id="colab_'.$comissao['cd_colab'].'">'.$comissao['nome_colab'].'</td>';
-                  $obs_comissao = '';
-                  //$obs_comissao = $obs_comissao . ' ('.$comissao['obs_comissao'].')';
-
-                  $obs_comissao = $obs_comissao . ' ' . str_replace('|', '<br>', $comissao['obs']);
-
-                  echo '<td name="obs_'.$comissao['cd_comissao'].'" id="obs_'.$comissao['cd_comissao'].'">'.$obs_comissao.'</td>';
-                  echo '<td name="vl_comissao_'.$comissao['cd_comissao'].'" id="vl_comissao_'.$comissao['cd_comissao'].'">R$: '.$comissao['total_comissao'].'</td>';
-
-                  echo '<form name="lanca_comissao" id="lanca_comissao" method="POST">';
-                  echo '<td style="display: none;"><input type="tel" id="lancar_cd_colab" name="lancar_cd_colab" value="'.$comissao['cd_pessoa'].'"></td>';
-                  echo '<td style="display: none;"><input type="tel" id="vpag_comissao" name="vpag_comissao" value="'.$comissao['total_comissao'].'"></td>';
-                  echo '<td style="display: none;"><input type="tel" id="obs_comissao" name="obs_comissao" value="'.$comissao['obs'].'"></td>';
-                  echo '<td><button type="submit" class="btn btn-warning" name="lanca_comissao" id="lanca_comissao">PAGAR</button></td>';
-                  echo '</form>';
-
-                  $comissao_a_pagar += (float)$comissao['total_comissao']; 
-
-                  // Quando for exibir:
-                  $vl_comissao = number_format($comissao['total_comissao'], 2, ',', '.');
-                  $vl_total = number_format($comissao_a_pagar, 2, ',', '.');
-
-                  echo '<script>document.getElementById("comissao_a_pagar").innerHTML = "R$: '.$vl_total.'";</script>';
-                  echo '<script>document.getElementById("comissao_a_pagar").style.display = "block";</script>';
-                  
-                }
-                echo '</tbody>';
-                echo '</table>';
+                echo '<form action="../../pages/md_caixa/abertura_caixa.php" method="POST">';
+                echo '<button type="submit" class="btn btn-lg btn-block btn-outline-info" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Abra já seu caixa</button>';
+                echo '</form>';
                 echo '</div>';
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
-                
+                echo '</div>';     
+                echo '</div>'; 
               }else{
-                echo '<div class="grid-margin stretch-card">';
-                echo '<h4 style="display: inline-block; margin-left: 10px;">Sem comissões pendentes</h4>';
-                echo '</div>';
-              }        
+            
+                $sql_comissao = "
+                  SELECT 
+                      p.cd_pessoa,
+                      p.pnome_pessoa AS nome_colab,
+                      SUM(c.vl_comissao) AS total_comissao,
+                      GROUP_CONCAT(CONCAT('OS ', c.cd_servico, ' = R$ ', FORMAT(c.vl_comissao, 2, 'pt_BR')) SEPARATOR ' | ') AS obs
+                  FROM tb_comissao c
+                  JOIN tb_pessoa p ON p.cd_pessoa = c.cd_colab
+                  WHERE c.status_comissao = 0
+                    AND c.cd_filial = '".$_SESSION['cd_filial']."'
+                  GROUP BY p.cd_pessoa, p.pnome_pessoa, p.snome_pessoa
+                  ORDER BY total_comissao DESC;
+                ";
+
+
+                $resulta_comissao = $conn->query($sql_comissao);
+                if ($resulta_comissao->num_rows > 0){
+                  echo '<div class="col-lg-12 grid-margin stretch-card" >';
+                  echo '<div class="card" '.$_SESSION['c_card'].'>';
+                
+                  echo '<div class="card-body">';
+                  echo '<div class="grid-margin stretch-card">';
+                  echo '<h4 style="display: inline-block; margin-left: 10px;">COMISSÕES À PAGAR</h4>';
+                  echo '</div>';
+
+                  echo '<div class=" table-responsive">';
+                  
+                  echo '<table class="table" '.$_SESSION['c_card'].'>';
+                  echo '<thead>';
+                  echo '<tr>';
+                  //echo '<th>CD</th>';
+                  echo '<th>Colaborador</th>';
+                  echo '<th>Descrição</th>';
+                  echo '<th>Total à pagar</th>';
+                  //echo '<th>Prazo</th>';
+                  
+                  
+                  echo '</tr>';
+                  echo '</thead>';
+                  echo '<tbody>';
+                  
+                  while ( $comissao = $resulta_comissao->fetch_assoc()){
+                    echo '<tr>';
+                    //echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
+                    //echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$comissao['cd_comissao'].'"></td>';
+                    //echo '<td><button type="submit" class="btn btn-warning" name="btn_cd_'.$comissao['cd_comissao'].'" id="btn_cd_'.$comissao['cd_comissao'].'">'.$comissao['cd_comissao'].'</button></td>';
+                    //echo '</form>';
+
+                    echo '<td name="colab_'.$comissao['cd_colab'].'" id="colab_'.$comissao['cd_colab'].'">'.$comissao['nome_colab'].'</td>';
+                    $obs_comissao = '';
+                    //$obs_comissao = $obs_comissao . ' ('.$comissao['obs_comissao'].')';
+
+                    $obs_comissao = $obs_comissao . ' ' . str_replace('|', '<br>', $comissao['obs']);
+
+                    echo '<td name="obs_'.$comissao['cd_comissao'].'" id="obs_'.$comissao['cd_comissao'].'">'.$obs_comissao.'</td>';
+                    echo '<td name="vl_comissao_'.$comissao['cd_comissao'].'" id="vl_comissao_'.$comissao['cd_comissao'].'">R$: '.$comissao['total_comissao'].'</td>';
+
+                    echo '<form name="lanca_comissao" id="lanca_comissao" method="POST">';
+                    echo '<td style="display: none;"><input type="tel" id="lancar_cd_colab" name="lancar_cd_colab" value="'.$comissao['cd_pessoa'].'"></td>';
+                    echo '<td style="display: none;"><input type="tel" id="vpag_comissao" name="vpag_comissao" value="'.$comissao['total_comissao'].'"></td>';
+                    echo '<td style="display: none;"><input type="tel" id="obs_comissao" name="obs_comissao" value="'.$comissao['obs'].'"></td>';
+                    echo '<td><button type="submit" class="btn btn-warning" name="lanca_comissao" id="lanca_comissao">PAGAR</button></td>';
+                    echo '</form>';
+
+                    $comissao_a_pagar += (float)$comissao['total_comissao']; 
+
+                    // Quando for exibir:
+                    $vl_comissao = number_format($comissao['total_comissao'], 2, ',', '.');
+                    $vl_total = number_format($comissao_a_pagar, 2, ',', '.');
+
+                    echo '<script>document.getElementById("comissao_a_pagar").innerHTML = "R$: '.$vl_total.'";</script>';
+                    echo '<script>document.getElementById("comissao_a_pagar").style.display = "block";</script>';
+                    
+                  }
+                  echo '</tbody>';
+                  echo '</table>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+                  echo '</div>';
+
+                }else{
+                  echo '<div class="grid-margin stretch-card">';
+                  echo '<h4 style="display: inline-block; margin-left: 10px;">Sem comissões pendentes</h4>';
+                  echo '</div>';
+                }  
+
+              }
+                    
 ?>
 
  <!-- #region -->

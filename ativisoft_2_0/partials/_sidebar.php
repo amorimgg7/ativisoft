@@ -158,6 +158,8 @@ if($_SESSION['cd_acesso'] == 1){
             
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_comissao/consulta_comissao.php">Comissões</a></li>
+                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_caixa/conferencia_caixa.php">Conferir Caixa</a></li>
+                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_caixa/relatorios_caixa.php">Relatório de Caixa</a></li>
               </ul>
             </div> 
           </li>
@@ -180,18 +182,19 @@ if($_SESSION['cd_acesso'] == 1){
             </div> 
           </li>
 
-          <li class="nav-item" <?php echo $_SESSION['md_assistencia'];?>>
+<!--
+          <li class="nav-item" <?php //echo $_SESSION['md_assistencia'];?>>
             <a class="nav-link" data-toggle="collapse" href="#relatorios" aria-expanded="false" aria-controls="relatorios">
-              <i class="icon-disc menu-icon" <?php echo $_SESSION['c_sidebar']?>></i>
-              <span class="menu-title" <?php echo $_SESSION['c_sidebar']?>>Caixas</span>
-              <i class="menu-arrow" <?php echo $_SESSION['c_sidebar']?>></i>
+              <i class="icon-disc menu-icon" <?php //echo $_SESSION['c_sidebar']?>></i>
+              <span class="menu-title" <?php //echo $_SESSION['c_sidebar']?>>Caixas</span>
+              <i class="menu-arrow" <?php //echo $_SESSION['c_sidebar']?>></i>
             </a>
             
             <div class="collapse" id="relatorios">
             
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_caixa/conferencia_caixa.php">Conferencia</a></li>
-                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_caixa/relatorios_caixa.php">Relatórios</a></li>
+                <li class="nav-item"><a <?php //echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php //echo $_SESSION['dominio'];?>/pages/md_caixa/conferencia_caixa.php">Conferencia</a></li>
+                <li class="nav-item"><a <?php //echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php //echo $_SESSION['dominio'];?>/pages/md_caixa/relatorios_caixa.php">Relatórios</a></li>
               </ul>
             </div> 
           </li>
@@ -199,7 +202,7 @@ if($_SESSION['cd_acesso'] == 1){
 
           
 
-<!--
+
           <li class="nav-item" <?php //echo $_SESSION['md_cliente'];?>>
             <a class="nav-link" data-toggle="collapse" href="#md_cliente" aria-expanded="false" aria-controls="md_cliente">
               <i class="icon-disc menu-icon" <?php //echo $_SESSION['c_sidebar']?>></i>

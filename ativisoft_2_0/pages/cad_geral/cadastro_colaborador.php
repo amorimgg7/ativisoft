@@ -1,4 +1,4 @@
-<?php  
+<?php 
     session_start(); 
     if(!isset($_SESSION['cd_colab']))
     {
@@ -7,10 +7,13 @@
     }
     require_once '../../classes/conn.php';
     include("../../classes/functions.php");
-    include("../../classes/tools.php");
     $u = new Usuario;
+
+
+
+    $result = $u->retPermissão('md_venda_produto', $_SESSION['md_venda']);
     
-    $t = new Tools;
+
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>
@@ -20,7 +23,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Consulta Cliente</title>
+  <title>Cadastro de Colaborador</title>
   <!-- base:css -->
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
@@ -28,16 +31,36 @@
   <!-- endinject -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="../../css/custom.css">
-  
-  <link rel='shortcut icon' href='https://lh3.googleusercontent.com/pw/AP1GczOReqQClzL-PZkykfOwgmMyVzQgx27DTp783MI7iwKuKSv-6P6V7KOEbCC74sGdK3DEV3O88CsBLeIvOaQwGT3x4bqCTPRtyV9zcODbYVDRxAF8zf8Uev7geh4ONPdl3arNhnSDPvbQfMdpFRPM263V9A=w250-h250-s-no-gm?authuser=0' />
-
   <!-- endinject -->
   <script src="../../js/functions.js"></script>
   <link rel="shortcut icon" href="<?php //echo $_SESSION['logo_empresa']; ?>" />
-<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+
+  <script>
+                            function showSection(tab) {
+                              if(tab == "tabBasicos"){
+                                document.getElementById('tabBasicos').style.display = 'block';
+                                document.getElementById('tabComissao').style.display = 'none';
+                                document.getElementById('tabAcesso').style.display = 'none';
+                              }
+
+                              if(tab == "tabComissao"){
+                                document.getElementById('tabBasicos').style.display = 'none';
+                                document.getElementById('tabComissao').style.display = 'block';
+                                document.getElementById('tabAcesso').style.display = 'none';
+                              }
+
+                              if(tab == "tabAcesso"){
+                                document.getElementById('tabBasicos').style.display = 'none';
+                                document.getElementById('tabComissao').style.display = 'none';
+                                document.getElementById('tabAcesso').style.display = 'block';
+                              }
+                              
+                            }
+                          </script>
+
 </head>
 
 <body>
@@ -49,483 +72,779 @@
       <!-- partial:partials/_sidebar.html -->
       <?php include ("../../partials/_sidebar.php");?>
       <!-- partial -->
-      <div class="main-panel">        
+      
+      <div class="main-panel">   
+        <?php echo '<spam>'.$result.'</spam>'; ?>     
         <div class="content-wrapper" <?php echo $_SESSION['c_body'];?>>
-          <div class="row">
-            <div class="col-12 grid-margin">
-              <div class="card" <?php echo $_SESSION['c_card'];?>>
-                
-                <div class="card-body" id="consulta" style="display: block;">
-                  <h3 class="card-title">Consultar pelo telefone</h3>
-                  <p class="card-description">Consulte o funcionário que deseja cadastrar ou atualizar os dados cadastrais pelo número de telefone.</p>
-                  <div class="kt-portlet__body">
-                    <div class="row">
-                      <div class="col-12 col-md-12">
-                        <div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">
-                        
-
-                        
-                          <form method="POST">
-                          
-                          <div class="form-group" style="display: flex;">
-                            <div class="input-group">
-                              <?php 
-                                $resultado = $t->telefone(0);
-                                echo '<div class="input-group">';
-                                echo '    <div class="input-group-prepend">';
-                                echo '      <select name="cd_pais" id="cd_pais"  class="input-group-text" required>';
-                                echo '      <option selected="selected" value="'.$resultado['codigo_pais'].'">'.$resultado['nome_pais'].'</option>';
-                                echo $resultado['lista_paises'];
-                                echo '      </select>  ';
-                                echo '    </div>';
-                                echo '    <input placeholder="Telefone" type="tel" value="'.$resultado['ddd'].$resultado['numero'].'" name="btntel_colab" id="btntel_colab" type="tel" class="form-control form-control-sm" required oninput="tel(this)">';
-                                echo '    <div class="input-group-append">';
-                                echo '    </div>';
-                                echo '    </div>';
-                              ?>
-                            </div>
-                          </div>
-                          <p id="error-message" style="color: #DDDDDD;"></p>
-                          
-
-
-
-                            <br>
-                            <button type="submit" class="btn btn-success"name="con_colab" >Consulta</button>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="row">  
               <?php
-                if(isset($_POST['con_colab'])) {
-                  $_SESSION['contel_colab'] = $_POST['cd_pais'].$_POST['btntel_colab'];
-                  $query = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND tel1_pessoa = '".$_SESSION['contel_colab']."'";
+                if(isset($_POST['btn_con_colab'])) {
+                  $query = "SELECT * FROM tb_pessoa WHERE cd_pessoa = '".$_POST['con_cd_colab']."'";
                   $result = mysqli_query($conn, $query);
                   $row = mysqli_fetch_assoc($result);
 
                   // Exibe as informações do usuário no formulário
                   if($row) {
-                    $_SESSION['concd_colab'] = $row['cd_pessoa']; 
+
+                    $_SESSION['cad_cd_colab']           = $row['cd_pessoa'];
+                    $_SESSION['cad_pnome_colab']        = $row['pnome_pessoa'];
+                    $_SESSION['cad_snome_colab']        = $row['snome_pessoa'];
+                    $_SESSION['cad_subtipo_colab']      = $row['subtipo_pessoa'];
+                    $_SESSION['cad_cpf_colab']          = $row['cpf_pessoa'];
+                    $_SESSION['cad_tel1_colab']         = $row['tel1_pessoa'];
+                    $_SESSION['cad_email_colab']        = $row['email_pessoa'];
+                    $_SESSION['cad_senha_colab']        = $row['senha_pessoa'];
+                    $_SESSION['cad_vl_comissao_colab']  = $row['vl_comissao_padrao'];
+                    $_SESSION['cad_pc_comissao_colab']  = $row['pc_comissao_padrao'];
+                    $_SESSION['cad_cd_empresa']         = $row['cd_empresa'];
+                    $_SESSION['cad_cd_filial']          = $row['cd_filial'];
+                    $_SESSION['cad_status_colab']       = $row['status_pessoa'];
+                    
+
+
+                    //$_SESSION['cd_prod_serv'] = $row['cd_prod_serv'];
+                    //$_SESSION['cd_classe_fiscal'] = $row['cd_classe_fiscal'];
+                    //$_SESSION['cd_grupo_prod_serv'] = $row['cd_grupo'];
+                    //$_SESSION['cdbarras_prod_serv'] = $row['cdbarras_prod_serv'];
+                    //$_SESSION['titulo_prod_serv'] = $row['titulo_prod_serv'];
+                    //$_SESSION['obs_prod_serv'] = $row['obs_prod_serv'];
+                    //$_SESSION['estoque_prod_serv'] = $row['estoque_prod_serv'];
+                    //$_SESSION['tipo_prod_serv'] = $row['tipo_prod_serv'];
+                    //$_SESSION['preco_prod_serv'] = $row['preco_prod_serv'];
+                    //$_SESSION['custo_prod_serv'] = $row['custo_prod_serv'];
+                    //$_SESSION['status_colab'] = $row['status_colab'];
+                    echo '<script>';
+                    echo 'document.addEventListener("DOMContentLoaded", function() {';
+                    echo '    var editcheckstatus_colab = document.getElementById("editcheckstatus_colab");';
+                    echo '    if (' . $_SESSION['cad_status_colab'] . ' == 1) {';
+                    echo '        editcheckstatus_colab.checked = true;';
+                    echo '    } else {';
+                    echo '        editcheckstatus_colab.checked = false;';
+                    echo '    }';
+                    echo '});';
+                    echo '</script>';
+                    $_SESSION['statusCadastrosColab'] = 3;
                   }      
-                }
-                if(!isset($_SESSION['concd_colab'])){
-                  $_SESSION['concd_colab'] = 0;
                 }
                 
               ?>
               <?php
-                if(isset($_POST['atualizaCliente'])) {
-                  $updatecliente = "UPDATE tb_pessoa SET
-                  pnome_pessoa = '".$_POST['btnpnome_colab']."',
-                  snome_pessoa = '".$_POST['btnsnome_colab']."',
-                  cpf_pessoa = '".$_POST['btncpf_colab']."',
-                  tel1_pessoa = '".$_POST['cd_pais'].$_POST['btntel_colab']."',
-                  email_pessoa = '".$_POST['btnemail_colab']."'
-                  WHERE cd_pessoa = ".$_POST['btncd_colab']."";
-                  mysqli_query($conn, $updatecliente);
-                }
+              /*
+                if (isset($_POST['editProdServ'])) {
 
-                if(isset($_POST['outroCliente'])) { 
-                  $_SESSION['concd_colab'] = 0;
-                }
-              ?>
-              <?php
-                if($_SESSION['concd_colab'] > 0){
-                  echo '<script>document.getElementById("consulta").style.display = "none";</script>';
-                  echo '<div class="col-12 grid-margin">';
-                  echo '<div class="card" '.$_SESSION['c_card'].'>';
-                  echo '<div class="card-body" id="editaCliente"><!--FORMULÁRIO PARA CRIAR OS-->';
-                  echo '<div class="kt-portlet__body">';
-                  echo '<div class="row">';
-          
-                  $select_colab = "SELECT * FROM tb_pessoa WHERE cd_pessoa = '".$_SESSION['concd_colab']."'";
-                  $result_colab = mysqli_query($conn, $select_colab);
-                  $row_colab = mysqli_fetch_assoc($result_colab);
+                  if($_POST['editstatus_colab'] == false){
+                    $status_colab = 0;
+                  }else{
+                    $status_colab = 1;
+                  }
+
+                  $updatecliente = "UPDATE tb_prod_serv SET
+                      cd_classe_fiscal = '" . $_POST['editcd_classe_fiscal'] . "',
+                      cd_grupo = '" . $_POST['editcd_grupo'] . "',
+                      cdbarras_prod_serv = '" . $_POST['editcdbarras_prod_serv'] . "',
+                      titulo_prod_serv = '" . $_POST['edittitulo_prod_serv'] . "',
+                      obs_prod_serv = '" . $_POST['editobs_prod_serv'] . "',
+                      tipo_prod_serv = '" . $_POST['edittipo_prod_serv'] . "',
+                      preco_prod_serv = '" . $_POST['editpreco_prod_serv'] . "',
+                      custo_prod_serv = '" . $_POST['editcusto_prod_serv'] . "',
+                      status_colab = '" . $status_colab = 0 . "'
+                      WHERE cd_prod_serv = " . $_POST['editcd_prod_serv'];
+              
+                  mysqli_query($conn, $updatecliente);
+
+                  $query = "SELECT * FROM tb_prod_serv WHERE cd_prod_serv = '".$_POST['con_cd_prod_serv']."'";
+                  $result = mysqli_query($conn, $query);
+                  $row = mysqli_fetch_assoc($result);
 
                   // Exibe as informações do usuário no formulário
-                  if($row_colab) {
-                      echo '<div class="col-12 col-md-12">';
-                      echo '<div class="nc-form-tac">';
-                      echo '<h3 class="card-title">Dados Pessoais</h3>';
-                      echo '<form method="POST">';
-                      echo '<label for="btncd_colab">CD</label>';
-                      //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
-                      echo '<input value="'.$row_colab['cd_pessoa'].'" name="btncd_colab" type="text" id="btncd_colab" class="aspNetDisabled form-control form-control-sm" readonly style="display: block;"/>';
-                      echo '<label for="btnpnome_colab">Nome</label>';
-                      echo '<input value="'.$row_colab['pnome_pessoa'].'" name="btnpnome_colab" type="text" id="btnpnome_colab" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
-                      echo '<label for="btnsnome_colab">sobrenome</label>';
-                      echo '<input value="'.$row_colab['snome_pessoa'].'" name="btnsnome_colab" type="text" id="btnsnome_colab" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
-                      echo '<label for="btncpf_colab">CPF</label>';
+                  if($row) {
+                    $_SESSION['cd_prod_serv'] = $row['cd_prod_serv'];
+                    $_SESSION['cd_classe_fiscal'] = $row['cd_classe_fiscal'];
+                    $_SESSION['cd_grupo_prod_serv'] = $row['cd_grupo'];
+                    $_SESSION['cdbarras_prod_serv'] = $row['cdbarras_prod_serv'];
+                    $_SESSION['titulo_prod_serv'] = $row['titulo_prod_serv'];
+                    $_SESSION['obs_prod_serv'] = $row['obs_prod_serv'];
+                    $_SESSION['tipo_prod_serv'] = $row['tipo_prod_serv'];
+                    $_SESSION['preco_prod_serv'] = $row['preco_prod_serv'];
+                    $_SESSION['custo_prod_serv'] = $row['custo_prod_serv'];
+                    $_SESSION['status_colab'] = $row['status_colab'];
 
-                      $resultadoCPF = $t->validarCPF($row_colab['cpf_pessoa']);
-                        
-                        //echo "CPF Formatado: " . $resultadoCPF['cpf_formatado'] . "<br>";
-                        //echo "Bloco 1: " . $resultadoCPF['bloco1'] . "<br>";
-                        //echo "Bloco 2: " . $resultadoCPF['bloco2'] . "<br>";
-                        //echo "Bloco 3: " . $resultadoCPF['bloco3'] . "<br>";
-                        //echo "Dígito Verificador: " . $resultadoCPF['digito_verificador'] . "<br>";
-                        //echo "Válido: " . ($resultadoCPF['valido'] ? "Sim" : "Não") . "<br>";
+                    $_SESSION['statusCadastrosColab'] = 2;
+                  }   
+                  
+                }
+              */
 
-                      echo '<input value="'.$row_colab['cpf_pessoa'].'" oninput="cpf(this)" name="btncpf_colab" type="tel"  id="btncpf_colab" class="aspNetDisabled form-control form-control-sm"/>';
-                      
-                      echo '<script>document.getElementById("btncpf_colab").style.border = "'.($resultadoCPF['valido'] ? '' : '2px solid red').'";</script>';
-
-                      //echo '<script>document.getElementById("btncpf_colab").style.border = "2px solid red";</script>';
-
-                      echo '<label for="btntel_colab">Telefone</label>';
-                      $resultado = $t->telefone($row_colab['tel1_pessoa']);
-                      echo '<div class="input-group">';
-                      echo '    <div class="input-group-prepend">';
-                      echo '      <select name="cd_pais" id="cd_pais"  class="input-group-text" required>';
-                      echo '      <option selected="selected" value="'.$resultado['codigo_pais'].'">'.$resultado['nome_pais'].'</option>';
-                      echo $resultado['lista_paises'];
-
-                      echo '      </select>  ';
-                      echo '    </div>';
-                      echo '    <input placeholder="Telefone" type="tel" value="'.$resultado['ddd'].$resultado['numero'].'" name="btntel_colab" id="btntel_colab" type="tel" class="form-control form-control-sm" required oninput="tel(this)">';
-                      echo '    <div class="input-group-append">';
-
-                      echo '    </div>';
-                      echo '    </div>';
-
-                      //echo '<input value="'.$row_colab['tel1_pessoa'].'" name="btntel_colab" type="tel"  id="btntel_colab" class="aspNetDisabled form-control form-control-sm"/>';
-                      echo '<label for="btnemail_colab">Email</label>';
-                      echo '<input value="'.$row_colab['email_pessoa'].'" name="btnemail_colab" type="email"  id="btnemail_colab" maxlenth="40" class="aspNetDisabled form-control form-control-sm"/>';
-                      
-                      //echo '</div>';        
-                      echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="atualizaCliente" id="atualizaCliente" style="margin-top: 20px; margin-bottom: 20px;">Atualizar cadastro</button>';
-                      echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="outroCliente" id="outroCliente" style="margin-top: 20px; margin-bottom: 20px;">Sair</button>';
-                    
-                      echo '</form>';
-                      echo '</div>';
-                      echo '</div>';
-                      
-                    }
-                    ?>
-                          
-                          
-
-
-                          <p id="error-message" style="color: #DDDDDD;"></p>
-                      
-                          <script>
-                          //    function validateInput(inputElement) {
-                          //        var inputValue = inputElement.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-                          //        var errorMessageElement = document.getElementById("error-message");
-                      
-                          //        if (inputValue.length === 11) {
-                          //            errorMessageElement.textContent = "";
-                          //            inputElement.setCustomValidity("");
-                          //        } else if (inputValue.length === 10) {
-                          //            errorMessageElement.textContent = "Insira um número válido com DDD.";
-                          //            inputElement.setCustomValidity("Insira um número válido com DDD.");
-                          //        } else if (inputValue.length === 9) {
-                          //            errorMessageElement.textContent = "Insira o DDD e o número completo.";
-                          //            inputElement.setCustomValidity("Insira o DDD e o número completo.");
-                          //        } else {
-                          //            errorMessageElement.textContent = "Insira um número válido.";
-                          //            inputElement.setCustomValidity("Insira um número válido.");
-                          //        }
-                          //    }
-                      
-                          //    var phoneInput = document.getElementById("contel_colab");
-                          //    phoneInput.addEventListener("input", function () {
-                          //        validateInput(phoneInput);
-                          //    });
-                          </script>
-                    <?php
-                    
-                    
-                    
-
-
-                    //echo '<label for="lancarPagamento"></label>';
-                    //echo '<input type="submit" name="lancarPagamento" id="lancarPagamento" class="btn btn-success"">';
-                    
-                    
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    
-                    
-                    
-                   
-
-                    
-                    
-                    
-                      
-                    
-
-                    /*             
-
-
-                    echo '<form action="impresso.php" method="POST" target="_blank">';
-                    echo '<div style="display:none;">';
-                    //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
-                    echo '<input value="'.$_SESSION['cd_colab'].'" name="btncd_colab" type="text" id="showcd_colab" style="display: none;"/>';
-                    //echo '<label for="btnpnome_colab">Nome</label>';
-                    echo '<input value="'.$_SESSION['pnome_colab'].'" name="btnpnome_colab" type="text" id="btnpnome_colab" maxlength="40" readonly/>';
-                    //echo '<label for="btnsnome_colab">sobrenome</label>';
-                    echo '<input value="'.$_SESSION['snome_colab'].'" name="btnsnome_colab" type="text" id="btnsnome_colab" maxlength="40" readonly/>';
-                    //echo '<label for="btntel_colab">Telefone</label>';
-                    echo '<input value="'.$_SESSION['tel_colab'].'" name="btntel_colab" type="tel"  id="btntel_colab" oninput="tel(this)" readonly/>';
-                    echo '<script>document.getElementById("showcd_colab").value = "'.$_SESSION['cd_colab'].'"</script>';
-                    echo '<script>document.getElementById("btnpnome_colab").value = "'.$_SESSION['pnome_colab'].'"</script>';
-                    echo '<script>document.getElementById("btnsnome_colab").value = "'.$_SESSION['snome_colab'].'"</script>';
-                    echo '<script>document.getElementById("btntel_colab").value = "'.$_SESSION['tel_colab'].'"</script>';
-
-                    //echo '<label for="btncd_servico">OS</label>';
-                    echo '<input value="'.$_SESSION['cd_servico'].'" type="tel" name="btncd_servico" id="btncd_servico" readonly>';
-                    //echo '<label for="btnobs_servico">Descrição Geral</label>';
-                    echo '<input value="'.$_SESSION['obs_servico'].'" type="text" name="btnobs_servico" maxlength="999" id="btnobs_servico" placeholder="Caracteristica geral do serviço" readonly>';
-                    //echo '<label for="btnprioridade_servico">Prioridade</label>';
-                    echo '<select name="btnprioridade_servico" id="btnprioridade_servico">';
-                    echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >'.$_SESSION['prioridade_servico'].'</option>';
-                    echo '</select>';
-                    //echo '<!--<label for="btnprazo_servico">Entrada</label>-->';
-                    echo '<input value="'.$_SESSION['entrada_servico'].'" name="btnentrada_servico" type="datetime-local" id="btnentrada_servico" readonly/>';
-                    //echo '<label for="btnprazo_servico">Prazo</label>';
-                    echo '<input value="'.$_SESSION['prazo_servico'].'" name="btnprazo_servico" type="datetime-local" id="btnprazo_servico" readonly/>';
-                    
-                    echo '<script>document.getElementById("btncd_servico").value = "'.$_SESSION['cd_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnobs_servico").value = "'.$_SESSION['obs_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprioridade_servico").value = "'.$_SESSION['prioridade_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnentrada_servico").value = "'.$_SESSION['entrada_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprazo_servico").value = "'.$_SESSION['prazo_servico'].'"</script>';
-
-                    //echo '<label for="showobs_servico">Total</label>';
-                    echo '<input value="'.$_SESSION['vtotal_orcamento'].'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" readonly>';
-                    //echo '<label for="showobs_servico">Pago</label>';
-                    echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" readonly>';
-                    
-
-                    echo '<script>document.getElementById("btnvtotal_orcamento").value = "'.$_SESSION['vtotal_orcamento'].'"</script>';
-                    echo '<script>document.getElementById("btnvpag_orcamento").value = "'.$_SESSION['vpag_servico'].'"</script>';
-                    echo '</div>';
-
-                    
-                    //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
-                    echo '<button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">OS <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    echo '<button type="submit" name="historico_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Histórico <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    echo '<button type="submit" name="via_colab" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-whatsapp"></i></button>';
-                    //echo '<button type="submit" class="btn btn-danger" name="limparOS-" style="margin: 5px;">Nova Consulta</button>';     
-                    echo '</form>';
-                    echo '<form method="post">';//echo '<button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Nova Consulta</button>';
-                    echo '<button type="submit" class="btn btn-block btn-lg btn-warning" name="editaOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-file-check btn-icon-append"></i> Editar</button>';
-                    echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
-                    //<i class="mdi mdi-alert btn-icon-prepend"></i>  
-                    echo '</form>';
-                    */
-
-                }else if($_SESSION['concd_colab'] == 0 && isset($_SESSION['contel_colab'])){
-
-
-                  echo '<script>document.getElementById("consulta").style.display = "none";</script>';
-                  echo '<div class="col-12 grid-margin">';
-                  echo '<div class="card" '.$_SESSION['c_card'].'>';
-                  echo '<div class="card-body" id="cadastraCliente"><!--FORMULÁRIO PARA CRIAR OS-->';
-                  echo '<div class="kt-portlet__body">';
-                  echo '<div class="row">';
-          
-                  echo '<div class="col-12 col-md-12">';
-                  echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
-                  echo '<h3 class="card-title">Cadastrar Funcionário</h3>';
-                  echo '<form method="POST">';
-                  echo '<div class="form-group-custom">';
-                  echo '<label for="btnpnome_colab">Nome</label>';
-                  echo '<input  name="btnpnome_colab" type="text" id="btnpnome_colab" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
-                  echo '</div>';
-                  echo '<div class="form-group-custom">';
-                  echo '<label for="btnsnome_colab">sobrenome</label>';
-                  echo '<input  name="btnsnome_colab" type="text" id="btnsnome_colab" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
-                  echo '</div>';
-                  echo '<div class="form-group-custom">';
-                  echo '<label for="btncpf_colab">CPF</label>';
-
-                      $resultadoCPF = $t->validarCPF(0);
-                        
-                        //echo "CPF Formatado: " . $resultadoCPF['cpf_formatado'] . "<br>";
-                        //echo "Bloco 1: " . $resultadoCPF['bloco1'] . "<br>";
-                        //echo "Bloco 2: " . $resultadoCPF['bloco2'] . "<br>";
-                        //echo "Bloco 3: " . $resultadoCPF['bloco3'] . "<br>";
-                        //echo "Dígito Verificador: " . $resultadoCPF['digito_verificador'] . "<br>";
-                        //echo "Válido: " . ($resultadoCPF['valido'] ? "Sim" : "Não") . "<br>";
-
-                      echo '<input oninput="cpf(this)" name="btncpf_colab" type="tel"  id="btncpf_colab" class="aspNetDisabled form-control form-control-sm"/>';
-                      echo '</div>';
-                      //echo '<script>document.getElementById("btncpf_colab").style.border = "'.($resultadoCPF['valido'] ? '' : '2px solid red').'";</script>';
-
-                      //echo '<script>document.getElementById("btncpf_colab").style.border = "2px solid red";</script>';
-
-                      echo '<div class="form-group-custom">';
-                      
-                      $resultado = $t->telefone($_SESSION['contel_colab']);
-                      echo '<div class="input-group">';
-                      echo '<div class="input-group-prepend">';
-                      echo '<select name="cd_pais" id="cd_pais"  class="input-group-text" required>';
-                      echo '<option selected="selected" value="'.$resultado['codigo_pais'].'">'.$resultado['nome_pais'].'</option>';
-                      echo $resultado['lista_paises'];
-
-                      echo '</select>  ';
-                      echo '</div>';
-                      echo '<label for="btntel_colab">Telefone</label>';
-                      echo '<input placeholder="Telefone" type="tel" value="'.$resultado['ddd'].$resultado['numero'].'" name="btntel_colab" id="btntel_colab" type="tel" class="form-control form-control-sm" required oninput="tel(this)">';
-                      echo '<div class="input-group-append">';
-                      echo '</div>';
-                      echo '</div>';
-                      echo '</div>';
-
-                      echo '<div class="form-group-custom">';
-                      echo '<label for="btnemail_colab">Email</label>';
-                      echo '<input name="btnemail_colab" type="email"  id="btnemail_colab" maxlenth="40" class="aspNetDisabled form-control form-control-sm"/>';
-                      echo '</div>';
-
-                      echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadastrarColab" id="cadastrarColab" style="margin-top: 20px; margin-bottom: 20px;">Cadastrar</button>';
-                      echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="outroColab" id="outroColab" style="margin-top: 20px; margin-bottom: 20px;">Sair</button>';
-                    
-                      echo '</form>';
-                      echo '</div>';
-                      echo '</div>';
-                      
-                    
-                    ?>
-                          
-                          
-
-
-                          <p id="error-message" style="color: #DDDDDD;"></p>
-                      
-                          <script>
-                          //    function validateInput(inputElement) {
-                          //        var inputValue = inputElement.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-                          //        var errorMessageElement = document.getElementById("error-message");
-                      
-                          //        if (inputValue.length === 11) {
-                          //            errorMessageElement.textContent = "";
-                          //            inputElement.setCustomValidity("");
-                          //        } else if (inputValue.length === 10) {
-                          //            errorMessageElement.textContent = "Insira um número válido com DDD.";
-                          //            inputElement.setCustomValidity("Insira um número válido com DDD.");
-                          //        } else if (inputValue.length === 9) {
-                          //            errorMessageElement.textContent = "Insira o DDD e o número completo.";
-                          //            inputElement.setCustomValidity("Insira o DDD e o número completo.");
-                          //        } else {
-                          //            errorMessageElement.textContent = "Insira um número válido.";
-                          //            inputElement.setCustomValidity("Insira um número válido.");
-                          //        }
-                          //    }
-                      
-                          //    var phoneInput = document.getElementById("contel_colab");
-                          //    phoneInput.addEventListener("input", function () {
-                          //        validateInput(phoneInput);
-                          //    });
-                          </script>
-                    <?php
-                    
-                    
-                    
-
-
-                    //echo '<label for="lancarPagamento"></label>';
-                    //echo '<input type="submit" name="lancarPagamento" id="lancarPagamento" class="btn btn-success"">';
-                    
-                    
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    
-                    
-                    
-                   
-
-                    
-                    
-                    
-                      
-                    
-
-                    /*             
-
-
-                    echo '<form action="impresso.php" method="POST" target="_blank">';
-                    echo '<div style="display:none;">';
-                    //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
-                    echo '<input value="'.$_SESSION['cd_colab'].'" name="btncd_colab" type="text" id="showcd_colab" style="display: none;"/>';
-                    //echo '<label for="btnpnome_colab">Nome</label>';
-                    echo '<input value="'.$_SESSION['pnome_colab'].'" name="btnpnome_colab" type="text" id="btnpnome_colab" maxlength="40" readonly/>';
-                    //echo '<label for="btnsnome_colab">sobrenome</label>';
-                    echo '<input value="'.$_SESSION['snome_colab'].'" name="btnsnome_colab" type="text" id="btnsnome_colab" maxlength="40" readonly/>';
-                    //echo '<label for="btntel_colab">Telefone</label>';
-                    echo '<input value="'.$_SESSION['tel_colab'].'" name="btntel_colab" type="tel"  id="btntel_colab" oninput="tel(this)" readonly/>';
-                    echo '<script>document.getElementById("showcd_colab").value = "'.$_SESSION['cd_colab'].'"</script>';
-                    echo '<script>document.getElementById("btnpnome_colab").value = "'.$_SESSION['pnome_colab'].'"</script>';
-                    echo '<script>document.getElementById("btnsnome_colab").value = "'.$_SESSION['snome_colab'].'"</script>';
-                    echo '<script>document.getElementById("btntel_colab").value = "'.$_SESSION['tel_colab'].'"</script>';
-
-                    //echo '<label for="btncd_servico">OS</label>';
-                    echo '<input value="'.$_SESSION['cd_servico'].'" type="tel" name="btncd_servico" id="btncd_servico" readonly>';
-                    //echo '<label for="btnobs_servico">Descrição Geral</label>';
-                    echo '<input value="'.$_SESSION['obs_servico'].'" type="text" name="btnobs_servico" maxlength="999" id="btnobs_servico" placeholder="Caracteristica geral do serviço" readonly>';
-                    //echo '<label for="btnprioridade_servico">Prioridade</label>';
-                    echo '<select name="btnprioridade_servico" id="btnprioridade_servico">';
-                    echo '<option selected="selected" value="'.$_SESSION['prioridade_servico'].'" >'.$_SESSION['prioridade_servico'].'</option>';
-                    echo '</select>';
-                    //echo '<!--<label for="btnprazo_servico">Entrada</label>-->';
-                    echo '<input value="'.$_SESSION['entrada_servico'].'" name="btnentrada_servico" type="datetime-local" id="btnentrada_servico" readonly/>';
-                    //echo '<label for="btnprazo_servico">Prazo</label>';
-                    echo '<input value="'.$_SESSION['prazo_servico'].'" name="btnprazo_servico" type="datetime-local" id="btnprazo_servico" readonly/>';
-                    
-                    echo '<script>document.getElementById("btncd_servico").value = "'.$_SESSION['cd_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnobs_servico").value = "'.$_SESSION['obs_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprioridade_servico").value = "'.$_SESSION['prioridade_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnentrada_servico").value = "'.$_SESSION['entrada_servico'].'"</script>';
-                    echo '<script>document.getElementById("btnprazo_servico").value = "'.$_SESSION['prazo_servico'].'"</script>';
-
-                    //echo '<label for="showobs_servico">Total</label>';
-                    echo '<input value="'.$_SESSION['vtotal_orcamento'].'" type="tel" name="btnvtotal_orcamento" id="btnvtotal_orcamento" readonly>';
-                    //echo '<label for="showobs_servico">Pago</label>';
-                    echo '<input value="'.$_SESSION['vpag_servico'].'" type="tel" name="btnvpag_orcamento" id="btnvpag_orcamento" readonly>';
-                    
-
-                    echo '<script>document.getElementById("btnvtotal_orcamento").value = "'.$_SESSION['vtotal_orcamento'].'"</script>';
-                    echo '<script>document.getElementById("btnvpag_orcamento").value = "'.$_SESSION['vpag_servico'].'"</script>';
-                    echo '</div>';
-
-                    
-                    //echo '<button type="submit" name="lancarOrcamento" class="btn btn-success">LançarOrcamento</button>';
-                    echo '<button type="submit" name="imprimir_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">OS <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    echo '<button type="submit" name="historico_os" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Histórico <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    echo '<button type="submit" name="via_colab" class="btn btn-block btn-lg btn-info" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-printer btn-icon-append"></i></button>';
-                    echo '<button type="button" class="btn btn-block btn-lg btn-success" onclick="enviarMensagemWhatsApp()" style="margin-top: 20px; margin-bottom: 20px;">Via do Cliente <i class="mdi mdi-whatsapp"></i></button>';
-                    //echo '<button type="submit" class="btn btn-danger" name="limparOS-" style="margin: 5px;">Nova Consulta</button>';     
-                    echo '</form>';
-                    echo '<form method="post">';//echo '<button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Nova Consulta</button>';
-                    echo '<button type="submit" class="btn btn-block btn-lg btn-warning" name="editaOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-file-check btn-icon-append"></i> Editar</button>';
-                    echo '<button type="submit" class="btn btn-block btn-lg btn-danger" name="limparOS" style="margin-top: 20px; margin-bottom: 20px;"><i class="mdi mdi-reload btn-icon-prepend"></i> Nova Consulta</button>';
-                    //<i class="mdi mdi-alert btn-icon-prepend"></i>  
-                    echo '</form>';
-                    */
-
-
-
+                if(isset($_POST['menuPrincipal'])) { 
+                  $_SESSION['statusCadastrosColab'] = FALSE;
                 }
 
+                if(isset($_POST['cadColab'])) { 
+                  $_SESSION['cad_cd_colab']           = "";
+                  $_SESSION['cad_pnome_colab']        = "";
+                  $_SESSION['cad_snome_colab']        = "";
+                  $_SESSION['cad_subtipo_colab']      = "";
+                  $_SESSION['cad_cpf_colab']          = "";
+                  $_SESSION['cad_tel1_colab']         = "";
+                  $_SESSION['cad_email_colab']        = "";
+                  $_SESSION['cad_senha_colab']        = "";
+                  $_SESSION['cad_vl_comissao_colab']  = "";
+                  $_SESSION['cad_pc_comissao_colab']  = "";
+                  $_SESSION['cad_cd_empresa']         = "";
+                  $_SESSION['cad_cd_filial']          = "";
+                  $_SESSION['statusCadastrosColab']        = 2;
+                }
+
+                if(isset($_POST['cadastraColab_funcao'])) {
+                  $query = "INSERT INTO tb_pessoa(pnome_pessoa, snome_pessoa, tipo_pessoa, subtipo_pessoa, cpf_pessoa, tel1_pessoa, email_pessoa, vl_comissao_padrao, pc_comissao_padrao, cd_empresa, cd_filial, senha_pessoa, status_pessoa) VALUES(
+                    '".$_POST['cad_pnome_colab']."',
+                    '".$_POST['cad_snome_colab']."',
+                    'colab',
+                    '".$_POST['cad_subtipo_colab']."',
+                    '".$_POST['cad_cpf_colab']."',
+                    '".$_POST['cad_tel1_colab']."',
+                    '".$_POST['cad_email_colab']."',
+                    '".$_POST['cad_vl_comissao_colab']."',
+                    '".$_POST['cad_pc_comissao_colab']."',
+                    '".$_SESSION['cd_empresa']."',
+                    '".$_SESSION['cd_filial']."',
+                    '1',
+                    1)
+                  ";
+                  //echo
+                  mysqli_query($conn, $query);
+                  echo "<script>window.alert('Colaborador Cadastrado com sucesso!');</script>";
+                  $_SESSION['statusCadastrosColab'] = FALSE;
+                }
+                if(isset($_POST['gravaColab_funcao'])) {
+                  $query = "UPDATE tb_pessoa SET
+                    pnome_pessoa    = '".$_POST['edit_pnome_colab']."',
+                    snome_pessoa    = '".$_POST['edit_snome_colab']."',
+                    subtipo_pessoa    = '".$_POST['edit_subtipo_colab']."',
+                    cpf_pessoa    = '".$_POST['edit_cpf_colab']."',
+                    tel1_pessoa   = '".$_POST['edit_tel1_colab']."',
+                    email_pessoa    = '".$_POST['edit_email_colab']."',
+                    vl_comissao_padrao    = '".$_POST['edit_vl_comissao_colab']."',
+                    pc_comissao_padrao    = '".$_POST['edit_pc_comissao_colab']."',
+                    status_pessoa    = '".$_POST['edit_status_colab']."'
+                    WHERE cd_pessoa = '".$_POST['edit_cd_colab']."'
+                  ";
+                  mysqli_query($conn, $query);
+                  //echo "<script>window.alert('Colaborador Atualizado com sucesso!');</script>";
+                  $_SESSION['statusCadastrosColab'] = FALSE;
+                }
+
+                
+              ?>
+              
+              <?php
+              if($_SESSION['statusCadastrosColab'] == 1){//cadastro de grupo de produtos
+                echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
+                echo '<div class="card" '.$_SESSION['c_card'].'>';
+                echo '<div class="card-body">';
+
+                echo '<div class="col-12 col-md-12">';
+                echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                echo '<h3 class="card-title">-_'.$_SESSION['statusCadastrosColab'].'_-</h3>';
+                echo '<form method="POST">';
+
+                echo '<div class="form-group row justify-content-center">';
+                echo '<div class="col text-center">';
+                echo '<p class="mb-2 card-title">Grupo Atívo '.$_SESSION['status_colab'].'</p>';
+                echo '<span class="toggle-slider round"></span>';
+                echo '</label>';
+                echo '</div>';
+                echo '</div>';
+                echo '<label class="card-title"for="editcd_grupo"></label>';
+                echo '<div class="input-group">';
+                echo '<div class="input-group-prepend">';
+                echo '<span class="input-group-text" style="width:150px;">Código</span>';
+                echo '</div>';
+                echo '<input value="'.$_SESSION['cd_grupo'].'" name="editcd_grupo" type="tel" id="editcd_grupo" class="form-control form-control-sm" style="display: block;" readonly/>';
+                echo '</div>';
+
+                echo '<label class="card-title"for="edittitulo_grupo"></label>';
+                echo '<div class="input-group">';
+                echo '<div class="input-group-prepend">';
+                echo '<span class="input-group-text" style="width:150px;">Título: </span>';
+                echo '</div>';
+                echo '<input id="edittitulo_grupo" name="edittitulo_grupo" type="text" class="form-control form-control-lg " placeholder="Digite aqui"/>';
+                echo '</div>';
+
+                echo '<label class="card-title"for="editdescricao_grupo"></label>';
+                echo '<div class="input-group">';
+                echo '<div class="input-group-prepend">';
+                echo '<span class="input-group-text" style="width:150px;">Descrição: </span>';
+                echo '</div>';
+                echo '<input id="editdescricao_grupo" name="editdescricao_grupo" type="text" class="form-control form-control-lg "placeholder="Digite aqui"/>';
+                echo '</div>';
+
+                
+                
+
+                    
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadGrupo_funcao" id="cadGrupo_funcao" style="margin-top: 20px; margin-bottom: 20px;">Cadastrar</button>';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="menuPrincipal" id="menuPrincipal" style="margin-top: 20px; margin-bottom: 20px;">Voltar</button>';
+                                
+                echo '</form>';
+              
+                echo '</div>';
+              }else if($_SESSION['statusCadastrosColab'] == 2){//cadastro de Colaborador
+                
+                echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
+                echo '<div class="card" '.$_SESSION['c_card'].'>';
+                echo '<div class="card-body">';
+                echo '<div class="col-12 col-md-12">';
+                echo '<div class="nc-form-tac">';
+                //echo '<h3 class="card-title">-_'.$_SESSION['cad_status_colab'].'_-</h3>';
+                echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="POST" enctype="multipart/form-data">';
+                echo '<div class="form-group row justify-content-center">';
+                echo '<div class="col text-center">';
+                 
+                echo '</div>';
+                echo '</div>';
+                
+                //echo '<div class="col text-center">';
+                //echo '    <p class="mb-2 card-title" id="status">Colaborador Inativo</p>';
+                //echo '    <label class="toggle-switch toggle-switch-success">';
+                //echo '        <input name="editcheckstatus_colab" id="editcheckstatus_colab" ';
+                //if($_SESSION['cad_status_colab'] == 1){echo 'checked="checked"';};
+                //echo ' type="checkbox" onclick="handleCheckboxClick(this);">';
+                //echo '        <span class="toggle-slider round"></span>';
+                //echo '    </label>';
+                //echo '</div>';
+
+                
+                //echo '<script>';
+                //echo 'function handleCheckboxClick(checkbox) {';
+                //echo '    var statusElement = document.getElementById("status");';
+                //echo '    if (checkbox.checked) {';
+                //echo '        statusElement.textContent = "Colaborador Ativo";';
+                //echo '        document.getElementById("editstatus_colab").value = "1";';
+                //echo '    } else {';
+                //echo '        statusElement.textContent = "Colaborador Inativo";';
+                //echo '        document.getElementById("editstatus_colab").value = "0";';
+                //echo '    }';
+                //echo '}';
+                //echo '</script>';
+                
+                echo '<input value="1" name="cad_status_colab" type="tel" id="cad_status_colab" class="form-control form-control-sm" style="display: none;" required/>';
+                
+
+                
+
+                echo '<div class="input-group">';
+
+                //echo '<div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">';
+                //echo '<span class="card-title">Código</span>';
+                //echo '<div class="input-group-prepend">';
+                //echo '<input value="'.$_SESSION['cad_cd_colab'].'" name="edit_cd_colab" type="tel" id="edit_cd_colab" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                //echo '</div>';
+                //echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Função</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_subtipo_colab'].'" name="cad_subtipo_colab" type="tel"  id="cad_subtipo_colab" class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<span class="card-title">Nome</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_pnome_colab'].'" name="cad_pnome_colab" type="text" id="cad_pnome_colab" maxlength="40"   class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<span class="card-title">Sobrenome</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_snome_colab'].'" name="cad_snome_colab" type="text" id="cad_snome_colab" maxlength="40"   class="form-control form-control-sm"/>';
+                echo '</div>';
+                echo '</div>';
+
+
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuBasicos" name="menuBasicos" onclick="showSection(\'tabBasicos\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuComissao" name="menuComissao" onclick="showSection(\'tabComissao\')" class="btn btn-outline-secondary btn-lg btn-block">Comissão</button>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuAcesso" name="menuAcesso" onclick="showSection(\'tabAcesso\')" class="btn btn-outline-secondary btn-lg btn-block">Acesso</button>';
+                echo '</div>';
+                echo '</div>';
+								echo '</div>';
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicos" name="tabBasicos">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                
+                //echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                //echo '<span class="card-title">Grupo</span>';
+                //echo '<div class="input-group-prepend">';
+                //echo '<select id="editgrupo_prod_serv" name="editgrupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg" required>';
+                //$select_show_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_SESSION['cd_grupo_prod_serv']."'";
+                //$resulta_show_grupo = $conn->query($select_show_grupo);
+                //if ($resulta_show_grupo->num_rows > 0){
+                //  while ($row_show_grupo = $resulta_show_grupo->fetch_assoc()){
+                //    echo '<option selected value="'.$row_show_grupo['cd_grupo'].'">'.$row_show_grupo['titulo_grupo'].'</option>';
+                //  }
+                //}
+                //$select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' and cd_filial = '".$_SESSION['cd_filial']."' ORDER BY titulo_grupo ASC";
+                //$resulta_edit_grupo = $conn->query($select_edit_grupo);
+                //if ($resulta_edit_grupo->num_rows > 0){
+                //  while ($row_edit_grupo = $resulta_edit_grupo->fetch_assoc()){
+                //    echo '<option value="'.$row_edit_grupo['cd_grupo'].'">'.$row_edit_grupo['titulo_grupo'].'</option>';
+                //  }
+                //}
+                //echo '</select>';
+                //echo '</div>';
+                //echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">CPF</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_cpf_colab'].'" name="cad_cpf_colab" type="tel" id="cad_cpf_colab" class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Telefone</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_tel1_colab'].'" name="cad_tel1_colab" type="text" id="cad_tel1_colab" maxlength="10"   class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Email</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_email_colab'].'" name="cad_email_colab" type="tel" id="cad_email_colab" class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '</div>';
+                echo '</div>';
+
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabComissao" name="tabComissao" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                
+                //echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Valor comissão</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_vl_comissao_colab'].'" name="cad_vl_comissao_colab" type="text" id="cad_vl_comissao_colab" maxlength="10"   class="form-control form-control-sm" />';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">% Comissão</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_pc_comissao_colab'].'" name="cad_pc_comissao_colab" type="tel" id="cad_pc_comissao_colab" class="form-control form-control-sm" />';
+                echo '</div>';
+                echo '</div>';
+
+                echo '</div>';
+                echo '</div>';
+
+                echo '
+                <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const vlComissao = document.getElementById("cad_vl_comissao_colab");
+    const pcComissao = document.getElementById("cad_pc_comissao_colab");
+
+    vlComissao.addEventListener("input", function() {
+        if (this.value.trim() !== "" && parseFloat(this.value) > 0) {
+            pcComissao.value = 0;
+        }
+    });
+
+    pcComissao.addEventListener("input", function() {
+        if (this.value.trim() !== "" && parseFloat(this.value) > 0) {
+            vlComissao.value = 0;
+        }
+    });
+});
+</script>
+
+                ';
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabAcesso" name="tabAcesso" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+
+                echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+
+                echo '</div>';
+                echo '</div>';
+
+
+                echo '</div>';
+
+                echo '</div>';
+                echo '</div>';
+
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadastraColab_funcao" id="cadastraColab_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar</button>';
+                                
+                echo '</form>';
+                echo '<form method="POST">';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="menuPrincipal" id="menuPrincipal" style="margin-top: 20px; margin-bottom: 20px;">Sair</button>';
+                echo '</form>';
+              
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+              
+              }else if($_SESSION['statusCadastrosColab'] == 3){//editar Colaborador
+                echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
+                echo '<div class="card" '.$_SESSION['c_card'].'>';
+                echo '<div class="card-body">';
+                echo '<div class="col-12 col-md-12">';
+                echo '<div class="nc-form-tac">';
+                echo '<h3 class="card-title">-_'.$_SESSION['cad_status_colab'].'_-</h3>';
+                echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="POST" enctype="multipart/form-data">';
+                echo '<div class="form-group row justify-content-center">';
+                echo '<div class="col text-center">';
+                 
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col text-center">';
+                echo '    <p class="mb-2 card-title" id="status">Colaborador Inativo</p>';
+                echo '    <label class="toggle-switch toggle-switch-success">';
+                echo '        <input name="editcheckstatus_colab" id="editcheckstatus_colab" ';
+                if($_SESSION['cad_status_colab'] == 1){echo 'checked="checked"';};
+                echo ' type="checkbox" onclick="handleCheckboxClick(this);">';
+                echo '        <span class="toggle-slider round"></span>';
+                echo '    </label>';
+                echo '</div>';
+
+                
+                echo '<script>';
+                echo 'function handleCheckboxClick(checkbox) {';
+                echo '    var statusElement = document.getElementById("status");';
+                echo '    if (checkbox.checked) {';
+                echo '        statusElement.textContent = "Colaborador Ativo";';
+                echo '        document.getElementById("edit_status_colab").value = "1";';
+                echo '    } else {';
+                echo '        statusElement.textContent = "Colaborador Inativo";';
+                echo '        document.getElementById("edit_status_colab").value = "0";';
+                echo '    }';
+                echo '}';
+                echo '</script>';
+                
+                echo '<input value="'.$_SESSION['cad_status_colab'].'" name="edit_status_colab" type="tel" id="edit_status_colab" class="aspNetDisabled form-control form-control-sm" style="display: block;" required/>';
+                
+
+                
+
+                echo '<div class="input-group">';
+
+                echo '<div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">';
+                echo '<span class="card-title">Código</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_cd_colab'].'" name="edit_cd_colab" type="tel" id="edit_cd_colab" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Função</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_subtipo_colab'].'" name="edit_subtipo_colab" type="tel"  id="edit_subtipo_colab" class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<span class="card-title">Nome</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_pnome_colab'].'" name="edit_pnome_colab" type="text" id="edit_pnome_colab" maxlength="40"   class="form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['cad_snome_colab'].'" name="edit_snome_colab" type="text" id="edit_snome_colab" maxlength="40"   class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuBasicos" name="menuBasicos" onclick="showSection(\'tabBasicos\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuComissao" name="menuComissao" onclick="showSection(\'tabComissao\')" class="btn btn-outline-secondary btn-lg btn-block">Comissão</button>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuAcesso" name="menuAcesso" onclick="showSection(\'tabAcesso\')" class="btn btn-outline-secondary btn-lg btn-block">Acesso</button>';
+                echo '</div>';
+                echo '</div>';
+								echo '</div>';
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicos" name="tabBasicos">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                
+                //echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                //echo '<span class="card-title">Grupo</span>';
+                //echo '<div class="input-group-prepend">';
+                //echo '<select id="editgrupo_prod_serv" name="editgrupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg" required>';
+                //$select_show_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_SESSION['cd_grupo_prod_serv']."'";
+                //$resulta_show_grupo = $conn->query($select_show_grupo);
+                //if ($resulta_show_grupo->num_rows > 0){
+                //  while ($row_show_grupo = $resulta_show_grupo->fetch_assoc()){
+                //    echo '<option selected value="'.$row_show_grupo['cd_grupo'].'">'.$row_show_grupo['titulo_grupo'].'</option>';
+                //  }
+                //}
+                //$select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' and cd_filial = '".$_SESSION['cd_filial']."' ORDER BY titulo_grupo ASC";
+                //$resulta_edit_grupo = $conn->query($select_edit_grupo);
+                //if ($resulta_edit_grupo->num_rows > 0){
+                //  while ($row_edit_grupo = $resulta_edit_grupo->fetch_assoc()){
+                //    echo '<option value="'.$row_edit_grupo['cd_grupo'].'">'.$row_edit_grupo['titulo_grupo'].'</option>';
+                //  }
+                //}
+                //echo '</select>';
+                //echo '</div>';
+                //echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">CPF</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_cpf_colab'].'" name="edit_cpf_colab" type="tel" id="edit_cpf_colab" class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Telefone</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_tel1_colab'].'" name="edit_tel1_colab" type="text" id="edit_tel1_colab" maxlength="10"   class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Email</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_email_colab'].'" name="edit_email_colab" type="tel" id="edit_email_colab" class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '</div>';
+                echo '</div>';
+
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabComissao" name="tabComissao" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                
+                //echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Valor comissão</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_vl_comissao_colab'].'" name="edit_vl_comissao_colab" type="text" id="edit_vl_comissao_colab" maxlength="10"   class="form-control form-control-sm" />';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">% Comissão</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cad_pc_comissao_colab'].'" name="edit_pc_comissao_colab" type="tel" id="edit_pc_comissao_colab" class="form-control form-control-sm" />';
+                echo '</div>';
+                echo '</div>';
+
+                echo '</div>';
+                echo '</div>';
+
+                echo '
+                <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const vlComissao = document.getElementById("edit_vl_comissao_colab");
+    const pcComissao = document.getElementById("edit_pc_comissao_colab");
+
+    vlComissao.addEventListener("input", function() {
+        if (this.value.trim() !== "" && parseFloat(this.value) > 0) {
+            pcComissao.value = 0;
+        }
+    });
+
+    pcComissao.addEventListener("input", function() {
+        if (this.value.trim() !== "" && parseFloat(this.value) > 0) {
+            vlComissao.value = 0;
+        }
+    });
+});
+</script>
+
+                ';
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabAcesso" name="tabAcesso" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+
+                echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+
+                echo '</div>';
+                echo '</div>';
+
+
+                echo '</div>';
+
+                echo '</div>';
+                echo '</div>';
+
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="gravaColab_funcao" id="gravaColab_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar</button>';
+                                
+                echo '</form>';
+                echo '<form method="POST">';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="menuPrincipal" id="menuPrincipal" style="margin-top: 20px; margin-bottom: 20px;">Sair</button>';
+                echo '</form>';
+              
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+              
+              }else if($_SESSION['statusCadastrosColab'] == 4){//editar grupo
+                echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
+                echo '<div class="card" '.$_SESSION['c_card'].'>';
+                echo '<div class="card-body">';
+
+                echo '<div class="col-12 col-md-12">';
+                echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                echo '<h3 class="card-title">-_'.$_SESSION['statusCadastrosColab'].'_-</h3>';
+                echo '<form action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" method="POST" enctype="multipart/form-data">';
+                echo '<div class="form-group row justify-content-center">';
+                echo '<div class="col text-center">';
+                 
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="input-group">';
+
+                echo '<div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">';
+                echo '<span class="card-title">Código</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['editcd_grupo'].'" name="editcd_grupo" type="tel" id="editcd_grupo" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                echo '</div>';
+                echo '</div>';
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Código de Barras</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['edittitulo_grupo'].'" name="edittitulo_grupo" type="text"  id="edittitulo_grupo" maxlength="40" class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<span class="card-title">Nome / Descrição</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['editobs_grupo'].'" name="editobs_grupo" type="text" id="editobs_grupo" maxlength="40"   class="aspNetDisabled form-control form-control-sm"/>';
+                echo '</div>';
+                echo '</div>';
+                
+                
+                //echo '</div>';
+                //echo '</div>';
+
+                //echo '</div>';
+
+                //echo '</div>';
+                //echo '</div>';
+
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="gravaGrupo_funcao" id="gravaGrupo_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar</button>';
+                                
+                echo '</form>';
+                echo '<form method="POST">';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="menuPrincipal" id="menuPrincipal" style="margin-top: 20px; margin-bottom: 20px;">Sair</button>';
+                echo '</form>';
+              
+                echo '</div>';
+              
+              }else{
+                $select_colab = "SELECT * FROM tb_pessoa where cd_filial = ".$_SESSION['cd_filial']." ORDER BY pnome_pessoa ASC";
+                $resulta_colab = $conn->query($select_colab);
+                if ($resulta_colab->num_rows > 0){
+
+                  echo '<div class="col-lg-12 grid-margin stretch-card" >';
+                  echo '<div class="card" '.$_SESSION['c_card'].'>';
+                  echo '<div class="card-body">';
+                    
+                  //echo '<form method="POST">';
+                  //echo '<input type="tel" id="con_cd_colab" name="con_cd_colab" value="'.$row_colab['cd_pessoa'].'" style="display:none;">';
+                  //echo '<button type="submit" class="btn  btn-outline-warning" name="editColab" id="editColab" >Editar <i class="icon-open"></i></button>';
+                  //echo '</form>';
+                  echo '<h4 class="card-title" style="text-align: center;">Colaboradores cadastrados</h4>';
+                  //echo '<h6 class="card-title" style="text-align: center;">'.$row_colab['pnome_pessoa'].' '.$row_colab['snome_pessoa'].'</h6>';
+                    
+                  echo '<div class="table-responsive">';
                   
-                ?>
-                </div>
-              </div>
-           
-          
+                  echo '<form method="POST">';
+                  //echo '<input type="hidden" name="cadColab" id="cadColab" value="'.$row_colab['cd_pessoa'].'" >';
+                  echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadColab" id="cadColab" style="margin-top: 20px; margin-bottom: 20px;">Novo Colaborador</button>';
+                  echo '</form>';
+
+
+                  echo '<table class="table" '.$_SESSION['c_card'].'>';
+                  echo '<thead>';
+                  echo '<tr>';
+                  echo '<th>CD</th>';
+                  echo '<th>Nome Completo</th>';
+                  echo '<th>Função</th>';
+                  echo '</tr>';
+                  echo '</thead>';
+                  echo '<tbody>';
+                  while ( $row_colab = $resulta_colab->fetch_assoc()){
+                    echo '<tr>';
+                    echo '<form method="POST">';
+                    if($row_colab['status_pessoa'] == 0){
+                      echo '<td style="display: none;"><input type="tel" id="con_cd_colab" name="con_cd_colab" value="'.$row_colab['cd_pessoa'].'"></td>';
+                      echo '<td><button type="submit" class="btn btn-outline-danger" name="btn_con_colab" id="btn_con_colab">'.$row_colab['cd_pessoa'].'</button></td>';
+                    }else{
+                      echo '<td style="display: none;"><input type="tel" id="con_cd_colab" name="con_cd_colab" value="'.$row_colab['cd_pessoa'].'"></td>';
+                      echo '<td><button type="submit" class="btn btn-outline-success" name="btn_con_colab" id="btn_con_colab">'.$row_colab['cd_pessoa'].'</button></td>';
+                    }
+                        
+                    echo '</form>';
+                    echo '<td>'.$row_colab['pnome_pessoa'].' '.$row_colab['snome_pessoa'].'</td>';
+                    echo '<td>'.$row_colab['subtipo_pessoa'].'</td>';
+                    //echo '<td>R$: '.$row_produtos['preco_prod_serv'].'</td>';
+                    echo '</tr>';
+                  }
+                  echo '</tbody>';
+                  echo '</table>';
+                }
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+              }
+              //echo '<form method="POST">';
+              //echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadGrupo" id="cadGrupo" style="margin-top: 20px; margin-bottom: 20px;">Cadastrar Colaborador</button>';
+              //echo '</form>';
+            
+
+
+
+
+
+
+
+
+
+
+  ?>
+
+                
+            </div>
+          </div>
         
      
     
