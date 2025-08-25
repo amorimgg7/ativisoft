@@ -14470,3 +14470,28 @@ Stack trace:
 [24-Aug-2025 20:47:48 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
 [24-Aug-2025 20:47:57 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\form_conf_caixa.php on line 87
 [24-Aug-2025 20:48:36 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[25-Aug-2025 07:59:55 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[25-Aug-2025 07:59:55 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[25-Aug-2025 07:59:55 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[25-Aug-2025 07:59:55 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 378
+[25-Aug-2025 08:00:00 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 241
+[25-Aug-2025 08:00:00 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 292
+[25-Aug-2025 08:00:00 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 507
+[25-Aug-2025 08:00:00 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 715
+[25-Aug-2025 08:00:00 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 772
+[25-Aug-2025 08:00:00 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY pnome_pessoa ASC' at line 1 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:773
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(773): mysqli->query('SELECT * FROM t...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 773
+[25-Aug-2025 08:00:07 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[25-Aug-2025 08:00:07 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[25-Aug-2025 08:00:07 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 378
+[25-Aug-2025 08:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[25-Aug-2025 08:00:10 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[25-Aug-2025 08:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 378
+[25-Aug-2025 08:00:15 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[25-Aug-2025 08:00:21 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 241
+[25-Aug-2025 08:00:21 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 292
+[25-Aug-2025 08:00:21 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 507
+[25-Aug-2025 08:00:21 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 715

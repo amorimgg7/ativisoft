@@ -342,21 +342,21 @@
                 //echo '</div>';
                 //echo '</div>';
                 
-                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Função</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cad_subtipo_colab'].'" name="cad_subtipo_colab" type="tel"  id="cad_subtipo_colab" class="form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['cad_subtipo_colab'].'" name="cad_subtipo_colab" type="text"  id="cad_subtipo_colab" class="form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
 
-                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5">';
                 echo '<span class="card-title">Nome</span>';
                 echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['cad_pnome_colab'].'" name="cad_pnome_colab" type="text" id="cad_pnome_colab" maxlength="40"   class="form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
 
-                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<span class="card-title">Sobrenome</span>';
                 echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['cad_snome_colab'].'" name="cad_snome_colab" type="text" id="cad_snome_colab" maxlength="40"   class="form-control form-control-sm"/>';
@@ -370,18 +370,18 @@
                 echo '<button type="button" id="menuBasicos" name="menuBasicos" onclick="showSection(\'tabBasicos\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
                 echo '</div>';
                 echo '</div>';
-                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
                 echo '<button type="button" id="menuComissao" name="menuComissao" onclick="showSection(\'tabComissao\')" class="btn btn-outline-secondary btn-lg btn-block">Comissão</button>';
                 echo '</div>';
                 echo '</div>';
-                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
                 echo '<button type="button" id="menuAcesso" name="menuAcesso" onclick="showSection(\'tabAcesso\')" class="btn btn-outline-secondary btn-lg btn-block">Acesso</button>';
                 echo '</div>';
                 echo '</div>';
 								echo '</div>';
-                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicos" name="tabBasicos">';
+                echo '<div class="col-4 col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicos" name="tabBasicos">';
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
                 
                 //echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
@@ -416,14 +416,14 @@
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Telefone</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cad_tel1_colab'].'" name="cad_tel1_colab" type="text" id="cad_tel1_colab" maxlength="10"   class="form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['cad_tel1_colab'].'" name="cad_tel1_colab" type="tel" id="cad_tel1_colab" maxlength="10"   class="form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
 
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Email</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cad_email_colab'].'" name="cad_email_colab" type="tel" id="cad_email_colab" class="form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['cad_email_colab'].'" name="cad_email_colab" type="email" id="cad_email_colab" class="form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
 
@@ -441,7 +441,7 @@
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Valor comissão</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cad_vl_comissao_colab'].'" name="cad_vl_comissao_colab" type="text" id="cad_vl_comissao_colab" maxlength="10"   class="form-control form-control-sm" />';
+                echo '<input value="'.$_SESSION['cad_vl_comissao_colab'].'" name="cad_vl_comissao_colab" type="tel" id="cad_vl_comissao_colab" maxlength="10"   class="form-control form-control-sm" />';
                 echo '</div>';
                 echo '</div>';
 
@@ -542,48 +542,54 @@ document.addEventListener("DOMContentLoaded", function() {
                 echo '}';
                 echo '</script>';
                 
-                echo '<input value="'.$_SESSION['cad_status_colab'].'" name="edit_status_colab" type="tel" id="edit_status_colab" class="aspNetDisabled form-control form-control-sm" style="display: block;" required/>';
+                echo '<input value="'.$_SESSION['cad_status_colab'].'" name="edit_status_colab" type="tel" id="edit_status_colab" class="aspNetDisabled form-control form-control-sm" style="display: none;" required/>';
                 
 
                 
 
                 echo '<div class="input-group">';
 
-                echo '<div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">';
+                echo '<div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">';
                 echo '<span class="card-title">Código</span>';
                 echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['cad_cd_colab'].'" name="edit_cd_colab" type="tel" id="edit_cd_colab" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
                 echo '</div>';
                 echo '</div>';
                 
-                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Função</span>';
                 echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['cad_subtipo_colab'].'" name="edit_subtipo_colab" type="tel"  id="edit_subtipo_colab" class="form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
 
-                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<span class="card-title">Nome</span>';
                 echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['cad_pnome_colab'].'" name="edit_pnome_colab" type="text" id="edit_pnome_colab" maxlength="40"   class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Sobrenome</span>';
+                echo '<div class="input-group-prepend">';
                 echo '<input value="'.$_SESSION['cad_snome_colab'].'" name="edit_snome_colab" type="text" id="edit_snome_colab" maxlength="40"   class="form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
 
 
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
-                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
                 echo '<button type="button" id="menuBasicos" name="menuBasicos" onclick="showSection(\'tabBasicos\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
                 echo '</div>';
                 echo '</div>';
-                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
                 echo '<button type="button" id="menuComissao" name="menuComissao" onclick="showSection(\'tabComissao\')" class="btn btn-outline-secondary btn-lg btn-block">Comissão</button>';
                 echo '</div>';
                 echo '</div>';
-                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
                 echo '<button type="button" id="menuAcesso" name="menuAcesso" onclick="showSection(\'tabAcesso\')" class="btn btn-outline-secondary btn-lg btn-block">Acesso</button>';
                 echo '</div>';
@@ -624,14 +630,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Telefone</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cad_tel1_colab'].'" name="edit_tel1_colab" type="text" id="edit_tel1_colab" maxlength="10"   class="form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['cad_tel1_colab'].'" name="edit_tel1_colab" type="tel" id="edit_tel1_colab" maxlength="10"   class="form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
 
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Email</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cad_email_colab'].'" name="edit_email_colab" type="tel" id="edit_email_colab" class="form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['cad_email_colab'].'" name="edit_email_colab" type="email" id="edit_email_colab" class="form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
 
@@ -649,7 +655,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Valor comissão</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cad_vl_comissao_colab'].'" name="edit_vl_comissao_colab" type="text" id="edit_vl_comissao_colab" maxlength="10"   class="form-control form-control-sm" />';
+                echo '<input value="'.$_SESSION['cad_vl_comissao_colab'].'" name="edit_vl_comissao_colab" type="tel" id="edit_vl_comissao_colab" maxlength="10"   class="form-control form-control-sm" />';
                 echo '</div>';
                 echo '</div>';
 
