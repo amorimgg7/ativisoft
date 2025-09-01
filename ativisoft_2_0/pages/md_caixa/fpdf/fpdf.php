@@ -2234,7 +2234,7 @@ $this->SetFont('Arial', 'B', 14);
 $this->Cell(10, 7, '#', 1, 0, 'C');
 $this->Cell(130, 7, mb_convert_encoding('Descrição', $_SESSION['toEncoding'], $_SESSION['fromEncoding']), 1, 0, 'C');
 $this->Cell(50, 7, 'Total em Caixa', 1, 1, 'C');
-
+/*
 $select_caixa = "
 	SELECT 
 	    c.*, 
@@ -2250,6 +2250,30 @@ $select_caixa = "
 		c.cd_filial = ".$_SESSION['cd_empresa']."
 	ORDER BY 
 	    c.dt_abertura ASC
+";*/
+
+$select_caixa = "
+	SELECT 
+    c.*, 
+    CONCAT(IFNULL(p1.pnome_pessoa, ''), ' ', IFNULL(p1.snome_pessoa, '')) AS colab_abertura, 
+    CONCAT(IFNULL(p2.pnome_pessoa, ''), ' ', IFNULL(p2.snome_pessoa, '')) AS colab_fechamento,
+    IFNULL(SUM(CASE WHEN mf.obs_movimento LIKE 'SANGRIA%' THEN mf.valor_movimento ELSE 0 END), 0) AS total_sangria,
+    IFNULL(SUM(CASE WHEN mf.obs_movimento LIKE 'SUPRIMENTO%' THEN mf.valor_movimento ELSE 0 END), 0) AS total_suprimento
+FROM 
+    tb_caixa c
+    LEFT JOIN tb_pessoa p1 ON c.cd_colab_abertura = p1.cd_pessoa
+    LEFT JOIN tb_pessoa p2 ON c.cd_colab_fechamento = p2.cd_pessoa
+    LEFT JOIN tb_movimento_financeiro mf 
+        ON mf.cd_caixa_movimento = c.cd_caixa
+WHERE 
+    c.dt_abertura >= STR_TO_DATE('$inicio', '%d/%m/%Y') 
+    AND c.dt_abertura <= STR_TO_DATE('$fim 23:59:59', '%d/%m/%Y %H:%i:%s') 
+    AND c.cd_filial = ".$_SESSION['cd_empresa']."
+GROUP BY 
+    c.cd_caixa
+ORDER BY 
+    c.dt_abertura ASC;
+
 ";
 
 $result_caixa = mysqli_query($conn, $select_caixa);
@@ -2265,6 +2289,8 @@ $soma_pix = 0;
 $soma_cofre = 0;
 $soma_boleto = 0;
 $soma_total_movimento = 0;
+$soma_sangria = 0;
+$soma_suprimento = 0;
 
 while ($row_caixa = $result_caixa->fetch_assoc()) {
 	$count++;
@@ -2289,6 +2315,9 @@ while ($row_caixa = $result_caixa->fetch_assoc()) {
 	$pix              = ($p = $row_caixa['fpag_pix'])           != 0 && $p !== null ? "PIX: R$: $p    		" : '';
 	$cofre            = ($co = $row_caixa['fpag_cofre'])        != 0 && $co !== null ? "COFRE: R$: $co    	" : '';
 	$boleto           = ($b = $row_caixa['fpag_boleto'])        != 0 && $b !== null ? "BOLETO: R$: $b    	" : '';
+	$suprimento       = ($su = $row_caixa['total_suprimento'])  != 0 && $su !== null ? "SUPRIMENTO: R$: $su " : '';
+	$sangria          = ($sa = $row_caixa['total_sangria'])     != 0 && $sa !== null ? "SANGRIA: R$: $sa   	" : '';
+	
 	$total_movimento  = ($tm = $row_caixa['total_movimento'])   != 0 && $tm !== null ? "Faturado: R$: $tm  	" : '';
 
 	$soma_abertura        += (($a = $row_caixa['saldo_abertura'])     != 0 && $a !== null) ? $a : 0;
@@ -2299,6 +2328,9 @@ while ($row_caixa = $result_caixa->fetch_assoc()) {
 	$soma_pix             += (($p = $row_caixa['fpag_pix'])           != 0 && $p !== null) ? $p : 0;
 	$soma_cofre           += (($co = $row_caixa['fpag_cofre'])        != 0 && $co !== null) ? $co : 0;
 	$soma_boleto          += (($b = $row_caixa['fpag_boleto'])        != 0 && $b !== null) ? $b : 0;
+	$soma_suprimento      += (($su = $row_caixa['total_suprimento'])  != 0 && $su !== null) ? $su : 0;
+	$soma_sangria         += (($sa = $row_caixa['total_sangria'])     != 0 && $sa !== null) ? $sa : 0;
+	
 	$soma_total_movimento += (($tm = $row_caixa['total_movimento'])   != 0 && $tm !== null) ? $tm : 0;
 
 	if($dinheiro > 0 || $debito > 0 || $credito > 0 || $pix > 0 || $cofre > 0 || $boleto){
@@ -2307,7 +2339,7 @@ while ($row_caixa = $result_caixa->fetch_assoc()) {
 	if($abertura > 0 || $total_movimento > 0){
 		$caixa .= "$abertura$total_movimento\n\n";
 	}
-	$caixa .= "Suprimento: R$: em breve     Sangria: R$: em breve\n\n";
+	$caixa .= "$suprimento$sangria\n\n";
 
 	$nb_linhas = $this->NbLines($w_caixa, $caixa);
 	$linha_altura = 5;
@@ -2344,12 +2376,14 @@ while ($row_caixa = $result_caixa->fetch_assoc()) {
 		$pix_periodo              = ($p = $soma_pix)           		!= 0 && $p !== null 	? "PIX: R$: $p    		" : '';
 		$cofre_periodo            = ($co =$soma_cofre)        		!= 0 && $co !== null 	? "COFRE: R$: $co    	" : '';
 		$boleto_periodo           = ($b = $soma_boleto)        		!= 0 && $b !== null 	? "BOLETO: R$: $b    	" : '';
+		$suprimento_periodo       = ($su = $soma_suprimento)        != 0 && $su !== null 	? "SUPRIMENTO: R$: $su  " : '';
+		$sangria_periodo          = ($sa = $soma_sangria)        	!= 0 && $sa !== null 	? "SANGRIA: R$: $sa    	" : '';
 		$total_movimento_periodo  = ($tm =$soma_total_movimento)   	!= 0 && $tm !== null 	? "Faturado: R$: $tm   	" : '';
 
 		$caixa_periodo .= "\nTotalização do período\n";
 		$caixa_periodo .= "$dinheiro_periodo$debito_periodo$credito_periodo$pix_periodo$cofre_periodo$boleto_periodo\n";
 		$caixa_periodo .= "$abertura_periodo$total_movimento_periodo$fechamento_periodo\n";
-		$caixa_periodo .= "Suprimento: R$: em breve     Sangria: R$: em breve\n\n";
+		$caixa_periodo .= "$suprimento_periodo$sangria_periodo\n\n";
 
 
 		$this->SetFillColor(230, 230, 230); // cinza

@@ -894,33 +894,28 @@ class Usuario
                 
             if($permite_editar){
 
-                if($row_servico['cd_colab_resp'] > 0){
-                    $sql_colab_comissao = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."' ORDER BY CASE WHEN cd_pessoa = ".$row_servico['cd_colab_resp']." THEN 0 ELSE 1 END, cd_pessoa" ;       
-                }else{
-                    $sql_colab_comissao = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."'"; 
-                }
-
-                
-                
-
-				$colab_comissao = $conn->query($sql_colab_comissao);
-				if ($colab_comissao->num_rows > 0){
-                    
+                if($row_servico['orcamento_servico'] != 0){
+                    if($row_servico['cd_colab_resp'] > 0){
+                        $sql_colab_comissao = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."' ORDER BY CASE WHEN cd_pessoa = ".$row_servico['cd_colab_resp']." THEN 0 ELSE 1 END, cd_pessoa" ;       
+                    }else{
+                        $sql_colab_comissao = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."'"; 
+                    }
+				    $colab_comissao = $conn->query($sql_colab_comissao);
+    				if ($colab_comissao->num_rows > 0){
                         $partial_servico = $partial_servico.'
-                        <div class="form-group row">
-                            <select name="cd_colab_resp" id="cd_colab_resp" class="form-control col-12" required>	    
+                            <div class="form-group row">
+                                <select name="cd_colab_resp" id="cd_colab_resp" class="form-control col-12" required>	    
                         ';
                         if($row_servico['cd_colab_resp'] > 0){
                             
                         }else{
                             $partial_servico = $partial_servico.'
-                				    <option value="">Quem fez este serviço?</option>
-                                ';
+              				    <option value="">Quem fez este serviço?</option>
+                            ';
                         }
                         while ( $row = $colab_comissao->fetch_assoc()){
                             $partial_servico = $partial_servico.'
                                 <option value="'.$row['cd_pessoa'].'" vl-comissao="'.$row['vl_comissao_padrao'].'" pc-comissao="'.$row['pc_comissao_padrao'].'">'.$row['pnome_pessoa'].' '.$row['snome_pessoa'].' - '.$row['subtipo_pessoa'].'</option>
-                            
                             ';
                         }
                         $partial_servico = $partial_servico.'
@@ -928,18 +923,13 @@ class Usuario
                         </div>
                         ';
                     
-                    
 					$partial_servico = $partial_servico.' 
-                            
-                    
                         <!--<div class="form-group-custom">
                             <label for="vl_comissao">R$:</label>
                             <input type="tel" id="vl_comissao" name="vl_comissao" class="form-control form-control-sm col-6" >
                             <label for="pc_comissao">%</label>
                             <input type="tel" id="pc_comissao" name="pc_comissao" class="form-control form-control-sm col-6" >
                         </div>-->
-
-
                         <div class="row">
                             <div class="form-group-custom col-12" style="display:none;">
                                 <label for="vl_servico">OS</label>
@@ -955,35 +945,33 @@ class Usuario
                             </div>
                         </div>
                         ';
-
-                        
                         $partial_servico = $partial_servico.' 
 
-<script>
-function formatNumber(num) {
-    return parseFloat(num).toFixed(2);
-}
+                            <script>
+                            function formatNumber(num) {
+                                return parseFloat(num).toFixed(2);
+                            }
 
-document.getElementById("pc_comissao").addEventListener("input", function() {
-    let vlServico = parseFloat(document.getElementById("vl_servico").value) || 0;
-    let pc = parseFloat(this.value) || 0;
+                            document.getElementById("pc_comissao").addEventListener("input", function() {
+                                let vlServico = parseFloat(document.getElementById("vl_servico").value) || 0;
+                                let pc = parseFloat(this.value) || 0;
 
-    if(vlServico > 0 && pc >= 0) {
-        let valor = (vlServico * pc) / 100;
-        document.getElementById("vl_comissao").value = formatNumber(valor);
-    }
-});
+                                if(vlServico > 0 && pc >= 0) {
+                                    let valor = (vlServico * pc) / 100;
+                                    document.getElementById("vl_comissao").value = formatNumber(valor);
+                                }
+                            });
 
-document.getElementById("vl_comissao").addEventListener("input", function() {
-    let vlServico = parseFloat(document.getElementById("vl_servico").value) || 0;
-    let vl = parseFloat(this.value) || 0;
+                            document.getElementById("vl_comissao").addEventListener("input", function() {
+                                let vlServico = parseFloat(document.getElementById("vl_servico").value) || 0;
+                                let vl = parseFloat(this.value) || 0;
 
-    if(vlServico > 0 && vl >= 0) {
-        let percentual = (vl * 100) / vlServico;
-        document.getElementById("pc_comissao").value = formatNumber(percentual);
-    }
-});
-</script>
+                                if(vlServico > 0 && vl >= 0) {
+                                    let percentual = (vl * 100) / vlServico;
+                                    document.getElementById("pc_comissao").value = formatNumber(percentual);
+                                }
+                            });
+                            </script>
 
 
                         <script>
@@ -1014,7 +1002,9 @@ document.getElementById("vl_comissao").addEventListener("input", function() {
     
                     ';
 				
+                }
             }
+
 
 
                 $partial_servico = $partial_servico.'
@@ -1199,17 +1189,17 @@ document.getElementById("vl_comissao").addEventListener("input", function() {
 
                 }
             }else{
-                $insert_comissao = "INSERT INTO tb_comissao(cd_filial, cd_colab, cd_servico, vl_comissao, obs_comissao, status_comissao) VALUES(
-                    '".$cd_filial."',
-                    '".$cd_colab_resp."',
-                    '".$cd_servico."',
-                    ".$vl_comissao.",
-                    CONCAT('Comissão lançada por ".$_SESSION['pnome_colab']." (', DATE_FORMAT(NOW(), '%d/%m/%Y : %H:%i'), ') |'),
-                    0)
-                ";
-                mysqli_query($conn, $insert_comissao);
-
-
+                if($vl_comissao != 0){
+                    $insert_comissao = "INSERT INTO tb_comissao(cd_filial, cd_colab, cd_servico, vl_comissao, obs_comissao, status_comissao) VALUES(
+                        '".$cd_filial."',
+                        '".$cd_colab_resp."',
+                        '".$cd_servico."',
+                        ".$vl_comissao.",
+                        CONCAT('Comissão lançada por ".$_SESSION['pnome_colab']." (', DATE_FORMAT(NOW(), '%d/%m/%Y : %H:%i'), ') |'),
+                        0)
+                    ";
+                    mysqli_query($conn, $insert_comissao);
+                }
             }
             // Recupera o serviço inserido
             $result_servico = $u->conServico($cd_servico, $cd_filial, false);

@@ -14495,3 +14495,95 @@ Stack trace:
 [25-Aug-2025 08:00:21 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 292
 [25-Aug-2025 08:00:21 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 507
 [25-Aug-2025 08:00:21 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastrosColab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 715
+[01-Sep-2025 08:33:37 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 15
+[01-Sep-2025 08:33:38 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[01-Sep-2025 08:33:38 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[01-Sep-2025 08:33:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 378
+[01-Sep-2025 08:33:42 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[01-Sep-2025 08:33:42 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[01-Sep-2025 08:33:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 378
+[01-Sep-2025 08:34:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:43:38 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:43:57 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:44:05 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:44:09 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:44:15 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:44:18 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:44:24 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:44:33 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_navbar.php:28) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\abertura_caixa.php on line 131
+[01-Sep-2025 08:48:31 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_navbar.php:28) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\abertura_caixa.php on line 113
+[01-Sep-2025 08:52:33 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:52:38 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 156
+[01-Sep-2025 08:52:44 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 156
+[01-Sep-2025 08:52:46 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 08:52:58 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IFNULL(SUM(mf.valor_movimento), 0) AS total_suprimento
+FROM 
+    tb_caixa c
+ ...' at line 6 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2266
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php(2266): mysqli_query(Object(mysqli), '\nSELECT \n    c....')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/09/2025', '01/09/2025')
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('01/09/2025 09:5...', '2025-09-01', '2025-09-01 14:5...', '09/01/2025', '01/09/2025', '01/09/2025')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2266
+[01-Sep-2025 08:53:10 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IFNULL(SUM(mf.valor_movimento), 0) AS total_suprimento
+FROM 
+    tb_caixa c
+ ...' at line 6 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2266
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php(2266): mysqli_query(Object(mysqli), '\nSELECT \n    c....')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/08/2025', '01/09/2025')
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('01/09/2025 09:5...', '2025-08-01', '2025-09-01 14:5...', '09/01/2025', '01/08/2025', '01/09/2025')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2266
+[01-Sep-2025 08:53:38 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IFNULL(SUM(mf.valor_movimento), 0) AS total_suprimento
+FROM 
+    tb_caixa c
+ ...' at line 6 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2263
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php(2263): mysqli_query(Object(mysqli), '\nSELECT \n    c....')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/08/2025', '01/09/2025')
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('01/09/2025 09:5...', '2025-08-01', '2025-09-01 14:5...', '09/01/2025', '01/08/2025', '01/09/2025')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2263
+[01-Sep-2025 08:53:52 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2349
+[01-Sep-2025 08:54:25 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'IFNULL(SUM(mf.valor_movimento), 0) AS total_suprimento
+FROM 
+    tb_caixa c
+ ...' at line 6 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php:2263
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php(2263): mysqli_query(Object(mysqli), '\n\tSELECT \n    c...')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(641): FPDF->listaCaixas('A4', '01/08/2025', '01/09/2025')
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\impresso.php(852): MeuPDF->RelFechamentoCaixa('01/09/2025 09:5...', '2025-08-01', '2025-09-01 14:5...', '09/01/2025', '01/08/2025', '01/09/2025')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2263
+[01-Sep-2025 11:00:06 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2374
+[01-Sep-2025 11:00:23 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 11:00:30 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 11:00:41 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 11:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 11:01:03 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab_resp" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 526
+[01-Sep-2025 11:01:03 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 11:01:29 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 11:01:46 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 11:19:28 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2373
+[01-Sep-2025 11:28:51 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2377
+[01-Sep-2025 11:29:04 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2377
+[01-Sep-2025 11:29:35 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2377
+[01-Sep-2025 11:34:09 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2383
+[01-Sep-2025 11:36:11 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2383
+[01-Sep-2025 11:36:25 America/Sao_Paulo] PHP Warning:  Undefined variable $caixa_periodo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fpdf\fpdf.php on line 2383
+[01-Sep-2025 12:45:25 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:46:04 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:50:16 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:50:56 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:51:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab_resp" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 526
+[01-Sep-2025 12:51:13 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:51:33 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 12:51:43 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:53:45 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:54:05 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:54:13 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:54:40 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[01-Sep-2025 12:54:44 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[01-Sep-2025 12:55:39 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
