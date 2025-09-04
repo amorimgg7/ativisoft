@@ -409,7 +409,7 @@
                     WHEN prioridade_servico = 'A' THEN 2
                     WHEN prioridade_servico = 'M' THEN 3
                     ELSE 4
-                END, cd_servico";
+                END, cd_servico"; 
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){

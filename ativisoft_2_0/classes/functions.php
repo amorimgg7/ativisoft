@@ -921,7 +921,7 @@ class Usuario
                         $partial_servico = $partial_servico.'
                         </select>
                         </div>
-                        ';
+                        '; 
                     
 					$partial_servico = $partial_servico.' 
                         <!--<div class="form-group-custom">

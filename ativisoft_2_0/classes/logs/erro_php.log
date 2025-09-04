@@ -14634,3 +14634,5 @@ Stack trace:
 [03-Sep-2025 23:14:20 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
 [03-Sep-2025 23:14:30 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
 [03-Sep-2025 23:14:30 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[04-Sep-2025 07:38:21 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[04-Sep-2025 07:38:30 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
