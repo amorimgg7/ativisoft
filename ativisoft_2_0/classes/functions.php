@@ -898,7 +898,7 @@ class Usuario
                     if($row_servico['cd_colab_resp'] > 0){
                         $sql_colab_comissao = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."' ORDER BY CASE WHEN cd_pessoa = ".$row_servico['cd_colab_resp']." THEN 0 ELSE 1 END, cd_pessoa" ;       
                     }else{
-                        $sql_colab_comissao = "SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."'"; 
+                        $sql_colab_comissao = "SELECT * FROM tb_pessoa WHERE status_pessoa = 1 AND (vl_comissao_padrao > 0 OR pc_comissao_padrao > 0) AND tipo_pessoa = 'colab' AND cd_filial = '".$_SESSION['cd_filial']."'"; 
                     }
 				    $colab_comissao = $conn->query($sql_colab_comissao);
     				if ($colab_comissao->num_rows > 0){

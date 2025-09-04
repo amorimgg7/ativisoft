@@ -449,3 +449,8 @@ ALTER TABLE `tb_servico` ADD `vl_comissao` decimal(10,2) NULL DEFAULT NULL AFTER
 ALTER TABLE `tb_servico` ADD `pc_comissao` decimal(10,2) NULL DEFAULT NULL AFTER `vl_comissao`;
 ALTER TABLE tb_servico
     ADD CONSTRAINT fk_tb_servico2 FOREIGN KEY(cd_colab_resp) REFERENCES tb_pessoa (cd_pessoa);
+
+
+
+ALTER TABLE `tb_pessoa` ADD `status_pessoa` INT NULL DEFAULT 1 AFTER `cd_filial`;
+

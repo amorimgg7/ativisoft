@@ -137,14 +137,22 @@
 
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-              $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0 and cd_filial = '".$_SESSION['cd_empresa']."'
-                ORDER BY 
-                CASE 
-                    WHEN prioridade_servico = 'U' THEN 1
-                    WHEN prioridade_servico = 'A' THEN 2
-                    WHEN prioridade_servico = 'M' THEN 3 
-                    ELSE 4
-                END, cd_servico";
+              $sql_servico = "SELECT 
+                  s.*, 
+                  c.vl_comissao AS comissao_lancada
+              FROM tb_servico s
+              LEFT JOIN tb_comissao c 
+                  ON c.cd_servico = s.cd_servico
+              WHERE s.status_servico = 0 
+                AND s.cd_filial = '".$_SESSION['cd_empresa']."'
+              ORDER BY 
+                  CASE 
+                      WHEN s.prioridade_servico = 'U' THEN 1
+                      WHEN s.prioridade_servico = 'A' THEN 2
+                      WHEN s.prioridade_servico = 'M' THEN 3 
+                      ELSE 4
+                  END, 
+                  s.cd_servico;";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -181,15 +189,20 @@
                   echo '</form>';
 
                   if($servico['orcamento_servico'] == 0){
-                    echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
+                    echo '<td><label class="badge badge-secondary">FREE / Garantia</label>';
                   }else{
                     if($servico['orcamento_servico'] == $servico['vpag_servico']){
-                      echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                      echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label>';
                     }else{
                       $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
                       $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
-                      echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                      echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label>';
                     }
+                  }
+                  if($servico['comissao_lancada'] > 0){
+                      echo '</br><label class="badge badge-warning">Comissão Lançada: R$:'. $servico['comissao_lancada'] .'</label></td>';
+                  }else{
+                      echo '</br><label class="badge badge-light">Sem Comissão</label></td>';
                   }
                   
                                     
@@ -260,14 +273,22 @@
             <?php //EM ANDAMENTO
               //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
-              $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 1 and cd_filial = '".$_SESSION['cd_empresa']."'
-                ORDER BY 
-                CASE 
-                    WHEN prioridade_servico = 'U' THEN 1
-                    WHEN prioridade_servico = 'A' THEN 2
-                    WHEN prioridade_servico = 'M' THEN 3
-                    ELSE 4
-                END, cd_servico";
+              $sql_servico = "SELECT 
+                  s.*, 
+                  c.vl_comissao AS comissao_lancada
+              FROM tb_servico s
+              LEFT JOIN tb_comissao c 
+                  ON c.cd_servico = s.cd_servico
+              WHERE s.status_servico = 1 
+                AND s.cd_filial = '".$_SESSION['cd_empresa']."'
+              ORDER BY 
+                  CASE 
+                      WHEN s.prioridade_servico = 'U' THEN 1
+                      WHEN s.prioridade_servico = 'A' THEN 2
+                      WHEN s.prioridade_servico = 'M' THEN 3 
+                      ELSE 4
+                  END, 
+                  s.cd_servico;";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -303,15 +324,21 @@
                   echo '</form>';
 
                   if($servico['orcamento_servico'] == 0){
-                    echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
+                    echo '<td><label class="badge badge-secondary">FREE / Garantia</label>';
                   }else{
                     if($servico['orcamento_servico'] == $servico['vpag_servico']){
-                      echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label></td>';
+                      echo '<td><label class="badge badge-success">Liquidado: R$:'. $servico['vpag_servico'] .'</label>';
                     }else{
                       $orcamento_servico = isset($servico['orcamento_servico']) && is_numeric($servico['orcamento_servico']) ? $servico['orcamento_servico'] : 0;
                       $vpag_servico = isset($servico['vpag_servico']) && is_numeric($servico['vpag_servico']) ? $servico['vpag_servico'] : 0;
-                      echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label></td>';
+                      echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label>';
                     }
+                  }
+
+                  if($servico['comissao_lancada'] > 0){
+                      echo '</br><label class="badge badge-warning">Comissão Lançada: R$:'. $servico['comissao_lancada'] .'</label></td>';
+                  }else{
+                      echo '</br><label class="badge badge-light">Sem Comissão</label></td>';
                   }
 
                   if(date('Y-m-d', strtotime('+1 hour')) > date('Y-m-d', strtotime($servico['prazo_servico']))){
