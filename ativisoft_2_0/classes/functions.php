@@ -4117,7 +4117,6 @@ class Usuario
 
         try {
             echo '<script>iniciarCarregamento();</script>';
-    
             //include("../../partials/load.html");
             if($flag_atividade == 'A') {    ///.MCRIAR NOVA ATIVIDADE A FAZER PARA O SERVICO
                 $insert_atividade = "INSERT INTO tb_atividade(cd_servico, titulo_atividade, obs_atividade, cd_colab, inicio_atividade, fim_atividade) VALUES(
@@ -4126,7 +4125,7 @@ class Usuario
                   '".$obs_atividade."',
                   '".$cd_colab."',
                   NOW(),
-                  NOW(),
+                  NOW()
                   )
                 ";
                 mysqli_query($conn, $insert_atividade);
