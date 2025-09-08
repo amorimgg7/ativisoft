@@ -139,7 +139,8 @@
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
               $sql_servico = "SELECT 
                   s.*, 
-                  c.vl_comissao AS comissao_lancada
+                  c.vl_comissao AS comissao_lancada,
+                  c.status_comissao 
               FROM tb_servico s
               LEFT JOIN tb_comissao c 
                   ON c.cd_servico = s.cd_servico
@@ -200,7 +201,11 @@
                     }
                   }
                   if($servico['comissao_lancada'] > 0){
+                    if($servico['status_comissao'] == 1){
+                      echo '</br><label class="badge badge-success">Comissão Paga: R$:'. $servico['comissao_lancada'] .'</label></td>';
+                    }else{
                       echo '</br><label class="badge badge-warning">Comissão Lançada: R$:'. $servico['comissao_lancada'] .'</label></td>';
+                    }
                   }else{
                       echo '</br><label class="badge badge-light">Sem Comissão</label></td>';
                   }
@@ -275,7 +280,8 @@
               //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
               $sql_servico = "SELECT 
                   s.*, 
-                  c.vl_comissao AS comissao_lancada
+                  c.vl_comissao AS comissao_lancada,
+                  c.status_comissao 
               FROM tb_servico s
               LEFT JOIN tb_comissao c 
                   ON c.cd_servico = s.cd_servico
@@ -336,7 +342,11 @@
                   }
 
                   if($servico['comissao_lancada'] > 0){
-                      echo '</br><label class="badge badge-warning">Comissão Lançada: R$:'. $servico['comissao_lancada'] .'</label></td>';
+                      if($servico['status_comissao'] == 1){
+                        echo '</br><label class="badge badge-success">Comissão Paga: R$:'. $servico['comissao_lancada'] .'</label></td>';
+                      }else{
+                        echo '</br><label class="badge badge-warning">Comissão Lançada: R$:'. $servico['comissao_lancada'] .'</label></td>';
+                      }
                   }else{
                       echo '</br><label class="badge badge-light">Sem Comissão</label></td>';
                   }

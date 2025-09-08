@@ -14722,3 +14722,7 @@ Stack trace:
 [08-Sep-2025 17:52:48 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 156
 [08-Sep-2025 17:54:29 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 156
 [08-Sep-2025 17:54:39 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[08-Sep-2025 17:55:56 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[08-Sep-2025 18:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[08-Sep-2025 18:00:53 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[08-Sep-2025 18:00:58 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
