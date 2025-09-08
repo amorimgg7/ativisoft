@@ -170,19 +170,19 @@
                                             echo '<input value="'.date('d/m/y H:i', strtotime($dataHoraAtual)).'" name="show_dt_fechamento" id="show_dt_fechamento" type="text"  class="aspNetDisabled form-control form-control-sm" readonly/>';
                                         
                                         
-                                            $select_debito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DEBITO' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_debito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DEBITO' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_debito_caixa = $conn->query($select_debito_caixa);
                                             $total_debito = 0;
                                             while ( $row_debito_caixa = $resulta_debito_caixa->fetch_assoc()){
                                                 $total_debito = $row_debito_caixa['valor_movimento'] + $total_debito;
                                             }
-                                            $select_credito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'CREDITO' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_credito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'CREDITO' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_credito_caixa = $conn->query($select_credito_caixa);
                                             $total_credito = 0;
                                             while ( $row_credito_caixa = $resulta_credito_caixa->fetch_assoc()){
                                                 $total_credito = $row_credito_caixa['valor_movimento'] + $total_credito;
                                             }
-                                            $select_pix_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'PIX' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_pix_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'PIX' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_pix_caixa = $conn->query($select_pix_caixa);
                                             $total_pix = 0;
                                             while ( $row_pix_caixa = $resulta_pix_caixa->fetch_assoc()){
@@ -203,13 +203,13 @@
                                             
                                             
 
-                                            $select_suprimento_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DINHEIRO' AND tipo_movimento = '2' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_suprimento_caixa = "SELECT * FROM tb_movimento_financeiro WHERE tipo_movimento = '2' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_suprimento_caixa = $conn->query($select_suprimento_caixa);
                                             $total_suprimento_caixa = 0;
                                             while ( $row_suprimento_caixa = $resulta_suprimento_caixa->fetch_assoc()){
                                                 $total_suprimento_caixa = $row_suprimento_caixa['valor_movimento'] + $total_suprimento_caixa;
                                             }
-                                            $select_sangria_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DINHEIRO' AND tipo_movimento = '3' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_sangria_caixa = "SELECT * FROM tb_movimento_financeiro WHERE tipo_movimento = '3' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_sangria_caixa = $conn->query($select_sangria_caixa);
                                             $total_sangria_caixa = 0;
                                             while ( $row_sangria_caixa = $resulta_sangria_caixa->fetch_assoc()){
@@ -698,19 +698,19 @@
                                             echo '</div>';
                                             
                                         
-                                            $select_debito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DEBITO' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_debito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DEBITO' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_debito_caixa = $conn->query($select_debito_caixa);
                                             $total_debito = 0;
                                             while ( $row_debito_caixa = $resulta_debito_caixa->fetch_assoc()){
                                                 $total_debito = $row_debito_caixa['valor_movimento'] + $total_debito;
                                             }
-                                            $select_credito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'CREDITO' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_credito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'CREDITO' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_credito_caixa = $conn->query($select_credito_caixa);
                                             $total_credito = 0;
                                             while ( $row_credito_caixa = $resulta_credito_caixa->fetch_assoc()){
                                                 $total_credito = $row_credito_caixa['valor_movimento'] + $total_credito;
                                             }
-                                            $select_pix_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'PIX' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_pix_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'PIX' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_pix_caixa = $conn->query($select_pix_caixa);
                                             $total_pix = 0;
                                             while ( $row_pix_caixa = $resulta_pix_caixa->fetch_assoc()){
@@ -732,13 +732,13 @@
                                             
                                             
 
-                                            $select_suprimento_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DINHEIRO' AND tipo_movimento = '2' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_suprimento_caixa = "SELECT * FROM tb_movimento_financeiro WHERE tipo_movimento = '2' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_suprimento_caixa = $conn->query($select_suprimento_caixa);
                                             $total_suprimento_caixa = 0;
                                             while ( $row_suprimento_caixa = $resulta_suprimento_caixa->fetch_assoc()){
                                                 $total_suprimento_caixa = $row_suprimento_caixa['valor_movimento'] + $total_suprimento_caixa;
                                             }
-                                            $select_sangria_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DINHEIRO' AND tipo_movimento = '3' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_sangria_caixa = "SELECT * FROM tb_movimento_financeiro WHERE tipo_movimento = '3' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_sangria_caixa = $conn->query($select_sangria_caixa);
                                             $total_sangria_caixa = 0;
                                             while ( $row_sangria_caixa = $resulta_sangria_caixa->fetch_assoc()){
@@ -1224,25 +1224,25 @@
                                             echo '</div>';
                                         
                                         
-                                            $select_debito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DEBITO' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_debito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DEBITO' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_debito_caixa = $conn->query($select_debito_caixa);
                                             $total_debito = 0;
                                             while ( $row_debito_caixa = $resulta_debito_caixa->fetch_assoc()){
                                                 $total_debito = $row_debito_caixa['valor_movimento'] + $total_debito;
                                             }
-                                            $select_credito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'CREDITO' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_credito_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'CREDITO' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_credito_caixa = $conn->query($select_credito_caixa);
                                             $total_credito = 0;
                                             while ( $row_credito_caixa = $resulta_credito_caixa->fetch_assoc()){
                                                 $total_credito = $row_credito_caixa['valor_movimento'] + $total_credito;
                                             }
-                                            $select_pix_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'PIX' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_pix_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'PIX' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_pix_caixa = $conn->query($select_pix_caixa);
                                             $total_pix = 0;
                                             while ( $row_pix_caixa = $resulta_pix_caixa->fetch_assoc()){
                                                 $total_pix = $row_pix_caixa['valor_movimento'] + $total_pix;
                                             }
-                                            $select_dinheiro_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DINHEIRO' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_dinheiro_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DINHEIRO' AND tipo_movimento = '1' AND tipo_movimento = '1' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_dinheiro_caixa = $conn->query($select_dinheiro_caixa);
                                             $total_dinheiro = 0;
                                             while ( $row_dinheiro_caixa = $resulta_dinheiro_caixa->fetch_assoc()){
@@ -1251,13 +1251,13 @@
                                             
                                             
 
-                                            $select_suprimento_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DINHEIRO' AND tipo_movimento = '2' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_suprimento_caixa = "SELECT * FROM tb_movimento_financeiro WHERE tipo_movimento = '2' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_suprimento_caixa = $conn->query($select_suprimento_caixa);
                                             $total_suprimento_caixa = 0;
                                             while ( $row_suprimento_caixa = $resulta_suprimento_caixa->fetch_assoc()){
                                                 $total_suprimento_caixa = $row_suprimento_caixa['valor_movimento'] + $total_suprimento_caixa;
                                             }
-                                            $select_sangria_caixa = "SELECT * FROM tb_movimento_financeiro WHERE fpag_movimento = 'DINHEIRO' AND tipo_movimento = '3' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
+                                            $select_sangria_caixa = "SELECT * FROM tb_movimento_financeiro WHERE tipo_movimento = '3' AND cd_caixa_movimento = '".$_SESSION['cd_caixa']."'";
                                             $resulta_sangria_caixa = $conn->query($select_sangria_caixa);
                                             $total_sangria_caixa = 0;
                                             while ( $row_sangria_caixa = $resulta_sangria_caixa->fetch_assoc()){
