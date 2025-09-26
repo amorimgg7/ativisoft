@@ -16,7 +16,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 </head>
 <?php
-session_start();?>
+session_start();
+require_once 'classes/conn.php';?>
 <body>
     <div class="container mt-4">
         <div class="row">
@@ -33,11 +34,116 @@ session_start();?>
 echo '<pre>';
 print_r($_SESSION);
 echo '</pre>';
+
+
+
+// cria a variável se não existir
+if (!isset($_SESSION['last_sync_ts'])) {
+    $_SESSION['last_sync_ts'] = 0;
+}
+
+$update = false;
+
+if (!isset($_SESSION['os_lista']) || empty($_SESSION['os_lista'])) {
+    $update = true; // primeira vez
+} else {
+    // compara timestamps
+    if (time() - (int)$_SESSION['last_sync_ts'] > 9) { // passou mais de 60s?
+        $update = true;
+    } else {
+        $update = false;
+    }
+}
+
+if ($update) {
+    // faça a atualização aqui...
+    // quando terminar, grave o timestamp atual:
+    $_SESSION['last_sync_ts'] = time();
+}
+
+
+
+
+
+if ($update && (isset($_SESSION['cd_filial']) && $_SESSION['cd_filial'] > 0)) {
+    
+    //echo "<script>window.alert('Atualizar agora!');</script>";
+
+    $sql_comissao = "SELECT cd_servico, obs_servico, orcamento_servico, vpag_servico FROM tb_servico WHERE cd_filial = '".$_SESSION['cd_filial']."' ORDER BY cd_servico DESC;";
+    $resulta_comissao = $conn->query($sql_comissao);
+
+    $_SESSION['os_lista'] = []; // limpa antes de popular
+
+    if ($resulta_comissao && $resulta_comissao->num_rows > 0) {
+        while ($row = $resulta_comissao->fetch_assoc()) {
+            // adiciona dt_sync ao registro
+            $row['dt_sync'] = date('Y-m-d H:i:s');
+            // adiciona o registro completo ao array da sessão
+            $_SESSION['os_lista'][] = $row;
+        }
+    }   
+    
+    $Y_sync = date('Y');
+    $m_sync = date('m');
+    $d_sync = date('d');
+    $H_sync = date('H');
+    $i_sync = date('i');
+    
+    $update = false;
+    //echo "<script>window.alert('Atualizado do banco!');</script>";
+}
+
+    
+
         ?>
 
 
 
         <div class="row">
+
+            <!-- Card OS Lista -->
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">Lista de OS <?= $_SESSION['os_lista'][0]['dt_sync'] ?></div>
+            <div class="card-body">
+                <?php 
+                    echo date('i');
+                    //echo time();
+                    if (!empty($_SESSION['os_lista'])) {
+    // pega os nomes das colunas da primeira linha
+    $colunas = array_keys($_SESSION['os_lista'][0]);
+    echo '<table class="table table-striped">';
+    
+    // Cabeçalho dinâmico
+    echo '<thead><tr>';
+    foreach ($colunas as $col) {
+        echo '<th>' . htmlspecialchars($col) . '</th>';
+    }
+    echo '</tr></thead>';
+    
+    // Corpo da tabela
+    echo '<tbody>';
+    foreach ($_SESSION['os_lista'] as $linha) {
+        echo '<tr>';
+        foreach ($linha as $valor) {
+            // Se for numérico, formatar como R$; caso contrário, só mostrar
+            if (is_numeric($valor) && strpos($col, 'vl_') !== false) {
+                echo '<td>R$ ' . number_format($valor, 2, ',', '.') . '</td>';
+            } else {
+                echo '<td>' . htmlspecialchars($valor) . '</td>';
+            }
+        }
+        echo '</tr>';
+    }
+    echo '</tbody></table>';
+} else {
+    echo 'Nenhuma OS encontrada.';
+}
+                ?>
+            </div>
+        </div>
+    </div>
+
             <div class="col-md-4">
                 <div class="card">
                   <div class="card-header">Dados do Usuário</div>
