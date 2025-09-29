@@ -3,25 +3,46 @@
     require_once 'classes/conn.php';
     $cd_filial = isset($_GET['cd_filial']) ? intval($_GET['cd_filial']) : 0;
         if ($cd_filial > 0) {
-            // Faz o SELECT filtrando pela empresa
-            $sql_pessoa_api = "SELECT * FROM tb_pessoa WHERE cd_filial = '".$cd_filial."' ORDER BY cd_pessoa DESC;";
-            $resulta_pessoa_api = $conn->query($sql_pessoa_api);
-            if ($resulta_pessoa_api->num_rows > 0) {
-                $pessoas = [];
-                while ($row = $resulta_pessoa_api->fetch_assoc()) {
-                    // adiciona dt_sync ao registro
-                    $row['dt_sync'] = date('Y-m-d H:i:s');
-                    // adiciona o registro completo ao array da sessão
-                    //$_SESSION['os_lista'][] = $row;
-                    $pessoas[] = $row;                   
+            $response = [];
+            // 1. Pega todas as tabelas do banco
+            $tablesResult = $conn->query("SHOW TABLES");
+            if ($tablesResult->num_rows > 0) {
+                while ($tableRow = $tablesResult->fetch_array()) {
+                    $tableName = $tableRow[0];
+                    // 2. Monta SELECT
+                    if ($cd_filial > 0 && in_array($tableName, ['tb_pessoa','tb_servico', 'tb_venda', 'tb_caixa', 'tb_caixa_conferido', 'tb_caixa_dia_fiscal', 'tb_comissao', 'tb_grupo', 'tb_movimento_financeiro', 'tb_orcamento_servico', 'tb_prod_serv', ''])) {
+                        // se a tabela tiver campo cd_filial, filtra
+                        $sql = "SELECT * FROM $tableName WHERE cd_filial = $cd_filial ";
+                    } else if($cd_filial > 0 && in_array($tableName, ['tb_empresa','tb_reserva'])){
+                        $sql = "SELECT * FROM $tableName WHERE cd_empresa = $cd_filial ";
+                    }else {
+                        $sql = "SELECT * FROM $tableName";
+                    }
+
+                    $result = $conn->query($sql);
+                    $tableData = [];
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            // opcional: adiciona timestamp de sync em todas as linhas
+                            $row['dt_sync'] = date('Y-m-d H:i:s');
+                            $tableData[] = $row;
+                        }
+                    }
+
+                    // adiciona os dados da tabela no response
+                    $response[$tableName] = $tableData;
                 }
-                echo json_encode($pessoas);  
             }
-            //die(json_encode(["" => "Geral"]));
+
+            // Retorna JSON
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
             exit;
         }else{
             //die(json_encode(["alert" => "Geral"]));
         }
+
 ?>
 
 <!DOCTYPE html>
