@@ -36,9 +36,39 @@
             }
 
             // Retorna JSON
-            header('Content-Type: application/json; charset=utf-8');
-            echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-            exit;
+            //echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_INVALID_UTF8_SUBSTITUTE);
+            //echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT, 512);
+
+
+            //header('Content-Type: application/json; charset=utf-8');
+            //echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+
+            //echo json_last_error_msg();
+
+            //exit;
+
+
+
+            // Garante cabeçalho
+header('Content-Type: application/json; charset=utf-8');
+
+// Converte em JSON
+$json = json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_INVALID_UTF8_SUBSTITUTE);
+
+// Verifica se houve erro
+if ($json === false) {
+    echo json_encode([
+        "error" => "Falha ao gerar JSON",
+        "msg"   => json_last_error_msg()
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+echo $json;
+
+
+
+
         }else{
             //die(json_encode(["alert" => "Geral"]));
         }
