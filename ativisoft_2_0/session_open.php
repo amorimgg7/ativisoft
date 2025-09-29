@@ -1,3 +1,29 @@
+<?php
+    session_start();
+    require_once 'classes/conn.php';
+    $cd_filial = isset($_GET['cd_filial']) ? intval($_GET['cd_filial']) : 0;
+        if ($cd_filial > 0) {
+            // Faz o SELECT filtrando pela empresa
+            $sql_pessoa_api = "SELECT * FROM tb_pessoa WHERE cd_filial = '".$cd_filial."' ORDER BY cd_pessoa DESC;";
+            $resulta_pessoa_api = $conn->query($sql_pessoa_api);
+            if ($resulta_pessoa_api->num_rows > 0) {
+                $pessoas = [];
+                while ($row = $resulta_pessoa_api->fetch_assoc()) {
+                    // adiciona dt_sync ao registro
+                    $row['dt_sync'] = date('Y-m-d H:i:s');
+                    // adiciona o registro completo ao array da sessão
+                    //$_SESSION['os_lista'][] = $row;
+                    $pessoas[] = $row;                   
+                }
+                echo json_encode($pessoas);  
+            }
+            //die(json_encode(["" => "Geral"]));
+            exit;
+        }else{
+            //die(json_encode(["alert" => "Geral"]));
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,9 +41,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 </head>
-<?php
-session_start();
-require_once 'classes/conn.php';?>
+
 <body>
     <div class="container mt-4">
         <div class="row">
@@ -27,7 +51,12 @@ require_once 'classes/conn.php';?>
         </div>
 
         <?php
-        //session_start(); // sempre comece com isso
+            //session_start(); // sempre comece com isso
+            
+
+            
+
+
 
         ksort($_SESSION); // ordena as chaves em ordem alfabética
 
