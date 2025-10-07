@@ -66,7 +66,7 @@ if ($json === false) {
 
 echo $json;
 
-
+exit;
 
 
         }else{
@@ -109,37 +109,37 @@ echo $json;
 
 
 
-        ksort($_SESSION); // ordena as chaves em ordem alfabética
+            ksort($_SESSION); // ordena as chaves em ordem alfabética
 
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+            echo '<pre>';
+            //print_r($_SESSION);
+            echo '</pre>';
 
 
 
-// cria a variável se não existir
-if (!isset($_SESSION['last_sync_ts'])) {
-    $_SESSION['last_sync_ts'] = 0;
-}
+            // cria a variável se não existir
+            if (!isset($_SESSION['last_sync_ts'])) {
+                $_SESSION['last_sync_ts'] = 0;
+            }
 
-$update = false;
+            $update = false;
 
-if (!isset($_SESSION['os_lista']) || empty($_SESSION['os_lista'])) {
-    $update = true; // primeira vez
-} else {
-    // compara timestamps
-    if (time() - (int)$_SESSION['last_sync_ts'] > 9) { // passou mais de 60s?
-        $update = true;
-    } else {
-        $update = false;
-    }
-}
+            if (!isset($_SESSION['os_lista']) || empty($_SESSION['os_lista'])) {
+                $update = true; // primeira vez
+            } else {
+                // compara timestamps
+                if (time() - (int)$_SESSION['last_sync_ts'] > 9) { // passou mais de 60s?
+                    $update = true;
+                } else {
+                    $update = false;
+                }
+            }
 
-if ($update) {
-    // faça a atualização aqui...
-    // quando terminar, grave o timestamp atual:
-    $_SESSION['last_sync_ts'] = time();
-}
+            if ($update) {
+                // faça a atualização aqui...
+                // quando terminar, grave o timestamp atual:
+                $_SESSION['last_sync_ts'] = time();
+            }
 
 
 

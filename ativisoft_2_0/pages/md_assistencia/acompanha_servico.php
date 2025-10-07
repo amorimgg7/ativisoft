@@ -16,12 +16,12 @@ function getParameterByName($name, $url = null) {
     }
 }
 
-$cnpj = getParameterByName('cnpj');
+$filial = getParameterByName('filial');
 $tel = getParameterByName('tel');
 
-if ($cnpj && $tel) {
+if ($filial && $tel) {
     // Armazenar o CNPJ na variável de sessão
-    $_SESSION['cnpj_empresa'] = $cnpj;
+    $_SESSION['cd_filial'] = $filial;
     
     // Você pode fazer qualquer outra coisa com o telefone aqui
     $_SESSION['contel_cliente'] = $tel;
@@ -99,7 +99,7 @@ ini_set('display_startup_errors', 0);
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body" id="consulta" style="display: block;">
-                  <h4 class="card-title">Acompanhe seu pedido</h4>
+                  <h4 class="card-title">Acompanhe seu pedido - <?php echo $filial; ?></h4>
                   <p class="card-description">Consulte todos os serviços solicitados através do seu número de telefone!</p>
                   <div class="kt-portlet__body">
                     <div class="row">
@@ -837,13 +837,22 @@ ini_set('display_startup_errors', 0);
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
                   if(isset($_SESSION['acompanha_cd_cliente'])) {
-                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['acompanha_tel_cliente']."'";
+                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['acompanha_tel_cliente']."' ";
+                    
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);
                     // Exibe as informações do usuário no formulário
                     if($row_cliente) {
                       echo '<script>document.getElementById("cd_cliente").value = "'.$row_cliente['cd_pessoa'].'"</script>';
-                      $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0 AND cd_cliente = '".$row_cliente['cd_pessoa']."'
+                      $sql_servico = 'SELECT ';
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." concat(cd_filial, ' - ', cd_servico) as cd_servico_2, ";
+                      }
+                      $sql_servico = $sql_servico." tb_servico.* FROM tb_servico WHERE status_servico = 0 AND cd_cliente = '".$row_cliente['cd_pessoa']."' ";
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." AND cd_filial = $filial ";
+                      }
+                      $sql_servico = $sql_servico." 
                         ORDER BY 
                         CASE 
                         WHEN prioridade_servico = 'U' THEN 1
@@ -876,7 +885,11 @@ ini_set('display_startup_errors', 0);
                             echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                             echo '</form>';
                           }else{
-                            echo '<td>'.$servico['cd_servico'].'</td>';
+                            if(isset($filial)){
+                              echo '<td>'.$servico['cd_servico_2'].'</td>';
+                            }else{
+                              echo '<td>'.$servico['cd_servico'].'</td>';
+                            }
                           }
                           
                           if($servico['orcamento_servico'] == 0){
@@ -917,7 +930,16 @@ ini_set('display_startup_errors', 0);
                     // Exibe as informações do usuário no formulário
                     if($row_cliente) {
                       echo '<script>document.getElementById("cd_cliente").value = "'.$row_cliente['cd_pessoa'].'"</script>';
-                      $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 1 AND cd_cliente = '".$row_cliente['cd_pessoa']."'
+
+                      $sql_servico = 'SELECT ';
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." concat(cd_filial, ' - ', cd_servico) as cd_servico_2, ";
+                      }
+                      $sql_servico = $sql_servico." tb_servico.* FROM tb_servico WHERE status_servico = 1 AND cd_cliente = '".$row_cliente['cd_pessoa']."' ";
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." AND cd_filial = $filial ";
+                      }
+                      $sql_servico = $sql_servico."
                         ORDER BY 
                         CASE 
                         WHEN prioridade_servico = 'U' THEN 1
@@ -950,7 +972,11 @@ ini_set('display_startup_errors', 0);
                             echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                             echo '</form>';
                           }else{
-                            echo '<td>'.$servico['cd_servico'].'</td>';
+                            if(isset($filial)){
+                              echo '<td>'.$servico['cd_servico_2'].'</td>';
+                            }else{
+                              echo '<td>'.$servico['cd_servico'].'</td>';
+                            }
                           }
                           if($servico['orcamento_servico'] == 0){
                             echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
@@ -991,7 +1017,16 @@ ini_set('display_startup_errors', 0);
                     // Exibe as informações do usuário no formulário
                     if($row_cliente) {
                       echo '<script>document.getElementById("cd_cliente").value = "'.$row_cliente['cd_pessoa'].'"</script>';
-                      $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 2 AND cd_cliente = '".$row_cliente['cd_pessoa']."'
+                      
+                      $sql_servico = 'SELECT ';
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." concat(cd_filial, ' - ', cd_servico) as cd_servico_2, ";
+                      }
+                      $sql_servico = $sql_servico." tb_servico.* FROM tb_servico WHERE status_servico = 2 AND cd_cliente = '".$row_cliente['cd_pessoa']."' ";
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." AND cd_filial = $filial ";
+                      }
+                      $sql_servico = $sql_servico."
                         ORDER BY 
                         CASE 
                         WHEN prioridade_servico = 'U' THEN 1
@@ -1024,7 +1059,11 @@ ini_set('display_startup_errors', 0);
                             echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                             echo '</form>';
                           }else{
-                            echo '<td>'.$servico['cd_servico'].'</td>';
+                            if(isset($filial)){
+                              echo '<td>'.$servico['cd_servico_2'].'</td>';
+                            }else{
+                              echo '<td>'.$servico['cd_servico'].'</td>';
+                            }
                           }
                           if($servico['orcamento_servico'] == 0){
                             echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
@@ -1065,7 +1104,15 @@ ini_set('display_startup_errors', 0);
                     // Exibe as informações do usuário no formulário
                     if($row_cliente) {
                       echo '<script>document.getElementById("cd_cliente").value = "'.$row_cliente['cd_pessoa'].'"</script>';
-                      $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 3 AND cd_cliente = '".$row_cliente['cd_pessoa']."'
+                      $sql_servico = 'SELECT ';
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." concat(cd_filial, ' - ', cd_servico) as cd_servico_2, ";
+                      }
+                      $sql_servico = $sql_servico." tb_servico.* FROM tb_servico WHERE status_servico = 3 AND cd_cliente = '".$row_cliente['cd_pessoa']."' ";
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." AND cd_filial = $filial ";
+                      }
+                      $sql_servico = $sql_servico."
                         ORDER BY 
                         CASE 
                         WHEN prioridade_servico = 'U' THEN 1
@@ -1099,7 +1146,11 @@ ini_set('display_startup_errors', 0);
                             echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                             echo '</form>';
                           }else{
-                            echo '<td>'.$servico['cd_servico'].'</td>';
+                            if(isset($filial)){
+                              echo '<td>'.$servico['cd_servico_2'].'</td>';
+                            }else{
+                              echo '<td>'.$servico['cd_servico'].'</td>';
+                            }
                           }
                           if($servico['orcamento_servico'] == 0){
                             echo '<td><label class="badge badge-secondary">FREE / Garantia</label></td>';
@@ -1140,7 +1191,15 @@ ini_set('display_startup_errors', 0);
                     // Exibe as informações do usuário no formulário
                     if($row_cliente) {
                       echo '<script>document.getElementById("cd_cliente").value = "'.$row_cliente['cd_pessoa'].'"</script>';
-                      $sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 4 AND cd_cliente = '".$row_cliente['cd_pessoa']."'
+                      $sql_servico = 'SELECT ';
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." concat(cd_filial, ' - ', cd_servico) as cd_servico_2, ";
+                      }
+                      $sql_servico = $sql_servico." tb_servico.* FROM tb_servico WHERE status_servico = 4 AND cd_cliente = '".$row_cliente['cd_pessoa']."' ";
+                      if(isset($filial)){
+                        $sql_servico = $sql_servico." AND cd_filial = $filial ";
+                      }
+                      $sql_servico = $sql_servico."
                         ORDER BY 
                         CASE 
                         WHEN prioridade_servico = 'U' THEN 1
@@ -1172,7 +1231,11 @@ ini_set('display_startup_errors', 0);
                             echo '<td><button type="submit" class="btn btn-info" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                             echo '</form>';
                           }else{
-                            echo '<td>'.$servico['cd_servico'].'</td>';
+                            if(isset($filial)){
+                              echo '<td>'.$servico['cd_servico_2'].'</td>';
+                            }else{
+                              echo '<td>'.$servico['cd_servico'].'</td>';
+                            }
                           }
                           //SELECT * FROM tb_atividade WHERE cd_servico = '19' order by cd_atividade desc limit 1
                           $sql_atividade = "SELECT * FROM tb_atividade WHERE cd_servico = '".$servico['cd_servico']."' order by cd_atividade desc limit 1";
