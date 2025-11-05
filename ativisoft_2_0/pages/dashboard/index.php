@@ -213,7 +213,7 @@
                     
                     
 
-                  }
+                  }else 
                   if($_SESSION['cd_funcao'] == 1)
                   {
                     if($_SESSION['cd_empresa'] == ""){
@@ -237,7 +237,7 @@
                     
                     
 
-                  }
+                  }else 
                   if($_SESSION['cd_funcao'] == 2)
                   {
                     //echo '<h1>Licença Essencial!</h1>';
@@ -377,9 +377,25 @@
                   }
                   if($_SESSION['cd_funcao'] == 7)
                   {
-                    echo '<h1>Módulo Hospedagem!</h1>';
-                    echo '<h6>&nbsp&nbsp&nbsp&nbsp Licença ao módulo de controle de casas voltado a pessoas que alugam casas e espaços.</h6>';
+                    echo '<h1>Escritório Simples!</h1>';
+                    //echo '<h6>&nbsp&nbsp&nbsp&nbsp Licença ao módulo de controle de casas voltado a pessoas que alugam casas e espaços.</h6>';
+                    include '../../pages/md_caixa/index.php';
+                    ////include '../../pages/md_hospedagem/index.php';
+                    //include '../../pages/md_patrimonio/index.php';
+                  }
+                  if($_SESSION['cd_funcao'] == 8)
+                  {
+                    echo '<h1>Escritório Avançado!</h1>';
+                    //echo '<h6>&nbsp&nbsp&nbsp&nbsp Licença ao módulo de controle de casas voltado a pessoas que alugam casas e espaços.</h6>';
                     ////include '../../pages/md_caixa/index.php';
+                    ////include '../../pages/md_hospedagem/index.php';
+                    //include '../../pages/md_patrimonio/index.php';
+                  }else{
+                    echo '<h1>'.$_SESSION['titulo_acesso'].'</h1>';
+                    echo '<pre id="jsonAcesso">'.json_encode($_SESSION['acesso_geral'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE).'</pre>';
+
+                    //echo '<h6>&nbsp&nbsp&nbsp&nbsp Licença ao módulo de controle de casas voltado a pessoas que alugam casas e espaços.</h6>';
+                    //include '../../pages/md_caixa/index.php';
                     ////include '../../pages/md_hospedagem/index.php';
                     //include '../../pages/md_patrimonio/index.php';
                   }

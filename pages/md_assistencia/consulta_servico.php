@@ -95,6 +95,7 @@
                     session_start();
                     $_SESSION['cd_cliente'] = 0;
                     $_SESSION['cd_servico'] = 0;
+                    $_SESSION['servico'] = 0;
                     $_SESSION['vtotal_orcamento'] = 0;
                     $_SESSION['vpag_servico'] = 0;
                     

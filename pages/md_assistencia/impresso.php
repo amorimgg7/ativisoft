@@ -123,7 +123,7 @@ require_once('fpdf/fpdf.php');
                 $this->Cell(40, 10, '__________________________________________________________________________________________________', 0, 1, 'C');
 
                 
-                $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['servico']."' ORDER BY cd_orcamento ASC";
+                $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$showcd_servico."' ORDER BY cd_orcamento ASC";
                 $result_orcamento = mysqli_query($conn, $select_orcamento);
                 $count = 0;
                 while($row_orcamento = $result_orcamento->fetch_assoc()) {

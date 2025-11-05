@@ -70,12 +70,12 @@ class Usuario
                 $_SESSION['md_assistencia'] = "style='display:none;'";
                 $_SESSION['md_lanchonete'] = "style='display:none;'";
                 $_SESSION['md_venda'] = "style='display:none;'";
-                        $_SESSION['cad_geral'] = "style='display:none;'";
-                        $_SESSION['md_cliente'] = "style='display:none;'";//$tb_acesso['md_cliente'];
-                        $_SESSION['md_fornecedor'] = "style='display:none;'";// $tb_acesso['md_fornecedor'];
-                        $_SESSION['md_clientefornecedor'] = "style='display:none;'";// $tb_acesso['md_clientefornecedor'];
-                        $_SESSION['md_patrimonio'] = "style='display:none;'";//$tb_acesso['md_patrimonio'];
-                        $_SESSION['md_hospedagem'] = "style='display:none;'";//$tb_acesso['md_hospedagem'];
+                $_SESSION['cad_geral'] = "style='display:none;'";
+                $_SESSION['md_cliente'] = "style='display:none;'";//$tb_acesso['md_cliente'];
+                $_SESSION['md_fornecedor'] = "style='display:none;'";// $tb_acesso['md_fornecedor'];
+                $_SESSION['md_clientefornecedor'] = "style='display:none;'";// $tb_acesso['md_clientefornecedor'];
+                $_SESSION['md_patrimonio'] = "style='display:none;'";//$tb_acesso['md_patrimonio'];
+                $_SESSION['md_hospedagem'] = "style='display:none;'";//$tb_acesso['md_hospedagem'];
 
 
 
@@ -150,12 +150,45 @@ class Usuario
                         //Modificar/inativar/excluir
                         //acesso total aos tres tópicos do crud é 999
 
+                        $_SESSION['acesso_geral'] = $tb_acesso;
+                        $_SESSION['titulo_acesso'] = $tb_acesso['titulo_acesso'];
+
+                        $md_cadastros = str_pad($tb_acesso['md_cadastros'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                        $_SESSION['md_cadastros']               =   $md_cadastros;
+                        $_SESSION['md_cadastros_menu']          =   (((int)$md_cadastros[0]+(int)$md_cadastros[1]+(int)$md_cadastros[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_cadastros_ler']           =   ((int)$md_cadastros[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_cadastros_escrever']      =   ((int)$md_cadastros[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_cadastros_modificar']     =   ((int)$md_cadastros[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        
+
+
                         $md_venda = str_pad($tb_acesso['md_venda'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
                         $_SESSION['md_venda'] = $md_venda;
                         $_SESSION['md_venda_ler']           =   ((int)$md_venda[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
                         $_SESSION['md_venda_escrever']      =   ((int)$md_venda[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
                         $_SESSION['md_venda_modificar']     =   ((int)$md_venda[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
                         $_SESSION['md_venda_produto']       =   (((int)$md_venda[0]+(int)$md_venda[1]+(int)$md_venda[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+
+                        $md_caixa = str_pad($tb_acesso['md_caixa'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                        $_SESSION['md_caixa']       =   $md_caixa;
+                        $_SESSION['md_caixa_menu']  =   (((int)$md_caixa[0]+(int)$md_caixa[1]+(int)$md_caixa[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_caixa_1']     =   ((int)$md_caixa[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_caixa_2']     =   ((int)$md_caixa[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_caixa_3']     =   ((int)$md_caixa[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
+
+                        $md_comissao = str_pad($tb_acesso['md_comissao'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                        $_SESSION['md_comissao']            =   $md_comissao;
+                        $_SESSION['md_comissao_menu']       =   (((int)$md_comissao[0]+(int)$md_comissao[1]+(int)$md_comissao[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_comissao_ler']        =   ((int)$md_comissao[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_comissao_escrever']   =   ((int)$md_comissao[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_comissao_modificar']  =   ((int)$md_comissao[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
+
+                        $md_assistencia = str_pad($tb_acesso['md_assistencia'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                        $_SESSION['md_assistencia']            =   $md_assistencia;
+                        $_SESSION['md_assistencia_menu']       =   (((int)$md_assistencia[0]+(int)$md_assistencia[1]+(int)$md_assistencia[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_assistencia_ler']        =   ((int)$md_assistencia[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_assistencia_escrever']   =   ((int)$md_assistencia[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        $_SESSION['md_assistencia_modificar']  =   ((int)$md_assistencia[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
 
                         /*
                         if($tb_acesso['md_venda'] == '111'){

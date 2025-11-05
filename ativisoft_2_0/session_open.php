@@ -112,7 +112,7 @@ exit;
             ksort($_SESSION); // ordena as chaves em ordem alfabética
 
             echo '<pre>';
-            //print_r($_SESSION);
+            print_r($_SESSION);
             echo '</pre>';
 
 
