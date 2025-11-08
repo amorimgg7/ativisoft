@@ -1,0 +1,51 @@
+[05-Nov-2025 19:51:45 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[05-Nov-2025 19:51:45 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[05-Nov-2025 19:51:45 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[05-Nov-2025 19:53:56 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 571
+[05-Nov-2025 19:53:56 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'ass_08057969.tb_prod_serv' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\pages\md_vendas\index.php:16
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_vendas\index.php(16): mysqli->query('SELECT CONCAT(T...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\dashboard\index.php(216): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_vendas\index.php on line 16
+[05-Nov-2025 19:54:03 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[05-Nov-2025 19:54:03 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[05-Nov-2025 19:54:03 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[05-Nov-2025 19:54:03 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'ass_08057969.tb_prod_serv' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\pages\md_vendas\index.php:16
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_vendas\index.php(16): mysqli->query('SELECT CONCAT(T...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\dashboard\index.php(216): include('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_vendas\index.php on line 16
+[05-Nov-2025 19:54:29 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[05-Nov-2025 19:54:29 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[05-Nov-2025 19:54:29 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[05-Nov-2025 19:55:28 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 571
+[08-Nov-2025 09:50:31 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[08-Nov-2025 09:50:31 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[08-Nov-2025 09:50:31 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[08-Nov-2025 09:50:41 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[08-Nov-2025 09:50:41 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[08-Nov-2025 09:50:47 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[08-Nov-2025 09:50:47 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[08-Nov-2025 09:51:02 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 220
+[08-Nov-2025 09:51:02 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'dfs',
+                              '',
+                              '552196...' at line 2 in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php:222
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php(222): mysqli_query(Object(mysqli), 'INSERT INTO tb_...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 222
+[08-Nov-2025 09:52:52 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[08-Nov-2025 09:52:52 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[08-Nov-2025 09:53:01 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[08-Nov-2025 09:53:01 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[08-Nov-2025 10:17:15 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[08-Nov-2025 10:17:15 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[08-Nov-2025 10:17:22 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[08-Nov-2025 10:17:22 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[08-Nov-2025 10:17:30 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 220
+[08-Nov-2025 10:17:30 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 224
+[08-Nov-2025 10:17:30 America/Sao_Paulo] PHP Warning:  Undefined array key "divida_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 600
+[08-Nov-2025 10:17:30 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[08-Nov-2025 10:17:30 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681

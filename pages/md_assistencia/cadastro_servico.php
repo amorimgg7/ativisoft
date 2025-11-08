@@ -201,7 +201,7 @@
                             <button type="submit" name="cad_cliente" class="btn btn-success" >Salvar</button>
                           </form>
                           <form method="post">
-                            <button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Refazer</button>';
+                            <button type="submit" class="btn btn-danger" name="limparOS" style="margin: 5px;">Refazer</button>
                           </form>
                         </div>
                       </div>
@@ -215,8 +215,8 @@
                             //include("../../partials/load.html");
                             // Atualiza as informações do usuário no banco de dados
                             $query = "INSERT INTO tb_cliente(pnome_cliente, snome_cliente, tel_cliente) VALUES(
-                              '".$_POST['pnome_cliente']."',
-                              '".$_POST['snome_cliente']."',
+                              '".addslashes($_POST['pnome_cliente'])."',
+                              '".addslashes($_POST['snome_cliente'])."',
                               '".$_POST['cd_pais'].$_POST['tel_cliente']."')
                             ";
                             mysqli_query($conn, $query);
