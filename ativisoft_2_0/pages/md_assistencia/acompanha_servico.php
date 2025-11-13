@@ -19,9 +19,9 @@ function getParameterByName($name, $url = null) {
 $filial = getParameterByName('filial');
 $tel = getParameterByName('tel');
 
-if ($filial && $tel) {
+if ($filial || $tel) {
     // Armazenar o CNPJ na variável de sessão
-    $_SESSION['cd_filial'] = $filial;
+    $_SESSION['concd_filial'] = $filial;
     
     // Você pode fazer qualquer outra coisa com o telefone aqui
     $_SESSION['contel_cliente'] = $tel;
@@ -46,8 +46,8 @@ if ($filial && $tel) {
     require_once '../../classes/conn.php';
     include("../../classes/functions.php");
     $u = new Usuario;
-    ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>
@@ -422,7 +422,7 @@ ini_set('display_startup_errors', 0);
                 $_SESSION['acompanha_cd_cliente'] = $row_select_cliente['cd_pessoa'];
                 $_SESSION['acompanha_pnome_cliente'] = $row_select_cliente['pnome_pessoa'];
                 $_SESSION['acompanha_snome_cliente'] = $row_select_cliente['snome_pessoa'];
-                $_SESSION['acompanha_tel_cliente'] = $row_select_cliente['tel1_pessoa'];
+                $_SESSION['contel_cliente'] = $row_select_cliente['tel1_pessoa'];
                 
                 $_SESSION['acompanha_id_google'] = $row_select_cliente['id_google'];
                 $_SESSION['acompanha_id_facebook'] = $row_select_cliente['id_facebook'];
@@ -452,10 +452,10 @@ ini_set('display_startup_errors', 0);
                 echo '<tr>';
                 echo '<td>'.$_SESSION['acompanha_cd_cliente'].'</td>';
                 echo '<td>'.$_SESSION['acompanha_pnome_cliente'].' '.$_SESSION['acompanha_snome_cliente'].'</td>';
-                echo '<td>'.$_SESSION['acompanha_tel_cliente'].'</td>';
+                echo '<td>'.$_SESSION['contel_cliente'].'</td>';
                 
                 echo '<form method="POST" target="_blank">';
-                //echo '<td><button type="button" class="btn btn-social-icon-text btn-success" onclick="enviarFichaWhatsApp()" style="margin: 5px;"><i class="mdi mdi-whatsapp"></i>'.$_SESSION['acompanha_tel_cliente'].'</button></td>';
+                //echo '<td><button type="button" class="btn btn-social-icon-text btn-success" onclick="enviarFichaWhatsApp()" style="margin: 5px;"><i class="mdi mdi-whatsapp"></i>'.$_SESSION['contel_cliente'].'</button></td>';
                 echo '</form>';
                 echo '</tbody>';
                 echo '</table>';
@@ -538,7 +538,7 @@ ini_set('display_startup_errors', 0);
               echo '<tr>';
               echo '<td>'.$_SESSION['acompanha_pnome_cliente'].' '.$_SESSION['acompanha_snome_cliente'].'</td>';
               echo '<form method="POST" target="_blank">';
-              echo '<td><button type="button" class="btn btn-social-icon-text btn-success" onclick="enviarFichaWhatsApp()" style="margin: 5px;"><i class="mdi mdi-whatsapp"></i>'.$_SESSION['acompanha_tel_cliente'].'</button></td>';
+              echo '<td><button type="button" class="btn btn-social-icon-text btn-success" onclick="enviarFichaWhatsApp()" style="margin: 5px;"><i class="mdi mdi-whatsapp"></i>'.$_SESSION['contel_cliente'].'</button></td>';
               echo '</form>';
               echo '</tbody>';
               echo '</table>';
@@ -557,7 +557,7 @@ ini_set('display_startup_errors', 0);
               //echo '</div>';
               //echo '</div>';
                                                                                                                                     //btn btn-lg btn-block btn-outline-info
-              //echo '<a href="../web/index.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel='.$_SESSION['acompanha_tel_cliente'].'" class="btn btn-lg btn-block btn-social-icon-text btn-outline-success" style="margin: 5px;">Acesse o catálogo do seu prestador de serviços favorito</a>';
+              //echo '<a href="../web/index.php?cnpj='.$_SESSION['cnpj_empresa'].'&tel='.$_SESSION['contel_cliente'].'" class="btn btn-lg btn-block btn-social-icon-text btn-outline-success" style="margin: 5px;">Acesse o catálogo do seu prestador de serviços favorito</a>';
               echo '</div>';
               echo '</div>';
               echo '</div>';
@@ -616,7 +616,7 @@ ini_set('display_startup_errors', 0);
                           function enviarFichaWhatsApp() {
                             // Obter os valores dos campos do formulário
                             var nomeCliente = "<?php echo $_SESSION['acompanha_pnome_cliente'];?>";
-                            var telefoneCliente = "<?php echo $_SESSION['acompanha_tel_cliente'];?>";
+                            var telefoneCliente = "<?php echo $_SESSION['contel_cliente'];?>";
                             
                             var count0 = "<?php echo $_SESSION['count0'];?>";
                             var count1 = "<?php echo $_SESSION['count1'];?>";
@@ -723,7 +723,7 @@ ini_set('display_startup_errors', 0);
                               }
                             ?>
                             <?php
-                              $select_finalizado_servico = "SELECT * FROM tb_servico WHERE status_servico = 2 AND cd_cliente = '".$_SESSION['acompanha_cd_cliente']."'
+                              $select_finalizado_servico  = "SELECT * FROM tb_servico WHERE status_servico = 2 AND cd_cliente = '".$_SESSION['acompanha_cd_cliente']."'
                               ORDER BY 
                               CASE 
                               WHEN prioridade_servico = 'U' THEN 1
@@ -837,7 +837,7 @@ ini_set('display_startup_errors', 0);
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
                   if(isset($_SESSION['acompanha_cd_cliente'])) {
-                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['acompanha_tel_cliente']."' ";
+                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['contel_cliente']."' ";
                     
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);
@@ -924,7 +924,7 @@ ini_set('display_startup_errors', 0);
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
                   if(isset($_SESSION['acompanha_cd_cliente'])) {
-                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['acompanha_tel_cliente']."'";
+                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['contel_cliente']."'";
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);
                     // Exibe as informações do usuário no formulário
@@ -1011,7 +1011,7 @@ ini_set('display_startup_errors', 0);
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
                   if(isset($_SESSION['acompanha_cd_cliente'])) {
-                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['acompanha_tel_cliente']."'";
+                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['contel_cliente']."'";
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);
                     // Exibe as informações do usuário no formulário
@@ -1098,7 +1098,7 @@ ini_set('display_startup_errors', 0);
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
                   if(isset($_SESSION['acompanha_cd_cliente'])) {
-                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['acompanha_tel_cliente']."'";
+                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['contel_cliente']."'";
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);
                     // Exibe as informações do usuário no formulário
@@ -1185,7 +1185,7 @@ ini_set('display_startup_errors', 0);
                   //"SELECT marca_patrimonio, modelo_patrimonio, COUNT(*) AS total FROM tb_patrimonio WHERE tipo_patrimonio = 'Impressora' GROUP BY marca_patrimonio, modelo_patrimonio";
                   //$sql_servico = "SELECT * FROM tb_servico WHERE status_servico = 0";
                   if(isset($_SESSION['acompanha_cd_cliente'])) {
-                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['acompanha_tel_cliente']."'";
+                    $sql_cliente = "SELECT * FROM tb_pessoa WHERE tel1_pessoa = '".$_SESSION['contel_cliente']."'";
                     $result_cliente = mysqli_query($conn, $sql_cliente);
                     $row_cliente = mysqli_fetch_assoc($result_cliente);
                     // Exibe as informações do usuário no formulário
