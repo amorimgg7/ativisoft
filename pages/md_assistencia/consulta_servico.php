@@ -558,7 +558,9 @@
                             faltaPagar = vtotalServico - vpagServico;
                               // Construir a mensagem com todos os dados do formulário
                             var mensagem = "*Olá, " + nomeCliente + "!*\n";
-                            mensagem += "Sou *<?php echo $_SESSION['pnome_colab'].' '.$_SESSION['snome_colab'];?>* , da empresa *<?php echo $_SESSION['nfantasia_filial'];?>* e fico no endereço *<?php echo $_SESSION['endereco_filial'];?>*.\n\n";
+                            mensagem += "Somos da *<?php echo $_SESSION['nfantasia_filial'];?>* e ficamos no endereço *<?php echo $_SESSION['endereco_filial'];?>*.\n\n";
+        
+                            // mensagem += "Sou *<?php // echo $_SESSION['pnome_colab'].' '.$_SESSION['snome_colab'];?>* , da empresa *<?php // echo $_SESSION['nfantasia_filial'];?>* e fico no endereço *<?php echo $_SESSION['endereco_filial'];?>*.\n\n";
                             
                             mensagem += "Sua ordem de serviço de número *OS" + numeroOS + "*, deu entrada em nossa loja *" + entradaOrganizada + "*.\n";
                             mensagem += "Descrição da atividade: " + observacoesServico + "\n";
