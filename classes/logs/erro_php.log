@@ -49,3 +49,283 @@ Stack trace:
 [08-Nov-2025 10:17:30 America/Sao_Paulo] PHP Warning:  Undefined array key "divida_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 600
 [08-Nov-2025 10:17:30 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
 [08-Nov-2025 10:17:30 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 14:48:59 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[19-Nov-2025 14:48:59 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[19-Nov-2025 14:48:59 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[19-Nov-2025 14:49:06 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 571
+[19-Nov-2025 14:49:10 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[19-Nov-2025 14:49:10 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[19-Nov-2025 14:49:10 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[19-Nov-2025 14:49:13 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 31
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 157
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 159
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 161
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 163
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 164
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 165
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 166
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 167
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 170
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 172
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 175
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 175
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 178
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 180
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 183
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 184
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 185
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 186
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 187
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 192
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 340
+[19-Nov-2025 14:49:18 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 344
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 33
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "os_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 488
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 490
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 492
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 494
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 500
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 502
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 505
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 505
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 508
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 510
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 639
+[19-Nov-2025 14:49:20 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 644
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 33
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "os_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 488
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 490
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 492
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 494
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 500
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 502
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 505
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 505
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 508
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 510
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 639
+[19-Nov-2025 14:49:29 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 644
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 33
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 571
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "os_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 488
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 490
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 492
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 494
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 500
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 502
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 505
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 505
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 508
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 510
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 639
+[19-Nov-2025 14:49:32 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 644
+[19-Nov-2025 14:49:34 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[19-Nov-2025 14:49:34 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[19-Nov-2025 14:49:34 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[19-Nov-2025 14:49:35 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\fechamento_caixa.php on line 31
+[19-Nov-2025 14:49:37 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\fechamento_caixa.php on line 31
+[19-Nov-2025 14:49:50 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[19-Nov-2025 14:49:50 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 14:49:56 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[19-Nov-2025 14:49:56 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 14:50:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 220
+[19-Nov-2025 14:50:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 224
+[19-Nov-2025 14:50:08 America/Sao_Paulo] PHP Warning:  Undefined array key "divida_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 600
+[19-Nov-2025 14:50:08 America/Sao_Paulo] PHP Warning:  Undefined array key "os_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1676
+[19-Nov-2025 14:50:08 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 14:50:18 America/Sao_Paulo] PHP Warning:  Undefined array key "divida_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 600
+[19-Nov-2025 14:50:25 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 14:50:30 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 131
+[19-Nov-2025 14:50:30 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 145
+[19-Nov-2025 14:50:30 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 156
+[19-Nov-2025 14:50:30 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1017): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php(192): FPDF->Output('D', 'OS_11109.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php on line 267
+[19-Nov-2025 14:50:50 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 110
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 128
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 187
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 570
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 923
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 926
+[19-Nov-2025 14:50:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 969
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 110
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 128
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 187
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 570
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 923
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 926
+[19-Nov-2025 14:50:58 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 969
+[19-Nov-2025 14:51:07 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 14:51:07 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[19-Nov-2025 14:51:07 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[19-Nov-2025 14:51:07 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[19-Nov-2025 14:51:07 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[19-Nov-2025 14:51:07 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[19-Nov-2025 14:51:07 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[19-Nov-2025 14:51:07 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[19-Nov-2025 14:51:14 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 131
+[19-Nov-2025 14:51:14 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 156
+[19-Nov-2025 14:51:14 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1017): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php(192): FPDF->Output('D', 'OS_594.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php on line 267
+[19-Nov-2025 14:51:26 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 567
+[19-Nov-2025 14:51:26 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 600
+[19-Nov-2025 14:51:26 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 620
+[19-Nov-2025 14:51:26 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 621
+[19-Nov-2025 14:51:26 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 622
+[19-Nov-2025 14:51:26 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 632
+[19-Nov-2025 14:51:26 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1017): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php(668): FPDF->Output('D', 'HISTORICO_OS_59...')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php on line 267
+[19-Nov-2025 14:51:29 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 312
+[19-Nov-2025 14:51:29 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 320
+[19-Nov-2025 14:51:29 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 328
+[19-Nov-2025 14:51:29 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 333
+[19-Nov-2025 14:51:29 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1017): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php(369): FPDF->Output('D', 'VIA_CLIENTE_OS_...')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php on line 267
+[19-Nov-2025 14:51:40 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 131
+[19-Nov-2025 14:51:40 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 156
+[19-Nov-2025 14:51:40 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1017): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php(192): FPDF->Output('D', 'OS_594.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php on line 267
+[19-Nov-2025 14:51:48 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 131
+[19-Nov-2025 14:51:48 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 145
+[19-Nov-2025 14:51:48 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 156
+[19-Nov-2025 14:51:48 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1017): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php(192): FPDF->Output('D', 'OS_11109.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php on line 267
+[19-Nov-2025 14:55:13 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 131
+[19-Nov-2025 14:55:13 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 156
+[19-Nov-2025 14:55:13 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1017): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php(192): FPDF->Output('D', 'OS_594.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php on line 267
+[19-Nov-2025 14:55:40 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 567
+[19-Nov-2025 14:55:40 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 600
+[19-Nov-2025 14:55:40 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 620
+[19-Nov-2025 14:55:40 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 621
+[19-Nov-2025 14:55:40 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 622
+[19-Nov-2025 14:55:40 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 632
+[19-Nov-2025 14:55:40 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1017): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php(668): FPDF->Output('D', 'HISTORICO_OS_59...')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php on line 267
+[19-Nov-2025 14:57:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 14:57:59 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 95
+[19-Nov-2025 14:57:59 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 110
+[19-Nov-2025 14:57:59 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[19-Nov-2025 14:57:59 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[19-Nov-2025 14:57:59 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[19-Nov-2025 14:57:59 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[19-Nov-2025 14:57:59 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[19-Nov-2025 14:57:59 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[19-Nov-2025 14:58:03 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 14:58:03 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[19-Nov-2025 14:58:03 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[19-Nov-2025 14:58:03 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[19-Nov-2025 14:58:03 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[19-Nov-2025 14:58:03 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[19-Nov-2025 14:58:03 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[19-Nov-2025 14:58:03 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[19-Nov-2025 15:02:28 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 15:02:34 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 15:02:46 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 220
+[19-Nov-2025 15:02:46 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_pais" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 224
+[19-Nov-2025 15:02:46 America/Sao_Paulo] PHP Warning:  Undefined array key "divida_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 600
+[19-Nov-2025 15:02:46 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 15:02:52 America/Sao_Paulo] PHP Warning:  Undefined array key "divida_cliente" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 600
+[19-Nov-2025 15:03:02 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[19-Nov-2025 15:03:07 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 131
+[19-Nov-2025 15:03:07 America/Sao_Paulo] PHP Deprecated:  Function utf8_decode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php on line 156
+[19-Nov-2025 15:03:07 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php(1017): FPDF->_checkoutput()
+#2 C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\impresso.php(192): FPDF->Output('D', 'OS_594.pdf')
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\fpdf\fpdf.php on line 267
+[19-Nov-2025 15:03:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 15:03:34 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 110
+[19-Nov-2025 15:03:34 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[19-Nov-2025 15:03:34 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[19-Nov-2025 15:03:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[19-Nov-2025 15:03:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[19-Nov-2025 15:03:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[19-Nov-2025 15:03:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[19-Nov-2025 15:03:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 110
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 110
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[19-Nov-2025 17:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 571
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 110
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889

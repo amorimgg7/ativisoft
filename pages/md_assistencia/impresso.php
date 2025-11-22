@@ -13,7 +13,7 @@ require_once('fpdf/fpdf.php');
         $showobs_servico = $_POST['btnobs_servico'];
         $showprioridade_servico = $_POST['btnprioridade_servico'];
         $showprazo_servico = $_POST['btnprazo_servico'];
-        $showorcamento_servico = $_POST['btnvtotal_orcamento'];
+        $showorcamento_servico = $_POST['btnvtotal_orcamento']; 
         $showvpag_servico = $_POST['btnvpag_orcamento'];
 
 
@@ -112,7 +112,7 @@ require_once('fpdf/fpdf.php');
 
 
                 // Lista de orçamentos feitos
-                session_start();
+                //session_start();
                 require_once '../../classes/conn.php';
                 include("../../classes/functions.php");
 
@@ -296,7 +296,7 @@ require_once('fpdf/fpdf.php');
                 $this->Ln(5);
 
                 // Data
-                //session_start();
+                session_start();
                 require_once '../../classes/conn.php';
                 include("../../classes/functions.php");
 
@@ -304,7 +304,7 @@ require_once('fpdf/fpdf.php');
                 $this->Cell(0, 5, 'Lista Detalhada', 0, 1, 'C');
                 $this->SetFont('Arial', 'B', 8);
                 
-                $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$_SESSION['servico']."' ORDER BY cd_orcamento ASC";
+                $select_orcamento = "SELECT * FROM tb_orcamento_servico WHERE cd_servico = '".$showcd_servico."' ORDER BY cd_orcamento ASC";
                 $result_orcamento = mysqli_query($conn, $select_orcamento);
                 $count = 0;
                 while($row_orcamento = $result_orcamento->fetch_assoc()) {

@@ -392,7 +392,18 @@
                     //include '../../pages/md_patrimonio/index.php';
                   }else{
                     echo '<h1>'.$_SESSION['titulo_acesso'].'</h1>';
-                    echo '<pre id="jsonAcesso">'.json_encode($_SESSION['acesso_geral'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE).'</pre>';
+                    //echo '<pre id="jsonAcesso">'.json_encode($_SESSION['acesso_geral'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE).'</pre>';
+
+                    $data = $_SESSION['acesso_geral'] ?? null;
+
+                    // JSON_PRETTY_PRINT e JSON_UNESCAPED_UNICODE continuam funcionando normalmente no 8.3
+                    $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+                    if ($json === false) {
+                      echo '<pre id="jsonAcesso">Erro ao gerar JSON: ' . json_last_error_msg() . '</pre>';
+                    } else {
+                      echo '<pre id="jsonAcesso">' . $json . '</pre>';
+                    }
 
                     //echo '<h6>&nbsp&nbsp&nbsp&nbsp Licença ao módulo de controle de casas voltado a pessoas que alugam casas e espaços.</h6>';
                     //include '../../pages/md_caixa/index.php';

@@ -1660,7 +1660,7 @@ if(prioridadeServico == "M"){
 if(prioridadeServico == "B"){
   prioridadeOrganizada = "Baixa";
 }
-faltaPagar = vtotalServico - vpagServico;
+faltaPagar = vtotalServico - vpagServico; 
 
   // Construir a mensagem com todos os dados do formulário
   var mensagem = "*Olá, " + nomeCliente + "!*\n";

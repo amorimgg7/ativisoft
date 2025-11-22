@@ -2,12 +2,13 @@
   session_start();
   if(!isset($_SESSION['cd_pessoa']))
   {
-    echo '<script>location.href="'.$_SESSION['dominio'].'../samples/login.php";</script>';    
+    //echo '<h1>'.$_SESSION['dominio'].'pages/samples/login.php</h1>';
+    echo '<script>location.href="'.$_SESSION['dominio'].'/pages/samples/login.php";</script>';    
     exit; 
   }
   if($_SESSION['senha_pessoa'] == "")
   {
-    echo '<script>location.href="'.$_SESSION['dominio'].'../../samples/lock-screen.php";</script>';  
+    echo '<script>location.href="'.$_SESSION['dominio'].'/pages/samples/lock-screen.php";</script>';  
     exit;
   }
   require_once '../../classes/conn.php';
