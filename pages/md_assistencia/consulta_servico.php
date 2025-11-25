@@ -435,7 +435,7 @@
 
 
                     echo '<form action="impresso.php" method="POST" target="_blank" '.$_SESSION['c_card'].'>';
-                    echo '<div style="display:block; '.$_SESSION['c_card'].'">';
+                    echo '<div style="display:none; '.$_SESSION['c_card'].'">';
                     //echo '<h3 class="kt-portlet__head-title">Dados do Cliente</h3> ';
                     echo '<input value="'.$_SESSION['cd_cliente'].'" name="btncd_cliente" type="text" id="showcd_cliente" style="display: none;"/>';
                     //echo '<label for="btnpnome_cliente">Nome</label>';

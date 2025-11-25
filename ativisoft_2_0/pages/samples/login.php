@@ -179,6 +179,14 @@ function parseJwt(token) {
                     <?php
                     //include("../../partials/load.html");
                     //echo "<script>window.alert('carregando');</script>";
+                    $_SESSION['email_empresa'] = $email_colab;
+                    $email_empresa = $_SESSION['email_empresa'];
+                    if($email_empresa == 'marcia.oficinadaroupa@gmail.com'){
+                        $cnpj_empresa = '08057969000100';
+                        $_SESSION['con_cliente'] = "ass_".substr($cnpj_empresa, 0, 8); // Extrai os primeiros 8 dígitos
+                    }else{
+                        $_SESSION['con_cliente'] = 'assistent_master';
+                    }
                     $u->conectar();
                     if ($msgErro == "")
                     {

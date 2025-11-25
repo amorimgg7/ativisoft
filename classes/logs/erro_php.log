@@ -329,3 +329,85 @@ Stack trace:
 [19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
 [19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
 [19-Nov-2025 17:10:19 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[24-Nov-2025 10:47:18 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[24-Nov-2025 10:47:18 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[24-Nov-2025 10:47:18 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[24-Nov-2025 10:47:22 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[24-Nov-2025 10:47:22 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[24-Nov-2025 10:47:22 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[24-Nov-2025 10:47:22 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[24-Nov-2025 10:47:22 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[24-Nov-2025 10:47:22 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[24-Nov-2025 10:47:22 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[24-Nov-2025 10:47:25 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[24-Nov-2025 10:47:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[24-Nov-2025 10:47:34 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[24-Nov-2025 10:47:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[24-Nov-2025 10:47:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[24-Nov-2025 10:47:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[24-Nov-2025 10:47:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[24-Nov-2025 10:47:34 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[24-Nov-2025 10:47:34 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 1006
+[24-Nov-2025 10:47:41 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\fechamento_caixa.php on line 31
+[24-Nov-2025 10:47:43 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\fechamento_caixa.php on line 31
+[24-Nov-2025 10:48:44 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[24-Nov-2025 10:49:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[24-Nov-2025 10:49:16 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[24-Nov-2025 10:49:16 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[24-Nov-2025 10:49:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[24-Nov-2025 10:49:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[24-Nov-2025 10:49:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[24-Nov-2025 10:49:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[24-Nov-2025 10:49:16 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[24-Nov-2025 10:49:25 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[24-Nov-2025 10:49:25 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[24-Nov-2025 10:49:25 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[24-Nov-2025 10:49:25 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[24-Nov-2025 10:49:25 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[24-Nov-2025 10:49:25 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[24-Nov-2025 10:49:25 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[24-Nov-2025 10:49:25 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[24-Nov-2025 10:49:25 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 1006
+[24-Nov-2025 10:49:30 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[24-Nov-2025 11:04:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[24-Nov-2025 11:04:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[24-Nov-2025 11:04:04 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[24-Nov-2025 11:04:09 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[24-Nov-2025 15:53:10 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email_colab' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php:41
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\classes\functions.php(41): PDOStatement->execute()
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\samples\login.php(124): Usuario->logar('08057969000100', 'marcia.oficinad...', '1')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 41
+[25-Nov-2025 10:15:05 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email_colab' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php:41
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\classes\functions.php(41): PDOStatement->execute()
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\samples\login.php(124): Usuario->logar('08057969000100', 'marcia.oficinad...', '1')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 41
+[25-Nov-2025 10:17:09 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[25-Nov-2025 10:17:09 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[25-Nov-2025 10:17:09 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96
+[25-Nov-2025 10:17:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[25-Nov-2025 10:17:14 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[25-Nov-2025 10:17:14 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[25-Nov-2025 10:17:14 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[25-Nov-2025 10:17:14 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[25-Nov-2025 10:17:14 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[25-Nov-2025 10:17:14 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[25-Nov-2025 10:17:33 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[25-Nov-2025 10:17:39 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\fechamento_caixa.php on line 31
+[25-Nov-2025 10:17:41 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\fechamento_caixa.php on line 31
+[25-Nov-2025 10:17:49 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 54
+[25-Nov-2025 10:17:49 America/Sao_Paulo] PHP Warning:  Undefined array key "conos_servico" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 110
+[25-Nov-2025 10:17:49 America/Sao_Paulo] PHP Warning:  Undefined variable $dataHoraAtual in C:\xampp\htdocs\ativisoft_1_0\pages\md_caixa\movimento_financeiro.php on line 86
+[25-Nov-2025 10:17:49 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 574
+[25-Nov-2025 10:17:49 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 636
+[25-Nov-2025 10:17:49 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 660
+[25-Nov-2025 10:17:49 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 691
+[25-Nov-2025 10:17:49 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 725
+[25-Nov-2025 10:17:49 America/Sao_Paulo] PHP Warning:  Undefined array key "marcartitulo_atividade" in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\consulta_servico.php on line 889
+[25-Nov-2025 10:17:55 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[25-Nov-2025 10:20:59 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[25-Nov-2025 10:21:36 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
+[25-Nov-2025 10:21:42 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 571

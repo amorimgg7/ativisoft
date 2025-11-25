@@ -29,15 +29,15 @@ class Usuario
         try {
             $pdo = new PDO("mysql:dbname=".$nome.";host=".$host, $usuario, $senha);
         } catch (PDOException $e) {
-            $msgErro = $e->getMessage();
+            $msgErro = $e->getMessage(); 
         }
     }
     public function logar($email_pessoa, $senha_pessoa, $tipo_pessoa, $id_google, $id_facebook) 
     {
-
+        
         $_SESSION['toEncoding'] = 'ISO-8859-1';
         $_SESSION['fromEncoding'] = 'UTF-8';
-
+        $_SESSION['email_empresa'] = $email_pessoa;
 
         global $pdo;
         $loginCliente = $pdo->prepare("SELECT * FROM tb_pessoa p JOIN rel_master r ON r.cd_pessoa = p.cd_pessoa JOIN tb_acesso a ON r.cd_acesso = a.cd_acesso JOIN tb_empresa e ON e.cd_empresa = r.cd_empresa WHERE p.tipo_pessoa = 'cliente' AND p.id_google = :idg");
