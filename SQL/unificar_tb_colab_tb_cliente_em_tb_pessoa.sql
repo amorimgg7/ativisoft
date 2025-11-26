@@ -185,6 +185,7 @@ ADD CONSTRAINT fk_rel_empresa FOREIGN KEY (cd_empresa) REFERENCES tb_empresa (cd
 
 ALTER TABLE `rel_master` ADD CONSTRAINT `pessoas` FOREIGN KEY (`cd_pessoa`) REFERENCES `tb_pessoa`(`cd_pessoa`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
+insert into rel_master (token_alter, cd_pessoa, cd_estilo, cd_acesso, cd_empresa, status_rel) values('100001', 1, 1, 1, 1, 'ativo'), ('100001', 2, 1, 2, 1, 'ativo');
 
 
 ALTER TABLE `tb_empresa` 
@@ -205,10 +206,6 @@ ALTER TABLE `tb_empresa`
     ADD `tipo_mensagem` varchar(40) DEFAULT NULL,
     ADD `tipo_impressao` varchar(40) DEFAULT NULL;
   
-
-
-
-
 
 
 CREATE TABLE tb_contrato (
@@ -266,11 +263,20 @@ ALTER TABLE tb_comissao
 
 ALTER TABLE `tb_pessoa` ADD `percent_comissao` DECIMAL(10,2) NULL DEFAULT '0';
 
-UPDATE `rel_master` SET `cd_empresa` = '1' WHERE `rel_master`.`cd_rel` = 1;
+
 
 UPDATE `tb_empresa` SET `cd_proprietario` = '1' WHERE `tb_empresa`.`cd_empresa` = 1;
 
-UPDATE `rel_master` SET `cd_empresa` = '1' WHERE `rel_master`.`cd_rel` = 1;
+
+ALTER TABLE `tb_acesso`
+  DROP `md_caixa`,
+  DROP `md_assistencia`,
+  DROP `md_venda`,
+  DROP `md_patrimonio`,
+  DROP `md_folhaponto`,
+  DROP `md_comissao`,
+  DROP `md_financeiro`,
+  DROP `md_cadastros`;
 
 
 

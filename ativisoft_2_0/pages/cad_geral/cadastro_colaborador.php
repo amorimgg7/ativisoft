@@ -176,7 +176,8 @@
               */
 
                 if(isset($_POST['menuPrincipal'])) { 
-                  $_SESSION['statusCadastrosColab'] = FALSE;
+                  $_SESSION['statusCadastrosColab'] = '';
+                  
                 }
 
                 if(isset($_POST['cadColab'])) { 
@@ -238,6 +239,9 @@
               ?>
               
               <?php
+              if(!isset($_SESSION['statusCadastrosColab'])){
+                $_SESSION['statusCadastrosColab'] = '';
+              }
               if($_SESSION['statusCadastrosColab'] == 1){//cadastro de grupo de produtos
                 echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
@@ -775,7 +779,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 echo '</div>';
               
               }else{
-                $select_colab = "SELECT * FROM tb_pessoa where cd_filial = ".$_SESSION['cd_filial']." ORDER BY pnome_pessoa ASC";
+                $select_colab = "SELECT * FROM tb_pessoa where TIPO_PESSOA = 'colab' AND cd_filial = ".$_SESSION['cd_filial']." ORDER BY pnome_pessoa ASC";
                 $resulta_colab = $conn->query($select_colab);
                 if ($resulta_colab->num_rows > 0){
 
