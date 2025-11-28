@@ -183,9 +183,24 @@ function parseJwt(token) {
                     $email_empresa = $_SESSION['email_empresa'];
                     if($email_empresa == 'marcia.oficinadaroupa@gmail.com'){
                         $cnpj_empresa = '08057969000100';
-                        $_SESSION['con_cliente'] = "ass_".substr($cnpj_empresa, 0, 8); // Extrai os primeiros 8 dígitos
+                        $host_cliente       = "as_".substr($cnpj_empresa, 0, 8).".mysql.dbaas.com.br";
+                        $usuario_cliente    = "as_".substr($cnpj_empresa, 0, 8);
+                        $senha_cliente      = 'GGA@20002021g';
+                        $nome_cliente       = "as_".substr($cnpj_empresa, 0, 8); // Extrai os primeiros 8 dígitos
+                        
+                   
+
+                        $_SESSION['host_cliente'] = $host_cliente;
+                        $_SESSION['usuario_cliente'] = $usuario_cliente;
+                        $_SESSION['senha_cliente'] = $senha_cliente;
+                        $_SESSION['nome_cliente'] = $nome_cliente;
+
+
                     }else{
-                        $_SESSION['con_cliente'] = 'assistent_master';
+                      $_SESSION['host_cliente'] = "localhost"; /* nome da conexão */
+                      $_SESSION['usuario_cliente'] = "root"; /* nome do usuario da conexãp */
+                      $_SESSION['senha_cliente'] = ""; /*senha do banco de dados caso exista */
+                      $_SESSION['nome_cliente'] = 'assistent_master';
                     }
                     $u->conectar();
                     if ($msgErro == "")

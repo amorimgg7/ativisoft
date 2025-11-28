@@ -2296,6 +2296,7 @@ function dadosFinanceiros($modelo, $vorcamento, $vpago,) {
                     $this->SetFont('Arial', 'B', 10);
                     $this->Cell(25, 7, $vorcamento, 1, 0, 'L');
                     if($vpago == 0){
+                        $this->Cell(30, 7, $vpago, 1, 0, 'L');
                     }else{
                         $this->Cell(30, 7, $vpago, 1, 0, 'L');
                     }

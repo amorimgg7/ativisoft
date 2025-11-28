@@ -144,6 +144,7 @@ require_once('fpdf/fpdf.php');
                 }else{
                     $this->Cell(0, 5, utf8_decode('Orçamento: ') . $showorcamento_servico, 0, 1, 'L');
                     if($showvpag_servico == 0){
+                        $this->Cell(0, 5, 'Valor pago: 0', 0, 1, 'L');
                     }else{
                         $this->Cell(0, 5, 'Valor pago: ' . $showvpag_servico, 0, 1, 'L');
                     }

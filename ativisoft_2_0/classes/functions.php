@@ -1,8 +1,8 @@
 <?php
  
 // Ativa a exibição de erros (útil em ambiente de desenvolvimento)
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Ativa o registro de erros (útil para produção)
@@ -213,6 +213,12 @@ class Usuario
                         }
                         if($tb_acesso['md_assistencia'] == "333"){
                             $_SESSION['md_assistencia'] = "style='display:none;'";
+                        }
+                        if($tb_acesso['md_pdv'] == "111"){
+                            $_SESSION['md_pdv'] = "style='display:none;'";
+                        }
+                        if($tb_acesso['md_pdv'] == "999"){
+                            $_SESSION['md_pdv'] = "style='display:block;'";
                         }
 
                         
@@ -4457,6 +4463,15 @@ class Usuario
     public function retPermissão($tipo, $permissao){
         if($tipo = 'md_venda_produto'){
             if($permissao != '111'){
+                http_response_code(200);
+                echo '<script>console.log("Acesso permitido ('.$tipo.' : '.$permissao.')");</script>';
+                //return "Acesso permitido (".$tipo." : ".$permissao.")";
+            }else{
+                header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
+                return "Negado";
+            }
+        }else if($tipo = "md_cadastros"){
+            if($permissao != '999'){
                 http_response_code(200);
                 echo '<script>console.log("Acesso permitido ('.$tipo.' : '.$permissao.')");</script>';
                 //return "Acesso permitido (".$tipo." : ".$permissao.")";
