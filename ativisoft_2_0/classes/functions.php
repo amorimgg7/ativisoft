@@ -4488,6 +4488,60 @@ class Usuario
         //return "Acesso permitido para ";
     }
 
+    public function conProdServ($cd_empresa){
+    global $conn;
+
+    $produtos = [];
+    $categorias = [];
+
+    $sql = "
+        SELECT 
+            p.cd_prod_serv AS id,
+            p.cdbarras_prod_serv AS sku,
+            p.titulo_prod_serv AS name,
+            p.preco_prod_serv AS price,
+            p.cd_grupo AS category_id,
+            g.titulo_grupo AS ds_grupo
+        FROM tb_prod_serv p
+        LEFT JOIN tb_grupo g ON g.cd_grupo = p.cd_grupo
+        WHERE p.cd_empresa = $cd_empresa
+        ORDER BY p.titulo_prod_serv ASC
+    ";
+
+    $result = mysqli_query($conn, $sql);
+
+    if (!$result || mysqli_num_rows($result) == 0) {
+        return [
+            "products" => [],
+            "categories" => []
+        ];
+    }
+
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        // lista de produtos
+        $produtos[] = [
+            'id'         => (int)$row['id'],
+            'sku'        => $row['sku'],
+            'name'       => $row['name'],
+            'price'      => (float)$row['price'],
+            'category'   => $row['ds_grupo'],  // Nome do grupo
+            'categoryId' => (int)$row['category_id']
+        ];
+
+        // armazena categorias únicas
+        if (!in_array($row['ds_grupo'], $categorias)) {
+            $categorias[] = $row['ds_grupo'];
+        }
+    }
+
+    return [
+        "products"   => $produtos,
+        "categories" => $categorias
+    ];
+}
+
+
 }
 
 function loggout(){

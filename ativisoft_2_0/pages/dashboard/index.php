@@ -353,9 +353,60 @@
                   }
                   if($_SESSION['cd_funcao'] == 4)
                   {
-                    echo '<h1>Módulo cliente / fornecedor!</h1>';
-                    echo '<h6>Este módulo é destinado ao empresário que deseja utilizar funções de cliente e fornecedor juntas</h6>';
+                    //include '../../pages/auto_pagamento/index.php';
+                    include '../../pages/md_caixa/index.php';
+                    //include '../../pages/md_vendas/index.php';
+                    include '../../pages/md_assistencia/index.php';
 
+
+                    if ($_POST['pagar_cd_comissao'] > 0) {
+                      // Construir a mensagem com os itens separados por quebra de linha
+                      $mensagem = "O item selecionado retornará ao estoque?";
+  
+                      // Gerar o modal via PHP
+                      echo '
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Confirmação</h5>
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>-->
+                        </div>
+                        <div class="modal-body">
+                        <p>' . htmlspecialchars($mensagem, ENT_QUOTES) . '</p>
+                        </div>
+                        <div class="modal-footer">
+                        <form method="POST" action="">
+                      ';
+  
+                      // Preservar os dados do POST no modal
+                      foreach ($_POST as $key => $value) {
+                        if (is_array($value)) {
+                          foreach ($value as $subValue) {
+                            echo '<input type="hidden" name="' . htmlspecialchars($key, ENT_QUOTES) . '[]" value="' . htmlspecialchars($subValue, ENT_QUOTES) . '">';
+                          }
+                        } else {
+                          echo '<input type="hidden" name="' . htmlspecialchars($key, ENT_QUOTES) . '" value="' . htmlspecialchars($value, ENT_QUOTES) . '">';
+                        }
+                      }
+
+                      echo '
+                      <button type="submit" name="confirmacao" value="sim" class="btn btn-success">Sim</button>
+                      <button type="submit" name="confirmacao" value="nao" class="btn btn-danger">Não</button>
+                      <button type="submit" name="confirmacao" value="cancelar" class="btn btn-secondary">Cancelar</button>
+                      </form>
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                      <script>
+                      $(document).ready(function() {
+                      $("#exampleModalCenter").modal("show");
+                      });
+                      </script>';
+                  }
                   }
                   if($_SESSION['cd_funcao'] == 5)
                   {
