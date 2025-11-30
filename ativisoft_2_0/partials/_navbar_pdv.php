@@ -18,7 +18,7 @@ button {
     padding: 0.5rem 1rem;
 }
 </style>
-  <nav class="navbar col-lg-12 col-12 p-0 fixed-top  flex-row" <?php echo $_SESSION['c_navbar']?>>
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top  flex-row" style="background-color: #ddd;" <?php echo $_SESSION['c_navbar']?>>
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" >
       
 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -27,11 +27,11 @@ button {
 </div></div>
 <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"  >
     <div class="d-flex gap-2">
-        <button class="btn btn-danger" id="btn-reset">Cancelar</button>
+        <button class="btn btn-danger" id="btn-reset"><i class="bi bi-cart-x"></i></button>
         <!--<button class="btn btn-primary" id="btn-finalizar">Finalizar Venda</button>-->
-        <button class="btn btn-info top-btn" id="btn-principal" style="display:none;" onclick="showSection('principal')">Principal</button>
-        <button class="btn btn-info top-btn" id="btn-historico" onclick="showSection('historico')">Histórico</button>
-        <button class="btn btn-info top-btn" id="btn-integracao" onclick="showSection('integracao')">Integração</button>
+        <button class="btn btn-info top-btn" id="btn-principal" style="display:none;" onclick="showSection('principal')"><i class="bi bi-shop"></i></button>
+        <button class="btn btn-info top-btn" id="btn-historico" onclick="showSection('historico')"><i class="bi bi-clock-history"></i></button>
+        <button class="btn btn-info top-btn" id="btn-integracao" onclick="showSection('integracao')"><i class="bi bi-nut"></i></button>
     </div>
       </div>
   </nav>

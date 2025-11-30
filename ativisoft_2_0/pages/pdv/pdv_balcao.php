@@ -29,6 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PDV - Ativisoft</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
     <style>
         body {
             background: #f5f7fb;
@@ -127,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
                             </div>
                             <div class="col-12 col-lg-8 left-pane order-1 order-lg-1">
-                                <div class="card mb-3">
+                                <!--<div class="card mb-3">
                                     <div class="card-body">
                                         <div class="row g-2 align-items-center">
                                             <div class="col-sm-12 col-md-8">
@@ -142,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <div class="row" id="productList">
                                     <?php foreach ($products as $p): ?>
@@ -236,9 +238,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                     </section>
                     <section id="historico">
-                        <h2>Histórico de vendas</h2>
-                        <p>...</p>
-                    </section>
+    <h2>Histórico de vendas</h2>
+
+    <form id="filtroHistorico" class="row g-2 mb-3">
+        <div class="col-auto">
+            <label for="data_inicio" class="form-label">Data Início:</label>
+            <input type="date" id="data_inicio" name="data_inicio" class="form-control" value="<?= date('Y-m-d') ?>">
+        </div>
+        <div class="col-auto">
+            <label for="data_fim" class="form-label">Data Fim:</label>
+            <input type="date" id="data_fim" name="data_fim" class="form-control" value="<?= date('Y-m-d') ?>">
+        </div>
+        <div class="col-auto align-self-end">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+    </form>
+
+    <div id="historicoResultados">
+        <!-- Histórico carregado via AJAX -->
+    </div>
+</section>
+
+<script>
+document.getElementById('filtroHistorico').addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita recarregar a página
+
+    const dataInicio = document.getElementById('data_inicio').value;
+    const dataFim = document.getElementById('data_fim').value;
+
+    fetch('historico_ajax.php?data_inicio=' + dataInicio + '&data_fim=' + dataFim)
+        .then(resp => resp.text())
+        .then(html => {
+            document.getElementById('historicoResultados').innerHTML = html;
+        })
+        .catch(err => console.error(err));
+});
+
+// Carrega o histórico inicial ao abrir a página
+window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('filtroHistorico').dispatchEvent(new Event('submit'));
+});
+</script>
+
+
                     <section id="integracao">
                         <h2>Integrações com parceiros</h2>
                         <p>...</p>
@@ -344,6 +386,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!p) return;
             const existing = cart.find(x => x.id == p.id);
             if (existing) existing.qty++; else cart.push({ ...p, qty: 1 });
+            console.log("Carrinho: ");
+            console.log(cart);
             renderCart();
         }
         document.querySelectorAll('.add-btn').forEach(btn => btn.addEventListener('click', e => {
@@ -354,7 +398,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }));
 
         // ====== BUSCA ======
-        document.getElementById('productSearch').addEventListener('input', function () {
+        /*document.getElementById('productSearch').addEventListener('input', function () {
             const q = this.value.toLowerCase().trim();
             document.querySelectorAll('#productList .product-wrapper').forEach(col => {
                 const card = col.querySelector('.product-card');
@@ -369,7 +413,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             const p = products.find(x => x.sku === code);
             if (p) addToCartById(p.id); else alert('Produto não encontrado: ' + code);
             document.getElementById('barcodeInput').value = '';
-        });
+        });*/
 
         // ====== REMOVER / ALTERAR QTD / INCREMENTO ======
         document.getElementById('cartBody').addEventListener('click', e => {
@@ -410,21 +454,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         document.getElementById('btn-pay').addEventListener('click', receberPagamento);
         document.getElementById('btn-finalizar').addEventListener('click', receberPagamento);
         function receberPagamento() {
-            if (cart.length === 0) { alert('Carrinho vazio'); return; }
-            const payload = {
-                client: document.getElementById('clientName').innerText,
-                items: cart,
-                subtotal: cart.reduce((s, it) => s + it.price * it.qty, 0),
-                discount: parseFloat(document.getElementById('discount').value || 0),
-                total: parseFloat(document.getElementById('totalText').innerText.replace('R$ ', '').replace(/\./g, '').replace(',', '.'))
-            };
-            fetch('', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-                .then(r => r.json())
-                .then(resp => {
-                    if (resp.success) { alert('Venda finalizada!'); printReceipt(payload); cart = []; renderCart(); }
-                    else alert('Erro: ' + (resp.message || ''));
-                }).catch(err => alert('Erro de comunicação: ' + err));
+    if (cart.length === 0) { 
+        alert('Carrinho vazio'); 
+        return; 
+    }
+
+    const payload = {
+        client: document.getElementById('clientName').innerText,
+        items: cart,
+        subtotal: cart.reduce((s, it) => s + it.price * it.qty, 0),
+        discount: parseFloat(document.getElementById('discount').value || 0),
+        total: parseFloat(
+            document.getElementById('totalText')
+            .innerText
+            .replace('R$ ', '')
+            .replace(/\./g, '')
+            .replace(',', '.')
+        )
+    };
+
+    fetch('lanca_venda.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(async r => {
+        const texto = await r.text();
+        console.log("PHP retornou:", texto); // <- log para debug
+        return JSON.parse(texto);
+    })
+    .then(resp => {
+        if (resp.success) {
+            alert('Venda finalizada!');
+            printReceipt(payload);
+            cart = [];
+            renderCart();
+        } else {
+            alert('Erro: ' + resp.message);
         }
+    })
+    .catch(err => alert('Erro de comunicação: ' + err));
+    console.log('ui');
+}
+
+
 
         // ====== IMPRESSÃO ======
         function printReceipt(payload) {

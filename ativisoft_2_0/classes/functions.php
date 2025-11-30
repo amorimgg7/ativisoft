@@ -1,8 +1,8 @@
 <?php
  
 // Ativa a exibição de erros (útil em ambiente de desenvolvimento)
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Ativa o registro de erros (útil para produção)
@@ -2053,7 +2053,7 @@ class Usuario
              FROM tb_prod_serv tps
                LEFT JOIN tb_reserva tr ON tps.cd_prod_serv = tr.cd_prod_serv
                  AND tr.qtd_efetivado IS NULL
-             WHERE tps.estoque_prod_serv > 0 
+             WHERE (tps.estoque_prod_serv > 0 OR tps.estoque_prod_serv is null) 
                AND tps.status_prod_serv = '1'
                AND tps.cd_empresa = ".$_SESSION['cd_empresa']."
              GROUP BY tps.cd_prod_serv

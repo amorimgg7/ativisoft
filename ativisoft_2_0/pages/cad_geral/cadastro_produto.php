@@ -39,26 +39,47 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 
   <script>
-                            function showSection(tab) {
-                              if(tab == "tabBasicos"){
-                                document.getElementById('tabBasicos').style.display = 'block';
-                                document.getElementById('tabFiscais').style.display = 'none';
-                                document.getElementById('tabComplementares').style.display = 'none';
+                            function showSectionProd(tab) {
+                              if(tab == "tabBasicosProd"){
+                                document.getElementById('tabBasicosProd').style.display = 'block';
+                                document.getElementById('tabFiscaisProd').style.display = 'none';
+                                document.getElementById('tabComplementaresProd').style.display = 'none';
                               }
 
-                              if(tab == "tabFiscais"){
-                                document.getElementById('tabBasicos').style.display = 'none';
-                                document.getElementById('tabFiscais').style.display = 'block';
-                                document.getElementById('tabComplementares').style.display = 'none';
+                              if(tab == "tabFiscaisProd"){
+                                document.getElementById('tabBasicosProd').style.display = 'none';
+                                document.getElementById('tabFiscaisProd').style.display = 'block';
+                                document.getElementById('tabComplementaresProd').style.display = 'none';
                               }
 
-                              if(tab == "tabComplementares"){
-                                document.getElementById('tabBasicos').style.display = 'none';
-                                document.getElementById('tabFiscais').style.display = 'none';
-                                document.getElementById('tabComplementares').style.display = 'block';
+                              if(tab == "tabComplementaresProd"){
+                                document.getElementById('tabBasicosProd').style.display = 'none';
+                                document.getElementById('tabFiscaisProd').style.display = 'none';
+                                document.getElementById('tabComplementaresProd').style.display = 'block';
                               }
                               
                             }
+                            function showSectionServ(tab) {
+                              if(tab == "tabBasicosServ"){
+                                document.getElementById('tabBasicosServ').style.display = 'block';
+                                document.getElementById('tabFiscaisServ').style.display = 'none';
+                                document.getElementById('tabComplementaresServ').style.display = 'none';
+                              }
+
+                              if(tab == "tabFiscaisServ"){
+                                document.getElementById('tabBasicosServ').style.display = 'none';
+                                document.getElementById('tabFiscaisServ').style.display = 'block';
+                                document.getElementById('tabComplementaresServ').style.display = 'none';
+                              }
+
+                              if(tab == "tabComplementaresServ"){
+                                document.getElementById('tabBasicosServ').style.display = 'none';
+                                document.getElementById('tabFiscaisServ').style.display = 'none';
+                                document.getElementById('tabComplementaresServ').style.display = 'block';
+                              }
+                              
+                            }
+
                           </script>
 
 </head>
@@ -214,8 +235,8 @@
                   echo "<script>window.alert('Gruppo Cadastrado!');</script>";
                   $_SESSION['statusCadastros'] = FALSE;
                 }
-                if(isset($_POST['cadProdServ_funcao'])) {
-                  $query = "INSERT INTO tb_prod_serv(cd_empresa, cd_filial, cd_grupo, cdbarras_prod_serv, titulo_prod_serv, obs_prod_serv, estoque_prod_serv, preco_prod_serv, custo_prod_serv, status_prod_serv) VALUES(
+                if(isset($_POST['cadProd_funcao'])) {
+                  $query = "INSERT INTO tb_prod_serv(cd_empresa, cd_filial, cd_grupo, cdbarras_prod_serv, titulo_prod_serv, obs_prod_serv, estoque_prod_serv, preco_prod_serv, custo_prod_serv, tipo_prod_serv, status_prod_serv) VALUES(
                     '".$_SESSION['cd_empresa']."',
                     '".$_SESSION['cd_filial']."',
                     '".$_POST['grupo_prod_serv']."',
@@ -225,10 +246,27 @@
                     '".$_POST['estoque_prod_serv']."',
                     '".$_POST['preco_prod_serv']."',
                     '".$_POST['custo_prod_serv']."',
+                    'P',
                     1)
                   ";
                   mysqli_query($conn, $query);
                   echo "<script>window.alert('Produto Cadastrado com sucesso!');</script>";
+                  $_SESSION['statusCadastros'] = FALSE;
+                }
+                if(isset($_POST['cadServ_funcao'])) {
+                  $query = "INSERT INTO tb_prod_serv(cd_empresa, cd_filial, cd_grupo, titulo_prod_serv, obs_prod_serv, estoque_prod_serv, preco_prod_serv, tipo_prod_serv, status_prod_serv) VALUES(
+                    '".$_SESSION['cd_empresa']."',
+                    '".$_SESSION['cd_filial']."',
+                    '".$_POST['grupo_prod_serv']."',
+                    '".$_POST['titulo_prod_serv']."',
+                    '".$_POST['obs_prod_serv']."',
+                    null,
+                    '".$_POST['preco_prod_serv']."',
+                    'S',
+                    1)
+                  ";
+                  mysqli_query($conn, $query);
+                  echo "<script>window.alert('Serviço Cadastrado com sucesso!');</script>";
                   $_SESSION['statusCadastros'] = FALSE;
                 }
                 if(isset($_POST['gravaProdServ_funcao'])) {
@@ -385,9 +423,19 @@
               
                 echo '</div>';
               }else if($_SESSION['statusCadastros'] == 2){//cadastro de produtos
+                echo <<<HTML
+<button class='btn btn-info top-btn btn-lg btn-block' id='btn-sectionCadProduto' style='display:none;' onclick="showSectionProdServ('sectionCadProduto')">Mudar para Produto</button>
+<button class='btn btn-warning top-btn btn-lg btn-block' id='btn-sectionCadServico' onclick="showSectionProdServ('sectionCadServico')">Mudar para Serviço</button>
+
+
+HTML;
+
+
+
+                echo "<section id='sectionCadProduto' class='active'>";
                 echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
-                echo '<div class="card-body">';
+                echo '<div class="card-body">'; 
 
                 echo '<div class="col-12 col-md-12">';
                 echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
@@ -406,21 +454,21 @@
                 echo '<div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">';
                 echo '<span class="card-title">Código</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="cd_prod_serv" type="tel" id="cd_prod_serv" class="aspNetDisabled form-control form-control-sm" style="display: block;" readonly/>';
+                echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="cd_prod_serv" type="tel" id="cd_prod_serv" class="form-control form-control-sm" style="display: block;" readonly/>';
                 echo '</div>';
                 echo '</div>';
                 
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Código de Barras</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="cdbarras_prod_serv" type="tel"  id="cdbarras_prod_serv" class="aspNetDisabled form-control form-control-sm" oninput="validateInput(this)"/>';
+                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="cdbarras_prod_serv" type="tel"  id="cdbarras_prod_serv" class="form-control form-control-sm" oninput="validateInput(this)"/>';
                 echo '</div>';
                 echo '</div>';
 
                 echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
                 echo '<span class="card-title">Nome / Descrição</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="titulo_prod_serv" type="text" id="titulo_prod_serv" maxlength="40"   class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="titulo_prod_serv" type="text" id="titulo_prod_serv" maxlength="40"   class="form-control form-control-sm" required/>';
                 echo '</div>';
                 echo '</div>';
                 
@@ -478,25 +526,25 @@
 								
                 echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
-                echo '<button type="button" id="menuBasicos" name="menuBasicos" onclick="showSection(\'tabBasicos\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
+                echo '<button type="button" id="menuBasicosProd" name="menuBasicosProd" onclick="showSectionProd(\'tabBasicosProd\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
                 echo '</div>';
                 echo '</div>';
 
                 echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
-                echo '<button type="button" id="menuFiscais" name="menuFiscais" onclick="showSection(\'tabFiscais\')" class="btn btn-outline-secondary btn-lg btn-block">Fiscais</button>';
+                echo '<button type="button" id="menuFiscaisProd" name="menuFiscaisProd" onclick="showSectionProd(\'tabFiscaisProd\')" class="btn btn-outline-secondary btn-lg btn-block">Fiscais</button>';
                 echo '</div>';
                 echo '</div>';
 
                 echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
-                echo '<button type="button" id="menuComplementares" name="menuComplementares" onclick="showSection(\'tabComplementares\')" class="btn btn-outline-secondary btn-lg btn-block">Complementares</button>';
+                echo '<button type="button" id="menuComplementaresProd" name="menuComplementaresProd" onclick="showSectionProd(\'tabComplementaresProd\')" class="btn btn-outline-secondary btn-lg btn-block">Complementares</button>';
                 echo '</div>';
                 echo '</div>';
 
 								echo '</div>';
 
-                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicos" name="tabBasicos">';
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicosProd" name="tabBasicosProd">';
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
 
                 echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
@@ -546,7 +594,7 @@
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
                 echo '<span class="card-title">Valor de Compra</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['custo_prod_serv'].'" name="custo_prod_serv" type="tel"  id="custo_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';
+                echo '<input value="'.$_SESSION['custo_prod_serv'].'" name="custo_prod_serv" type="tel"  id="custo_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm"/>';
                 echo '</div>';
                 echo '</div>';
 
@@ -556,7 +604,7 @@
 
 
 
-                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabFiscais" name="tabFiscais" style="display:none;">';
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabFiscaisProd" name="tabFiscaisProd" style="display:none;">';
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
                 
                 echo '<h1 class="display-1 text-secondary">Em breve</h1>';
@@ -567,7 +615,7 @@
 
 
 
-                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabComplementares" name="tabComplementares" style="display:none;">';
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabComplementaresProd" name="tabComplementaresProd" style="display:none;">';
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
 
                 echo '<h1 class="display-1 text-secondary">Em breve</h1>';
@@ -576,7 +624,7 @@
                 echo '</div>';
 
                     
-                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadProdServ_funcao" id="cadProdServ_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar</button>';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadProd_funcao" id="cadProd_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar Produto</button>';
                                 
                 echo '</form>';
                 echo '<form method="POST">';
@@ -584,7 +632,169 @@
                 echo '</form>';
               
                 echo '</div>';
+                echo '</section>';
+
+
+                echo "<section id='sectionCadServico'>";
+                echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
+                echo '<div class="card" '.$_SESSION['c_card'].'>';
+                echo '<div class="card-body">'; 
+
+                echo '<div class="col-12 col-md-12">';
+                echo '<div id="ContentPlaceHolder1_iAcCidade_iUpPnGeral" class="nc-form-tac">';
+                echo '<h3 class="card-title">-_'.$_SESSION['statusCadastros'].'_-</h3>';
+                echo '<form method="POST">';
+                echo '<div class="form-group row justify-content-center">';
+                echo '<div class="col text-center">';
+                 
+                
+                //echo '</label>';
+                echo '</div>';
+                echo '</div>';
+                //echo '<div id="ContentPlaceHolder1_iAcCidade_iPnPrincipal" class="typeahead" id="botoes" name="botoes" style="display:block;">';
+                echo '<div class="input-group">';
+
+                echo '<div class="col-sm-6 col-md-2 col-lg-2 col-xl-2">';
+                echo '<span class="card-title">Código</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['cd_prod_serv'].'" name="cd_prod_serv" type="tel" id="cd_prod_serv" class="form-control form-control-sm" style="display: block;" readonly/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7">';
+                echo '<span class="card-title">Nome / Descrição</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['titulo_prod_serv'].'" name="titulo_prod_serv" type="text" id="titulo_prod_serv" maxlength="40"   class="form-control form-control-sm" required/>';
+                echo '</div>';
+                echo '</div>';
+                
+                
+
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+								
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuBasicosServ" name="menuBasicosServ" onclick="showSectionServ(\'tabBasicosServ\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuFiscaisServ" name="menuFiscaisServ" onclick="showSectionServ(\'tabFiscaisServ\')" class="btn btn-outline-secondary btn-lg btn-block">Fiscais</button>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
+                echo '<div class="input-group-prepend">';
+                echo '<button type="button" id="menuComplementaresServ" name="menuComplementaresServ" onclick="showSectionServ(\'tabComplementaresServ\')" class="btn btn-outline-secondary btn-lg btn-block">Complementares</button>';
+                echo '</div>';
+                echo '</div>';
+
+								echo '</div>';
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicosServ" name="tabBasicosServ">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                echo '<span class="card-title">Grupo - '.$_SESSION['cd_grupo_prod_serv'].'</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<select id="grupo_prod_serv" name="grupo_prod_serv" type="tel" class="input-group-text form-control form-control-lg" required>';
+                $select_show_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo = '".$_SESSION['cd_grupo_prod_serv']."' and cd_filial = ".$_SESSION['cd_empresa']." ORDER BY titulo_grupo ASC";
+                $resulta_show_grupo = $conn->query($select_show_grupo);
+                if ($resulta_show_grupo->num_rows > 0){
+                  while ($row_show_grupo = $resulta_show_grupo->fetch_assoc()){
+                    echo '<option selected value="'.$row_show_grupo['cd_grupo'].'">'.$row_show_grupo['titulo_grupo'].'</option>';
+                  }
+                }
+                $select_edit_grupo = "SELECT * FROM tb_grupo WHERE cd_grupo != '".$_SESSION['cd_grupo_prod_serv']."' and cd_filial = '".$_SESSION['cd_filial']."' ORDER BY titulo_grupo ASC";
+                $resulta_edit_grupo = $conn->query($select_edit_grupo);
+                if ($resulta_edit_grupo->num_rows > 0){
+                  while ($row_edit_grupo = $resulta_edit_grupo->fetch_assoc()){
+                    echo '<option value="'.$row_edit_grupo['cd_grupo'].'">'.$row_edit_grupo['titulo_grupo'].'</option>';
+                  }
+                }
+                echo '</select>';
+                echo '</div>';
+                echo '</div>';
+                
+                
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Observações</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['obs_prod_serv'].'" name="obs_prod_serv" type="text" id="obs_prod_serv" maxlength="999"   class="aspNetDisabled form-control form-control-sm"/>';
+                echo '</div>';
+                echo '</div>';
+
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                echo '<span class="card-title">Valor de Venda</span>';
+                echo '<div class="input-group-prepend">';
+                echo '<input value="'.$_SESSION['preco_prod_serv'].'" name="preco_prod_serv" type="tel"  id="preco_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm" required/>';                
+                echo '</div>';
+                echo '</div>';
+
+                //echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
+                //echo '<span class="card-title">Valor de Compra</span>';
+                //echo '<div class="input-group-prepend">';
+                //echo '<input value="'.$_SESSION['custo_prod_serv'].'" name="custo_prod_serv" type="tel"  id="custo_prod_serv" maxlenth="10" class="aspNetDisabled form-control form-control-sm"/>';
+                //echo '</div>';
+                //echo '</div>';
+
+                echo '</div>';
+                echo '</div>';
+
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabFiscaisServ" name="tabFiscaisServ" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+                
+                echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+                
+                echo '</div>';
+                echo '</div>';
+
+
+
+
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabComplementaresServ" name="tabComplementaresServ" style="display:none;">';
+                echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
+
+                echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+
+                echo '</div>';
+                echo '</div>';
+
+                    
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadServ_funcao" id="cadServ_funcao" style="margin-top: 20px; margin-bottom: 20px;">Gravar Serviço</button>';
+                                
+                echo '</form>';
+                echo '<form method="POST">';
+                echo '<button type="submit" class="btn btn-block btn-lg btn-outline-warning" name="menuPrincipal" id="menuPrincipal" style="margin-top: 20px; margin-bottom: 20px;">Sair</button>';
+                echo '</form>';
               
+                echo '</div>';
+                echo '</section>';
+
+
+              
+                echo "
+<script>
+                function showSectionProdServ(id) {
+    // Esconde todas as seções
+    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+    // Mostra a seção desejada
+    document.getElementById(id).classList.add('active');
+
+    // Resetar todos os botões (voltar a mostrar)
+    document.querySelectorAll('.top-btn').forEach(btn => btn.style.display = 'inline-block');
+
+    // Se for histórico, esconda o botão
+    
+        document.getElementById('btn-'+id).style.display = 'none';
+    
+}
+        </script>";
+        
               }else if($_SESSION['statusCadastros'] == 3){//editar produto
                 echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
@@ -715,25 +925,25 @@
 								
                 echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
-                echo '<button type="button" id="menuBasicos" name="menuBasicos" onclick="showSection(\'tabBasicos\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
+                echo '<button type="button" id="menuBasicosProdProd" name="menuBasicosProd" onclick="showSectionProd(\'tabBasicosProd\')" class="btn btn-outline-secondary btn-lg btn-block">Basicos</button>';
                 echo '</div>';
                 echo '</div>';
 
                 echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
-                echo '<button type="button" id="menuFiscais" name="menuFiscais" onclick="showSection(\'tabFiscais\')" class="btn btn-outline-secondary btn-lg btn-block">Fiscais</button>';
+                echo '<button type="button" id="menuFiscaisProdProd" name="menuFiscaisProd" onclick="showSectionProd(\'tabFiscaisProd\')" class="btn btn-outline-secondary btn-lg btn-block">Fiscais</button>';
                 echo '</div>';
                 echo '</div>';
 
                 echo '<div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">';
                 echo '<div class="input-group-prepend">';
-                echo '<button type="button" id="menuComplementares" name="menuComplementares" onclick="showSection(\'tabComplementares\')" class="btn btn-outline-secondary btn-lg btn-block">Complementares</button>';
+                echo '<button type="button" id="menuComplementaresProd" name="menuComplementaresProd" onclick="showSectionProd(\'tabComplementaresProd\')" class="btn btn-outline-secondary btn-lg btn-block">Complementares</button>';
                 echo '</div>';
                 echo '</div>';
 
 								echo '</div>';
 
-                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicos" name="tabBasicos">';
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabBasicosProd" name="tabBasicosProd">';
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
 
                 echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">';
@@ -793,7 +1003,7 @@
 
 
 
-                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabFiscais" name="tabFiscais" style="display:none;">';
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabFiscaisProd" name="tabFiscaisProd" style="display:none;">';
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
                 
                 echo '<h1 class="display-1 text-secondary">Em breve</h1>';
@@ -804,7 +1014,7 @@
 
 
 
-                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabComplementares" name="tabComplementares" style="display:none;">';
+                echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabComplementaresProd" name="tabComplementaresProd" style="display:none;">';
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
 
                 echo '<h1 class="display-1 text-secondary">Em breve</h1>';

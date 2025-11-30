@@ -330,8 +330,8 @@
                       }
                     }
                   }
-                  if($parahojeafaser > 0){
-                    echo '<script>document.getElementById("parahojeafaser").innerHTML = "'.$parahojeafaser.'";</script>';
+                  if($parahojeafazer > 0){
+                    echo '<script>document.getElementById("parahojeafaser").innerHTML = "'.$parahojeafazer.'";</script>';
                     echo '<script>document.getElementById("parahojeafaser").style.display = "block";</script>';
                   }
                   if($noprazoafaser > 0){

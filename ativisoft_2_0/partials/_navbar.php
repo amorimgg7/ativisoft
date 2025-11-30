@@ -60,3 +60,12 @@
         </button>
       </div>
     </nav>
+    <style>
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+</style>

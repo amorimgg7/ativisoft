@@ -206,3 +206,402 @@ Stack trace:
 [29-Nov-2025 16:59:18 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
 [29-Nov-2025 16:59:18 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
 [29-Nov-2025 16:59:18 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 09:15:22 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 09:15:22 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 09:15:22 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 09:15:22 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 09:15:22 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 09:15:22 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 09:15:22 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 09:15:26 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:15:26 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 336
+[30-Nov-2025 09:15:26 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 387
+[30-Nov-2025 09:15:26 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 588
+[30-Nov-2025 09:15:26 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 830
+[30-Nov-2025 09:15:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:22:00 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:22:22 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:24:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:24:26 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:26:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:27:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:28:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:29:28 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:29:52 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:32:22 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:33:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:33:18 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:33:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:34:53 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:35:15 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:35:45 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:35:46 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:35:47 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:35:48 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:36:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:36:21 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:38:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:39:19 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 09:50:39 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:04:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:04:48 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:05:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:06:31 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:06:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:07:03 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:07:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:07:11 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:09:19 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:09:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:12:21 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:19:12 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:53:29 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:53:36 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:53:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:58:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:59:09 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 10:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:00:21 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:01:53 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:02:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:05:19 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:09:55 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:10:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:10:55 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:18:53 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:19:30 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:19:30 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column count doesn't match value count at row 1 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:268
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(268): mysqli_query(Object(mysqli), 'INSERT INTO tb_...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 268
+[30-Nov-2025 11:20:19 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:20:19 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column count doesn't match value count at row 1 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:268
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(268): mysqli_query(Object(mysqli), 'INSERT INTO tb_...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 268
+[30-Nov-2025 11:20:21 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:20:26 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:20:26 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Column count doesn't match value count at row 1 in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:268
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(268): mysqli_query(Object(mysqli), 'INSERT INTO tb_...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 268
+[30-Nov-2025 11:20:53 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:21:11 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:22:07 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:22:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:22:33 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:22:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:27:31 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:27:31 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:27:31 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:27:31 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:27:31 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:27:31 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 11:27:35 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php on line 253
+[30-Nov-2025 11:27:42 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:27:42 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:29:41 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:29:41 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:30:35 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:43 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:45 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:47 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:48 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:48 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:49 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:52 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:56 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:30:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:00 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:01 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:02 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:02 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:31:58 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 11:31:58 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:31:58 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:31:58 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:31:58 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:31:58 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:31:58 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 11:32:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:32:33 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:32:40 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:32:40 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:33:27 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[30-Nov-2025 11:33:32 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:33:32 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:34:54 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:34:54 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:35:40 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:35:40 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:36:04 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:36:04 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:53:39 America/Sao_Paulo] PHP Warning:  Undefined array key "grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2159
+[30-Nov-2025 11:53:39 America/Sao_Paulo] PHP Warning:  Undefined array key "grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2159
+[30-Nov-2025 11:53:39 America/Sao_Paulo] PHP Warning:  Undefined array key "grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2159
+[30-Nov-2025 11:53:39 America/Sao_Paulo] PHP Warning:  Undefined array key "grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 2159
+[30-Nov-2025 11:53:39 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:53:39 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:55:20 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:55:20 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:55:59 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:55:59 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:57:47 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:57:47 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:57:50 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 847
+[30-Nov-2025 11:57:50 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 860
+[30-Nov-2025 11:57:52 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 11:57:52 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:57:52 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:57:52 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:57:52 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:57:52 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:57:52 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 11:58:18 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:18 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:18 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:18 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:18 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:18 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 11:58:36 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:36 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:36 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:36 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:36 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:36 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 11:58:37 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 11:58:37 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:37 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:37 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:37 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:37 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 11:58:37 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 12:09:30 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:30 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:30 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:30 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:30 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:30 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 12:09:39 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:39 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:39 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:39 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:39 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:39 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 12:09:42 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:42 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:42 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:42 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:42 America/Sao_Paulo] PHP Warning:  Undefined variable $parahojeafaser in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 333
+[30-Nov-2025 12:09:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 12:11:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 14:54:30 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 489
+[30-Nov-2025 14:54:37 America/Sao_Paulo] PHP Warning:  Undefined array key "items" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 18
+[30-Nov-2025 14:54:37 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 36
+[30-Nov-2025 14:54:37 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 36
+[30-Nov-2025 14:56:27 America/Sao_Paulo] PHP Warning:  Undefined array key "items" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 18
+[30-Nov-2025 14:56:27 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 25
+[30-Nov-2025 14:56:27 America/Sao_Paulo] PHP Warning:  Undefined array key "cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 26
+[30-Nov-2025 14:56:27 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 36
+[30-Nov-2025 14:56:27 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 36
+[30-Nov-2025 14:57:32 America/Sao_Paulo] PHP Warning:  Undefined array key "items" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 21
+[30-Nov-2025 14:57:32 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 28
+[30-Nov-2025 14:57:32 America/Sao_Paulo] PHP Warning:  Undefined array key "cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 29
+[30-Nov-2025 14:57:32 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 39
+[30-Nov-2025 14:57:32 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:39
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 39
+[30-Nov-2025 14:57:42 America/Sao_Paulo] PHP Warning:  Undefined array key "items" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 21
+[30-Nov-2025 14:57:42 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 28
+[30-Nov-2025 14:57:42 America/Sao_Paulo] PHP Warning:  Undefined array key "cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 29
+[30-Nov-2025 14:57:42 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 39
+[30-Nov-2025 14:57:42 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:39
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 39
+[30-Nov-2025 15:00:28 America/Sao_Paulo] PHP Warning:  Undefined array key "items" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 21
+[30-Nov-2025 15:00:28 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 28
+[30-Nov-2025 15:00:28 America/Sao_Paulo] PHP Warning:  Undefined array key "cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 29
+[30-Nov-2025 15:00:28 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 39
+[30-Nov-2025 15:00:28 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:39
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 39
+[30-Nov-2025 15:00:55 America/Sao_Paulo] PHP Warning:  Undefined array key "items" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 21
+[30-Nov-2025 15:00:55 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 28
+[30-Nov-2025 15:00:55 America/Sao_Paulo] PHP Warning:  Undefined array key "cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 29
+[30-Nov-2025 15:00:55 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 39
+[30-Nov-2025 15:00:55 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:39
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 39
+[30-Nov-2025 15:01:35 America/Sao_Paulo] PHP Warning:  Undefined array key "items" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 18
+[30-Nov-2025 15:01:35 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 36
+[30-Nov-2025 15:01:35 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 36
+[30-Nov-2025 15:06:39 America/Sao_Paulo] PHP Warning:  Undefined array key "items" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 18
+[30-Nov-2025 15:06:39 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 36
+[30-Nov-2025 15:06:39 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 36
+[30-Nov-2025 15:09:40 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 37
+[30-Nov-2025 15:09:40 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:37
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 37
+[30-Nov-2025 15:10:13 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:17:38 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 485
+[30-Nov-2025 15:18:05 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:06 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:07 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:07 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:07 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:07 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:07 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:08 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:08 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:08 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:08 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:08 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:09 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:09 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:09 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:09 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:09 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:10 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:10 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:10 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:18:50 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 15:18:52 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 15:18:53 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 15:19:30 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 478
+[30-Nov-2025 15:19:40 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:20:12 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:20:18 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 37
+[30-Nov-2025 15:20:18 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:37
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 37
+[30-Nov-2025 15:20:42 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:21:10 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:21:21 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:21:34 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 478
+[30-Nov-2025 15:21:58 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:22:03 America/Sao_Paulo] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 37
+[30-Nov-2025 15:22:03 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:37
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 37
+[30-Nov-2025 15:28:37 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:28:42 America/Sao_Paulo] PHP Warning:  Undefined variable $stmtItem in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 48
+[30-Nov-2025 15:28:42 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function lastInsertId() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:48
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 48
+[30-Nov-2025 15:29:33 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:29:35 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:29:51 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli::lastInsertId() in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php:48
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\lanca_venda.php on line 48
+[30-Nov-2025 15:30:32 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 479
+[30-Nov-2025 15:32:42 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 244
+[30-Nov-2025 15:32:42 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:32:59 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 244
+[30-Nov-2025 15:32:59 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:33:00 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 244
+[30-Nov-2025 15:33:00 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:33:01 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 244
+[30-Nov-2025 15:33:01 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:33:02 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 15:33:12 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 244
+[30-Nov-2025 15:33:12 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:33:19 America/Sao_Paulo] PHP Warning:  Undefined array key "filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 244
+[30-Nov-2025 15:33:19 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:33:45 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:33:47 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:34:06 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'assistent_master.tb_cliente' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:34:45 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'v.fechar_venda' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:35:26 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'c.nome' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:35:28 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'c.nome' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:35:30 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'c.nome' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php:256
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php(256): mysqli->prepare('\r\n        SELEC...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 256
+[30-Nov-2025 15:35:50 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 559
+[30-Nov-2025 15:35:53 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 559
+[30-Nov-2025 15:36:39 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 559
+[30-Nov-2025 15:45:45 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 584
+[30-Nov-2025 15:45:49 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 584
+[30-Nov-2025 15:46:19 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 584
+[30-Nov-2025 15:48:51 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\pdv\pdv_balcao.php on line 519
