@@ -1,4 +1,18 @@
 <?php
+session_start();
+if (!isset($_SESSION['cd_colab'])) {
+    header("location: ../../pages/samples/login.php");
+    exit;
+}
+require_once '../../classes/conn.php';
+include("../../classes/functions.php");
+$u = new Usuario;
+
+// Carrega produtos e categorias
+$data = $u->conProdServ($_SESSION['cd_empresa']);
+$products = $data['products'];
+$categories = $data['categories'];
+
 // pedidos_interativos.php
 $orders = [
     [
@@ -32,8 +46,10 @@ $statuses = ['Aguardando','Preparando','Pronto','Entregue'];
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Delivery Interativo</title>
+<title>PDV Delivery Demo</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 <style>
 body { background:#f5f7fb; font-family:sans-serif; }
 .column { background:#e2e6ea; padding:10px; border-radius:8px; min-height:400px; }
@@ -46,8 +62,12 @@ body { background:#f5f7fb; font-family:sans-serif; }
 </head>
 <body>
 <div class="container-fluid py-3">
+                    <?php include("../../partials/_navbar_pdv.php"); ?>
+<h1>PDV Delivery Demo</h1>
+
+                    <section id="principal" class="active">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3>Painel de Pedidos - Delivery</h3>
+        
         <button class="btn btn-primary" id="btn-new-order">Novo Pedido</button>
     </div>
     <div class="row g-3" id="board">
@@ -72,8 +92,58 @@ body { background:#f5f7fb; font-family:sans-serif; }
         </div>
         <?php endforeach; ?>
     </div>
-</div>
+    </section>
 
+    <section id="historico">
+    <h2>Histórico de vendas</h2>
+
+    <form id="filtroHistorico" class="row g-2 mb-3">
+        <div class="col-auto">
+            <label for="data_inicio" class="form-label">Data Início:</label>
+            <input type="date" id="data_inicio" name="data_inicio" class="form-control" value="<?= date('Y-m-d') ?>">
+        </div>
+        <div class="col-auto">
+            <label for="data_fim" class="form-label">Data Fim:</label>
+            <input type="date" id="data_fim" name="data_fim" class="form-control" value="<?= date('Y-m-d') ?>">
+        </div>
+        <div class="col-auto align-self-end">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+    </form>
+
+    <div id="historicoResultados">
+        <!-- Histórico carregado via AJAX -->
+    </div>
+</section>
+
+<script>
+document.getElementById('filtroHistorico').addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita recarregar a página
+
+    const dataInicio = document.getElementById('data_inicio').value;
+    const dataFim = document.getElementById('data_fim').value;
+
+    fetch('historico_ajax.php?data_inicio=' + dataInicio + '&data_fim=' + dataFim)
+        .then(resp => resp.text())
+        .then(html => {
+            document.getElementById('historicoResultados').innerHTML = html;
+        })
+        .catch(err => console.error(err));
+});
+
+// Carrega o histórico inicial ao abrir a página
+window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('filtroHistorico').dispatchEvent(new Event('submit'));
+});
+</script>
+
+
+                    <section id="integracao">
+                        <h2>Integrações com parceiros</h2>
+                        <p>...</p>
+                    </section>
+</div>
+<?php include("../../partials/_footer.php"); ?>
 <!-- Modal Pedido -->
 <div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-lg">

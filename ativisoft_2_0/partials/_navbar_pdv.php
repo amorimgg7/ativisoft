@@ -32,7 +32,10 @@ button {
         <button class="btn btn-info top-btn" id="btn-principal" style="display:none;" onclick="showSection('principal')"><i class="bi bi-shop"></i></button>
         <button class="btn btn-info top-btn" id="btn-historico" onclick="showSection('historico')"><i class="bi bi-clock-history"></i></button>
         <button class="btn btn-info top-btn" id="btn-integracao" onclick="showSection('integracao')"><i class="bi bi-nut"></i></button>
-    </div>
+        
+    <button class="btn btn-danger top-btn" id="btn-sair" onclick="window.location.href='<?php echo $_SESSION['dominio']; ?>/pages/dashboard/index.php';"><i class="bi bi-x-octagon"></i></button>
+
+</div>
       </div>
   </nav>
 <div style="height:70px;"></div>

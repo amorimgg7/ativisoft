@@ -1,20 +1,26 @@
 <?php
-// pdv_mesas_avancado.php - PDV avançado com mesas
+session_start();
+if (!isset($_SESSION['cd_colab'])) {
+    header("location: ../../pages/samples/login.php");
+    exit;
+}
+require_once '../../classes/conn.php';
+include("../../classes/functions.php");
+$u = new Usuario;
 
-$products = [
-    ['id'=>1, 'sku'=>'B001', 'name'=>'Refrigerante Lata', 'price'=>6.00, 'category'=>'Bebidas'],
-    ['id'=>2, 'sku'=>'B002', 'name'=>'Água Mineral 500ml', 'price'=>4.00, 'category'=>'Bebidas'],
-    ['id'=>3, 'sku'=>'B003', 'name'=>'Suco Natural', 'price'=>9.50, 'category'=>'Bebidas'],
-    ['id'=>4, 'sku'=>'R001', 'name'=>'Prato Feito (PF)', 'price'=>22.90, 'category'=>'Refeições'],
-    ['id'=>5, 'sku'=>'R002', 'name'=>'Macarronada', 'price'=>19.90, 'category'=>'Refeições'],
-    ['id'=>6, 'sku'=>'R003', 'name'=>'Feijoada', 'price'=>27.90, 'category'=>'Refeições'],
-    ['id'=>7, 'sku'=>'E001', 'name'=>'Batata Frita', 'price'=>14.90, 'category'=>'Entradas'],
-    ['id'=>8, 'sku'=>'E002', 'name'=>'Porção de Calabresa', 'price'=>18.00, 'category'=>'Entradas'],
-    ['id'=>9, 'sku'=>'E003', 'name'=>'Pastéis (6un)', 'price'=>12.00, 'category'=>'Entradas'],
-    ['id'=>10, 'sku'=>'A001', 'name'=>'Cerveja Long Neck', 'price'=>11.00, 'category'=>'Alcoólicos'],
-    ['id'=>11, 'sku'=>'A002', 'name'=>'Caipirinha', 'price'=>16.00, 'category'=>'Alcoólicos'],
-    ['id'=>12, 'sku'=>'A003', 'name'=>'Vinho Taça', 'price'=>14.00, 'category'=>'Alcoólicos'],
-];
+// Carrega produtos e categorias
+$data = $u->conProdServ($_SESSION['cd_empresa']);
+$products = $data['products'];
+$categories = $data['categories'];
+
+// Endpoint simulado para finalização
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Content-Type: application/json; charset=utf-8');
+    $input = json_decode(file_get_contents('php://input'), true);
+    echo json_encode(['success' => true, 'message' => 'Venda recebida (simulação)', 'payload' => $input]);
+    exit;
+}
+
 
 // Mesas
 $tables = [];
@@ -33,8 +39,11 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PDV - Mesas Avançado</title>
+<title>PDV Mesas Demo</title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 <style>
 body { background:#f5f7fb; font-family:sans-serif; }
 .table-card { cursor:pointer; margin-bottom:10px; transition:.1s; }
@@ -42,11 +51,16 @@ body { background:#f5f7fb; font-family:sans-serif; }
 .table-card.active { border:2px solid #0d6efd; }
 .product-card { cursor:pointer; transition:0.08s; border-radius:12px; min-height:120px; }
 .product-card:active { transform:scale(0.97); }
+
+
 </style>
 </head>
 <body>
 <div class="container-fluid py-3">
-    <div class="row g-3">
+    <?php include("../../partials/_navbar_pdv.php"); ?>
+    <h1>PDV Mesas Demo</h1>
+    <section id="principal" class="active">
+        <div class="row g-3">
         <!-- MESAS -->
         <div class="col-md-2">
             <h5>Mesas</h5>
@@ -62,14 +76,16 @@ body { background:#f5f7fb; font-family:sans-serif; }
         <!-- PRODUTOS -->
         <div class="col-md-5">
             <h5>Produtos</h5>
-            <div class="btn-group mb-2 w-100 flex-nowrap" id="categoryFilters">
-                <button class="btn btn-outline-primary active" data-category="all">Todos</button>
-                <button class="btn btn-outline-primary" data-category="Bebidas">Bebidas</button>
-                <button class="btn btn-outline-primary" data-category="Refeições">Refeições</button>
-                <button class="btn btn-outline-primary" data-category="Entradas">Entradas</button>
-                <button class="btn btn-outline-primary" data-category="Alcoólicos">Alcoólicos</button>
-            </div>
-            <input id="productSearch" class="form-control mb-2" placeholder="Buscar produto por nome ou SKU">
+            <div class="col-12 mb-2">
+                                <div class="btn-group w-100 flex-nowrap" role="group" id="categoryFilters">
+                                    <button class="btn btn-outline-primary active" data-category="all">Todos</button>
+                                    <?php foreach ($categories as $cat): ?>
+                                        <button class="btn btn-outline-primary"
+                                            data-category="<?= $cat ?>"><?= $cat ?></button>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+            <!--<input id="productSearch" class="form-control mb-2" placeholder="Buscar produto por nome ou SKU">-->
             <div class="row" id="productList">
                 <?php foreach($products as $p): ?>
                 <div class="col-sm-6 mb-3 product-wrapper">
@@ -134,7 +150,61 @@ body { background:#f5f7fb; font-family:sans-serif; }
             </div>
         </div>
     </div>
+    </section>
+    
+    <section id="historico">
+    <h2>Histórico de vendas</h2>
+
+    <form id="filtroHistorico" class="row g-2 mb-3">
+        <div class="col-auto">
+            <label for="data_inicio" class="form-label">Data Início:</label>
+            <input type="date" id="data_inicio" name="data_inicio" class="form-control" value="<?= date('Y-m-d') ?>">
+        </div>
+        <div class="col-auto">
+            <label for="data_fim" class="form-label">Data Fim:</label>
+            <input type="date" id="data_fim" name="data_fim" class="form-control" value="<?= date('Y-m-d') ?>">
+        </div>
+        <div class="col-auto align-self-end">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+    </form>
+
+    <div id="historicoResultados">
+        <!-- Histórico carregado via AJAX -->
+    </div>
+</section>
+<script>
+document.getElementById('filtroHistorico').addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita recarregar a página
+
+    const dataInicio = document.getElementById('data_inicio').value;
+    const dataFim = document.getElementById('data_fim').value;
+
+    fetch('historico_ajax.php?data_inicio=' + dataInicio + '&data_fim=' + dataFim)
+        .then(resp => resp.text())
+        .then(html => {
+            document.getElementById('historicoResultados').innerHTML = html;
+        })
+        .catch(err => console.error(err));
+});
+
+// Carrega o histórico inicial ao abrir a página
+window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('filtroHistorico').dispatchEvent(new Event('submit'));
+});
+</script>
+
+
+                    <section id="integracao">
+                        <h2>Integrações com parceiros</h2>
+                        <p>...</p>
+                    </section>
+
+    
+
+    <?php include("../../partials/_footer.php"); ?>
 </div>
+
 
 <!-- Modal Cliente -->
 <div class="modal fade" id="clientModal" tabindex="-1" aria-hidden="true">
