@@ -197,10 +197,10 @@ function parseJwt(token) {
 
 
                     }else{
-                      $_SESSION['host_cliente'] = "localhost"; /* nome da conexão */
-                      $_SESSION['usuario_cliente'] = "root"; /* nome do usuario da conexãp */
-                      $_SESSION['senha_cliente'] = ""; /*senha do banco de dados caso exista */
-                      $_SESSION['nome_cliente'] = 'assistent_master';
+                      //$_SESSION['host_cliente'] = "localhost"; /* nome da conexão */
+                      //$_SESSION['usuario_cliente'] = "root"; /* nome do usuario da conexãp */
+                      //$_SESSION['senha_cliente'] = ""; /*senha do banco de dados caso exista */
+                      //$_SESSION['nome_cliente'] = 'assistent_master';
                     }
                     $u->conectar();
                     if ($msgErro == "")
