@@ -2,7 +2,7 @@
 -- bkp mysqldump -u root -p --single-transaction --routines --triggers --events erp_123 > erp_123_pre_migration_$(date +%F_%H%M).sql
 
 -- Use o BD correto
-USE as_08057969;
+USE ass_08057969;
 
 -- Garante que o banco pode ser modificado
 SET FOREIGN_KEY_CHECKS = 0;

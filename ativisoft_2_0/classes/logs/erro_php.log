@@ -630,3 +630,155 @@ Stack trace:
 [30-Nov-2025 19:50:55 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
 [30-Nov-2025 19:51:01 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
 [30-Nov-2025 19:51:10 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[30-Nov-2025 22:16:43 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 156
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Deprecated:  str_pad(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 156
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 165
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Deprecated:  str_pad(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 165
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 172
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Deprecated:  str_pad(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 172
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 179
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Deprecated:  str_pad(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 179
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 186
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Deprecated:  str_pad(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 186
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 205
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 208
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 211
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 214
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 217
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 220
+[30-Nov-2025 22:16:44 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cd_matriz' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:325
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(325): PDOStatement->execute()
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php(210): Usuario->logar('marcia.oficinad...', '1', 'colab', '', '')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 325
+[30-Nov-2025 22:18:19 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 156
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Deprecated:  str_pad(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 156
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 165
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Deprecated:  str_pad(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 165
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 179
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Deprecated:  str_pad(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 179
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 186
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Deprecated:  str_pad(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 186
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 205
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 208
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 211
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 214
+[30-Nov-2025 22:18:20 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cd_matriz' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:325
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(325): PDOStatement->execute()
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php(210): Usuario->logar('marcia.oficinad...', '1', 'colab', '', '')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 325
+[30-Nov-2025 22:24:13 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 22:24:21 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 22:25:04 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 22:30:07 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 22:30:16 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 22:51:28 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 110
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_produto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 123
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 131
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 160
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 161
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 162
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 167
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 178
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 179
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 180
+[30-Nov-2025 22:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_escrever" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 185
+[30-Nov-2025 22:51:31 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 445
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 110
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_produto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 123
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 131
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 160
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 161
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 162
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 167
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 178
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 179
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 180
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_escrever" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 185
+[30-Nov-2025 22:51:51 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 445
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 110
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_produto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 123
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 131
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 160
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 161
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 162
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 167
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 178
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 179
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 180
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_escrever" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 185
+[30-Nov-2025 22:59:13 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 445
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 110
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_produto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 123
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 131
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 160
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 161
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 162
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 167
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 178
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 179
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 180
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_escrever" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 185
+[30-Nov-2025 22:59:19 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 445
+[30-Nov-2025 22:59:21 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 110
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_produto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 123
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 131
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 160
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 161
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 162
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 167
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 178
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 179
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 180
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_escrever" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 185
+[30-Nov-2025 22:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 445
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 110
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_produto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 123
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 131
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 160
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 161
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 162
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 167
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 178
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 179
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 180
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_escrever" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 185
+[30-Nov-2025 22:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 445
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 110
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_produto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 123
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 131
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 160
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 161
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 162
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 167
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 178
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 179
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 180
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_escrever" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 185
+[30-Nov-2025 23:00:43 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 445
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_cadastros_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 110
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_produto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 123
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_assistencia_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 131
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_comissao_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 160
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 161
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_caixa_menu" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 162
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 167
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 178
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 179
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_pdv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 180
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "md_venda_escrever" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_sidebar.php on line 185
+[30-Nov-2025 23:00:48 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 445
+[30-Nov-2025 23:00:51 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 23:00:56 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 23:05:12 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 23:05:49 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 30
+[30-Nov-2025 23:05:54 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 23:06:07 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[30-Nov-2025 23:07:41 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253

@@ -69,40 +69,6 @@ function btn($sql) {
     ";
 }
 
-/* VERIFICAÇÃO SEGURA DE COLUNA EXISTENTE */
-function colunaExiste($conn, $banco, $tabela, $coluna) {
-    $sql = "SELECT COUNT(*) AS total
-            FROM INFORMATION_SCHEMA.COLUMNS
-            WHERE TABLE_SCHEMA = ?
-              AND TABLE_NAME = ?
-              AND COLUMN_NAME = ?";
-    $st = $conn->prepare($sql);
-    $st->bind_param("sss", $banco, $tabela, $coluna);
-    $st->execute();
-    $res = $st->get_result();
-    $row = $res->fetch_assoc();
-    return (int)$row['total'] > 0;
-}
-
-/* FUNÇÃO PARA PADRÕES DEFAULT */
-function tratar_default($type, $default, $col = "") {
-    $type = strtolower($type);
-
-    if (in_array($col, ["cd_empresa","cd_filial","cd_matriz"])) return " DEFAULT 1";
-
-    if ($default === null || $default === "") {
-        if (preg_match('/int|decimal|float|double/', $type)) return " DEFAULT 0";
-        if (strpos($type,"date")!==false) return " DEFAULT NULL";
-        return "";
-    }
-
-    if (strpos($type,"text")!==false || strpos($type,"blob")!==false) return "";
-
-    if (preg_match('/int|decimal|float|double/', $type)) return " DEFAULT " . $default;
-
-    return " DEFAULT '" . addslashes($default) . "'";
-}
-
 /* EXECUTAR SQL */
 if (isset($_POST["sql"])) {
     $sql = $_POST["sql"];
@@ -117,10 +83,64 @@ if (isset($_POST["sql"])) {
     }
 }
 
-echo "<h1>Sincronizar Estrutura: {$db_origem['db']} → {$db_destino['db']}</h1>";
+/* MENU */
+$etapa = $_GET['etapa'] ?? '';
 
-/* ============ FUNÇÕES DE METADADOS ============= */
+echo "<h1>Sincronizador de Estruturas</h1>";
 
+echo "
+<div style='margin-bottom:20px;padding:10px;background:#eee;border-radius:6px;'>
+    <form method='get'>
+        <label><b>Selecione a etapa:</b></label><br><br>
+        <select name='etapa' style='padding:6px;border-radius:4px;'>
+            <option value=''>-- Escolher --</option>
+            <option value='tabelas_faltando' ".($etapa=='tabelas_faltando'?'selected':'').">1) Tabelas faltando</option>
+            <option value='tabelas_remover' ".($etapa=='tabelas_remover'?'selected':'').">2) Remover tabelas extras</option>
+            <option value='colunas_faltando' ".($etapa=='colunas_faltando'?'selected':'').">3) Colunas faltando</option>
+            <option value='colunas_remover' ".($etapa=='colunas_remover'?'selected':'').">4) Remover colunas extras</option>
+            <option value='dados' ".($etapa=='dados'?'selected':'').">5) Sincronizar dados</option>
+        </select>
+
+        <button style='padding:6px 12px;margin-left:10px;background:#007bff;border:0;color:white;border-radius:4px;cursor:pointer;'>
+            Ir
+        </button>
+    </form>
+</div>
+";
+
+/* VERIFICAÇÃO SEGURA DE COLUNA */
+function colunaExiste($conn, $banco, $tabela, $coluna) {
+    $sql = "SELECT COUNT(*) AS total
+            FROM INFORMATION_SCHEMA.COLUMNS
+            WHERE TABLE_SCHEMA = ?
+              AND TABLE_NAME = ?
+              AND COLUMN_NAME = ?";
+    $st = $conn->prepare($sql);
+    $st->bind_param("sss", $banco, $tabela, $coluna);
+    $st->execute();
+    $res = $st->get_result();
+    $row = $res->fetch_assoc();
+    return (int)$row['total'] > 0;
+}
+
+/* PADRÃO DEFAULT */
+function tratar_default($type, $default, $col = "") {
+    $type = strtolower($type);
+
+    if (in_array($col, ["cd_empresa","cd_filial","cd_matriz"])) return " DEFAULT 1";
+    if ($default === null || $default === "") {
+        if (preg_match('/int|decimal|float|double/', $type)) return " DEFAULT 0";
+        if (strpos($type,"date")!==false) return " DEFAULT NULL";
+        return "";
+    }
+
+    if (strpos($type,"text")!==false || strpos($type,"blob")!==false) return "";
+    if (preg_match('/int|decimal|float|double/', $type)) return " DEFAULT " . $default;
+
+    return " DEFAULT '" . addslashes($default) . "'";
+}
+
+/* TABELA EXISTE */
 function tabela_existe($conn, $db, $tabela) {
     $sql = "SELECT 1 FROM information_schema.tables 
             WHERE table_schema=? 
@@ -132,69 +152,87 @@ function tabela_existe($conn, $db, $tabela) {
     return $st->num_rows > 0;
 }
 
-/* ============ 1) Criar tabelas faltando ============= */
+/* -------------------------- */
+/*        ETAPA 1             */
+/* -------------------------- */
+if ($etapa == "tabelas_faltando") {
 
-$q = "SELECT table_name FROM information_schema.tables WHERE table_schema = ?";
-$st = $conn_origem->prepare($q);
-$st->bind_param("s", $db_origem['db']);
-$st->execute();
-$res = $st->get_result();
+    echo "<h2>📌 Tabelas faltando</h2>";
 
-echo "<h2>📌 Tabelas faltando</h2>";
+    $q = "SELECT table_name FROM information_schema.tables WHERE table_schema = ?";
+    $st = $conn_origem->prepare($q);
+    $st->bind_param("s", $db_origem['db']);
+    $st->execute();
+    $res = $st->get_result();
 
-while ($r = $res->fetch_assoc()) {
-    $t = $r['table_name'];
+    while ($r = $res->fetch_assoc()) {
+        $t = $r['table_name'];
 
-    if (tabela_existe($conn_destino, $db_destino['db'], $t)) continue;
+        if (tabela_existe($conn_destino, $db_destino['db'], $t)) continue;
 
-    $show = $conn_origem->query("SHOW CREATE TABLE `$t`");
-    $row = $show->fetch_assoc();
-    $sql = $row['Create Table'] . ";";
+        $show = $conn_origem->query("SHOW CREATE TABLE `$t`");
+        $row = $show->fetch_assoc();
+        $sql = $row['Create Table'] . ";";
 
-    echo "<p>➕ Criar tabela <b>$t</b></p>" . btn($sql);
+        echo "<p>➕ Criar tabela <b>$t</b></p>" . btn($sql);
+    }
 }
 
-/* ============ 2) Remover tabelas extras ============= */
+/* -------------------------- */
+/*        ETAPA 2             */
+/* -------------------------- */
+if ($etapa == "tabelas_remover") {
 
-$q2 = "SELECT table_name FROM information_schema.tables WHERE table_schema = ?";
-$s2 = $conn_destino->prepare($q2);
-$s2->bind_param("s", $db_destino['db']);
-$s2->execute();
-$rd = $s2->get_result();
+    echo "<h2>🗑️ Tabelas a remover</h2>";
 
-echo "<h2>🗑️ Tabelas a remover</h2>";
+    $q2 = "SELECT table_name FROM information_schema.tables WHERE table_schema = ?";
+    $s2 = $conn_destino->prepare($q2);
+    $s2->bind_param("s", $db_destino['db']);
+    $s2->execute();
+    $rd = $s2->get_result();
 
-while ($r = $rd->fetch_assoc()) {
-    $t = $r['table_name'];
+    while ($r = $rd->fetch_assoc()) {
+        $t = $r['table_name'];
 
-    if (tabela_existe($conn_origem, $db_origem['db'], $t)) continue;
+        if (tabela_existe($conn_origem, $db_origem['db'], $t)) continue;
 
-    echo "<p>🗑️ Remover tabela <b>$t</b></p>" . btn("DROP TABLE `$t`;");
+        echo "<p>🗑️ Remover tabela <b>$t</b></p>" . btn("DROP TABLE `$t`;");
+    }
 }
 
-/* ============ 3) Colunas faltando ============= */
+/* -------------------------- */
+/*        ETAPA 3             */
+/* -------------------------- */
+if ($etapa == "colunas_faltando") {
 
-echo "<h2>📌 Colunas faltando</h2>";
+    echo "<h2>📌 Colunas faltando</h2>";
 
-$q3 = "
-    SELECT o.table_name, o.column_name, o.column_type, o.is_nullable,
-           o.column_default, o.extra
-    FROM information_schema.columns o
-    WHERE o.table_schema = ?
-";
-$s3 = $conn_origem->prepare($q3);
-$s3->bind_param("s", $db_origem['db']);
-$s3->execute();
-$r3 = $s3->get_result();
+    $q3 = "
+        SELECT o.table_name, o.column_name, o.column_type, o.is_nullable,
+               o.column_default, o.extra
+        FROM information_schema.columns o
+        WHERE o.table_schema = ?
+    ";
+    $s3 = $conn_origem->prepare($q3);
+    $s3->bind_param("s", $db_origem['db']);
+    $s3->execute();
+    $r3 = $s3->get_result();
 
-while ($c = $r3->fetch_assoc()) {
+    $contador = 0;
+$limite = 5; // Mostra apenas 2 resultados
+
+
+    while ($c = $r3->fetch_assoc()) {
+
+    if ($contador >= $limite) break;  // <-- limite de exibição
 
     $t  = $c["table_name"];
     $col = $c["column_name"];
 
     if (!tabela_existe($conn_destino, $db_destino['db'], $t)) continue;
-
     if (colunaExiste($conn_destino, $db_destino['db'], $t, $col)) continue;
+
+    $contador++; // <-- incrementa após achar coluna faltando
 
     $type = $c["column_type"];
     $null = $c["is_nullable"];
@@ -207,89 +245,97 @@ while ($c = $r3->fetch_assoc()) {
     if (stripos($extra, "auto_increment") === false)
         $sql .= tratar_default($type, $def, $col);
 
-    if ($extra !== "")
-        $sql .= " $extra";
+    if ($extra !== "") $sql .= " $extra";
 
     $sql .= ";";
 
     echo "<p>➕ $t → adicionar coluna <b>$col</b></p>" . btn($sql);
 }
 
-/* ============ 4) Remover colunas extras ============= */
-
-echo "<h2>🗑️ Colunas a remover</h2>";
-
-$q4 = "
-SELECT table_name, column_name 
-FROM information_schema.columns 
-WHERE table_schema = ?
-";
-$s4 = $conn_destino->prepare($q4);
-$s4->bind_param("s", $db_destino['db']);
-$s4->execute();
-$r4 = $s4->get_result();
-
-while ($c = $r4->fetch_assoc()) {
-    $t = $c["table_name"];
-    $col = $c["column_name"];
-
-    if (!tabela_existe($conn_origem, $db_origem['db'], $t)) continue;
-
-    if (colunaExiste($conn_origem, $db_origem['db'], $t, $col)) continue;
-
-    echo "<p>🗑️ Remover coluna <b>$t.$col</b></p>" . btn("ALTER TABLE `$t` DROP COLUMN `$col`;");
 }
 
-/* ============ 5) Sincronizar dados (suporte) ============= */
+/* -------------------------- */
+/*        ETAPA 4             */
+/* -------------------------- */
+if ($etapa == "colunas_remover") {
 
-echo "<h2>📌 Sincronizar Dados (tb_acesso, rel_master)</h2>";
+    echo "<h2>🗑️ Colunas a remover</h2>";
 
-$sync_tables = ["tb_acesso", "rel_master"];
-
-foreach ($sync_tables as $tabela) {
-
-    if (!tabela_existe($conn_origem, $db_origem['db'], $tabela)) continue;
-
-    echo "<h3>$tabela</h3>";
-
-    $pk_q = "
-        SELECT column_name 
-        FROM information_schema.key_column_usage
-        WHERE table_schema = ?
-        AND table_name = ?
-        AND constraint_name = 'PRIMARY'
+    $q4 = "
+    SELECT table_name, column_name 
+    FROM information_schema.columns 
+    WHERE table_schema = ?
     ";
+    $s4 = $conn_destino->prepare($q4);
+    $s4->bind_param("s", $db_destino['db']);
+    $s4->execute();
+    $r4 = $s4->get_result();
 
-    $spk = $conn_origem->prepare($pk_q);
-    $spk->bind_param("ss", $db_origem['db'], $tabela);
-    $spk->execute();
-    $rpk = $spk->get_result();
+    while ($c = $r4->fetch_assoc()) {
+        $t = $c["table_name"];
+        $col = $c["column_name"];
 
-    if ($rpk->num_rows == 0) continue;
+        if (!tabela_existe($conn_origem, $db_origem['db'], $t)) continue;
+        if (colunaExiste($conn_origem, $db_origem['db'], $t, $col)) continue;
 
-    $pk = $rpk->fetch_assoc()["column_name"];
-
-    $diff = "
-        SELECT * FROM `$tabela` o
-        WHERE NOT EXISTS (
-            SELECT 1 FROM {$db_destino['db']}.$tabela d
-            WHERE d.$pk = o.$pk
-        )
-    ";
-
-    $rdiff = $conn_origem->query($diff);
-
-    while ($row = $rdiff->fetch_assoc()) {
-
-        $cols = "`" . implode("`,`", array_keys($row)) . "`";
-        $vals = implode(",", array_map(fn($v) => $v === null ? "NULL" : "'" . addslashes($v) . "'", array_values($row)));
-
-        $sql = "INSERT INTO `$tabela` ($cols) VALUES ($vals);";
-
-        echo "<p>➕ Inserir $pk <b>{$row[$pk]}</b></p>" . btn($sql);
+        echo "<p>🗑️ Remover coluna <b>$t.$col</b></p>" . btn("ALTER TABLE `$t` DROP COLUMN `$col`;");
     }
 }
 
-echo "<br><hr><p style='color:#555'>✓ Sistema de Sincronização corrigido e estável.</p>";
-?>
+/* -------------------------- */
+/*        ETAPA 5             */
+/* -------------------------- */
+if ($etapa == "dados") {
 
+    echo "<h2>📌 Sincronizar Dados (tb_acesso, rel_master)</h2>";
+
+    $sync_tables = ["acesso_modulo", "tb_acesso", "rel_master"];
+
+    foreach ($sync_tables as $tabela) {
+
+        if (!tabela_existe($conn_origem, $db_origem['db'], $tabela)) continue;
+
+        echo "<h3>$tabela</h3>";
+
+        $pk_q = "
+            SELECT column_name 
+            FROM information_schema.key_column_usage
+            WHERE table_schema = ?
+            AND table_name = ?
+            AND constraint_name = 'PRIMARY'
+        ";
+
+        $spk = $conn_origem->prepare($pk_q);
+        $spk->bind_param("ss", $db_origem['db'], $tabela);
+        $spk->execute();
+        $rpk = $spk->get_result();
+
+        if ($rpk->num_rows == 0) continue;
+
+        $pk = $rpk->fetch_assoc()["column_name"];
+
+        $diff = "
+            SELECT * FROM `$tabela` o
+            WHERE NOT EXISTS (
+                SELECT 1 FROM {$db_destino['db']}.$tabela d
+                WHERE d.$pk = o.$pk
+            )
+        ";
+
+        $rdiff = $conn_origem->query($diff);
+
+        while ($row = $rdiff->fetch_assoc()) {
+
+            $cols = "`" . implode("`,`", array_keys($row)) . "`";
+            $vals = implode(",", array_map(fn($v) => $v === null ? "NULL" : "'" . addslashes($v) . "'", array_values($row)));
+
+            $sql = "INSERT INTO `$tabela` ($cols) VALUES ($vals);";
+
+            echo "<p>➕ Inserir $pk <b>{$row[$pk]}</b></p>" . btn($sql);
+        }
+    }
+}
+
+echo "<br><hr><p style='color:#555'>✓ Sistema de Sincronização ativo.</p>";
+
+?>
