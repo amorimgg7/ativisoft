@@ -1,8 +1,8 @@
 <?php
  
 // Ativa a exibição de erros (útil em ambiente de desenvolvimento)
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Ativa o registro de erros (útil para produção)
