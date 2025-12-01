@@ -30,10 +30,10 @@ $db_destino = [
 */
 
 $db_destino = [
-    "host" => "as_08057969.mysql.dbaas.com.br",
-    "user" => "as_08057969",
+    "host" => "ass_08057969.mysql.dbaas.com.br",
+    "user" => "ass_08057969",
     "pass" => "GGA@20002021g",
-    "db"   => "as_08057969"
+    "db"   => "ass_08057969"
 ];
 
 

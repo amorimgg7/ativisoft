@@ -183,10 +183,10 @@ function parseJwt(token) {
                     $email_empresa = $_SESSION['email_empresa'];
                     if($email_empresa == 'marcia.oficinadaroupa@gmail.com'){
                         $cnpj_empresa = '08057969000100';
-                        $host_cliente       = "as_".substr($cnpj_empresa, 0, 8).".mysql.dbaas.com.br";
-                        $usuario_cliente    = "as_".substr($cnpj_empresa, 0, 8);
+                        $host_cliente       = "ass_".substr($cnpj_empresa, 0, 8).".mysql.dbaas.com.br";
+                        $usuario_cliente    = "ass_".substr($cnpj_empresa, 0, 8);
                         $senha_cliente      = 'GGA@20002021g';
-                        $nome_cliente       = "as_".substr($cnpj_empresa, 0, 8); // Extrai os primeiros 8 dígitos
+                        $nome_cliente       = "ass_".substr($cnpj_empresa, 0, 8); // Extrai os primeiros 8 dígitos
                         
                    
 
