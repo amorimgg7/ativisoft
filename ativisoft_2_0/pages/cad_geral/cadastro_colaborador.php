@@ -99,6 +99,7 @@
                     $_SESSION['cad_cd_empresa']         = $row['cd_empresa'];
                     $_SESSION['cad_cd_filial']          = $row['cd_filial'];
                     $_SESSION['cad_status_colab']       = $row['status_pessoa'];
+                    //$_SESSION['cad_cd_acesso']          = $row['cd_acesso'];
                     
 
 
@@ -193,6 +194,7 @@
                   $_SESSION['cad_pc_comissao_colab']  = "";
                   $_SESSION['cad_cd_empresa']         = "";
                   $_SESSION['cad_cd_filial']          = "";
+                  //$_SESSION['cad_cd_acesso']          = "";
                   $_SESSION['statusCadastrosColab']        = 2;
                 }
 
@@ -488,12 +490,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 echo '<h1 class="display-1 text-secondary">Em breve</h1>';
 
-                echo '</div>';
-                echo '</div>';
 
 
-                echo '</div>';
 
+                
                 echo '</div>';
                 echo '</div>';
 
@@ -700,7 +700,142 @@ document.addEventListener("DOMContentLoaded", function() {
                 echo '<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="tabAcesso" name="tabAcesso" style="display:none;">';
                 echo '<div class="row justify-content-center col-sm-12 col-md-12 col-lg-12 col-xl-12">';
 
-                echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+
+
+
+
+                //echo '<div class="input-group">';
+
+                
+                //echo '<h1 class="display-1 text-secondary">Em breve</h1>';
+
+
+// ================================
+// 1. BUSCAR DADOS DO RELATÓRIO
+// ================================
+$select_show_rel = "
+    SELECT 
+        cd_rel,
+        cd_pessoa,
+        acesso_caixa_0001,
+        acesso_assistencia_0002,
+        acesso_venda_0003,
+        acesso_patrimonio_0004,
+        acesso_folhaponto_0005,
+        acesso_financeiro_0006,
+        acesso_cadastro_0007,
+        acesso_pdv_0008
+    FROM rel_master
+    WHERE cd_pessoa = '".$_SESSION['cad_cd_colab']."'
+";
+
+$result_rel = $conn->query($select_show_rel);
+
+// Inicializa arrays vazios para evitar erros
+$permissao_caixa       = [];
+$permissao_assistencia = [];
+$permissao_venda       = [];
+$permissao_patrimonio  = [];
+$permissao_folhaponto  = [];
+$permissao_financeiro  = [];
+$permissao_cadastro    = [];
+$permissao_pdv         = [];
+
+if ($result_rel->num_rows > 0) {
+    while ($row_rel = $result_rel->fetch_assoc()) {
+
+        // Converte os JSON para arrays (ou array vazio caso NULL)
+        $permissao_caixa       = json_decode($row_rel['acesso_caixa_0001']        ?? '[]', true);
+        $permissao_assistencia = json_decode($row_rel['acesso_assistencia_0002'] ?? '[]', true);
+        $permissao_venda       = json_decode($row_rel['acesso_venda_0003']       ?? '[]', true);
+        $permissao_patrimonio  = json_decode($row_rel['acesso_patrimonio_0004']  ?? '[]', true);
+        $permissao_folhaponto  = json_decode($row_rel['acesso_folhaponto_0005']  ?? '[]', true);
+        $permissao_financeiro  = json_decode($row_rel['acesso_financeiro_0006']  ?? '[]', true);
+        $permissao_cadastro    = json_decode($row_rel['acesso_cadastro_0007']    ?? '[]', true);
+        $permissao_pdv         = json_decode($row_rel['acesso_pdv_0008']         ?? '[]', true);
+    }
+}
+
+
+
+// ===========================================================
+// FUNÇÃO PARA EXIBIR QUALQUER GRUPO DE PERMISSÕES
+// ===========================================================
+function mostrarPermissoes($titulo, $lista)
+{
+    echo '<div class="mt-4 p-3 border rounded shadow-sm" style="max-width: 460px;">';
+    echo '<h1 class="h5 card-title mb-3">'.$titulo.'</h1>';
+
+    if (empty($lista)) {
+        echo '<p class="text-muted">Nenhuma permissão cadastrada.</p>';
+        echo '</div>';
+        return;
+    }
+
+    foreach ($lista as $p) {
+        $checked = ($p[2] == "S") ? "checked" : "";
+
+        echo '
+        <div class="input-group mb-2" style="max-width: 420px;">
+            <textarea class="form-control form-control-sm"
+          readonly
+          style="
+              overflow: hidden;
+              resize: none;
+              height: auto;
+              min-height: 38px;
+              line-height: 1.2;
+          "
+            >'.$p[0].' - '.$p[1].'</textarea>
+
+
+            <div class="input-group-text" style="cursor: pointer;">
+                <input class="form-check-input"
+                       type="checkbox" '.$checked.'
+                       style="width: 20px; height: 20px; cursor:pointer;">
+            </div>
+        </div>
+        ';
+    }
+
+    echo '</div>';
+}
+
+
+
+// ======================================================
+//  EXIBIR TODAS AS SESSÕES
+// ======================================================
+mostrarPermissoes("Caixa",        $permissao_caixa);
+mostrarPermissoes("Assistência",  $permissao_assistencia);
+mostrarPermissoes("Vendas",       $permissao_venda);
+mostrarPermissoes("Patrimônio",   $permissao_patrimonio);
+mostrarPermissoes("Folha de Ponto", $permissao_folhaponto);
+mostrarPermissoes("Financeiro",   $permissao_financeiro);
+mostrarPermissoes("Cadastro",     $permissao_cadastro);
+mostrarPermissoes("PDV",          $permissao_pdv);
+
+
+
+
+
+
+
+
+
+
+
+                //echo '</div>';
+                
+                echo '</div>';
+                echo '</div>';
+
+
+                echo '</div>';
+
+
+
+
 
                 echo '</div>';
                 echo '</div>';

@@ -782,3 +782,224 @@ Stack trace:
 [30-Nov-2025 23:05:54 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
 [30-Nov-2025 23:06:07 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
 [30-Nov-2025 23:07:41 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[05-Dec-2025 22:36:29 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'assistent_master'@'localhost' (using password: NO) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php:23
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php(23): mysqli->__construct('localhost', 'assistent_maste...', Object(SensitiveParameterValue), 'root')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(26): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login_google.php(18): Usuario->conectar()
+#3 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 23
+[05-Dec-2025 18:36:59 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[05-Dec-2025 18:37:05 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 18:37:25 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[05-Dec-2025 18:37:28 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 18:39:05 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 18:39:06 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[05-Dec-2025 18:39:06 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 18:39:15 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 18:39:19 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 18:39:26 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 18:39:46 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 18:39:59 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[05-Dec-2025 18:39:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_estilo" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 297
+[05-Dec-2025 18:39:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 324
+[05-Dec-2025 18:39:59 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 341
+[05-Dec-2025 18:40:21 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[05-Dec-2025 18:40:21 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[05-Dec-2025 18:40:21 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[05-Dec-2025 18:40:21 America/Sao_Paulo] PHP Warning:  Undefined array key "os_geral" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 115
+[05-Dec-2025 18:40:21 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 115
+[05-Dec-2025 18:40:21 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 115
+[05-Dec-2025 18:40:21 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 115
+[05-Dec-2025 18:40:21 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 505
+[05-Dec-2025 18:40:56 America/Sao_Paulo] PHP Warning:  Undefined array key "nfantasia_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[05-Dec-2025 18:40:56 America/Sao_Paulo] PHP Deprecated:  strtoupper(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 175
+[05-Dec-2025 18:40:56 America/Sao_Paulo] PHP Warning:  Undefined array key "os_geral" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 115
+[05-Dec-2025 18:40:56 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 115
+[05-Dec-2025 18:40:56 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 115
+[05-Dec-2025 18:40:56 America/Sao_Paulo] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 115
+[05-Dec-2025 18:40:56 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_filial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\index.php on line 505
+[05-Dec-2025 18:40:58 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[05-Dec-2025 18:41:01 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 31
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 281
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 283
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 285
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 287
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 288
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pnome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 289
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 290
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "tel_cliente" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 291
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 294
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 296
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 299
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 302
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 304
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 307
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "obs_con_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 308
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "prioridade_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 309
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "entrada_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 310
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "prazo_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 311
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 316
+[05-Dec-2025 18:41:08 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\consultar_cliente_comercial.php on line 465
+[05-Dec-2025 18:41:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[05-Dec-2025 18:41:20 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1776
+[05-Dec-2025 18:41:20 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1784
+[05-Dec-2025 18:41:20 America/Sao_Paulo] PHP Warning:  Undefined array key "fatura_devida_cliente_fiscal" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1798
+[05-Dec-2025 18:41:20 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1833
+[05-Dec-2025 18:41:20 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1833
+[05-Dec-2025 18:41:20 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1880
+[05-Dec-2025 18:41:20 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1881
+[05-Dec-2025 18:42:12 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\cadastrar_cliente_comercial.php on line 34
+[05-Dec-2025 18:42:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1776
+[05-Dec-2025 18:42:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_cliente_comercial" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1784
+[05-Dec-2025 18:42:12 America/Sao_Paulo] PHP Warning:  Undefined array key "fatura_devida_cliente_fiscal" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1798
+[05-Dec-2025 18:42:12 America/Sao_Paulo] PHP Warning:  Undefined array key "orcamento_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1833
+[05-Dec-2025 18:42:12 America/Sao_Paulo] PHP Warning:  Undefined array key "vpag_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1833
+[05-Dec-2025 18:42:12 America/Sao_Paulo] PHP Warning:  Undefined array key "abertura_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1880
+[05-Dec-2025 18:42:12 America/Sao_Paulo] PHP Warning:  Undefined array key "status_servico" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1881
+[05-Dec-2025 18:42:24 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[05-Dec-2025 18:42:24 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 22:43:13 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[05-Dec-2025 22:43:13 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 22:54:48 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 722
+[05-Dec-2025 22:54:48 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 729
+[05-Dec-2025 23:07:33 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 737
+[05-Dec-2025 23:07:33 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:740
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(740): mysqli->query('\n    SELECT \n  ...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 740
+[05-Dec-2025 23:07:58 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 737
+[05-Dec-2025 23:07:58 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:740
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(740): mysqli->query('\n    SELECT \n  ...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 740
+[05-Dec-2025 23:10:04 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 745
+[05-Dec-2025 23:10:04 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_grupo" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 745
+[05-Dec-2025 23:10:04 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:10:04 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:10:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 745
+[05-Dec-2025 23:10:05 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_grupo" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 745
+[05-Dec-2025 23:10:05 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:10:05 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:11:25 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_rel" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 739
+[05-Dec-2025 23:11:25 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'titulo_rel' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:742
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(742): mysqli->query('\n    SELECT \n  ...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 742
+[05-Dec-2025 23:11:26 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_rel" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 739
+[05-Dec-2025 23:11:26 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'titulo_rel' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:742
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(742): mysqli->query('\n    SELECT \n  ...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 742
+[05-Dec-2025 23:11:27 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_rel" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 739
+[05-Dec-2025 23:11:27 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'titulo_rel' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:742
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(742): mysqli->query('\n    SELECT \n  ...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 742
+[05-Dec-2025 23:12:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_rel" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 738
+[05-Dec-2025 23:12:57 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 766
+[05-Dec-2025 23:12:57 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:767
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(767): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 767
+[05-Dec-2025 23:24:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:24:44 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 761
+[05-Dec-2025 23:24:44 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:762
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(762): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 762
+[05-Dec-2025 23:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:25:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:25:12 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:25:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:25:36 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:25:36 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:25:37 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:25:37 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:25:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:25:38 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:25:38 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:25:40 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[05-Dec-2025 23:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:25:45 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:26:01 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:26:01 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:26:01 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:26:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:26:11 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:26:11 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:26:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:26:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:26:12 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:26:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:26:12 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_grupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 763
+[05-Dec-2025 23:26:12 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cd_grupo' in 'where clause' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php:764
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php(764): mysqli->query('SELECT * FROM r...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 764
+[05-Dec-2025 23:26:46 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:27:17 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 733
+[05-Dec-2025 23:28:52 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_pessoa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 734
+[05-Dec-2025 23:29:48 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_pessoa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 734
+[05-Dec-2025 23:30:14 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_pessoa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 734
+[05-Dec-2025 23:30:31 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_pessoa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 734
+[05-Dec-2025 23:31:18 America/Sao_Paulo] PHP Warning:  Undefined array key "cad_cd_pessoa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 736
+[05-Dec-2025 23:36:11 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 765
+[05-Dec-2025 23:58:22 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[05-Dec-2025 23:58:23 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[06-Dec-2025 00:12:41 America/Sao_Paulo] PHP Warning:  Undefined variable $row in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 732
+[06-Dec-2025 00:12:41 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 732
+[06-Dec-2025 00:12:41 America/Sao_Paulo] PHP Deprecated:  json_decode(): Passing null to parameter #1 ($json) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 732
+[06-Dec-2025 00:12:41 America/Sao_Paulo] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_colaborador.php on line 769

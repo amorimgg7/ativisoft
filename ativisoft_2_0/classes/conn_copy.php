@@ -12,6 +12,7 @@ if(!isset($_SESSION['nome_cliente'])){
   $_SESSION['nome_cliente'] = "assistent_master";
 }
  
+
     $host = $_SESSION['host_cliente']; /* nome da conexão */
     $usuario = $_SESSION['usuario_cliente']; /* nome do usuario da conexãp */
     $senha = $_SESSION['senha_cliente']; /*senha do banco de dados caso exista */
