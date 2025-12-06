@@ -8,7 +8,7 @@
     require_once '../../classes/conn.php';
     include("../../classes/functions.php");
     $u = new Usuario;
-    
+    $result = $u->retPermissao(102);
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>

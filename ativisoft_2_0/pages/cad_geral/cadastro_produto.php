@@ -11,7 +11,7 @@
 
 
 
-    $result = $u->retPermissão('md_venda_produto', $_SESSION['md_venda']);
+    $result = $u->retPermissão(206);
     
 
 ?><!--Validar sessão aberta, se usuário está logado.-->

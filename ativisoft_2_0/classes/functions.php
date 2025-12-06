@@ -65,6 +65,7 @@ class Usuario
                 //echo "<script>window.alert('Area do cliente');</script>";
                 //echo '<script>location.href="../../pages/samples/register.php";</script>';
 
+                
 
 
                 $_SESSION['md_assistencia'] = "style='display:none;'";
@@ -122,8 +123,10 @@ class Usuario
                     $_SESSION['cd_estilo'] = $rel_master['cd_estilo'];
                     if(isset($rel_master['cd_acesso'])){
                         $_SESSION['cd_acesso'] = $rel_master['cd_acesso'];
+                        $_SESSION['rel_geral'] = $rel_master;
                     }else{
                         $_SESSION['cd_acesso'] = 0;
+                        $_SESSION['rel_geral'] = 0;
                     }
 
                     if(isset($rel_master['cd_empresa'])){
@@ -135,6 +138,19 @@ class Usuario
                     $_SESSION['cd_funcao'] = $rel_master['cd_acesso'];
                     
                     $_SESSION['cd_pessoa'] = $rel_master['cd_pessoa'];
+
+
+
+                    $_SESSION['acesso_caixa_0001']          = $rel_master['acesso_caixa_0001'];
+                    $_SESSION['acesso_assistencia_0002']    = $rel_master['acesso_assistencia_0002'];
+                    $_SESSION['acesso_venda_0003']          = $rel_master['acesso_venda_0003'];
+                    $_SESSION['acesso_patrimonio_0004']     = $rel_master['acesso_patrimonio_0004'];
+                    $_SESSION['acesso_folhaponto_0005']     = $rel_master['acesso_folhaponto_0005'];
+                    $_SESSION['acesso_financeiro_0006']     = $rel_master['acesso_financeiro_0006'];
+                    $_SESSION['acesso_cadastro_0007']       = $rel_master['acesso_cadastro_0007'];
+                    $_SESSION['acesso_pdv_0008']            = $rel_master['acesso_pdv_0008'];
+
+
 
                     
                     $sql4 = $pdo->prepare("SELECT * FROM tb_acesso WHERE cd_acesso = ".$_SESSION['cd_acesso']."");
@@ -153,6 +169,7 @@ class Usuario
                         $_SESSION['acesso_geral'] = $tb_acesso;
                         $_SESSION['titulo_acesso'] = $tb_acesso['titulo_acesso'];
 
+                        
                         $md_cadastros = str_pad($tb_acesso['md_cadastros'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
                         $_SESSION['md_cadastros']               =   $md_cadastros;
                         $_SESSION['md_cadastros_menu']          =   (((int)$md_cadastros[0]+(int)$md_cadastros[1]+(int)$md_cadastros[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
@@ -190,6 +207,16 @@ class Usuario
                         $_SESSION['md_assistencia_escrever']   =   ((int)$md_assistencia[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
                         $_SESSION['md_assistencia_modificar']  =   ((int)$md_assistencia[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
 
+                        
+                        $_SESSION['md_caixa']   =   $tb_acesso['md_caixa'];       
+                        $_SESSION['md_assistencia'] =   $tb_acesso['md_assistencia'];
+                        $_SESSION['md_venda']   =   $tb_acesso['md_venda'];
+                        $_SESSION['md_patrimonio']  =   $tb_acesso['md_patrimonio'];
+                        $_SESSION['md_folhaponto']  =   $tb_acesso['md_folhaponto'];
+                        $_SESSION['md_financeiro']  =   $tb_acesso['md_financeiro'];
+                        $_SESSION['md_cadastros']   =   $tb_acesso['md_cadastros'];
+                        $_SESSION['md_pdv'] =   $tb_acesso['md_pdv'];
+
                         /*
                         if($tb_acesso['md_venda'] == '111'){
                             $_SESSION['md_venda'] = "style='display:none;'";
@@ -215,10 +242,10 @@ class Usuario
                             $_SESSION['md_assistencia'] = "style='display:none;'";
                         }
                         if($tb_acesso['md_pdv'] == "111"){
-                            $_SESSION['md_pdv'] = "style='display:none;'";
+                            $_SESSION['style_md_pdv'] = "style='display:none;'";
                         }
-                        if($tb_acesso['md_pdv'] == "999"){
-                            $_SESSION['md_pdv'] = "style='display:block;'";
+                        if($tb_acesso['style_md_pdv'] == "999"){
+                            $_SESSION['style_md_pdv'] = "style='display:block;'";
                         }
 
                         
@@ -4460,33 +4487,164 @@ class Usuario
 
     }
 
-    public function retPermissão($tipo, $permissao){
-        if($tipo = 'md_venda_produto'){
-            if($permissao != '111'){
-                http_response_code(200);
-                echo '<script>console.log("Acesso permitido ('.$tipo.' : '.$permissao.')");</script>';
-                //return "Acesso permitido (".$tipo." : ".$permissao.")";
-            }else{
-                header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
-                return "Negado";
-            }
-        }else if($tipo = "md_cadastros"){
-            if($permissao != '999'){
-                http_response_code(200);
-                echo '<script>console.log("Acesso permitido ('.$tipo.' : '.$permissao.')");</script>';
-                //return "Acesso permitido (".$tipo." : ".$permissao.")";
-            }else{
-                header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
-                return "Negado";
-            }
-        }else{
-            //http_response_code(503);
-            header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
-            return "Negado";
+    public function retPermissao($codigo)
+    {
+        // Lista de módulos existentes
+        $modulos = [
+            "acesso_caixa_0001",
+            "acesso_assistencia_0002",
+            "acesso_venda_0003",
+            "acesso_patrimonio_0004",
+            "acesso_folhaponto_0005",
+            "acesso_financeiro_0006",
+            "acesso_cadastro_0007",
+            "acesso_pdv_0008"
+        ];
+
+        $todasPermissoes = [];
+
+        // Monta o mega-array com todas as permissões de todos os módulos
+        foreach ($modulos as $mod) {
+
+        //echo '<script>console.log("VERIFICANDO MÓDULO: '.$mod.'");</script>';
+
+        if (!isset($_SESSION[$mod])) {
+            echo '<script>console.log("⚠ NÃO EXISTE NA SESSÃO");</script>';
+            continue;
         }
-        //http_response_code(200);
-        //return "Acesso permitido para ";
+
+        //echo '<script>console.log("✔ EXISTE NA SESSÃO: '. $_SESSION[$mod] .'");</script>';
+
+        $json = json_decode($_SESSION[$mod], true);
+
+        if ($json === null) {
+            //echo '<script>console.log("❌ JSON INVÁLIDO");</script>';
+            continue;
+        }
+
+        if (!is_array($json)) {
+            //echo '<script>console.log("❌ NÃO É ARRAY");</script>';
+            continue;
+        }
+
+        if (count($json) === 0) {
+            echo '<script>console.log("⚠ JSON VAZIO");</script>';
+            continue;
+        }
+
+        //echo '<script>console.log("✔ JSON OK: '.json_encode($json).'");</script>';
+
+        foreach ($json as $p) {
+
+            //echo '<script>console.log("ADICIONANDO: '.json_encode($p).'");</script>';
+
+            $todasPermissoes[] = [
+                "codigo" => $p[0],
+                "descricao" => $p[1],
+                "status" => $p[2]
+            ];
+        }
     }
+
+
+    // Agora valida o código solicitado
+    foreach ($todasPermissoes as $perm) {
+
+        if ($perm["codigo"] == $codigo) {
+
+            if ($perm["status"] === "S") {
+                // Acesso permitido
+                echo '<script>console.log("Acesso permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
+                return true;
+            } else {
+                // Negado
+                echo '<script>console.log("Acesso negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
+
+                echo '<h1 style="font-family: Arial; text-align:center; margin-top:40px;">
+                        Acesso negado ('.$perm["descricao"].' - '.$codigo.')
+                      </h1>';
+
+                echo '<p style="text-align:center; font-size:20px;">
+                        Redirecionando em <span id="contador">5</span> segundos...
+                      </p>';
+
+                echo '<script>
+                        let tempo = 5;
+
+                        const intervalo = setInterval(() => {
+                            tempo--;
+                            document.getElementById("contador").textContent = tempo;
+
+                            if (tempo <= 0) {
+                                clearInterval(intervalo);
+                                window.location.href = "'.$_SESSION['dominio'].'/pages/error/page_403.html";
+                            }
+                        }, 1000);
+                    </script>';
+
+                exit;
+            }
+        }
+    }
+
+    $logJson = json_encode($todasPermissoes);
+    echo '<script>console.log("PERMISSOES ENCONTRADAS: ' . $logJson . '");</script>';
+
+
+    // Código não encontrado → negar por segurança
+    //header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
+    exit;
+}
+
+
+function mostrarPermissoes($titulo, $lista, $permissao_modulo)
+{
+    if($permissao_modulo > 112){
+        echo '<div class="mt-4 p-3 border rounded shadow-sm" style="max-width: 460px;">';
+    echo '<h1 class="h5 card-title mb-3">'.$titulo.'</h1>';
+
+    if (empty($lista)) {
+        echo '<p class="text-muted">Nenhuma permissão cadastrada.</p>';
+        echo '</div>';
+        return;
+    }
+
+    foreach ($lista as $p) {
+        $checked = ($p[2] == "S") ? "checked" : "";
+
+        echo '
+        <div class="input-group mb-2" style="max-width: 420px;">
+            <textarea class="form-control form-control-sm"
+          readonly
+          style="
+              overflow: hidden;
+              resize: none;
+              height: auto;
+              min-height: 38px;
+              line-height: 1.2;
+          "
+            >'.$p[0].' - '.$p[1].'</textarea>
+
+
+            <div class="input-group-text" style="cursor: pointer;">
+                <input type="hidden" name="'.$titulo.'[]" value="'.$p[0].'||'.$p[1].'||N">
+<input class="form-check-input"
+       type="checkbox"
+       '.$checked.'
+       name="'.$titulo.'[]"
+       value="'.$p[0].'||'.$p[1].'||S"
+       style="width: 20px; height: 20px; cursor:pointer;">
+
+            </div>
+        </div>
+        ';
+    }
+
+    echo '</div>';
+    }
+    
+}
+
 
     public function conProdServ($cd_empresa){
     global $conn;

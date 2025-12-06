@@ -11,7 +11,7 @@
 
 
 
-    $result = $u->retPermissão('md_venda_produto', $_SESSION['md_cadastros']);
+    $result = $u->retPermissao(704);
     
 
 ?><!--Validar sessão aberta, se usuário está logado.-->
@@ -220,6 +220,7 @@
                   $_SESSION['statusCadastrosColab'] = FALSE;
                 }
                 if(isset($_POST['gravaColab_funcao'])) {
+
                   $query = "UPDATE tb_pessoa SET
                     pnome_pessoa    = '".$_POST['edit_pnome_colab']."',
                     snome_pessoa    = '".$_POST['edit_snome_colab']."',
@@ -233,7 +234,81 @@
                     WHERE cd_pessoa = '".$_POST['edit_cd_colab']."'
                   ";
                   mysqli_query($conn, $query);
-                  //echo "<script>window.alert('Colaborador Atualizado com sucesso!');</script>";
+                  echo "<script>window.alert('Colaborador Atualizado com sucesso!');</script>";
+                  
+    // Função para mesclar permissões
+function montarJsonAtualizado($jsonAtual, $arrayPermPOST) {
+    // decodifica JSON atual
+    $current = json_decode($jsonAtual, true);
+    if (!is_array($current)) $current = [];
+
+    // transforma POST em array associativo [codigo => [codigo, descricao, status]]
+    $updates = [];
+    if (is_array($arrayPermPOST)) {
+        foreach ($arrayPermPOST as $item) {
+            list($codigo, $descricao, $status) = explode("||", $item);
+            $updates[$codigo] = [$codigo, $descricao, $status];
+        }
+    }
+
+    // mescla: atualiza status/descrição apenas dos códigos enviados
+    foreach ($current as &$item) {
+        $cod = $item[0];
+        if (isset($updates[$cod])) {
+            $item[1] = $updates[$cod][1]; // descricao
+            $item[2] = $updates[$cod][2]; // status
+            unset($updates[$cod]); // remove do updates para não duplicar
+        }
+    }
+    unset($item);
+
+    // adiciona novos códigos que não existiam antes
+    foreach ($updates as $newItem) {
+        $current[] = $newItem;
+    }
+
+    return json_encode($current, JSON_UNESCAPED_UNICODE);
+}
+
+// cd_pessoa do colaborador
+$cd_pessoa = $_POST['edit_cd_colab'];
+
+// Função para atualizar um módulo
+function atualizarModulo($conn, $cd_pessoa, $coluna, $arrayPOST) {
+    // buscar JSON atual
+    $sql = "SELECT `$coluna` FROM rel_master WHERE cd_pessoa = '$cd_pessoa' LIMIT 1";
+    $res = $conn->query($sql);
+    $row = $res->fetch_assoc();
+    $jsonAtual = $row[$coluna] ?? '[]';
+
+    // mesclar e gerar JSON atualizado
+    $jsonNovo = montarJsonAtualizado($jsonAtual, $arrayPOST);
+
+    // atualizar no banco
+    $stmt = $conn->prepare("UPDATE rel_master SET `$coluna` = ? WHERE cd_pessoa = ?");
+    $stmt->bind_param('ss', $jsonNovo, $cd_pessoa);
+    $stmt->execute();
+    $stmt->close();
+}
+
+// Atualizar todos os módulos
+atualizarModulo($conn, $cd_pessoa, 'acesso_caixa_0001', $_POST['Caixa'] ?? []);
+atualizarModulo($conn, $cd_pessoa, 'acesso_assistencia_0002', $_POST['Assistência'] ?? []);
+atualizarModulo($conn, $cd_pessoa, 'acesso_venda_0003', $_POST['Vendas'] ?? []);
+atualizarModulo($conn, $cd_pessoa, 'acesso_patrimonio_0004', $_POST['Patrimônio'] ?? []);
+atualizarModulo($conn, $cd_pessoa, 'acesso_folhaponto_0005', $_POST['Folha de Ponto'] ?? []);
+atualizarModulo($conn, $cd_pessoa, 'acesso_financeiro_0006', $_POST['Financeiro'] ?? []);
+atualizarModulo($conn, $cd_pessoa, 'acesso_cadastro_0007', $_POST['Cadastro'] ?? []);
+atualizarModulo($conn, $cd_pessoa, 'acesso_pdv_0008', $_POST['PDV'] ?? []);
+
+echo "<script>alert('Permissões gravadas com sucesso!');</script>";
+
+
+    
+
+
+                  
+                  
                   $_SESSION['statusCadastrosColab'] = FALSE;
                 }
 
@@ -758,62 +833,20 @@ if ($result_rel->num_rows > 0) {
 
 
 
-// ===========================================================
-// FUNÇÃO PARA EXIBIR QUALQUER GRUPO DE PERMISSÕES
-// ===========================================================
-function mostrarPermissoes($titulo, $lista)
-{
-    echo '<div class="mt-4 p-3 border rounded shadow-sm" style="max-width: 460px;">';
-    echo '<h1 class="h5 card-title mb-3">'.$titulo.'</h1>';
-
-    if (empty($lista)) {
-        echo '<p class="text-muted">Nenhuma permissão cadastrada.</p>';
-        echo '</div>';
-        return;
-    }
-
-    foreach ($lista as $p) {
-        $checked = ($p[2] == "S") ? "checked" : "";
-
-        echo '
-        <div class="input-group mb-2" style="max-width: 420px;">
-            <textarea class="form-control form-control-sm"
-          readonly
-          style="
-              overflow: hidden;
-              resize: none;
-              height: auto;
-              min-height: 38px;
-              line-height: 1.2;
-          "
-            >'.$p[0].' - '.$p[1].'</textarea>
-
-
-            <div class="input-group-text" style="cursor: pointer;">
-                <input class="form-check-input"
-                       type="checkbox" '.$checked.'
-                       style="width: 20px; height: 20px; cursor:pointer;">
-            </div>
-        </div>
-        ';
-    }
-
-    echo '</div>';
-}
 
 
 
 // ======================================================
 //  EXIBIR TODAS AS SESSÕES
 // ======================================================
-mostrarPermissoes("Caixa",        $permissao_caixa);
-mostrarPermissoes("Assistência",  $permissao_assistencia);
-mostrarPermissoes("Vendas",       $permissao_venda);
-mostrarPermissoes("Patrimônio",   $permissao_patrimonio);
-mostrarPermissoes("Folha de Ponto", $permissao_folhaponto);
-mostrarPermissoes("Financeiro",   $permissao_financeiro);
-mostrarPermissoes("Cadastro",     $permissao_cadastro);
-mostrarPermissoes("PDV",          $permissao_pdv);
+$u->mostrarPermissoes("Caixa",        $permissao_caixa,         $_SESSION['md_caixa']);
+$u->mostrarPermissoes("Assistência",  $permissao_assistencia,   $_SESSION['md_assistencia']);
+$u->mostrarPermissoes("Vendas",       $permissao_venda,         $_SESSION['md_venda']);
+$u->mostrarPermissoes("Patrimônio",   $permissao_patrimonio,    $_SESSION['md_patrimonio']);
+$u->mostrarPermissoes("Folha de Ponto", $permissao_folhaponto,  $_SESSION['md_folhaponto']);
+$u->mostrarPermissoes("Financeiro",   $permissao_financeiro,    $_SESSION['md_financeiro']);
+$u->mostrarPermissoes("Cadastro",     $permissao_cadastro,      $_SESSION['md_cadastros']);
+$u->mostrarPermissoes("PDV",          $permissao_pdv,           $_SESSION['md_pdv']);
 
 
 
