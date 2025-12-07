@@ -9,7 +9,7 @@
     include("../../classes/functions.php");
     $u = new Usuario;
     
-    $result = $u->retPermissao(101); 
+    $u->retPermissaoPage(101); 
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>
@@ -450,11 +450,38 @@
                                             
 
 
-                                            
-                                            echo '<button type="button" class="btn btn-md btn-block btn-rounded btn-outline-danger" style="margin-top: 5px;" onclick="abrirSangria()"><i class="mdi mdi-upload btn-icon-prepend"></i>Sangria</button>';
-                                            
-                                            echo '<button type="button" class="btn btn-md btn-block btn-rounded btn-outline-success" style="margin-top: 5px;" onclick="abrirSuprimento()"><i class="mdi mdi-file-check btn-icon-append"></i>Suprimento</button>';
-  
+                                            //104
+                                            //echo '<button type="button" class="btn btn-md btn-block btn-rounded btn-outline-danger" style="margin-top: 5px;" onclick="abrirSangria()"><i class="mdi mdi-upload btn-icon-prepend"></i>Sangria</button>';
+                                            $u->retPermissaoBtn(
+                                                '104',
+                                                'button',
+                                                'btn btn-md btn-block btn-rounded btn-outline-danger',
+                                                '',
+                                                '',
+                                                'margin-top: 5px;',
+                                                'Sangria',
+                                                '',
+                                                'abrirSangria()',
+                                                '',
+                                                '<i class="mdi mdi-upload btn-icon-prepend"></i>'
+                                            );
+
+                                            //105
+                                            //echo '<button type="button" class="btn btn-md btn-block btn-rounded btn-outline-success" style="margin-top: 5px;" onclick="abrirSuprimento()"><i class="mdi mdi-file-check btn-icon-append"></i>Suprimento</button>';
+
+                                            $u->retPermissaoBtn(
+                                                '105',
+                                                'button',
+                                                'btn btn-md btn-block btn-rounded btn-outline-success',
+                                                '',
+                                                '',
+                                                'margin-top: 5px;',
+                                                'Suprimento',
+                                                '',
+                                                'abrirSuprimento()',
+                                                '',
+                                                '<i class="mdi mdi-file-check btn-icon-append"></i>'
+                                            );
                                             ////echo '<button type="button" class="btn btn-md btn-block btn-rounded btn-outline-dark" style="margin-top: 5px;" onclick="abrirFerramentas()"><i class="mdi mdi-file-check btn-icon-append"></i>Ferramentas do Caixa</button>';
 
                                             echo '<form action="fechamento_caixa.php" method="POST">';

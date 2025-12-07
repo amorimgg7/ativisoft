@@ -8,7 +8,7 @@
     require_once '../../classes/conn.php';
     include("../../classes/functions.php");
     $u = new Usuario;
-    $result = $u->retPermissao(102); 
+    //$result = $u->retPermissaoPage(); 
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>
@@ -113,6 +113,7 @@
                                     }
                                     if($_SESSION['dt_caixa'] == "HOJE")
                                     {
+
                                         echo '<h1>Fechar Caixa (Normal)</h1>';
 
                                         //$dataHoraAtual = date('Y-m-d H:i');
@@ -484,9 +485,11 @@
                                             <?php
                                         echo '</div>';
                                         
-                                        echo '<button type="submit" name="saidaOperadorCaixa" id="saidaOperadorCaixa" class="btn btn-lg btn-block btn-outline-success" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Saída de Operador</button>';
-        
-                                        echo '<button type="submit" name="fechamentoDiaFiscalCaixa" id="fechamentoDiaFiscalCaixa" class="btn btn-lg btn-block btn-success" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Fechar Dia Fiscal</button>';
+                                        $u->retPermissaoBtn('102', 'submit', 'btn btn-lg btn-block btn-outline-success', 'saidaOperadorCaixa', 'saidaOperadorCaixa', 'margin: 5px;', 'Saída de Operador', '', '','', '<i class="mdi mdi-file-check"></i>');
+                                        //echo '<button type="submit" name="saidaOperadorCaixa" id="saidaOperadorCaixa" class="btn btn-lg btn-block btn-outline-success" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Saída de Operador</button>';
+
+                                        $u->retPermissaoBtn('103', 'submit', 'btn btn-lg btn-block btn-outline-success', 'fechamentoDiaFiscalCaixa', 'fechamentoDiaFiscalCaixa', 'margin: 5px;', 'Fechar Dia Fiscal', '', '', '', '<i class="mdi mdi-file-check"></i>');
+                                        //echo '<button type="submit" name="fechamentoDiaFiscalCaixa" id="fechamentoDiaFiscalCaixa" class="btn btn-lg btn-block btn-success" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Fechar Dia Fiscal</button>';
                                         
                                         echo '</div>';
                                         echo '</form>';
@@ -595,6 +598,7 @@
                                     }
                                     if($_SESSION['dt_caixa'] == "ONTEM")
                                     {
+                                        $u->retPermissaoPage('103');
                                         echo '<h1>Fechar Caixa (Auditar)</h1>';
                                         //$dataHoraAtual = date('Y-m-d H:i');
                                         $dataHoraAtual = date('Y-m-d H:i', strtotime('+1 hour'));
@@ -1014,8 +1018,10 @@
                                         
                                         //echo '<button type="submit" name="saidaOperadorCaixa" id="saidaOperadorCaixa" class="btn btn-lg btn-block btn-outline-danger" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Saída de Operador</button>';
         
-                                        echo '<button type="submit" name="fechamentoDiaFiscalCaixa" id="fechamentoDiaFiscalCaixa" class="btn btn-lg btn-block btn-warning" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Fechar Dia Fiscal</button>';
-                                        
+                                        //echo '<button type="submit" name="fechamentoDiaFiscalCaixa" id="fechamentoDiaFiscalCaixa" class="btn btn-lg btn-block btn-warning" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Fechar Dia Fiscal</button>';
+
+                                        $u->retPermissaoBtn('103', 'submit', 'btn btn-lg btn-block btn-outline-success', 'fechamentoDiaFiscalCaixa', 'fechamentoDiaFiscalCaixa', 'margin: 5px;', 'Fechar Dia Fiscal', '', '', '', '<i class="mdi mdi-file-check"></i>');
+
                                         echo '</div>';
                                         echo '</form>';
                                         echo '</div>';     
@@ -1122,6 +1128,7 @@
                                     }
                                     if($_SESSION['dt_caixa'] == "ANTERIOR")
                                     {
+                                        $u->retPermissaoPage('103');
                                         echo '<h1>Fechar Caixa (Auditar)</h1>';
                                         //$dataHoraAtual = date('Y-m-d H:i');
                                         $dataHoraAtual = date('Y-m-d H:i', strtotime('+1 hour'));

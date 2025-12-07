@@ -1,8 +1,8 @@
 <?php
  
 // Ativa a exibição de erros (útil em ambiente de desenvolvimento)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
 
 // Ativa o registro de erros (útil para produção)
@@ -874,6 +874,8 @@ class Usuario
     public function conServico($cd_servico, $cd_filial, $permite_editar) 
     {
         global $conn;
+        $u = new Usuario;
+
         $conn->autocommit(false); // Desliga o autocommit
         $conn->begin_transaction(); // Inicia a transação manualmente
 
@@ -1072,9 +1074,11 @@ class Usuario
             }
 
 
-
+        
+                
+                $buttonSalvar = $u->retPermissaoBtn('202', 'submit', 'btn btn-block btn-outline-success', 'editServico', 'editServico', '', 'Salvar', '', '', '', '<i class="icon-cog"></i>');
                 $partial_servico = $partial_servico.'
-                    <td><button type="submit" name="editServico" id="editServico" class="btn btn-block btn-outline-success"><i class="icon-cog"></i>Salvar</button></td>
+                    <td>'.$buttonSalvar.'</td>
                     </div>
                     </div>
                     </div>
@@ -1089,12 +1093,10 @@ class Usuario
                     </script>
                 ';
             }else{
+                $buttonEditar = $u->retPermissaoBtn('202', 'submit', 'btn btn-block btn-outline-warning', 'con_edit_os', 'con_edit_os', '', 'Editar', '', 'enviarPara(\'cadastro_servico.php\')', '', '<i class="icon-cog"></i>');
+
                 $partial_servico = $partial_servico . '
-                    <td>
-                        <button type="submit" name="con_edit_os" id="con_edit_os" class="btn btn-block btn-outline-warning" onclick="enviarPara(\'cadastro_servico.php\')">
-                            <i class="icon-cog"></i>Editar
-                        </button>
-                    </td>
+                    <td>'.$buttonEditar.'</td>
                     </div>
                     </div>
                     </div>
@@ -4070,11 +4072,15 @@ class Usuario
                 ';    
                 
                       if($row_lastatividade['titulo_atividade'] == "A"){//INICIAR ATENDIMENTO
+                        $optionEmAndamento = $u->retPermissaoSelect('205', 'true', 'B', 'EM ANDAMENTO');
+                        $optionFinalizar = $u->retPermissaoSelect('206', '', 'C', 'FINALIZAR');
+                        $optionArquivar = $u->retPermissaoSelect('210', '', 'E', 'ARQUIVAR');
+                        
                         $partial_atividade = $partial_atividade.'<label for="marcartitulo_atividade">Entrada</label>
                             <select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>
-                            <option selected="selected"value="B">EM ANDAMENTO</option>
-                            <option value="C">FINALIZAR</option>
-                            <option value="E">ARQUIVAR</option>
+                            '.$optionEmAndamento.'
+                            '.$optionFinalizar.'
+                            '.$optionArquivar.'
                             </select>
                             <label for="showobs_servico">Observações</label>
                             <input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">
@@ -4085,9 +4091,11 @@ class Usuario
                         }
 
                       if($row_lastatividade['titulo_atividade'] == "B"){//FINALIZAR ATENDIMENTO
+                        $optionFinalizar = $u->retPermissaoSelect('206', 'selected', 'C', 'FINALIZAR');
+
                         $partial_atividade = $partial_atividade.'<label for="marcartitulo_atividade">Serviço em Andamento</label>
-                            <select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>
-                            <option selected="selected"value="C">FINALIZAR</option>
+                            <select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="form-control form-control-sm" required>
+                            '.$optionFinalizar.'
                             </select>
                             <label for="obs_atividade">Observações</label>
                             <input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">
@@ -4099,12 +4107,17 @@ class Usuario
                       }
 
                       if($row_lastatividade['titulo_atividade'] == "C"){//ENTREGAR / DEVOLVER OU REABRIR
+                        $optionEntregarDevolver = $u->retPermissaoSelect('207', 'selected', 'D', 'ENTREGAR/DEVOLVER');
+                        $optionRefazerAgora = $u->retPermissaoSelect('208', '', 'B', 'REFAZER AGORA');
+                        $optionRefazerDepois = $u->retPermissaoSelect('209', '', 'A', 'REFAZER DEPOIS');
+                        $optionArquivar = $u->retPermissaoSelect('210', '', 'E', 'ARQUIVAR');
+
                         $partial_atividade = $partial_atividade.'<label for="marcartitulo_atividade">Serviço Realizado</label>
                             <select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>
-                            <option selected="selected"value="D">ENTREGAR / DEVOLVER</option>
-                            <option value="B">REFAZER AGORA</option>
-                            <option value="A">REFAZER DEPOIS</option>
-                            <option value="E">ARQUIVAR</option>
+                            '.$optionEntregarDevolver.'
+                            '.$optionRefazerAgora.'
+                            '.$optionRefazerDepois.'
+                            '.$optionArquivar.'
                             </select>
                             <label for="obs_atividade">Observações</label>
                             <input name="obs_atividade" type="text" maxlength="999" id="obs_atividade"  class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?" />
@@ -4117,11 +4130,15 @@ class Usuario
                       }
 
                       if($row_lastatividade['titulo_atividade'] == "D"){//ENTREGUE / DEVOLVIDO
+                        $optionRefazerAgora = $u->retPermissaoSelect('208', 'selected', 'B', 'REFAZER AGORA');
+                        $optionRefazerDepois = $u->retPermissaoSelect('209', '', 'A', 'REFAZER DEPOIS');
+                        $optionArquivar = $u->retPermissaoSelect('210', '', 'E', 'ARQUIVAR');
+
                         $partial_atividade = $partial_atividade.'<label for="marcartitulo_atividade">Entregue / Devolvido</label>
-                            <select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>
-                            <option selected="selected"value="B">REFAZER AGORA</option>
-                            <option value="A">REFAZER DEPOIS</option>
-                            <option value="E">ARQUIVAR</option>
+                            <select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="form-control form-control-sm" required>
+                            '.$optionRefazerAgora.'
+                            '.$optionRefazerDepois.'
+                            '.$optionArquivar.'
                             </select>
                             <label for="obs_atividade">Observações</label>
                             <input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">
@@ -4134,10 +4151,13 @@ class Usuario
                       }
                       
                       if($row_lastatividade['titulo_atividade'] == "E"){//ARQUIVADO
+                        $optionRefazerAgora = $u->retPermissaoSelect('208', 'selected', 'B', 'REFAZER AGORA');
+                        $optionRefazerDepois = $u->retPermissaoSelect('209', '', 'A', 'REFAZER DEPOIS');
+                        
                         $partial_atividade = $partial_atividade.'<label for="marcartitulo_atividade">Atividade Arquivada</label>
                             <select name="marcartitulo_atividade" id="marcartitulo_atividade"  class="aspNetDisabled form-control form-control-sm" required>
-                            <option selected="selected"value="B">REFAZER AGORA</option>
-                            <option value="A">REFAZER DEPOIS</option>
+                            '.$optionRefazerAgora.'
+                            '.$optionRefazerDepois.'
                             </select>
                             <label for="obs_atividade">Observações</label>
                             <input type="text" name="obs_atividade" maxlength="999" id="obs_atividade" class="aspNetDisabled form-control form-control-sm" placeholder="Oque o cliente pediu pra fazer?">
@@ -4487,7 +4507,7 @@ class Usuario
 
     }
 
-    public function retPermissao($codigo)
+    public function retPermissaoPage($codigo)
     { 
         // Lista de módulos existentes
         $modulos = [
@@ -4506,96 +4526,289 @@ class Usuario
         // Monta o mega-array com todas as permissões de todos os módulos
         foreach ($modulos as $mod) {
 
-        //echo '<script>console.log("VERIFICANDO MÓDULO: '.$mod.'");</script>';
+            //echo '<script>console.log("VERIFICANDO MÓDULO: '.$mod.'");</script>';
 
-        if (!isset($_SESSION[$mod])) {
-            echo '<script>console.log("⚠ NÃO EXISTE NA SESSÃO");</script>';
-            continue;
-        }
+            if (!isset($_SESSION[$mod])) {
+                echo '<script>console.log("⚠ NÃO EXISTE NA SESSÃO");</script>';
+                continue;
+            }
 
-        //echo '<script>console.log("✔ EXISTE NA SESSÃO: '. $_SESSION[$mod] .'");</script>';
+            //echo '<script>console.log("✔ EXISTE NA SESSÃO: '. $_SESSION[$mod] .'");</script>';
 
-        $json = json_decode($_SESSION[$mod], true);
+            $json = json_decode($_SESSION[$mod], true);
 
-        if ($json === null) {
-            //echo '<script>console.log("❌ JSON INVÁLIDO");</script>';
-            continue;
-        }
+            if ($json === null) {
+                //echo '<script>console.log("❌ JSON INVÁLIDO");</script>';
+                continue;
+            }
 
-        if (!is_array($json)) {
-            //echo '<script>console.log("❌ NÃO É ARRAY");</script>';
-            continue;
-        }
+            if (!is_array($json)) {
+                //echo '<script>console.log("❌ NÃO É ARRAY");</script>';
+                continue;
+            }
 
-        if (count($json) === 0) {
-            echo '<script>console.log("⚠ JSON VAZIO");</script>';
-            continue;
-        }
+            if (count($json) === 0) {
+                echo '<script>console.log("⚠ JSON VAZIO");</script>';
+                continue;
+            }
 
-        //echo '<script>console.log("✔ JSON OK: '.json_encode($json).'");</script>';
+            //echo '<script>console.log("✔ JSON OK: '.json_encode($json).'");</script>';
 
-        foreach ($json as $p) {
+            foreach ($json as $p) {
 
-            //echo '<script>console.log("ADICIONANDO: '.json_encode($p).'");</script>';
+                //echo '<script>console.log("ADICIONANDO: '.json_encode($p).'");</script>';
 
-            $todasPermissoes[] = [
-                "codigo" => $p[0],
-                "descricao" => $p[1],
-                "status" => $p[2]
-            ];
-        }
-    }
-
-
-    // Agora valida o código solicitado
-    foreach ($todasPermissoes as $perm) {
-
-        if ($perm["codigo"] == $codigo) {
-
-            if ($perm["status"] === "S") {
-                // Acesso permitido
-                echo '<script>console.log("Acesso permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
-                return true;
-            } else {
-                // Negado
-                echo '<script>console.log("Acesso negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
-
-                echo '<h1 style="font-family: Arial; text-align:center; margin-top:40px;">
-                        Acesso negado ('.$perm["descricao"].' - '.$codigo.')
-                      </h1>';
-
-                echo '<p style="text-align:center; font-size:20px;">
-                        Redirecionando em <span id="contador">5</span> segundos...
-                      </p>';
-
-                echo '<script>
-                        let tempo = 5;
-
-                        const intervalo = setInterval(() => {
-                            tempo--;
-                            document.getElementById("contador").textContent = tempo;
-
-                            if (tempo <= 0) {
-                                clearInterval(intervalo);
-                                window.location.href = "'.$_SESSION['dominio'].'/pages/error/page_403.html";
-                            }
-                        }, 1000);
-                    </script>';
-
-                exit;
+                $todasPermissoes[] = [
+                    "codigo" => $p[0],
+                    "descricao" => $p[1],
+                    "status" => $p[2]
+                ];
             }
         }
+
+
+        // Agora valida o código solicitado
+        foreach ($todasPermissoes as $perm) {
+
+            if ($perm["codigo"] == $codigo) {
+
+                if ($perm["status"] === "S") {
+                    // Acesso permitido
+                    echo '<script>console.log("Acesso permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
+                    return true;
+                } else {
+                    // Negado
+                    echo '<script>console.log("Acesso negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
+
+                    echo '<h1 style="font-family: Arial; text-align:center; margin-top:40px;">
+                            Acesso negado ('.$perm["descricao"].' - '.$codigo.')
+                          </h1>';
+
+                    echo '<p style="text-align:center; font-size:20px;">
+                            Redirecionando em <span id="contador">5</span> segundos...
+                          </p>';
+
+                    echo '<script>
+                            let tempo = 5;
+
+                            const intervalo = setInterval(() => {
+                                tempo--;
+                                document.getElementById("contador").textContent = tempo;
+
+                                if (tempo <= 0) {
+                                    clearInterval(intervalo);
+                                    window.location.href = "'.$_SESSION['dominio'].'/pages/error/page_403.html";
+                                }
+                            }, 1000);
+                        </script>';
+
+                    exit;
+                }
+            }
+        }
+
+        $logJson = json_encode($todasPermissoes);
+        echo '<script>console.log("PERMISSOES ENCONTRADASSSSSS: ' . $logJson . '");</script>';
+
+
+        // Código não encontrado → negar por segurança
+        //header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
+        //exit;
+
     }
 
-    $logJson = json_encode($todasPermissoes);
-    echo '<script>console.log("PERMISSOES ENCONTRADASSSSSS: ' . $logJson . '");</script>';
+    public function retPermissaoBtn($codigo, $type, $class, $name, $id, $style, $value, $action, $onclick, $href, $icon)
+    { 
+        // Lista de módulos existentes
+        $modulos = [
+            "acesso_caixa_0001",
+            "acesso_assistencia_0002",
+            "acesso_venda_0003",
+            "acesso_patrimonio_0004",
+            "acesso_folhaponto_0005",
+            "acesso_financeiro_0006",
+            "acesso_cadastro_0007",
+            "acesso_pdv_0008"
+        ];
+
+        $todasPermissoes = [];
+
+        // Monta o mega-array com todas as permissões de todos os módulos
+        foreach ($modulos as $mod) {
+
+            //echo '<script>console.log("VERIFICANDO MÓDULO: '.$mod.'");</script>';
+
+            if (!isset($_SESSION[$mod])) {
+                echo '<script>console.log("⚠ NÃO EXISTE NA SESSÃO");</script>';
+                continue;
+            }
+
+            //echo '<script>console.log("✔ EXISTE NA SESSÃO: '. $_SESSION[$mod] .'");</script>';
+
+            $json = json_decode($_SESSION[$mod], true);
+
+            if ($json === null) {
+                //echo '<script>console.log("❌ JSON INVÁLIDO");</script>';
+                continue;
+            }
+
+            if (!is_array($json)) {
+                //echo '<script>console.log("❌ NÃO É ARRAY");</script>';
+                continue;
+            }
+
+            if (count($json) === 0) {
+                echo '<script>console.log("⚠ JSON VAZIO");</script>';
+                continue;
+            }
+
+            //echo '<script>console.log("✔ JSON OK: '.json_encode($json).'");</script>';
+
+            foreach ($json as $p) {
+
+                //echo '<script>console.log("ADICIONANDO: '.json_encode($p).'");</script>';
+
+                $todasPermissoes[] = [
+                    "codigo" => $p[0],
+                    "descricao" => $p[1],
+                    "status" => $p[2]
+                ];
+            }
+        }
 
 
-    // Código não encontrado → negar por segurança
-    //header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
-    //exit;
-}
+        // Agora valida o código solicitado
+        foreach ($todasPermissoes as $perm) {
 
+            if ($perm["codigo"] == $codigo) {
+
+                if ($perm["status"] === "S") {
+                    // Acesso permitido
+                    //echo '<button></button>';
+                    echo '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+
+                    echo '<script>console.log("Botão permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
+                    return true;
+                } else {
+                    // Negado
+                    //echo '<button class="'.$class.'" style="'.$style.'">Sem permissão('.$value.')</button>';
+
+                    echo '<script>console.log("Acesso negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
+
+                    
+
+                    //exit;
+                }
+            }
+        }
+
+        //$logJson = json_encode($todasPermissoes);
+        //echo '<script>console.log("PERMISSOES ENCONTRADAS: ' . $logJson . '");</script>';
+
+
+        // Código não encontrado → negar por segurança
+        //header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
+        //exit;
+
+    }
+
+    public function retPermissaoSelect($codigo, $selected, $value, $text)
+    { 
+        // Lista de módulos existentes
+        $modulos = [
+            "acesso_caixa_0001",
+            "acesso_assistencia_0002",
+            "acesso_venda_0003",
+            "acesso_patrimonio_0004",
+            "acesso_folhaponto_0005",
+            "acesso_financeiro_0006",
+            "acesso_cadastro_0007",
+            "acesso_pdv_0008"
+        ];
+
+        $todasPermissoes = [];
+
+        // Monta o mega-array com todas as permissões de todos os módulos
+        foreach ($modulos as $mod) {
+
+            //echo '<script>console.log("VERIFICANDO MÓDULO: '.$mod.'");</script>';
+
+            if (!isset($_SESSION[$mod])) {
+                echo '<script>console.log("⚠ NÃO EXISTE NA SESSÃO");</script>';
+                continue;
+            }
+
+            //echo '<script>console.log("✔ EXISTE NA SESSÃO: '. $_SESSION[$mod] .'");</script>';
+
+            $json = json_decode($_SESSION[$mod], true);
+
+            if ($json === null) {
+                //echo '<script>console.log("❌ JSON INVÁLIDO");</script>';
+                continue;
+            }
+
+            if (!is_array($json)) {
+                //echo '<script>console.log("❌ NÃO É ARRAY");</script>';
+                continue;
+            }
+
+            if (count($json) === 0) {
+                echo '<script>console.log("⚠ JSON VAZIO");</script>';
+                continue;
+            }
+
+            //echo '<script>console.log("✔ JSON OK: '.json_encode($json).'");</script>';
+
+            foreach ($json as $p) {
+
+                //echo '<script>console.log("ADICIONANDO: '.json_encode($p).'");</script>';
+
+                $todasPermissoes[] = [
+                    "codigo" => $p[0],
+                    "descricao" => $p[1],
+                    "status" => $p[2]
+                ];
+            }
+        }
+
+
+        // Agora valida o código solicitado
+        foreach ($todasPermissoes as $perm) {
+
+            if ($perm["codigo"] == $codigo) {
+
+                if ($perm["status"] === "S") {
+                    // Acesso permitido
+                    //echo '<button></button>';
+                    //echo '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+                    
+                    //echo '<option selected="'.$selected.'" value="'.$value.'">'.$text.'</option>';
+                    echo '<script>console.log("Select permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
+                    return '<option selected="'.$selected.'" value="'.$value.'">'.$text.'</option>';
+                } else {
+                    // Negado
+                    //echo '<button class="'.$class.'" style="'.$style.'">Sem permissão('.$value.')</button>';
+
+                    echo '<script>console.log("Select Negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
+
+                    
+
+                    //exit;
+                }
+            }
+        }
+
+        //$logJson = json_encode($todasPermissoes);
+        //echo '<script>console.log("PERMISSOES ENCONTRADAS: ' . $logJson . '");</script>';
+
+
+        // Código não encontrado → negar por segurança
+        //header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
+        //exit;
+
+    }
+
+    
 
 function mostrarPermissoes($titulo, $lista, $permissao_modulo)
 {

@@ -9,9 +9,7 @@
     include("../../classes/functions.php");
     $u = new Usuario;
 
-
-
-    $result = $u->retPermissao(704);
+    $result = $u->retPermissaoPage(709);
     
 
 ?><!--Validar sessão aberta, se usuário está logado.-->
@@ -371,7 +369,7 @@ echo "<script>alert('Permissões gravadas com sucesso!');</script>";
               
                 echo '</div>';
               }else if($_SESSION['statusCadastrosColab'] == 2){//cadastro de Colaborador
-                
+                $u->retPermissaoPage('707');
                 echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
                 echo '<div class="card-body">';
@@ -584,6 +582,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 echo '</div>';
               
               }else if($_SESSION['statusCadastrosColab'] == 3){//editar Colaborador
+                $u->retPermissaoPage('708');
                 echo '<div class="col-12 grid-margin stretch-card btn-dark">';//
                 echo '<div class="card" '.$_SESSION['c_card'].'>';
                 echo '<div class="card-body">';
@@ -820,7 +819,7 @@ if ($result_rel->num_rows > 0) {
     while ($row_rel = $result_rel->fetch_assoc()) {
 
         // Converte os JSON para arrays (ou array vazio caso NULL)
-        $permissao_caixa       = json_decode($row_rel['acesso_caixa_0001']        ?? '[]', true);
+        $permissao_caixa       = json_decode($row_rel['acesso_caixa_0001']       ?? '[]', true);
         $permissao_assistencia = json_decode($row_rel['acesso_assistencia_0002'] ?? '[]', true);
         $permissao_venda       = json_decode($row_rel['acesso_venda_0003']       ?? '[]', true);
         $permissao_patrimonio  = json_decode($row_rel['acesso_patrimonio_0004']  ?? '[]', true);
@@ -966,7 +965,20 @@ $u->mostrarPermissoes("PDV",          $permissao_pdv,           $_SESSION['md_pd
                   
                   echo '<form method="POST">';
                   //echo '<input type="hidden" name="cadColab" id="cadColab" value="'.$row_colab['cd_pessoa'].'" >';
-                  echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadColab" id="cadColab" style="margin-top: 20px; margin-bottom: 20px;">Novo Colaborador</button>';
+                  $u->retPermissaoBtn(
+                    '707',
+                    'submit',
+                    'btn btn-block btn-lg btn-outline-success',
+                    'cadColab',
+                    'cadColab',
+                    'margin-top: 20px; margin-bottom: 20px;',
+                    'Novo Colaborador',
+                    '',
+                    '',
+                    '',
+                    ''
+                  );
+                  //echo '<button type="submit" class="btn btn-block btn-lg btn-outline-success" name="cadColab" id="cadColab" style="margin-top: 20px; margin-bottom: 20px;">Novo Colaborador</button>';
                   echo '</form>';
 
 

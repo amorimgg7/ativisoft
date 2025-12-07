@@ -16,7 +16,7 @@
       echo '<script>document.getElementById("abrirOS").style.display = "block";</script>';      
     }
 
-    $result = $u->retPermissao(201); 
+    $u->retPermissaoPage(201); 
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>
