@@ -15,6 +15,8 @@
     if(isset($_SESSION['os_cliente'])){
       echo '<script>document.getElementById("abrirOS").style.display = "block";</script>';      
     }
+
+    $result = $u->retPermissao(201); 
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>

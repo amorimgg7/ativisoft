@@ -9,7 +9,7 @@
     include("../../classes/functions.php");
     $u = new Usuario;
     
-    $result = $u->retPermissao(101);
+    $result = $u->retPermissao(101); 
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>

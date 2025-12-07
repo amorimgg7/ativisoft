@@ -13,7 +13,7 @@
     $f = new Financeiro;
     
 
-
+$result = $u->retPermissao(101); 
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>

@@ -244,7 +244,7 @@ class Usuario
                         if($tb_acesso['md_pdv'] == "111"){
                             $_SESSION['style_md_pdv'] = "style='display:none;'";
                         }
-                        if($tb_acesso['style_md_pdv'] == "999"){
+                        if($tb_acesso['md_pdv'] == "999"){
                             $_SESSION['style_md_pdv'] = "style='display:block;'";
                         }
 
@@ -4488,7 +4488,7 @@ class Usuario
     }
 
     public function retPermissao($codigo)
-    {
+    { 
         // Lista de módulos existentes
         $modulos = [
             "acesso_caixa_0001",
@@ -4588,12 +4588,12 @@ class Usuario
     }
 
     $logJson = json_encode($todasPermissoes);
-    echo '<script>console.log("PERMISSOES ENCONTRADAS: ' . $logJson . '");</script>';
+    echo '<script>console.log("PERMISSOES ENCONTRADASSSSSS: ' . $logJson . '");</script>';
 
 
     // Código não encontrado → negar por segurança
     //header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
-    exit;
+    //exit;
 }
 
 
@@ -4601,29 +4601,29 @@ function mostrarPermissoes($titulo, $lista, $permissao_modulo)
 {
     if($permissao_modulo > 112){
         echo '<div class="mt-4 p-3 border rounded shadow-sm" style="max-width: 460px;">';
-    echo '<h1 class="h5 card-title mb-3">'.$titulo.'</h1>';
+        echo '<h1 class="h5 card-title mb-3">'.$titulo.'</h1>';
 
-    if (empty($lista)) {
-        echo '<p class="text-muted">Nenhuma permissão cadastrada.</p>';
-        echo '</div>';
-        return;
-    }
+        if (empty($lista)) {
+            echo '<p class="text-muted">Nenhuma permissão cadastrada.</p>';
+            echo '</div>';
+            return;
+        }
 
-    foreach ($lista as $p) {
-        $checked = ($p[2] == "S") ? "checked" : "";
+        foreach ($lista as $p) {
+            $checked = ($p[2] == "S") ? "checked" : "";
 
-        echo '
-        <div class="input-group mb-2" style="max-width: 420px;">
-            <textarea class="form-control form-control-sm"
-          readonly
-          style="
-              overflow: hidden;
-              resize: none;
-              height: auto;
-              min-height: 38px;
-              line-height: 1.2;
-          "
-            >'.$p[0].' - '.$p[1].'</textarea>
+            echo '
+            <div class="input-group mb-2" style="max-width: 420px;">
+                <textarea class="form-control form-control-sm"
+              readonly
+              style="
+                  overflow: hidden;
+                  resize: none;
+                  height: auto;
+                  min-height: 38px;
+                  line-height: 1.2;
+              "
+                >'.$p[0].' - '.$p[1].'</textarea>
 
 
             <div class="input-group-text" style="cursor: pointer;">
