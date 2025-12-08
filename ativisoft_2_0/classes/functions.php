@@ -4617,7 +4617,7 @@ class Usuario
 
     }
 
-    public function retPermissaoBtn($codigo, $type, $class, $name, $id, $style, $value, $action, $onclick, $href, $icon)
+    public function retPermissaoBtn($codigo, $type, $class, $name, $id, $style, $value, $action, $onclick, $href, $icon, $excessao = null)
     { 
         // Lista de módulos existentes
         $modulos = [
@@ -4685,16 +4685,16 @@ class Usuario
                 if ($perm["status"] === "S") {
                     // Acesso permitido
                     //echo '<button></button>';
-                    echo '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+                    //echo '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
 
                     echo '<script>console.log("Botão permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
-                    return true;
+                    return '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
                 } else {
                     // Negado
                     //echo '<button class="'.$class.'" style="'.$style.'">Sem permissão('.$value.')</button>';
 
                     echo '<script>console.log("Acesso negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
-
+                    return $excessao;
                     
 
                     //exit;

@@ -29,7 +29,8 @@ SET acesso_caixa_0001 = '[
     ["102", "Troca de Operador", "N"],
     ["103", "Fechamento de caixa Fiscal", "N"],
     ["104", "Sangria", "N"],
-    ["105", "Suprimento", "N"]
+    ["105", "Suprimento", "N"],
+    ["106", "Operações de caixa", "N"]
 ]';
 
 

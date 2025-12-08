@@ -9,7 +9,7 @@
     include("../../classes/functions.php");
     $u = new Usuario;
     
-    $u->retPermissaoPage(101); 
+    
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>
@@ -136,6 +136,8 @@
                                     if($_SESSION['dt_caixa'] == FALSE)
                                     {
 
+                                        $u->retPermissaoPage(101); 
+
                                         // Definir o fuso horário para São Paulo
                                         date_default_timezone_set('America/Sao_Paulo');
                                         //$data_hora_atual = date('Y-m-d H:i:s');
@@ -241,6 +243,7 @@
 
                                     if($_SESSION['dt_caixa'] == "HOJE")
                                     {
+                                        $u->retPermissaoPage(106); 
                                         if(isset($_POST['listaremover_pagamento'])) {//DELETE FROM `tb_orcamento_servico` WHERE `tb_orcamento_servico`.`cd_orcamento` = 198
                                             //echo "<script>window.alert('OK, pode remover');</script>";
                                             
@@ -452,7 +455,7 @@
 
                                             //104
                                             //echo '<button type="button" class="btn btn-md btn-block btn-rounded btn-outline-danger" style="margin-top: 5px;" onclick="abrirSangria()"><i class="mdi mdi-upload btn-icon-prepend"></i>Sangria</button>';
-                                            $u->retPermissaoBtn(
+                                            echo $u->retPermissaoBtn(
                                                 '104',
                                                 'button',
                                                 'btn btn-md btn-block btn-rounded btn-outline-danger',
@@ -469,7 +472,7 @@
                                             //105
                                             //echo '<button type="button" class="btn btn-md btn-block btn-rounded btn-outline-success" style="margin-top: 5px;" onclick="abrirSuprimento()"><i class="mdi mdi-file-check btn-icon-append"></i>Suprimento</button>';
 
-                                            $u->retPermissaoBtn(
+                                            echo $retPermissaoBtnSuprimento = $u->retPermissaoBtn(
                                                 '105',
                                                 'button',
                                                 'btn btn-md btn-block btn-rounded btn-outline-success',

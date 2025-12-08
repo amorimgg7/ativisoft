@@ -1287,3 +1287,67 @@ Stack trace:
 [07-Dec-2025 16:56:32 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
 [07-Dec-2025 16:56:44 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
 [07-Dec-2025 16:57:28 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 16:58:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 16:58:44 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 16:58:44 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:19:20 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:19:21 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:20:11 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:20:11 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:23:19 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 849
+[07-Dec-2025 23:23:45 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:23:45 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 849
+[07-Dec-2025 23:23:47 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:23:47 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:23:53 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:24:06 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:26:54 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:27:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:27:20 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:29:09 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:29:10 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:29:10 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:31:02 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:31:06 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:31:08 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:31:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:32:19 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:32:19 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:32:33 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:33:25 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:36:00 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:36:37 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:37:22 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:37:22 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:37:54 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:37:54 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:37:59 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 157
+[07-Dec-2025 23:38:32 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 157
+[07-Dec-2025 23:38:40 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 157
+[07-Dec-2025 23:38:42 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:38:43 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:38:48 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 157
+[07-Dec-2025 23:38:55 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 157
+[07-Dec-2025 23:38:59 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:39:13 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:39:44 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:46:28 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:47:04 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:47:14 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:47:15 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:47:16 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:47:24 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:47:35 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 157
+[07-Dec-2025 23:47:38 America/Sao_Paulo] PHP Warning:  Undefined array key "snome_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_caixa\fechamento_caixa.php on line 157
+[07-Dec-2025 23:47:43 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:49:27 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 849
+[07-Dec-2025 23:49:57 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:50:12 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:50:12 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:56:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:57:11 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[07-Dec-2025 23:57:11 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[07-Dec-2025 23:58:48 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[08-Dec-2025 00:01:53 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[08-Dec-2025 00:02:23 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253
+[08-Dec-2025 00:02:33 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 253

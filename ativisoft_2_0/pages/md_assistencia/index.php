@@ -275,7 +275,10 @@
                   echo '<tr>';
                   echo '<form method="POST" action="../../pages/md_assistencia/consulta_servico.php">';
                   echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
-                  echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
+                  echo '<td>';
+                  echo $u->retPermissaoBtn('202', 'submit', 'btn btn-danger', 'btn_cd_'.$servico['cd_servico'].'', 'btn_cd_'.$servico['cd_servico'].'', '', $servico['cd_servico'], '', '', '', '', $servico['cd_servico']);
+                  //echo '<button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button>';
+                  echo '</td>';
                   echo '</form>';
                   if($servico['orcamento_servico'] == 0){
                     echo '<td><label class="badge badge-secondary">FREE / Garantia</label>';
