@@ -1020,9 +1020,11 @@
         
                                         //echo '<button type="submit" name="fechamentoDiaFiscalCaixa" id="fechamentoDiaFiscalCaixa" class="btn btn-lg btn-block btn-warning" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Fechar Dia Fiscal</button>';
 
-                                        echo $u->retPermissaoBtn('103', 'submit', 'btn btn-lg btn-block btn-outline-success', 'fechamentoDiaFiscalCaixa', 'fechamentoDiaFiscalCaixa', 'margin: 5px;', 'Fechar Dia Fiscal', '', '', '', '<i class="mdi mdi-file-check"></i>');
+                                        echo $u->retPermissaoBtn('102', 'submit', 'btn btn-lg btn-block btn-danger', 'saidaOperadorCaixa', 'saidaOperadorCaixa', 'margin: 5px;', 'Saída de Operador', '', '', '', '<i class="mdi mdi-file-check"></i>');
+                                        echo $u->retPermissaoBtn('103', 'submit', 'btn btn-lg btn-block btn-warning', 'fechamentoDiaFiscalCaixa', 'fechamentoDiaFiscalCaixa', 'margin: 5px;', 'Fechar Dia Fiscal', '', '', '', '<i class="mdi mdi-file-check"></i>');
 
                                         echo '</div>';
+                                        
                                         echo '</form>';
                                         echo '</div>';     
                                         echo '</div>';
