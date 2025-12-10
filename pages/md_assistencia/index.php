@@ -156,7 +156,7 @@
                     WHEN prioridade_servico = 'A' THEN 2
                     WHEN prioridade_servico = 'M' THEN 3 
                     ELSE 4
-                END, cd_servico";
+                END, cd_servico desc limit 500";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -257,14 +257,35 @@
                 if($noprazoafaser > 0){
                   echo '<script>document.getElementById("noprazoafaser").innerHTML = "'.$noprazoafaser.'";</script>';
                   echo '<script>document.getElementById("noprazoafaser").style.display = "block";</script>';
+
+                  if($noprazoafaser > 200){
+                    echo '<script>document.getElementById("noprazoafaser").innerHTML = "+ 200";</script>';
+                  }else{
+                    echo '<script>document.getElementById("noprazoafaser").innerHTML = "'.$noprazoafaser.'";</script>';
+                  }
+
                 }
                 if($parahojeafazer > 0){
                   echo '<script>document.getElementById("parahojeafaser").innerHTML = "'.$parahojeafazer.'";</script>';
                   echo '<script>document.getElementById("parahojeafaser").style.display = "block";</script>';
+
+                  if($parahojeafazer > 200){
+                    echo '<script>document.getElementById("parahojeafazer").innerHTML = "+ 200";</script>';
+                  }else{
+                    echo '<script>document.getElementById("parahojeafazer").innerHTML = "'.$parahojeafazer.'";</script>';
+                  }
+
                 }
                 if($extrapoladoafaser > 0){
                   echo '<script>document.getElementById("extrapoladoafaser").innerHTML = "'.$extrapoladoafaser.'";</script>';
                   echo '<script>document.getElementById("extrapoladoafaser").style.display = "block";</script>';
+
+                  if($extrapoladoafaser > 200){
+                    echo '<script>document.getElementById("extrapoladoafaser").innerHTML = "+ 200";</script>';
+                  }else{
+                    echo '<script>document.getElementById("extrapoladoafaser").innerHTML = "'.$extrapoladoafaser.'";</script>';
+                  }
+
                 }
               }
             ?>
@@ -279,7 +300,7 @@
                     WHEN prioridade_servico = 'A' THEN 2
                     WHEN prioridade_servico = 'M' THEN 3
                     ELSE 4
-                END, cd_servico";
+                END, cd_servico desc limit 500";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){
@@ -371,16 +392,34 @@
                 echo '</div>';
                 
                 if($parahojeemandamento > 0){
-                  echo '<script>document.getElementById("parahojeemandamento").innerHTML = "'.$parahojeemandamento.'";</script>';
+                  //echo '<script>document.getElementById("parahojeemandamento").innerHTML = "'.$parahojeemandamento.'";</script>';
                   echo '<script>document.getElementById("parahojeemandamento").style.display = "block";</script>';
+                  
+                  if($parahojeemandamento > 200){
+                    echo '<script>document.getElementById("parahojeemandamento").innerHTML = "+ 200";</script>';
+                  }else{
+                    echo '<script>document.getElementById("parahojeemandamento").innerHTML = "'.$parahojeemandamento.'";</script>';
+                  }
                 }
                 if($noprazoemandamento > 0){
-                  echo '<script>document.getElementById("noprazoemandamento").innerHTML = "'.$noprazoemandamento.'";</script>';
+                  //echo '<script>document.getElementById("noprazoemandamento").innerHTML = "'.$noprazoemandamento.'";</script>';
                   echo '<script>document.getElementById("noprazoemandamento").style.display = "block";</script>';
+
+                  if($noprazoemandamento > 200){
+                    echo '<script>document.getElementById("noprazoemandamento").innerHTML = "+ 200";</script>';
+                  }else{
+                    echo '<script>document.getElementById("noprazoemandamento").innerHTML = "'.$noprazoemandamento.'";</script>';
+                  }
                 }
                 if($extrapoladoemandamento > 0){
-                  echo '<script>document.getElementById("extrapoladoemandamento").innerHTML = "'.$extrapoladoemandamento.'";</script>';
+                  //echo '<script>document.getElementById("extrapoladoemandamento").innerHTML = "'.$extrapoladoemandamento.'";</script>';
                   echo '<script>document.getElementById("extrapoladoemandamento").style.display = "block";</script>';
+
+                  if($extrapoladoemandamento > 200){
+                    echo '<script>document.getElementById("extrapoladoemandamento").innerHTML = "+ 200";</script>';
+                  }else{
+                    echo '<script>document.getElementById("extrapoladoemandamento").innerHTML = "'.$extrapoladoemandamento.'";</script>';
+                  }
                 }
               }
             ?>
@@ -394,7 +433,7 @@
                     WHEN prioridade_servico = 'A' THEN 2
                     WHEN prioridade_servico = 'M' THEN 3
                     ELSE 4
-                END, cd_servico";
+                END, cd_servico limit 200";
 
               $resulta_servico = $conn->query($sql_servico);
               if ($resulta_servico->num_rows > 0){

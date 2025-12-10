@@ -411,3 +411,30 @@ Stack trace:
 [25-Nov-2025 10:20:59 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
 [25-Nov-2025 10:21:36 America/Sao_Paulo] PHP Warning:  Undefined variable $counter in C:\xampp\htdocs\ativisoft_1_0\pages\md_assistencia\cadastro_servico.php on line 1681
 [25-Nov-2025 10:21:42 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 571
+[10-Dec-2025 12:54:55 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ass_08057969.tb_colab' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php:41
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\classes\functions.php(41): PDOStatement->execute()
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\samples\login.php(124): Usuario->logar('08057969000100', 'amorimgg7@gmail...', '1')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 41
+[10-Dec-2025 12:55:26 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ass_08057969.tb_colab' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php:41
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\classes\functions.php(41): PDOStatement->execute()
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\samples\login.php(124): Usuario->logar('08057969000100', 'marcia.oficinad...', '1')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 41
+[10-Dec-2025 12:55:50 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ass_08057969.tb_colab' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php:41
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\classes\functions.php(41): PDOStatement->execute()
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\samples\login.php(124): Usuario->logar('08057969000100', 'marcia.oficinad...', '1')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 41
+[10-Dec-2025 12:57:50 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ass_08057969.tb_colab' doesn't exist in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php:41
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\classes\functions.php(41): PDOStatement->execute()
+#1 C:\xampp\htdocs\ativisoft_1_0\pages\samples\login.php(124): Usuario->logar('08057969000100', 'marcia.oficinad...', '1')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 41
+[10-Dec-2025 13:01:15 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 92
+[10-Dec-2025 13:01:15 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 94
+[10-Dec-2025 13:01:15 America/Sao_Paulo] PHP Deprecated:  Function utf8_encode() is deprecated in C:\xampp\htdocs\ativisoft_1_0\classes\functions.php on line 96

@@ -11,7 +11,7 @@
 
 
 
-    $result = $u->retPermissão(206);
+    $result = $u->retPermissaoPage(206);
     
 
 ?><!--Validar sessão aberta, se usuário está logado.-->
