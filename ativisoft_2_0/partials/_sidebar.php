@@ -175,9 +175,9 @@ if($_SESSION['cd_acesso'] == 1){
             <div class="collapse" id="md_pdv">
             
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item" <?php echo $_SESSION['style_md_pdv']; ?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/pdv/pdv_balcao.php">Balcão</a></li>
-                <li class="nav-item" <?php echo $_SESSION['style_md_pdv']; ?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/pdv/pdv_mesa.php">Mesas</a></li>
-                <li class="nav-item" <?php echo $_SESSION['style_md_pdv']; ?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/pdv/pdv_delivery.php">Delivery</a></li>
+                <li class="nav-item" <?php echo $_SESSION['style_md_pdv']; ?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_pdv/pdv_balcao.php">Balcão</a></li>
+                <li class="nav-item" <?php echo $_SESSION['style_md_pdv']; ?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_pdv/pdv_mesa.php">Mesas</a></li>
+                <li class="nav-item" <?php echo $_SESSION['style_md_pdv']; ?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_pdv/pdv_delivery.php">Delivery</a></li>
               </ul>
             </div> 
           </li>

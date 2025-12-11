@@ -5,18 +5,20 @@ require_once '../../classes/conn.php';
 // Pega os parâmetros do filtro
 $cd_filial = $_SESSION['cd_filial'] ?? 11;
 $data_inicio = $_GET['data_inicio'] ?? date('Y-m-d');
-$data_fim = $_GET['data_fim'] ?? date('Y-m-d');
+$data_fim    = $_GET['data_fim']    ?? date('Y-m-d');
 
 // Ajusta horário para incluir todo o dia final
 $data_inicio .= ' 00:00:00';
-$data_fim .= ' 23:59:59';
+$data_fim    .= ' 23:59:59';
 
 // Consulta as vendas filtradas
 $sql = "
-    SELECT v.cd_venda, v.abertura_venda, v.fechamento_venda, v.vpag_venda, v.orcamento_venda, c.pnome_pessoa AS cliente
+    SELECT v.cd_venda, v.abertura_venda, v.fechamento_venda, v.vpag_venda, 
+           v.orcamento_venda, c.pnome_pessoa AS cliente
     FROM tb_venda v
     LEFT JOIN tb_pessoa c ON v.cd_cliente = c.cd_pessoa
-    WHERE v.cd_filial = ? AND v.abertura_venda BETWEEN ? AND ?
+    WHERE v.cd_filial = ?
+      AND v.abertura_venda BETWEEN ? AND ?
     ORDER BY v.abertura_venda DESC
     LIMIT 50
 ";
@@ -25,6 +27,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("iss", $cd_filial, $data_inicio, $data_fim);
 $stmt->execute();
 $res = $stmt->get_result();
+
 
 if ($res->num_rows === 0) {
     echo "<p class='text-muted'>Nenhuma venda registrada neste período.</p>";

@@ -22,8 +22,8 @@ if (!$data) {
 $_SESSION['carrinho'] = $data['items'];
 
 // Dados da venda
-$cd_filial  = $_SESSION['filial'] ?? 11;
-$cd_cliente = $_SESSION['cliente'] ?? null;
+$cd_filial  = $_SESSION['cd_filial'] ?? null;
+$cd_cliente = $_SESSION['cd_cliente'] ?? null;
 
 $abertura   = date('Y-m-d H:i:s');
 $fechamento = $abertura;
