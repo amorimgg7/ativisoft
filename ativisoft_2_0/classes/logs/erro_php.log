@@ -1,3 +1,445 @@
 [11-Dec-2025 15:23:24 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
 [11-Dec-2025 15:24:59 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
 [11-Dec-2025 15:25:02 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[15-Dec-2025 10:07:17 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[15-Dec-2025 10:07:23 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:07:23 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 374
+[15-Dec-2025 10:07:23 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 425
+[15-Dec-2025 10:07:23 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 798
+[15-Dec-2025 10:07:23 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 1040
+[15-Dec-2025 10:08:48 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:08:58 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:41:18 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:41:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:10 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:12 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:26 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:30 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:37 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:49 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:51:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:52:07 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:52:10 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 10:52:13 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:09 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:23 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:26 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:31 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[15-Dec-2025 11:36:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:34 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 374
+[15-Dec-2025 11:36:34 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 425
+[15-Dec-2025 11:36:34 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 798
+[15-Dec-2025 11:36:34 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 1211
+[15-Dec-2025 11:36:37 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:47 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:51 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:58 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:36:58 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 11:36:58 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 11:36:58 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 11:36:58 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 11:36:58 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 11:36:58 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 11:37:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:06 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:10 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:15 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:28 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:30 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:33 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:47 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:54 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:37:58 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:40:58 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:41:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:41:33 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:41:35 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:41:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:41:49 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:42:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:42:21 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:42:25 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:48:48 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:48:52 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:48:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:49:00 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:49:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 11:49:07 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 12:59:22 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:36 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:39 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:41 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:43 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:48 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:51 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:54 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:56 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:02:58 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:03:27 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:03:30 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:03:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:03:35 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:06:29 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:06:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:06:39 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:06:47 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:06:47 America/Sao_Paulo] PHP Warning:  Undefined array key "editgrupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 360
+[15-Dec-2025 13:06:47 America/Sao_Paulo] PHP Warning:  Undefined array key "edittitulo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 361
+[15-Dec-2025 13:06:47 America/Sao_Paulo] PHP Warning:  Undefined array key "editobs_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 362
+[15-Dec-2025 13:06:47 America/Sao_Paulo] PHP Warning:  Undefined array key "editpreco_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 363
+[15-Dec-2025 13:06:47 America/Sao_Paulo] PHP Warning:  Undefined array key "editstatus_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 364
+[15-Dec-2025 13:06:47 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 365
+[15-Dec-2025 13:06:55 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:07:54 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:07:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:07:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:07:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editgrupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 360
+[15-Dec-2025 13:07:59 America/Sao_Paulo] PHP Warning:  Undefined array key "edittitulo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 361
+[15-Dec-2025 13:07:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editobs_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 362
+[15-Dec-2025 13:07:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editpreco_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 363
+[15-Dec-2025 13:07:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editstatus_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 364
+[15-Dec-2025 13:07:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 365
+[15-Dec-2025 13:08:03 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:08:08 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:08:08 America/Sao_Paulo] PHP Warning:  Undefined array key "editgrupo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 360
+[15-Dec-2025 13:08:08 America/Sao_Paulo] PHP Warning:  Undefined array key "edittitulo_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 361
+[15-Dec-2025 13:08:08 America/Sao_Paulo] PHP Warning:  Undefined array key "editobs_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 362
+[15-Dec-2025 13:08:08 America/Sao_Paulo] PHP Warning:  Undefined array key "editpreco_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 363
+[15-Dec-2025 13:08:08 America/Sao_Paulo] PHP Warning:  Undefined array key "editstatus_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 364
+[15-Dec-2025 13:08:08 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 365
+[15-Dec-2025 13:08:12 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:14:54 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:14:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:16:33 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:16:36 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:16:36 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 365
+[15-Dec-2025 13:16:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:16:58 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:17:01 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:17:01 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 365
+[15-Dec-2025 13:17:06 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:17:09 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:17:09 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:17:09 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:17:09 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:17:09 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:17:09 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:17:09 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:18:32 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:18:32 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:18:32 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:32 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:32 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:32 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:43 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:18:43 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:18:43 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:18:43 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:43 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:43 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:43 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:18:47 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:18:53 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:18:55 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:18:55 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:18:55 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:18:55 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:55 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:55 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:18:55 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:20:38 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:20:38 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:20:38 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:20:38 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:20:38 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:20:38 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:20:38 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:20:54 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:21:09 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:21:09 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:21:09 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:21:09 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:21:09 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:21:09 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:21:09 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:21:11 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:21:21 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:21:21 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:21:21 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:21:21 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:55:36 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:55:36 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:55:36 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:55:36 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:55:36 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:55:36 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:55:36 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:55:37 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:55:39 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:55:39 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:55:39 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:55:39 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:55:39 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:55:39 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:55:39 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:55:41 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:56:15 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:56:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:56:16 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:56:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:56:16 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:56:16 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:56:16 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:56:16 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:23 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:58:23 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:58:23 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:58:23 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 288
+[15-Dec-2025 13:58:23 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:23 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:23 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:23 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:25 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:58:28 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:58:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:58:32 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:58:32 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:58:32 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 288
+[15-Dec-2025 13:58:32 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:32 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:32 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:32 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:58:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:58:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:58:59 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:58:59 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 13:58:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 288
+[15-Dec-2025 13:58:59 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:59 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:59 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:58:59 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 13:59:29 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:30 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "editgrupo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 345
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "editcdbarras_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 346
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "edittitulo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 347
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "editestoque_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 349
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "editpreco_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 350
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "editcusto_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 351
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "editstatus_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 352
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 353
+[15-Dec-2025 13:59:31 America/Sao_Paulo] PHP Warning:  Undefined variable $ret in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 356
+[15-Dec-2025 13:59:38 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:42 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "editgrupo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 345
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "editcdbarras_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 346
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "edittitulo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 347
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "editestoque_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 349
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "editpreco_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 350
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "editcusto_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 351
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "editstatus_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 352
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 353
+[15-Dec-2025 13:59:45 America/Sao_Paulo] PHP Warning:  Undefined variable $ret in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 356
+[15-Dec-2025 13:59:54 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:56 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 13:59:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editgrupo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 345
+[15-Dec-2025 13:59:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editcdbarras_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 346
+[15-Dec-2025 13:59:59 America/Sao_Paulo] PHP Warning:  Undefined array key "edittitulo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 347
+[15-Dec-2025 13:59:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editestoque_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 349
+[15-Dec-2025 13:59:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editpreco_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 350
+[15-Dec-2025 13:59:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editcusto_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 351
+[15-Dec-2025 13:59:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editstatus_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 352
+[15-Dec-2025 13:59:59 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 353
+[15-Dec-2025 14:00:04 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:00:31 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:00:33 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:00:35 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "editgrupo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 345
+[15-Dec-2025 14:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "editcdbarras_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 346
+[15-Dec-2025 14:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "edittitulo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 347
+[15-Dec-2025 14:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "editestoque_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 349
+[15-Dec-2025 14:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "editpreco_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 350
+[15-Dec-2025 14:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "editcusto_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 351
+[15-Dec-2025 14:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "editstatus_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 352
+[15-Dec-2025 14:00:40 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 353
+[15-Dec-2025 14:18:01 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:18:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:18:09 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:18:09 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 14:18:09 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 274
+[15-Dec-2025 14:18:09 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 288
+[15-Dec-2025 14:18:09 America/Sao_Paulo] PHP Warning:  Undefined array key "fotoProduto" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 14:18:09 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 14:18:09 America/Sao_Paulo] PHP Deprecated:  exif_imagetype(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 14:18:09 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php(292): exif_imagetype('')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 292
+[15-Dec-2025 14:18:17 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:18:17 America/Sao_Paulo] PHP Warning:  Undefined array key "editgrupo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 345
+[15-Dec-2025 14:18:17 America/Sao_Paulo] PHP Warning:  Undefined array key "editcdbarras_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 346
+[15-Dec-2025 14:18:17 America/Sao_Paulo] PHP Warning:  Undefined array key "edittitulo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 347
+[15-Dec-2025 14:18:17 America/Sao_Paulo] PHP Warning:  Undefined array key "editestoque_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 349
+[15-Dec-2025 14:18:17 America/Sao_Paulo] PHP Warning:  Undefined array key "editpreco_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 350
+[15-Dec-2025 14:18:17 America/Sao_Paulo] PHP Warning:  Undefined array key "editcusto_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 351
+[15-Dec-2025 14:18:17 America/Sao_Paulo] PHP Warning:  Undefined array key "editstatus_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 352
+[15-Dec-2025 14:18:17 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 353
+[15-Dec-2025 14:18:20 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:18:25 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:18:25 America/Sao_Paulo] PHP Warning:  Undefined array key "editgrupo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 345
+[15-Dec-2025 14:18:25 America/Sao_Paulo] PHP Warning:  Undefined array key "editcdbarras_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 346
+[15-Dec-2025 14:18:25 America/Sao_Paulo] PHP Warning:  Undefined array key "edittitulo_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 347
+[15-Dec-2025 14:18:25 America/Sao_Paulo] PHP Warning:  Undefined array key "editestoque_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 349
+[15-Dec-2025 14:18:25 America/Sao_Paulo] PHP Warning:  Undefined array key "editpreco_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 350
+[15-Dec-2025 14:18:25 America/Sao_Paulo] PHP Warning:  Undefined array key "editcusto_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 351
+[15-Dec-2025 14:18:25 America/Sao_Paulo] PHP Warning:  Undefined array key "editstatus_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 352
+[15-Dec-2025 14:18:25 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 353
+[15-Dec-2025 14:18:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:24:24 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:24:29 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:24:29 America/Sao_Paulo] PHP Warning:  Undefined array key "editobs_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 348
+[15-Dec-2025 14:24:32 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:24:35 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:24:35 America/Sao_Paulo] PHP Warning:  Undefined array key "editobs_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 348
+[15-Dec-2025 14:24:38 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:24:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:24:40 America/Sao_Paulo] PHP Warning:  Undefined array key "editcd_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 366
+[15-Dec-2025 14:25:18 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:25:21 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:30:22 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:30:25 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:30:29 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:30:31 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:31:03 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:31:06 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:31:10 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:31:10 America/Sao_Paulo] PHP Warning:  Undefined array key "editobs_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 348
+[15-Dec-2025 14:34:07 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:34:13 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:34:13 America/Sao_Paulo] PHP Warning:  Undefined array key "editobs_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 348
+[15-Dec-2025 14:34:19 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:34:22 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:34:25 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:34:27 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:34:31 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:34:34 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:34:39 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:39:06 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:39:09 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:40:43 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 14:40:45 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:41:51 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:41:56 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:41:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:41:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:42:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:42:57 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:42:59 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:44:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:44:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:44:21 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[15-Dec-2025 16:44:26 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:30:03 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[16-Dec-2025 07:30:15 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[16-Dec-2025 07:31:01 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[16-Dec-2025 07:31:09 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[16-Dec-2025 07:31:12 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 362
+[16-Dec-2025 07:31:25 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:31:25 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 389
+[16-Dec-2025 07:31:25 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 440
+[16-Dec-2025 07:31:25 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 813
+[16-Dec-2025 07:31:25 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 1290
+[16-Dec-2025 07:32:31 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:32:31 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 389
+[16-Dec-2025 07:32:31 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 440
+[16-Dec-2025 07:32:31 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 813
+[16-Dec-2025 07:32:31 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 1290
+[16-Dec-2025 07:32:40 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:32:40 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 389
+[16-Dec-2025 07:32:40 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 440
+[16-Dec-2025 07:32:40 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 813
+[16-Dec-2025 07:32:40 America/Sao_Paulo] PHP Warning:  Undefined array key "statusCadastros" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 1290
+[16-Dec-2025 07:32:56 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:33:27 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:33:38 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:33:54 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:34:05 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:34:22 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 36
+[16-Dec-2025 07:34:22 America/Sao_Paulo] PHP Warning:  Undefined array key "editobs_prod_serv" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\cadastro_produto.php on line 348
