@@ -2045,6 +2045,7 @@ class Usuario
     public function listOrcamentoServico($cd_servico, $cd_filial, $permite_remover, $permite_lancar) 
     {
         global $conn;
+        $u = new Usuario();
         $conn->autocommit(false); // Desliga o autocommit
         $conn->begin_transaction(); // Inicia a transação manualmente
 
@@ -2139,16 +2140,49 @@ class Usuario
                             <form method="post">
                                 <!--<div class="typeahead">-->
                 ';
-            
-                if($_SESSION['md_venda'] != '111'){
-                    $partial_orcamento  =   $partial_orcamento.'
+            //203 - orcamento avulso
+            //204 orcamento cadastro
+                $RetOrcAvulso = $u->retPermissaoBool('203');
+                $RetOrcCadastro = $u->retPermissaoBool('204');
+
+                if($RetOrcAvulso == true && $RetOrcCadastro == true){
+                    
+                    $partial_orcamento = $partial_orcamento.$u->retPermissaoBtn(
+                        '203', 
+                        'button',
+                        'btn btn-outline-success', 
+                        '', 
+                        'ProdutosServicosBtn', 
+                        'text-align:left; display:none;', 
+                        "Mudar para Serviço Avulso", 
+                        '', 
+                        'showSection(\'ProdutosServicos\', \'ProdutosServicosBtn\')', 
+                        '', 
+                        '');
+                        
+                    $partial_orcamento = $partial_orcamento.$u->retPermissaoBtn(
+                        '204',
+                        'button',
+                        'btn btn-outline-success',
+                        '',
+                        'ProdutosServicosCadastroBtn',
+                        'text-align:left;',
+                        'Mudar para  Produtos/Serviços',
+                        '',
+                        'showSection(\'ProdutosServicosCadastro\', \'ProdutosServicosCadastroBtn\')',
+                        '',
+                        '');
+
+
+                        /*
+                        $partial_orcamento  =   $partial_orcamento.'
                                     <button type="button" id="ProdutosServicosBtn" onclick="showSection(\'ProdutosServicos\', \'ProdutosServicosBtn\')" class="btn btn-outline-success" style="text-align:left; display:none;">Mudar para: Serviço Avulso</button>
                                     <button type="button" id="ProdutosServicosCadastroBtn" onclick="showSection(\'ProdutosServicosCadastro\', \'ProdutosServicosCadastroBtn\')" class="btn btn-outline-success" style="text-align:left;">Mudar para: Produtos/Serviços</button>
-                    ';
+                        ';*/
                 }
-                $partial_orcamento  =   $partial_orcamento.'
-                                    
-                                    <div id="ProdutosServicos" class="typeahead" style="background-color: #C6C6C6; display: block;">
+                if($RetOrcAvulso){
+                    $partial_orcamento  =   $partial_orcamento.'
+                                    <div id="ProdutosServicos" class="typeahead" style="background-color: #C6C6C6;">
                                         <h3 class="kt-portlet__head-title">Serviço avulso</h3>
                                         <div class="horizontal-form">
                                             <div class="form-group">
@@ -2163,13 +2197,14 @@ class Usuario
                                             </div>
                                         </div>
                                     </div>                                 
-                '; 
+                ';
+                }
+                 
                
-                if($_SESSION['md_venda'] != '111'){
-			    
+                if($RetOrcCadastro){
                     if ($result_prod_serv->num_rows > 0){
                         $partial_orcamento  =   $partial_orcamento.'
-                                    <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6; display: none;">
+                                    <div id="ProdutosServicosCadastro" class="typeahead" style="background-color: #C6C6C6;">
                                         <h3 class="kt-portlet__head-title">Produtos/Serviços</h3>
                                         <div class="horizontal-form">
                                             <div class="form-group"> 
@@ -2184,9 +2219,16 @@ class Usuario
                                                                     <option value=""></option>
                         ';
                         while ($row_prod_serv = $result_prod_serv->fetch_assoc()) {
-                            $partial_orcamento  =   $partial_orcamento.'
-                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">' . $row_prod_serv['titulo_prod_serv'] . '</option>
+                            if($row_prod_serv['tipo_prod_serv'] == 'P'){
+                                $partial_orcamento  =   $partial_orcamento.'
+                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">(Produto): ' . $row_prod_serv['titulo_prod_serv'] . '</option>
                             ';
+                            }
+                            if($row_prod_serv['tipo_prod_serv'] == 'S'){
+                                $partial_orcamento  =   $partial_orcamento.'
+                                                                    <option style="background-color: ccc; " value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">(Serviço): ' . $row_prod_serv['titulo_prod_serv'] . '</option>
+                            ';
+                            }
                         }
                         $partial_orcamento  =   $partial_orcamento.'
                                                                 </select>
@@ -2240,6 +2282,9 @@ class Usuario
                                     </div>
                         ';
                     }
+                }
+                if($RetOrcAvulso == true && $RetOrcCadastro == true){
+                    $partial_orcamento  =   $partial_orcamento."<script>document.getElementById('ProdutosServicosCadastro').style.display = 'none';</script>";
                 }
 
             $partial_orcamento  =   $partial_orcamento.'
@@ -4687,8 +4732,38 @@ class Usuario
                     //echo '<button></button>';
                     //echo '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
 
-                    echo '<script>console.log("Botão permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
-                    return '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+                    //echo '<script>console.log("Botão permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
+                    $ret = '<button ';
+
+                    if($type != ''){
+                        $ret = $ret.' type="'.$type.'" ';
+                    }
+                    if($class){
+                        $ret = $ret.' class="'.$class.'" ';
+                    }
+                    if($name != ''){
+                        $ret = $ret.' name="'.$name.'" ';
+                    }
+                    if($id != ''){
+                        $ret = $ret.' id="'.$id.'" ';
+                    }
+                    if($onclick != ''){
+                        $ret = $ret.' onclick = "'.$onclick.'" ';
+                    }
+                    if($style != ''){
+                        $ret = $ret.' style="'.$style.'" ';
+                    }
+                    $ret = $ret.'>';
+                    if($icon != ''){
+                        $ret = $ret.$icon;
+                    }
+                    if($value != ''){
+                        $ret = $ret.$value;
+                    }
+                    $ret = $ret.'</button>';
+
+                    //return '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+                    return $ret;
                 } else {
                     // Negado
                     //echo '<button class="'.$class.'" style="'.$style.'">Sem permissão('.$value.')</button>';
@@ -4807,6 +4882,104 @@ class Usuario
         //exit;
 
     }
+
+    public function retPermissaoBool($codigo)
+    { 
+        // Lista de módulos existentes
+        $modulos = [
+            "acesso_caixa_0001",
+            "acesso_assistencia_0002",
+            "acesso_venda_0003",
+            "acesso_patrimonio_0004",
+            "acesso_folhaponto_0005",
+            "acesso_financeiro_0006",
+            "acesso_cadastro_0007",
+            "acesso_pdv_0008"
+        ];
+
+        $todasPermissoes = [];
+
+        // Monta o mega-array com todas as permissões de todos os módulos
+        foreach ($modulos as $mod) {
+
+            //echo '<script>console.log("VERIFICANDO MÓDULO: '.$mod.'");</script>';
+
+            if (!isset($_SESSION[$mod])) {
+                echo '<script>console.log("⚠ NÃO EXISTE NA SESSÃO");</script>';
+                continue;
+            }
+
+            //echo '<script>console.log("✔ EXISTE NA SESSÃO: '. $_SESSION[$mod] .'");</script>';
+
+            $json = json_decode($_SESSION[$mod], true);
+
+            if ($json === null) {
+                //echo '<script>console.log("❌ JSON INVÁLIDO");</script>';
+                continue;
+            }
+
+            if (!is_array($json)) {
+                //echo '<script>console.log("❌ NÃO É ARRAY");</script>';
+                continue;
+            }
+
+            if (count($json) === 0) {
+                echo '<script>console.log("⚠ JSON VAZIO");</script>';
+                continue;
+            }
+
+            //echo '<script>console.log("✔ JSON OK: '.json_encode($json).'");</script>';
+
+            foreach ($json as $p) {
+
+                //echo '<script>console.log("ADICIONANDO: '.json_encode($p).'");</script>';
+
+                $todasPermissoes[] = [
+                    "codigo" => $p[0],
+                    "descricao" => $p[1],
+                    "status" => $p[2]
+                ];
+            }
+        }
+
+
+        // Agora valida o código solicitado
+        foreach ($todasPermissoes as $perm) {
+
+            if ($perm["codigo"] == $codigo) {
+
+                if ($perm["status"] === "S") {
+                    // Acesso permitido
+                    //echo '<button></button>';
+                    //echo '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+                    
+                    //echo '<option selected="'.$selected.'" value="'.$value.'">'.$text.'</option>';
+                    echo '<script>console.log("Boolean permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
+                    return true;
+                } else {
+                    // Negado
+                    //echo '<button class="'.$class.'" style="'.$style.'">Sem permissão('.$value.')</button>';
+
+                    echo '<script>console.log("Boolean Negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
+
+                    return false;
+
+                    //exit;
+                }
+            }
+        }
+
+        //$logJson = json_encode($todasPermissoes);
+        //echo '<script>console.log("PERMISSOES ENCONTRADAS: ' . $logJson . '");</script>';
+
+
+        // Código não encontrado → negar por segurança
+        //header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
+        //exit;
+
+    }
+
+    //retPermissaoBool
 
     
 
