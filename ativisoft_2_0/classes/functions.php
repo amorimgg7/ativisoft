@@ -32,6 +32,7 @@ class Usuario
             $msgErro = $e->getMessage(); 
         }
     }
+    
     public function logar($email_pessoa, $senha_pessoa, $tipo_pessoa, $id_google, $id_facebook) 
     {
         
@@ -40,6 +41,7 @@ class Usuario
         $_SESSION['email_empresa'] = $email_pessoa;
 
         global $pdo;
+        $u = new Usuario();
         $loginCliente = $pdo->prepare("SELECT * FROM tb_pessoa p JOIN rel_master r ON r.cd_pessoa = p.cd_pessoa JOIN tb_acesso a ON r.cd_acesso = a.cd_acesso JOIN tb_empresa e ON e.cd_empresa = r.cd_empresa WHERE p.tipo_pessoa = 'cliente' AND p.id_google = :idg");
         //$loginCliente->bindValue(":tip", $tipo_pessoa);
         //$loginCliente->bindValue(":emc", $email_pessoa);
@@ -89,6 +91,7 @@ class Usuario
         $login->bindValue(":emc", $email_pessoa);
         $login->execute();
         if($login->rowCount() > 0){
+            
             //SELECT * FROM tb_pessoa WHERE tipo_pessoa = 'colab' AND email_pessoa = 'amorimgg7@gmail.com' AND (senha_pessoa = '' OR id_google = '104575877573693940893' OR id_facebook = '' )
             $login2 = $pdo->prepare("SELECT * FROM tb_pessoa WHERE tipo_pessoa = :tip AND email_pessoa = :emc AND (senha_pessoa = :sn OR id_google = :idg OR id_facebook = :idf)");
             $login2->bindValue(":tip", $tipo_pessoa);
@@ -101,200 +104,7 @@ class Usuario
             {
                 $colab = $login2->fetch();
                 //session_start();
-                $_SESSION['cd_colab'] = $colab['cd_pessoa'];
-                $_SESSION['email_colab'] = $colab['email_pessoa'];
-                $_SESSION['senha_colab'] = $colab['senha_pessoa'];
-                $_SESSION['pnome_colab'] = $colab['pnome_pessoa'];
-                $_SESSION['snome_colab'] = $colab['snome_pessoa'];
-
-                $sql1 = $pdo->prepare("SELECT * FROM rel_master WHERE cd_pessoa = ".$_SESSION['cd_colab']."");
-                $sql1->execute();
-
-                if($sql1->rowCount() == 0){
-                    $sql2 = $pdo->prepare("INSERT INTO rel_master(token_alter, cd_pessoa, cd_estilo, cd_acesso, status_rel) VALUES ('100001', :cdp, 1, 1, 'ativo')");
-                    $sql2->bindValue(":cdp", $_SESSION['cd_colab']);
-                    $sql2->execute();
-                }
-                if($sql1->rowCount() > 0)
-                {
-                    //entrar no sistema(sessão)
-                    $rel_master = $sql1->fetch();
-                    //session_start();
-                    $_SESSION['cd_estilo'] = $rel_master['cd_estilo'];
-                    if(isset($rel_master['cd_acesso'])){
-                        $_SESSION['cd_acesso'] = $rel_master['cd_acesso'];
-                        $_SESSION['rel_geral'] = $rel_master;
-                    }else{
-                        $_SESSION['cd_acesso'] = 0;
-                        $_SESSION['rel_geral'] = 0;
-                    }
-
-                    if(isset($rel_master['cd_empresa'])){
-                        $_SESSION['cd_empresa'] = $rel_master['cd_empresa'];
-                    }else{
-                        $_SESSION['cd_empresa'] = 0;
-                    }
-                     
-                    $_SESSION['cd_funcao'] = $rel_master['cd_acesso'];
-                    
-                    $_SESSION['cd_pessoa'] = $rel_master['cd_pessoa'];
-
-
-
-                    $_SESSION['acesso_caixa_0001']          = $rel_master['acesso_caixa_0001'];
-                    $_SESSION['acesso_assistencia_0002']    = $rel_master['acesso_assistencia_0002'];
-                    $_SESSION['acesso_venda_0003']          = $rel_master['acesso_venda_0003'];
-                    $_SESSION['acesso_patrimonio_0004']     = $rel_master['acesso_patrimonio_0004'];
-                    $_SESSION['acesso_folhaponto_0005']     = $rel_master['acesso_folhaponto_0005'];
-                    $_SESSION['acesso_financeiro_0006']     = $rel_master['acesso_financeiro_0006'];
-                    $_SESSION['acesso_cadastro_0007']       = $rel_master['acesso_cadastro_0007'];
-                    $_SESSION['acesso_pdv_0008']            = $rel_master['acesso_pdv_0008'];
-
-
-
-                    
-                    $sql4 = $pdo->prepare("SELECT * FROM tb_acesso WHERE cd_acesso = ".$_SESSION['cd_acesso']."");
-                    $sql4->execute();
-                    if($sql4->rowCount() > 0)
-                    {
-                        //entrar no sistema(sessão)
-                        $tb_acesso = $sql4->fetch();
-                        //session_start();
-                        //egurança baseada em crud, ambas seguindo em ordem de 1 a 9
-                        //Ler
-                        //Escrever
-                        //Modificar/inativar/excluir
-                        //acesso total aos tres tópicos do crud é 999
-
-                        $_SESSION['acesso_geral'] = $tb_acesso;
-                        $_SESSION['titulo_acesso'] = $tb_acesso['titulo_acesso'];
-
-                        
-                        $md_cadastros = str_pad($tb_acesso['md_cadastros'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
-                        $_SESSION['md_cadastros']               =   $md_cadastros;
-                        $_SESSION['md_cadastros_menu']          =   (((int)$md_cadastros[0]+(int)$md_cadastros[1]+(int)$md_cadastros[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_cadastros_ler']           =   ((int)$md_cadastros[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_cadastros_escrever']      =   ((int)$md_cadastros[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_cadastros_modificar']     =   ((int)$md_cadastros[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        
-
-
-                        $md_venda = str_pad($tb_acesso['md_venda'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
-                        $_SESSION['md_venda'] = $md_venda;
-                        $_SESSION['md_venda_ler']           =   ((int)$md_venda[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_venda_escrever']      =   ((int)$md_venda[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_venda_modificar']     =   ((int)$md_venda[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_venda_produto']       =   (((int)$md_venda[0]+(int)$md_venda[1]+(int)$md_venda[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
-
-                        $md_caixa = str_pad($tb_acesso['md_caixa'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
-                        $_SESSION['md_caixa']       =   $md_caixa;
-                        $_SESSION['md_caixa_menu']  =   (((int)$md_caixa[0]+(int)$md_caixa[1]+(int)$md_caixa[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_caixa_1']     =   ((int)$md_caixa[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_caixa_2']     =   ((int)$md_caixa[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_caixa_3']     =   ((int)$md_caixa[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
-
-                        $md_comissao = str_pad($tb_acesso['md_comissao'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
-                        $_SESSION['md_comissao']            =   $md_comissao;
-                        $_SESSION['md_comissao_menu']       =   (((int)$md_comissao[0]+(int)$md_comissao[1]+(int)$md_comissao[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_comissao_ler']        =   ((int)$md_comissao[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_comissao_escrever']   =   ((int)$md_comissao[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_comissao_modificar']  =   ((int)$md_comissao[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
-
-                        $md_assistencia = str_pad($tb_acesso['md_assistencia'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
-                        $_SESSION['md_assistencia']            =   $md_assistencia;
-                        $_SESSION['md_assistencia_menu']       =   (((int)$md_assistencia[0]+(int)$md_assistencia[1]+(int)$md_assistencia[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_assistencia_ler']        =   ((int)$md_assistencia[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_assistencia_escrever']   =   ((int)$md_assistencia[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
-                        $_SESSION['md_assistencia_modificar']  =   ((int)$md_assistencia[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
-
-                        
-                        $_SESSION['md_caixa']   =   $tb_acesso['md_caixa'];       
-                        $_SESSION['md_assistencia'] =   $tb_acesso['md_assistencia'];
-                        $_SESSION['md_venda']   =   $tb_acesso['md_venda'];
-                        $_SESSION['md_patrimonio']  =   $tb_acesso['md_patrimonio'];
-                        $_SESSION['md_folhaponto']  =   $tb_acesso['md_folhaponto'];
-                        $_SESSION['md_financeiro']  =   $tb_acesso['md_financeiro'];
-                        $_SESSION['md_cadastros']   =   $tb_acesso['md_cadastros'];
-                        $_SESSION['md_pdv'] =   $tb_acesso['md_pdv'];
-
-                        /*
-                        if($tb_acesso['md_venda'] == '111'){
-                            $_SESSION['md_venda'] = "style='display:none;'";
-                        }
-                        if($tb_acesso['md_venda'] == '222'){
-                            $_SESSION['md_venda'] = "style='display:none;'";
-                        }
-                        if($tb_acesso['md_venda'] == '333'){
-                            $_SESSION['md_venda'] = "style='display:none;'";
-                        }
-*/
-
-                        if($tb_acesso['md_assistencia'] == "999"){
-                            $_SESSION['md_assistencia'] = "style='display:block;'";
-                        }
-                        if($tb_acesso['md_assistencia'] == "111"){
-                            $_SESSION['md_assistencia'] = "style='display:block;'";
-                        }
-                        if($tb_acesso['md_assistencia'] == "222"){
-                            $_SESSION['md_assistencia'] = "style='display:none;'";
-                        }
-                        if($tb_acesso['md_assistencia'] == "333"){
-                            $_SESSION['md_assistencia'] = "style='display:none;'";
-                        }
-                        if($tb_acesso['md_pdv'] == "111"){
-                            $_SESSION['style_md_pdv'] = "style='display:none;'";
-                        }
-                        if($tb_acesso['md_pdv'] == "999"){
-                            $_SESSION['style_md_pdv'] = "style='display:block;'";
-                        }
-
-                        
-                        
-                    
-                        /*
-                        if($tb_acesso['md_fponto'] == "999"){
-                            $_SESSION['md_fponto'] = "style='display:block;'";
-                        }
-                        if($tb_acesso['md_fponto'] == "111"){
-                            $_SESSION['md_fponto'] = "style='display:none;'";
-                        }
-                        if($tb_acesso['md_fponto'] == "222"){
-                            $_SESSION['md_fponto'] = "style='display:none;'";
-                        }
-                        if($tb_acesso['md_fponto'] == "333"){
-                            $_SESSION['md_fponto'] = "style='display:none;'";
-                        }
-                        */
-                        $_SESSION['cad_geral'] = "";
-                        $_SESSION['md_cliente'] = '';//$tb_acesso['md_cliente'];
-                        //$_SESSION['md_fornecedor'] = '';// $tb_acesso['md_fornecedor'];
-                        $_SESSION['md_clientefornecedor'] = '';// $tb_acesso['md_clientefornecedor'];
-                        $_SESSION['md_patrimonio'] = '';//$tb_acesso['md_patrimonio'];
-                        $_SESSION['md_hospedagem'] = '';//$tb_acesso['md_hospedagem'];
-                        
-                        //echo '<script>location.href="../../pages/dashboard/index.php";</script>';
-                    }else{
-
-                        $_SESSION['cad_geral'] = "style='display:none;'";
-                        $_SESSION['md_assistencia'] = "style='display:none;'";
-                        $_SESSION['md_cliente'] = "style='display:none;'";//$tb_acesso['md_cliente'];
-                        $_SESSION['md_venda'] = "style='display:none;'";// $tb_acesso['md_fornecedor'];
-                        $_SESSION['md_clientefornecedor'] = "style='display:none;'";// $tb_acesso['md_clientefornecedor'];
-                        $_SESSION['md_patrimonio'] = "style='display:none;'";//$tb_acesso['md_patrimonio'];
-                        $_SESSION['md_hospedagem'] = "style='display:none;'";//$tb_acesso['md_hospedagem'];
-                    }
-                
-                }
-                else{
-                    //entrar no sistema(sessão)
-                    //$seg_pessoal_empresa_estilo = $sql1->fetch();
-                    //session_start();
-                    //$_SESSION['cd_seg'] = 0;
-                    //$_SESSION['cd_estilo'] = 0;
-                    //$_SESSION['cd_empresa'] = 0; 
-                    //$_SESSION['cd_setor'] = 0; 
-                }
-
+                $u->loadModulos($colab['cd_pessoa']);
             }else{
                 if($id_google != ''){
                     $updatePessoa = $pdo->prepare("UPDATE tb_pessoa SET id_google = :idg WHERE email_pessoa = :emp and tipo_pessoa = :tip");
@@ -447,6 +257,201 @@ class Usuario
         
     }
     
+    public function loadModulos($cd_pessoa){
+        global $pdo;
+        $login = $pdo->prepare("SELECT * FROM tb_pessoa WHERE cd_pessoa = :cdp");
+        $login->bindValue(":cdp", $cd_pessoa);
+        $login->execute();
+        if($login->rowCount() > 0){
+            $colab = $login->fetch();
+            //session_start();
+            $_SESSION['cd_colab'] = $colab['cd_pessoa'];
+            $_SESSION['email_colab'] = $colab['email_pessoa'];
+            $_SESSION['senha_colab'] = $colab['senha_pessoa'];
+            $_SESSION['pnome_colab'] = $colab['pnome_pessoa'];
+            $_SESSION['snome_colab'] = $colab['snome_pessoa'];
+
+            $sql1 = $pdo->prepare("SELECT * FROM rel_master WHERE cd_pessoa = ".$_SESSION['cd_colab']."");
+            $sql1->execute();
+
+            if($sql1->rowCount() == 0){
+                $sql2 = $pdo->prepare("INSERT INTO rel_master(token_alter, cd_pessoa, cd_estilo, cd_acesso, status_rel) VALUES ('100001', :cdp, 1, 1, 'ativo')");
+                $sql2->bindValue(":cdp", $_SESSION['cd_colab']);
+                $sql2->execute();
+            }
+            if($sql1->rowCount() > 0)
+            {
+                //entrar no sistema(sessão)
+                $rel_master = $sql1->fetch();
+                //session_start();
+                $_SESSION['cd_estilo'] = $rel_master['cd_estilo'];
+                if(isset($rel_master['cd_acesso'])){
+                    $_SESSION['cd_acesso'] = $rel_master['cd_acesso'];
+                    $_SESSION['rel_geral'] = $rel_master;    
+                }else{
+                    $_SESSION['cd_acesso'] = 0;
+                    $_SESSION['rel_geral'] = 0;
+                }
+
+                if(isset($rel_master['cd_empresa'])){
+                    $_SESSION['cd_empresa'] = $rel_master['cd_empresa'];
+                }else{
+                    $_SESSION['cd_empresa'] = 0;
+                }
+                     
+                $_SESSION['cd_funcao'] = $rel_master['cd_acesso'];
+                    
+                $_SESSION['cd_pessoa'] = $rel_master['cd_pessoa'];
+                $_SESSION['acesso_caixa_0001']          = $rel_master['acesso_caixa_0001'];
+                $_SESSION['acesso_assistencia_0002']    = $rel_master['acesso_assistencia_0002'];
+                $_SESSION['acesso_venda_0003']          = $rel_master['acesso_venda_0003'];
+                $_SESSION['acesso_patrimonio_0004']     = $rel_master['acesso_patrimonio_0004'];
+                $_SESSION['acesso_folhaponto_0005']     = $rel_master['acesso_folhaponto_0005'];
+                $_SESSION['acesso_financeiro_0006']     = $rel_master['acesso_financeiro_0006'];
+                $_SESSION['acesso_cadastro_0007']       = $rel_master['acesso_cadastro_0007'];
+                $_SESSION['acesso_pdv_0008']            = $rel_master['acesso_pdv_0008'];
+
+                $sql4 = $pdo->prepare("SELECT * FROM tb_acesso WHERE cd_acesso = ".$_SESSION['cd_acesso']."");
+                $sql4->execute();
+                if($sql4->rowCount() > 0)
+                {
+                    //entrar no sistema(sessão)
+                    $tb_acesso = $sql4->fetch();
+                    //session_start();
+                    //egurança baseada em crud, ambas seguindo em ordem de 1 a 9
+                    //Ler
+                    //Escrever
+                    //Modificar/inativar/excluir
+                    //acesso total aos tres tópicos do crud é 999
+
+                    $_SESSION['acesso_geral'] = $tb_acesso;
+                    $_SESSION['titulo_acesso'] = $tb_acesso['titulo_acesso'];
+
+                        
+                    $md_cadastros = str_pad($tb_acesso['md_cadastros'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                    $_SESSION['md_cadastros']               =   $md_cadastros;
+                    $_SESSION['md_cadastros_menu']          =   (((int)$md_cadastros[0]+(int)$md_cadastros[1]+(int)$md_cadastros[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_cadastros_ler']           =   ((int)$md_cadastros[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_cadastros_escrever']      =   ((int)$md_cadastros[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_cadastros_modificar']     =   ((int)$md_cadastros[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                        
+                    $md_venda = str_pad($tb_acesso['md_venda'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                    $_SESSION['md_venda'] = $md_venda;
+                    $_SESSION['md_venda_ler']           =   ((int)$md_venda[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_venda_escrever']      =   ((int)$md_venda[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_venda_modificar']     =   ((int)$md_venda[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_venda_produto']       =   (((int)$md_venda[0]+(int)$md_venda[1]+(int)$md_venda[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+
+                    $md_caixa = str_pad($tb_acesso['md_caixa'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                    $_SESSION['md_caixa']       =   $md_caixa;
+                    $_SESSION['md_caixa_menu']  =   (((int)$md_caixa[0]+(int)$md_caixa[1]+(int)$md_caixa[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_caixa_1']     =   ((int)$md_caixa[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_caixa_2']     =   ((int)$md_caixa[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_caixa_3']     =   ((int)$md_caixa[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
+
+                    $md_comissao = str_pad($tb_acesso['md_comissao'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                    $_SESSION['md_comissao']            =   $md_comissao;
+                    $_SESSION['md_comissao_menu']       =   (((int)$md_comissao[0]+(int)$md_comissao[1]+(int)$md_comissao[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_comissao_ler']        =   ((int)$md_comissao[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_comissao_escrever']   =   ((int)$md_comissao[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_comissao_modificar']  =   ((int)$md_comissao[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
+
+                    $md_assistencia = str_pad($tb_acesso['md_assistencia'], 3, '0', STR_PAD_LEFT); // Garante 3 dígitos
+                    $_SESSION['md_assistencia']            =   $md_assistencia;
+                    $_SESSION['md_assistencia_menu']       =   (((int)$md_assistencia[0]+(int)$md_assistencia[1]+(int)$md_assistencia[2]) > 3) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_assistencia_ler']        =   ((int)$md_assistencia[0] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_assistencia_escrever']   =   ((int)$md_assistencia[1] >= 2) ? "style='display:block;'" : "style='display:none;'";
+                    $_SESSION['md_assistencia_modificar']  =   ((int)$md_assistencia[2] >= 2) ? "style='display:block;'" : "style='display:none;'";
+  
+                    $_SESSION['md_caixa']   =   $tb_acesso['md_caixa'];       
+                    $_SESSION['md_assistencia'] =   $tb_acesso['md_assistencia'];
+                    $_SESSION['md_venda']   =   $tb_acesso['md_venda'];
+                    $_SESSION['md_patrimonio']  =   $tb_acesso['md_patrimonio'];
+                    $_SESSION['md_folhaponto']  =   $tb_acesso['md_folhaponto'];
+                    $_SESSION['md_financeiro']  =   $tb_acesso['md_financeiro'];
+                    $_SESSION['md_cadastros']   =   $tb_acesso['md_cadastros'];
+                    $_SESSION['md_pdv'] =   $tb_acesso['md_pdv'];
+                    /*
+                    if($tb_acesso['md_venda'] == '111'){
+                        $_SESSION['md_venda'] = "style='display:none;'";
+                    }
+                    if($tb_acesso['md_venda'] == '222'){
+                        $_SESSION['md_venda'] = "style='display:none;'";
+                    }
+                    if($tb_acesso['md_venda'] == '333'){
+                        $_SESSION['md_venda'] = "style='display:none;'";
+                    }
+                    */
+                    if($tb_acesso['md_assistencia'] == "999"){
+                        $_SESSION['md_assistencia'] = "style='display:block;'";
+                    }
+                    if($tb_acesso['md_assistencia'] == "111"){
+                        $_SESSION['md_assistencia'] = "style='display:block;'";
+                    }
+                    if($tb_acesso['md_assistencia'] == "222"){
+                        $_SESSION['md_assistencia'] = "style='display:none;'";
+                    }
+                    if($tb_acesso['md_assistencia'] == "333"){
+                        $_SESSION['md_assistencia'] = "style='display:none;'";
+                    }
+                    if($tb_acesso['md_pdv'] == "111"){
+                        $_SESSION['style_md_pdv'] = "style='display:none;'";
+                    }
+                    if($tb_acesso['md_pdv'] == "999"){
+                        $_SESSION['style_md_pdv'] = "style='display:block;'";
+                    }
+                    /*
+                    if($tb_acesso['md_fponto'] == "999"){
+                        $_SESSION['md_fponto'] = "style='display:block;'";
+                    }
+                    if($tb_acesso['md_fponto'] == "111"){
+                        $_SESSION['md_fponto'] = "style='display:none;'";
+                    }
+                    if($tb_acesso['md_fponto'] == "222"){
+                        $_SESSION['md_fponto'] = "style='display:none;'";
+                    }
+                    if($tb_acesso['md_fponto'] == "333"){
+                        $_SESSION['md_fponto'] = "style='display:none;'";
+                    }
+                    */
+                    $_SESSION['cad_geral'] = "";
+                    $_SESSION['md_cliente'] = '';//$tb_acesso['md_cliente'];
+                    //$_SESSION['md_fornecedor'] = '';// $tb_acesso['md_fornecedor'];
+                    $_SESSION['md_clientefornecedor'] = '';// $tb_acesso['md_clientefornecedor'];
+                    $_SESSION['md_patrimonio'] = '';//$tb_acesso['md_patrimonio'];
+                    $_SESSION['md_hospedagem'] = '';//$tb_acesso['md_hospedagem'];    
+                    //echo '<script>location.href="../../pages/dashboard/index.php";</script>';
+                }else{
+                    $_SESSION['cad_geral'] = "style='display:none;'";
+                    $_SESSION['md_assistencia'] = "style='display:none;'";
+                    $_SESSION['md_cliente'] = "style='display:none;'";//$tb_acesso['md_cliente'];
+                    $_SESSION['md_venda'] = "style='display:none;'";// $tb_acesso['md_fornecedor'];
+                    $_SESSION['md_clientefornecedor'] = "style='display:none;'";// $tb_acesso['md_clientefornecedor'];
+                    $_SESSION['md_patrimonio'] = "style='display:none;'";//$tb_acesso['md_patrimonio'];
+                    $_SESSION['md_hospedagem'] = "style='display:none;'";//$tb_acesso['md_hospedagem'];
+                }
+            }
+        }
+    }
+
+    public function reLoadModulos($cd_pessoa){
+        global $conn;        
+        $select_rel = "SELECT * FROM rel_master WHERE cd_pessoa = ".$cd_pessoa;
+        $res_rel = $conn->query($select_rel);
+        if($res_rel->num_rows > 0)
+        {
+            //entrar no sistema(sessão)
+            $rel_master = $res_rel->fetch_assoc();
+            $_SESSION['acesso_caixa_0001']          = $rel_master['acesso_caixa_0001'];
+            $_SESSION['acesso_assistencia_0002']    = $rel_master['acesso_assistencia_0002'];
+            $_SESSION['acesso_venda_0003']          = $rel_master['acesso_venda_0003'];
+            $_SESSION['acesso_patrimonio_0004']     = $rel_master['acesso_patrimonio_0004'];
+            $_SESSION['acesso_folhaponto_0005']     = $rel_master['acesso_folhaponto_0005'];
+            $_SESSION['acesso_financeiro_0006']     = $rel_master['acesso_financeiro_0006'];
+            $_SESSION['acesso_cadastro_0007']       = $rel_master['acesso_cadastro_0007'];
+            $_SESSION['acesso_pdv_0008']            = $rel_master['acesso_pdv_0008'];
+        }
+    }
 
 
 
@@ -1076,7 +1081,7 @@ class Usuario
 
         
                 
-                $buttonSalvar = $u->retPermissaoBtn('202', 'submit', 'btn btn-block btn-outline-success', 'editServico', 'editServico', '', 'Salvar', '', '', '', '<i class="icon-cog"></i>');
+                $buttonSalvar = $u->retPermissaoBtn('202', 'submit', 'btn btn-block btn-outline-success', 'editServico', 'editServico', '', 'Salvar', '', '', '', '<i class="icon-cog"></i>', true);
                 $partial_servico = $partial_servico.'
                     <td>'.$buttonSalvar.'</td>
                     </div>
@@ -1093,7 +1098,7 @@ class Usuario
                     </script>
                 ';
             }else{
-                $buttonEditar = $u->retPermissaoBtn('202', 'submit', 'btn btn-block btn-outline-warning', 'con_edit_os', 'con_edit_os', '', 'Editar', '', 'enviarPara(\'cadastro_servico.php\')', '', '<i class="icon-cog"></i>');
+                $buttonEditar = $u->retPermissaoBtn('202', 'submit', 'btn btn-block btn-outline-warning', 'con_edit_os', 'con_edit_os', '', 'Editar', '', 'enviarPara(\'cadastro_servico.php\')', '', '<i class="icon-cog"></i>', true);
 
                 $partial_servico = $partial_servico . '
                     <td>'.$buttonEditar.'</td>
@@ -2199,8 +2204,6 @@ class Usuario
                                     </div>                                 
                 ';
                 }
-                 
-               
                 if($RetOrcCadastro){
                     if ($result_prod_serv->num_rows > 0){
                         $partial_orcamento  =   $partial_orcamento.'
@@ -2221,12 +2224,12 @@ class Usuario
                         while ($row_prod_serv = $result_prod_serv->fetch_assoc()) {
                             if($row_prod_serv['tipo_prod_serv'] == 'P'){
                                 $partial_orcamento  =   $partial_orcamento.'
-                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">(Produto): ' . $row_prod_serv['titulo_prod_serv'] . '</option>
+                                                                    <option value="' . $row_prod_serv['cd_prod_serv'] . '" data-tipo="'.$row_prod_serv['tipo_prod_serv'].'" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">(Produto): ' . $row_prod_serv['titulo_prod_serv'] . '</option>
                             ';
                             }
                             if($row_prod_serv['tipo_prod_serv'] == 'S'){
                                 $partial_orcamento  =   $partial_orcamento.'
-                                                                    <option style="background-color: ccc; " value="' . $row_prod_serv['cd_prod_serv'] . '" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">(Serviço): ' . $row_prod_serv['titulo_prod_serv'] . '</option>
+                                                                    <option style="background-color: ccc; " value="' . $row_prod_serv['cd_prod_serv'] . '" data-tipo="'.$row_prod_serv['tipo_prod_serv'].'" data-preco="' . $row_prod_serv['preco_prod_serv'] . '" data-estoque="' . $row_prod_serv['estoque_prod_serv'] . '" data-reserva="' . $row_prod_serv['total_reservado'] . '">(Serviço): ' . $row_prod_serv['titulo_prod_serv'] . '</option>
                             ';
                             }
                         }
@@ -2238,6 +2241,7 @@ class Usuario
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text btn-outline-info">Valor</span>
                                                                 <input type="tel" id="produto_servico_preco" name="produto_servico_preco" class="form-control form-control-sm" readonly>
+                                                                <input type="text" id="tipo_produto_servico" name="tipo_produto_servico" class="form-control form-control-sm" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">
@@ -2282,6 +2286,12 @@ class Usuario
                                     </div>
                         ';
                     }
+                }
+                if($RetOrcAvulso == false && $RetOrcCadastro == false){
+                    $partial_orcamento  =   $partial_orcamento.'
+                        <div id="ProdutosServicos" class="typeahead" style="background-color: #C6C6C6;">
+                            <h3 class="kt-portlet__head-title">Verifique o módulo de permissões (203 ou 204)</h3>
+                        </div>';
                 }
                 if($RetOrcAvulso == true && $RetOrcCadastro == true){
                     $partial_orcamento  =   $partial_orcamento."<script>document.getElementById('ProdutosServicosCadastro').style.display = 'none';</script>";
@@ -2543,13 +2553,27 @@ class Usuario
     const reserva = selectedOption.getAttribute('data-reserva') || 0;
     document.getElementById('produto_venda_reserva').value = reserva;
 
-
     // Recalcular o total
     calculateTotal();
 }
 
 
     function calculateTotal() {
+    tipo = document.getElementById('tipo_produto_servico').value;
+    if(tipo === 'P'){
+      //document.getElementById('container_valor').style.display = 'block';
+      document.getElementById('container_qtd').style.display = 'block';
+      console.log('Produto');
+
+    }else if(tipo === 'S'){
+      //document.getElementById('container_valor').style.display = 'none';
+      document.getElementById('container_qtd').style.display = 'none';
+      console.log('Serviço');
+
+    }else{
+      console.log('fora do escopo');
+    }
+
       const preco = parseFloat(document.getElementById('produto_venda_preco').value) || 0;
       const quantidade = parseFloat(document.getElementById('produto_venda_qtd').value) || 0;
       const estoque = parseFloat(document.getElementById('produto_venda_estoque').value) || 0;
@@ -2602,13 +2626,13 @@ class Usuario
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">
+                                                        <div class="col-sm-2 col-md-3 col-lg-3 col-xl-3" id="container_valor">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text btn-outline-info">Valor</span>
                                                                 <input type="tel" id="produto_venda_preco" name="produto_venda_preco" class="form-control form-control-sm" readonly>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-2 col-md-3 col-lg-3 col-xl-3">
+                                                        <div class="col-sm-2 col-md-3 col-lg-3 col-xl-3" id="container_qtd">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text btn-outline-info">QTD</span>
                                                                 <input type="hidden" id="produto_venda_estoque" name="produto_venda_estoque" class="form-control form-control-sm" style="display:block;" readonly>
@@ -2861,7 +2885,7 @@ class Usuario
                     <h1 class="card-title">Abra já seu caixa</h1>
                     <p class="card-title">Para realizar movimento financeiro, o seu caixa deve estar devidamente aberto</p>
                     <form action="../../pages/md_caixa/abertura_caixa.php" method="POST">
-                    <button type="submit" class="btn btn-lg btn-block btn-outline-info" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Abra já seu caixa</button>
+                    '.$u->retPermissaoBtn('101', 'submit', 'btn btn-lg btn-block btn-outline-info', '', '', 'margin: 5px;', 'Abra já seu caixa', '', '', '', '<i class="mdi mdi-file-check"></i>', true).'                    
                     </form>
                     </div>
                     </div>
@@ -4747,11 +4771,17 @@ class Usuario
                     if($id != ''){
                         $ret = $ret.' id="'.$id.'" ';
                     }
+                    if($action != ''){
+                        $ret = $ret.' action = "'.$action.'" ';
+                    }
                     if($onclick != ''){
                         $ret = $ret.' onclick = "'.$onclick.'" ';
                     }
                     if($style != ''){
                         $ret = $ret.' style="'.$style.'" ';
+                    }
+                    if($style != ''){
+                        $ret = $ret.' style="'.$href.'" ';
                     }
                     $ret = $ret.'>';
                     if($icon != ''){
@@ -4768,8 +4798,79 @@ class Usuario
                     // Negado
                     //echo '<button class="'.$class.'" style="'.$style.'">Sem permissão('.$value.')</button>';
 
+                    
+
+                    if($excessao == true){
+                        $ret = '
+                        
+                        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">-->
+
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                        <!-- ALERT FIXO NO TOPO -->
+
+
+                        <div class="modal fade" id="alertTopoModal'.$codigo.'" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">Atenção!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body text-center text-dark">
+        Acesso negado ('.$perm["descricao"].' - '.$codigo.')
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                        
+                    ';
+                    
+                        $ret = $ret.'<button type="button" ';
+                        if($class){
+                            $ret = $ret.' class="'.$class.'" ';
+                        }else{
+                            $ret = $ret.' class=" btn-secondary btn-sem-permissao"';
+                        }
+                        
+                            $ret = $ret.' onclick="mostrarAlert'.$codigo.'()"';
+                        
+                        if($style != ''){
+                            $ret = $ret.' style="'.$style.'" opacity: 0.30; cursor: not-allowed;background-color: pink;" ';
+                        }else{
+                            $ret = $ret.' style="opacity: 0.30; cursor: not-allowed; background-color: pink;" ';
+                        }
+                        
+                        $ret = $ret.' data-bs-toggle="modal" data-bs-target="#alertTopoModal'.$codigo.'">';
+                        if($icon != ''){
+                            $ret = $ret.$icon;
+                        }
+                        if($value != ''){
+                            $ret = $ret.$value;
+                        }
+                        $ret = $ret.'</button>';
+                        $ret = $ret.'
+                            <!-- BOTÃO -->
+                            <script>
+                            function mostrarAlert'.$codigo.'() {
+                              const alert = document.getElementById("alertTopo'.$codigo.'");
+                              alert.style.display = "block";
+
+                              setTimeout(() => {
+                                alert.style.display = "none";
+                              }, 3000);
+                            }
+                        </script>';
+                    }
+
                     echo '<script>console.log("Acesso negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
-                    return $excessao;
+                    //return '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+                    return $ret;
+
+
+                    
+                    
                     
 
                     //exit;

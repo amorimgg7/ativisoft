@@ -123,3 +123,6 @@ SET acesso_pdv_0008 = '[
     ["811", "Cancelar MEI", "N"],
     ["812", "Cancelar NF-e/NFC-e", "N"]
 ]';
+
+
+ALTER TABLE tb_venda MODIFY abertura_venda DATETIME;

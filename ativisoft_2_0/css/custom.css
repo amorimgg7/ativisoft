@@ -139,5 +139,11 @@
   border:none;
 }
 
+.btn-sem-permissao {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
 
 

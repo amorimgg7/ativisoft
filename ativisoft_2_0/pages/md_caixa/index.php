@@ -142,7 +142,7 @@
         echo '</div>';
         echo '<form action="../../pages/md_caixa/abertura_caixa.php" method="POST">';
         //echo '<button type="submit" class="btn btn-lg btn-block btn-outline-success" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Operações de Caixa</button>';
-        echo $u->retPermissaoBtn('106', 'submit', 'btn btn-lg btn-block btn-outline-success', '', '', 'margin: 5px;', 'Operações de Caixa', '', '', '', '<i class="mdi mdi-file-check"></i>');
+        echo $u->retPermissaoBtn('106', 'submit', 'btn btn-lg btn-block btn-outline-success', '', '', 'margin: 5px;', 'Operações de Caixa', '', '', '', '<i class="mdi mdi-file-check"></i>', true);
         
         echo '</form>';//fechamentoNormalCaixa
         ////echo '<form action="pages/md_caixa/fechamento_caixa.php" method="POST">';
@@ -161,7 +161,7 @@
         echo '<div class="table-responsive">';
         echo '</div>';
         echo '<form action="../../pages/md_caixa/abertura_caixa.php" method="POST">';
-        echo $u->retPermissaoBtn('101', 'submit', 'btn btn-lg btn-block btn-outline-info', '', '', 'margin: 5px;', 'Abra já seu caixa', '', '', '', '<i class="mdi mdi-file-check"></i>');
+        echo $u->retPermissaoBtn('101', 'submit', 'btn btn-lg btn-block btn-outline-info', '', '', 'margin: 5px;', 'Abra já seu caixa', '', '', '', '<i class="mdi mdi-file-check"></i>', true);
         
         //echo '<button type="submit" class="btn btn-lg btn-block btn-outline-info" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Abra já seu caixa</button>';
         echo '</form>';

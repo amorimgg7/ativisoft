@@ -147,26 +147,70 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>-->
 
                                 <div class="row" id="productList">
-                                    <?php foreach ($products as $p): ?>
-                                        <div class="col-sm-6 col-md-4 mb-3 product-wrapper">
-                                            <div class="card product-card" data-id="<?= $p['id'] ?>"
-                                                data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>"
-                                                data-price="<?= number_format($p['price'], 2, '.', '') ?>"
-                                                data-sku="<?= $p['sku'] ?>" data-category="<?= $p['category'] ?>">
-                                                <div class="card-body">
-                                                    <h5 class="card-title mb-1"><?= htmlspecialchars($p['name']) ?></h5>
-                                                    <p class="card-text text-muted small">SKU: <?= $p['sku'] ?> ·
-                                                        <?= $p['category'] ?></p>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <strong>R$ <?= number_format($p['price'], 2, ',', '.') ?></strong>
-                                                        <button
-                                                            class="btn btn-sm btn-outline-primary add-btn">Adicionar</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
+    <?php foreach ($products as $p): 
+        // Verifica permissão para cada produto
+        $temPermissao = $u->retPermissaoBool('301'); 
+    ?>
+        <div class="col-sm-6 col-md-4 mb-3 product-wrapper">
+            <div class="card product-card <?= !$temPermissao ? 'card-sem-permissao' : '' ?>" 
+                 data-id="<?= $p['id'] ?>"
+                 data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>"
+                 data-price="<?= number_format($p['price'], 2, '.', '') ?>"
+                 data-sku="<?= $p['sku'] ?>" data-category="<?= $p['category'] ?>"
+                 <?= !$temPermissao ? 'data-bloqueado="1"' : '' ?>>
+
+                <div class="card-body">
+                    <h5 class="card-title mb-1"><?= htmlspecialchars($p['name']) ?></h5>
+                    <p class="card-text text-muted small">SKU: <?= $p['sku'] ?> · <?= $p['category'] ?></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <strong>R$ <?= number_format($p['price'], 2, ',', '.') ?></strong>
+                        <button class="btn btn-sm btn-outline-primary add-btn <?= !$temPermissao ? 'btn-sem-permissao' : '' ?>"
+                                type="button"
+                                <?= !$temPermissao ? 'data-bloqueado="1"' : '' ?>>
+                            Adicionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<!-- JS para bloquear clique se não houver permissão -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Bloqueia todos os botões sem permissão
+    document.querySelectorAll('.btn-sem-permissao').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            alert('Acesso negado. Você não tem permissão para adicionar este produto.');
+        });
+    });
+
+    // Bloqueia clique no card inteiro se desejar
+    document.querySelectorAll('.card-sem-permissao').forEach(card => {
+        card.addEventListener('click', function (e) {
+            if (card.dataset.bloqueado === "1") {
+                e.preventDefault();
+                e.stopPropagation();
+                alert('Você não tem permissão para selecionar este produto.');
+            }
+        });
+    });
+});
+</script>
+
+<!-- CSS para feedback visual -->
+<style>
+.card-sem-permissao,
+.btn-sem-permissao {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: auto; /* Mantém o hover mas bloqueia ação pelo JS */
+}
+</style>
+
                             </div>
 
                             <!-- CARRINHO -->
@@ -199,10 +243,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <div id="subtotalText">R$ 0,00</div>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center mt-2">
-                                            <div>Desconto</div>
-                                            <div><input id="discount" class="form-control form-control-sm" type="number"
-                                                    min="0" step="0.01" value="0" style="width:140px"></div>
-                                        </div>
+                                           
+
+                                        <?php 
+$temPermissaoDesconto = $u->retPermissaoBool('302'); 
+?>
+
+<div class="d-flex justify-content-between align-items-center mt-2 <?= !$temPermissaoDesconto ? 'campo-sem-permissao' : '' ?>" 
+     <?= !$temPermissaoDesconto ? 'data-bloqueado="1"' : '' ?>>
+    <div>Desconto</div>
+    <div>
+        <input id="discount" 
+               class="form-control form-control-sm <?= !$temPermissaoDesconto ? 'input-sem-permissao' : '' ?>" 
+               type="number"
+               min="0" step="0.01" value="0" 
+               style="width:140px"
+               <?= !$temPermissaoDesconto ? 'readonly' : '' ?>>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Bloqueia interação com input se não houver permissão
+    document.querySelectorAll('.input-sem-permissao').forEach(input => {
+        input.addEventListener('focus', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            alert('Acesso negado. Você não tem permissão para alterar o desconto.');
+            input.blur(); // tira o foco
+        });
+    });
+
+    // Bloqueia clique no container se quiser reforçar
+    document.querySelectorAll('.campo-sem-permissao').forEach(div => {
+        div.addEventListener('click', function(e) {
+            if(div.dataset.bloqueado === "1") {
+                e.preventDefault();
+                e.stopPropagation();
+                alert('Acesso negado. Você não tem permissão para alterar o desconto.');
+            }
+        });
+    });
+});
+</script>
+
+
                                         <div class="d-flex justify-content-between mt-3">
                                             <div><strong>Total</strong></div>
                                             <div><strong id="totalText">R$ 0,00</strong></div>
@@ -352,6 +437,12 @@ window.addEventListener('DOMContentLoaded', () => {
             <td class="text-end"><input type="number" min="1" value="${item.qty}" data-index="${i}" class="form-control form-control-sm qty-input" style="width:70px; margin-left:auto"></td>
             <td class="text-end">${formatBRL(item.price)}</td>
             <td class="text-end">${formatBRL(item.price * item.qty)}</td>
+            <?php 
+            /*
+                if($u->retPermissaoBool('304')){
+                    echo '<td class="text-end"><button class="btn btn-sm btn-danger btn-remove" data-index="${i}">X</button></td>';
+                }
+            */?>
             <td class="text-end"><button class="btn btn-sm btn-danger btn-remove" data-index="${i}">X</button></td>`;
                     tbody.appendChild(tr);
                 });

@@ -232,7 +232,10 @@
                     WHERE cd_pessoa = '".$_POST['edit_cd_colab']."'
                   ";
                   mysqli_query($conn, $query);
+                  
                   echo "<script>window.alert('Colaborador Atualizado com sucesso!');</script>";
+                  
+                  
                   
     // Função para mesclar permissões
 function montarJsonAtualizado($jsonAtual, $arrayPermPOST) {
@@ -268,8 +271,10 @@ function montarJsonAtualizado($jsonAtual, $arrayPermPOST) {
     return json_encode($current, JSON_UNESCAPED_UNICODE);
 }
 
-// cd_pessoa do colaborador
-$cd_pessoa = $_POST['edit_cd_colab'];
+    // cd_pessoa do colaborador
+    $cd_pessoa = $_POST['edit_cd_colab'];
+
+    
 
 // Função para atualizar um módulo
 function atualizarModulo($conn, $cd_pessoa, $coluna, $arrayPOST) {
@@ -305,7 +310,8 @@ echo "<script>alert('Permissões gravadas com sucesso!');</script>";
     
 
 
-                  
+                  $u->reLoadModulos($_SESSION['cd_colab']);
+                  echo "<script>window.alert('Modulos atualizados!');</script>";
                   
                   $_SESSION['statusCadastrosColab'] = FALSE;
                 }

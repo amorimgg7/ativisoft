@@ -466,7 +466,7 @@
                                                 '',
                                                 'abrirSangria()',
                                                 '',
-                                                '<i class="mdi mdi-upload btn-icon-prepend"></i>'
+                                                '<i class="mdi mdi-upload btn-icon-prepend"></i>', true
                                             );
 
                                             //105
@@ -483,7 +483,7 @@
                                                 '',
                                                 'abrirSuprimento()',
                                                 '',
-                                                '<i class="mdi mdi-file-check btn-icon-append"></i>'
+                                                '<i class="mdi mdi-file-check btn-icon-append"></i>', true
                                             );
                                             ////echo '<button type="button" class="btn btn-md btn-block btn-rounded btn-outline-dark" style="margin-top: 5px;" onclick="abrirFerramentas()"><i class="mdi mdi-file-check btn-icon-append"></i>Ferramentas do Caixa</button>';
 

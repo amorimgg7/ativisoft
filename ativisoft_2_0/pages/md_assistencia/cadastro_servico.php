@@ -81,6 +81,27 @@
     const reserva = selectedOption.getAttribute('data-reserva') || 0;
     document.getElementById('produto_servico_reserva').value = reserva;
 
+    const tipo = selectedOption?.getAttribute('data-tipo');
+
+const campoTipo = document.getElementById('tipo_produto_servico');
+const containerValor = document.getElementById('container_valor');
+const containerQtd = document.getElementById('container_qtd');
+
+if (campoTipo) {
+  campoTipo.value = tipo || '';
+}
+
+if (tipo === 'P') {
+  if (containerValor) containerValor.style.display = 'block';
+  if (containerQtd) containerQtd.style.display = 'block';
+} 
+else if (tipo === 'S') {
+  if (containerValor) containerValor.style.display = 'none';
+  if (containerQtd) containerQtd.style.display = 'none';
+} 
+else {
+  console.warn('Tipo fora do escopo:', tipo);
+}
 
     // Recalcular o total
     calculateTotal();
@@ -581,73 +602,148 @@
           
                   }
 
-                  if(isset($_POST['lancarOrcamentoCadastro'])) {        
-                    if($_POST['produto_servico']==false){
-                      $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];
-                      $_SESSION['produto_servico_id'] = $_POST['produto_servico_id2'];
-                      $_SESSION['produto_servico_preco'] = str_replace(',', '.', $_POST['produto_servico_preco']);
-                      $_SESSION['produto_servico_qtd'] = $_POST['produto_servico_qtd'];
-                      $_SESSION['produto_servico_vtotal'] = str_replace(',', '.', $_POST['produto_servico_vtotal']); 
-                      echo "<script>window.alert('Selecione um produto!');</script>"; 
-                    }elseif($_POST['produto_servico_qtd']<1){
-                      $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];
-                      $_SESSION['produto_servico_id'] = $_POST['produto_servico_id2'];
-                      $_SESSION['produto_servico_preco'] = str_replace(',', '.', $_POST['produto_servico_preco']);
-                      $_SESSION['produto_servico_qtd'] = $_POST['produto_servico_qtd'];
-                      $_SESSION['produto_servico_vtotal'] = str_replace(',', '.', $_POST['produto_servico_vtotal']);
-                      echo "<script>window.alert('A quantidade não pode ser menor que 1!');</script>";  
-                    }else{
-                      if($_POST['produto_servico_estoque'] >= $_POST['produto_servico_qtd']){
-                        //echo "<script>window.alert('1');</script>";
-                        $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente, cd_filial, cd_servico, titulo_orcamento, cd_produto, vprod_orcamento, qtd_orcamento, vcusto_orcamento, tipo_orcamento, status_orcamento) VALUES(
-                          '".$_SESSION['servico_cliente']."',
-                          '".$_SESSION['cd_filial']."',
-                          '".$_SESSION['cd_servico']."',
-                          '".$_POST['produto_servico_nome']."',
-                          '".$_POST['produto_servico_id2']."',
-                          '".str_replace(',', '.', $_POST['produto_servico_preco'])."',
-                          '".$_POST['produto_servico_qtd']."',
-                          '".str_replace(',', '.', $_POST['produto_servico_vtotal'])."',
-                          'CADASTRO',
-                          '0')
-                        ";
-                        //echo "<script>window.alert(" . json_encode($insertOrcamento) . ");</script>";
-                        //echo "<script>window.alert('".addslashes($insertOrcamento)."');</script>";
-                        //mysqli_query($conn, $insertOrcamento);
-                        if (mysqli_query($conn, $insertOrcamento)) {
-                          // Obtém o último ID inserido
-                          $cd_orcamento = mysqli_insert_id($conn);
-                          $insertReserva = "INSERT INTO tb_reserva(cd_cliente, cd_empresa, cd_servico, cd_orcamento, cd_prod_serv, qtd_reservado, dt_reservado) VALUES(
-                            '".$_SESSION['servico_cliente']."',
-                            '".$_SESSION['cd_empresa']."',
-                            '".$_SESSION['cd_servico']."',
-                            ".$cd_orcamento.",
-                            '".$_POST['produto_servico_id2']."',
-                            '".$_POST['produto_servico_qtd']."',
-                            now())
-                          ";
-                          mysqli_query($conn, $insertReserva);
-                        } else {
-                          echo "Erro ao inserir os dados: " . mysqli_error($conn);
-                        }  
-                        $_SESSION['vcusto_orcamento'] = $_SESSION['vcusto_servico'] + str_replace(',', '.', $_POST['produto_servico_vtotal']);   
-                        $updateOrcamentoServico = "UPDATE tb_servico SET
-                          orcamento_servico = ".$_SESSION['vcusto_orcamento']."
-                          WHERE cd_servico = ".$_SESSION['cd_servico']."";
-                        if(mysqli_query($conn, $updateOrcamentoServico)){
-                          echo "<script>window.alert('".$_POST['produto_servico_vtotal']." + ".$_SESSION['vcusto_servico']." = ".$_SESSION['vcusto_orcamento']."');</script>";
-                        }else{
-                          echo "<script>window.alert('erro');</script>";
-                        }
-                        $_SESSION['produto_servico'] = false;
-                        $_SESSION['produto_servico_preco'] = false;
-                        $_SESSION['produto_servico_qtd'] = false;
-                        $_SESSION['produto_servico_vtotal'] = false;
+                  if(isset($_POST['lancarOrcamentoCadastro'])) {  
+                    if($_POST['tipo_produto_servico'] == 'P'){
+                        echo "<script>window.alert('Produto');</script>"; 
+
+                      if($_POST['produto_servico']==false){
+                        $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];
+                        $_SESSION['produto_servico_id'] = $_POST['produto_servico_id2'];
+                        $_SESSION['produto_servico_preco'] = str_replace(',', '.', $_POST['produto_servico_preco']);
+                        $_SESSION['produto_servico_qtd'] = $_POST['produto_servico_qtd'];
+                        $_SESSION['produto_servico_vtotal'] = str_replace(',', '.', $_POST['produto_servico_vtotal']); 
+                        echo "<script>window.alert('Selecione um produto!');</script>"; 
+                      }elseif($_POST['produto_servico_qtd']<1){
+                        $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];
+                        $_SESSION['produto_servico_id'] = $_POST['produto_servico_id2'];
+                        $_SESSION['produto_servico_preco'] = str_replace(',', '.', $_POST['produto_servico_preco']);
+                        $_SESSION['produto_servico_qtd'] = $_POST['produto_servico_qtd'];
+                        $_SESSION['produto_servico_vtotal'] = str_replace(',', '.', $_POST['produto_servico_vtotal']);
+                        echo "<script>window.alert('A quantidade não pode ser menor que 1!');</script>";  
                       }else{
-                        echo "<script>window.alert('A quantidade não pode ser maior que o estoque disponível (".$_POST['produto_servico_estoque'].")!');</script>";
+                        if($_POST['produto_servico_estoque'] >= $_POST['produto_servico_qtd']){
+                          //echo "<script>window.alert('1');</script>";
+                          $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente, cd_filial, cd_servico, titulo_orcamento, cd_produto, vprod_orcamento, qtd_orcamento, vcusto_orcamento, tipo_orcamento, status_orcamento) VALUES(
+                            '".$_SESSION['servico_cliente']."',
+                            '".$_SESSION['cd_filial']."',
+                            '".$_SESSION['cd_servico']."',
+                            '".$_POST['produto_servico_nome']."',
+                            '".$_POST['produto_servico_id2']."',
+                            '".str_replace(',', '.', $_POST['produto_servico_preco'])."',
+                            '".$_POST['produto_servico_qtd']."',
+                            '".str_replace(',', '.', $_POST['produto_servico_vtotal'])."',
+                            'CADASTRO',
+                            '0')
+                          ";
+                          //echo "<script>window.alert(" . json_encode($insertOrcamento) . ");</script>";
+                          //echo "<script>window.alert('".addslashes($insertOrcamento)."');</script>";
+                          //mysqli_query($conn, $insertOrcamento);
+                          if (mysqli_query($conn, $insertOrcamento)) {
+                            // Obtém o último ID inserido
+                            $cd_orcamento = mysqli_insert_id($conn);
+                            $insertReserva = "INSERT INTO tb_reserva(cd_cliente, cd_empresa, cd_servico, cd_orcamento, cd_prod_serv, qtd_reservado, dt_reservado) VALUES(
+                              '".$_SESSION['servico_cliente']."',
+                              '".$_SESSION['cd_empresa']."',
+                              '".$_SESSION['cd_servico']."',
+                              ".$cd_orcamento.",
+                              '".$_POST['produto_servico_id2']."',
+                              '".$_POST['produto_servico_qtd']."',
+                              now())
+                            ";
+                            mysqli_query($conn, $insertReserva);
+                          } else {
+                            echo "Erro ao inserir os dados: " . mysqli_error($conn);
+                          }  
+                          $_SESSION['vcusto_orcamento'] = $_SESSION['vcusto_servico'] + str_replace(',', '.', $_POST['produto_servico_vtotal']);   
+                          $updateOrcamentoServico = "UPDATE tb_servico SET
+                            orcamento_servico = ".$_SESSION['vcusto_orcamento']."
+                            WHERE cd_servico = ".$_SESSION['cd_servico']."";
+                          if(mysqli_query($conn, $updateOrcamentoServico)){
+                            echo "<script>window.alert('".$_POST['produto_servico_vtotal']." + ".$_SESSION['vcusto_servico']." = ".$_SESSION['vcusto_orcamento']."');</script>";
+                          }else{
+                            echo "<script>window.alert('erro');</script>";
+                          }
+                          $_SESSION['produto_servico'] = false;
+                          $_SESSION['produto_servico_preco'] = false;
+                          $_SESSION['produto_servico_qtd'] = false;
+                          $_SESSION['produto_servico_vtotal'] = false;
+                        }else{
+                          echo "<script>window.alert('A quantidade não pode ser maior que o estoque disponível (".$_POST['produto_servico_estoque'].")!');</script>";
+                        }
+
                       }
-                      
-                    }            
+                    }
+                    else if($_POST['tipo_produto_servico'] == 'S'){
+                        echo "<script>window.alert('Serviço!');</script>"; 
+
+                      if($_POST['produto_servico']==false){
+                        $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];
+                        $_SESSION['produto_servico_id'] = $_POST['produto_servico_id2'];
+                        $_SESSION['produto_servico_preco'] = str_replace(',', '.', $_POST['produto_servico_preco']);
+                        $_SESSION['produto_servico_qtd'] = '1';
+                        $_SESSION['produto_servico_vtotal'] = str_replace(',', '.', $_POST['produto_servico_vtotal']); 
+                        echo "<script>window.alert('Selecione um produto!');</script>"; 
+                      }elseif($_POST['produto_servico_qtd']<1){
+                        $_SESSION['produto_servico'] = $_POST['produto_servico_nome'];
+                        $_SESSION['produto_servico_id'] = $_POST['produto_servico_id2'];
+                        $_SESSION['produto_servico_preco'] = str_replace(',', '.', $_POST['produto_servico_preco']);
+                        $_SESSION['produto_servico_qtd'] = '1';
+                        $_SESSION['produto_servico_vtotal'] = str_replace(',', '.', $_POST['produto_servico_vtotal']);
+                        echo "<script>window.alert('A quantidade não pode ser menor que 1!');</script>";  
+                      }else{
+                        
+                          //echo "<script>window.alert('1');</script>";
+                          $insertOrcamento = "INSERT INTO tb_orcamento_servico(cd_cliente, cd_filial, cd_servico, titulo_orcamento, cd_produto, vprod_orcamento, qtd_orcamento, vcusto_orcamento, tipo_orcamento, status_orcamento) VALUES(
+                            '".$_SESSION['servico_cliente']."',
+                            '".$_SESSION['cd_filial']."',
+                            '".$_SESSION['cd_servico']."',
+                            '".$_POST['produto_servico_nome']."',
+                            '".$_POST['produto_servico_id2']."',
+                            '".str_replace(',', '.', $_POST['produto_servico_preco'])."',
+                            '".$_POST['produto_servico_qtd']."',
+                            '".str_replace(',', '.', $_POST['produto_servico_vtotal'])."',
+                            'CADASTRO',
+                            '0')
+                          ";
+                          //echo "<script>window.alert(" . json_encode($insertOrcamento) . ");</script>";
+                          //echo "<script>window.alert('".addslashes($insertOrcamento)."');</script>";
+                          //mysqli_query($conn, $insertOrcamento);
+                          if (mysqli_query($conn, $insertOrcamento)) {
+                            // Obtém o último ID inserido
+                            $cd_orcamento = mysqli_insert_id($conn);
+                            $insertReserva = "INSERT INTO tb_reserva(cd_cliente, cd_empresa, cd_servico, cd_orcamento, cd_prod_serv, qtd_reservado, dt_reservado) VALUES(
+                              '".$_SESSION['servico_cliente']."',
+                              '".$_SESSION['cd_empresa']."',
+                              '".$_SESSION['cd_servico']."',
+                              ".$cd_orcamento.", 
+                              '".$_POST['produto_servico_id2']."',
+                              '".$_POST['produto_servico_qtd']."',
+                              now())
+                            ";
+                            mysqli_query($conn, $insertReserva);
+                          } else {
+                            echo "Erro ao inserir os dados: " . mysqli_error($conn);
+                          }  
+                          $_SESSION['vcusto_orcamento'] = $_SESSION['vcusto_servico'] + str_replace(',', '.', $_POST['produto_servico_vtotal']);   
+                          $updateOrcamentoServico = "UPDATE tb_servico SET
+                            orcamento_servico = ".$_SESSION['vcusto_orcamento']."
+                            WHERE cd_servico = ".$_SESSION['cd_servico']."";
+                          if(mysqli_query($conn, $updateOrcamentoServico)){
+                            echo "<script>window.alert('".$_POST['produto_servico_vtotal']." + ".$_SESSION['vcusto_servico']." = ".$_SESSION['vcusto_orcamento']."');</script>";
+                          }else{
+                            echo "<script>window.alert('erro');</script>";
+                          }
+                          $_SESSION['produto_servico'] = false;
+                          $_SESSION['produto_servico_preco'] = false;
+                          $_SESSION['produto_servico_qtd'] = false;
+                          $_SESSION['produto_servico_vtotal'] = false;
+                          echo "<script>window.alert('A quantidade não pode ser maior que o estoque disponível (".$_POST['produto_servico_estoque'].")!');</script>";
+                        
+                      }
+                    }else{
+
+                    }      
+                                
                   }
                         
 

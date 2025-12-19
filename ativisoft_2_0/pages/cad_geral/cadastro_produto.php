@@ -890,9 +890,9 @@ HTML;
                 echo '</div>';
                 
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">';
-                echo '<span class="card-title">Código de Barras<spam style="color:#f00">*</spam></span>';
+                echo '<span class="card-title">Código de Barras</span>';
                 echo '<div class="input-group-prepend">';
-                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="editcdbarras_prod" type="text"  id="editcdbarras_prod" oninput="tel(this)" class="form-control form-control-sm" oninput="validateInput(this)" placeholder="Código de barras" required/>';
+                echo '<input value="'.$_SESSION['cdbarras_prod_serv'].'" name="editcdbarras_prod" type="text"  id="editcdbarras_prod" oninput="tel(this)" class="form-control form-control-sm" oninput="validateInput(this)" placeholder="Código de barras" />';
                 echo '</div>';
                 echo '</div>';
 
