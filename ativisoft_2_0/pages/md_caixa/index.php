@@ -47,7 +47,10 @@
     echo '</tbody>';
     echo '</table>';
     echo '<form action="../../pages/md_caixa/fechamento_caixa.php" method="POST">';
-    echo '<button type="submit" class="btn btn-lg btn-block btn-danger"><i class="mdi mdi-file-check"></i>Fechar Caixa</button>';
+    //echo '<button type="submit" class="btn btn-lg btn-block btn-danger"><i class="mdi mdi-file-check"></i>Fechar Caixa</button>';
+
+    echo $u->retPermissaoBtn('103', 'submit', 'btn btn-lg btn-block btn-danger', '', '', 'margin: 5px;', 'Fechar caixa', '', '', '', '<i class="mdi mdi-file-check"></i>', true);
+
     echo '</form>';//fechamentoNormalCaixa
     echo '</div>';
     echo '</div>';
@@ -92,7 +95,9 @@
         echo '</table>';
         echo '</div>';
         echo '<form action="../../pages/md_caixa/fechamento_caixa.php" method="POST">';
-        echo '<button type="submit" class="btn btn-lg btn-block btn-warning" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Fechar Caixa</button>';
+        echo $u->retPermissaoBtn('103', 'submit', 'btn btn-lg btn-block btn-warning', '', '', 'margin: 5px;', 'Fechar caixa', '', '', '', '<i class="mdi mdi-file-check"></i>', true);
+
+        //echo '<button type="submit" class="btn btn-lg btn-block btn-warning" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Fechar Caixa</button>';
         echo '</form>';//fechamentoNormalCaixa
         ////echo '<form action="pages/md_caixa/fechamento_caixa.php" method="POST">';
         ////echo '<button type="submit" class="btn btn-lg btn-block btn-outline-danger" style="margin: 5px;"><i class="mdi mdi-file-check"></i>Fechar Caixa</button>';

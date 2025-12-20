@@ -1,8 +1,8 @@
 <?php
  
 // Ativa a exibição de erros (útil em ambiente de desenvolvimento)
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Ativa o registro de erros (útil para produção)
@@ -4813,7 +4813,7 @@ class Usuario
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header bg-danger text-white">
-        <h5 class="modal-title">Atenção!</h5>
+        <h5 class="modal-title">Atenção! Acesso negado ('.$perm["descricao"].' - '.$codigo.')</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body text-center text-dark">
@@ -4862,6 +4862,149 @@ class Usuario
                               }, 3000);
                             }
                         </script>';
+                    }
+
+                    echo '<script>console.log("Acesso negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
+                    //return '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+                    return $ret;
+
+
+                    
+                    
+                    
+
+                    //exit;
+                }
+            }
+        }
+
+        //$logJson = json_encode($todasPermissoes);
+        //echo '<script>console.log("PERMISSOES ENCONTRADAS: ' . $logJson . '");</script>';
+
+
+        // Código não encontrado → negar por segurança
+        //header("Location: https://sistema.ativisoft.com.br/pages/error/page_403.html");
+        //exit;
+
+    }
+
+    public function retPermissaoA($codigo, $class, $value, $href, $icon, $excessao = null)
+    { 
+        // Lista de módulos existentes
+        $modulos = [
+            "acesso_caixa_0001",
+            "acesso_assistencia_0002",
+            "acesso_venda_0003",
+            "acesso_patrimonio_0004",
+            "acesso_folhaponto_0005",
+            "acesso_financeiro_0006",
+            "acesso_cadastro_0007",
+            "acesso_pdv_0008"
+        ];
+
+        $todasPermissoes = [];
+
+        // Monta o mega-array com todas as permissões de todos os módulos
+        foreach ($modulos as $mod) {
+
+            //echo '<script>console.log("VERIFICANDO MÓDULO: '.$mod.'");</script>';
+
+            if (!isset($_SESSION[$mod])) {
+                echo '<script>console.log("⚠ NÃO EXISTE NA SESSÃO");</script>';
+                continue;
+            }
+
+            //echo '<script>console.log("✔ EXISTE NA SESSÃO: '. $_SESSION[$mod] .'");</script>';
+
+            $json = json_decode($_SESSION[$mod], true);
+
+            if ($json === null) {
+                //echo '<script>console.log("❌ JSON INVÁLIDO");</script>';
+                continue;
+            }
+
+            if (!is_array($json)) {
+                //echo '<script>console.log("❌ NÃO É ARRAY");</script>';
+                continue;
+            }
+
+            if (count($json) === 0) {
+                echo '<script>console.log("⚠ JSON VAZIO");</script>';
+                continue;
+            }
+
+            //echo '<script>console.log("✔ JSON OK: '.json_encode($json).'");</script>';
+
+            foreach ($json as $p) {
+
+                //echo '<script>console.log("ADICIONANDO: '.json_encode($p).'");</script>';
+
+                $todasPermissoes[] = [
+                    "codigo" => $p[0],
+                    "descricao" => $p[1],
+                    "status" => $p[2]
+                ];
+            }
+        }
+
+
+        // Agora valida o código solicitado
+        foreach ($todasPermissoes as $perm) {
+
+            if ($perm["codigo"] == $codigo) {
+
+                if ($perm["status"] === "S") {
+                    // Acesso permitido
+                    //echo '<button></button>';
+                    //echo '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+
+                    //echo '<script>console.log("Botão permitido ('.$perm["descricao"].' - '.$codigo.')");</script>';
+                    $ret = '<a ';
+
+                    if($class){
+                        $ret = $ret.' class="'.$class.'" ';
+                    }
+                    
+                    if($href != ''){
+                        $ret = $ret.' href="'.$href.'" ';
+                    }
+                    
+                        $ret = $ret.$_SESSION['c_sidebar'];
+                    
+                    
+                    $ret = $ret.'>';
+                    if($icon != ''){
+                        $ret = $ret.$icon;
+                    }
+                    if($value != ''){
+                        $ret = $ret.$value;
+                    }
+                    $ret = $ret.'</a>';
+
+                    //return '<button type="'.$type.'" class="'.$class.'" name="'.$name.'" id="'.$id.'" onclick = "'.$onclick.'" style="'.$style.'">'.$icon.''.$value.'</button>';
+                    return $ret;
+                } else {
+                    // Negado
+                    //echo '<button class="'.$class.'" style="'.$style.'">Sem permissão('.$value.')</button>';
+
+                    
+
+                    if($excessao == true){
+                        $ret = '<a ';
+
+                        if($class){
+                            $ret = $ret.' class="'.$class.'" ';
+                        }
+                        
+                        $ret = $ret.'style="opacity: 0.30; cursor: not-allowed; color: #000; background-color: pink;"';
+                        $ret = $ret.'>';
+                        if($icon != ''){
+                            $ret = $ret.$icon;
+                        }
+                        if($value != ''){
+                            $ret = $ret.$value;
+                        }
+                        $ret = $ret.'</a>';
                     }
 
                     echo '<script>console.log("Acesso negado ('.$perm["descricao"].' - '.$codigo.')");</script>';
@@ -5185,6 +5328,7 @@ function mostrarPermissoes($titulo, $lista, $permissao_modulo)
         "categories" => $categorias
     ];
 }
+
 
 
 }

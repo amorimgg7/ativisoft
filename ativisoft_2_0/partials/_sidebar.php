@@ -118,7 +118,8 @@ if($_SESSION['cd_acesso'] == 1){
             
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/unidade_operacional.php">Empresa</a></li>
-                <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_colaborador.php">Funcionario</a></li>
+                <?php echo '<li class="nav-item">'.$u->retPermissaoA('709', 'nav-link', 'Funcionario', $_SESSION['dominio'].'/pages/cad_geral/cadastro_colaborador.php', '', true).'</li>';?>
+                
                 <li class="nav-item"><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/consulta_cliente.php">Cliente</a></li>
                 <li class="nav-item" <?php echo $_SESSION['md_venda_produto'];?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/cad_geral/cadastro_produto.php">Produto / Serviço</a></li>
                 <!--<li class="nav-item" <?php //echo $_SESSION['md_patrimonio'];?>><a <?php //echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php //echo $_SESSION['dominio'];?>/pages/md_patrimonio/cadastro_patrimonio.php">Patrimônio</a></li>-->
