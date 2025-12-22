@@ -126,3 +126,12 @@ SET acesso_pdv_0008 = '[
 
 
 ALTER TABLE tb_venda MODIFY abertura_venda DATETIME;
+
+alter table tb_venda add cd_vendedor int;
+alter table tb_venda add vdesconto_venda decimal(10,2);
+ALTER TABLE tb_venda 
+    ADD CONSTRAINT fk_venda_1 FOREIGN KEY (cd_vendedor) REFERENCES tb_pessoa (cd_pessoa),
+    ADD CONSTRAINT fk_venda_2 FOREIGN KEY (cd_cliente) REFERENCES tb_pessoa (cd_pessoa);
+
+
+alter table tb_orcamento_venda add obs_orcamento varchar(999);

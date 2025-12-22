@@ -1,8 +1,8 @@
 <?php
  
 // Ativa a exibição de erros (útil em ambiente de desenvolvimento)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
 
 // Ativa o registro de erros (útil para produção)
@@ -5328,6 +5328,119 @@ function mostrarPermissoes($titulo, $lista, $permissao_modulo)
         "categories" => $categorias
     ];
 }
+
+
+    public function inicioVenda($cd_cliente, $cd_filial, $cd_vendedor) 
+    {
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        //$lista_sql = [];
+        try {
+            $insert_venda = "INSERT INTO tb_venda(cd_cliente, cd_filial, cd_vendedor, abertura_venda, status_venda) VALUES(
+                '".$cd_cliente."',
+                '".$cd_filial."',
+                '".$cd_vendedor."',
+                now(),
+                1)
+            ";
+            //mysqli_query($conn, $insert_orcamento);
+/*
+            $updateServico = "UPDATE tb_servico SET
+                orcamento_servico = orcamento_servico + ".$vcusto_orcamento."
+                WHERE cd_servico = ".$cd_servico."";
+            mysqli_query($conn, $updateServico);
+*/
+
+            $lista_sql[] = preg_replace('/\s+/', ' ', $insert_venda);
+            //$lista_sql[] = preg_replace('/\s+/', ' ', $updateServico);
+                
+            if (!mysqli_query($conn, $insert_venda)) {
+                return [
+                    'SQL'               =>  implode(" ", $lista_sql),
+                    'status'            =>  'Erro: ' . mysqli_error($conn)
+                ];
+            }
+            $conn->commit();
+            return [
+                'SQL'               =>  implode(" ", $lista_sql),
+                'status'            =>  'OK'
+            ];
+        } catch (Exception $e) {
+        $conn->rollback();
+        return [
+            'SQL'           =>  implode(" ", $lista_sql),
+            'status'        =>  addslashes($e->getMessage()),
+        ];
+    }
+
+            
+
+
+            
+            
+
+    }
+
+    public function addOrcamentoVenda($cd_filial, $cd_venda, $cd_produto, $titulo_orcamento, $vcusto_orcamento, $vdesconto_orcamento, $vtotal_orcamento){
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        //$lista_sql = [];
+        try {
+            $insert_venda = "INSERT INTO tb_orcamento_venda(cd_filial, cd_venda, cd_produto, titulo_orcamento, vcusto_orcamento, vdesconto_orcamento, vtotal_orcamento, status_orcamento) VALUES(
+                '".$cd_filial."',
+                '".$cd_venda."',
+                '".$cd_produto."',
+                '".$titulo_orcamento."',
+                '".$vcusto_orcamento."',
+                '".$vdesconto_orcamento."',
+                '".$vtotal_orcamento."',
+                1)
+            ";
+            //mysqli_query($conn, $insert_orcamento);
+/*
+            $updateServico = "UPDATE tb_servico SET
+                orcamento_servico = orcamento_servico + ".$vcusto_orcamento."
+                WHERE cd_servico = ".$cd_servico."";
+            mysqli_query($conn, $updateServico);
+*/
+
+            $lista_sql[] = preg_replace('/\s+/', ' ', $insert_venda);
+            //$lista_sql[] = preg_replace('/\s+/', ' ', $updateServico);
+                
+            if (!mysqli_query($conn, $insert_venda)) {
+                return [
+                    'SQL'               =>  implode(" ", $lista_sql),
+                    'status'            =>  'Erro: ' . mysqli_error($conn)
+                ];
+            }
+            $conn->commit();
+            return [
+                'SQL'               =>  implode(" ", $lista_sql),
+                'status'            =>  'OK'
+            ];
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'SQL'           =>  implode(" ", $lista_sql),
+                'status'        =>  addslashes($e->getMessage()),
+            ];
+        }
+    }
+
+    public function remOrcamentoVenda($cd_orcamento, $obs_orcamento){
+
+    }
+    public function finalVenda($cd_venda, $orcamento_venda, $vdesconto_venda, $vpag_orcamento){
+
+    }
 
 
 

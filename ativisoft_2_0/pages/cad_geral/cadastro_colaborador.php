@@ -233,7 +233,7 @@
                   ";
                   mysqli_query($conn, $query);
                   
-                  echo "<script>window.alert('Colaborador Atualizado com sucesso!');</script>";
+                  //echo "<script>window.alert('Colaborador Atualizado com sucesso!');</script>";
                   
                   
                   
@@ -304,14 +304,14 @@ atualizarModulo($conn, $cd_pessoa, 'acesso_financeiro_0006', $_POST['Financeiro'
 atualizarModulo($conn, $cd_pessoa, 'acesso_cadastro_0007', $_POST['Cadastro'] ?? []);
 atualizarModulo($conn, $cd_pessoa, 'acesso_pdv_0008', $_POST['PDV'] ?? []);
 
-echo "<script>alert('Permissões gravadas com sucesso!');</script>";
+//echo "<script>alert('Permissões gravadas com sucesso!');</script>";
 
 
     
 
 
                   $u->reLoadModulos($_SESSION['cd_colab']);
-                  echo "<script>window.alert('Modulos atualizados!');</script>";
+                  //echo "<script>window.alert('Modulos atualizados!');</script>";
                   
                   $_SESSION['statusCadastrosColab'] = FALSE;
                 }

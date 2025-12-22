@@ -59,7 +59,7 @@ $stmtItem = $conn->prepare($sqlItem);
 foreach ($data['items'] as $item) {
     $tipo = 'VENDA';
     $statusItem = 1;
-    $vtotal = $item['price'] * $item['qty'];
+    $vtotal = $item['vcusto_orcamento'] * $item['qtd'];
 
     $stmtItem->bind_param(
         "iiissdidsi",
@@ -68,8 +68,8 @@ foreach ($data['items'] as $item) {
         $cd_cliente,
         $item['id'],
         $item['name'],
-        $item['price'],
-        $item['qty'],
+        $item['vcusto_orcamento'],
+        $item['qtd'],
         $vtotal,
         $tipo,
         $statusItem

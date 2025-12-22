@@ -17,8 +17,8 @@ $products   = $data['products']   ?? [];
 $categories = $data['categories'] ?? [];
 
 /* ===== CARRINHO ===== */
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
+if (!isset($_SESSION['carrinho'])) {
+    $_SESSION['carrinho'] = [];
 }
 
 /* ===== PERMISSÕES ===== */
@@ -28,8 +28,8 @@ $permRemover    = $u->retPermissaoBool('304');
 
 /* ===== TOTAIS ===== */
 $subtotal = 0;
-foreach ($_SESSION['cart'] as $item) {
-    $subtotal += $item['price'] * $item['qty'];
+foreach ($_SESSION['carrinho'] as $item) {
+    $subtotal += $item['price'] * $item['qtd_orcamento_venda'];
 }
 $desconto = $permDesconto ? ($_SESSION['desconto'] ?? 0) : 0;
 $total    = max(0, $subtotal - $desconto);
@@ -63,6 +63,24 @@ body { background:#f5f7fb; }
     opacity:.5;
     cursor:not-allowed;
 }
+
+.grupo-card {
+  cursor: pointer;
+  border: 2px solid #dee2e6;
+  transition: all .2s;
+}
+
+.grupo-card:hover {
+  border-color: #0d6efd;
+}
+
+.grupo-card.active {
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
+
+
 </style>
 </head>
 
@@ -95,163 +113,236 @@ body { background:#f5f7fb; }
 <div class="container-fluid">
 
 <!-- ================= SECTION PRINCIPAL ================= -->
-<section id="principal" class="section active">
-
-<div class="row">
-
-<!-- ===== GRUPOS ===== -->
-<div class="col-md-2">
-<h6>Grupos</h6>
-
-<ul class="list-group">
-
-<li class="list-group-item list-group-item-action active"
-    onclick="filtrarGrupo('all')">
-    Todos
-</li>
-
 <?php
+// ===== CONFIGURAÇÃO =====
+$mostrarTodos = false; // <<< MUDE AQUI (true / false)
+
+// Descobre o primeiro grupo
+$primeiroGrupoId = null;
+
 if (is_array($categories) && count($categories)) {
-    foreach ($categories as $key => $cat) {
-
-        // SE FOR ARRAY (CORRETO)
+    foreach ($categories as $cat) {
         if (is_array($cat)) {
-            $id   = $cat['id']   ?? '';
-            $name = $cat['name'] ?? '';
+            $primeiroGrupoId = $cat['id'] ?? '';
+        } else {
+            $primeiroGrupoId = md5($cat);
         }
-        // SE FOR STRING (SEU CASO ATUAL)
-        else {
-            $id   = md5($cat); // gera ID estável
-            $name = $cat;
-        }
-
-        if (!$name) continue;
-        ?>
-        <li class="list-group-item list-group-item-action"
-            onclick="filtrarGrupo('<?= $id ?>')">
-            <?= htmlspecialchars($name) ?>
-        </li>
-        <?php
+        break;
     }
-} else {
-    echo '<li class="list-group-item text-muted">Nenhum grupo</li>';
 }
 ?>
 
-</ul>
-</div>
+<section id="principal" class="section active">
+  <div class="row">
 
+    <!-- ================== GRUPOS + PRODUTOS ================== -->
+    <div class="col-md-9">
 
-<!-- ===== PRODUTOS ===== -->
-<div class="col-md-7">
-<div class="row">
+      <!-- ===== GRUPOS ===== -->
+      <h6 class="mb-2">Grupos</h6>
 
-<?php foreach ($products as $p): ?>
-<div class="col-md-4 mb-3 product-wrapper">
-<div class="card product-card"
-     data-category-id="<?= md5($p['category']) ?>">
+      <div class="row mb-4" id="grupoCards">
 
-
-<div class="card-body">
-    <h6><?= htmlspecialchars($p['name']) ?></h6>
-    <small class="text-muted"><?= htmlspecialchars($p['category']) ?></small>
-    <p class="fw-bold">R$ <?= number_format($p['price'],2,',','.') ?></p>
-
-    <?php if ($permAddProduto): ?>
-        <form method="post" action="0_add.php">
-            <input type="hidden" name="id" value="<?= $p['id'] ?>">
-            <input type="hidden" name="name" value="<?= htmlspecialchars($p['name']) ?>">
-            <input type="hidden" name="price" value="<?= $p['price'] ?>">
-            <button class="btn btn-sm btn-primary w-100">Adicionar</button>
-        </form>
-    <?php else: ?>
-        <button class="btn btn-sm btn-danger w-100" disabled>Sem permissão</button>
-    <?php endif; ?>
-
-</div>
-</div>
-</div>
-<?php endforeach; ?>
-
-</div>
-</div>
-
-<!-- ===== CARRINHO ===== -->
-<div class="col-md-3">
-<div class="card">
-<div class="card-body">
-
-<h5>Carrinho</h5>
-
-<?php if (empty($_SESSION['cart'])): ?>
-<p class="text-muted">Carrinho vazio</p>
-<?php else: ?>
-<table class="table table-sm">
-<thead>
-<tr>
-    <th>Item</th>
-    <th>Qtd</th>
-    <th>Total</th>
-    <th></th>
-</tr>
-</thead>
-<tbody>
-<?php foreach ($_SESSION['cart'] as $id => $item): ?>
-<tr>
-    <td><?= htmlspecialchars($item['name']) ?></td>
-    <td><?= $item['qty'] ?></td>
-    <td>R$ <?= number_format($item['price'] * $item['qty'], 2, ',', '.') ?></td>
-    <td class="text-end">
-        <?php if ($permRemover): ?>
-            <form method="post" action="0_remove.php" onsubmit="return confirm('Cancelar este item?');">
-                <input type="hidden" name="id" value="<?= $id ?>">
-                <button class="btn btn-sm btn-danger">
-                    <i class="bi bi-x-lg"></i>
-                </button>
-            </form>
-        <?php else: ?>
-            <button class="btn btn-sm btn-secondary" disabled>
-                <i class="bi bi-lock"></i>
-            </button>
+        <?php if ($mostrarTodos): ?>
+          <!-- TODOS -->
+          <div class="col-6 col-md-3 mb-3">
+            <div class="card grupo-card active"
+                 onclick="filtrarGrupo('all', this)">
+              <div class="card-body text-center fw-bold">
+                Todos
+              </div>
+            </div>
+          </div>
         <?php endif; ?>
-    </td>
-</tr>
-<?php endforeach; ?>
-</tbody>
-</table>
 
-<?php endif; ?>
+        <?php
+        if (is_array($categories) && count($categories)) {
+            foreach ($categories as $cat) {
 
-<hr>
-<p>Subtotal: <strong>R$ <?= number_format($subtotal,2,',','.') ?></strong></p>
+                if (is_array($cat)) {
+                    $id   = $cat['id']   ?? '';
+                    $name = $cat['name'] ?? '';
+                } else {
+                    $id   = md5($cat);
+                    $name = $cat;
+                }
 
-<form method="post" action="0_desconto.php">
-<label>Desconto</label>
-<input type="number" step="0.01" name="desconto"
-       class="form-control"
-       value="<?= $desconto ?>"
-       <?= !$permDesconto ? 'readonly' : '' ?>>
-<?php if ($permDesconto): ?>
-<button class="btn btn-secondary btn-sm w-100 mt-1">Aplicar</button>
-<?php endif; ?>
-</form>
+                if (!$name) continue;
 
-<hr>
-<p>Total: <strong>R$ <?= number_format($total,2,',','.') ?></strong></p>
+                $ativoInicial = (!$mostrarTodos && $id == $primeiroGrupoId) ? 'active' : '';
+                ?>
+                <div class="col-6 col-md-3 mb-3">
+                  <div class="card grupo-card <?= $ativoInicial ?>"
+                       onclick="filtrarGrupo('<?= $id ?>', this)">
+                    <div class="card-body text-center fw-bold">
+                      <?= htmlspecialchars($name) ?>
+                    </div>
+                  </div>
+                </div>
+                <?php
+            }
+        }
+        ?>
+      </div>
 
-<form method="post" action="0_finalizar.php">
-<button class="btn btn-success w-100"
-<?= empty($_SESSION['cart']) ? 'disabled' : '' ?>>
-Finalizar Venda
-</button>
-</form>
+      <!-- ===== PRODUTOS ===== -->
+      <h6 class="mb-2">Produtos</h6>
 
-</div>
-</div>
-</div>
+      <div class="row" id="productList">
 
-</div>
+        <?php foreach ($products as $p): 
+          $catId = md5($p['category']);
+
+          // Controle de exibição inicial
+          if ($mostrarTodos) {
+              $style = '';
+          } else {
+              $style = ($catId == $primeiroGrupoId) ? '' : 'display:none;';
+          }
+        ?>
+          <div class="col-md-4 mb-3 product-wrapper"
+               data-category-id="<?= $catId ?>"
+               style="<?= $style ?>">
+
+            <div class="card product-card h-100">
+              <div class="card-body">
+
+                <h6><?= htmlspecialchars($p['name']) ?></h6>
+                <small class="text-muted">
+                  <?= htmlspecialchars($p['category']) ?>
+                </small>
+
+                <p class="fw-bold mt-2">
+                  R$ <?= number_format($p['price'],2,',','.') ?>
+                </p>
+
+                <?php if ($permAddProduto): ?>
+                  <form method="post" action="0_add.php">
+                    <input type="hidden" name="id" value="<?= $p['id'] ?>">
+                    <input type="hidden" name="name" value="<?= htmlspecialchars($p['name']) ?>">
+                    <input type="hidden" name="price" value="<?= $p['price'] ?>">
+                    <button class="btn btn-sm btn-primary w-100">
+                      Adicionar
+                    </button>
+                  </form>
+                <?php else: ?>
+                  <button class="btn btn-sm btn-danger w-100" disabled>
+                    Sem permissão
+                  </button>
+                <?php endif; ?>
+
+              </div>
+            </div>
+
+          </div>
+        <?php endforeach; ?>
+
+      </div>
+    </div>
+
+    <!-- ================== CARRINHO ================== -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+
+          <h5>Carrinho</h5>
+
+          <?php if (empty($_SESSION['carrinho'])): ?>
+            <p class="text-muted">Carrinho vazio</p>
+          <?php else: ?>
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Qtd</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($_SESSION['carrinho'] as $id => $item): ?>
+                  <tr>
+                    <td><?= htmlspecialchars($item['name']) ?></td>
+                    <td><?= $item['qtd_orcamento_venda'] ?></td>
+                    <td>
+                      R$ <?= number_format($item['price'] * $item['qtd_orcamento_venda'], 2, ',', '.') ?>
+                    </td>
+                    <td class="text-end">
+                      <?php if ($permRemover): ?>
+                        <form method="post" action="0_remove.php"
+                              onsubmit="return confirm('Cancelar este item?');">
+                          <input type="hidden" name="id" value="<?= $id ?>">
+                          <button class="btn btn-sm btn-danger">
+                            <i class="bi bi-x-lg"></i>
+                          </button>
+                        </form>
+                      <?php else: ?>
+                        <button class="btn btn-sm btn-secondary" disabled>
+                          <i class="bi bi-lock"></i>
+                        </button>
+                      <?php endif; ?>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          <?php endif; ?>
+
+          <hr>
+          <p>Subtotal:
+            <strong>R$ <?= number_format($subtotal,2,',','.') ?></strong>
+          </p>
+
+          <form method="post" action="0_desconto.php">
+            <label>Desconto</label>
+            <input type="number" step="0.01" name="desconto"
+                   class="form-control"
+                   value="<?= $desconto ?>"
+                   <?= !$permDesconto ? 'readonly' : '' ?>>
+            <?php if ($permDesconto): ?>
+              <button class="btn btn-secondary btn-sm w-100 mt-1">
+                Aplicar
+              </button>
+            <?php endif; ?>
+          </form>
+
+          <hr>
+          <p>Total:
+            <strong>R$ <?= number_format($total,2,',','.') ?></strong>
+          </p>
+
+          <form method="post" action="0_finalizar.php">
+            <button class="btn btn-success w-100"
+              <?= empty($_SESSION['carrinho']) ? 'disabled' : '' ?>>
+              Finalizar Venda
+            </button>
+          </form>
+
+          <?php 
+
+$ultima_venda = $_SESSION['carrinho'] ?? null;
+
+                    // JSON_PRETTY_PRINT e JSON_UNESCAPED_UNICODE continuam funcionando normalmente no 8.3
+                    $json = json_encode($ultima_venda, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+                    if ($json === false) {
+                      echo '<pre id="jsonAcesso">Erro ao gerar JSON: ' . json_last_error_msg() . '</pre>';
+                    } else {
+                      echo '<pre id="jsonAcesso">' . $json . '</pre>';
+                    }
+                    
+                    
+                    
+?>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+
 
 <!-- ================= SECTION HISTÓRICO ================= -->
 <section id="historico" class="section">
@@ -321,21 +412,31 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <script>
+function filtrarGrupo(grupoId, el) {
+
+  document.querySelectorAll('.grupo-card').forEach(card => {
+    card.classList.remove('active');
+  });
+
+  if (el) el.classList.add('active');
+
+  document.querySelectorAll('.product-wrapper').forEach(prod => {
+    if (grupoId === 'all') {
+      prod.style.display = '';
+    } else {
+      prod.style.display =
+        prod.dataset.categoryId === grupoId ? '' : 'none';
+    }
+  });
+}
+
+
+
 function showSection(id){
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
 
-function filtrarGrupo(id){
-    document.querySelectorAll('.product-wrapper').forEach(col=>{
-        const card = col.querySelector('.product-card');
-        if(id === 'all' || card.dataset.categoryId === id){
-            col.style.display = '';
-        } else {
-            col.style.display = 'none';
-        }
-    });
-}
 </script>
 
 </body>

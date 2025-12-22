@@ -1364,3 +1364,340 @@ Stack trace:
 [20-Dec-2025 08:42:09 America/Sao_Paulo] PHP Warning:  Undefined array key "category_id" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 151
 [20-Dec-2025 08:43:37 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
 [20-Dec-2025 09:07:53 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[20-Dec-2025 12:48:15 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[20-Dec-2025 12:48:16 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 15:27:15 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[21-Dec-2025 15:27:16 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 15:30:22 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 15:30:31 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 15:30:38 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 15:30:49 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 945
+[21-Dec-2025 15:31:25 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 945
+[21-Dec-2025 15:36:28 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 15:37:26 America/Sao_Paulo] PHP Warning:  Undefined array key "falta_pagar" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\cadastro_servico.php on line 945
+[21-Dec-2025 15:41:16 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 319
+[21-Dec-2025 15:49:25 America/Sao_Paulo] PHP Warning:  Array to string conversion in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 264
+[21-Dec-2025 15:55:21 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 15:55:21 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 202
+[21-Dec-2025 15:55:21 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 203
+[21-Dec-2025 15:55:28 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 15:55:32 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 15:55:33 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[21-Dec-2025 15:55:34 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 15:55:42 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 16:00:47 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 16:00:47 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 16:00:47 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 16:00:47 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 202
+[21-Dec-2025 16:00:47 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 203
+[21-Dec-2025 16:00:47 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 202
+[21-Dec-2025 16:00:47 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 203
+[21-Dec-2025 16:00:47 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 202
+[21-Dec-2025 16:00:47 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 203
+[21-Dec-2025 16:00:53 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 16:00:53 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 16:00:53 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 202
+[21-Dec-2025 16:00:53 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 203
+[21-Dec-2025 16:00:53 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 202
+[21-Dec-2025 16:00:53 America/Sao_Paulo] PHP Warning:  Undefined array key "qtd_orcamento_venda" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 203
+[21-Dec-2025 16:01:00 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 16:01:06 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 16:01:08 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[21-Dec-2025 16:01:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 16:01:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 270
+[21-Dec-2025 16:01:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_colab" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 270
+[21-Dec-2025 16:01:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 276
+[21-Dec-2025 16:01:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 276
+[21-Dec-2025 16:01:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 277
+[21-Dec-2025 16:01:13 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_comissao\consulta_comissao.php on line 277
+[21-Dec-2025 17:29:48 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 17:30:25 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 22:52:47 Europe/Berlin] PHP Warning:  Undefined variable $cd_venda in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 17
+[21-Dec-2025 22:52:52 Europe/Berlin] PHP Warning:  Undefined variable $cd_venda in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 17
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 268
+[21-Dec-2025 18:59:31 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 268
+[21-Dec-2025 23:00:03 Europe/Berlin] PHP Warning:  Undefined variable $cd_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 17
+[21-Dec-2025 23:00:03 Europe/Berlin] PHP Warning:  Undefined variable $cd_venda in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 18
+[21-Dec-2025 23:00:03 Europe/Berlin] PHP Warning:  Undefined variable $cd_produto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 19
+[21-Dec-2025 23:00:03 Europe/Berlin] PHP Warning:  Undefined variable $tipo_desconto_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 22
+[21-Dec-2025 23:00:03 Europe/Berlin] PHP Warning:  Undefined variable $desconto_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 23
+[21-Dec-2025 23:00:03 Europe/Berlin] PHP Warning:  Undefined variable $vtotal_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 25
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 268
+[21-Dec-2025 19:00:03 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 268
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 268
+[21-Dec-2025 19:00:10 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 268
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 32
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:14 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 268
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:00:17 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:16 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 19:01:20 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 19:01:22 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 31
+[21-Dec-2025 19:01:22 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 364
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 216
+[21-Dec-2025 19:01:25 America/Sao_Paulo] PHP Warning:  Undefined array key "vcusto_orcamento" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\pdv_balcao.php on line 223
+[21-Dec-2025 23:04:45 Europe/Berlin] PHP Warning:  Undefined variable $cd_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 17
+[21-Dec-2025 23:04:45 Europe/Berlin] PHP Warning:  Undefined variable $cd_venda in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 18
+[21-Dec-2025 23:04:45 Europe/Berlin] PHP Warning:  Undefined variable $cd_produto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 19
+[21-Dec-2025 23:04:45 Europe/Berlin] PHP Warning:  Undefined variable $tipo_desconto_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 22
+[21-Dec-2025 23:04:45 Europe/Berlin] PHP Warning:  Undefined variable $desconto_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 23
+[21-Dec-2025 23:04:45 Europe/Berlin] PHP Warning:  Undefined variable $vtotal_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 25
+[21-Dec-2025 23:04:59 Europe/Berlin] PHP Warning:  Undefined variable $cd_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 17
+[21-Dec-2025 23:04:59 Europe/Berlin] PHP Warning:  Undefined variable $cd_venda in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 18
+[21-Dec-2025 23:04:59 Europe/Berlin] PHP Warning:  Undefined variable $cd_produto in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 19
+[21-Dec-2025 23:04:59 Europe/Berlin] PHP Warning:  Undefined variable $tipo_desconto_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 22
+[21-Dec-2025 23:04:59 Europe/Berlin] PHP Warning:  Undefined variable $desconto_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 23
+[21-Dec-2025 23:04:59 Europe/Berlin] PHP Warning:  Undefined variable $vtotal_orcamento in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 25
+[21-Dec-2025 23:13:16 Europe/Berlin] PHP Warning:  Undefined variable $_post in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 16
+[21-Dec-2025 23:13:16 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php on line 16
+[21-Dec-2025 23:13:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function autocommit() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1321
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php(16): Usuario->cadVenda(NULL, 21, 11)
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1321
+[21-Dec-2025 23:13:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function autocommit() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1321
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php(16): Usuario->cadVenda('1', 21, 11)
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1321
+[21-Dec-2025 23:14:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function autocommit() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:1321
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_pdv\0_add.php(16): Usuario->cadVenda(1, 21, 11)
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 1321
