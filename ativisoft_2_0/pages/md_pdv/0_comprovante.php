@@ -28,8 +28,8 @@ body { font-family: monospace; }
 <hr>
 
 <?php foreach ($venda['itens'] as $item): ?>
-<?= $item['qtd_orcamento_venda'] ?>x <?= $item['name'] ?>  
-R$ <?= number_format($item['price'] * $item['qtd_orcamento_venda'],2,',','.') ?><br>
+<?= $item['qtd_orcamento'] ?>x <?= $item['name'] ?>  
+R$ <?= number_format($item['price'] * $item['qtd_orcamento'],2,',','.') ?><br>
 <?php endforeach; ?>
 
 <hr>

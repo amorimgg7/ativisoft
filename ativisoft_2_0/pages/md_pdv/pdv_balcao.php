@@ -11,6 +11,47 @@ require_once '../../classes/functions.php';
 
 $u = new Usuario();
 
+if(!isset($_SESSION['cd_venda']) || $_SESSION['cd_venda'] == 0){
+  $retVenda = $u->conVenda('VA', '', $_SESSION['cd_filial']);
+  
+
+  if($retVenda['status'] != 'OK'){
+    $_session['cd_venda'] = '0';
+    echo "<script>alert('| - | - | - | (".$retVenda['status'].") | - | - | - |');</script>";
+  }else{
+    $_session['cd_venda'] = $retVenda['cd_venda'];
+    $retOrcamentoVenda = $u->conOrcamentoVenda($retVenda['cd_venda']);
+    
+    $orcamento_venda_array = $retOrcamentoVenda['orcamento_venda_array'] ?? [];
+
+    if (!isset($_SESSION['carrinho'])) {
+        $_SESSION['carrinho'] = [];
+    }
+
+    foreach ($orcamento_venda_array as $item) {
+    
+        $id = $item['cd_produto'] ?? null;
+    
+        if (!$id) {
+            continue;
+        }
+      
+        // Não sobrescreve item já no carrinho
+        if (isset($_SESSION['carrinho'][$id])) {
+            continue;
+        }
+      
+        $_SESSION['carrinho'][$id] = $item;
+    }
+
+
+    echo $retOrcamentoVenda['partial_orcamento'];
+    $_SESSION['cd_venda'] = $retVenda['cd_venda'];
+    echo "<script>alert('| - | - | - | (Venda aberta(".$_SESSION['cd_venda'].")) | - | - | - |');</script>";
+  }
+}
+
+
 /* ===== DADOS ===== */
 $data       = $u->conProdServ($_SESSION['cd_empresa']);
 $products   = $data['products']   ?? [];
@@ -29,7 +70,7 @@ $permRemover    = $u->retPermissaoBool('304');
 /* ===== TOTAIS ===== */
 $subtotal = 0;
 foreach ($_SESSION['carrinho'] as $item) {
-    $subtotal += $item['price'] * $item['qtd_orcamento_venda'];
+    $subtotal += $item['price'] * $item['qtd_orcamento'];
 }
 $desconto = $permDesconto ? ($_SESSION['desconto'] ?? 0) : 0;
 $total    = max(0, $subtotal - $desconto);
@@ -190,54 +231,66 @@ if (is_array($categories) && count($categories)) {
 
       <div class="row" id="productList">
 
-        <?php foreach ($products as $p): 
-          $catId = md5($p['category']);
+<?php foreach ($products as $p): 
+  $catId = md5($p['category']);
+  $style = ($mostrarTodos || $catId == $primeiroGrupoId) ? '' : 'display:none;';
+?>
+  <div class="col-md-4 mb-3 product-wrapper"
+       data-category-id="<?= $catId ?>"
+       style="<?= $style ?>">
 
-          // Controle de exibição inicial
-          if ($mostrarTodos) {
-              $style = '';
-          } else {
-              $style = ($catId == $primeiroGrupoId) ? '' : 'display:none;';
-          }
-        ?>
-          <div class="col-md-4 mb-3 product-wrapper"
-               data-category-id="<?= $catId ?>"
-               style="<?= $style ?>">
+    <div class="card product-card h-100 position-relative">
+      <div class="card-body">
 
-            <div class="card product-card h-100">
-              <div class="card-body">
+        <!-- BOTÃO 3 PONTINHOS -->
+        <button
+          type="button"
+          class="btn btn-sm btn-light position-absolute top-0 end-0 m-2"
+          onclick="abrirModalDesconto(
+            <?= $p['id'] ?>,
+            '<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>',
+            <?= $p['price'] ?>
+          )">
+          &#8942;
+        </button>
 
-                <h6><?= htmlspecialchars($p['name']) ?></h6>
-                <small class="text-muted">
-                  <?= htmlspecialchars($p['category']) ?>
-                </small>
+        <h6><?= htmlspecialchars($p['name']) ?></h6>
+        <small class="text-muted">
+          <?= htmlspecialchars($p['category']) ?>
+        </small>
 
-                <p class="fw-bold mt-2">
-                  R$ <?= number_format($p['price'],2,',','.') ?>
-                </p>
+        <p class="fw-bold mt-2">
+           <input type="hidden" name="descontoPercentual" id="descPerc_<?= $p['id'] ?>" value="0">
+            <input type="hidden" name="descontoValor" id="descVal_<?= $p['id'] ?>" value="0">
 
-                <?php if ($permAddProduto): ?>
-                  <form method="post" action="0_add.php">
-                    <input type="hidden" name="id" value="<?= $p['id'] ?>">
-                    <input type="hidden" name="name" value="<?= htmlspecialchars($p['name']) ?>">
-                    <input type="hidden" name="price" value="<?= $p['price'] ?>">
-                    <button class="btn btn-sm btn-primary w-100">
-                      Adicionar
-                    </button>
-                  </form>
-                <?php else: ?>
-                  <button class="btn btn-sm btn-danger w-100" disabled>
-                    Sem permissão
-                  </button>
-                <?php endif; ?>
+          R$ <?= number_format($p['price'],2,',','.') ?>
+        </p>
 
-              </div>
-            </div>
+        <?php if ($permAddProduto): ?>
+          <form method="post" action="0_add.php">
+            <input type="hidden" name="id" value="<?= $p['id'] ?>">
+            <input type="hidden" name="name" value="<?= htmlspecialchars($p['name']) ?>">
+            <input type="hidden" name="price" value="<?= $p['price'] ?>">
+            <input type="hidden" name="desconto" value="0" id="desconto_<?= $p['id'] ?>">
 
-          </div>
-        <?php endforeach; ?>
+            <button class="btn btn-sm btn-primary w-100">
+              Adicionar
+            </button>
+          </form>
+        <?php else: ?>
+          <button class="btn btn-sm btn-danger w-100" disabled>
+            Sem permissão
+          </button>
+        <?php endif; ?>
 
       </div>
+    </div>
+
+  </div>
+<?php endforeach; ?>
+
+</div>
+
     </div>
 
     <!-- ================== CARRINHO ================== -->
@@ -245,7 +298,7 @@ if (is_array($categories) && count($categories)) {
       <div class="card">
         <div class="card-body">
 
-          <h5>Carrinho</h5>
+          <h5>Carrinho.  Venda aberta: <?php echo $_SESSION['cd_venda'];?></h5>
 
           <?php if (empty($_SESSION['carrinho'])): ?>
             <p class="text-muted">Carrinho vazio</p>
@@ -263,9 +316,9 @@ if (is_array($categories) && count($categories)) {
                 <?php foreach ($_SESSION['carrinho'] as $id => $item): ?>
                   <tr>
                     <td><?= htmlspecialchars($item['name']) ?></td>
-                    <td><?= $item['qtd_orcamento_venda'] ?></td>
+                    <td><?= $item['qtd_orcamento'] ?></td>
                     <td>
-                      R$ <?= number_format($item['price'] * $item['qtd_orcamento_venda'], 2, ',', '.') ?>
+                      R$ <?= number_format($item['price'] * $item['qtd_orcamento'], 2, ',', '.') ?>
                     </td>
                     <td class="text-end">
                       <?php if ($permRemover): ?>
@@ -312,11 +365,12 @@ if (is_array($categories) && count($categories)) {
           </p>
 
           <form method="post" action="0_finalizar.php">
-            <button class="btn btn-success w-100"
-              <?= empty($_SESSION['carrinho']) ? 'disabled' : '' ?>>
-              Finalizar Venda
-            </button>
-          </form>
+  <button class="btn btn-success w-100"
+    <?= empty($_SESSION['carrinho']) ? 'disabled' : '' ?>>
+    Finalizar Venda
+  </button>
+</form>
+
 
           <?php 
 
@@ -340,6 +394,161 @@ $ultima_venda = $_SESSION['carrinho'] ?? null;
     </div>
 
   </div>
+
+
+<div class="modal fade" id="modalDesconto" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Aplicar desconto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p id="produtoNome" class="fw-bold"></p>
+
+       
+
+        <label class="form-label">Desconto (%)</label>
+        <input type="number" id="descontoPercentual"
+               class="form-control mb-2"
+               min="0" max="100" step="0.01"
+               placeholder="Ex: 10">
+
+        <label class="form-label">Desconto (R$)</label>
+        <input type="number" id="descontoValor"
+               class="form-control"
+               min="0" step="0.01"
+               placeholder="Ex: 5.00">
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button class="btn btn-primary" onclick="aplicarDesconto()">
+          Aplicar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalImpressao" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Imprimir comprovante?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        Deseja imprimir o comprovante desta venda?
+      </div>
+
+      <div class="modal-footer justify-content-center">
+        <button class="btn btn-secondary" id="btnNaoImprimir">
+          Não
+        </button>
+        <button class="btn btn-success" id="btnImprimir">
+          Sim, imprimir
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+let produtoAtualId = null;
+let produtoPreco = 0;
+
+function abrirModalDesconto(id, nome, preco) {
+  produtoAtualId = id;
+  produtoPreco = preco;
+
+  document.getElementById('produtoNome').innerText = nome;
+  document.getElementById('descontoPercentual').value = '';
+  document.getElementById('descontoValor').value = '';
+
+  new bootstrap.Modal(document.getElementById('modalDesconto')).show();
+}
+
+// Bloqueia usar os dois campos ao mesmo tempo
+document.getElementById('descontoPercentual').addEventListener('input', () => {
+  document.getElementById('descontoValor').value = '';
+});
+
+document.getElementById('descontoValor').addEventListener('input', () => {
+  document.getElementById('descontoPercentual').value = '';
+});
+
+function aplicarDesconto() {
+  const perc = parseFloat(document.getElementById('descontoPercentual').value) || 0;
+  const val  = parseFloat(document.getElementById('descontoValor').value) || 0;
+
+  if (perc <= 0 && val <= 0) {
+    alert('Informe um desconto percentual ou em valor');
+    return;
+  }
+
+  if (perc > 100) {
+    alert('Desconto percentual não pode ser maior que 100%');
+    return;
+  }
+
+  const descontoCalculado = perc > 0
+    ? (produtoPreco * perc / 100)
+    : val;
+
+  if (descontoCalculado > produtoPreco) {
+    alert('O desconto não pode exceder o valor do produto');
+    return;
+  }
+
+  document.getElementById('descPerc_' + produtoAtualId).value = perc.toFixed(2);
+  document.getElementById('descVal_' + produtoAtualId).value  = val.toFixed(2);
+
+  bootstrap.Modal.getInstance(
+    document.getElementById('modalDesconto')
+  ).hide();
+}
+
+function finalizarVenda() {
+
+  fetch('finalizar_venda.php', {
+    method: 'POST',
+    body: new FormData(document.getElementById('formVenda'))
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.status === 'OK') {
+      window.cdVendaFinalizada = data.cd_venda;
+      const modal = new bootstrap.Modal(document.getElementById('modalImpressao'));
+      modal.show();
+    }
+  });
+}
+
+document.getElementById('btnImprimir').onclick = function () {
+  window.location.href = '0_comprovante.php?print=1&cd_venda=' + window.cdVendaFinalizada;
+};
+
+document.getElementById('btnNaoImprimir').onclick = function () {
+  window.location.href = '0_comprovante.php?cd_venda=' + window.cdVendaFinalizada;
+};
+
+
+
+
+</script>
+
+
 </section>
 
 
@@ -414,11 +623,14 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 function filtrarGrupo(grupoId, el) {
 
+  // salva o grupo selecionado
+  localStorage.setItem('grupoSelecionado', grupoId);
+
   document.querySelectorAll('.grupo-card').forEach(card => {
     card.classList.remove('active');
   });
 
-  if (el) el.classList.add('active');
+  el.classList.add('active');
 
   document.querySelectorAll('.product-wrapper').forEach(prod => {
     if (grupoId === 'all') {
@@ -432,12 +644,37 @@ function filtrarGrupo(grupoId, el) {
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+
+  let grupoSalvo = localStorage.getItem('grupoSelecionado');
+
+  if (!grupoSalvo) return;
+
+  // encontra o card correspondente
+  let card = document.querySelector(
+    `.grupo-card[onclick*="'${grupoSalvo}'"]`
+  );
+
+  if (card) {
+    card.click(); // reaplica filtro e destaque
+  }
+});
+
+
+
 function showSection(id){
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
 }
 
 </script>
+
+
+
+
+
+
+
 
 </body>
 </html>

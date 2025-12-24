@@ -1361,7 +1361,7 @@ class Usuario
     }
 
 
-    public function conVenda($tipo_consulta, $key_consulta, $cd_filial, $permite_editar) 
+    public function conVenda($tipo_consulta, $key_consulta, $cd_filial, $permite_editar = false) 
     {
         global $conn;
         $conn->autocommit(false); // Desliga o autocommit
@@ -1381,19 +1381,21 @@ class Usuario
 
         try {
             // Recupera o serviço inserido
-            $select_venda = "SELECT * FROM tb_venda v, tb_pessoa c WHERE v.status_venda = '0' AND c.cd_pessoa = v.cd_cliente AND v.cd_filial = '$cd_filial' "; 
+            $select_venda = "SELECT * FROM tb_venda v, tb_pessoa c WHERE c.cd_pessoa = v.cd_cliente AND v.cd_filial = '$cd_filial' "; 
             if($tipo_consulta == 'CV'){
                 $select_venda = $select_venda." AND v.cd_venda = '$key_consulta' ";
             }else if($tipo_consulta == 'CC'){
                 $select_venda = $select_venda." AND v.cd_cliente = '$key_consulta' ";
                 $cd_cliente = $key_consulta;
+            }else if($tipo_consulta == 'VA'){
+                $select_venda = $select_venda." AND v.status_venda = 1 ";
             }else{
                 return [
-                    'status'        =>  'tipo_consulta espera CV(Consulta Venda), CC(Consulta Cliente)',
+                    'status'        =>  'tipo_consulta espera CV(Consulta Venda), CC(Consulta Cliente), VA(Venda Aberta)',
                     'cd_venda'      =>  '0'
                 ];
             }
-            $select_venda = $select_venda." LIMIT 1 ";
+            $select_venda = $select_venda." order by v.cd_venda  desc LIMIT 1 ";
             
             $result_venda = mysqli_query($conn, $select_venda);
             $row_venda = mysqli_fetch_assoc($result_venda);
@@ -1418,7 +1420,7 @@ class Usuario
             ';
 
                 return [
-                    'status'            =>  'OK',
+                    'status'            =>  'Nenhuma venda encontrada',
                     'partial_venda'     =>  $partial_venda,
                     'cd_venda'          =>  '0'
                 ];
@@ -1569,7 +1571,8 @@ class Usuario
                     'fechamento_venda'      =>  $row_venda['fechamento_venda'],    
                     'orcamento_venda'       =>  $row_venda['orcamento_venda'],        
                     'vpag_venda'            =>  $row_venda['vpag_venda'],    
-                    'status_venda'          =>  $row_venda['status_servico'],
+                    'status_venda'          =>  $row_venda['status_venda'],
+                    'status_servico'        =>  $row_venda['status_venda'],
                     'partial_venda'         =>  $partial_venda
                 ];
 
@@ -5330,6 +5333,61 @@ function mostrarPermissoes($titulo, $lista, $permissao_modulo)
 }
 
 
+/*
+    public function conVenda($cd_venda, $cd_filial, $cd_vendedor = null, $status_venda = null) 
+    {
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        //$lista_sql = [];
+        try {
+            $select_venda = "SELECT * FROM tb_venda WHERE cd_venda = '.$cd_venda";
+            if($cd_vendedor != null){
+                $select_venda = $select_venda.' AND cd_vendedor = '.$cd_vendedor; 
+            }
+            if($status_venda != null){
+                $select_venda = $select_venda.' AND status_venda = '.$status_venda; 
+            }
+            if($cd_filial != null){
+                $select_venda = $select_venda.' AND cd_filial = '.$cd_filial.';'; 
+            }
+            
+            if (!$result_venda = mysqli_query($conn, $select_venda)) {
+                return [
+                    'cd_venda'          =>  '0',
+                    'status'            =>  'Erro: '
+                ];
+            }
+            
+            
+            $result_venda = mysqli_query($conn, $select_venda);
+            
+            $row_venda = mysqli_fetch_assoc($result_venda);
+            
+            if (!$row_venda) {
+                return [
+                    'status'        =>  'Não encontrada venda',
+                    'cd_venda'    =>  '0'
+                ];
+            }
+            
+            $conn->commit();
+            return [
+                'cd_venda' => $row_venda['cd_venda'],
+                'status'            =>  'OK'
+            ];
+        } catch (Exception $e) {
+        $conn->rollback();
+        return [
+            'cd_venda' => '0',
+            'status'        =>  addslashes($e->getMessage()),
+        ];
+    }
+    }
+*/
     public function inicioVenda($cd_cliente, $cd_filial, $cd_vendedor) 
     {
         global $conn;
@@ -5347,45 +5405,107 @@ function mostrarPermissoes($titulo, $lista, $permissao_modulo)
                 now(),
                 1)
             ";
-            //mysqli_query($conn, $insert_orcamento);
-/*
-            $updateServico = "UPDATE tb_servico SET
-                orcamento_servico = orcamento_servico + ".$vcusto_orcamento."
-                WHERE cd_servico = ".$cd_servico."";
-            mysqli_query($conn, $updateServico);
-*/
-
-            $lista_sql[] = preg_replace('/\s+/', ' ', $insert_venda);
-            //$lista_sql[] = preg_replace('/\s+/', ' ', $updateServico);
-                
+            
+            
             if (!mysqli_query($conn, $insert_venda)) {
                 return [
-                    'SQL'               =>  implode(" ", $lista_sql),
-                    'status'            =>  'Erro: ' . mysqli_error($conn)
+                    'cd_venda'          =>  '0',
+                    'status'            =>  'Erro: '
                 ];
             }
+            $id_venda = mysqli_insert_id($conn);
+            $select_venda = "SELECT * FROM tb_venda WHERE cd_venda = '".$id_venda."'";
+            $result_venda = mysqli_query($conn, $select_venda);
+            
+            $row_venda = mysqli_fetch_assoc($result_venda);
+            
+            if (!$row_venda) {
+                return [
+                    'status'        =>  'Não encontrada venda',
+                    'cd_venda'    =>  '0'
+                ];
+            }
+            
             $conn->commit();
             return [
-                'SQL'               =>  implode(" ", $lista_sql),
+                'cd_venda' => $row_venda['cd_venda'],
                 'status'            =>  'OK'
             ];
         } catch (Exception $e) {
         $conn->rollback();
         return [
-            'SQL'           =>  implode(" ", $lista_sql),
+            'cd_venda' => '0',
             'status'        =>  addslashes($e->getMessage()),
         ];
     }
-
-            
-
-
-            
-            
-
     }
 
-    public function addOrcamentoVenda($cd_filial, $cd_venda, $cd_produto, $titulo_orcamento, $vcusto_orcamento, $vdesconto_orcamento, $vtotal_orcamento){
+    public function conOrcamentoVenda($cd_venda) 
+    {
+        global $conn;
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+
+        $debug_data = [
+            'cd_venda' => $cd_venda
+        ];
+
+        $json_data = json_encode($debug_data);
+
+        $partial_orcamento = "<script>console.log('conOrcamentoVenda:', " . $json_data . ");</script>";
+
+        try {
+            // Recupera o serviço inserido
+            $select_orcamento = "SELECT * FROM tb_orcamento_venda WHERE cd_venda = '$cd_venda' order by cd_orcamento desc ";
+            $result_orcamento = mysqli_query($conn, $select_orcamento);
+            
+            $orcamento_venda_array = [];
+
+            while ($row_orcamento = mysqli_fetch_assoc($result_orcamento)) {
+            
+                $orcamento_venda_array[] = [
+                    'cd_orcamento'       => $row_orcamento['cd_orcamento'],
+                    'cd_venda'           => $row_orcamento['cd_venda'],
+                    'cd_produto'         => $row_orcamento['cd_produto'],
+                    'name'               => $row_orcamento['titulo_orcamento'],
+                    'price'              => $row_orcamento['vcusto_orcamento'],
+                    'tipo_desconto'      => $row_orcamento['tipo_desconto'],
+                    'desconto_orcamento' => $row_orcamento['desconto_orcamento'],
+                    'qtd_orcamento'      => $row_orcamento['qtd_orcamento'],
+                    'vtotal_orcamento'   => $row_orcamento['vtotal_orcamento']
+                ];
+                
+            }
+            
+            //$orcamento_venda_array = json_decode($orcamento_venda_json, true);
+            
+            $partial_orcamento .= '<script>';
+$partial_orcamento .= 'console.log("conOrcamentoVenda:", ' .
+    json_encode($orcamento_venda_array, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) .
+');';
+$partial_orcamento .= '</script>';
+
+
+            $conn->commit();
+            
+            return [
+                'status'                    =>  'OK',
+                'orcamento_venda_array'     =>  $orcamento_venda_array, 
+                'partial_orcamento'         =>  $partial_orcamento
+            ];
+
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'status'                =>  addslashes($e->getMessage()),
+                'orcamento_venda_array'  =>  '0',
+                'cd_venda'              =>  '0'
+            ];
+        }
+
+    }
+    public function addOrcamentoVenda($cd_filial, $cd_venda, $cd_produto, $titulo_orcamento, $vcusto_orcamento, $qtd_orcamento, $tipo_desconto, $desconto_orcamento, $vtotal_orcamento){
         global $conn;
         $u = new Usuario();
 
@@ -5394,51 +5514,170 @@ function mostrarPermissoes($titulo, $lista, $permissao_modulo)
 
         //$lista_sql = [];
         try {
-            $insert_venda = "INSERT INTO tb_orcamento_venda(cd_filial, cd_venda, cd_produto, titulo_orcamento, vcusto_orcamento, vdesconto_orcamento, vtotal_orcamento, status_orcamento) VALUES(
+            $insert_venda = "INSERT INTO tb_orcamento_venda(cd_filial, cd_venda, cd_produto, titulo_orcamento, vcusto_orcamento, qtd_orcamento, tipo_desconto, desconto_orcamento, vtotal_orcamento, status_orcamento) VALUES(
                 '".$cd_filial."',
                 '".$cd_venda."',
                 '".$cd_produto."',
                 '".$titulo_orcamento."',
                 '".$vcusto_orcamento."',
-                '".$vdesconto_orcamento."',
+                '".$qtd_orcamento."',
+                '".$tipo_desconto."',
+                '".$desconto_orcamento."',
                 '".$vtotal_orcamento."',
                 1)
             ";
-            //mysqli_query($conn, $insert_orcamento);
-/*
-            $updateServico = "UPDATE tb_servico SET
-                orcamento_servico = orcamento_servico + ".$vcusto_orcamento."
-                WHERE cd_servico = ".$cd_servico."";
-            mysqli_query($conn, $updateServico);
-*/
-
-            $lista_sql[] = preg_replace('/\s+/', ' ', $insert_venda);
-            //$lista_sql[] = preg_replace('/\s+/', ' ', $updateServico);
-                
+            
             if (!mysqli_query($conn, $insert_venda)) {
                 return [
-                    'SQL'               =>  implode(" ", $lista_sql),
+                    'status'            =>  'Erro: ' . mysqli_error($conn),
+                    'cd_orcamento'      => '0'
+                ];
+            }
+
+            $id_orcamento = mysqli_insert_id($conn);
+            $select_orcamento = "SELECT * FROM tb_orcamento_venda WHERE cd_orcamento = '".$id_orcamento."'";
+            $result_orcamento = mysqli_query($conn, $select_orcamento);
+            
+            $row_orcamento = mysqli_fetch_assoc($result_orcamento);
+            
+            if (!$row_orcamento) {
+                return [
+                    'status'        =>  'Não encontrado orcamento',
+                    'cd_orcamento'    =>  '0'
+                ];
+            }
+
+            $conn->commit();
+            return [
+                'status'            =>  'OK',
+                'cd_orcamento'      =>  $row_orcamento['cd_orcamento']
+            ];
+        } catch (Exception $e) {
+    return [
+        'status' => 'ERRO',
+        'orcamento_venda_array' => [],
+        'erro' => $e->getMessage()
+    ];
+}
+
+    }
+
+    public function editOrcamentoVenda($cd_orcamento, $qtd_orcamento, $vcusto_orcamento, $tipo_desconto, $desconto_orcamento, $vtotal_orcamento){
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        //$lista_sql = [];
+        try {
+            $update_orcamento = "UPDATE tb_orcamento_venda set
+                qtd_orcamento = ".$qtd_orcamento.",
+                vcusto_orcamento = '".$vcusto_orcamento."',
+                tipo_desconto = '".$tipo_desconto."',
+                desconto_orcamento = '".$desconto_orcamento."',
+                vtotal_orcamento = '".$vtotal_orcamento."'
+                WHERE cd_orcamento = '".$cd_orcamento."'
+            ";
+              
+            if (!mysqli_query($conn, $update_orcamento)) {
+                return [
                     'status'            =>  'Erro: ' . mysqli_error($conn)
                 ];
             }
+
             $conn->commit();
             return [
-                'SQL'               =>  implode(" ", $lista_sql),
                 'status'            =>  'OK'
             ];
+
         } catch (Exception $e) {
             $conn->rollback();
             return [
-                'SQL'           =>  implode(" ", $lista_sql),
                 'status'        =>  addslashes($e->getMessage()),
             ];
         }
     }
 
-    public function remOrcamentoVenda($cd_orcamento, $obs_orcamento){
+    public function remOrcamentoVenda($cd_orcamento){
 
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+            $delete_orcamento = "DELETE FROM tb_orcamento_venda WHERE cd_orcamento = '".$cd_orcamento."'";
+              
+            if (!mysqli_query($conn, $delete_orcamento)) {
+                return [
+                    'status'            =>  'Erro: ' . mysqli_error($conn)
+                ];
+            }
+
+            $conn->commit();
+            return [
+                'status'            =>  'OK'
+            ];
+
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'status'        =>  addslashes($e->getMessage()),
+            ];
+        }
+        
     }
-    public function finalVenda($cd_venda, $orcamento_venda, $vdesconto_venda, $vpag_orcamento){
+    public function finalVenda($cd_venda, $orcamento_venda, $tipo_desconto, $desconto_venda, $vpag_venda){
+
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        
+        try {
+            $update_venda = "UPDATE tb_venda SET
+                orcamento_venda = '".$orcamento_venda."',
+                tipo_desconto = '".$tipo_desconto."',
+                desconto_venda = '".$desconto_venda."',
+                vpag_venda = '".$vpag_venda."',
+                fechamento_venda = now(),
+                status_venda = 2
+                WHERE cd_venda = '".$cd_venda."'
+            ";
+            
+            
+            if (!mysqli_query($conn, $update_venda)) {
+                return [
+                    'cd_venda'          =>  '0',
+                    'status'            =>  'Erro: '
+                ];
+            }
+            
+            $update_orcamento = "UPDATE tb_orcamento_venda SET status_orcamento = 2 WHERE cd_venda = '".$cd_venda."'";
+            if (!mysqli_query($conn, $update_orcamento)) {
+                return [
+                    'cd_venda'          =>  '0',
+                    'status'            =>  'Erro: Não foi possível atualizar o orcamento'
+                ];
+            }
+            
+            
+            $conn->commit();
+            return [
+                'cd_venda' => $cd_venda,
+                'status'            =>  'OK'
+            ];
+        } catch (Exception $e) {
+        $conn->rollback();
+        return [
+            'cd_venda' => '0',
+            'status'        =>  addslashes($e->getMessage()),
+        ];
+    }
 
     }
 

@@ -134,4 +134,11 @@ ALTER TABLE tb_venda
     ADD CONSTRAINT fk_venda_2 FOREIGN KEY (cd_cliente) REFERENCES tb_pessoa (cd_pessoa);
 
 
-alter table tb_orcamento_venda add obs_orcamento varchar(999);
+alter table tb_orcamento_venda add obs_orcamento varchar(999),
+ADD qtd_orcamento decimal(10,2),
+ADD tipo_desconto varchar(1),
+ADD vcusto_orcamento decimal(10,2),
+ADD desconto_orcamento decimal(10,5);
+
+alter table tb_venda add tipo_desconto varchar(1),
+add desconto_venda decimal(10,5);
