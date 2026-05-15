@@ -1,0 +1,31 @@
+{
+	"products" : [
+		{
+			"name" : "Touca de crochê",
+			"price" : "36.00",
+			"options" : [
+				{ "Size" : "P,M,G" }
+			],
+			"image" : "https://lh3.googleusercontent.com/pw/AL9nZEXZ-JzGGHj9AMS0wCkTnXEVE3xvMq9kccrXImkej82q9gAt4RdtZ7LUXe8Tcg1qIOnK2juVpQ7qeHQ7xw3-AadCxwpRIGq_3LW4ry5r940B1ArdZ6jovOZOdOn4olJYGUdTJbn1fAw5z-cWYjcxlaZT0Q=w272-h273-no?authuser=0",
+			"description" : "Ótima escolha para você"
+		},
+		{
+			"name" : "Sapatinhos de bebê",
+			"price" : "25.00",
+			"options" : [
+				{ "Size" : "P,M,G'" }
+			],
+			"image" : "https://lh3.googleusercontent.com/pw/AL9nZEXZ-JzGGHj9AMS0wCkTnXEVE3xvMq9kccrXImkej82q9gAt4RdtZ7LUXe8Tcg1qIOnK2juVpQ7qeHQ7xw3-AadCxwpRIGq_3LW4ry5r940B1ArdZ6jovOZOdOn4olJYGUdTJbn1fAw5z-cWYjcxlaZT0Q=w272-h273-no?authuser=0",
+			"description" : "This is a really cool blue T-shirt"
+		},
+		{
+			"name" : "Bikini 03",
+			"price" : "90.00",
+			"options" : [
+				{ "Size" : "Pequeno,Médio,Grande" }
+			],
+			"image" : "http://upload.wikimedia.org/wikipedia/commons/c/c6/Grey_Tshirt.jpg",
+			"description" : "This is another fun grey T-shirt"
+		}
+	]
+}

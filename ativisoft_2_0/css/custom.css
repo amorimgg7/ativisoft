@@ -1,0 +1,162 @@
+.form-group-custom {
+    position: relative;
+    margin-bottom: 1rem;
+    
+    flex: 1; /* Campos crescem igualmente */
+    min-width: 150px; /* Evita ficar muito pequeno */
+}
+
+
+.form-group-custom.full-width {
+    flex: 0 0 100%;
+}
+
+.form-group-custom label {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    background: white;
+    font-size: 0.75rem;
+    padding: 0 4px;
+    color: #666;
+    z-index: 1;
+    border-bottom: 2px solid #3e3e3e;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.form-group-custom input {
+    width: 100%;
+    padding-top: 1.25rem;
+    box-sizing: border-box;
+}
+
+.horizontal-form {
+    display: table;
+    width: 100%;
+}
+.form-group {
+    display: table-row;
+}
+.form-group label,
+.form-group input {
+    display: table-cell;
+    padding: 5px;
+}
+
+.horizontal-form-custom {
+    display: flex;
+    gap: 16px; /* Espaço entre campos */
+    flex-wrap: wrap; /* Quebra linha se necessário */
+    align-items: flex-start;
+}
+
+.horizontal-form-custom .form-group-custom {
+    /* Removido display: table-row para evitar empilhamento vertical */
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Garante que label flutue corretamente */
+}
+
+.horizontal-form-custom .form-group-custom label {
+    position: absolute;
+    top: 0px;
+    left: 12px;
+    background: white;
+    font-size: 0.75rem;
+    padding: 0 4px;
+    color: #666;
+    z-index: 1;
+    border-bottom: 2px solid #3e3e3e;
+    border-radius: 0 0 0.5rem 0.5rem;
+    width: fit-content;
+}
+
+.horizontal-form-custom .form-group-custom input {
+    padding-top: 1.25rem;
+    padding-left: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+
+.horizontal-count {
+    display: flex; /* Definindo como flex para que ocupe toda a altura da div */
+    align-items: center; /* Alinha o texto verticalmente ao centro */
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    width: 2rem; /* Largura do retângulo */
+    height: 100%; /* Faz com que o span ocupe toda a altura disponível da div */
+    background-color: #f0f0f0; /* Cor de fundo do retângulo */
+    color: #666; /* Cor do texto */
+    font-weight: bold; /* Aumenta o peso da fonte para destacar o número */
+    text-align: center; /* Alinha o texto no centro do retângulo */
+    padding-right: 10px; /* Ajuste o espaçamento à direita */
+}
+
+.horizontal-wrapper {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 16px;
+  background: #f9f9f9;
+  align-items: stretch; /* importante para o retângulo ocupar 100% da altura */
+}
+
+.horizontal-id {
+  width: 40px;
+  background-color: #e6e6e6;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.horizontal-content {
+  flex: 1;
+  padding: 16px;
+}
+
+
+
+.horizontal-action  {
+  width: 40px;
+  
+  /*background-color: #e6e6e6;*/
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  writing-mode: vertical-rl;
+  transform: rotate(360deg);
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border:none;
+}
+
+.horizontal-action.stack {
+  width: 40px !important;
+  height:70px;
+  display: block;
+  writing-mode: horizontal-tb;
+  transform: none;
+  height: 50px;
+  margin-bottom: 6px;
+}
+
+
+.btn-sem-permissao {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+
+
+

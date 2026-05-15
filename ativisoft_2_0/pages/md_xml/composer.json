@@ -1,0 +1,7 @@
+{
+    "require": {
+        "nfephp-org/sped-da": "^0.1.26",
+        "dompdf/dompdf": "^3.1",
+        "picqer/php-barcode-generator": "^3.2"
+    }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 - FORBIDDEN – PROIBIDO</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .emoji {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            background-color: #ffeb3b;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .emoji::before {
+            content: '';
+            position: absolute;
+            top: 35%;
+            left: 25%;
+            width: 15px;
+            height: 15px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .emoji::after {
+            content: '';
+            position: absolute;
+            top: 35%;
+            right: 25%;
+            width: 15px;
+            height: 15px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .mouth {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+            width: 60px;
+            height: 30px;
+            background-color: transparent;
+            border: 3px solid #333;
+            border-bottom: none;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .tear {
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            width: 10px;
+            height: 20px;
+            background: #00f;
+            border-radius: 50%;
+            animation: tear-drop 2s infinite;
+        }
+
+        @keyframes tear-drop {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0 30px;
+        }
+
+        .home-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .home-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">
+            <div class="tear"></div>
+            <div class="mouth"></div>
+        </div>
+        <h1>403 - Acesso negado</h1>
+        <p>Retorne ao menu principal.</p>
+        <a href="https://sistema.ativisoft.com.br" class="home-button">Home</a>
+    </div>
+</body>
+</html>

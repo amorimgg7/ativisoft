@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  whatsapp:
+    image: node:20
+    container_name: whatsapp-api
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    ports:
+      - "3001:3001"
+    command: >
+      sh -c "
+      npm install express qrcode @whiskeysockets/baileys &&
+      node index.js
+      "
+    restart: unless-stopped
