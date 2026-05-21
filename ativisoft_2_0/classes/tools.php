@@ -2,7 +2,7 @@
 //session_start();
 //require_once 'conn.php';
 //include("functions.php");
-$u = new Usuario;
+$u = new Usuario; 
 
 class Tools  
 {

@@ -1,0 +1,3 @@
+2026-05-21 12:54:20
+Certificado não encontrado:
+C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\empresas\11\fiscal\nfse\certificados\certificado_g5.pfx

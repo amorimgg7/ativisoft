@@ -1,0 +1,18 @@
+{
+    "sucesso": true,
+    "mensagem": "DPS processado com sucesso (SIMULAÇÃO).",
+    "protocolo": "TESTE20260521173147",
+    "numero_nfse": 2867,
+    "codigo_verificacao": "5EFAEE28",
+    "data_emissao": "2026-05-21 17:31:47",
+    "prestador": {
+        "cnpj": "12345678000195"
+    },
+    "tomador": {
+        "cpf": "11144477735"
+    },
+    "servico": {
+        "descricao": "teste",
+        "valor": "15.00"
+    }
+}
