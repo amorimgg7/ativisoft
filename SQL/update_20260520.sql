@@ -1,4 +1,151 @@
+# SQL Completo MySQL 8.0+ — `tb_dados_nfse`
+
+
 CREATE TABLE tb_dados_nfse (
+    -- Identificação interna
+    id_nfse BIGINT NOT NULL AUTO_INCREMENT,
+    dt_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    dt_atualizacao DATETIME NULL DEFAULT NULL,
+
+    -- Controle interno
+    cd_filial INT NULL,
+    cd_empresa INT NULL,
+    cd_cliente INT NULL,
+    cd_ordem_servico INT NULL,
+    cd_orcamento INT NULL,
+    cd_venda INT NULL,
+    cd_usuario INT NULL,
+
+    -- Ambiente
+    ambiente VARCHAR(20) NULL,
+    sistema_origem VARCHAR(100) NULL,
+    versao_sistema VARCHAR(50) NULL,
+
+    -- Situação
+    status_nfse VARCHAR(50) NULL,
+    situacao_lote VARCHAR(50) NULL,
+    sucesso TINYINT(1) NOT NULL DEFAULT 0,
+
+    -- Mensagens e erros
+    mensagem LONGTEXT NULL,
+    codigo_erro VARCHAR(50) NULL,
+    descricao_erro LONGTEXT NULL,
+    observacoes LONGTEXT NULL,
+
+    -- Protocolo e recibos
+    protocolo VARCHAR(100) NULL,
+    numero_lote VARCHAR(50) NULL,
+    numero_rps VARCHAR(50) NULL,
+    serie_rps VARCHAR(20) NULL,
+    tipo_rps VARCHAR(10) NULL,
+    numero_dps VARCHAR(50) NULL,
+    numero_recibo VARCHAR(50) NULL,
+
+    -- Identificação da NFS-e
+    numero_nfse VARCHAR(50) NULL,
+    codigo_verificacao VARCHAR(100) NULL,
+    chave_acesso VARCHAR(100) NULL,
+    hash_documento VARCHAR(256) NULL,
+
+    -- Datas
+    data_emissao DATETIME NULL,
+    data_competencia DATE NULL,
+    data_processamento DATETIME NULL,
+    data_autorizacao DATETIME NULL,
+    data_cancelamento DATETIME NULL,
+
+    -- Prestador de Serviço
+    prestador_cnpj VARCHAR(14) NULL,
+    prestador_cpf VARCHAR(11) NULL,
+    prestador_inscricao_municipal VARCHAR(30) NULL,
+    prestador_inscricao_estadual VARCHAR(30) NULL,
+    prestador_razao_social VARCHAR(255) NULL,
+    prestador_nome_fantasia VARCHAR(255) NULL,
+    prestador_regime_tributario VARCHAR(50) NULL,
+    prestador_optante_simples TINYINT(1) NULL,
+    prestador_incentivador_cultural TINYINT(1) NULL,
+
+    -- Endereço do Prestador
+    prestador_cep VARCHAR(8) NULL,
+    prestador_logradouro VARCHAR(255) NULL,
+    prestador_numero VARCHAR(20) NULL,
+    prestador_complemento VARCHAR(255) NULL,
+    prestador_bairro VARCHAR(100) NULL,
+    prestador_codigo_municipio VARCHAR(10) NULL,
+    prestador_municipio VARCHAR(100) NULL,
+    prestador_uf CHAR(2) NULL,
+    prestador_pais VARCHAR(100) NULL,
+    prestador_codigo_pais VARCHAR(10) NULL,
+    prestador_telefone VARCHAR(20) NULL,
+    prestador_email VARCHAR(255) NULL,
+
+    -- Tomador de Serviço
+    tomador_tipo_documento VARCHAR(10) NULL,
+    tomador_cnpj VARCHAR(14) NULL,
+    tomador_cpf VARCHAR(11) NULL,
+    tomador_inscricao_municipal VARCHAR(30) NULL,
+    tomador_inscricao_estadual VARCHAR(30) NULL,
+    tomador_razao_social VARCHAR(255) NULL,
+    tomador_nome_fantasia VARCHAR(255) NULL,
+    tomador_telefone VARCHAR(20) NULL,
+    tomador_email VARCHAR(255) NULL,
+
+    -- Endereço do Tomador
+    tomador_cep VARCHAR(8) NULL,
+    tomador_logradouro VARCHAR(255) NULL,
+    tomador_numero VARCHAR(20) NULL,
+    tomador_complemento VARCHAR(255) NULL,
+    tomador_bairro VARCHAR(100) NULL,
+    tomador_codigo_municipio VARCHAR(10) NULL,
+    tomador_municipio VARCHAR(100) NULL,
+    tomador_uf CHAR(2) NULL,
+    tomador_pais VARCHAR(100) NULL,
+    tomador_codigo_pais VARCHAR(10) NULL,
+
+    -- Intermediário
+    intermediario_cnpj VARCHAR(14) NULL,
+    intermediario_cpf VARCHAR(11) NULL,
+    intermediario_razao_social VARCHAR(255) NULL,
+    intermediario_inscricao_municipal VARCHAR(30) NULL,
+
+    -- Serviço
+    codigo_servico VARCHAR(20) NULL,
+    item_lista_servico VARCHAR(10) NULL,
+    cnae VARCHAR(10) NULL,
+    codigo_tributacao_municipio VARCHAR(30) NULL,
+    discriminacao LONGTEXT NULL,
+    descricao_servico LONGTEXT NULL,
+    municipio_prestacao_codigo VARCHAR(10) NULL,
+    municipio_prestacao_nome VARCHAR(100) NULL,
+    uf_prestacao CHAR(2) NULL,
+    pais_prestacao VARCHAR(100) NULL,
+
+    -- Natureza da operação
+    natureza_operacao VARCHAR(50) NULL,
+    exigibilidade_iss VARCHAR(50) NULL,
+    local_incidencia VARCHAR(100) NULL,
+
+    -- Valores
+    valor_servicos DECIMAL(18,2) NULL,
+    valor_deducoes DECIMAL(18,2) NULL,
+    valor_pis DECIMAL(18,2) NULL,
+    valor_cofins DECIMAL(18,2) NULL,
+    valor_inss DECIMAL(18,2) NULL,
+    valor_ir DECIMAL(18,2) NULL,
+    valor_csll DECIMAL(18,2) NULL,
+    valor_outras_retencoes DECIMAL(18,2) NULL,
+    valor_iss DECIMAL(18,2) NULL,
+    valor_iss_retido DECIMAL(18,2) NULL,
+    valor_desconto_condicionado DECIMAL(18,2) NULL,
+    valor_desconto_incondicionado DECIMAL(18,2) NULL,
+    valor_credito DECIMAL(18,2) NULL,
+    valor_liquido_nfse DECIMAL(18,2) NULL,
+    valor_total DECIMAL(18,2) NULL,
+    valor_aproximado_tributos DECIMAL(18,2) NULL,
+
+    -- Alíquotas
+    aliquota_iss DECIMAL(9,6) NULL,
+    aliquota_pis DECIMAL(9,6) NULL,
     aliquota_cofins DECIMAL(9,6) NULL,
     aliquota_inss DECIMAL(9,6) NULL,
     aliquota_ir DECIMAL(9,6) NULL,
@@ -77,3 +224,21 @@ CREATE TABLE tb_dados_nfse (
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
+
+
+
+
+
+ALTER TABLE `tb_empresa` ADD `regime_fiscal` integer NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `ambiente_fiscal` integer NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `csc_nfce` integer NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `id_csc_nfce` integer NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `cnae_fiscal` integer NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `senha_certificado` integer NULL AFTER `imunicipal_empresa`;
+
+
+
+
+
+
+

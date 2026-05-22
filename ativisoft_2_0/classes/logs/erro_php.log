@@ -602,3 +602,23 @@ Stack trace:
 [21-May-2026 16:33:04 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
 [21-May-2026 16:34:28 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
 [21-May-2026 16:34:28 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 10:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[22-May-2026 10:25:45 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 11:55:15 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'cnpj_emitente' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php:460
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php(460): mysqli_query(Object(mysqli), '\n\t\t\t\t\t\t\t\t\t\t\t\t\t ...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 460
+[22-May-2026 11:57:53 America/Sao_Paulo] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'certificado_digital' in 'field list' in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php:458
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php(458): mysqli_query(Object(mysqli), '\n\t\t\t\t\t\t\t\t\t\t\t\t\t ...')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 458
+[22-May-2026 12:45:39 America/Sao_Paulo] PHP Warning:  Undefined variable $cd_empresa in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 1250
+[22-May-2026 12:57:06 America/Sao_Paulo] PHP Warning:  Undefined variable $cd_empresa in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 399
+[22-May-2026 13:29:38 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[22-May-2026 13:29:38 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 13:36:56 America/Sao_Paulo] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 1364
+[22-May-2026 13:37:36 America/Sao_Paulo] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 1359
+[22-May-2026 13:39:07 America/Sao_Paulo] PHP Warning:  Undefined variable $senhaCertificadoBanco in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 1352
+[22-May-2026 13:39:07 America/Sao_Paulo] PHP Deprecated:  openssl_pkcs12_read(): Passing null to parameter #3 ($passphrase) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\cad_geral\unidade_operacional.php on line 1349

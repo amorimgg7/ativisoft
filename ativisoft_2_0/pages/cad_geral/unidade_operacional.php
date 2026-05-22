@@ -386,88 +386,285 @@
 													}
 
 
-													if(isset($_POST['gravaFiscal_Funcao'])){
+			
+date_default_timezone_set('America/Sao_Paulo');
 
-													    $cd_empresa = preg_replace('/[^0-9]/', '', $_SESSION['cd_empresa']);
-													
-													    /* DADOS */
-													    $cnpj_emitente       = mysqli_real_escape_string($conn, $_POST['cnpj_emitente']);
-													    $ie_emitente         = mysqli_real_escape_string($conn, $_POST['ie_emitente']);
-													    $crt                 = mysqli_real_escape_string($conn, $_POST['crt']);
-													    $tpAmb               = mysqli_real_escape_string($conn, $_POST['tpAmb']);
-													    $csc_nfce            = mysqli_real_escape_string($conn, $_POST['csc_nfce']);
-													    $id_csc_nfce         = mysqli_real_escape_string($conn, $_POST['id_csc_nfce']);
-													    $cnae_fiscal         = mysqli_real_escape_string($conn, $_POST['cnae_fiscal']);
-													    $inscricao_municipal = mysqli_real_escape_string($conn, $_POST['inscricao_municipal']);
-													    $senha_certificado   = mysqli_real_escape_string($conn, $_POST['senha_certificado']);
-													
-													    /* DIRETÓRIO */
-													    $dirCertificados = __DIR__ . '/../../fiscal/' . $cd_empresa . '/certificados/';
-													
-													    if(!is_dir($dirCertificados)){
-													        mkdir($dirCertificados, 0777, true);
-													    }
-													
-													    $caminhoBanco = '';
-													
-													    /* UPLOAD CERTIFICADO */
-													    if(isset($_FILES['certificado_digital']) && $_FILES['certificado_digital']['error'] == 0){
-													
-													        $ext = strtolower(pathinfo($_FILES['certificado_digital']['name'], PATHINFO_EXTENSION));
-													
-													        if($ext == 'pfx' || $ext == 'p12'){
-													
-													            $nomeArquivo = 'certificado_' . date('YmdHis') . '.' . $ext;
-													
-													            $destino = $dirCertificados . $nomeArquivo;
-													
-													            if(move_uploaded_file($_FILES['certificado_digital']['tmp_name'], $destino)){
-													
-													                $caminhoBanco = 'fiscal/' . $cd_empresa . '/certificados/' . $nomeArquivo;
-													
-													            }else{
-													
-													                echo "<script>window.alert('Erro ao enviar certificado!');</script>";
-													            }
-													
-													        }else{
-													
-													            echo "<script>window.alert('Arquivo inválido! Envie apenas .PFX ou .P12');</script>";
-													        }
-													    }
-													
-													    /* UPDATE */
-													    $query = "
-													        UPDATE tb_empresa SET
-													
-													            cnpj_emitente = '$cnpj_emitente',
-													            ie_emitente = '$ie_emitente',
-													            crt = '$crt',
-													            tpAmb = '$tpAmb',
-													            csc_nfce = '$csc_nfce',
-													            id_csc_nfce = '$id_csc_nfce',
-													            cnae_fiscal = '$cnae_fiscal',
-													            inscricao_municipal = '$inscricao_municipal',
-													            senha_certificado = '$senha_certificado'
-													    ";
-													
-													    if($caminhoBanco != ''){
-													        $query .= ", certificado_digital = '$caminhoBanco'";
-													    }
-													
-													    $query .= " WHERE cd_empresa = '$cd_empresa'";
-													
-													    if(mysqli_query($conn, $query)){
-													
-													        echo "<script>window.alert('Configurações fiscais atualizadas com sucesso!');</script>";
-													
-													    }else{
-													
-													        echo "<script>window.alert('Erro ao atualizar configurações fiscais!');</script>";
-													
-													        echo mysqli_error($conn);
-													    }
-													}
+$cd_empresa = preg_replace(
+    '/[^0-9]/',
+    '',
+    $_SESSION['cd_empresa']
+);
+
+$cnpjEmpresa = preg_replace(
+    '/[^0-9]/',
+    '',
+    $_SESSION['cnpj_empresa']
+);
+
+/*
+|--------------------------------------------------------------------------
+| DIRETÓRIO CERTIFICADOS
+|--------------------------------------------------------------------------
+*/
+$diretorioCertificado =
+    __DIR__ .
+    '/../../fiscal/' .
+    $cd_empresa .
+    '/certificados';
+
+if (!is_dir($diretorioCertificado)) {
+
+    mkdir($diretorioCertificado, 0755, true);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| NOME PADRÃO CERTIFICADO
+|--------------------------------------------------------------------------
+*/
+$nomeArquivoCertificado =
+    'certificado_pfx_' .
+    $cnpjEmpresa .
+    '.pfx';
+
+$arquivoCertificado =
+    $diretorioCertificado .
+    '/' .
+    $nomeArquivoCertificado;
+
+/*
+|--------------------------------------------------------------------------
+| EXCLUIR CERTIFICADO
+|--------------------------------------------------------------------------
+*/
+if (isset($_POST['excluir_certificado'])) {
+
+    if (file_exists($arquivoCertificado)) {
+
+        if (unlink($arquivoCertificado)) {
+
+            mysqli_query(
+                $conn,
+                "
+                UPDATE tb_empresa SET
+                    certificado_digital = '',
+                    senha_certificado = ''
+                WHERE cd_empresa = '$cd_empresa'
+                "
+            );
+
+            unset($_SESSION['senha_certificado']);
+
+            echo "
+            <script>
+                window.alert('Certificado removido com sucesso!');
+                window.location.href = window.location.href;
+            </script>
+            ";
+
+            exit;
+
+        } else {
+
+            echo "
+            <script>
+                window.alert('Não foi possível remover o certificado!');
+            </script>
+            ";
+
+        }
+
+    } else {
+
+        echo "
+        <script>
+            window.alert('Certificado não encontrado!');
+        </script>
+        ";
+
+    }
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| SALVAR CONFIGURAÇÕES
+|--------------------------------------------------------------------------
+*/
+if (isset($_POST['gravaFiscal_Funcao'])) {
+
+    /*
+    |--------------------------------------------------------------------------
+    | DADOS
+    |--------------------------------------------------------------------------
+    */
+    $iestadual_empresa = mysqli_real_escape_string(
+        $conn,
+        $_POST['iestadual_empresa']
+    );
+
+    $regime_fiscal = mysqli_real_escape_string(
+        $conn,
+        $_POST['regime_fiscal']
+    );
+
+    $ambiente_fiscal = mysqli_real_escape_string(
+        $conn,
+        $_POST['ambiente_fiscal']
+    );
+
+    $csc_nfce = mysqli_real_escape_string(
+        $conn,
+        $_POST['csc_nfce']
+    );
+
+    $id_csc_nfce = mysqli_real_escape_string(
+        $conn,
+        $_POST['id_csc_nfce']
+    );
+
+    $cnae_fiscal = mysqli_real_escape_string(
+        $conn,
+        $_POST['cnae_fiscal']
+    );
+
+    $imunicipal_empresa = mysqli_real_escape_string(
+        $conn,
+        $_POST['imunicipal_empresa']
+    );
+
+    $senha_certificado = mysqli_real_escape_string(
+        $conn,
+        $_POST['senha_certificado']
+    );
+
+    /*
+    |--------------------------------------------------------------------------
+    | CAMINHO BANCO
+    |--------------------------------------------------------------------------
+    */
+    $caminhoBanco =
+        'fiscal/' .
+        $cd_empresa .
+        '/certificados/' .
+        $nomeArquivoCertificado;
+
+    /*
+    |--------------------------------------------------------------------------
+    | UPLOAD CERTIFICADO
+    |--------------------------------------------------------------------------
+    */
+    if (
+        isset($_FILES['certificado_digital']) &&
+        $_FILES['certificado_digital']['error'] == 0
+    ) {
+
+        $ext = strtolower(
+            pathinfo(
+                $_FILES['certificado_digital']['name'],
+                PATHINFO_EXTENSION
+            )
+        );
+
+        if ($ext == 'pfx' || $ext == 'p12') {
+
+            /*
+            |--------------------------------------------------------------------------
+            | REMOVE CERTIFICADO ANTIGO
+            |--------------------------------------------------------------------------
+            */
+            if (file_exists($arquivoCertificado)) {
+
+                unlink($arquivoCertificado);
+
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | SALVA NOVO CERTIFICADO
+            |--------------------------------------------------------------------------
+            */
+            if (
+                move_uploaded_file(
+                    $_FILES['certificado_digital']['tmp_name'],
+                    $arquivoCertificado
+                )
+            ) {
+
+                echo "
+                <script>
+                    window.alert('Certificado enviado com sucesso!');
+                </script>
+                ";
+
+            } else {
+
+                echo "
+                <script>
+                    window.alert('Erro ao enviar certificado!');
+                </script>
+                ";
+
+            }
+
+        } else {
+
+            echo "
+            <script>
+                window.alert('Arquivo inválido! Envie apenas .PFX ou .P12');
+            </script>
+            ";
+
+        }
+
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | UPDATE
+    |--------------------------------------------------------------------------
+    */
+    $query = "
+        UPDATE tb_empresa SET
+
+            iestadual_empresa = '$iestadual_empresa',
+            regime_fiscal = '$regime_fiscal',
+            ambiente_fiscal = '$ambiente_fiscal',
+            csc_nfce = '$csc_nfce',
+            id_csc_nfce = '$id_csc_nfce',
+            cnae_fiscal = '$cnae_fiscal',
+            imunicipal_empresa = '$imunicipal_empresa',
+            senha_certificado = '$senha_certificado',
+            certificado_digital = '$caminhoBanco'
+
+        WHERE cd_empresa = '$cd_empresa'
+    ";
+
+    if (mysqli_query($conn, $query)) {
+
+        $_SESSION['senha_certificado'] =
+            $senha_certificado;
+
+        echo "
+        <script>
+            window.alert('Configurações fiscais atualizadas com sucesso!');
+        </script>
+        ";
+
+    } else {
+
+        echo "
+        <script>
+            window.alert('Erro ao atualizar configurações fiscais!');
+        </script>
+        ";
+
+        echo mysqli_error($conn);
+
+    }
+
+}
 
 
 													if($_SESSION['opcaoMenu'] == 1){
@@ -1142,141 +1339,449 @@
 														echo '-->';
 
 													}else if($_SESSION['opcaoMenu'] == 6){
-														echo ' <!--begin: Fiscal Information-->';
-														echo ' <div class="tab-pane fade show active">';
-														echo ' <div class="kt-portlet">';
 
-														echo ' <div class="kt-portlet__head">';
-														echo ' <div class="kt-portlet__head-label">';
-														echo ' <h3 class="kt-portlet__head-title">Configurações Fiscais</h3>';
-														echo ' </div>';
-														echo ' </div>';
 
-														echo ' <div class="kt-form kt-form--label-right">';
 
-														echo ' <form method="POST" enctype="multipart/form-data">';
 
-														echo ' <div class="kt-portlet__body">';
-														echo ' <div class="kt-section kt-section--first">';
-														echo ' <div class="kt-section__body">';
+													/*
+|---------------------------------------------------
+| BUSCAR SENHA DO CERTIFICADO
+|---------------------------------------------------
+*/
+$querySenha = "
+    SELECT senha_certificado
+    FROM tb_empresa
+    WHERE cd_empresa = '$cd_empresa'
+";
 
-														/* CERTIFICADO DIGITAL */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">Certificado Digital (.PFX)</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <input type="file" name="certificado_digital" id="certificado_digital" class="form-control" accept=".pfx,.p12" />';
-														echo ' <span class="form-text text-muted">Envie o certificado digital A1</span>';
-														echo ' </div>';
-														echo ' </div>';
+$resultSenha = mysqli_query($conn, $querySenha);
 
-														/* SENHA CERTIFICADO */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">Senha do Certificado</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <input type="password" name="senha_certificado" id="senha_certificado" class="form-control" />';
-														echo ' </div>';
-														echo ' </div>';
+$rowSenha = mysqli_fetch_assoc($resultSenha);
 
-														/* CNPJ */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">CNPJ</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <input type="text" name="cnpj_emitente" id="cnpj_emitente" class="form-control" />';
-														echo ' </div>';
-														echo ' </div>';
+$senhaCertificadoBanco =
+    trim($rowSenha['senha_certificado'] ?? '');
 
-														/* INSCRIÇÃO ESTADUAL */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">Inscrição Estadual</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <input type="text" name="ie_emitente" id="ie_emitente" class="form-control" />';
-														echo ' </div>';
-														echo ' </div>';
+$certificadoExiste = false;
 
-														/* REGIME TRIBUTÁRIO */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">Regime Tributário</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <select name="crt" id="crt" class="form-control">';
-														echo ' <option value="">Selecione</option>';
-														echo ' <option value="1">1 - Simples Nacional</option>';
-														echo ' <option value="2">2 - Simples Nacional - Excesso Sublimite</option>';
-														echo ' <option value="3">3 - Regime Normal</option>';
-														echo ' </select>';
-														echo ' </div>';
-														echo ' </div>';
+$validadeCertificado = '';
 
-														/* AMBIENTE */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">Ambiente SEFAZ</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <select name="tpAmb" id="tpAmb" class="form-control">';
-														echo ' <option value="2">Homologação</option>';
-														echo ' <option value="1">Produção</option>';
-														echo ' </select>';
-														echo ' </div>';
-														echo ' </div>';
+$diasRestantes = '';
 
-														/* CSC */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">CSC NFC-e</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <input type="text" name="csc_nfce" id="csc_nfce" class="form-control" />';
-														echo ' </div>';
-														echo ' </div>';
+$statusCertificado = '';
 
-														/* ID CSC */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">ID CSC</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <input type="text" name="id_csc_nfce" id="id_csc_nfce" class="form-control" />';
-														echo ' </div>';
-														echo ' </div>';
+$erroSSL = '';
 
-														/* CNAE */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">CNAE Fiscal</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <input type="text" name="cnae_fiscal" id="cnae_fiscal" class="form-control" />';
-														echo ' </div>';
-														echo ' </div>';
+if (file_exists($arquivoCertificado)) {
 
-														/* CRT */
-														echo ' <div class="form-group row">';
-														echo ' <label class="col-xl-3 col-lg-3 col-form-label">Inscrição Municipal</label>';
-														echo ' <div class="col-lg-9 col-xl-6">';
-														echo ' <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" />';
-														echo ' </div>';
-														echo ' </div>';
+    $certificadoExiste = true;
 
-														echo ' </div>';
-														echo ' </div>';
-														echo ' </div>';
+    $conteudoCertificado =
+        file_get_contents($arquivoCertificado);
 
-														/* FOOTER */
-														echo ' <div class="kt-portlet__foot">';
-														echo ' <div class="kt-form__actions">';
-														echo ' <div class="row">';
+   
 
-														echo ' <div class="col-lg-3 col-xl-3">';
-														echo ' </div>';
+    $certificados = [];
 
-														echo ' <div class="col-lg-9 col-xl-9">';
-														echo ' <input type="submit" value="Salvar Configurações" class="btn btn-success" id="gravaFiscal_Funcao" name="gravaFiscal_Funcao">';
-														echo ' &nbsp;';
-														echo ' <button type="reset" class="btn btn-secondary">Cancelar</button>';
-														echo ' </div>';
+    // 1. Tenta a leitura normal (vai falhar no OpenSSL 3.0 para certificados antigos)
+    $resultadoOpenSSL = @openssl_pkcs12_read(
+        $conteudoCertificado,
+        $certificados,
+        $senhaCertificadoBanco
+    );
 
-														echo ' </div>';
-														echo ' </div>';
-														echo ' </div>';
+    // 2. Se falhou, plano B: força a leitura "na marra" pelo terminal do servidor
+    if (!$resultadoOpenSSL) {
+        
+        // Verifica se a hospedagem permite rodar comandos de terminal
+        if (is_callable('shell_exec') && false === stripos(ini_get('disable_functions'), 'shell_exec')) {
+            
+            // Monta o comando forçando o modo -legacy para o OpenSSL 3.0+
+            $comando = 'openssl pkcs12 -in ' . escapeshellarg($arquivoCertificado) . ' -nokeys -legacy -passin pass:' . escapeshellarg($senhaCertificadoBanco) . ' 2>&1';
+            
+            $saidaTerminal = shell_exec($comando);
 
-														echo ' </form>';
+            // Se o terminal retornar o certificado, extraímos ele do texto
+            if ($saidaTerminal && strpos($saidaTerminal, 'BEGIN CERTIFICATE') !== false) {
+                preg_match('/-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/s', $saidaTerminal, $matches);
+                if (!empty($matches[0])) {
+                    $certificados['cert'] = $matches[0];
+                    $resultadoOpenSSL = true; // Força sucesso para o seu código continuar!
+                }
+            } else {
+                $erroSSL .= "A tentativa via terminal falhou. Retorno do servidor: " . htmlspecialchars($saidaTerminal) . "<br>";
+            }
+        } else {
+            $erroSSL .= "A função 'shell_exec' está desabilitada na sua hospedagem. É impossível contornar o OpenSSL 3.0 via código.<br>";
+        }
+    }
 
-														echo ' </div>';
-														echo ' </div>';
-														echo ' </div>';
+    // Se continuar dando erro, pegamos a mensagem oficial do OpenSSL
+    if (!$resultadoOpenSSL && empty($erroSSL)) {
+        while ($msg = openssl_error_string()) {
+            $erroSSL .= $msg . '<br>';
+        }
+    }
 
+}
+
+/*
+|--------------------------------------------------------------------------
+| FORMULÁRIO
+|--------------------------------------------------------------------------
+*/
+echo ' <!--begin: Fiscal Information-->';
+echo ' <div class="tab-pane fade show active">';
+echo ' <div class="kt-portlet">';
+
+echo ' <div class="kt-portlet__head">';
+echo ' <div class="kt-portlet__head-label">';
+echo ' <h3 class="kt-portlet__head-title">
+            Configurações Fiscais
+        </h3>';
+echo ' </div>';
+echo ' </div>';
+
+echo ' <div class="kt-form kt-form--label-right">';
+
+echo ' <form method="POST" enctype="multipart/form-data">';
+
+echo ' <div class="kt-portlet__body">';
+echo ' <div class="kt-section kt-section--first">';
+echo ' <div class="kt-section__body">';
+
+/*
+|--------------------------------------------------------------------------
+| CERTIFICADO DIGITAL
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="form-group row">';
+
+echo ' <label class="col-xl-3 col-lg-3 col-form-label">
+            Certificado Digital (.PFX)
+        </label>';
+
+echo ' <div class="col-lg-9 col-xl-6">';
+
+echo ' <input
+            type="file"
+            name="certificado_digital"
+            id="certificado_digital"
+            class="form-control"
+            accept=".pfx,.p12"
+        />';
+
+echo ' <span class="form-text text-muted">
+            Envie o certificado digital A1
+        </span>';
+
+/*
+|--------------------------------------------------------------------------
+| STATUS CERTIFICADO
+|--------------------------------------------------------------------------
+*/
+if ($certificadoExiste) {
+
+    echo '
+    <div
+        class="mt-3 p-3"
+        style="
+            background:#f7f7f7;
+            border-radius:5px;
+            border:1px solid #ddd;
+        "
+    >';
+
+    echo '<strong>Certificado instalado:</strong><br><br>';
+
+    echo '<strong>Arquivo:</strong> '
+        . htmlspecialchars($nomeArquivoCertificado)
+        . '<br>';
+
+    echo '<strong>Validade:</strong> '
+        . htmlspecialchars($validadeCertificado)
+        . '<br>';
+
+    echo '<strong>Dias restantes:</strong> '
+        . htmlspecialchars($diasRestantes)
+        . '<br>';
+
+    echo '<strong>Status:</strong> ' . $statusCertificado;
+if (!empty($erroSSL)) {
+    echo '<br><br><strong class="text-danger">Detalhe do Erro:</strong><br>' . $erroSSL;
+}
+
+
+    echo '<br><br>';
+
+    echo '
+    <button
+        type="submit"
+        name="excluir_certificado"
+        class="btn btn-danger btn-sm"
+        onclick="return confirm(\'Deseja realmente excluir o certificado?\')"
+    >
+        Excluir Certificado
+    </button>';
+
+    echo '</div>';
+
+} else {
+
+    echo '
+    <div class="mt-3 text-danger">
+        <strong>Nenhum certificado digital instalado.</strong>
+    </div>';
+
+}
+
+echo ' </div>';
+echo ' </div>';
+
+/*
+|--------------------------------------------------------------------------
+| SENHA CERTIFICADO
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="form-group row">';
+
+echo ' <label class="col-xl-3 col-lg-3 col-form-label">
+            Senha do Certificado
+        </label>';
+
+echo ' <div class="col-lg-9 col-xl-6">';
+
+echo ' <input
+            type="text"
+            name="senha_certificado"
+            id="senha_certificado"
+            class="form-control"
+            value="' .
+                htmlspecialchars(
+                    $_SESSION['senha_certificado'] ?? ''
+                ) .
+            '"
+        />';
+
+echo ' </div>';
+echo ' </div>';
+
+/*
+|--------------------------------------------------------------------------
+| INSCRIÇÃO ESTADUAL
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="form-group row">';
+
+echo ' <label class="col-xl-3 col-lg-3 col-form-label">
+            Inscrição Estadual
+        </label>';
+
+echo ' <div class="col-lg-9 col-xl-6">';
+
+echo ' <input
+            type="text"
+            name="iestadual_empresa"
+            id="iestadual_empresa"
+            class="form-control"
+        />';
+
+echo ' </div>';
+echo ' </div>';
+
+/*
+|--------------------------------------------------------------------------
+| REGIME TRIBUTÁRIO
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="form-group row">';
+
+echo ' <label class="col-xl-3 col-lg-3 col-form-label">
+            Regime Tributário
+        </label>';
+
+echo ' <div class="col-lg-9 col-xl-6">';
+
+echo ' <select
+            name="regime_fiscal"
+            id="regime_fiscal"
+            class="form-control"
+        >';
+
+echo ' <option value="">Selecione</option>';
+echo ' <option value="1">1 - Simples Nacional</option>';
+echo ' <option value="2">2 - Simples Nacional - Excesso Sublimite</option>';
+echo ' <option value="3">3 - Regime Normal</option>';
+
+echo ' </select>';
+
+echo ' </div>';
+echo ' </div>';
+
+/*
+|--------------------------------------------------------------------------
+| AMBIENTE
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="form-group row">';
+
+echo ' <label class="col-xl-3 col-lg-3 col-form-label">
+            Ambiente SEFAZ
+        </label>';
+
+echo ' <div class="col-lg-9 col-xl-6">';
+
+echo ' <select
+            name="ambiente_fiscal"
+            id="ambiente_fiscal"
+            class="form-control"
+        >';
+
+echo ' <option value="2">Homologação</option>';
+echo ' <option value="1">Produção</option>';
+
+echo ' </select>';
+
+echo ' </div>';
+echo ' </div>';
+
+/*
+|--------------------------------------------------------------------------
+| CSC
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="form-group row">';
+
+echo ' <label class="col-xl-3 col-lg-3 col-form-label">
+            CSC NFC-e
+        </label>';
+
+echo ' <div class="col-lg-9 col-xl-6">';
+
+echo ' <input
+            type="text"
+            name="csc_nfce"
+            id="csc_nfce"
+            class="form-control"
+        />';
+
+echo ' </div>';
+echo ' </div>';
+
+/*
+|--------------------------------------------------------------------------
+| ID CSC
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="form-group row">';
+
+echo ' <label class="col-xl-3 col-lg-3 col-form-label">
+            ID CSC
+        </label>';
+
+echo ' <div class="col-lg-9 col-xl-6">';
+
+echo ' <input
+            type="text"
+            name="id_csc_nfce"
+            id="id_csc_nfce"
+            class="form-control"
+        />';
+
+echo ' </div>';
+echo ' </div>';
+
+/*
+|--------------------------------------------------------------------------
+| CNAE
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="form-group row">';
+
+echo ' <label class="col-xl-3 col-lg-3 col-form-label">
+            CNAE Fiscal
+        </label>';
+
+echo ' <div class="col-lg-9 col-xl-6">';
+
+echo ' <input
+            type="text"
+            name="cnae_fiscal"
+            id="cnae_fiscal"
+            class="form-control"
+        />';
+
+echo ' </div>';
+echo ' </div>';
+
+/*
+|--------------------------------------------------------------------------
+| INSCRIÇÃO MUNICIPAL
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="form-group row">';
+
+echo ' <label class="col-xl-3 col-lg-3 col-form-label">
+            Inscrição Municipal
+        </label>';
+
+echo ' <div class="col-lg-9 col-xl-6">';
+
+echo ' <input
+            type="text"
+            name="imunicipal_empresa"
+            id="imunicipal_empresa"
+            class="form-control"
+        />';
+
+echo ' </div>';
+echo ' </div>';
+
+echo ' </div>';
+echo ' </div>';
+echo ' </div>';
+
+/*
+|--------------------------------------------------------------------------
+| FOOTER
+|--------------------------------------------------------------------------
+*/
+echo ' <div class="kt-portlet__foot">';
+echo ' <div class="kt-form__actions">';
+echo ' <div class="row">';
+
+echo ' <div class="col-lg-3 col-xl-3">';
+echo ' </div>';
+
+echo ' <div class="col-lg-9 col-xl-9">';
+
+echo ' <input
+            type="submit"
+            value="Salvar Configurações"
+            class="btn btn-success"
+            id="gravaFiscal_Funcao"
+            name="gravaFiscal_Funcao"
+        >';
+
+echo ' &nbsp;';
+
+echo ' <button
+            type="reset"
+            class="btn btn-secondary"
+        >
+            Cancelar
+        </button>';
+
+echo ' </div>';
+
+echo ' </div>';
+echo ' </div>';
+echo ' </div>';
+
+echo ' </form>';
+
+echo ' </div>';
+echo ' </div>';
+echo ' </div>';
 													}
 
 												?>
