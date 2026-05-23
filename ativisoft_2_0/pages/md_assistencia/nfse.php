@@ -84,12 +84,10 @@ try {
 
 // Remove caracteres perigosos
 $cd_empresa = preg_replace('/[^0-9]/', '', $_SESSION['cd_empresa']);
+$cnpj_empresa = preg_replace('/[^0-9]/', '', $_SESSION['cnpj_empresa']);
 
-// Caminho físico
-$baseDir =
-    __DIR__ .
-    '/../../fiscal/' .
-    $cd_empresa;
+// Caminho físico base
+$baseDir = __DIR__ . '/../../fiscal/' . $cd_empresa;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,15 +95,9 @@ $baseDir =
 |--------------------------------------------------------------------------
 */
 if (!is_dir($baseDir)) {
-
     if (!mkdir($baseDir, 0755, true)) {
-
-        throw new Exception(
-            'Não foi possível criar o diretório: ' . $baseDir
-        );
-
+        throw new Exception('Não foi possível criar o diretório: ' . $baseDir);
     }
-
 }
 
 /*
@@ -116,11 +108,7 @@ if (!is_dir($baseDir)) {
 $baseDir = realpath($baseDir);
 
 if ($baseDir === false) {
-
-    throw new Exception(
-        'Não foi possível localizar o diretório base.'
-    );
-
+    throw new Exception('Não foi possível localizar o diretório base.');
 }
 
 /*
@@ -132,31 +120,31 @@ echo '<pre>';
 echo 'Diretório base: ' . $baseDir;
 echo '</pre>';
 
-    /*
-    |--------------------------------------------------------------------------
-    | CAMINHO DO CERTIFICADO
-    |--------------------------------------------------------------------------
-    */
-    $caminhoCertificado = $baseDir
-        . DIRECTORY_SEPARATOR . 'fiscal'
-        . DIRECTORY_SEPARATOR . 'nfse'
-        . DIRECTORY_SEPARATOR . '../../certificados'
-        . DIRECTORY_SEPARATOR . 'certificado_g5.pfx';
+/*
+|--------------------------------------------------------------------------
+| CAMINHO DO CERTIFICADO
+|--------------------------------------------------------------------------
+*/
+// CORRIGIDO: Sintaxe da string e remoção do "fiscal/nfse/../../" que era redundante.
+// Isso apontará direto para "fiscal/{cd_empresa}/certificados/certificado_a1_{cnpj}.pfx"
+$caminhoCertificado = $baseDir 
+    . DIRECTORY_SEPARATOR . 'certificados' 
+    . DIRECTORY_SEPARATOR . 'certificado_a1_' . $cnpj_empresa . '.pfx';
 
-    /*
-    |--------------------------------------------------------------------------
-    | DIRETÓRIO DE LOGS
-    |--------------------------------------------------------------------------
-    */
-    $diretorioLogs = $baseDir
-        . DIRECTORY_SEPARATOR . 'fiscal'
-        . DIRECTORY_SEPARATOR . 'nfse'
-        . DIRECTORY_SEPARATOR . 'logs';
+/*
+|--------------------------------------------------------------------------
+| DIRETÓRIO DE LOGS
+|--------------------------------------------------------------------------
+*/
+$diretorioLogs = $baseDir 
+    . DIRECTORY_SEPARATOR . 'fiscal' 
+    . DIRECTORY_SEPARATOR . 'nfse' 
+    . DIRECTORY_SEPARATOR . 'logs';
 
-    // Alterado para 0755 (mais seguro que 0777)
-    if (!is_dir($diretorioLogs)) {
-        mkdir($diretorioLogs, 0755, true);
-    }
+// Alterado para 0755 (mais seguro que 0777)
+if (!is_dir($diretorioLogs)) {
+    mkdir($diretorioLogs, 0755, true);
+}
 
     /*
     |--------------------------------------------------------------------------

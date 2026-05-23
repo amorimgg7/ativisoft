@@ -424,7 +424,7 @@ if (!is_dir($diretorioCertificado)) {
 |--------------------------------------------------------------------------
 */
 $nomeArquivoCertificado =
-    'certificado_pfx_' .
+    'certificado_a1_' .
     $cnpjEmpresa .
     '.pfx';
 

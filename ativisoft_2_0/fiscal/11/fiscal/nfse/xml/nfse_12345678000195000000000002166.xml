@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSe versao="1.00">
+  <infNFSe>
+    <numero>2166</numero>
+    <codigoVerificacao>D87A650C</codigoVerificacao>
+    <chaveAcesso>12345678000195000000000002166</chaveAcesso>
+    <dataEmissao>2026-05-22 17:25:55</dataEmissao>
+    <protocolo>TESTE20260522172555</protocolo>
+    <prestador>
+      <CNPJ>12345678000195</CNPJ>
+    </prestador>
+    <tomador>
+      <CPF>11144477735</CPF>
+    </tomador>
+    <servico>
+      <descricao>teste</descricao>
+      <valorServicos>15.00</valorServicos>
+    </servico>
+    <mensagem>DPS processado com sucesso (SIMULAÇÃO).</mensagem>
+  </infNFSe>
+</NFSe>

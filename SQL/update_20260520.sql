@@ -1,4 +1,3 @@
-# SQL Completo MySQL 8.0+ — `tb_dados_nfse`
 
 
 CREATE TABLE tb_dados_nfse (
@@ -231,10 +230,11 @@ COLLATE=utf8mb4_unicode_ci;
 
 ALTER TABLE `tb_empresa` ADD `regime_fiscal` integer NULL AFTER `imunicipal_empresa`;
 ALTER TABLE `tb_empresa` ADD `ambiente_fiscal` integer NULL AFTER `imunicipal_empresa`;
-ALTER TABLE `tb_empresa` ADD `csc_nfce` integer NULL AFTER `imunicipal_empresa`;
-ALTER TABLE `tb_empresa` ADD `id_csc_nfce` integer NULL AFTER `imunicipal_empresa`;
-ALTER TABLE `tb_empresa` ADD `cnae_fiscal` integer NULL AFTER `imunicipal_empresa`;
-ALTER TABLE `tb_empresa` ADD `senha_certificado` integer NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `csc_nfce` varchar(99) NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `id_csc_nfce` varchar(99) NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `cnae_fiscal` varchar(99) NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `senha_certificado` varchar(99) NULL AFTER `imunicipal_empresa`;
+ALTER TABLE `tb_empresa` ADD `certificado_digital` varchar(99) NULL AFTER `imunicipal_empresa`;
 
 
 
