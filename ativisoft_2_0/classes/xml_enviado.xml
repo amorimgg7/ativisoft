@@ -2,14 +2,14 @@
 <DPS>
   <infDPS>
     <prestador>
-      <CNPJ>12345678000195</CNPJ>
+      <CNPJ>04509961000187</CNPJ>
     </prestador>
     <tomador>
-      <CPF>11144477735</CPF>
+      <CPF>05185255544</CPF>
     </tomador>
     <servico>
-      <descricao>teste</descricao>
-      <valor>15.00</valor>
+      <descricao>descricao</descricao>
+      <valor>10.00</valor>
     </servico>
   </infDPS>
 </DPS>

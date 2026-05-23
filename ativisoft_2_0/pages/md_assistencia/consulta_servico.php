@@ -239,8 +239,9 @@
                       $result_orcamento   = $u->listOrcamentoServico($_SESSION['cd_servico'], $_SESSION['cd_empresa'], false, false);
                       $result_financeiro  = $u->movimentoFinanceiro($_SESSION['dt_caixa'], $_SESSION['cd_empresa'], $_SESSION['cd_servico'], '');
                       $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
-                      $result_mensagem   = $u->mensagem1($_SESSION['tipo_mensagem'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
+                      $result_mensagem    = $u->mensagem1($_SESSION['tipo_mensagem'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
                       $result_atividade   = $u->fragAtividade($_SESSION['cd_servico']);
+                      $result_fiscal      = $u->fiscal1($_SESSION['ambiente_fiscal'], $_SESSION['regime_fiscal']);
 
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 
@@ -250,6 +251,8 @@
                       echo $result_orcamento['partial_orcamento'];
 
                       echo $result_financeiro['partial_financeiro'];
+
+                      echo $result_fiscal['partial_fiscal'];
 
                       echo $result_mensagem['partial_mensagem'];
 

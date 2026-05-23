@@ -1,10 +1,15 @@
-{
+Array
+(
+    [http_code] => 200
+    [url] => SIMULACAO_LOCAL
+    [content_type] => application/json
+    [resposta] => {
     "sucesso": true,
     "mensagem": "DPS processado com sucesso (SIMULAÇÃO).",
-    "protocolo": "TESTE20260522222604",
-    "numero_nfse": 8175,
-    "codigo_verificacao": "7F2B0A19",
-    "data_emissao": "2026-05-22 22:26:04",
+    "protocolo": "TESTE20260522222227",
+    "numero_nfse": 8447,
+    "codigo_verificacao": "997FFFA1",
+    "data_emissao": "2026-05-22 22:22:27",
     "prestador": {
         "cnpj": "04509961000187"
     },
@@ -16,3 +21,4 @@
         "valor": "10.00"
     }
 }
+)

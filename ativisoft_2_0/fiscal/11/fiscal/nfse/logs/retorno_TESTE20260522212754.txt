@@ -1,0 +1,24 @@
+Array
+(
+    [http_code] => 200
+    [url] => SIMULACAO_LOCAL
+    [content_type] => application/json
+    [resposta] => {
+    "sucesso": true,
+    "mensagem": "DPS processado com sucesso (SIMULAÇÃO).",
+    "protocolo": "TESTE20260522212754",
+    "numero_nfse": 4839,
+    "codigo_verificacao": "F64D53FA",
+    "data_emissao": "2026-05-22 21:27:54",
+    "prestador": {
+        "cnpj": "12345678000195"
+    },
+    "tomador": {
+        "cpf": "11144477735"
+    },
+    "servico": {
+        "descricao": "Teste de servico",
+        "valor": "15.00"
+    }
+}
+)

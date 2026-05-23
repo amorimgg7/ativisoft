@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSe versao="1.00">
+  <infNFSe>
+    <numero>8175</numero>
+    <codigoVerificacao>7F2B0A19</codigoVerificacao>
+    <chaveAcesso>04509961000187000000000008175</chaveAcesso>
+    <dataEmissao>2026-05-22 22:26:04</dataEmissao>
+    <protocolo>TESTE20260522222604</protocolo>
+    <prestador>
+      <CNPJ>04509961000187</CNPJ>
+    </prestador>
+    <tomador>
+      <CPF>05185255544</CPF>
+    </tomador>
+    <servico>
+      <descricao>descricao</descricao>
+      <valorServicos>10.00</valorServicos>
+    </servico>
+    <mensagem>DPS processado com sucesso (SIMULAÇÃO).</mensagem>
+  </infNFSe>
+</NFSe>

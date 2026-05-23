@@ -179,6 +179,10 @@ class Usuario
                 
                 $_SESSION['md_cameras']         = $tb_empresa['md_cameras'];
                 $_SESSION['md_cameras_param']   = $tb_empresa['md_cameras_param'];
+
+                $_SESSION['ambiente_fiscal']    =   $tb_empresa['ambiente_fiscal'];
+                $_SESSION['regime_fiscal']      =   $tb_empresa['regime_fiscal'];
+
             }
 
             $sql6 = $pdo->prepare("SELECT * FROM tb_empresa WHERE cd_empresa = '".$_SESSION['cd_empresa']."'");
@@ -6354,6 +6358,91 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
         }
 
     }
+
+
+    public function fiscal1($ambiente_fiscal, $regime_fiscal) 
+    {
+        global $conn;
+        $u = new Usuario();
+
+        $conn->autocommit(false); // Desliga o autocommit
+        $conn->begin_transaction(); // Inicia a transação manualmente
+
+        try {
+            if($regime_fiscal == '1'){//1simples, 2simples  excesso, 3normal
+                if($ambiente_fiscal == '1'){//1producao, 2homologação
+                    $partial_fiscal = '
+                        <h1>Ambiente</h1>
+                        <p>Produção.</p>
+                    ';
+                }else if($ambiente_fiscal == '2'){
+                    
+
+                
+                    $urlNFSE =
+                        'nfse.php?' .
+                        http_build_query([
+                            'emissor'   => $_SESSION['cnpj_empresa'],
+                            'cliente'   => '05185255544',
+                            'descricao' => 'descricao',
+                            'valor'     => '10'
+                        ]);
+
+                    $urlimprimir =
+                        'listar_nfse.php?' .
+                        http_build_query([
+                            'emissor'   => $_SESSION['cnpj_empresa'],
+                            'cliente'   => '05185255544',
+                            'descricao' => 'descricao',
+                            'valor'     => '10'
+                        ]);
+                    $partial_fiscal = '
+    <h1>Ambiente</h1>
+    <p>Homologação.</p>
+
+    <button 
+        type="button"
+        class="btn btn-block btn-lg btn-warning"
+        onclick="window.location.href=\'' . $urlNFSE . '\';"
+        style="margin-top: 20px; margin-bottom: 20px;"
+    >
+        Emitir NFSE
+    </button>
+
+    <button 
+        type="button"
+        class="btn btn-block btn-lg btn-warning"
+        onclick="window.location.href=\'' . $urlimprimir . '\';"
+        style="margin-top: 20px; margin-bottom: 20px;"
+    >
+        Listar NFSE
+    </button>
+';
+
+
+                }
+            }
+
+/*            $partial_fiscal .= '
+                        <h1>a</h1>
+                        <p>a.</p>
+                    ';*/
+
+            return [
+                        'status'                =>  'OK',
+                        'partial_fiscal'       =>  $partial_fiscal
+                    ];
+                 
+        } catch (Exception $e) {
+            $conn->rollback();
+            return [
+                'status'                => addslashes($e->getMessage()),
+                'partial_fiscal'     => 'ERRO'
+            ];
+        }
+
+    }
+
 
     public function cadUnidadeOperacional($cnpj_empresa, $tipo_empresa, $cd_colab, $rsocial_filial, $nfantasia_filial, $telefone_filial, $email_filial) 
     {
