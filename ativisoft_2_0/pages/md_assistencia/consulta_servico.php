@@ -54,7 +54,21 @@
   
   
 
+<script>
 
+function abrirPopupNFSE(url){
+
+    document.getElementById('iframeNFSE').src = url;
+
+    $('#modalNFSE').modal('show');
+}
+
+$('#modalNFSE').on('hidden.bs.modal', function () {
+
+    document.getElementById('iframeNFSE').src = '';
+});
+
+</script>
 
 </head>
 
@@ -241,7 +255,7 @@
                       $result_impressao   = $u->impressao1($_SESSION['tipo_impressao'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
                       $result_mensagem    = $u->mensagem1($_SESSION['tipo_mensagem'], 'SERVICO', $_SESSION['cd_empresa'], $_SESSION['cd_servico']);
                       $result_atividade   = $u->fragAtividade($_SESSION['cd_servico']);
-                      $result_fiscal      = $u->fiscal1($_SESSION['ambiente_fiscal'], $_SESSION['regime_fiscal']);
+                      $result_fiscal      = $u->fiscal1($_SESSION['ambiente_fiscal'], $_SESSION['regime_fiscal'], $_SESSION['cnpj_empresa'], $result_cliente['cpf_cliente'], $result_servico['cd_servico'], $result_servico['obs_servico'], $result_servico['orcamento_servico']);
 
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
 

@@ -144,7 +144,7 @@ class Fiscal
     =========================
     */
     
-    public function emitirNFSE($empresa, $filial, $cnpj, $cpf_cliente, $descricao, $valor)
+    public function emitirNFSE($empresa, $filial, $cnpj, $cpf_cliente, $os, $descricao, $valor)
 {
     global $conn;
 
@@ -199,6 +199,7 @@ class Fiscal
             cd_filial,
             prestador_cnpj,
             tomador_cpf,
+            cd_ordem_servico,
             descricao_servico,
             valor_servicos,
             numero_nfse,
@@ -209,7 +210,7 @@ class Fiscal
             sucesso,
             json_retorno
         ) VALUES (
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
         )
     ";
 
@@ -233,11 +234,12 @@ class Fiscal
     $sucesso            = 1;
 
     $stmt->bind_param(
-        "sssssssssssis",
+        "ssssssssssssis",
         $cd_empresa,
         $cd_filial,
         $prestador_cnpj,
         $tomador_cpf,
+        $os,
         $descricao,
         $valor_servico,
         $numero_nfse,
@@ -281,6 +283,186 @@ class Fiscal
         'resposta' => $json
     ];
 }
+
+    public function atualizarNFSE(
+        $cd_ordem_servico,
+        $dados = []
+    )
+    {
+        global $conn;
+    
+        /*
+        |--------------------------------------------------------------------------
+        | CAMPOS ACEITOS PARA UPDATE
+        |--------------------------------------------------------------------------
+        */
+        $camposPermitidos = [
+    
+            'status_nfse',
+            'situacao_lote',
+            'mensagem',
+            'codigo_erro',
+            'descricao_erro',
+            'protocolo',
+            'numero_lote',
+            'numero_rps',
+            'numero_dps',
+            'numero_recibo',
+    
+            'numero_nfse',
+            'codigo_verificacao',
+            'chave_acesso',
+    
+            'data_emissao',
+            'data_processamento',
+            'data_autorizacao',
+            'data_cancelamento',
+    
+            'valor_servicos',
+            'valor_iss',
+            'valor_liquido_nfse',
+            'valor_total',
+    
+            'url_consulta',
+            'url_pdf',
+            'url_xml',
+    
+            'caminho_xml',
+            'caminho_pdf',
+            'caminho_retorno',
+    
+            'xml_dps',
+            'xml_nfse',
+            'xml_cancelamento',
+    
+            'json_retorno',
+            'retorno_completo',
+    
+            'sucesso',
+            'cancelada',
+    
+            'motivo_cancelamento',
+            'codigo_cancelamento',
+            'protocolo_cancelamento',
+    
+            'hash_documento',
+            'token_transacao',
+            'gateway',
+    
+            'dt_atualizacao'
+        ];
+    
+        /*
+        |--------------------------------------------------------------------------
+        | MONTA UPDATE DINAMICAMENTE
+        |--------------------------------------------------------------------------
+        */
+        $updates = [];
+        $values = [];
+        $types = '';
+    
+        foreach ($dados as $campo => $valor) {
+    
+            if (in_array($campo, $camposPermitidos)) {
+    
+                $updates[] = "{$campo} = ?";
+    
+                $values[] = $valor;
+    
+                /*
+                |--------------------------------------------------------------------------
+                | DEFINE TIPO MYSQLI
+                |--------------------------------------------------------------------------
+                */
+                if (is_int($valor)) {
+                    $types .= 'i';
+                } elseif (is_float($valor) || is_double($valor)) {
+                    $types .= 'd';
+                } else {
+                    $types .= 's';
+                }
+            }
+        }
+    
+        /*
+        |--------------------------------------------------------------------------
+        | ADICIONA DATA DE ATUALIZAÇÃO
+        |--------------------------------------------------------------------------
+        */
+        $updates[] = "dt_atualizacao = NOW()";
+    
+        if (empty($updates)) {
+            return [
+                'sucesso' => false,
+                'mensagem' => 'Nenhum campo válido informado.'
+            ];
+        }
+    
+        /*
+        |--------------------------------------------------------------------------
+        | SQL
+        |--------------------------------------------------------------------------
+        */
+        $sql = "
+            UPDATE tb_dados_nfse
+            SET " . implode(', ', $updates) . "
+            WHERE cd_ordem_servico = ?
+            ORDER BY id_nfse DESC
+            LIMIT 1
+        ";
+    
+        $stmt = $conn->prepare($sql);
+    
+        if (!$stmt) {
+    
+            return [
+                'sucesso' => false,
+                'mensagem' => $conn->error
+            ];
+        }
+    
+        /*
+        |--------------------------------------------------------------------------
+        | ADICIONA O WHERE
+        |--------------------------------------------------------------------------
+        */
+        $types .= 'i';
+        $values[] = $cd_ordem_servico;
+    
+        /*
+        |--------------------------------------------------------------------------
+        | BIND DINÂMICO
+        |--------------------------------------------------------------------------
+        */
+        $stmt->bind_param($types, ...$values);
+    
+        /*
+        |--------------------------------------------------------------------------
+        | EXECUTA
+        |--------------------------------------------------------------------------
+        */
+        if (!$stmt->execute()) {
+    
+            file_put_contents(
+                __DIR__ . '/erro_update_nfse.txt',
+                date('Y-m-d H:i:s') . PHP_EOL .
+                $stmt->error . PHP_EOL . PHP_EOL,
+                FILE_APPEND
+            );
+    
+            return [
+                'sucesso' => false,
+                'mensagem' => $stmt->error
+            ];
+        }
+    
+        $stmt->close();
+    
+        return [
+            'sucesso' => true,
+            'mensagem' => 'NFS-e atualizada com sucesso.'
+        ];
+    }
 
     /*
     =========================

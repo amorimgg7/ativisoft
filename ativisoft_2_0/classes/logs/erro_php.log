@@ -666,3 +666,80 @@ Stack trace:
 [22-May-2026 22:13:57 America/Sao_Paulo] PHP Warning:  Undefined variable $valor_total in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6392
 [22-May-2026 22:25:55 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
 [22-May-2026 22:25:55 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 22:44:12 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[22-May-2026 22:44:12 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 22:44:28 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[22-May-2026 22:44:28 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 22:44:30 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 43
+[22-May-2026 22:44:30 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_estilo" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 137
+[22-May-2026 22:44:30 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 164
+[22-May-2026 22:44:30 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 188
+[22-May-2026 22:44:40 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 43
+[22-May-2026 22:44:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_estilo" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 137
+[22-May-2026 22:44:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 164
+[22-May-2026 22:44:40 America/Sao_Paulo] PHP Warning:  Undefined array key "cd_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 188
+[22-May-2026 22:44:47 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 43
+[22-May-2026 22:44:47 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[22-May-2026 22:44:47 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 22:46:17 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[22-May-2026 22:46:17 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 22:46:46 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[22-May-2026 22:46:46 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 22:53:21 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[22-May-2026 22:53:21 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[22-May-2026 22:57:30 America/Sao_Paulo] PHP Warning:  Undefined variable $urlimprimir in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6409
+[23-May-2026 10:22:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[23-May-2026 10:22:08 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[23-May-2026 10:23:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[23-May-2026 10:23:08 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[23-May-2026 10:23:11 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[23-May-2026 10:23:11 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[23-May-2026 10:40:59 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[23-May-2026 10:40:59 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[23-May-2026 10:43:24 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[23-May-2026 10:43:24 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[23-May-2026 11:28:11 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[23-May-2026 11:28:11 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[23-May-2026 18:53:03 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 43
+[23-May-2026 18:53:04 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[23-May-2026 18:53:04 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[23-May-2026 19:03:13 America/Sao_Paulo] PHP Warning:  Undefined variable $select_nfse in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6381
+[23-May-2026 19:03:13 America/Sao_Paulo] PHP Deprecated:  mysqli_query(): Passing null to parameter #2 ($query) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6381
+[23-May-2026 19:03:13 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:6381
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(6381): mysqli_query(Object(mysqli), '')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(244): Usuario->fiscal1(2, 1, '045099610001-87', '05185255544', '41', 'teste sequencia...', '66.00')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6381
+[23-May-2026 19:03:22 America/Sao_Paulo] PHP Warning:  Undefined variable $result_nfse in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6384
+[23-May-2026 19:03:22 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:6384
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(244): Usuario->fiscal1(2, 1, '045099610001-87', '05185255544', '41', 'teste sequencia...', '66.00')
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6384
+[23-May-2026 19:03:38 America/Sao_Paulo] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:6382
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(6382): mysqli_query(Object(mysqli), '')
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(244): Usuario->fiscal1(2, 1, '045099610001-87', '05185255544', '41', 'teste sequencia...', '66.00')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6382
+[23-May-2026 19:15:46 America/Sao_Paulo] PHP Warning:  Undefined variable $result_servico in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6382
+[23-May-2026 19:15:46 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, null given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:6382
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(6382): mysqli_fetch_assoc(NULL)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(244): Usuario->fiscal1(2, 1, '045099610001-87', '05185255544', '41', 'teste sequencia...', '66.00')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6382
+[23-May-2026 19:16:25 America/Sao_Paulo] PHP Warning:  Undefined variable $result_servico in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6382
+[23-May-2026 19:16:25 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, null given in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:6382
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php(6382): mysqli_fetch_assoc(NULL)
+#1 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_assistencia\consulta_servico.php(244): Usuario->fiscal1(2, 1, '045099610001-87', '05185255544', '41', 'teste sequencia...', '66.00')
+#2 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6382
+[23-May-2026 19:16:41 America/Sao_Paulo] PHP Deprecated:  urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6384
+[23-May-2026 19:16:41 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_fiscal in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6392
+[23-May-2026 19:18:34 America/Sao_Paulo] PHP Warning:  Undefined variable $partial_fiscal in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6392
+[23-May-2026 19:19:54 America/Sao_Paulo] PHP Deprecated:  urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6385
+[23-May-2026 19:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[23-May-2026 19:49:53 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451

@@ -1,173 +1,165 @@
-
 <?php
 session_start();
 
 date_default_timezone_set(date_default_timezone_get());
 
 require_once '../../classes/conn.php';
-    include("../../classes/functions.php");
-    include("../../classes/fiscal.php");
-    $u = new Usuario;
+include("../../classes/functions.php");
+include("../../classes/fiscal.php");
+
+$u = new Usuario;
 
 /*
 |--------------------------------------------------------------------------
-| CAPTURAR PARÂMETROS DA URL
-|--------------------------------------------------------------------------
-| Utilizando os recursos nativos do PHP (Superglobal $_GET)
-| Exemplo:
-| http://localhost/.../nfse.php?
-|   emissor=12345678000195&
-|   cliente=11144477735&
-|   descricao=Teste%20de%20servico&
-|   valor=15
+| CAPTURA PARÂMETROS
 |--------------------------------------------------------------------------
 */
-$emissor   = filter_input(INPUT_GET, 'emissor') ?? null;
-$cliente   = filter_input(INPUT_GET, 'cliente') ?? null;
-$descricao = filter_input(INPUT_GET, 'descricao') ?? null;
-$valor     = filter_input(INPUT_GET, 'valor') ?? null;
+$emissor    = filter_input(INPUT_GET, 'emissor') ?? null;
+$cliente    = filter_input(INPUT_GET, 'cliente') ?? null;
+$os         = filter_input(INPUT_GET, 'os') ?? null;
+$descricao  = filter_input(INPUT_GET, 'descricao') ?? null;
+$valor      = filter_input(INPUT_GET, 'valor') ?? null;
 
 /*
 |--------------------------------------------------------------------------
-| SE HOUVER PARÂMETROS NA URL, SALVAR NA SESSÃO
+| SALVA NA SESSÃO
 |--------------------------------------------------------------------------
 */
-if ($emissor !== null || $cliente !== null || $descricao !== null || $valor !== null) {
-    $_SESSION['cnpj']         = $emissor;
-    $_SESSION['cpf_cliente']  = $cliente;
-    $_SESSION['descricao']    = $descricao;
-    $_SESSION['valor']        = $valor;
+if (
+    $emissor !== null ||
+    $cliente !== null ||
+    $os !== null ||
+    $descricao !== null ||
+    $valor !== null
+) {
+
+    $_SESSION['cnpj']           = $emissor;
+    $_SESSION['cpf_cliente']    = $cliente;
+    $_SESSION['os']             = $os;
+    $_SESSION['descricao']      = $descricao;
+    $_SESSION['valor']          = $valor;
 }
 
 /*
 |--------------------------------------------------------------------------
-| VALIDAR DADOS OBRIGATÓRIOS
+| VALIDA CAMPOS
 |--------------------------------------------------------------------------
 */
 if (
     empty($_SESSION['cnpj']) ||
     empty($_SESSION['cpf_cliente']) ||
+    empty($_SESSION['os']) ||
     empty($_SESSION['descricao']) ||
     empty($_SESSION['valor'])
 ) {
+
     die(
-        '<h2>Parâmetros obrigatórios não informados.</h2>' .
-        '<p>Exemplo de uso:</p>' .
-        '<pre>' .
-        htmlspecialchars(
-            'http://localhost/ativisoft_1_0/ativisoft_2_0/pages/md_assistencia/nfse.php?' .
-            'emissor=12345678000195&' .
-            'cliente=11144477735&' .
-            'descricao=Teste de servico&' .
-            'valor=15'
-        ) .
-        '</pre>'
+        '<h2>Parâmetros obrigatórios não informados.</h2>'
     );
 }
 
-
-
 try {
+
     /*
     |--------------------------------------------------------------------------
-    | DEFINIÇÃO DOS CAMINHOS
+    | DADOS DA EMPRESA
     |--------------------------------------------------------------------------
     */
+    $cd_empresa    = preg_replace('/[^0-9]/', '', $_SESSION['cd_empresa']);
+    $cd_filial     = preg_replace('/[^0-9]/', '', $_SESSION['cd_filial']);
+    $cnpj_empresa  = preg_replace('/[^0-9]/', '', $_SESSION['cnpj_empresa']);
+
     /*
-|--------------------------------------------------------------------------
-| DIRETÓRIO BASE DA EMPRESA
-|--------------------------------------------------------------------------
-| Exemplo final:
-| /ativisoft_2_0/empresas/1/
-|--------------------------------------------------------------------------
-*/
+    |--------------------------------------------------------------------------
+    | CAMINHOS
+    |--------------------------------------------------------------------------
+    */
+    $baseDir = __DIR__ . '/../../fiscal/' . $cd_empresa;
 
-// Remove caracteres perigosos
-$cd_empresa = preg_replace('/[^0-9]/', '', $_SESSION['cd_empresa']);
-$cnpj_empresa = preg_replace('/[^0-9]/', '', $_SESSION['cnpj_empresa']);
+    if (!is_dir($baseDir)) {
 
-// Caminho físico base
-$baseDir = __DIR__ . '/../../fiscal/' . $cd_empresa;
+        if (!mkdir($baseDir, 0755, true)) {
 
-/*
-|--------------------------------------------------------------------------
-| CRIA A PASTA SE NÃO EXISTIR
-|--------------------------------------------------------------------------
-*/
-if (!is_dir($baseDir)) {
-    if (!mkdir($baseDir, 0755, true)) {
-        throw new Exception('Não foi possível criar o diretório: ' . $baseDir);
+            throw new Exception(
+                'Não foi possível criar diretório base.'
+            );
+        }
     }
-}
 
-/*
-|--------------------------------------------------------------------------
-| OBTÉM CAMINHO REAL
-|--------------------------------------------------------------------------
-*/
-$baseDir = realpath($baseDir);
+    $baseDir = realpath($baseDir);
 
-if ($baseDir === false) {
-    throw new Exception('Não foi possível localizar o diretório base.');
-}
+    if ($baseDir === false) {
 
-/*
-|--------------------------------------------------------------------------
-| DEBUG
-|--------------------------------------------------------------------------
-*/
-echo '<pre>';
-echo 'Diretório base: ' . $baseDir;
-echo '</pre>';
-
-/*
-|--------------------------------------------------------------------------
-| CAMINHO DO CERTIFICADO
-|--------------------------------------------------------------------------
-*/
-// CORRIGIDO: Sintaxe da string e remoção do "fiscal/nfse/../../" que era redundante.
-// Isso apontará direto para "fiscal/{cd_empresa}/certificados/certificado_a1_{cnpj}.pfx"
-$caminhoCertificado = $baseDir 
-    . DIRECTORY_SEPARATOR . 'certificados' 
-    . DIRECTORY_SEPARATOR . 'certificado_a1_' . $cnpj_empresa . '.pfx';
-
-/*
-|--------------------------------------------------------------------------
-| DIRETÓRIO DE LOGS
-|--------------------------------------------------------------------------
-*/
-$diretorioLogs = $baseDir 
-    . DIRECTORY_SEPARATOR . 'fiscal' 
-    . DIRECTORY_SEPARATOR . 'nfse' 
-    . DIRECTORY_SEPARATOR . 'logs';
-
-// Alterado para 0755 (mais seguro que 0777)
-if (!is_dir($diretorioLogs)) {
-    mkdir($diretorioLogs, 0755, true);
-}
-
-    /*
-    |--------------------------------------------------------------------------
-    | SENHA DO CERTIFICADO
-    |--------------------------------------------------------------------------
-    | Recomendação: Mover para um arquivo .env no futuro
-    */
-    $senhaCertificado = '03032020';
-
-    /*
-    |--------------------------------------------------------------------------
-    | VALIDAR EXISTÊNCIA DO CERTIFICADO
-    |--------------------------------------------------------------------------
-    */
-    if (!file_exists($caminhoCertificado)) {
         throw new Exception(
-            "Certificado não encontrado:\n" . $caminhoCertificado
+            'Diretório base inválido.'
         );
     }
 
     /*
     |--------------------------------------------------------------------------
-    | INSTANCIAR CLASSE FISCAL
+    | CERTIFICADO
+    |--------------------------------------------------------------------------
+    */
+    $caminhoCertificado =
+        $baseDir .
+        DIRECTORY_SEPARATOR .
+        'certificados' .
+        DIRECTORY_SEPARATOR .
+        'certificado_a1_' .
+        $cnpj_empresa .
+        '.pfx';
+
+    $senhaCertificado = '03032020';
+
+    if (!file_exists($caminhoCertificado)) {
+
+        throw new Exception(
+            'Certificado não encontrado: ' .
+            $caminhoCertificado
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | LOGS
+    |--------------------------------------------------------------------------
+    */
+    $diretorioLogs =
+        $baseDir .
+        DIRECTORY_SEPARATOR .
+        'fiscal' .
+        DIRECTORY_SEPARATOR .
+        'nfse' .
+        DIRECTORY_SEPARATOR .
+        'logs';
+
+    if (!is_dir($diretorioLogs)) {
+
+        mkdir($diretorioLogs, 0755, true);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | XML
+    |--------------------------------------------------------------------------
+    */
+    $diretorioXml =
+        $baseDir .
+        DIRECTORY_SEPARATOR .
+        'fiscal' .
+        DIRECTORY_SEPARATOR .
+        'nfse' .
+        DIRECTORY_SEPARATOR .
+        'xml';
+
+    if (!is_dir($diretorioXml)) {
+
+        mkdir($diretorioXml, 0755, true);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | INSTANCIA FISCAL
     |--------------------------------------------------------------------------
     */
     $nfse = new Fiscal(
@@ -177,32 +169,34 @@ if (!is_dir($diretorioLogs)) {
 
     /*
     |--------------------------------------------------------------------------
-    | RECUPERAR DADOS DA SESSÃO
+    | DADOS
     |--------------------------------------------------------------------------
     */
-    $cd_empresa     =   $_SESSION['cd_empresa'];
-    $cd_filial      =   $_SESSION['cd_filial'];
-    $cnpj           =   $_SESSION['cnpj'];
-    $cpf_cliente    =   $_SESSION['cpf_cliente'];
-    $descricao      =   $_SESSION['descricao'];
-    $valor          =   $_SESSION['valor'];
+    $cnpj           = $_SESSION['cnpj'];
+    $cpf_cliente    = $_SESSION['cpf_cliente'];
+    $descricao      = $_SESSION['descricao'];
+    $valor          = $_SESSION['valor'];
 
     /*
     |--------------------------------------------------------------------------
-    | EXIBIR DADOS RECEBIDOS
+    | DEBUG
     |--------------------------------------------------------------------------
     */
     echo '<h2>Dados Recebidos</h2>';
+
     echo '<pre>';
-    echo 'CNPJ Emissor: ' . htmlspecialchars($cnpj) . PHP_EOL;
-    echo 'CPF Cliente: ' . htmlspecialchars($cpf_cliente) . PHP_EOL;
-    echo 'Descrição: ' . htmlspecialchars($descricao) . PHP_EOL;
-    echo 'Valor: ' . htmlspecialchars($valor) . PHP_EOL;
+    echo 'Empresa: ' . $cd_empresa . PHP_EOL;
+    echo 'Filial: ' . $cd_filial . PHP_EOL;
+    echo 'OS: ' . $os . PHP_EOL;
+    echo 'CNPJ: ' . $cnpj . PHP_EOL;
+    echo 'CPF Cliente: ' . $cpf_cliente . PHP_EOL;
+    echo 'Descrição: ' . $descricao . PHP_EOL;
+    echo 'Valor: ' . $valor . PHP_EOL;
     echo '</pre>';
 
     /*
     |--------------------------------------------------------------------------
-    | EMITIR NFS-e
+    | EMISSÃO
     |--------------------------------------------------------------------------
     */
     $resposta = $nfse->emitirNFSE(
@@ -210,297 +204,466 @@ if (!is_dir($diretorioLogs)) {
         $cd_filial,
         $cnpj,
         $cpf_cliente,
+        $os,
         $descricao,
         $valor
     );
 
     /*
     |--------------------------------------------------------------------------
-    | EXIBIR RESULTADO
+    | EXIBE RESPOSTA
     |--------------------------------------------------------------------------
     */
-    echo '<h2>Resultado da Emissão</h2>';
+    echo '<h2>Retorno</h2>';
+
     echo '<pre>';
     print_r($resposta);
     echo '</pre>';
 
     /*
     |--------------------------------------------------------------------------
-    | OBTER PROTOCOLO PARA O NOME DO ARQUIVO
+    | JSON
     |--------------------------------------------------------------------------
     */
-    $protocolo = 'SEM_PROTOCOLO';
+    $jsonResposta = [];
 
-    // Caso o protocolo esteja diretamente no array
-    if (is_array($resposta) && !empty($resposta['protocolo'])) {
-        $protocolo = $resposta['protocolo'];
+    if (
+        is_array($resposta) &&
+        !empty($resposta['resposta'])
+    ) {
+
+        $jsonResposta = json_decode(
+            $resposta['resposta'],
+            true
+        );
     }
-    // Caso o protocolo esteja dentro do JSON em $resposta['resposta']
-    elseif (is_array($resposta) && !empty($resposta['resposta'])) {
-        $json = json_decode($resposta['resposta'], true);
-
-        if (
-            json_last_error() === JSON_ERROR_NONE &&
-            is_array($json) &&
-            !empty($json['protocolo'])
-        ) {
-            $protocolo = $json['protocolo'];
-        }
-    }
-
-    // Remove caracteres inválidos para nome de arquivo
-    $protocolo = preg_replace('/[^A-Za-z0-9_-]/', '_', $protocolo);
 
     /*
     |--------------------------------------------------------------------------
-    | SALVAR RETORNO
+    | PROTOCOLO
     |--------------------------------------------------------------------------
     */
-    $arquivoRetorno = $diretorioLogs
-        . DIRECTORY_SEPARATOR
-        . 'retorno_'
-        . $protocolo
-        . '.txt';
+    $protocolo =
+        $jsonResposta['protocolo']
+        ?? 'SEM_PROTOCOLO';
+
+    $protocolo = preg_replace(
+        '/[^A-Za-z0-9_-]/',
+        '_',
+        $protocolo
+    );
+
+    /*
+    |--------------------------------------------------------------------------
+    | SALVA RETORNO
+    |--------------------------------------------------------------------------
+    */
+    $arquivoRetorno =
+        $diretorioLogs .
+        DIRECTORY_SEPARATOR .
+        'retorno_' .
+        $protocolo .
+        '.txt';
 
     file_put_contents(
         $arquivoRetorno,
         print_r($resposta, true)
     );
 
-    echo '<p>Arquivo salvo em: '
-        . htmlspecialchars($arquivoRetorno)
-        . '</p>';
+    /*
+    |--------------------------------------------------------------------------
+    | GERA XML
+    |--------------------------------------------------------------------------
+    */
+    $dom = new DOMDocument('1.0', 'UTF-8');
+    $dom->formatOutput = true;
 
+    $nfseXml = $dom->createElement('NFSe');
+    $dom->appendChild($nfseXml);
+
+    $inf = $dom->createElement('infNFSe');
+    $nfseXml->appendChild($inf);
 
     /*
     |--------------------------------------------------------------------------
-    | EXTRAIR OU GERAR XML DA NFS-e
+    | DADOS DA NFS-e
     |--------------------------------------------------------------------------
     */
-    $xmlNFSe = null;
+    $numeroNFSe =
+        $jsonResposta['numero_nfse']
+        ?? rand(1000, 9999);
 
-    // 1) Tentar localizar XML diretamente na string
-    if (is_string($resposta) && strpos(trim($resposta), '<') === 0) {
-        $xmlNFSe = $resposta;
-    }
+    $codigoVerificacao =
+        $jsonResposta['codigo_verificacao']
+        ?? strtoupper(substr(md5(uniqid()), 0, 8));
 
-    // Tentar localizar em chaves do array
-    if ($xmlNFSe === null && is_array($resposta)) {
-        $possiveisChaves = [
-            'xml_nfse',
-            'xml',
-            'nfse_xml',
-            'conteudoXml',
-            'xmlAutorizado',
-            'xmlNfse'
-        ];
+    $dataEmissao =
+        $jsonResposta['data_emissao']
+        ?? date('Y-m-d H:i:s');
 
-        foreach ($possiveisChaves as $chave) {
-            if (!empty($resposta[$chave])) {
-                $valorChave = $resposta[$chave];
-
-                if (is_string($valorChave) && strpos(trim($valorChave), '<') === 0) {
-                    $xmlNFSe = $valorChave;
-                    break;
-                }
-            }
-        }
-    }
-
-    // 2) Se não houver XML, gerar XML a partir do JSON de simulação
-    if ($xmlNFSe === null && is_array($resposta) && isset($resposta['resposta'])) {
-        $json = json_decode($resposta['resposta'], true);
-
-        if (json_last_error() === JSON_ERROR_NONE && is_array($json)) {
-            $dom = new DOMDocument('1.0', 'UTF-8');
-            $dom->formatOutput = true;
-
-            $nfseDom = $dom->createElement('NFSe');
-            $nfseDom->setAttribute('versao', '1.00');
-            $dom->appendChild($nfseDom);
-
-            $inf = $dom->createElement('infNFSe');
-            $nfseDom->appendChild($inf);
-
-            // Número da NFS-e
-            $inf->appendChild($dom->createElement('numero', $json['numero_nfse'] ?? '0'));
-
-            // Código de verificação
-            $inf->appendChild($dom->createElement('codigoVerificacao', $json['codigo_verificacao'] ?? ''));
-
-            // Chave de acesso simulada
-            $chaveAcessoStr = ($json['prestador']['cnpj'] ?? '') . str_pad((string)($json['numero_nfse'] ?? '0'), 15, '0', STR_PAD_LEFT);
-            $inf->appendChild($dom->createElement('chaveAcesso', $chaveAcessoStr));
-
-            // Data de emissão
-            $inf->appendChild($dom->createElement('dataEmissao', $json['data_emissao'] ?? date('Y-m-d H:i:s')));
-
-            // Protocolo
-            $inf->appendChild($dom->createElement('protocolo', $json['protocolo'] ?? ''));
-
-            // Prestador
-            $prestador = $dom->createElement('prestador');
-            $prestador->appendChild($dom->createElement('CNPJ', $json['prestador']['cnpj'] ?? $cnpj));
-            $inf->appendChild($prestador);
-
-            // Tomador
-            $tomador = $dom->createElement('tomador');
-            $tomador->appendChild($dom->createElement('CPF', $json['tomador']['cpf'] ?? $cpf_cliente));
-            $inf->appendChild($tomador);
-
-            // Serviço
-            $servico = $dom->createElement('servico');
-            $servico->appendChild($dom->createElement('descricao', $json['servico']['descricao'] ?? $descricao));
-            $servico->appendChild($dom->createElement(
-                'valorServicos',
-                number_format((float)($json['servico']['valor'] ?? $valor), 2, '.', '')
-            ));
-            $inf->appendChild($servico);
-
-            // Mensagem
-            $inf->appendChild($dom->createElement('mensagem', $json['mensagem'] ?? 'NFS-e emitida com sucesso.'));
-
-            $xmlNFSe = $dom->saveXML();
-        }
-    }
-
-    // 3) Se ainda não existir XML, gerar erro
-    if ($xmlNFSe === null) {
-        throw new Exception(
-            'Não foi possível obter ou gerar o XML da NFS-e. ' .
-            'Verifique o conteúdo de retorno_' . $protocolo . '.txt.'
+    /*
+    |--------------------------------------------------------------------------
+    | CHAVE ACESSO
+    |--------------------------------------------------------------------------
+    */
+    $chaveAcesso =
+        preg_replace('/\D/', '', $cnpj) .
+        str_pad(
+            $numeroNFSe,
+            15,
+            '0',
+            STR_PAD_LEFT
         );
-    }
 
     /*
     |--------------------------------------------------------------------------
-    | EXTRAIR DADOS DO XML PARA EXIBIÇÃO E NOMEAÇÃO DO ARQUIVO
+    | XML
     |--------------------------------------------------------------------------
     */
-    libxml_use_internal_errors(true);
-    $xmlData = simplexml_load_string($xmlNFSe);
+    $inf->appendChild(
+        $dom->createElement(
+            'numero',
+            $numeroNFSe
+        )
+    );
 
-    $numeroNFSe = 'NÃO IDENTIFICADO';
-    $chaveAcesso = ''; // Inicializado vazio para fallback
-    $dataEmissao = date('d/m/Y H:i:s');
+    $inf->appendChild(
+        $dom->createElement(
+            'codigoVerificacao',
+            $codigoVerificacao
+        )
+    );
 
-    if ($xmlData !== false) {
-        $buscarTag = function ($tag) use ($xmlData) {
-            $resultado = $xmlData->xpath("//*[local-name()='{$tag}']");
-            if (!empty($resultado)) {
-                return (string)$resultado[0];
-            }
-            return null;
-        };
+    $inf->appendChild(
+        $dom->createElement(
+            'chaveAcesso',
+            $chaveAcesso
+        )
+    );
 
-        $numeroNFSe = $buscarTag('nNFSe') ?: $buscarTag('numero') ?: 'NÃO IDENTIFICADO';
-        $chaveAcesso = $buscarTag('chNFSe') ?: $buscarTag('chaveAcesso') ?: '';
-        $dataEmissao = $buscarTag('dhEmi') ?: $buscarTag('dataEmissao') ?: $dataEmissao;
-    }
+    $inf->appendChild(
+        $dom->createElement(
+            'protocolo',
+            $protocolo
+        )
+    );
+
+    $inf->appendChild(
+        $dom->createElement(
+            'dataEmissao',
+            $dataEmissao
+        )
+    );
 
     /*
     |--------------------------------------------------------------------------
-    | CRIAR DIRETÓRIO DE XML
+    | PRESTADOR
     |--------------------------------------------------------------------------
     */
-    $diretorioXml = $baseDir
-        . DIRECTORY_SEPARATOR . 'fiscal'
-        . DIRECTORY_SEPARATOR . 'nfse'
-        . DIRECTORY_SEPARATOR . 'xml';
+    $prestador = $dom->createElement('prestador');
 
-    // Alterado para 0755
-    if (!is_dir($diretorioXml)) {
-        mkdir($diretorioXml, 0755, true);
-    }
+    $prestador->appendChild(
+        $dom->createElement(
+            'cnpj',
+            preg_replace('/\D/', '', $cnpj)
+        )
+    );
+
+    $inf->appendChild($prestador);
 
     /*
     |--------------------------------------------------------------------------
-    | SALVAR XML AUTORIZADO COM A CHAVE DE ACESSO
+    | TOMADOR
     |--------------------------------------------------------------------------
     */
-    // Extrai apenas números da chave (por segurança)
-    $nomeArquivoFinal = preg_replace('/[^0-9]/', '', $chaveAcesso);
-    
-    // Fallback: se não tiver chave, salva com data/hora para não gerar erro
-    if (empty($nomeArquivoFinal)) {
-        $nomeArquivoFinal = 'nfse_sem_chave_' . date('YmdHis');
-    }
+    $tomador = $dom->createElement('tomador');
 
-    $arquivoXml = $diretorioXml . DIRECTORY_SEPARATOR . 'nfse_'.$nomeArquivoFinal . '.xml';
-    file_put_contents($arquivoXml, $xmlNFSe);
+    $tomador->appendChild(
+        $dom->createElement(
+            'cpf',
+            preg_replace('/\D/', '', $cpf_cliente)
+        )
+    );
 
-    echo '<p>XML da Nota salvo em: ' . htmlspecialchars($arquivoXml) . '</p>';
+    $inf->appendChild($tomador);
 
     /*
     |--------------------------------------------------------------------------
-    | TESTE DE CONECTIVIDADE
+    | SERVIÇO
+    |--------------------------------------------------------------------------
+    */
+    $servico = $dom->createElement('servico');
+
+    $servico->appendChild(
+        $dom->createElement(
+            'descricao',
+            $descricao
+        )
+    );
+
+    $servico->appendChild(
+        $dom->createElement(
+            'valorServicos',
+            number_format(
+                (float)$valor,
+                2,
+                '.',
+                ''
+            )
+        )
+    );
+
+    $inf->appendChild($servico);
+
+    /*
+    |--------------------------------------------------------------------------
+    | XML FINAL
+    |--------------------------------------------------------------------------
+    */
+    $xmlNFSe = $dom->saveXML();
+
+    /*
+    |--------------------------------------------------------------------------
+    | ARQUIVO XML
+    |--------------------------------------------------------------------------
+    */
+    $nomeArquivo =
+        'nfse_' .
+        $chaveAcesso .
+        '.xml';
+
+    $arquivoXml =
+        $diretorioXml .
+        DIRECTORY_SEPARATOR .
+        $nomeArquivo;
+
+    file_put_contents(
+        $arquivoXml,
+        $xmlNFSe
+    );
+
+    /*
+    |--------------------------------------------------------------------------
+    | UPDATE NO BANCO
+    |--------------------------------------------------------------------------
+    */
+    $nfse->atualizarNFSE($os, [
+
+        'status_nfse'        => 'AUTORIZADA',
+
+        'sucesso'            => 1,
+
+        'numero_nfse'        => $numeroNFSe,
+
+        'codigo_verificacao' => $codigoVerificacao,
+
+        'chave_acesso'       => $chaveAcesso,
+
+        'protocolo'          => $protocolo,
+
+        'data_autorizacao'   => date('Y-m-d H:i:s'),
+
+        'data_processamento' => date('Y-m-d H:i:s'),
+
+        'data_emissao'       => $dataEmissao,
+
+        'xml_nfse'           => $xmlNFSe,
+
+        'json_retorno'       => json_encode(
+            $resposta,
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        ),
+
+        'retorno_completo'   => print_r($resposta, true),
+
+        'caminho_xml'        => $arquivoXml,
+
+        'caminho_retorno'    => $arquivoRetorno,
+
+        'valor_servicos'     => number_format(
+            (float)$valor,
+            2,
+            '.',
+            ''
+        ),
+
+        'valor_total'        => number_format(
+            (float)$valor,
+            2,
+            '.',
+            ''
+        )
+
+    ]);
+
+    /*
+    |--------------------------------------------------------------------------
+    | EXIBE SUCESSO
     |--------------------------------------------------------------------------
     */
     echo '<hr>';
-    echo '<h2>Teste de Conectividade com ADN NFS-e</h2>';
 
-    $ch = curl_init('https://adn.nfse.gov.br/');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_FAILONERROR, false);
-    
-    // Nota: Para autenticar via cURL com o SEFAZ/ADN, geralmente é necessário
-    // um certificado em formato PEM. O Fiscal.php provavelmente faz isso.
-    // curl_setopt($ch, CURLOPT_SSLCERT, $caminhoCertificadoEmPem);
-    // curl_setopt($ch, CURLOPT_SSLCERTPASSWD, $senhaCertificado);
+    echo '<h2>NFS-e Emitida com Sucesso</h2>';
 
-    $html = curl_exec($ch);
-
-    if ($html === false) {
-        echo '<pre>Erro cURL: ' . curl_error($ch) . '</pre>';
-    } else {
-        $httpCode    = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $urlFinal    = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
-        $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
-
-        echo '<pre>';
-        echo "HTTP Code: " . $httpCode . PHP_EOL;
-        echo "URL Final: " . $urlFinal . PHP_EOL;
-        echo "Content-Type: " . $contentType . PHP_EOL;
-        echo '</pre>';
-
-        if ($httpCode == 496) {
-            echo '<p><strong>Aviso: O servidor exige certificado digital do cliente (HTTP 496). Isso é normal se o cURL de teste não estiver enviando o certificado.</strong></p>';
-        }
-    }
-
-    curl_close($ch);
-
-    /*
-    |--------------------------------------------------------------------------
-    | EXIBIR CAMINHOS
-    |--------------------------------------------------------------------------
-    */
-    echo '<hr>';
-    echo '<h2>Validação dos Caminhos</h2>';
     echo '<pre>';
-    echo "Base do projeto: " . $baseDir . PHP_EOL;
-    echo "Certificado: " . $caminhoCertificado . PHP_EOL;
-    echo "Logs: " . $diretorioLogs . PHP_EOL;
+
+    echo 'Número NFS-e: ' . $numeroNFSe . PHP_EOL;
+    echo 'Chave de Acesso: ' . $chaveAcesso . PHP_EOL;
+    echo 'Código Verificação: ' . $codigoVerificacao . PHP_EOL;
+    echo 'Protocolo: ' . $protocolo . PHP_EOL;
+    echo 'XML: ' . $arquivoXml . PHP_EOL;
+    echo 'Retorno: ' . $arquivoRetorno . PHP_EOL;
+
     echo '</pre>';
 
+    /*
+|--------------------------------------------------------------------------
+| SUCESSO
+|--------------------------------------------------------------------------
+*/
+
+$_SESSION['msg_nfse'] =
+    'NFS-e emitida com sucesso! Nº ' .
+    $numeroNFSe;
+
+echo '
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>NFS-e Emitida</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            text-align:center;
+            padding-top:80px;
+        }
+
+        .box{
+
+            background:#fff;
+            width:500px;
+            margin:auto;
+            padding:40px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            color:green;
+        }
+
+        .contador{
+
+            font-size:60px;
+            font-weight:bold;
+            color:#007bff;
+            margin-top:20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>NFS-e Emitida com Sucesso</h1>
+
+        <p>
+            Número da NFS-e:
+            <strong>'.$numeroNFSe.'</strong>
+        </p>
+
+        <p>
+            Redirecionando em:
+        </p>
+
+        <div class="contador" id="contador">
+            5
+        </div>
+
+    </div>
+
+<script>
+
+    let tempo = 5;
+
+    const contador =
+        document.getElementById("contador");
+
+    const intervalo = setInterval(function(){
+
+        tempo--;
+
+        contador.innerHTML = tempo;
+
+        if(tempo <= 0){
+
+            clearInterval(intervalo);
+
+            if(document.referrer != ""){
+
+                window.location.href =
+                    document.referrer;
+
+            }else{
+
+                window.history.back();
+
+            }
+        }
+
+    }, 1000);
+
+</script>
+
+</body>
+</html>
+';
+
+exit;
+
+
+
 } catch (Exception $e) {
+
     echo '<h2>Erro ao emitir NFS-e</h2>';
+
     echo '<pre>';
-    echo htmlspecialchars($e->getMessage());
+    echo htmlspecialchars(
+        $e->getMessage()
+    );
     echo '</pre>';
 
     if (isset($diretorioLogs)) {
+
         if (!is_dir($diretorioLogs)) {
-            @mkdir($diretorioLogs, 0755, true);
+
+            mkdir($diretorioLogs, 0755, true);
         }
 
-        @file_put_contents(
-            $diretorioLogs . DIRECTORY_SEPARATOR . 'erro_nfse.txt',
-            date('Y-m-d H:i:s') . PHP_EOL .
-            $e->getMessage() . PHP_EOL,
+        file_put_contents(
+
+            $diretorioLogs .
+            DIRECTORY_SEPARATOR .
+            'erro_nfse.txt',
+
+            date('Y-m-d H:i:s') .
+            PHP_EOL .
+
+            $e->getMessage() .
+            PHP_EOL .
+            PHP_EOL,
+
             FILE_APPEND
         );
     }
 }
 ?>
-

@@ -6360,7 +6360,7 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
     }
 
 
-    public function fiscal1($ambiente_fiscal, $regime_fiscal) 
+    public function fiscal1($ambiente_fiscal, $regime_fiscal, $doc_emissor, $doc_cliente, $os, $descricao, $valor) 
     {
         global $conn;
         $u = new Usuario();
@@ -6368,62 +6368,156 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
         $conn->autocommit(false); // Desliga o autocommit
         $conn->begin_transaction(); // Inicia a transação manualmente
 
+        $partial_fiscal = "";
         try {
             if($regime_fiscal == '1'){//1simples, 2simples  excesso, 3normal
                 if($ambiente_fiscal == '1'){//1producao, 2homologação
-                    $partial_fiscal = '
+                    $partial_fiscal .= '
                         <h1>Ambiente</h1>
                         <p>Produção.</p>
                     ';
                 }else if($ambiente_fiscal == '2'){
-                    
+                    /*
+                $partial_fiscal .= '
+                        <h1>Ambiente</h1>
+                        <p>Homologação.</p>
+                        <p>ambiente_fiscal: '.$ambiente_fiscal.'</p>
+                        <p>regime_fiscal: '.$regime_fiscal.'</p>
+                        <p>doc_emissor: '.$doc_emissor.'</p>
+                        <p>doc_cliente: '.$doc_cliente.'</p>
+                        <p>os: '.$os.'</p>
+                        <p>descricao: '.$descricao.'</p>
+                        <p>valor: '.$valor.'</p>
+                        ';*/
 
-                
-                    $urlNFSE =
+
+
+                    $select_nfse    = "SELECT * FROM tb_dados_nfse WHERE cd_ordem_servico = '".$os."'";
+                    $result_nfse    = mysqli_query($conn, $select_nfse);
+                    //$row_nfse       = mysqli_fetch_assoc($result_nfse);
+                    $row_count = 0;
+
+                    
+                    while ( $row_nfse = $result_nfse->fetch_assoc()){
+                        $row_count ++;
+
+                        if($row_count == 1){
+                            $partial_fiscal .= '
+
+<!-- MODAL NFS-e -->
+<div 
+    class="modal fade" 
+    id="modalNFSE" 
+    tabindex="-1" 
+    role="dialog"
+    aria-hidden="true"
+>
+
+    <div 
+        class="modal-dialog modal-sm"
+        role="document"
+        style="max-width:100%;"
+    >
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Visualização da NFS-e
+                </h5>
+
+                <button 
+                    type="button" 
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Fechar"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+
+            <div class="modal-body p-0">
+
+                <iframe
+                    id="iframeNFSE"
+                    src=""
+                    style="
+                        width:100%;
+                        height:85vh;
+                        border:none;
+                    "
+                ></iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+';
+                        }
+                        $url_nfse = $_SESSION['dominio']."/pages/md_assistencia/listar_nfse.php?arquivo=nfse_" . urlencode($row_nfse['chave_acesso'] ?? '').".xml";
+
+                        $partial_fiscal .= '
+
+                            <button 
+                                type="button"
+                                class="btn btn-block btn-lg btn-success"
+                                onclick="abrirPopupNFSE(\''.$url_nfse.'\')"
+                                style="margin-top: 20px; margin-bottom: 20px;"
+                            >
+                                Nota Fiscal Emitida ('.$row_nfse['numero_nfse'].')
+                            </button>
+
+                        ';
+                    }
+
+                    
+                    if($row_count == 0){
+                        $urlNFSE =
                         'nfse.php?' .
                         http_build_query([
-                            'emissor'   => $_SESSION['cnpj_empresa'],
-                            'cliente'   => '05185255544',
-                            'descricao' => 'descricao',
-                            'valor'     => '10'
+                            'emissor'   => $doc_emissor,
+                            'cliente'   => $doc_cliente,
+                            'os'        => $os,
+                            'descricao' => $descricao,
+                            'valor'     => $valor
                         ]);
 
                     $urlimprimir =
-                        'listar_nfse.php?' .
-                        http_build_query([
-                            'emissor'   => $_SESSION['cnpj_empresa'],
-                            'cliente'   => '05185255544',
-                            'descricao' => 'descricao',
-                            'valor'     => '10'
-                        ]);
-                    $partial_fiscal = '
-    <h1>Ambiente</h1>
-    <p>Homologação.</p>
+                        'listar_nfse.php';
+                    $partial_fiscal .= '
+                        <button 
+                            type="button"
+                            class="btn btn-block btn-lg btn-warning"
+                            onclick="window.location.href=\'' . $urlNFSE . '\';"
+                            style="margin-top: 20px; margin-bottom: 20px;"
+                        >
+                            Emitir NFSE
+                        </button>
 
-    <button 
-        type="button"
-        class="btn btn-block btn-lg btn-warning"
-        onclick="window.location.href=\'' . $urlNFSE . '\';"
-        style="margin-top: 20px; margin-bottom: 20px;"
-    >
-        Emitir NFSE
-    </button>
-
-    <button 
-        type="button"
-        class="btn btn-block btn-lg btn-warning"
-        onclick="window.location.href=\'' . $urlimprimir . '\';"
-        style="margin-top: 20px; margin-bottom: 20px;"
-    >
-        Listar NFSE
-    </button>
-';
+                        <button 
+                            type="button"
+                            class="btn btn-block btn-lg btn-warning"
+                            onclick="window.location.href=\'' . $urlimprimir . '\';"
+                            style="margin-top: 20px; margin-bottom: 20px;"
+                        >
+                            Listar NFSE
+                        </button>
+                    ';
+                    }
+                    
+                
+                    
 
 
                 }
             }
 
-/*            $partial_fiscal .= '
+                    /*$partial_fiscal .= '
                         <h1>a</h1>
                         <p>a.</p>
                     ';*/
