@@ -6498,7 +6498,8 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                         >
                             Emitir NFSE
                         </button>
-
+                    ';
+                    /*$partial_fiscal .= '
                         <button 
                             type="button"
                             class="btn btn-block btn-lg btn-warning"
@@ -6507,7 +6508,7 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                         >
                             Listar NFSE
                         </button>
-                    ';
+                    ';*/
                     }
                     
                 

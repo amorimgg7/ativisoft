@@ -1,0 +1,18 @@
+{
+    "sucesso": true,
+    "mensagem": "DPS processado com sucesso (SIMULAÇÃO).",
+    "protocolo": "TESTE20260523223409",
+    "numero_nfse": 1397,
+    "codigo_verificacao": "E6D6BC78",
+    "data_emissao": "2026-05-23 22:34:09",
+    "prestador": {
+        "cnpj": "04509961000187"
+    },
+    "tomador": {
+        "cpf": "05185255544"
+    },
+    "servico": {
+        "descricao": "teste sequencial",
+        "valor": "0.00"
+    }
+}

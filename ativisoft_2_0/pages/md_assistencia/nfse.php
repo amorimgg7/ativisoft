@@ -182,6 +182,7 @@ try {
     | DEBUG
     |--------------------------------------------------------------------------
     */
+    /*
     echo '<h2>Dados Recebidos</h2>';
 
     echo '<pre>';
@@ -193,7 +194,7 @@ try {
     echo 'Descrição: ' . $descricao . PHP_EOL;
     echo 'Valor: ' . $valor . PHP_EOL;
     echo '</pre>';
-
+*/
     /*
     |--------------------------------------------------------------------------
     | EMISSÃO
@@ -214,12 +215,12 @@ try {
     | EXIBE RESPOSTA
     |--------------------------------------------------------------------------
     */
-    echo '<h2>Retorno</h2>';
+/*    echo '<h2>Retorno</h2>';
 
     echo '<pre>';
     print_r($resposta);
     echo '</pre>';
-
+*/
     /*
     |--------------------------------------------------------------------------
     | JSON
@@ -497,26 +498,6 @@ try {
     ]);
 
     /*
-    |--------------------------------------------------------------------------
-    | EXIBE SUCESSO
-    |--------------------------------------------------------------------------
-    */
-    echo '<hr>';
-
-    echo '<h2>NFS-e Emitida com Sucesso</h2>';
-
-    echo '<pre>';
-
-    echo 'Número NFS-e: ' . $numeroNFSe . PHP_EOL;
-    echo 'Chave de Acesso: ' . $chaveAcesso . PHP_EOL;
-    echo 'Código Verificação: ' . $codigoVerificacao . PHP_EOL;
-    echo 'Protocolo: ' . $protocolo . PHP_EOL;
-    echo 'XML: ' . $arquivoXml . PHP_EOL;
-    echo 'Retorno: ' . $arquivoRetorno . PHP_EOL;
-
-    echo '</pre>';
-
-    /*
 |--------------------------------------------------------------------------
 | SUCESSO
 |--------------------------------------------------------------------------
@@ -529,41 +510,269 @@ $_SESSION['msg_nfse'] =
 echo '
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
     <meta charset="UTF-8">
 
+    <meta 
+        name="viewport" 
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>NFS-e Emitida</title>
+
+    <link 
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
     <style>
 
+        *{
+            box-sizing:border-box;
+        }
+
         body{
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
+
+            margin:0;
+            padding:20px;
+
+            background:#f4f6f9;
+
+            font-family:Arial, sans-serif;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            min-height:100vh;
+        }
+
+        .card{
+
+            width:100%;
+            max-width:700px;
+
+            background:#ffffff;
+
+            border-radius:16px;
+
+            box-shadow:
+                0 4px 20px rgba(0,0,0,0.08);
+
+            overflow:hidden;
+        }
+
+        .topo{
+
+            background:linear-gradient(
+                135deg,
+                #198754,
+                #157347
+            );
+
+            color:#fff;
+
             text-align:center;
-            padding-top:80px;
+
+            padding:35px 20px;
         }
 
-        .box{
+        .icone{
 
-            background:#fff;
-            width:500px;
-            margin:auto;
-            padding:40px;
-            border-radius:10px;
-            box-shadow:0 0 10px rgba(0,0,0,0.1);
+            font-size:70px;
+
+            margin-bottom:15px;
         }
 
-        h1{
-            color:green;
+        .titulo{
+
+            font-size:32px;
+            font-weight:bold;
+
+            margin-bottom:10px;
+        }
+
+        .subtitulo{
+
+            font-size:16px;
+
+            opacity:0.95;
+        }
+
+        .conteudo{
+
+            padding:25px;
+        }
+
+        .linha{
+
+            display:flex;
+
+            justify-content:space-between;
+
+            gap:15px;
+
+            padding:14px 0;
+
+            border-bottom:1px solid #e9ecef;
+
+            word-break:break-word;
+        }
+
+        .linha:last-child{
+
+            border-bottom:none;
+        }
+
+        .label{
+
+            font-weight:bold;
+
+            color:#495057;
+
+            min-width:160px;
+        }
+
+        .valor{
+
+            color:#212529;
+
+            text-align:right;
+
+            flex:1;
+        }
+
+        .contador-box{
+
+            margin-top:30px;
+
+            text-align:center;
+        }
+
+        .contador-label{
+
+            font-size:16px;
+
+            color:#6c757d;
+
+            margin-bottom:10px;
         }
 
         .contador{
 
-            font-size:60px;
+            width:90px;
+            height:90px;
+
+            margin:auto;
+
+            border-radius:50%;
+
+            background:#0d6efd;
+
+            color:#fff;
+
+            font-size:42px;
             font-weight:bold;
-            color:#007bff;
-            margin-top:20px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            box-shadow:
+                0 4px 12px rgba(13,110,253,0.3);
+        }
+
+        .rodape{
+
+            padding:20px;
+
+            text-align:center;
+
+            background:#f8f9fa;
+
+            border-top:1px solid #e9ecef;
+        }
+
+        .btn{
+
+            display:inline-block;
+
+            padding:12px 25px;
+
+            border-radius:8px;
+
+            background:#198754;
+
+            color:#fff;
+
+            text-decoration:none;
+
+            font-weight:bold;
+
+            transition:0.2s;
+        }
+
+        .btn:hover{
+
+            background:#157347;
+        }
+
+        @media(max-width:768px){
+
+            body{
+                padding:10px;
+            }
+
+            .topo{
+
+                padding:25px 15px;
+            }
+
+            .titulo{
+
+                font-size:24px;
+            }
+
+            .icone{
+
+                font-size:55px;
+            }
+
+            .conteudo{
+
+                padding:18px;
+            }
+
+            .linha{
+
+                flex-direction:column;
+
+                gap:6px;
+            }
+
+            .label{
+
+                min-width:auto;
+
+                text-align:left;
+            }
+
+            .valor{
+
+                text-align:left;
+
+                font-size:14px;
+            }
+
+            .contador{
+
+                width:75px;
+                height:75px;
+
+                font-size:34px;
+            }
         }
 
     </style>
@@ -572,21 +781,109 @@ echo '
 
 <body>
 
-    <div class="box">
+    <div class="card">
 
-        <h1>NFS-e Emitida com Sucesso</h1>
+        <div class="topo">
 
-        <p>
-            Número da NFS-e:
-            <strong>'.$numeroNFSe.'</strong>
-        </p>
+            <div class="icone">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
 
-        <p>
-            Redirecionando em:
-        </p>
+            <div class="titulo">
+                NFS-e Emitida
+            </div>
 
-        <div class="contador" id="contador">
-            5
+            <div class="subtitulo">
+                Documento fiscal autorizado com sucesso
+            </div>
+
+        </div>
+
+        <div class="conteudo">
+
+            <div class="linha">
+
+                <div class="label">
+                    Número NFS-e
+                </div>
+
+                <div class="valor">
+                    '.$numeroNFSe.'
+                </div>
+
+            </div>
+
+            <div class="linha">
+
+                <div class="label">
+                    Chave de Acesso
+                </div>
+
+                <div class="valor">
+                    '.$chaveAcesso.'
+                </div>
+
+            </div>
+
+            <div class="linha">
+
+                <div class="label">
+                    Código Verificação
+                </div>
+
+                <div class="valor">
+                    '.$codigoVerificacao.'
+                </div>
+
+            </div>
+
+            <div class="linha">
+
+                <div class="label">
+                    Protocolo
+                </div>
+
+                <div class="valor">
+                    '.$protocolo.'
+                </div>
+
+            </div>
+
+            <div class="linha">
+
+                <div class="label">
+                    XML
+                </div>
+
+                <div class="valor">
+                    '.basename($arquivoXml).'
+                </div>
+
+            </div>
+
+            <div class="contador-box">
+
+                <div class="contador-label">
+                    Redirecionando automaticamente em
+                </div>
+
+                <div class="contador" id="contador">
+                    5
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="rodape">
+
+            <a
+                href="javascript:history.back();"
+                class="btn"
+            >
+                Voltar Agora
+            </a>
+
         </div>
 
     </div>

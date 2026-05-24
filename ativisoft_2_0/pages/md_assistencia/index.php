@@ -53,23 +53,43 @@
                         saldo_faltante DESC;
                   ";
                   $sql_servico = "SELECT 
-                      NOW() AS data_atual, 
-                      s.*, 
-                      c.vl_comissao AS comissao_lancada,
-                      c.status_comissao 
-                    FROM tb_servico s
-                    LEFT JOIN tb_comissao c 
-                    ON c.cd_servico = s.cd_servico
-                    WHERE -- s.status_servico = 0 
-                     s.cd_filial = '".$_SESSION['cd_empresa']."'
-                      ORDER BY 
+                        NOW() AS data_atual, 
+                        s.*, 
+
+                        c.vl_comissao AS comissao_lancada,
+                        c.status_comissao,
+
                         CASE 
-                          WHEN s.prioridade_servico = 'U' THEN 1
-                          WHEN s.prioridade_servico = 'A' THEN 2
-                          WHEN s.prioridade_servico = 'M' THEN 3 
-                          ELSE 4
-                        END, 
-                          s.cd_servico DESC LIMIT 500;
+                            WHEN nf.numero_nfse IS NULL 
+                                 OR nf.numero_nfse = ''
+                            THEN 0
+                            ELSE nf.numero_nfse
+                        END AS orcamento_nfse
+
+                    FROM tb_servico s
+
+                    LEFT JOIN tb_comissao c 
+                        ON c.cd_servico = s.cd_servico
+
+                    LEFT JOIN tb_dados_nfse nf
+                        ON nf.cd_ordem_servico = s.cd_servico
+                        AND nf.cancelada = 0
+                        AND nf.sucesso = 1
+
+                    WHERE
+                        s.cd_filial = '".$_SESSION['cd_empresa']."'
+
+                    ORDER BY 
+                        CASE 
+                            WHEN s.prioridade_servico = 'U' THEN 1
+                            WHEN s.prioridade_servico = 'A' THEN 2
+                            WHEN s.prioridade_servico = 'M' THEN 3 
+                            ELSE 4
+                        END,
+
+                        s.cd_servico DESC
+
+                    LIMIT 500;
                   ";
 
                   $resulta_devendo = $conn->query($sql_devendo);
@@ -266,7 +286,7 @@
                 echo '<div class="collapse table-responsive" id="os_afaser">';
                 echo '<table class="table" '.$_SESSION['c_card'].'>';
                 echo '<thead><tr>';
-                echo '<th>OS</th><th>Financeiro</th><th>Prioridade</th><th>Prazo</th>';
+                echo '<th>OS</th><th>Fiscal</th><th>Financeiro</th><th>Prioridade</th><th>Prazo</th>';
                 echo '</tr></thead><tbody>';
                 foreach ($_SESSION['os_geral'] as $servico) {
                   if ($servico['status_servico'] != 0) {
@@ -280,6 +300,11 @@
                   echo '<button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button>';
                   echo '</td>';
                   echo '</form>';
+                  if($servico['orcamento_nfse'] == 0){
+                    echo '<td><label class="badge badge-secondary">Sem NFSE</label>';
+                  }else{
+                    echo '<td><label class="badge badge-success">NFSE:'. $servico['orcamento_nfse'] .'</label>';  
+                  }
                   if($servico['orcamento_servico'] == 0){
                     echo '<td><label class="badge badge-secondary">FREE / Garantia</label>';
                   }else{
@@ -403,6 +428,7 @@
                 echo '<thead>';
                 echo '<tr>';
                 echo '<th>OS</th>';
+                echo '<th>Fiscal</th>';
                 echo '<th>Financeiro</th>';
                 echo '<th>Prioridade</th>';
                 echo '<th>Prazo</th>';
@@ -421,7 +447,11 @@
                   echo '<td style="display: none;"><input type="tel" id="conos_servico" name="conos_servico" value="'.$servico['cd_servico'].'"></td>';
                   echo '<td><button type="submit" class="btn btn-danger" name="btn_cd_'.$servico['cd_servico'].'" id="btn_cd_'.$servico['cd_servico'].'">'.$servico['cd_servico'].'</button></td>';
                   echo '</form>';
-
+                  if($servico['orcamento_nfse'] == 0){
+                    echo '<td><label class="badge badge-secondary">Sem NFSE</label>';
+                  }else{
+                    echo '<td><label class="badge badge-success">NFSE:'. $servico['orcamento_nfse'] .'</label>';  
+                  }
                   if($servico['orcamento_servico'] == 0){
                     echo '<td><label class="badge badge-secondary">FREE / Garantia</label>';
                   }else{
@@ -433,7 +463,6 @@
                       echo '<td><label class="badge badge-danger">Falta pagar: R$:' . ($orcamento_servico - $vpag_servico) . ' de R$:' . $orcamento_servico . '</label>';
                     }
                   }
-
                   if($servico['comissao_lancada'] > 0){
                       if($servico['status_comissao'] == 1){
                         echo '</br><label class="badge badge-success">Comissão Paga: R$:'. $servico['comissao_lancada'] .'</label></td>';

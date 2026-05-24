@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DPS>
+  <infDPS>
+    <prestador>
+      <CNPJ>04509961000187</CNPJ>
+    </prestador>
+    <tomador>
+      <CPF>05185255544</CPF>
+    </tomador>
+    <servico>
+      <descricao>teste sequencial</descricao>
+      <valor>0.00</valor>
+    </servico>
+  </infDPS>
+</DPS>
