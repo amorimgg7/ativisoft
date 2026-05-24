@@ -8,8 +8,8 @@
       <CPF>05185255544</CPF>
     </tomador>
     <servico>
-      <descricao>teste sequencial</descricao>
-      <valor>0.00</valor>
+      <descricao>tst</descricao>
+      <valor>50.00</valor>
     </servico>
   </infDPS>
 </DPS>

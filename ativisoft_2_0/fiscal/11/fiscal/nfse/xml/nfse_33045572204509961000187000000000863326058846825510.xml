@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSe>
+  <infNFSe>
+    <numero>8633</numero>
+    <codigoVerificacao>3B6B5F63</codigoVerificacao>
+    <chaveAcesso>33045572204509961000187000000000863326058846825510</chaveAcesso>
+    <protocolo>TESTE20260524201031</protocolo>
+    <dataEmissao>2026-05-24 20:10:31</dataEmissao>
+    <prestador>
+      <cnpj>04509961000187</cnpj>
+    </prestador>
+    <tomador>
+      <cpf>05185255544</cpf>
+    </tomador>
+    <servico>
+      <descricao>tst</descricao>
+      <valorServicos>50.00</valorServicos>
+    </servico>
+  </infNFSe>
+</NFSe>

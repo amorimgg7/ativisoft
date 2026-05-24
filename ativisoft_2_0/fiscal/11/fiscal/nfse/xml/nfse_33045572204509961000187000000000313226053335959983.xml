@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSe>
+  <infNFSe>
+    <numero>3132</numero>
+    <codigoVerificacao>304F9B05</codigoVerificacao>
+    <chaveAcesso>33045572204509961000187000000000313226053335959983</chaveAcesso>
+    <protocolo>TESTE20260524150715</protocolo>
+    <dataEmissao>2026-05-24 15:07:15</dataEmissao>
+    <prestador>
+      <cnpj>04509961000187</cnpj>
+    </prestador>
+    <tomador>
+      <cpf>05185255544</cpf>
+    </tomador>
+    <servico>
+      <descricao>tst</descricao>
+      <valorServicos>50.00</valorServicos>
+    </servico>
+  </infNFSe>
+</NFSe>

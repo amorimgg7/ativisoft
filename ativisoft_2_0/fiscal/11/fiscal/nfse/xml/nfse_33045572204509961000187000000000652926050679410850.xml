@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSe>
+  <infNFSe>
+    <numero>6529</numero>
+    <codigoVerificacao>B9A1DFA8</codigoVerificacao>
+    <chaveAcesso>33045572204509961000187000000000652926050679410850</chaveAcesso>
+    <protocolo>TESTE20260524165639</protocolo>
+    <dataEmissao>2026-05-24 16:56:39</dataEmissao>
+    <prestador>
+      <cnpj>04509961000187</cnpj>
+    </prestador>
+    <tomador>
+      <cpf>05185255544</cpf>
+    </tomador>
+    <servico>
+      <descricao>tst</descricao>
+      <valorServicos>50.00</valorServicos>
+    </servico>
+  </infNFSe>
+</NFSe>

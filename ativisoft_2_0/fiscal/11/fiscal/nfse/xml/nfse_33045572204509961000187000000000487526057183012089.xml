@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSe>
+  <infNFSe>
+    <numero>4875</numero>
+    <codigoVerificacao>950335BC</codigoVerificacao>
+    <chaveAcesso>33045572204509961000187000000000487526057183012089</chaveAcesso>
+    <protocolo>TESTE20260524144509</protocolo>
+    <dataEmissao>2026-05-24 14:45:09</dataEmissao>
+    <prestador>
+      <cnpj>04509961000187</cnpj>
+    </prestador>
+    <tomador>
+      <cpf>05185255544</cpf>
+    </tomador>
+    <servico>
+      <descricao>teste sequencial 2</descricao>
+      <valorServicos>66.00</valorServicos>
+    </servico>
+  </infNFSe>
+</NFSe>

@@ -6369,7 +6369,51 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
         $conn->begin_transaction(); // Inicia a transação manualmente
 
         $partial_fiscal = "";
+
+        
+
         try {
+            /*$partial_fiscal .= '
+                        <h1>Ambiente</h1>
+                        <p>Homologação.</p>
+                        <p>ambiente_fiscal: '.$ambiente_fiscal.'</p>
+                        <p>regime_fiscal: '.$regime_fiscal.'</p>
+                        <p>doc_emissor: '.$doc_emissor.'</p>
+                        <p>doc_cliente: '.$doc_cliente.'</p>
+                        <p>os: '.$os.'</p>
+                        <p>descricao: '.$descricao.'</p>
+                        <p>valor: '.$valor.'</p>
+                        ';*/
+            $dsc_ambiente_fiscal = "";
+            $dsc_regime_fiscal = "";
+            if($ambiente_fiscal == '0'){
+                $dsc_ambiente_fiscal = "Ambiente fiscal não definido!"; 
+            }else if($ambiente_fiscal == '1'){
+                $dsc_ambiente_fiscal = "Ambiente em Produção.";
+            }else if($ambiente_fiscal == '2'){
+                $dsc_ambiente_fiscal = "Ambiente em Homologação.";
+            }
+            if($regime_fiscal == "0"){
+                $dsc_regime_fiscal = "Regime fiscal não definido.";
+            }else if($regime_fiscal == "1"){
+                $dsc_regime_fiscal = "Simples Nacional.";
+            }else if($regime_fiscal == "2"){
+                $dsc_regime_fiscal = "Simples Nacional - Excesso Sublimite.";
+            }else if($regime_fiscal == "3"){
+                $dsc_regime_fiscal = "Regime Normal.";
+            }else if($regime_fiscal == "4"){
+                $dsc_regime_fiscal = "MEI.";
+            }
+
+            $partial_fiscal .= '
+                <div class="card text-center">
+                <div class="card-header">
+                '.$dsc_ambiente_fiscal.'</br>'.$dsc_regime_fiscal.'
+                </div>
+                <div class="card-body">
+            ';
+
+
             if($regime_fiscal == '1'){//1simples, 2simples  excesso, 3normal
                 if($ambiente_fiscal == '1'){//1producao, 2homologação
                     $partial_fiscal .= '
@@ -6378,7 +6422,7 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                     ';
                 }else if($ambiente_fiscal == '2'){
                     /*
-                $partial_fiscal .= '
+                    $partial_fiscal .= '
                         <h1>Ambiente</h1>
                         <p>Homologação.</p>
                         <p>ambiente_fiscal: '.$ambiente_fiscal.'</p>
@@ -6396,88 +6440,9 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                     $result_nfse    = mysqli_query($conn, $select_nfse);
                     //$row_nfse       = mysqli_fetch_assoc($result_nfse);
                     $row_count = 0;
+                    $row_count_aut = 0;
 
-                    
-                    while ( $row_nfse = $result_nfse->fetch_assoc()){
-                        $row_count ++;
-
-                        if($row_count == 1){
-                            $partial_fiscal .= '
-
-<!-- MODAL NFS-e -->
-<div 
-    class="modal fade" 
-    id="modalNFSE" 
-    tabindex="-1" 
-    role="dialog"
-    aria-hidden="true"
->
-
-    <div 
-        class="modal-dialog modal-sm"
-        role="document"
-        style="max-width:100%;"
-    >
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <h5 class="modal-title">
-                    Visualização da NFS-e
-                </h5>
-
-                <button 
-                    type="button" 
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Fechar"
-                >
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-            </div>
-
-            <div class="modal-body p-0">
-
-                <iframe
-                    id="iframeNFSE"
-                    src=""
-                    style="
-                        width:100%;
-                        height:85vh;
-                        border:none;
-                    "
-                ></iframe>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-';
-                        }
-                        $url_nfse = $_SESSION['dominio']."/pages/md_assistencia/listar_nfse.php?arquivo=nfse_" . urlencode($row_nfse['chave_acesso'] ?? '').".xml";
-
-                        $partial_fiscal .= '
-
-                            <button 
-                                type="button"
-                                class="btn btn-block btn-lg btn-success"
-                                onclick="abrirPopupNFSE(\''.$url_nfse.'\')"
-                                style="margin-top: 20px; margin-bottom: 20px;"
-                            >
-                                Nota Fiscal Emitida ('.$row_nfse['numero_nfse'].')
-                            </button>
-
-                        ';
-                    }
-
-                    
-                    if($row_count == 0){
-                        $urlNFSE =
+                    $url_nfse_autorizada = 
                         'nfse.php?' .
                         http_build_query([
                             'emissor'   => $doc_emissor,
@@ -6486,30 +6451,126 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                             'descricao' => $descricao,
                             'valor'     => $valor
                         ]);
+                        
+                        
+                    
+                    while ( $row_nfse = $result_nfse->fetch_assoc()){
+                        $row_count ++;                        
+                        $url_nfse_emitida   = $_SESSION['dominio']."/pages/md_assistencia/listar_nfse.php?arquivo=nfse_" . urlencode($row_nfse['chave_acesso'] ?? '000').".xml";
+                        $url_nfse_cancelada = $_SESSION['dominio']."/pages/md_assistencia/listar_nfse.php?arquivo=nfse_cancelada_" . urlencode($row_nfse['chave_acesso'] ?? '000').".xml";
 
-                    $urlimprimir =
-                        'listar_nfse.php';
-                    $partial_fiscal .= '
-                        <button 
-                            type="button"
-                            class="btn btn-block btn-lg btn-warning"
-                            onclick="window.location.href=\'' . $urlNFSE . '\';"
-                            style="margin-top: 20px; margin-bottom: 20px;"
-                        >
-                            Emitir NFSE
-                        </button>
-                    ';
-                    /*$partial_fiscal .= '
-                        <button 
-                            type="button"
-                            class="btn btn-block btn-lg btn-warning"
-                            onclick="window.location.href=\'' . $urlimprimir . '\';"
-                            style="margin-top: 20px; margin-bottom: 20px;"
-                        >
-                            Listar NFSE
-                        </button>
-                    ';*/
+                        if($row_count == 1){
+                            $partial_fiscal .= '
+
+                                <!-- MODAL NFS-e -->
+                                <div 
+                                    class="modal fade" 
+                                    id="modalNFSE" 
+                                    tabindex="-1" 
+                                    role="dialog"
+                                    aria-hidden="true"
+                                >
+
+                                    <div 
+                                        class="modal-dialog modal-sm"
+                                        role="document"
+                                        style="max-width:100%;"
+                                    >
+
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+
+                                                <h5 class="modal-title">
+                                                    Visualização da NFS-e
+                                                </h5>
+
+                                                <button 
+                                                    type="button" 
+                                                    class="close"
+                                                    data-dismiss="modal"
+                                                    aria-label="Fechar"
+                                                >
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+
+                                            </div>
+
+                                            <div class="modal-body p-0">
+
+                                                <iframe
+                                                    id="iframeNFSE"
+                                                    src=""
+                                                    style="
+                                                        width:100%;
+                                                        height:85vh;
+                                                        border:none;
+                                                    "
+                                                ></iframe>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                ';
+                        }
+
+                        if($row_nfse['status_nfse'] == "CANCELADA"){
+                            $partial_fiscal .= '
+                                <button 
+                                    type="button"
+                                    class="btn btn-block btn-lg btn-warning"
+                                    onclick="abrirPopupNFSE(\''.$url_nfse_emitida.'\')"
+                                    style="margin-top: 20px; margin-bottom: 20px;">
+                                    Nota Fiscal Cancelada ('.$row_nfse['numero_nfse'].')
+                                </button>
+                            ';
+                        }else if($row_nfse['status_nfse'] == "AUTORIZADA"){
+                            $row_count_aut ++;
+                            $partial_fiscal .= '
+                                <button 
+                                    type="button"
+                                    class="btn btn-block btn-lg btn-success"
+                                    onclick="abrirPopupNFSE(\''.$url_nfse_emitida.'\')"
+                                    style="margin-top: 20px; margin-bottom: 20px;">
+                                    Nota Fiscal Autorizada ('.$row_nfse['numero_nfse'].')
+                                </button>
+
+                            ';
+                        }
+                        
                     }
+
+                    
+                    if($row_count_aut == 0){
+                        
+
+                        $urlimprimir =
+                            'listar_nfse.php';
+                        $partial_fiscal .= '
+                            <button 
+                                type="button"
+                                class="btn btn-block btn-lg btn-success"
+                                onclick="window.location.href=\'' . $url_nfse_autorizada . '\';"
+                                style="margin-top: 20px; margin-bottom: 20px;">
+                                Emitir NFSE
+                            </button>
+                        ';
+                        /*$partial_fiscal .= '
+                            <button 
+                                type="button"
+                                class="btn btn-block btn-lg btn-warning"
+                                onclick="window.location.href=\'' . $urlimprimir . '\';"
+                                style="margin-top: 20px; margin-bottom: 20px;"
+                            >
+                                Listar NFSE
+                            </button>
+                        ';*/
+                    }
+                        
                     
                 
                     
@@ -6522,7 +6583,7 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                         <h1>a</h1>
                         <p>a.</p>
                     ';*/
-
+            $partial_fiscal .= '</div></div>';
             return [
                         'status'                =>  'OK',
                         'partial_fiscal'       =>  $partial_fiscal

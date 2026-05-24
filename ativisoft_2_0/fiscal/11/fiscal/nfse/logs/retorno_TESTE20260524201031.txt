@@ -1,4 +1,9 @@
-{
+Array
+(
+    [http_code] => 200
+    [url] => SIMULACAO_LOCAL
+    [content_type] => application/json
+    [resposta] => {
     "sucesso": true,
     "mensagem": "DPS processado com sucesso (SIMULAÇÃO).",
     "protocolo": "TESTE20260524201031",
@@ -16,3 +21,4 @@
         "valor": "50.00"
     }
 }
+)

@@ -53,6 +53,50 @@ $row = $result->fetch_assoc();
 
 /*
 |--------------------------------------------------------------------------
+| JÁ CANCELADA
+|--------------------------------------------------------------------------
+*/
+if (
+    strtoupper($row['status_nfse']) == 'CANCELADA'
+) {
+
+    ?>
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+
+        <meta charset="UTF-8">
+
+        <script>
+
+            //alert('Esta NFS-e já está cancelada.');
+
+            // tenta fechar a aba/janela
+            window.open('', '_self');
+
+            window.close();
+
+            // fallback caso navegador bloqueie
+            setTimeout(function(){
+
+                history.back();
+
+            }, 300);
+
+        </script>
+
+    </head>
+
+    <body>
+    </body>
+    </html>
+    <?php
+
+    exit;
+}
+
+/*
+|--------------------------------------------------------------------------
 | CANCELAR
 |--------------------------------------------------------------------------
 */
@@ -68,6 +112,126 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         /*
         |--------------------------------------------------------------------------
+        | XML DE CANCELAMENTO
+        |--------------------------------------------------------------------------
+        */
+
+        $cd_empresa = preg_replace(
+            '/[^0-9]/',
+            '',
+            $_SESSION['cd_empresa']
+        );
+
+        $baseDir =
+            __DIR__ .
+            '/../../fiscal/' .
+            $cd_empresa;
+
+        $cancelamentoDir =
+            $baseDir .
+            DIRECTORY_SEPARATOR .
+            'fiscal' .
+            DIRECTORY_SEPARATOR .
+            'nfse' .
+            DIRECTORY_SEPARATOR .
+            'xml';
+
+        if (!is_dir($cancelamentoDir)) {
+
+            mkdir($cancelamentoDir, 0755, true);
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | GERA XML CANCELAMENTO
+        |--------------------------------------------------------------------------
+        */
+
+        $dom = new DOMDocument(
+            '1.0',
+            'UTF-8'
+        );
+
+        $dom->formatOutput = true;
+
+        $cancelamento =
+            $dom->createElement(
+                'CancelamentoNFSe'
+            );
+
+        $dom->appendChild($cancelamento);
+
+        $cancelamento->appendChild(
+            $dom->createElement(
+                'numero_nfse',
+                $row['numero_nfse']
+            )
+        );
+
+        $cancelamento->appendChild(
+            $dom->createElement(
+                'protocolo',
+                $row['protocolo']
+            )
+        );
+
+        $cancelamento->appendChild(
+            $dom->createElement(
+                'chave_acesso',
+                $row['chave_acesso']
+            )
+        );
+
+        $cancelamento->appendChild(
+            $dom->createElement(
+                'data_cancelamento',
+                date('Y-m-d H:i:s')
+            )
+        );
+
+        $cancelamento->appendChild(
+            $dom->createElement(
+                'motivo_cancelamento',
+                $motivo
+            )
+        );
+
+        $xmlCancelamento =
+            $dom->saveXML();
+
+        /*
+|--------------------------------------------------------------------------
+| NOME XML CANCELAMENTO
+|--------------------------------------------------------------------------
+|
+| cancelada_[CHAVE].xml
+|
+|--------------------------------------------------------------------------
+*/
+
+$chaveArquivo = preg_replace(
+    '/[^0-9A-Za-z]/',
+    '',
+    $row['chave_acesso']
+);
+
+$nomeXmlCancelamento =
+    'nfse_cancelada_' .
+    $chaveArquivo .
+    '.xml';
+
+        $caminhoXmlCancelamento =
+            $cancelamentoDir .
+            DIRECTORY_SEPARATOR .
+            $nomeXmlCancelamento;
+
+        file_put_contents(
+            $caminhoXmlCancelamento,
+            $xmlCancelamento
+        );
+
+        /*
+        |--------------------------------------------------------------------------
         | UPDATE
         |--------------------------------------------------------------------------
         */
@@ -78,6 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 status_nfse = 'CANCELADA',
                 data_cancelamento = NOW(),
                 motivo_cancelamento = ?,
+                caminho_xml_cancelamento = ?,
                 dt_atualizacao = NOW()
             WHERE id_nfse = ?
         ";
@@ -85,8 +250,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmtUpdate = $conn->prepare($sqlUpdate);
 
         $stmtUpdate->bind_param(
-            "si",
+            "ssi",
             $motivo,
+            $caminhoXmlCancelamento,
             $row['id_nfse']
         );
 
@@ -203,6 +369,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <div class="numero">
                         Nº <?php echo htmlspecialchars($numero_nfse); ?>
+                    </div>
+
+                    <div class="info">
+                        XML de cancelamento gerado com sucesso.
                     </div>
 
                     <div class="info">
@@ -438,6 +608,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <strong>Protocolo:</strong>
             <?php echo htmlspecialchars($row['protocolo']); ?>
+            <br>
+
+            <strong>Chave:</strong>
+            <?php echo htmlspecialchars($row['chave_acesso']); ?>
             <br>
 
             <strong>Valor:</strong>

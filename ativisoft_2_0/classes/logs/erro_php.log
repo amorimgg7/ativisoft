@@ -775,3 +775,20 @@ Stack trace:
 [23-May-2026 22:34:00 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
 [23-May-2026 23:34:15 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
 [23-May-2026 23:34:15 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[24-May-2026 09:55:14 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[24-May-2026 09:55:14 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[24-May-2026 09:55:23 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[24-May-2026 09:55:23 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[24-May-2026 09:55:25 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[24-May-2026 09:55:25 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[24-May-2026 10:42:22 America/Sao_Paulo] PHP Warning:  Undefined array key "status" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6475
+[24-May-2026 12:12:21 America/Sao_Paulo] PHP Warning:  Undefined variable $url_nfse_emitida in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6520
+[24-May-2026 12:12:25 America/Sao_Paulo] PHP Warning:  Undefined variable $url_nfse_emitida in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 6520
+[24-May-2026 13:58:52 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[24-May-2026 13:58:52 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[24-May-2026 15:06:56 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[24-May-2026 15:06:56 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[24-May-2026 15:07:04 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[24-May-2026 15:07:04 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[24-May-2026 15:07:08 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[24-May-2026 15:07:08 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451

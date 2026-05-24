@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSe>
+  <infNFSe>
+    <numero>6207</numero>
+    <codigoVerificacao>BEEA2F5C</codigoVerificacao>
+    <chaveAcesso>33045572204509961000187000000000620726055895061233</chaveAcesso>
+    <protocolo>TESTE20260524144159</protocolo>
+    <dataEmissao>2026-05-24 14:41:59</dataEmissao>
+    <prestador>
+      <cnpj>04509961000187</cnpj>
+    </prestador>
+    <tomador>
+      <cpf>05185255544</cpf>
+    </tomador>
+    <servico>
+      <descricao>teste sequencial 2</descricao>
+      <valorServicos>66.00</valorServicos>
+    </servico>
+  </infNFSe>
+</NFSe>

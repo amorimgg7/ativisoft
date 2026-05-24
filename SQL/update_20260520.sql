@@ -183,6 +183,7 @@ CREATE TABLE tb_dados_nfse (
 
     -- Arquivos locais
     caminho_xml VARCHAR(500) NULL,
+    caminho_xml_cancelamento VARCHAR(500) NULL,
     caminho_pdf VARCHAR(500) NULL,
     caminho_retorno VARCHAR(500) NULL,
 

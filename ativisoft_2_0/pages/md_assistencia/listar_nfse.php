@@ -1,1023 +1,632 @@
 <?php
 session_start();
 
+
 date_default_timezone_set('America/Sao_Paulo');
 
 header('Content-Type: text/html; charset=UTF-8');
 
-/*
-|--------------------------------------------------------------------------
-| CONFIGURAÇÕES
-|--------------------------------------------------------------------------
-*/
+// Caminho base seguindo a mesma lógica do nfse.php
 
-$cd_empresa = preg_replace('/[^0-9]/', '', $_SESSION['cd_empresa'] ?? '');
+$cd_empresa = preg_replace('/[^0-9]/', '', $_SESSION['cd_empresa']);
 
+// Caminho físico
 $baseDir =
     __DIR__ .
     '/../../fiscal/' .
     $cd_empresa;
 
-$xmlDir =
-    $baseDir .
-    DIRECTORY_SEPARATOR .
-    'fiscal' .
-    DIRECTORY_SEPARATOR .
-    'nfse' .
-    DIRECTORY_SEPARATOR .
-    'xml';
+    
+$xmlDir = $baseDir . DIRECTORY_SEPARATOR . 'fiscal' . DIRECTORY_SEPARATOR . 'nfse' . DIRECTORY_SEPARATOR . 'xml';
+
+echo '<pre>';
+echo 'Diretório base: ' . $baseDir;
+echo '</pre>';
 
 /*
 |--------------------------------------------------------------------------
-| VISUALIZAR NFS-e
+| AÇÃO: VISUALIZAR E IMPRIMIR UMA NOTA ESPECÍFICA (TÉRMICA 80MM)
 |--------------------------------------------------------------------------
 */
-
 if (isset($_GET['arquivo'])) {
-
+    // Segurança: basename impede navegação de diretórios
     $arquivoNome = basename($_GET['arquivo']);
+    $caminhoCompleto = $xmlDir . DIRECTORY_SEPARATOR . $arquivoNome;
 
-    $caminhoCompleto =
-        $xmlDir .
-        DIRECTORY_SEPARATOR .
-        $arquivoNome;
-
-    if (
-        !file_exists($caminhoCompleto) ||
-        pathinfo($caminhoCompleto, PATHINFO_EXTENSION) !== 'xml'
-    ) {
-
-        die("
-            <h3>
-                Arquivo XML não encontrado ou inválido.
-            </h3>
-
-            <a href='listar_nfse.php'>
-                Voltar
-            </a>
-        ");
+    if (!file_exists($caminhoCompleto) || pathinfo($caminhoCompleto, PATHINFO_EXTENSION) !== 'xml') {
+        die("<h3>Arquivo XML não encontrado ou inválido.</h3><a href='listar_nfse.php'>Voltar</a>");
     }
 
+    // Carrega o XML
     libxml_use_internal_errors(true);
-
     $xmlData = simplexml_load_file($caminhoCompleto);
 
     if ($xmlData === false) {
-
-        die("
-            <h3>
-                Erro ao ler XML.
-            </h3>
-
-            <a href='listar_nfse.php'>
-                Voltar
-            </a>
-        ");
+        die("<h3>Erro ao ler o XML.</h3><a href='listar_nfse.php'>Voltar</a>");
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | FUNÇÃO AUXILIAR
-    |--------------------------------------------------------------------------
-    */
-
+    // Função auxiliar para buscar tags
     $buscarTag = function ($tag) use ($xmlData) {
-
-        $resultado =
-            $xmlData->xpath(
-                "//*[local-name()='{$tag}']"
-            );
-
-        return !empty($resultado)
-            ? (string)$resultado[0]
-            : 'N/A';
+        $resultado = $xmlData->xpath("//*[local-name()='{$tag}']");
+        return (!empty($resultado)) ? (string)$resultado[0] : 'N/A';
     };
 
-    /*
-    |--------------------------------------------------------------------------
-    | DADOS
-    |--------------------------------------------------------------------------
-    */
-
-    $numeroNFSe =
-        $buscarTag('nNFSe') !== 'N/A'
-            ? $buscarTag('nNFSe')
-            : $buscarTag('numero');
-
-    $chaveAcesso =
-        $buscarTag('chNFSe') !== 'N/A'
-            ? $buscarTag('chNFSe')
-            : $buscarTag('chaveAcesso');
-
-    $dataEmissao =
-        $buscarTag('dhEmi') !== 'N/A'
-            ? $buscarTag('dhEmi')
-            : $buscarTag('dataEmissao');
-
-    if (
-        $dataEmissao !== 'N/A' &&
-        strtotime($dataEmissao)
-    ) {
-
-        $dataEmissao =
-            date(
-                'd/m/Y H:i:s',
-                strtotime($dataEmissao)
-            );
+    // Extrair dados básicos
+    $numeroNFSe  = $buscarTag('nNFSe') !== 'N/A' ? $buscarTag('nNFSe') : $buscarTag('numero');
+    $chaveAcesso = $buscarTag('chNFSe') !== 'N/A' ? $buscarTag('chNFSe') : $buscarTag('chaveAcesso');
+    $dataEmissao = $buscarTag('dhEmi') !== 'N/A' ? $buscarTag('dhEmi') : $buscarTag('dataEmissao');
+    
+    if ($dataEmissao !== 'N/A') {
+        $dataEmissao = date('d/m/Y H:i:s', strtotime($dataEmissao));
     }
 
-    $cnpjPrestador =
-        $buscarTag('cnpj');
-
-    $cpfTomador =
-        $buscarTag('cpf');
-
-    $descricaoServ =
-        $buscarTag('descricao');
-
-    $valorServicos =
-        $buscarTag('valorServicos');
-
-    /*
-    |--------------------------------------------------------------------------
-    | CANCELAMENTO
-    |--------------------------------------------------------------------------
-    */
-
-    $statusNFSe =
-        strtoupper(
-            trim(
-                $buscarTag('status_nfse')
-            )
-        );
-
-    $cancelada = false;
-
-    if (
-        strpos($statusNFSe, 'CANCEL') !== false
-    ) {
-
-        $cancelada = true;
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | LINK CONSULTA
-    |--------------------------------------------------------------------------
-    |
-    | Ajuste conforme prefeitura/portal
-    |--------------------------------------------------------------------------
-    */
-
-
-    /*
-|--------------------------------------------------------------------------
-| CHAVE NFS-e PADRÃO NACIONAL
-|--------------------------------------------------------------------------
-*/
-
-$codigoMunicipio = '3304557'; // IBGE Rio de Janeiro
-$ambiente        = '2'; // 1=municipal | 2=ADN Nacional
-$tipoInscricao   = '2'; // 1=CPF | 2=CNPJ
-
-$cnpjLimpo =
-    str_pad(
-        preg_replace('/\D/', '', $cnpjPrestador),
-        14,
-        '0',
-        STR_PAD_LEFT
-    );
+    $cnpjPrestador  = $buscarTag('cnpj');
+    $cpfTomador     = $buscarTag('cpf');
+    $descricaoServ  = $buscarTag('descricao');
+    $valorServicos  = $buscarTag('valorServicos');
 
 /*
 |--------------------------------------------------------------------------
-| NÚMERO NFS-e
-|--------------------------------------------------------------------------
-|
-| 13 posições
-|
-|--------------------------------------------------------------------------
-*/
-
-$numeroNFSeFormatado =
-    str_pad(
-        preg_replace('/\D/', '', $numeroNFSe),
-        13,
-        '0',
-        STR_PAD_LEFT
-    );
-
-/*
-|--------------------------------------------------------------------------
-| ANO/MÊS
-|--------------------------------------------------------------------------
-*/
-
-$anoMes =
-    date('ym');
-
-/*
-|--------------------------------------------------------------------------
-| CÓDIGO NUMÉRICO
-|--------------------------------------------------------------------------
-|
-| 9 dígitos aleatórios
-|
-|--------------------------------------------------------------------------
-*/
-
-$codigoNumerico =
-    str_pad(
-        rand(0, 999999999),
-        9,
-        '0',
-        STR_PAD_LEFT
-    );
-
-/*
-|--------------------------------------------------------------------------
-| CHAVE BASE
-|--------------------------------------------------------------------------
-|
-| Sem DV
-|
-|--------------------------------------------------------------------------
-*/
-
-$chaveSemDV =
-      $codigoMunicipio
-    . $ambiente
-    . $tipoInscricao
-    . $cnpjLimpo
-    . $numeroNFSeFormatado
-    . $anoMes
-    . $codigoNumerico;
-
-/*
-|--------------------------------------------------------------------------
-| DV MOD11
-|--------------------------------------------------------------------------
-*/
-
-function gerarDV($chave){
-
-    $multiplicador = 2;
-    $soma = 0;
-
-    for(
-        $i = strlen($chave) - 1;
-        $i >= 0;
-        $i--
-    ){
-
-        $soma +=
-            intval($chave[$i]) *
-            $multiplicador;
-
-        $multiplicador++;
-
-        if($multiplicador > 9){
-            $multiplicador = 2;
-        }
-    }
-
-    $resto = $soma % 11;
-
-    $dv = 11 - $resto;
-
-    if($dv >= 10){
-        $dv = 0;
-    }
-
-    return $dv;
-}
-
-/*
-|--------------------------------------------------------------------------
-| CHAVE FINAL 44 DÍGITOS
-|--------------------------------------------------------------------------
-*/
-
-$dv =
-    gerarDV($chaveSemDV);
-
-$chaveAcesso =
-    $chaveSemDV . $dv;
-
-/*
-|--------------------------------------------------------------------------
-| URL CONSULTA
+| URL CONSULTA PÚBLICA
 |--------------------------------------------------------------------------
 */
 
 $urlConsulta =
-    'https://www.nfse.gov.br/consultapublica?chave=' .
-    $chaveAcesso .
-    '&tpc=1';
+    'https://www.nfse.gov.br/ConsultaPublica?'
+    . 'tpc=1&chave='
+    . urlencode($chaveAcesso);
+
+/*
+|--------------------------------------------------------------------------
+| QR CODE
+|--------------------------------------------------------------------------
+|
+| API gratuita sem Google
+|
+|--------------------------------------------------------------------------
+*/
+
+$qrCodeUrl =
+    'https://quickchart.io/qr?'
+    . 'size=220&text='
+    . urlencode($urlConsulta);
 
 
-    //$urlConsulta =
-    //  'https://www.nfse.gov.br/ConsultaPublica?tpc=1&chave='.$chaveAcesso;
-    //  'https://www.nfse.gov.br/ConsultaPublica?tpc=1&chave=33045572228856198000129000000000025026032729210348';
-        
 
-    /*
-    |--------------------------------------------------------------------------
-    | QR CODE
-    |--------------------------------------------------------------------------
-    */
-
-    $qrCodeUrl =
-        'https://chart.googleapis.com/chart?chs=220x220&cht=qr&chl=' .
-        urlencode($urlConsulta);
 
     ?>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        NFS-e <?php echo htmlspecialchars($numeroNFSe); ?>
-    </title>
-
-    <style>
-
-        *{
-            box-sizing:border-box;
-        }
-
-        body{
-
-            margin:0;
-            padding:15px;
-
-            background:#e9ecef;
-
-            font-family:
-                'Courier New',
-                Courier,
-                monospace;
-        }
-
-        .recibo{
-
-            width:100%;
-            max-width:380px;
-
-            margin:auto;
-
-            background:#fff;
-
-            padding:18px;
-
-            position:relative;
-
-            box-shadow:
-                0 0 15px rgba(0,0,0,0.15);
-
-            overflow:hidden;
-        }
-
-        .marca-cancelada{
-
-            position:absolute;
-
-            top:45%;
-
-            left:-20px;
-
-            width:140%;
-
-            text-align:center;
-
-            font-size:42px;
-
-            font-weight:bold;
-
-            color:rgba(255,0,0,0.12);
-
-            transform:rotate(-25deg);
-
-            z-index:1;
-
-            pointer-events:none;
-        }
-
-        .conteudo{
-
-            position:relative;
-
-            z-index:2;
-        }
-
-        h2{
-
-            margin:0 0 15px 0;
-
-            text-align:center;
-
-            font-size:24px;
-        }
-
-        .status{
-
-            margin-bottom:15px;
-
-            text-align:center;
-
-            font-size:14px;
-
-            font-weight:bold;
-
-            padding:8px;
-
-            border-radius:4px;
-        }
-
-        .status-ok{
-
-            background:#d4edda;
-
-            color:#155724;
-        }
-
-        .status-cancelada{
-
-            background:#f8d7da;
-
-            color:#721c24;
-        }
-
-        .info{
-
-            margin-bottom:10px;
-
-            word-break:break-word;
-
-            font-size:14px;
-        }
-
-        .info strong{
-
-            display:block;
-
-            margin-bottom:3px;
-        }
-
-        hr{
-
-            border:none;
-
-            border-top:1px dashed #000;
-
-            margin:12px 0;
-        }
-
-        .valor{
-
-            text-align:right;
-
-            font-size:22px;
-
-            font-weight:bold;
-        }
-
-        .qr{
-
-            text-align:center;
-
-            margin-top:20px;
-        }
-
-        .qr img{
-
-            width:160px;
-            height:160px;
-        }
-
-        .consulta-link{
-
-            text-align:center;
-
-            margin-top:10px;
-
-            font-size:12px;
-
-            word-break:break-all;
-        }
-
-        .consulta-link a{
-
-            color:#000;
-        }
-
-        .acoes{
-
-            margin-top:20px;
-        }
-
-        .btn{
-
-            display:block;
-
-            width:100%;
-
-            border:none;
-
-            border-radius:5px;
-
-            padding:14px;
-
-            margin-bottom:10px;
-
-            font-size:15px;
-
-            font-weight:bold;
-
-            cursor:pointer;
-
-            text-decoration:none;
-
-            text-align:center;
-        }
-
-        .btn-imprimir{
-
-            background:#000;
-            color:#fff;
-        }
-
-        .btn-cancelar{
-
-            background:#dc3545;
-            color:#fff;
-        }
-
-        .btn-voltar{
-
-            background:#6c757d;
-            color:#fff;
-        }
-
-        .btn:hover{
-
-            opacity:0.92;
-        }
-
-        @media(max-width:480px){
-
-            body{
-                padding:5px;
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cupom NFS-e - <?php echo htmlspecialchars($numeroNFSe); ?></title>
+        <style>
+            /* Estilos base para a tela (simulando o cupom) */
+            body { 
+                font-family: 'Courier New', Courier, monospace; /* Fonte ideal para térmica */
+                background: #e0e0e0; 
+                padding: 10px; 
+                margin: 0;
+            }
+            .recibo { 
+                background: #fff; 
+                width: 100%; 
+                max-width: 350px; /* Largura aproximada de bobina na tela */
+                margin: 0 auto; 
+                padding: 15px; 
+                box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+                color: #000;
+            }
+            h2 { 
+                text-align: center; 
+                font-size: 1.2em; 
+                margin: 0 0 10px 0; 
+            }
+            .info-group { 
+                margin-bottom: 8px; 
+                font-size: 0.9em; 
+                word-wrap: break-word; /* Evita que chaves de acesso quebrem o layout */
+            }
+            .info-group strong { 
+                display: block; /* Joga o valor para a linha de baixo para caber na térmica */
+                margin-bottom: 2px;
+            }
+            hr { 
+                border: none; 
+                border-top: 1px dashed #000; /* Tracejado típico de cupom */
+                margin: 10px 0; 
+            }
+            .valor { 
+                font-size: 1.2em; 
+                font-weight: bold; 
+                text-align: right; 
+                margin-top: 10px; 
+            }
+            
+            /* Botões (apenas visíveis na tela) */
+            .acoes { margin-top: 20px; text-align: center; }
+            .btn-imprimir { 
+                display: inline-block; width: 100%; padding: 12px; margin-bottom: 10px;
+                background: #000; color: #fff; border: none; font-weight: bold; 
+                font-size: 1em; cursor: pointer; border-radius: 4px;
+            }
+            .btn-voltar { 
+                display: inline-block; text-decoration: underline; color: #333; 
+                padding: 10px;
             }
 
-            .recibo{
-
-                max-width:100%;
-
-                padding:14px;
+            /* Configurações EXCLUSIVAS para quando o comando de Imprimir for acionado */
+            @media print {
+                @page { 
+                    margin: 0; /* Remove margens do navegador para aproveitar a bobina */
+                }
+                body { 
+                    background: #fff; 
+                    padding: 0; 
+                    margin: 0; 
+                }
+                .recibo { 
+                    width: 80mm; /* Força os exatos 80mm da bobina térmica */
+                    max-width: 80mm; 
+                    padding: 2mm; /* Respiro mínimo interno */
+                    margin: 0; 
+                    box-shadow: none; 
+                    border: none; 
+                }
+                .acoes { 
+                    display: none !important; /* Esconde botões na impressão */
+                }
             }
 
-            h2{
-                font-size:20px;
-            }
+            .btn-cancelar{
 
-            .valor{
-                font-size:20px;
-            }
+    display:inline-block;
 
-            .marca-cancelada{
+    width:100%;
 
-                font-size:32px;
-            }
-        }
+    padding:12px;
 
-        /*
-        |--------------------------------------------------------------------------
-        | IMPRESSÃO TÉRMICA
-        |--------------------------------------------------------------------------
-        */
+    margin-bottom:10px;
 
-        @media print{
+    background:#dc3545;
 
-            @page{
-                margin:0;
-            }
+    color:#fff;
 
-            body{
+    border:none;
 
-                background:#fff;
+    font-weight:bold;
 
-                margin:0;
-                padding:0;
-            }
+    font-size:1em;
 
-            .recibo{
+    cursor:pointer;
 
-                width:80mm;
-                max-width:80mm;
+    border-radius:4px;
+}
 
-                box-shadow:none;
+.btn-cancelar:hover{
 
-                margin:0;
-
-                padding:2mm;
-            }
-
-            .acoes{
-
-                display:none !important;
-            }
-
-            .marca-cancelada{
-
-                color:rgba(255,0,0,0.20);
-
-                font-size:38px;
-            }
-        }
-
-    </style>
-
-</head>
-
+    background:#bb2d3b;
+}
+        </style>
+    </head>
+    
 <body>
+
+    <?php
+
+/*
+|--------------------------------------------------------------------------
+| VERIFICA XML DE CANCELAMENTO
+|--------------------------------------------------------------------------
+|
+| Procura:
+| nfse_cancelada_[chave].xml
+|
+|--------------------------------------------------------------------------
+*/
+
+$notaCancelada         = false;
+
+$data_cancelamento     = '';
+
+$motivo_cancelamento   = '';
+
+$arquivoCancelamento =
+    $xmlDir .
+    DIRECTORY_SEPARATOR .
+    'nfse_cancelada_' .
+    $chaveAcesso .
+    '.xml';
+
+/*
+|--------------------------------------------------------------------------
+| EXISTE XML CANCELAMENTO?
+|--------------------------------------------------------------------------
+*/
+
+if(file_exists($arquivoCancelamento)){
+
+    libxml_use_internal_errors(true);
+
+    $xmlCancelamento =
+        simplexml_load_file(
+            $arquivoCancelamento
+        );
+
+    if($xmlCancelamento !== false){
+
+        $notaCancelada = true;
+
+        $data_cancelamento =
+            (string)$xmlCancelamento->data_cancelamento;
+
+        $motivo_cancelamento =
+            (string)$xmlCancelamento->motivo_cancelamento;
+    }
+}
+
+?>
 
     <div class="recibo">
 
-        <?php if ($cancelada): ?>
+        <?php if($notaCancelada){ ?>
 
-            <div class="marca-cancelada">
-                CANCELADA
+            <div
+                style="
+                    background:#dc3545;
+                    color:#000;
+                    padding:12px;
+                    text-align:center;
+                    font-weight:bold;
+                    font-size:18px;
+                    margin-bottom:15px;
+                    border-radius:6px;
+                "
+            >NFS-e CANCELADA</br>Nº: <?php echo htmlspecialchars($numeroNFSe); ?>
             </div>
 
-        <?php endif; ?>
-
-        <div class="conteudo">
-
-            <h2>
-                NFS-e
-            </h2>
-
-            <?php if ($cancelada): ?>
-
-                <div class="status status-cancelada">
-                    ❌ NOTA FISCAL CANCELADA
-                </div>
-
-            <?php else: ?>
-
-                <div class="status status-ok">
-                    ✅ NFS-e AUTORIZADA
-                </div>
-
-            <?php endif; ?>
-
-            <div class="info">
-                <strong>Número:</strong>
-                <?php echo htmlspecialchars($numeroNFSe); ?>
+        <?php }else{?>
+    <div
+                style="
+                    background:#0f0;
+                    color:#000;
+                    padding:12px;
+                    text-align:center;
+                    font-weight:bold;
+                    font-size:18px;
+                    margin-bottom:15px;
+                    border-radius:6px;
+                "
+            >NFS-e AUTORIZADA</br>Nº: <?php echo htmlspecialchars($numeroNFSe); ?>
             </div>
+        <?php } ?>
 
-            <div class="info">
-                <strong>Chave de Acesso:</strong>
-                <?php echo htmlspecialchars($chaveAcesso); ?>
-            </div>
+        <!--<h2>NFS-e</h2>-->
 
-            <div class="info">
-                <strong>Data Emissão:</strong>
-                <?php echo htmlspecialchars($dataEmissao); ?>
-            </div>
+        <!--<div class="info-group">
+            <strong>Nº da Nota:</strong>
+            <?php //echo htmlspecialchars($numeroNFSe); ?>
+        </div>-->
 
-            <hr>
+        <div class="info-group">
+            <strong>Chave de Acesso:</strong>
+            <?php echo htmlspecialchars($chaveAcesso); ?>
+        </div>
 
-            <div class="info">
-                <strong>CNPJ Prestador:</strong>
-                <?php echo htmlspecialchars($cnpjPrestador); ?>
-            </div>
+        <div class="info-group">
+            <strong>Emissão:</strong>
+            <?php echo htmlspecialchars($dataEmissao); ?>
+        </div>
 
-            <div class="info">
-                <strong>CPF/CNPJ Tomador:</strong>
-                <?php echo htmlspecialchars($cpfTomador); ?>
-            </div>
+        <?php if($notaCancelada){ ?>
 
-            <hr>
+    <div class="info-group">
 
-            <div class="info">
-                <strong>Descrição:</strong>
-                <?php echo nl2br(htmlspecialchars($descricaoServ)); ?>
-            </div>
+        <strong>
+            Data Cancelamento:
+        </strong>
 
-            <hr>
+        <?php
 
-            <div class="valor">
-                R$
-                <?php echo htmlspecialchars($valorServicos); ?>
-            </div>
+        if(!empty($data_cancelamento)){
 
-            <div class="qr">
+            echo date(
+                'd/m/Y H:i:s',
+                strtotime($data_cancelamento)
+            );
 
-                <img
-                    src="<?php echo $qrCodeUrl; ?>"
-                    alt="QR Code"
-                >
+        }else{
 
-            </div>
+            echo 'N/A';
+        }
 
-            <div class="consulta-link">
+        ?>
 
-                Consulte a autenticidade:
+    </div>
 
-                <br>
+    <div class="info-group">
 
-                <a
-                    href="<?php echo $urlConsulta; ?>"
-                    target="_blank"
-                >
-                    <?php echo $urlConsulta; ?>
-                </a>
+        <strong>
+            Motivo:
+        </strong>
 
-            </div>
+        <?php
 
-            <div class="acoes">
+        echo nl2br(
+            htmlspecialchars(
+                $motivo_cancelamento
+            )
+        );
+
+        ?>
+
+    </div>
+
+<?php } ?>
+
+        <hr>
+
+        <div class="info-group">
+            <strong>CNPJ Prestador:</strong>
+            <?php echo htmlspecialchars($cnpjPrestador); ?>
+        </div>
+
+        <div class="info-group">
+            <strong>CPF/CNPJ Tomador:</strong>
+            <?php echo htmlspecialchars($cpfTomador); ?>
+        </div>
+
+        <hr>
+
+        <div class="info-group">
+            <strong>Descrição do Serviço:</strong>
+
+            <?php
+                echo nl2br(
+                    htmlspecialchars($descricaoServ)
+                );
+            ?>
+        </div>
+
+        <hr>
+
+        <div class="info-group valor">
+            Total:
+            R$
+            <?php echo htmlspecialchars($valorServicos); ?>
+        </div>
+
+        <hr>
+
+        <!-- QR CODE -->
+        <div
+            style="
+                text-align:center;
+                margin-top:15px;
+            "
+        >
+
+            <img
+                src="<?php echo $qrCodeUrl; ?>"
+                alt="QR Code NFS-e"
+                style="
+                    width:180px;
+                    height:180px;
+                "
+            >
+
+        </div>
+
+        <!-- LINK CONSULTA -->
+        <div
+            style="
+                text-align:center;
+                margin-top:10px;
+                font-size:12px;
+                word-break:break-word;
+            "
+        >
+
+            <strong>
+                Consulta Pública
+            </strong>
+
+            <br><br>
+
+            <a
+                href="<?php echo $urlConsulta; ?>"
+                target="_blank"
+            >
+                <?php echo $urlConsulta; ?>
+            </a>
+
+        </div>
+
+        <div class="acoes">
+
+            <button
+                class="btn-imprimir"
+                onclick="window.print();"
+            >
+                🖨️ IMPRIMIR
+            </button>
+
+            <?php if(!$notaCancelada){ ?>
 
                 <button
-                    class="btn btn-imprimir"
-                    onclick="window.print();"
+                    class="btn-cancelar"
+                    onclick="
+                        if(confirm('Deseja realmente cancelar esta NFS-e?')){
+
+                            window.location.href =
+                            'nfse_cancela.php?numero_nfse=<?php echo urlencode($numeroNFSe); ?>';
+                        }
+                    "
                 >
-                    🖨️ IMPRIMIR
+                    ❌ CANCELAR NFS-e
                 </button>
 
-                <?php if (!$cancelada): ?>
+            <?php } ?>
 
-                    <button
-                        class="btn btn-cancelar"
-                        onclick="
-                            if(confirm('Deseja cancelar esta NFS-e?')){
-
-                                window.location.href =
-                                'nfse_cancela.php?numero_nfse=<?php echo urlencode($numeroNFSe); ?>';
-                            }
-                        "
-                    >
-                        ❌ CANCELAR NFS-e
-                    </button>
-
-                <?php endif; ?>
-
-                <a
-                    href="listar_nfse.php"
-                    class="btn btn-voltar"
-                >
-                    ⬅ VOLTAR
-                </a>
-
-            </div>
+            <a
+                href="listar_nfse.php"
+                class="btn-voltar"
+            >
+                Voltar para a lista
+            </a>
 
         </div>
 
     </div>
 
 </body>
-
-</html>
-
-<?php
+    </html>
+    <?php
     exit;
 }
 
 /*
 |--------------------------------------------------------------------------
-| LISTAGEM
+| AÇÃO PADRÃO: LISTAR ARQUIVOS
 |--------------------------------------------------------------------------
 */
-
 $arquivosXML = [];
-
 if (is_dir($xmlDir)) {
-
-    $arquivosXML =
-        glob(
-            $xmlDir .
-            DIRECTORY_SEPARATOR .
-            '*.xml'
-        );
-
+    $arquivosXML = glob($xmlDir . DIRECTORY_SEPARATOR . '*.xml');
     if (!empty($arquivosXML)) {
-
-        array_multisort(
-
-            array_map(
-                'filemtime',
-                $arquivosXML
-            ),
-
-            SORT_DESC,
-
-            $arquivosXML
-        );
+        array_multisort(array_map('filemtime', $arquivosXML), SORT_DESC, $arquivosXML);
     }
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        Gerenciador NFS-e
-    </title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade -->
+    <title>Gerenciador de NFS-e</title>
     <style>
-
-        body{
-
-            margin:0;
-            padding:10px;
-
-            background:#f5f5f5;
-
-            font-family:Arial;
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #f9f9f9; 
+            padding: 10px; /* Reduzido para mobile */
+            margin: 0;
         }
-
-        .container{
-
-            max-width:1000px;
-
-            margin:auto;
-
-            background:#fff;
-
-            padding:20px;
-
-            border-radius:8px;
-
-            box-shadow:
-                0 2px 10px rgba(0,0,0,0.1);
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: #fff; 
+            padding: 15px; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
         }
-
-        h2{
-
-            margin-top:0;
+        h2 { 
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 10px; 
+            color: #333; 
+            font-size: 1.3em;
         }
-
-        .table-responsive{
-
-            overflow:auto;
+        
+        /* Envolve a tabela para permitir scroll lateral no celular */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
-
-        table{
-
-            width:100%;
-
-            border-collapse:collapse;
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 10px; 
+            min-width: 500px; /* Força scroll lateral em telas menores que isso */
         }
-
-        th, td{
-
-            padding:12px;
-
-            border-bottom:1px solid #ddd;
-
-            text-align:left;
+        th, td { 
+            padding: 10px; 
+            border-bottom: 1px solid #ddd; 
+            text-align: left; 
+            font-size: 0.9em;
         }
-
-        th{
-
-            background:#f1f1f1;
+        th { background-color: #f4f4f4; }
+        tr:hover { background-color: #f1f1f1; }
+        
+        .btn-ver { 
+            display: inline-block;
+            background: #28a745; 
+            color: white; 
+            padding: 8px 12px; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            font-size: 0.85em;
+            text-align: center;
+            white-space: nowrap;
         }
+        .btn-ver:hover { background: #218838; }
+        .empty-msg { text-align: center; color: #777; padding: 20px; }
 
-        .btn-ver{
+        .btn-cancelar{
 
-            display:inline-block;
+    display:inline-block;
 
-            background:#28a745;
+    width:100%;
 
-            color:#fff;
+    padding:12px;
 
-            text-decoration:none;
+    margin-bottom:10px;
 
-            padding:8px 14px;
+    background:#dc3545;
 
-            border-radius:4px;
-        }
+    color:#fff;
 
-        .btn-ver:hover{
+    border:none;
 
-            background:#218838;
-        }
+    font-weight:bold;
+
+    font-size:1em;
+
+    cursor:pointer;
+
+    border-radius:4px;
+}
+
+.btn-cancelar:hover{
+
+    background:#bb2d3b;
+}
 
     </style>
-
 </head>
-
 <body>
-
-<div class="container">
-
-    <h2>
-        📄 Notas Fiscais XML
-    </h2>
-
-    <?php if (empty($arquivosXML)): ?>
-
-        <p>
-            Nenhuma NFS-e encontrada.
-        </p>
-
-    <?php else: ?>
-
-        <div class="table-responsive">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Arquivo
-                        </th>
-
-                        <th>
-                            Data
-                        </th>
-
-                        <th>
-                            Ação
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <?php foreach ($arquivosXML as $arquivo):
-
-                        $nomeArquivo =
-                            basename($arquivo);
-
-                        $dataArquivo =
-                            date(
-                                'd/m/Y H:i',
-                                filemtime($arquivo)
-                            );
-
-                    ?>
-
-                    <tr>
-
-                        <td>
-                            <?php echo htmlspecialchars($nomeArquivo); ?>
-                        </td>
-
-                        <td>
-                            <?php echo $dataArquivo; ?>
-                        </td>
-
-                        <td>
-
-                            <a
-                                class="btn-ver"
-                                href="
-                                listar_nfse.php?arquivo=<?php echo urlencode($nomeArquivo); ?>
-                                "
-                            >
-                                Visualizar
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-                    <?php endforeach; ?>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    <?php endif; ?>
-
-</div>
-
+    <div class="container">
+        <h2>📄 Notas Fiscais (XML)</h2>
+        
+        <?php if (empty($arquivosXML)): ?>
+            <p class="empty-msg">Nenhuma nota fiscal encontrada.</p>
+        <?php else: ?>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Arquivo</th>
+                            <th>Data</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($arquivosXML as $arquivo): 
+                            $nomeArquivo = basename($arquivo);
+                            $dataModificacao = date("d/m/Y H:i", filemtime($arquivo));
+                        ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($nomeArquivo); ?></td>
+                                <td><?php echo $dataModificacao; ?></td>
+                                <td>
+                                    <a href="listar_nfse.php?arquivo=<?php echo urlencode($nomeArquivo); ?>" class="btn-ver">Imprimir</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php endif; ?>
+    </div>
 </body>
-
 </html>
