@@ -181,7 +181,7 @@ if($_SESSION['cd_empresa'] == 1){
             
               <ul class="nav flex-column sub-menu">
                 <?php echo '<li class="nav-item">'.$u->retPermissaoA('605', 'nav-link', 'Comissões', $_SESSION['dominio'].'/pages/md_comissao/consulta_comissao.php', '', true).'</li>';?>
-                <?php echo '<li class="nav-item">'.$u->retPermissaoA('604', 'nav-link', 'Relatório de Caixa', $_SESSION['dominio'].'/pages/md_comissao/relatorios_caixa.php', '', true).'</li>';?>
+                <?php echo '<li class="nav-item">'.$u->retPermissaoA('604', 'nav-link', 'Relatório de Caixa', $_SESSION['dominio'].'/pages/md_caixa/relatorios_caixa.php', '', true).'</li>';?>
                 
                 <li class="nav-item" <?php echo $_SESSION['md_caixa_menu']; ?>><a <?php echo $_SESSION['c_sidebar']?>class="nav-link" href="<?php echo $_SESSION['dominio'];?>/pages/md_caixa/conferencia_caixa.php">Conferir Caixa</a></li>
               
