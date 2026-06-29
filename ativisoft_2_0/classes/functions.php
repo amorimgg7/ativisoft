@@ -6373,17 +6373,6 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
         
 
         try {
-            /*$partial_fiscal .= '
-                        <h1>Ambiente</h1>
-                        <p>Homologação.</p>
-                        <p>ambiente_fiscal: '.$ambiente_fiscal.'</p>
-                        <p>regime_fiscal: '.$regime_fiscal.'</p>
-                        <p>doc_emissor: '.$doc_emissor.'</p>
-                        <p>doc_cliente: '.$doc_cliente.'</p>
-                        <p>os: '.$os.'</p>
-                        <p>descricao: '.$descricao.'</p>
-                        <p>valor: '.$valor.'</p>
-                        ';*/
             $dsc_ambiente_fiscal = "";
             $dsc_regime_fiscal = "";
             if($ambiente_fiscal == '0'){
@@ -6550,6 +6539,27 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
 
                         $urlimprimir =
                             'listar_nfse.php';
+
+
+                            //$codigo, $type, $class, $name, $id, $style, $value, $action, $onclick, $href, $icon, $excessao = null
+                        $partial_fiscal .= $u->retPermissaoBtn(
+                            '211',
+                            'button',
+                            'btn btn-block btn-lg btn-success',
+                            '',
+                            '', 
+                            '', 
+                            'Emitir NFSE', 
+                            '', 
+                            'window.location.href=\'' . $url_nfse_autorizada . '\';', 
+                            '', 
+                            '', 
+                            true
+                        );
+
+
+
+                        /*
                         $partial_fiscal .= '
                             <button 
                                 type="button"
@@ -6559,6 +6569,7 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                                 Emitir NFSE
                             </button>
                         ';
+                        */
                         /*$partial_fiscal .= '
                             <button 
                                 type="button"
@@ -7536,7 +7547,7 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
             "acesso_pdv_0008",
             "acesso_cameras_0009"
         ];
-
+        
         $todasPermissoes = [];
 
         // Monta o mega-array com todas as permissões de todos os módulos
@@ -7585,7 +7596,7 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
 
         // Agora valida o código solicitado
         foreach ($todasPermissoes as $perm) {
-
+            $ret = "";
             if ($perm["codigo"] == $codigo) {
 
                 if ($perm["status"] === "S") {
@@ -7615,10 +7626,16 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                         $ret = $ret.' onclick = "'.$onclick.'" ';
                     }
                     if($style != ''){
-                        $ret = $ret.' style="'.$style.'" ';
+                        $ret = $ret.' style="'.$style.'"';
                     }
-                    if($style != ''){
-                        $ret = $ret.' style="'.$href.'" ';
+
+                    
+                        
+                        
+                        
+
+                    if($href != ''){
+                        $ret = $ret.' href="'.$href.'" ';
                     }
                     $ret = $ret.'>';
                     if($icon != ''){
@@ -7640,29 +7657,26 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                     if($excessao == true){
                         $ret = '
                         
-                        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">-->
+                            <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">-->
 
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-                        <!-- ALERT FIXO NO TOPO -->
-
-
-                        <div class="modal fade" id="alertTopoModal'.$codigo.'" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-danger text-white">
-        <h5 class="modal-title">Atenção! Acesso negado ('.$perm["descricao"].' - '.$codigo.')</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-      </div>
-      <div class="modal-body text-center text-dark">
-        Acesso negado ('.$perm["descricao"].' - '.$codigo.')
-      </div>
-    </div>
-  </div>
-</div>
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                            <!-- ALERT FIXO NO TOPO -->
 
 
-                        
-                    ';
+                            <div class="modal fade" id="alertTopoModal'.$codigo.'" tabindex="-1" aria-hidden="true">
+                              <div class="modal-dialog modal-xl modal-dialog-centered">
+                                <div class="modal-content">
+                                  <div class="modal-header bg-danger text-white">
+                                    <h5 class="modal-title">Atenção! Acesso negado ('.$perm["descricao"].' - '.$codigo.')</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                  </div>
+                                  <div class="modal-body text-center text-dark">
+                                    Acesso negado ('.$perm["descricao"].' - '.$codigo.')
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        ';
                     
                         $ret = $ret.'<button type="button" ';
                         if($class){
@@ -7670,15 +7684,14 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                         }else{
                             $ret = $ret.' class=" btn-secondary btn-sem-permissao"';
                         }
-                        
                             $ret = $ret.' onclick="mostrarAlert'.$codigo.'()"';
                         
                         if($style != ''){
-                            $ret = $ret.' style="'.$style.'" opacity: 0.30; cursor: not-allowed;background-color: pink;" ';
+                            $ret = $ret.' style="'.$style.'" opacity: 0.30; cursor: not-allowed; color: #000; background-color: pink;" ';
                         }else{
-                            $ret = $ret.' style="opacity: 0.30; cursor: not-allowed; background-color: pink;" ';
+                            $ret = $ret.' style="opacity: 0.30; cursor: not-allowed; color: #000; background-color: pink;" ';
                         }
-                        
+
                         $ret = $ret.' data-bs-toggle="modal" data-bs-target="#alertTopoModal'.$codigo.'">';
                         if($icon != ''){
                             $ret = $ret.$icon;

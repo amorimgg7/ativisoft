@@ -119,8 +119,8 @@ $('#modalNFSE').on('hidden.bs.modal', function () {
                     $_SESSION['vcusto_orcamento'] = 0;
                     $_SESSION['vpag_servico'] = 0;
                     
-                    echo '<script>document.getElementById("consulta").style.display = "block";</script>';//botoes
-                    echo '<script>document.getElementById("botoes").style.display = "none";</script>';//
+                    echo '<script>document.getElementById("consulta").style.display = "block";</script>';
+                    echo '<script>document.getElementById("botoes").style.display = "none";</script>';
                     
                     
                   }else{

@@ -243,3 +243,9 @@ ALTER TABLE `tb_empresa` ADD `certificado_digital` varchar(99) NULL AFTER `imuni
 
 
 
+ UPDATE rel_master
+ SET acesso_assistencia_0002 = JSON_ARRAY_APPEND(
+    acesso_assistencia_0002,
+    '$',
+    JSON_ARRAY("211", "Emitir NFSE", "N")
+ );
