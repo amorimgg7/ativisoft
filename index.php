@@ -50,7 +50,7 @@ if(isset($_SESSION['cd_colab'])) {
                     <a href="https://sistema.ativisoft.com.br/pages/md_xml/" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
                         FERRAMENTAS FISCAIS
                     </a>
-                    <a href="http://localhost/ativisoft_1_0/etiquetas/label_simulator.php" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                    <a href="https://ativisoft.com.br/etiquetas/label_simulator.php" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
                         SIMULADOR DE ETIQUETA (EPL/ZPL)
                     </a>
                 </div>
