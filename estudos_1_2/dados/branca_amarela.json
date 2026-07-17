@@ -1,0 +1,393 @@
+[
+  {
+    "id": 1,
+    "categoria": "História do Taekwon-Do",
+    "pergunta": "O que significa a palavra Taekwon-Do?",
+    "opcoes": [
+      "Arte de chutar, socar e caminho de vida",
+      "Somente técnicas de chute",
+      "Luta livre coreana",
+      "Esporte de competição"
+    ],
+    "correta": 0,
+    "explicacao": "Taekwon significa pé, mão e caminho. O Taekwon-Do é uma arte marcial que envolve técnicas físicas e desenvolvimento pessoal."
+  },
+  {
+    "id": 2,
+    "categoria": "História do Taekwon-Do",
+    "pergunta": "Em qual país o Taekwon-Do foi desenvolvido?",
+    "opcoes": [
+      "Coreia",
+      "Japão",
+      "China",
+      "Tailândia"
+    ],
+    "correta": 0,
+    "explicacao": "O Taekwon-Do moderno foi desenvolvido na Coreia."
+  },
+  {
+    "id": 3,
+    "categoria": "Filosofia",
+    "pergunta": "Qual é o significado do princípio da Cortesia no Taekwon-Do?",
+    "opcoes": [
+      "Demonstrar respeito e educação com todos",
+      "Ser superior aos outros",
+      "Nunca aceitar correções",
+      "Evitar qualquer contato com colegas"
+    ],
+    "correta": 0,
+    "explicacao": "A cortesia representa respeito, educação e boas atitudes."
+  },
+  {
+    "id": 4,
+    "categoria": "Filosofia",
+    "pergunta": "Qual dos itens abaixo faz parte dos cinco princípios do Taekwon-Do?",
+    "opcoes": [
+      "Autocontrole",
+      "Riqueza",
+      "Fama",
+      "Competição"
+    ],
+    "correta": 0,
+    "explicacao": "Os cinco princípios são Cortesia, Integridade, Perseverança, Autocontrole e Espírito Indômito."
+  },
+  {
+    "id": 5,
+    "categoria": "Disciplina",
+    "pergunta": "Como o aluno deve se comportar durante o treinamento?",
+    "opcoes": [
+      "Com disciplina, respeito e atenção",
+      "Conversando durante as explicações",
+      "Fazendo apenas os exercícios que gosta",
+      "Ignorando as orientações do instrutor"
+    ],
+    "correta": 0,
+    "explicacao": "A disciplina é fundamental para o aprendizado correto."
+  },
+  {
+    "id": 6,
+    "categoria": "Relacionamento Aluno-Instrutor",
+    "pergunta": "Qual deve ser a atitude do aluno ao receber uma correção do instrutor?",
+    "opcoes": [
+      "Aceitar e buscar melhorar",
+      "Ignorar a correção",
+      "Discutir com o instrutor",
+      "Parar o treinamento"
+    ],
+    "correta": 0,
+    "explicacao": "As correções fazem parte do aprendizado e desenvolvimento."
+  },
+  {
+    "id": 7,
+    "categoria": "Graduação",
+    "pergunta": "Qual é a primeira graduação normalmente conquistada no Taekwon-Do?",
+    "opcoes": [
+      "Faixa Branca",
+      "Faixa Preta",
+      "Faixa Vermelha",
+      "Faixa Azul"
+    ],
+    "correta": 0,
+    "explicacao": "A faixa branca representa o início do aprendizado."
+  },
+  {
+    "id": 8,
+    "categoria": "Graduação",
+    "pergunta": "O que representa a faixa branca?",
+    "opcoes": [
+      "Inocência e ausência de conhecimento prévio do Taekwon-Do",
+      "Experiência máxima",
+      "Domínio completo das técnicas",
+      "Título de instrutor"
+    ],
+    "correta": 0,
+    "explicacao": "A faixa branca simboliza o começo do caminho."
+  },
+  {
+    "id": 9,
+    "categoria": "Técnicas Básicas",
+    "pergunta": "Qual é a importância da base no Taekwon-Do?",
+    "opcoes": [
+      "Garantir equilíbrio e eficiência nos movimentos",
+      "Apenas melhorar a aparência",
+      "Aumentar somente a velocidade",
+      "Substituir todas as técnicas"
+    ],
+    "correta": 0,
+    "explicacao": "Uma boa base permite estabilidade, força e controle."
+  },
+  {
+    "id": 10,
+    "categoria": "Técnicas Básicas",
+    "pergunta": "O que deve acompanhar uma técnica correta de Taekwon-Do?",
+    "opcoes": [
+      "Controle, precisão e concentração",
+      "Somente força bruta",
+      "Pressa para terminar",
+      "Movimentos sem objetivo"
+    ],
+    "correta": 0,
+    "explicacao": "A técnica correta depende de controle e concentração."
+  },
+  {
+    "id": 11,
+    "categoria": "Saudações",
+    "pergunta": "A saudação no Taekwon-Do representa:",
+    "opcoes": [
+      "Respeito ao instrutor, colegas e arte marcial",
+      "Medo do adversário",
+      "Obrigação sem significado",
+      "Apenas um costume esportivo"
+    ],
+    "correta": 0,
+    "explicacao": "A saudação demonstra respeito e disciplina."
+  },
+  {
+    "id": 12,
+    "categoria": "Comandos",
+    "pergunta": "O comando 'Charyot' significa:",
+    "opcoes": [
+      "Atenção",
+      "Descansar",
+      "Começar combate",
+      "Trocar de posição"
+    ],
+    "correta": 0,
+    "explicacao": "Charyot significa posição de atenção."
+  },
+  {
+    "id": 13,
+    "categoria": "Comandos",
+    "pergunta": "O comando 'Kyong Ye' significa:",
+    "opcoes": [
+      "Saudar ou cumprimentar",
+      "Atacar",
+      "Defender",
+      "Correr"
+    ],
+    "correta": 0,
+    "explicacao": "Kyong Ye é o comando para saudação."
+  },
+  {
+    "id": 14,
+    "categoria": "Poomsae Tul",
+    "pergunta": "Qual é a importância dos Tul no Taekwon-Do ITF?",
+    "opcoes": [
+      "Desenvolver técnicas, equilíbrio e coordenação",
+      "Somente decorar movimentos",
+      "Treinar apenas competição",
+      "Substituir todo treinamento"
+    ],
+    "correta": 0,
+    "explicacao": "Os Tul desenvolvem diversos aspectos técnicos e mentais."
+  },
+  {
+    "id": 15,
+    "categoria": "Conduta",
+    "pergunta": "Um praticante de Taekwon-Do deve aplicar os princípios da arte:",
+    "opcoes": [
+      "Dentro e fora do local de treinamento",
+      "Somente durante exames",
+      "Apenas em competições",
+      "Somente quando observado"
+    ],
+    "correta": 0,
+    "explicacao": "O Taekwon-Do busca formar melhores pessoas em todos os momentos."
+  },
+  {
+    "id": 16,
+    "categoria": "Filosofia",
+    "pergunta": "Por que o Taekwon-Do é considerado mais do que uma simples técnica de combate?",
+    "opcoes": [
+      "Porque busca desenvolver corpo, mente e caráter do praticante",
+      "Porque elimina a necessidade de treinamento físico",
+      "Porque serve apenas para competições",
+      "Porque substitui qualquer outra atividade"
+    ],
+    "correta": 0,
+    "explicacao": "O Taekwon-Do possui uma filosofia voltada para o desenvolvimento integral do ser humano."
+  },
+  {
+    "id": 17,
+    "categoria": "Filosofia",
+    "pergunta": "O princípio da Integridade ensina principalmente que o praticante deve:",
+    "opcoes": [
+      "Agir corretamente mesmo quando ninguém está observando",
+      "Sempre vencer seus adversários",
+      "Demonstrar superioridade técnica",
+      "Evitar qualquer desafio"
+    ],
+    "correta": 0,
+    "explicacao": "Integridade significa manter valores e atitudes corretas em todas as situações."
+  },
+  {
+    "id": 18,
+    "categoria": "Filosofia",
+    "pergunta": "O Espírito Indômito está relacionado com:",
+    "opcoes": [
+      "Coragem e determinação diante das dificuldades",
+      "Agressividade contra o adversário",
+      "Uso da força sem controle",
+      "Desejo de competir sempre"
+    ],
+    "correta": 0,
+    "explicacao": "Espírito Indômito representa força de vontade e coragem para superar obstáculos."
+  },
+  {
+    "id": 19,
+    "categoria": "Teoria do Poder",
+    "pergunta": "Por que a respiração correta aumenta a eficiência de uma técnica?",
+    "opcoes": [
+      "Ajuda na concentração, controle corporal e geração de força",
+      "Serve apenas para relaxamento",
+      "Substitui a técnica correta",
+      "Evita completamente o cansaço"
+    ],
+    "correta": 0,
+    "explicacao": "A respiração influencia controle, concentração e potência."
+  },
+  {
+    "id": 20,
+    "categoria": "Teoria do Poder",
+    "pergunta": "A força de uma técnica no Taekwon-Do depende principalmente da combinação de:",
+    "opcoes": [
+      "Velocidade, massa, concentração e equilíbrio",
+      "Somente tamanho corporal",
+      "Somente força muscular",
+      "Apenas flexibilidade"
+    ],
+    "correta": 0,
+    "explicacao": "A teoria do poder combina vários fatores para gerar eficiência."
+  },
+  {
+    "id": 21,
+    "categoria": "Técnicas Básicas",
+    "pergunta": "Qual é o objetivo principal de praticar movimentos básicos repetidamente?",
+    "opcoes": [
+      "Criar precisão, controle e memória muscular",
+      "Apenas aumentar resistência",
+      "Preparar somente para competição",
+      "Substituir o treinamento completo"
+    ],
+    "correta": 0,
+    "explicacao": "A repetição correta aperfeiçoa a técnica."
+  },
+  {
+    "id": 22,
+    "categoria": "Técnicas Básicas",
+    "pergunta": "Uma técnica realizada com excesso de força e pouca precisão demonstra:",
+    "opcoes": [
+      "Falta de controle técnico",
+      "Grande evolução marcial",
+      "Domínio completo",
+      "Maior eficiência"
+    ],
+    "correta": 0,
+    "explicacao": "No Taekwon-Do, força deve estar acompanhada de controle."
+  },
+  {
+    "id": 23,
+    "categoria": "Bases",
+    "pergunta": "Uma base correta permite ao praticante:",
+    "opcoes": [
+      "Manter equilíbrio, estabilidade e transferir força corretamente",
+      "Mover-se sem controle",
+      "Usar somente os braços",
+      "Evitar qualquer deslocamento"
+    ],
+    "correta": 0,
+    "explicacao": "As bases são fundamentais para defesa, ataque e movimentação."
+  },
+  {
+    "id": 24,
+    "categoria": "Disciplina",
+    "pergunta": "A disciplina no Taekwon-Do deve ser entendida como:",
+    "opcoes": [
+      "Controle das atitudes e compromisso com o treinamento",
+      "Obediência sem pensar",
+      "Medo do instrutor",
+      "Ausência de questionamentos"
+    ],
+    "correta": 0,
+    "explicacao": "Disciplina envolve responsabilidade e autocontrole."
+  },
+  {
+    "id": 25,
+    "categoria": "Relacionamento Aluno-Instrutor",
+    "pergunta": "Por que o aluno deve respeitar o instrutor?",
+    "opcoes": [
+      "Porque ele possui responsabilidade de transmitir conhecimento e valores",
+      "Porque ele nunca pode ser questionado",
+      "Porque possui maior força física",
+      "Porque sempre está correto"
+    ],
+    "correta": 0,
+    "explicacao": "O respeito está ligado ao papel educativo do instrutor."
+  },
+  {
+    "id": 26,
+    "categoria": "História do Taekwon-Do",
+    "pergunta": "O desenvolvimento do Taekwon-Do moderno está ligado principalmente:",
+    "opcoes": [
+      "À organização e sistematização das técnicas coreanas",
+      "Somente aos esportes olímpicos",
+      "A artes marciais japonesas modernas",
+      "A lutas ocidentais"
+    ],
+    "correta": 0,
+    "explicacao": "O Taekwon-Do moderno foi organizado e desenvolvido na Coreia."
+  },
+  {
+    "id": 27,
+    "categoria": "Comandos",
+    "pergunta": "Durante um treinamento, o aluno deve responder aos comandos do instrutor demonstrando:",
+    "opcoes": [
+      "Atenção, disciplina e prontidão",
+      "Pressa e ansiedade",
+      "Competição com colegas",
+      "Indiferença"
+    ],
+    "correta": 0,
+    "explicacao": "Os comandos fazem parte da organização e disciplina do treinamento."
+  },
+  {
+    "id": 28,
+    "categoria": "Conduta",
+    "pergunta": "Um verdadeiro praticante de Taekwon-Do demonstra sua evolução principalmente através de:",
+    "opcoes": [
+      "Suas atitudes dentro e fora do Dojang",
+      "Apenas sua força física",
+      "Quantidade de medalhas",
+      "Capacidade de vencer discussões"
+    ],
+    "correta": 0,
+    "explicacao": "A evolução marcial envolve comportamento e caráter."
+  },
+  {
+    "id": 29,
+    "categoria": "Dojang",
+    "pergunta": "O Dojang deve ser considerado pelo praticante como:",
+    "opcoes": [
+      "Um local de aprendizado, respeito e desenvolvimento",
+      "Apenas uma academia de exercícios",
+      "Um local de competição entre alunos",
+      "Um espaço sem regras"
+    ],
+    "correta": 0,
+    "explicacao": "O Dojang possui significado de disciplina e crescimento."
+  },
+  {
+    "id": 30,
+    "categoria": "Graduação",
+    "pergunta": "A mudança de graduação no Taekwon-Do representa:",
+    "opcoes": [
+      "Maior responsabilidade e evolução técnica e pessoal",
+      "Superioridade sobre outros alunos",
+      "Fim da necessidade de treinar",
+      "Apenas mudança de faixa"
+    ],
+    "correta": 0,
+    "explicacao": "Cada graduação representa novas responsabilidades e aprendizado."
+  }
+
+]

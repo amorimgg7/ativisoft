@@ -1,0 +1,392 @@
+[
+  {
+    "id": 1,
+    "categoria": "Filosofia",
+    "pergunta": "Qual é o principal objetivo da filosofia do Taekwon-Do?",
+    "opcoes": [
+      "Formar pessoas melhores física e moralmente",
+      "Criar apenas atletas de competição",
+      "Aprender somente técnicas de defesa pessoal",
+      "Desenvolver força física acima de tudo"
+    ],
+    "correta": 0,
+    "explicacao": "A filosofia do Taekwon-Do busca o desenvolvimento integral do praticante, formando pessoas de bom caráter e autocontrole."
+  },
+  {
+    "id": 2,
+    "categoria": "Filosofia",
+    "pergunta": "Quais são os cinco princípios do Taekwon-Do?",
+    "opcoes": [
+      "Cortesia, Integridade, Perseverança, Autocontrole e Espírito Indômito",
+      "Honra, Coragem, Força, Disciplina e Respeito",
+      "Humildade, Disciplina, Integridade, Lealdade e Força",
+      "Respeito, Coragem, Perseverança, Lealdade e Vitória"
+    ],
+    "correta": 0,
+    "explicacao": "Os cinco princípios são a base moral do Taekwon-Do."
+  },
+  {
+    "id": 3,
+    "categoria": "Relacionamento Aluno-Instrutor",
+    "pergunta": "Qual deve ser a base do relacionamento entre aluno e instrutor?",
+    "opcoes": [
+      "Respeito, confiança e lealdade",
+      "Medo e obediência cega",
+      "Competição entre ambos",
+      "Apenas amizade"
+    ],
+    "correta": 0,
+    "explicacao": "O relacionamento deve ser pautado em respeito mútuo, confiança e lealdade."
+  },
+  {
+    "id": 4,
+    "categoria": "Relacionamento Aluno-Instrutor",
+    "pergunta": "O aluno deve tratar seu instrutor como:",
+    "opcoes": [
+      "Um guia e exemplo a ser seguido",
+      "Um adversário",
+      "Um funcionário",
+      "Um colega qualquer"
+    ],
+    "correta": 0,
+    "explicacao": "O instrutor é um exemplo técnico e moral para o praticante."
+  },
+  {
+    "id": 5,
+    "categoria": "Teoria do Poder",
+    "pergunta": "Qual elemento da teoria do poder está relacionado ao uso correto do corpo para gerar força máxima?",
+    "opcoes": [
+      "Equilíbrio",
+      "Velocidade",
+      "Respiração",
+      "Concentração"
+    ],
+    "correta": 0,
+    "explicacao": "Sem equilíbrio, a força produzida não é transferida corretamente ao alvo."
+  },
+  {
+    "id": 6,
+    "categoria": "Teoria do Poder",
+    "pergunta": "A velocidade influencia o poder porque:",
+    "opcoes": [
+      "Quanto maior a velocidade, maior a energia aplicada",
+      "A velocidade não influencia o poder",
+      "Apenas aumenta a resistência física",
+      "Somente melhora o condicionamento"
+    ],
+    "correta": 0,
+    "explicacao": "A velocidade é um dos principais fatores para aumentar o poder de uma técnica."
+  },
+  {
+    "id": 7,
+    "categoria": "Segredos do Treinamento",
+    "pergunta": "Um dos segredos do treinamento é compreender o objetivo e o método de cada movimento.",
+    "opcoes": [
+      "Verdadeiro",
+      "Falso",
+      "Depende da graduação",
+      "Apenas em competições"
+    ],
+    "correta": 0,
+    "explicacao": "O praticante deve entender cada técnica e seu propósito."
+  },
+  {
+    "id": 8,
+    "categoria": "Segredos do Treinamento",
+    "pergunta": "Os segredos do treinamento enfatizam que:",
+    "opcoes": [
+      "Qualidade é mais importante que quantidade",
+      "Treinar muito é suficiente",
+      "Apenas a força importa",
+      "A velocidade é o único fator importante"
+    ],
+    "correta": 0,
+    "explicacao": "A execução correta é mais importante que a repetição sem qualidade."
+  },
+  {
+    "id": 9,
+    "categoria": "Arte Marcial x Esporte",
+    "pergunta": "Qual a principal diferença entre arte marcial e esporte?",
+    "opcoes": [
+      "A arte marcial busca o aperfeiçoamento integral do indivíduo, enquanto o esporte prioriza a competição",
+      "Não existe diferença",
+      "O esporte é mais antigo",
+      "A arte marcial não possui regras"
+    ],
+    "correta": 0,
+    "explicacao": "A arte marcial possui uma filosofia de formação humana além da competição."
+  },
+  {
+    "id": 10,
+    "categoria": "Instrutor x Técnico",
+    "pergunta": "Qual a principal diferença entre instrutor e técnico?",
+    "opcoes": [
+      "O instrutor forma pessoas e o técnico foca no desempenho competitivo",
+      "Não existe diferença",
+      "O técnico possui maior graduação",
+      "O instrutor apenas ensina crianças"
+    ],
+    "correta": 0,
+    "explicacao": "O instrutor possui papel educativo e formador, enquanto o técnico é voltado para a performance."
+  },
+  {
+    "id": 11,
+    "categoria": "Grupos de Artes Marciais",
+    "pergunta": "As artes marciais podem ser classificadas em grupos conforme seu foco principal. Qual grupo prioriza a competição?",
+    "opcoes": [
+      "Esportivo",
+      "Militar",
+      "Filosófico",
+      "Tradicional"
+    ],
+    "correta": 0,
+    "explicacao": "O grupo esportivo prioriza regulamentos e competições."
+  },
+  {
+    "id": 12,
+    "categoria": "Quebramento",
+    "pergunta": "Qual é um dos principais objetivos do quebramento?",
+    "opcoes": [
+      "Desenvolver a autoconfiança do praticante",
+      "Impressionar o público",
+      "Treinar para competições apenas",
+      "Demonstrar superioridade"
+    ],
+    "correta": 0,
+    "explicacao": "O quebramento desenvolve a autoconfiança e ajuda a mensurar força, velocidade e distância ideais."
+  },
+  {
+    "id": 13,
+    "categoria": "Quebramento",
+    "pergunta": "Outro objetivo das técnicas de quebramento é:",
+    "opcoes": [
+      "Desenvolver a habilidade de mensurar força, velocidade e distância",
+      "Aumentar apenas a força muscular",
+      "Aprender novas formas de luta",
+      "Treinar resistência aeróbica"
+    ],
+    "correta": 0,
+    "explicacao": "As técnicas de quebramento servem como instrumento de medição do desenvolvimento técnico."
+  },
+  {
+    "id": 14,
+    "categoria": "Técnicas de Salto",
+    "pergunta": "Qual dos itens abaixo é um objetivo das técnicas de salto?",
+    "opcoes": [
+      "Surpreender o adversário",
+      "Reduzir a velocidade do golpe",
+      "Evitar movimentos altos",
+      "Diminuir a força do ataque"
+    ],
+    "correta": 0,
+    "explicacao": "As técnicas de salto têm diversos objetivos, incluindo surpreender o adversário."
+  },
+  {
+    "id": 15,
+    "categoria": "Técnicas de Salto",
+    "pergunta": "As técnicas de salto podem aumentar a força do ataque devido ao:",
+    "opcoes": [
+      "Acúmulo de energia potencial",
+      "Aumento da flexibilidade",
+      "Uso de ambas as pernas",
+      "Aumento da resistência"
+    ],
+    "correta": 0,
+    "explicacao": "O salto permite acumular energia potencial, aumentando a força da técnica."
+  },
+  {
+    "id": 16,
+    "categoria": "História do Taekwon-Do",
+    "pergunta": "Quais são as três fases da história do Taekwon-Do?",
+    "opcoes": [
+      "Antiga, Moderna e Atual",
+      "Primitiva, Medieval e Olímpica",
+      "Militar, Esportiva e Filosófica",
+      "Coreana, Japonesa e Internacional"
+    ],
+    "correta": 0,
+    "explicacao": "Tradicionalmente a história do Taekwon-Do é estudada em três fases: antiga, moderna e atual."
+  },
+  {
+    "id": 17,
+    "categoria": "História do Taekwon-Do",
+    "pergunta": "A fase atual do Taekwon-Do é marcada principalmente por:",
+    "opcoes": [
+      "Sua expansão e internacionalização",
+      "Seu desaparecimento",
+      "A proibição das graduações",
+      "O fim das competições"
+    ],
+    "correta": 0,
+    "explicacao": "A fase atual é caracterizada pela disseminação mundial do Taekwon-Do."
+  },
+  {
+    "id": 18,
+    "categoria": "Filosofia",
+    "pergunta": "Um praticante que continua treinando apesar de sucessivos fracassos demonstra principalmente qual princípio do Taekwon-Do?",
+    "opcoes": [
+      "Perseverança",
+      "Integridade",
+      "Espírito Indômito",
+      "Cortesia"
+    ],
+    "correta": 0,
+    "explicacao": "A perseverança é a capacidade de continuar buscando seus objetivos apesar das dificuldades."
+  },
+  {
+    "id": 19,
+    "categoria": "Filosofia",
+    "pergunta": "Recusar-se a trapacear em uma competição, mesmo sabendo que ninguém perceberia, é um exemplo de:",
+    "opcoes": [
+      "Integridade",
+      "Cortesia",
+      "Espírito Indômito",
+      "Autocontrole"
+    ],
+    "correta": 0,
+    "explicacao": "A integridade é fazer o que é correto mesmo quando ninguém está observando."
+  },
+  {
+    "id": 20,
+    "categoria": "Relacionamento Aluno-Instrutor",
+    "pergunta": "Qual atitude mais prejudica a relação entre aluno e instrutor?",
+    "opcoes": [
+      "Questionar o instrutor de maneira desrespeitosa diante dos demais alunos",
+      "Pedir esclarecimentos sobre uma técnica",
+      "Solicitar uma correção de postura",
+      "Informar uma limitação física"
+    ],
+    "correta": 0,
+    "explicacao": "O relacionamento é baseado em respeito, confiança e disciplina."
+  },
+  {
+    "id": 21,
+    "categoria": "Relacionamento Aluno-Instrutor",
+    "pergunta": "O respeito ao instrutor deve existir porque ele:",
+    "opcoes": [
+      "Representa a experiência, a tradição e a responsabilidade de transmitir corretamente a arte",
+      "Possui autoridade absoluta sobre os alunos",
+      "Tem maior capacidade física",
+      "É o proprietário da academia"
+    ],
+    "correta": 0,
+    "explicacao": "O respeito decorre de sua responsabilidade na preservação e transmissão do Taekwon-Do."
+  },
+  {
+    "id": 22,
+    "categoria": "Teoria do Poder",
+    "pergunta": "Qual fator da teoria do poder permite transferir a massa corporal para o alvo de maneira eficiente?",
+    "opcoes": [
+      "Equilíbrio",
+      "Respiração",
+      "Velocidade",
+      "Concentração"
+    ],
+    "correta": 0,
+    "explicacao": "Sem equilíbrio, a transferência de massa e energia é comprometida."
+  },
+  {
+    "id": 23,
+    "categoria": "Teoria do Poder",
+    "pergunta": "A concentração, na teoria do poder, refere-se principalmente a:",
+    "opcoes": [
+      "Aplicar toda a força em uma área reduzida do alvo no momento do impacto",
+      "Memorizar movimentos",
+      "Respirar corretamente durante a técnica",
+      "Olhar fixamente para o adversário"
+    ],
+    "correta": 0,
+    "explicacao": "A concentração visa maximizar a potência em um ponto específico."
+  },
+  {
+    "id": 24,
+    "categoria": "Segredos do Treinamento",
+    "pergunta": "Por que todo movimento deve iniciar com uma pequena ação para trás?",
+    "opcoes": [
+      "Para aumentar a aceleração e o poder da técnica",
+      "Para melhorar a flexibilidade",
+      "Para ganhar tempo durante o combate",
+      "Para dificultar a defesa do adversário"
+    ],
+    "correta": 0,
+    "explicacao": "Essa ação permite gerar maior aceleração e, consequentemente, mais potência."
+  },
+  {
+    "id": 25,
+    "categoria": "Segredos do Treinamento",
+    "pergunta": "Executar centenas de repetições com técnica incorreta contraria qual princípio dos segredos do treinamento?",
+    "opcoes": [
+      "Qualidade acima da quantidade",
+      "Conhecimento da distância",
+      "Controle da respiração",
+      "Ação para trás"
+    ],
+    "correta": 0,
+    "explicacao": "A execução correta é mais importante que a quantidade de repetições."
+  },
+  {
+    "id": 26,
+    "categoria": "Arte Marcial x Esporte",
+    "pergunta": "Qual característica diferencia uma arte marcial de uma atividade meramente esportiva?",
+    "opcoes": [
+      "A formação moral e filosófica do praticante",
+      "A existência de regras",
+      "A prática de competições",
+      "A utilização de uniformes"
+    ],
+    "correta": 0,
+    "explicacao": "A arte marcial visa o aperfeiçoamento integral do indivíduo."
+  },
+  {
+    "id": 27,
+    "categoria": "Instrutor x Técnico",
+    "pergunta": "Um profissional que dedica a maior parte do seu trabalho à preparação de atletas para campeonatos exerce predominantemente a função de:",
+    "opcoes": [
+      "Técnico",
+      "Instrutor",
+      "Árbitro",
+      "Examinador"
+    ],
+    "correta": 0,
+    "explicacao": "O técnico possui foco principal no desempenho competitivo."
+  },
+  {
+    "id": 28,
+    "categoria": "Quebramento",
+    "pergunta": "O quebramento é considerado um instrumento de avaliação porque permite ao praticante medir:",
+    "opcoes": [
+      "Precisão, distância, velocidade e poder",
+      "Apenas a força física",
+      "Sua capacidade de concentração",
+      "Seu condicionamento cardiovascular"
+    ],
+    "correta": 0,
+    "explicacao": "O quebramento avalia diversos aspectos técnicos simultaneamente."
+  },
+  {
+    "id": 29,
+    "categoria": "Técnicas de Salto",
+    "pergunta": "Além de surpreender o adversário, as técnicas de salto têm por objetivo:",
+    "opcoes": [
+      "Ultrapassar obstáculos e aumentar a potência do ataque",
+      "Economizar energia durante o combate",
+      "Melhorar exclusivamente o equilíbrio",
+      "Substituir as técnicas básicas"
+    ],
+    "correta": 0,
+    "explicacao": "As técnicas de salto permitem superar obstáculos e gerar maior potência."
+  },
+  {
+    "id": 30,
+    "categoria": "História do Taekwon-Do",
+    "pergunta": "A divisão da história do Taekwon-Do em antiga, moderna e atual tem como objetivo principal:",
+    "opcoes": [
+      "Compreender a evolução histórica e filosófica da arte",
+      "Classificar os estilos de competição",
+      "Definir as graduações dos praticantes",
+      "Diferenciar as técnicas de combate"
+    ],
+    "correta": 0,
+    "explicacao": "As três fases permitem entender a evolução do Taekwon-Do até sua difusão mundial."
+  }
+]

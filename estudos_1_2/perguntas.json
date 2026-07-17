@@ -1,0 +1,52 @@
+[
+  {
+    "pergunta": "Quais são os cinco princípios do Taekwon-Do?",
+    "opcoes": [
+      "Cortesia, Integridade, Perseverança, Autocontrole e Espírito Indômito",
+      "Força, Honra, Coragem, Lealdade e Disciplina",
+      "Respeito, Humildade, Paciência, Coragem e Força",
+      "Educação, Saúde, Disciplina, Honra e Vitória"
+    ],
+    "correta": 0
+  },
+  {
+    "pergunta": "Quais são os objetivos das técnicas de quebramento?",
+    "opcoes": [
+      "Desenvolver velocidade e resistência",
+      "Desenvolver autoconfiança e mensurar força, velocidade e distância",
+      "Apenas aumentar a força física",
+      "Preparar para competições"
+    ],
+    "correta": 1
+  },
+  {
+    "pergunta": "Quantos objetivos possuem as técnicas de salto?",
+    "opcoes": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correta": 2
+  },
+  {
+    "pergunta": "Qual é a diferença entre arte marcial e esporte?",
+    "opcoes": [
+      "Não existe diferença",
+      "Arte marcial desenvolve corpo e caráter; esporte busca desempenho competitivo",
+      "Esporte é mais antigo",
+      "Arte marcial não possui regras"
+    ],
+    "correta": 1
+  },
+  {
+    "pergunta": "Quem é considerado o fundador do Taekwon-Do?",
+    "opcoes": [
+      "Kim Yoo Sin",
+      "Won Hyo",
+      "General Choi Hong Hi",
+      "Yi Sun Sin"
+    ],
+    "correta": 2
+  }
+]

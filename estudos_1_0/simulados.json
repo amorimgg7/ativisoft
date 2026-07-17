@@ -1,0 +1,37 @@
+[
+  {
+    "id": "branca_amarela",
+    "titulo": "Faixa Branca → Amarela",
+    "arquivo": "branca_amarela.json",
+    "questoes_por_prova": 15,
+    "tempo_minutos": 20
+  },
+  {
+    "id": "amarela_verde",
+    "titulo": "Faixa Amarela → Verde",
+    "arquivo": "amarela_verde.json",
+    "questoes_por_prova": 20,
+    "tempo_minutos": 25
+  },
+  {
+    "id": "verde_azul",
+    "titulo": "Faixa Verde → Azul",
+    "arquivo": "verde_azul.json",
+    "questoes_por_prova": 25,
+    "tempo_minutos": 30
+  },
+  {
+    "id": "azul_vermelha",
+    "titulo": "Faixa Azul → Vermelha",
+    "arquivo": "azul_vermelha.json",
+    "questoes_por_prova": 30,
+    "tempo_minutos": 35
+  },
+  {
+    "id": "vermelha_preta",
+    "titulo": "Faixa Vermelha → Preta",
+    "arquivo": "vermelha_preta.json",
+    "questoes_por_prova": 40,
+    "tempo_minutos": 50
+  }
+]

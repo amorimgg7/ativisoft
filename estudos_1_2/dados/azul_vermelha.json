@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "categoria": "Segredos do Treinamento",
+    "pergunta": "Qual é o primeiro segredo do treinamento no Taekwon-Do?",
+    "opcoes": [
+      "Entender claramente o propósito e o método de cada movimento",
+      "Executar movimentos rapidamente",
+      "Treinar apenas com força máxima",
+      "Priorizar a competição"
+    ],
+    "correta": 0,
+    "explicacao": "O primeiro segredo é compreender claramente o propósito e o método de cada movimento."
+  },
+  {
+    "id": 2,
+    "categoria": "Segredos do Treinamento",
+    "pergunta": "O praticante deve familiarizar-se com:",
+    "opcoes": [
+      "A distância e os ângulos corretos de ataque e defesa",
+      "As regras de competição apenas",
+      "Os nomes em coreano somente",
+      "A velocidade dos adversários"
+    ],
+    "correta": 0,
+    "explicacao": "O segundo segredo é conhecer a distância e os ângulos corretos de ataque e defesa."
+  },
+  {
+    "id": 3,
+    "categoria": "Segredos do Treinamento",
+    "pergunta": "Durante a execução de um movimento, os joelhos e cotovelos devem permanecer:",
+    "opcoes": [
+      "Ligeiramente flexionados",
+      "Totalmente estendidos",
+      "Sempre dobrados ao máximo",
+      "Sem qualquer preocupação com sua posição"
+    ],
+    "correta": 0,
+    "explicacao": "Os joelhos e cotovelos devem permanecer ligeiramente flexionados."
+  },
+  {
+    "id": 4,
+    "categoria": "Segredos do Treinamento",
+    "pergunta": "Todo movimento deve começar com:",
+    "opcoes": [
+      "Uma ação para trás, salvo algumas exceções",
+      "Um salto",
+      "Um grito",
+      "Uma defesa"
+    ],
+    "correta": 0,
+    "explicacao": "Todo movimento deve começar com uma ação para trás, salvo algumas exceções."
+  },
+  {
+    "id": 5,
+    "categoria": "Segredos do Treinamento",
+    "pergunta": "O praticante deve transformar olhos, mãos, pés e respiração em:",
+    "opcoes": [
+      "Uma única ação coordenada",
+      "Movimentos independentes",
+      "Uma sequência lenta",
+      "Uma técnica de competição"
+    ],
+    "correta": 0,
+    "explicacao": "Todos os elementos do corpo devem atuar em uma única ação coordenada."
+  },
+  {
+    "id": 6,
+    "categoria": "Movimentos",
+    "pergunta": "Como é composto o movimento no Taekwon-Do?",
+    "opcoes": [
+      "Relaxamento, aceleração, acúmulo de energia e concentração",
+      "Força, velocidade, flexibilidade e resistência",
+      "Inspiração, expiração, força e equilíbrio",
+      "Concentração, equilíbrio e velocidade"
+    ],
+    "correta": 0,
+    "explicacao": "O movimento é composto por quatro fases: relaxamento, aceleração, acúmulo de energia e concentração."
+  },
+  {
+    "id": 7,
+    "categoria": "Movimentos",
+    "pergunta": "Quantos tipos de movimentos existem no Taekwon-Do?",
+    "opcoes": [
+      "Seis",
+      "Cinco",
+      "Sete",
+      "Oito"
+    ],
+    "correta": 0,
+    "explicacao": "Existem seis tipos de movimentos."
+  },
+  {
+    "id": 8,
+    "categoria": "Movimentos",
+    "pergunta": "O que caracteriza o movimento contínuo?",
+    "opcoes": [
+      "Dois ou mais movimentos em uma só respiração",
+      "Dois movimentos rápidos",
+      "Uma técnica realizada lentamente",
+      "Um movimento sem marcação"
+    ],
+    "correta": 0,
+    "explicacao": "O movimento contínuo engloba dois ou mais movimentos em uma só respiração."
+  },
+  {
+    "id": 9,
+    "categoria": "Movimentos",
+    "pergunta": "O que caracteriza o movimento conectado?",
+    "opcoes": [
+      "Dois ou mais movimentos em uma ondulação com uma só respiração",
+      "Um movimento executado lentamente",
+      "Uma técnica de competição",
+      "Um movimento sem ondulação"
+    ],
+    "correta": 0,
+    "explicacao": "O movimento conectado é composto por dois ou mais movimentos contidos em uma ondulação com uma só respiração."
+  },
+  {
+    "id": 10,
+    "categoria": "Movimentos",
+    "pergunta": "Como é definido o movimento lento?",
+    "opcoes": [
+      "Mais vagaroso que o normal, mas sem desacelerar durante a execução",
+      "Executado em câmera lenta",
+      "Feito apenas para iniciantes",
+      "Executado sem respiração"
+    ],
+    "correta": 0,
+    "explicacao": "O movimento lento é mais vagaroso que o normal, mas a velocidade não deve diminuir durante a execução."
+  },
+  {
+    "id": 11,
+    "categoria": "Bases",
+    "pergunta": "Como é conhecida a Kyocha Sogui?",
+    "opcoes": [
+      "Base em cruz",
+      "Base sentada",
+      "Base em L",
+      "Base paralela"
+    ],
+    "correta": 0,
+    "explicacao": "Kyocha Sogui é a base em cruz."
+  },
+  {
+    "id": 12,
+    "categoria": "Bases",
+    "pergunta": "Na Kyocha Sogui, quanto do peso fica sobre a perna de apoio?",
+    "opcoes": [
+      "95%",
+      "50%",
+      "70%",
+      "100%"
+    ],
+    "correta": 0,
+    "explicacao": "Na base em cruz, 95% do peso permanece na perna de apoio."
+  },
+  {
+    "id": 13,
+    "categoria": "Tul",
+    "pergunta": "Quem foi Toi-Gye?",
+    "opcoes": [
+      "Yi Hwang, autoridade em neo-confucionismo",
+      "O fundador da Coreia",
+      "O criador do Taekwon-Do",
+      "Um general coreano"
+    ],
+    "correta": 0,
+    "explicacao": "Toi-Gye é o pseudônimo de Yi Hwang, importante autoridade em neo-confucionismo."
+  },
+  {
+    "id": 14,
+    "categoria": "Tul",
+    "pergunta": "Quantos movimentos possui o Tul Toi-Gye?",
+    "opcoes": [
+      "37 movimentos",
+      "29 movimentos",
+      "32 movimentos",
+      "38 movimentos"
+    ],
+    "correta": 0,
+    "explicacao": "O Tul Toi-Gye possui 37 movimentos."
+  },
+  {
+    "id": 15,
+    "categoria": "Tul",
+    "pergunta": "O que representa o diagrama do Tul Toi-Gye?",
+    "opcoes": [
+      "O sábio",
+      "O céu e a terra",
+      "O número um romano",
+      "A justiça"
+    ],
+    "correta": 0,
+    "explicacao": "O diagrama de Toi-Gye representa o sábio."
+  }
+]
