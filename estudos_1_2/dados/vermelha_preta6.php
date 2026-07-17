@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "categoria": "1. Filosofia Taekwon-Do (Cultura Moral Avançada)",
+    "pergunta": "Dentro do conceito de Cultura Moral (Jungshin Charyot), o General Choi Hong Hi discorre sobre a 'Mente Inabalável' (Budongshin). Como essa condição psicológica se correlaciona estritamente com o princípio da Perseverança (In Nae)?",
+    "opcoes": [
+      "Budongshin significa a ausência total de medo ou dúvida diante do perigo iminente, eliminando a necessidade de perseverar através da dor física.",
+      "A verdadeira perseverança não é apenas a resiliência física, mas a capacidade da mente de permanecer estática e imperturbável perante a tentação, o suborno ou a humilhação, sacrificando o ego em prol da justiça.",
+      "Budongshin refere-se ao estado de transe meditativo que o praticante deve atingir antes de iniciar a execução de qualquer Tul de Faixa Preta.",
+      "A mente inabalável é alcançada apenas quando o praticante domina todas as técnicas de quebramento, anulando os reflexos de preservação biológica."
+    ],
+    "correta": 1,
+    "explicacao": "Na filosofia profunda da ITF, a Perseverança (In Nae) está intrinsecamente ligada à capacidade de suportar adversidades morais e humilhações cotidianas sem desviar do caminho do 'Do'. A Mente Inabalável (Budongshin) é o escudo psicológico que protege o caráter contra influências externas corruptoras."
+  },
+  {
+    "id": 2,
+    "categoria": "2. Relacionamento Aluno-Instrutor (Doutrina Ética)",
+    "pergunta": "A Enciclopédia do Taekwon-Do estipula advertências severas sobre desvios éticos na liderança. Qual comportamento é explicitamente condenado por General Choi como a maior traição de um Instrutor em relação ao seu Do Jang e à arte?",
+    "opcoes": [
+      "Ensinar técnicas avançadas de saltos para alunos que ainda não dominam as bases lineares.",
+      "Cobrar taxas administrativas elevadas para a emissão de certificados internacionais da ITF.",
+      "Utilizar os alunos como ferramentas políticas, ideológicas ou de enriquecimento pessoal, ou ocultar o conhecimento técnico por ciúme do potencial de evolução do estudante.",
+      "Permitir que instrutores de federações dissidentes visitem o Do Jang para assistir aos exames de graduação."
+    ],
+    "correta": 2,
+    "explicacao": "O General Choi enfatizava que o Taekwon-Do é um bem universal e moral. Um instrutor que instrumentaliza seus alunos para fins políticos ou financeiros, ou que sabota o crescimento do aluno por medo de ser superado, viola o cerne do relacionamento Aluno-Instrutor e atua como um falso mestre."
+  },
+  {
+    "id": 3,
+    "categoria": "3. Teoria do Poder (Física Dinâmica)",
+    "pergunta": "Ao analisar a biomecânica da Onda Senoidal (Sine Wave) sob a ótica da Segunda Lei de Newton, como a transição do vetor de movimento altera a força de impacto terminal?",
+    "opcoes": [
+      "A aceleração vertical gerada na subida da onda anula a energia linear, servindo apenas como um fator estético de diferenciação estilística.",
+      "Ao relaxar os joelhos na fase descendente final, o praticante combina a aceleração gravitacional $g$ com a aceleração interna do deslocamento, aumentando a massa efetiva através da equação $$F = m(g + a_y)$$ no milissegundo do choque.",
+      "A onda senoidal visa transformar toda a energia cinética em energia potencial elástica nos tendões dos ombros, sem alterar o vetor de gravidade.",
+      "A força máxima é obtida mantendo o centro de gravidade estritamente fixo, eliminando oscilações verticais para evitar a perda de energia por atrito com o ar."
+    ],
+    "correta": 1,
+    "explicacao": "A fase 'Down-Up-Down' da onda senoidal utiliza a gravidade a favor do golpe. Na última queda, o peso do corpo 'desaba' junto com o ataque. Matematicamente, a aceleração descendente ($a_y$) se soma à aceleração da gravidade ($g$), maximizando a força resultante ($F$) aplicada sobre o alvo."
+  },
+  {
+    "id": 4,
+    "categoria": "4. Segredos do Treinamento (Sincronismo Biomecânico)",
+    "pergunta": "Os 'Segredos do Treinamento' exigem que os olhos, mãos, pés e respiração atuem em uma única ação coordenada. Qual a implicação fisiológica exata de falhar no sincronismo do Kihap (grito/expiração) com o término do movimento reflexo?",
+    "opcoes": [
+      "O golpe perde precisão geométrica, mas mantém 100% de sua capacidade de transferência de energia cinética.",
+      "A contração muscular antagonista ocorre tardiamente, gerando uma sobrecarga crônica nas articulações do cotovelo e do joelho do próprio praticante.",
+      "Se a expiração continuar após o impacto, ou terminar antes dele, a pressão intra-abdominal cai, impedindo a rigidez estrutural instantânea (Kime) e dissipando a força do golpe de volta para o corpo do executor.",
+      "A falha no sincronismo respiratório afeta apenas a estética do Tul, sem qualquer repercussão na mecânica de combate ou na segurança dos órgãos internos."
+    ],
+    "correta": 2,
+    "explicacao": "O controle da respiração (Hahup) exige que o Kihap ou a expiração curta termine no exato milissegundo do impacto. Isso cria um pico de pressão interna que estabiliza o core e conecta o corpo de forma rígida. Se houver dessincronia, a energia colidida reflui pelo braço/perna, podendo lesionar o praticante e reduzindo drasticamente o poder de penetração do golpe."
+  },
+  {
+    "id": 5,
+    "categoria": "5. Arte Marcial x Esporte (Dilema Ontológico)",
+    "pergunta": "Do ponto de vista ontológico defendido na doutrina ITF, qual a diferença fundamental na aplicação do princípio do Espírito Indomável (Baekjul Boolgool) entre o ambiente competitivo e o combate real?",
+    "opcoes": [
+      "No esporte, o espírito indomável serve para contestar decisões arbitrais; no combate real, serve para atacar alvos proibidos por lei.",
+      "Não há diferenciação conceitual, pois a resiliência necessária para vencer um campeonato é idêntica à necessária para sobreviver a um ataque real.",
+      "No esporte, o princípio é limitado por regras de pontuação e segurança e pela interrupção do árbitro; na Arte Marcial, o espírito indomável é a determinação existencial absoluta de lutar pela vida e pela justiça contra qualquer desvantagem numérica ou de força, onde a derrota significa a morte moral ou física.",
+      "O esporte exige maior espírito indomável do que a arte marcial devido à pressão psicológica das torcidas e da mídia."
+    ],
+    "correta": 2,
+    "explicacao": "O esporte opera sob um ecossistema controlado e seguro. Na Arte Marcial, o Espírito Indomável lida com cenários de vida ou morte, injustiça social extrema ou tirania. É a coragem inabalável de manter-se firme nos princípios morais mesmo que isso custe a integridade física."
+  },
+  {
+    "id": 6,
+    "categoria": "6. Instrutor x Técnico (Função Pedagógica)",
+    "pergunta": "Como se diferencia a gestão do erro técnico de um aluno sob a óptica de um Instrutor (Sabum) e de um Técnico (Coach) de alto rendimento?",
+    "opcoes": [
+      "O técnico foca no erro biomecânico para otimizar pontos; o instrutor analisa o erro técnico como um reflexo direto do estado mental, do caráter e do nível de autodomínio (Guk Gi) do praticante.",
+      "O instrutor ignora os erros biomecânicos desde que o aluno demonstre respeito; o técnico foca exclusivamente na punição física do atleta.",
+      "O técnico corrige o atleta através de teorias científicas, enquanto o instrutor utiliza apenas punições tradicionais e repetições sem explicação.",
+      "Não há distinção, pois ambos buscam unicamente a eficiência mecânica perfeita para competições internacionais."
+    ],
+    "correta": 0,
+    "explicacao": "Para um técnico desportivo, o erro é uma falha de eficiência que custa pontos ou medalhas. Para um Sabum, a forma como um aluno executa um movimento incorretamente (ex: pressa, falta de foco, agressividade excessiva) é um diagnóstico de suas lacunas psicológicas e morais, exigindo uma intervenção que molde o caráter, não apenas o músculo."
+  },
+  {
+    "id": 7,
+    "categoria": "7. Tipos de Grupos de Artes Marciais (Classificação Científica)",
+    "pergunta": "O General Choi catalogou as artes marciais de sua época em diferentes grupos de acordo com sua mecânica. Onde o Taekwon-Do ITF se situa rigorosamente e qual o seu grande diferencial matemático?",
+    "opcoes": [
+      "No grupo de artes circulares suaves; diferencia-se por abolir o uso de linhas retas nos ataques de punho.",
+      "No grupo de sistemas baseados na força de oposição; diferencia-se por utilizar a energia do oponente sem gerar força própria.",
+      "No grupo de sistemas percussivos baseados em pés e mãos; seu diferencial é a rejeição ao misticismo oriental em prol da otimização balística ocidental, onde cada golpe é calculado através de vetores de aceleração, torque e momento linear.",
+      "No grupo híbrido de projeções e solo; diferencia-se pelo foco em chaves articulares executadas em salto."
+    ],
+    "correta": 2,
+    "explicacao": "O Taekwon-Do ITF é classificado como uma arte de golpes traumáticos (percussiva), mas se isola dos sistemas puramente tradicionais ou místicas por ser totalmente fundamentado na física moderna (mecânica clássica). O General Choi removeu conceitos vagos de 'energia mística' e os substituiu por equações científicas de transferência de energia cinética."
+  },
+  {
+    "id": 8,
+    "categoria": "8. Objetivos do Quebramento (Mecânica de Fratura)",
+    "pergunta": "Sob a perspectiva da física de impacto aplicada ao Quebramento (Kyokpa) de materiais rígidos, qual a função da redução do tempo de contato ($\Delta t$) no momento do choque?",
+    "opcoes": [
+      "Aumentar o tempo de contato distribui a força por uma área maior, facilitando a quebra de superfícies elásticas.",
+      "De acordo com o teorema do impulso ($\Delta p = F \cdot \Delta t$), minimizar o tempo de contato ($\Delta t$) para uma mesma variação de momento linear maximiza exponencialmente a força de impacto terminal ($F$), superando a resistência estrutural do material antes que a energia se dissipe.",
+      "Reduzir o tempo de contato serve unicamente para proteger a pele do praticante contra queimaduras por atrito.",
+      "O tempo de contato não possui relevância matemática, importando apenas a massa isolada do membro que golpeia."
+    ],
+    "correta": 9,
+    "explicacao": "Para quebrar objetos duros (madeira, blocos), o golpe não pode 'empurrar'. Ao retrair a ferramenta ou golpear com velocidade máxima instantânea, o tempo de colisão ($\Delta t$) tende a zero, o que faz com que a força de impacto ($F = \Delta p / \Delta t$) atinja um pico massivo, quebrando o objeto por estresse mecânico abrupto."
+  },
+  {
+    "id": 1,
+    "categoria": "9. Objetivos do Salto (Conservação do Momento Angular)",
+    "pergunta": "Durante a fase aérea de um Twimyo Chagi complexo (como o chute em rotação ou múltiplos alvos), por que o recolhimento estrito dos braços e das pernas que não atacam é obrigatório para o sucesso balístico?",
+    "opcoes": [
+      "Para reduzir a resistência do ar (atrito aerodinâmico) de forma a permitir que o corpo flutue por mais tempo.",
+      "De acordo com a Lei de Conservação do Momento Angular ($L = I \cdot \omega$), aproximar os membros do eixo de rotação reduz o Momento de Inércia ($I$), provocando um aumento imediato na velocidade angular ($\omega$) dos quadris e acelerando o chute.",
+      "Serve para ocultar a ferramenta de ataque até o último segundo, impedindo o bloqueio por parte do oponente.",
+      "O recolhimento impede que o centro de gravidade mude de posição vertical durante a parábola do salto."
+    ],
+    "correta": 1,
+    "explicacao": "Assim como uma bailarina fecha os braços para girar mais rápido, o praticante de Taekwon-Do encolhe os membros que não estão chutando para reduzir seu momento de inércia no ar. Isso faz com que a velocidade de rotação do quadril dispare, gerando um chute incrivelmente rápido e potente mesmo sem o apoio do solo."
+  },
+  {
+    "id": 10,
+    "categoria": "10. As 3 Fases da História (Transição Geopolítica)",
+    "pergunta": "A terceira fase da história do Taekwon-Do é marcada por sua internacionalização e subsequente cisão política. Qual fator geopolítico e ideológico crucial motivou o General Choi Hong Hi a transferir a sede da ITF para o Canadá em 1972?",
+    "opcoes": [
+      "A busca por incentivos fiscais e patrocínios do governo canadense para a expansão da arte na América do Norte.",
+      "O exílio voluntário devido à sua oposição ferrenha à ditadura militar sul-coreana de Park Chung-hee, que tentava instrumentalizar o Taekwon-Do como ferramenta de propaganda política nacionalista, culminando na posterior criação da WTF (WT) pelo governo sul-coreano.",
+      "Uma aliança estratégica com as forças militares da OTAN para padronizar o combate corpo a corpo das tropas ocidentais.",
+      "A necessidade de unificar o Taekwon-Do com os sistemas de lutas de inverno canadenses."
+    ],
+    "correta": 1,
+    "explicacao": "O General Choi recusou-se a permitir que o Taekwon-Do se tornasse um fantoche político da ditadura militar sul-coreana de Park Chung-hee. Ao se exilar no Canadá em 1972, ele levou a sede da ITF consigo para manter a independência da arte. Em retaliação, o regime sul-coreano fundou a Kukkiwon e a WTF (atual World Taekwondo) para rivalizar e esvaziar a influência da ITF."
+  }
+]

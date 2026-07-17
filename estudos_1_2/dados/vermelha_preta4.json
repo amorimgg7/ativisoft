@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "categoria": "1. Filosofia Taekwon-Do",
+    "pergunta": "O que significa o 'Do' no Taekwon-Do e qual a sua relação com os 5 Princípios (Ye Ui, Yom Chi, In Nae, Guk Gi, Baekjul Boolgool)?",
+    "opcoes": [
+      "Significa apenas a técnica de desviar dos golpes usando a agilidade mental.",
+      "Significa 'o caminho do guerreiro', focado puramente em vencer batalhas sem remorso.",
+      "Significa o caminho espiritual, a filosofia e a conduta moral que dão sentido à técnica física através da prática diária dos 5 princípios.",
+      "Significa 'arte dos socos', mostrando que a filosofia se resume ao uso correto das mãos."
+    ],
+    "correta": 2,
+    "explicacao": "O 'Do' representa o caminho, a filosofia de vida e a evolução moral. Sem os 5 princípios (Cortesia, Integridade, Perseverança, Autodomínio e Espírito Indomável), o Taekwon-Do seria apenas uma técnica de combate sem valor espiritual."
+  },
+  {
+    "id": 2,
+    "categoria": "2. Relacionamento Aluno-Instrutor",
+    "pergunta": "De acordo com os preceitos éticos da ITF, qual deve ser a postura do aluno quando ele discorda de uma abordagem técnica ou teórica de seu instrutor?",
+    "opcoes": [
+      "Deve contestar o instrutor imediatamente em voz alta na frente de toda a classe.",
+      "Deve demonstrar respeito absoluto no Do Jang, mantendo a disciplina, e buscar o instrutor em particular e em momento oportuno para sanar suas dúvidas com educação.",
+      "Deve abandonar a federação imediatamente e abrir sua própria academia de forma rebelde.",
+      "Deve ignorar os comandos do instrutor durante o treino e executar a técnica da maneira que achar melhor."
+    ],
+    "correta": 1,
+    "explicacao": "A conduta marcial exige respeito e hierarquia dentro do Do Jang. Divergências ou dúvidas devem ser tratadas de forma privada e cortês, preservando a autoridade do instrutor perante o grupo."
+  },
+  {
+    "id": 3,
+    "categoria": "3. Teoria do Poder",
+    "pergunta": "O princípio do 'Movimento Ondulatório' (Wave Motion) é vital na Teoria do Poder. Como ele funciona dinamicamente durante a execução de uma técnica?",
+    "opcoes": [
+      "O corpo se desloca estritamente em uma linha horizontal paralela ao chão para economizar energia.",
+      "O movimento deve seguir um padrão de 'Descer, Subir e Descer', utilizando a flexão dos joelhos para acumular energia potencial e descarregá-la junto com o peso do corpo no impacto.",
+      "Consiste em saltar o mais alto possível antes de qualquer soco ou bloqueio.",
+      "É um movimento puramente lateral dos quadris, sem alteração na altura do centro de gravidade."
+    ],
+    "correta": 1,
+    "explicacao": "O movimento ondulatório (geralmente descrito pelo padrão de variação de altura Down-Up-Down através dos joelhos) aproveita a força da gravidade para aumentar a massa efetiva e a velocidade do golpe no momento exato do impacto."
+  },
+  {
+    "id": 4,
+    "categoria": "3. Teoria do Poder",
+    "pergunta": "Na Teoria do Poder, por que o 'Controle da Respiração' (Hahup) deve ser coordenado de forma que a expiração seja curta e interrompida no momento exato do impacto?",
+    "opcoes": [
+      "Para evitar que o oponente escute o som do golpe.",
+      "Para esvaziar totalmente os pulmões e permitir que o corpo fique o mais leve possível.",
+      "Para tensionar os músculos do abdômen, concentrando a força no centro de gravidade, protegendo os órgãos internos contra contra-ataques e aumentando o poder de choque.",
+      "Serve apenas para manter o ritmo cardíaco lento, sem interferência direta na força física do golpe."
+    ],
+    "correta": 2,
+    "explicacao": "A expiração rápida e travada no impacto contrai a musculatura do core, interligando todo o corpo no momento do choque, o que maximiza a transferência de energia para o alvo e blinda o praticante."
+  },
+  {
+    "id": 5,
+    "categoria": "4. Segredos do Treinamento",
+    "pergunta": "Um dos 'Segredos do Treinamento' do General Choi dita que o praticante deve compreender o propósito e o método de cada movimento. O que isso implica no treino de Tuls?",
+    "opcoes": [
+      "Significa que os Tuls servem apenas como uma coreografia para apresentações públicas.",
+      "Implica que cada bloqueio ou ataque deve ser visualizado contra um oponente imaginário, aplicando a direção, a ferramenta de ataque/defesa e a linha de visão corretas.",
+      "Significa que o aluno deve focar apenas na velocidade, sem se preocupar com a aplicação real da técnica.",
+      "Implica que as técnicas do Tul não possuem aplicação em combate real, sendo apenas exercícios respiratórios."
+    ],
+    "correta": 1,
+    "explicacao": "A eficácia e o realismo do Tul dependem de o praticante saber exatamente qual ferramenta está usando (ex: Ap Joomuk, Sonkal) e qual alvo ou ataque está simulando, mantendo o foco e o realismo do combate imaginário."
+  },
+  {
+    "id": 6,
+    "categoria": "5. Arte Marcial x Esporte",
+    "pergunta": "Como a visão de 'vencer' difere entre um competidor de Taekwon-Do puramente esportivo e um verdadeiro artista marcial?",
+    "opcoes": [
+      "Para o esportista, vencer significa conquistar medalhas e pontos; para o artista marcial, a verdadeira vitória é a superação das próprias fraquezas e o desenvolvimento do caráter.",
+      "O artista marcial busca vencer ferindo o oponente gravemente, enquanto o esportista busca apenas tocar o colete.",
+      "Não há diferença, pois o único objetivo de ambos é ser reconhecido pela mídia.",
+      "O esportista busca vencer a si mesmo e o artista marcial busca apenas a aprovação dos juízes de mesa."
+    ],
+    "correta": 0,
+    "explicacao": "Enquanto o esporte é focado em resultados externos, métricas de pontuação e pódios, a essência da Arte Marcial está na introspecção: o oponente mais difícil a ser batido é o seu próprio ego, medo e limitações."
+  },
+  {
+    "id": 7,
+    "categoria": "6. Instrutor x Técnico",
+    "pergunta": "Se um aluno comete uma falha de conduta ética grave fora do Do Jang, qual deve ser a postura de um Instrutor (Sabum), diferentemente de um Técnico esportivo?",
+    "opcoes": [
+      "O instrutor não deve se envolver, pois sua responsabilidade se limita ao desempenho do aluno dentro do tatame.",
+      "O instrutor deve intervir, orientar moralmente ou aplicar sanções disciplinares, pois é corresponsável pela formação do caráter e cidadania do aluno.",
+      "O instrutor deve incentivar o comportamento inadequado se isso trouxer fama para a academia.",
+      "Apenas expulsar o aluno sem dar nenhuma explicação ou ensinamento moral."
+    ],
+    "correta": 1,
+    "explicacao": "O Instrutor (Sabum) atua como um educador da vida. Desvios de conduta fora da academia ferem o Juramento e os Princípios do Taekwon-Do, exigindo a intervenção pedagógica e ética do mestre."
+  },
+  {
+    "id": 8,
+    "categoria": "8. Objetivos do Quebramento",
+    "pergunta": "No teste de Quebramento (Kyokpa) para o exame de Faixa Preta, quais fatores técnicos além da força bruta são avaliados minuciosamente pelos examinadores?",
+    "opcoes": [
+      "A altura do salto do aluno e o grito mais alto.",
+      "O alinhamento correto da ferramenta de impacto, a precisão no centro do alvo, a distância correta e a ausência de hesitação (foco mental).",
+      "A espessura da madeira, sendo que a técnica utilizada não tem relevância se o material quebrar.",
+      "A velocidade com que o aluno limpa os pedaços de madeira quebrados do chão."
+    ],
+    "correta": 1,
+    "explicacao": "O quebramento serve para validar a técnica perfeita. Se o alinhamento da ferramenta (como as juntas do soco ou a lateral do pé) estiver incorreto, ou se houver hesitação, o objeto não quebrará e o praticante poderá se lesionar."
+  },
+  {
+    "id": 9,
+    "categoria": "9. Objetivos do Salto",
+    "pergunta": "Ao executar um chute em salto (Twimyo Chagi), qual o papel da perna que não está desferindo o golpe (perna de apoio/recolhida) para o sucesso da técnica?",
+    "opcoes": [
+      "Ela deve ficar totalmente estendida para baixo para ajudar no equilíbrio.",
+      "Ela deve ser vigorosamente flexionada e puxada junto ao corpo para garantir sustentação no ar, melhorar a aerodinâmica e elevar o centro de gravidade.",
+      "Ela deve balançar para os lados para distrair os juízes.",
+      "Essa perna não interfere em nada na execução do salto ou do chute."
+    ],
+    "correta": 1,
+    "explicacao": "Recolher e flexionar a perna que não chuta é uma lei biomecânica no Taekwon-Do. Isso compacta a massa corporal no ar, permitindo saltar mais alto, manter a estabilidade e aplicar o chute com precisão."
+  },
+  {
+    "id": 10,
+    "categoria": "Juramento do Taekwon-Do",
+    "pergunta": "Qual das seguintes afirmações corresponde formalmente a um dos tópicos do Juramento Oficial do Taekwon-Do (Taekwon-Do Jungshin)?",
+    "opcoes": [
+      "Eu deverei vencer todas as competições e trazer medalhas para minha nação.",
+      "Eu deverei respeitar meus instrutores e superiores, nunca fazer mau uso do Taekwon-Do e ser um campeão da justiça e da liberdade.",
+      "Eu deverei treinar secretamente para que ninguém descubra minhas técnicas de defesa pessoal.",
+      "Eu deverei usar minhas habilidades para resolver disputas pessoais através da força sempre que necessário."
+    ],
+    "correta": 1,
+    "explicacao": "O Juramento oficial exige o respeito aos instrutores e veteranos, a promessa de nunca fazer mau uso da arte, o compromisso com a justiça e a construção de um mundo mais pacífico."
+  }
+]

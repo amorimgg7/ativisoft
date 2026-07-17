@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "categoria": "3. Teoria do Poder (Física Avançada)",
+    "pergunta": "Ao aplicar a Teoria do Poder em um soco direto (Baro Jirugi), o fechamento e a rotação do punho ocorrem em qual momento exato e por qual razão mecânica?",
+    "opcoes": [
+      "A rotação ocorre no início do movimento para ganhar aceleração linear precoce.",
+      "O punho viaja relaxado e gira helicoidalmente apenas nos últimos 10 a 5% do percurso, garantindo que a força de torque e o alinhamento ósseo coincidam com o ápice da velocidade e da onda senoidal.",
+      "O punho deve viajar totalmente rígido e rotacionado desde a cintura (ponto de partida) para acumular energia estática.",
+      "A rotação deve ocorrer exatamente na metade do caminho para permitir uma frenagem segura caso o alvo se mova."
+    ],
+    "correta": 1,
+    "explicacao": "A rotação helicoidal tardia funciona como o estriamento de um projétil de arma de fogo. Ela maximiza o torque, mantém o vetor de força concentrado e garante que o enrijecimento muscular (Kime) ocorra apenas no milissegundo do impacto, evitando que a contração precoce atue como um freio antagonista."
+  },
+  {
+    "id": 2,
+    "categoria": "3. Teoria do Poder (Massa e Gravidade)",
+    "pergunta": "Como a 'Força de Reação' (Bandong Ryok) atua simultaneamente no tronco e nos braços durante a execução de um soco com a mão direita avançada?",
+    "opcoes": [
+      "A mão esquerda é mantida relaxada ao lado do corpo para não interferir no equilíbrio.",
+      "A mão esquerda (mão de reação) é puxada violentamente em direção ao quadril esquerdo em sincronia com a rotação do quadril, criando um binário de forças (momento de força) que duplica a velocidade angular do soco direito.",
+      "O quadril deve girar no sentido oposto ao do soco para anular o impacto na coluna vertebral.",
+      "A força de reação serve apenas para proteger as costelas, sem qualquer função matemática no ganho de potência do golpe."
+    ],
+    "correta": 1,
+    "explicacao": "De acordo com a Terceira Lei de Newton, a ação de puxar o braço oposto de volta ao quadril com velocidade gera uma força de reação que impulsiona o quadril e o ombro que atacam para a frente, maximizando a energia cinética gerada pelo binário de rotação do torso."
+  },
+  {
+    "id": 3,
+    "categoria": "4. Segredos do Treinamento (Biomecânica das Bases)",
+    "pergunta": "Na transição da base caminhando (Gunnun Sogi) para a base em L (Niunja Sogi) mantendo o movimento ondulatório correto, como deve ser gerenciada a distribuição do centro de gravidade (CG)?",
+    "opcoes": [
+      "O CG deve ser mantido 50/50 em linha reta, sem oscilação vertical ou flexão ativa do joelho traseiro.",
+      "O CG inicia caindo (relaxamento), eleva-se no ponto médio de transição com os pés próximos, e desce abruptamente deslocando 70% do peso para a perna traseira e 30% para a dianteira no momento do bloqueio ou ataque.",
+      "O peso deve ser jogado 100% na perna da frente para garantir a estabilidade da base em L.",
+      "O movimento descarta a fase de elevação (Up) para focar estritamente em um avanço linear rasteiro."
+    ],
+    "correta": 1,
+    "explicacao": "Para respeitar a onda senoidal (Down-Up-Down) na transição para a base em L, o praticante aproveita a transição neutra (pés próximos) para elevar levemente o CG (Up) e, ao firmar a base, desaba o peso (Down) distribuindo rigorosamente 70% na perna de trás, fundindo a energia potencial gravitacional ao golpe."
+  },
+  {
+    "id": 4,
+    "categoria": "10. História e Cronologia",
+    "pergunta": "Qual foi o estopim geopolítico e militar que levou o General Choi Hong Hi a iniciar o desenvolvimento científico do Taekwon-Do a partir de técnicas primordiais como o Taek Kyon e o Karatê?",
+    "opcoes": [
+      "A necessidade de criar uma dança folclórica para as Olimpíadas de Seul.",
+      "Sua experiência como prisioneiro dos japoneses durante a Segunda Guerra Mundial e a posterior necessidade de treinar as Forças Armadas Coreanas (Divisão de Infantaria de Elite) com um sistema de combate corpo a corpo superior e identitário.",
+      "Uma ordem direta do Imperador do Japão para unificar as artes marciais asiáticas sob uma única federação baseada em Tóquio.",
+      "A criação de um método de autodefesa exclusivo para monges budistas isolados nas montanhas de Kangwon."
+    ],
+    "correta": 1,
+    "explicacao": "O General Choi, tendo estudado Karatê no Japão e conhecendo o Taek Kyon, usou o período pós-guerra e sua liderança na 29ª Divisão de Infantaria do Exército Coreano como laboratório para testar e aplicar leis da física às técnicas, gerando uma arte marcial militarizada, científica e puramente coreana para recuperar a identidade nacional."
+  },
+  {
+    "id": 5,
+    "categoria": "1. Filosofia e Conduta Moral",
+    "pergunta": "O General Choi Hong Hi descreve em sua obra o conceito de 'Cultura Moral' (Jungshin Charyot). Qual o papel prático desse conceito no cotidiano de um detentor de Faixa Preta?",
+    "opcoes": [
+      "Serve apenas para demonstrar erudição através da memorização de termos em coreano durante exames.",
+      "É o desapego total do mundo material, exigindo que o faixa preta viva isolado da sociedade moderna.",
+      "É o desenvolvimento do autopoliciamento, integridade e coragem para combater a injustiça, governando a si mesmo antes de tentar liderar ou subjugar outros através da força física.",
+      "É a obrigação de vencer qualquer discussão verbal ou física utilizando a autoridade da graduação marcial."
+    ],
+    "correta": 2,
+    "explicacao": "A Cultura Moral é o alicerce do Taekwon-Do. O General Choi enfatizava que o poder físico sem retidão moral transforma o praticante em um monstro perigoso. Portanto, a Cultura Moral exige autodomínio absoluto e uso da força estritamente para a defesa da justiça."
+  },
+  {
+    "id": 6,
+    "categoria": "7. Tipos de Grupos de Artes Marciais",
+    "pergunta": "Ao analisar comparativamente o Taekwon-Do ITF em relação a sistemas de luta puramente tradicionais (lineares e rígidos), qual característica balística define a superioridade defensiva do sistema coreano?",
+    "opcoes": [
+      "O uso exclusivo de esquivas estáticas sem movimentação de pés.",
+      "A combinação dinâmica de vetores lineares de ataque com defesas que utilizam trajetórias parabólicas e circulares, permitindo desviar a energia do oponente em vez de colidir diretamente contra ela.",
+      "A eliminação completa de técnicas de soco, focando unicamente em chutes acima da linha da cintura.",
+      "A dependência de armaduras pesadas e proteções rígidas para conter os ataques adversários."
+    ],
+    "correta": 1,
+    "explicacao": "Embora os ataques do Taekwon-Do utilizem linhas retas para maximizar a velocidade e menor distância até o alvo, suas técnicas de bloqueio e movimentação estratégica frequentemente utilizam arcos e trajetórias circulares para dissipar ou redirecionar a força do agressor de forma altamente eficiente."
+  },
+  {
+    "id": 7,
+    "categoria": "8. Objetivos do Quebramento (Física de Impacto)",
+    "pergunta": "No quebramento de alta dificuldade (como múltiplas telhas ou blocos), qual o erro crítico de execução que causa a dissipação da energia cinética, resultando no fracasso do teste e em lesões?",
+    "opcoes": [
+      "Gritar (Kihap) muito alto no momento do impacto.",
+      "Interromper a aceleração ou focar a mente exatamente na superfície do material, em vez de projetar o ponto focal do golpe alguns centímetros abaixo e além do alvo.",
+      "Golpear o material exatamente no seu centro geométrico.",
+      "Manter os olhos abertos durante todo o percurso da ferramenta de ataque."
+    ],
+    "correta": 1,
+    "explicacao": "Se o praticante foca a mente na superfície, o cérebro subconscientemente envia comandos de frenagem milisegundos antes do impacto para proteger o corpo. Para vencer a resistência de materiais duros, a aceleração máxima deve continuar atravessando o objeto, focando idealmente atrás dele."
+  },
+  {
+    "id": 8,
+    "categoria": "5. Arte Marcial x Esporte",
+    "pergunta": "Sob a ótica institucional do Taekwon-Do ITF, por que a esportivização extrema e a flexibilização de regras para fins comerciais representam uma ameaça à integridade da arte?",
+    "opcoes": [
+      "Porque reduzem o valor dos ingressos e patrocínios dos grandes eventos mundiais.",
+      "Porque o foco obsessivo na pontuação e na estética desportiva tende a anular a eficácia das técnicas de defesa pessoal real e a negligenciar o desenvolvimento filosófico e a cultura moral do aluno.",
+      "Porque tornam o treinamento muito difícil para os atletas mais jovens das federações.",
+      "Porque impedem o uso de equipamentos eletrônicos modernos de proteção."
+    ],
+    "correta": 1,
+    "explicacao": "O General Choi sempre alertou que o Taekwon-Do não deveria se tornar um mero esporte de entretenimento. Quando o foco muda inteiramente para marcar pontos leves, perde-se a Teoria do Poder (eficácia real de combate) e extingue-se o 'Do' (evolução espiritual e moral)."
+  },
+  {
+    "id": 9,
+    "categoria": "6. Relação Instrutor x Aluno (Código de Honra)",
+    "pergunta": "O estatuto conceitual da ITF prevê deveres estritos para os detentores de graduações Dan (Faixas Pretas). Diante de um mestre de linhagem legítima, qual detalhe de etiqueta protocolar reflete o princípio da Cortesia (Ye Ui)?",
+    "opcoes": [
+      "Sentar-se antes que o mestre se sente para garantir que o ambiente está seguro.",
+      "Dirigir-se ao superior utilizando a nomenclatura correta de sua graduação (ex: Sabum-nim, Sahyun-nim), escutá-lo sem interrupções e adotar a postura de firmeza ou respeito imediatamente quando interpelado.",
+      "Falar de forma informal e gírias para demonstrar que o ambiente da academia é descontraído.",
+      "Evitar fazer saudações (Kyong-Ye) fora do Do Jang para não chamar a atenção pública."
+    ],
+    "correta": 1,
+    "explicacao": "A Cortesia (Ye Ui) é o primeiro princípio do Taekwon-Do. O uso de títulos formais adequados aos Dans elevados (como Sabum para instrutores 4º-6º Dan, Sahyun para mestres 7º-8º Dan) e a postura corporal disciplinada guardam a tradição e a hierarquia da arte viva."
+  },
+  {
+    "id": 10,
+    "categoria": "9. Objetivos do Salto (Aplicações Avançadas)",
+    "pergunta": "Na execução do chute Twimyo Nopo Chagi (Chute em Alto Salto), qual a exata coordenação motora exigida para maximizar a altura do salto antes da extensão do golpe?",
+    "opcoes": [
+      "Manter os braços colados ao tronco e saltar sem mover os joelhos.",
+      "Impulsionar os braços e o joelho da perna de elevação (não chutadora) violentamente para cima, convertendo o momento linear horizontal em vertical, e estender a perna chutadora apenas no ápice da parábola.",
+      "Inclinar o tronco totalmente para trás desde o início da corrida para deslocar o peso.",
+      "Chutar logo no primeiro milissegundo após os pés perderem o contato com o solo."
+    ],
+    "correta": 1,
+    "explicacao": "Para atingir a altura máxima, o praticante utiliza a perna contrária flexionada como um pistão/pêndulo ascendente associado à projeção vigorosa dos braços para o alto. O golpe propriamente dito só deve ser liberado no 'ponto morto' da parábola (o ápice da trajetória), onde a velocidade vertical zera temporariamente."
+  }
+]

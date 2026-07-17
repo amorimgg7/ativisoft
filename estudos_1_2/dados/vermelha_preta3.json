@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "categoria": "1. Filosofia Taekwon-Do",
+    "pergunta": "De acordo com os preceitos do General Choi Hong Hi, como deve agir o 'eterno mestre' em suas três fases de existência?",
+    "opcoes": [
+      "Ensina com o corpo quando jovem, com as palavras quando velho e com os preceitos morais depois de morto.",
+      "Ensina apenas através de livros quando jovem e exige obediência cega quando velho.",
+      "Treina fisicamente até a velhice sem nunca utilizar a transmissão verbal ou preceitos morais.",
+      "Foca somente nas competições desportivas enquanto jovem e no comércio da arte quando velho."
+    ],
+    "correta": 0,
+    "explicacao": "A filosofia dita que o verdadeiro mestre ensina com o corpo na juventude, com palavras na velhice e deixa seus preceitos morais como legado após a morte."
+  },
+  {
+    "id": 2,
+    "categoria": "2. Relacionamento Aluno-Instrutor",
+    "pergunta": "Qual é o objetivo final de um instrutor dedicado e qual deve ser sua atitude se o aluno atingir um estágio que exceda suas possibilidades de ensino?",
+    "opcoes": [
+      "O objetivo é reter o aluno o máximo de tempo possível para garantir o pagamento das mensalidades.",
+      "O objetivo final é que seus alunos o superem; se o nível do aluno exceder o seu, ele deve encaminhá-lo a um instrutor de maior nível.",
+      "O instrutor deve inventar respostas falsas e técnicas complexas para que o aluno nunca o supere.",
+      "Proibir o aluno de visitar outras academias ou buscar conhecimentos com outros mestres."
+    ],
+    "correta": 1,
+    "explicacao": "O objetivo final do instrutor é ser superado pelo aluno. Com honestidade, se o aluno excede sua capacidade de ensino, o correto é encaminhá-lo a um nível superior."
+  },
+  {
+    "id": 3,
+    "categoria": "3. Teoria do Poder",
+    "pergunta": "Considerando a fórmula da energia cinética na Teoria do Poder, qual é o fator mais essencial para o aumento da força e como ele influencia matematicamente o impacto?",
+    "opcoes": [
+      "A Massa, pois ela cresce geometricamente na fórmula.",
+      "A Velocidade, pois enquanto a massa aumenta a energia aritmeticamente, a velocidade aumenta a energia geometricamente.",
+      "O Equilíbrio, que anula a necessidade de velocidade ou massa no golpe.",
+      "A Força de Reação, que atua isoladamente sem depender da velocidade do praticante."
+    ],
+    "correta": 2,
+    "explicacao": "Na fórmula E=1/2 m.v², a velocidade está elevada ao quadrado. Portanto, o aumento da velocidade faz a energia crescer geometricamente, tornando-a o fator mais essencial."
+  },
+  {
+    "id": 4,
+    "categoria": "4. Segredos do Treinamento",
+    "pergunta": "Em relação à trajetória dos golpes, qual regra descrita nos 'Segredos do Treinamento' deve ser seguida para garantir a eficácia do movimento?",
+    "opcoes": [
+      "Todo movimento deve ser feito em linha reta absoluta, sem qualquer flexão de joelho.",
+      "Todo movimento deve começar com uma ação para trás (salvo exceções) e, uma vez iniciado, não deve ser interrompido até atingir o alvo, criando uma curva através do joelho.",
+      "Os movimentos devem ser interrompidos no meio do caminho para fintar o oponente constantemente.",
+      "Deve-se manter os joelhos e cotovelos totalmente travados e estendidos durante todo o percurso da técnica."
+    ],
+    "correta": 1,
+    "explicacao": "Os segredos ensinam que o movimento geralmente começa com uma ação para trás, aproveita a mobilidade do joelho gerando um movimento ondulatório (curva) e não deve ser interrompido até o alvo."
+  },
+  {
+    "id": 5,
+    "categoria": "5. Arte Marcial x Esporte",
+    "pergunta": "Qual é a principal diferença conceitual e de liderança entre a prática da Arte Marcial e a do Esporte?",
+    "opcoes": [
+      "O esporte foca na filosofia moral e exige um mestre; a arte marcial é apenas diversão e exige um técnico.",
+      "O esporte é um passatempo/exercício focado em vencer um adversário (exige técnico); a arte marcial busca valores morais e vencer a si próprio (exige instrutor/mestre).",
+      "Não há diferença, ambos buscam apenas a vitória em campeonatos e o desenvolvimento da força bruta.",
+      "A arte marcial rejeita qualquer tipo de treinamento físico, focando apenas na meditação, ao contrário do esporte."
+    ],
+    "correta": 1,
+    "explicacao": "O esporte visa a recreação e a vitória sobre o oponente sob a tutela de um técnico. A arte marcial foca no aperfeiçoamento moral e no autodomínio através da orientação de um instrutor/mestre."
+  },
+  {
+    "id": 6,
+    "categoria": "6. Instrutor x Técnico",
+    "pergunta": "Por que o papel do Instrutor na Arte Marcial difere drasticamente do papel do Técnico no Esporte?",
+    "opcoes": [
+      "O técnico ensina apenas regras de pontuação; o instrutor se preocupa unicamente com fins comerciais.",
+      "O técnico prepara para vencer uma competição desportiva; o instrutor prepara o aluno técnica, física, filosófica e moralmente para viver melhor dentro e fora do Do Jang.",
+      "O instrutor atua exclusivamente dentro da academia, enquanto o técnico gerencia a vida pessoal do atleta.",
+      "O técnico exige exames de faixa teóricos, enquanto o instrutor avalia apenas o desempenho em combate livre."
+    ],
+    "correta": 1,
+    "explicacao": "O instrutor de Taekwon-Do tem a responsabilidade de desenvolver o aluno tanto dentro quanto fora da academia, transmitindo cultura moral e ensinando de forma científica e teórica."
+  },
+  {
+    "id": 7,
+    "categoria": "7. Tipos de Grupos de Artes Marciais",
+    "pergunta": "Em qual dos quatro grupos de Artes Marciais o Taekwon-Do se posiciona e qual o seu diferencial em relação aos demais?",
+    "opcoes": [
+      "No grupo de pouca distância (projeções); diferencia-se por não usar golpes traumáticos.",
+      "No grupo baseado em movimentos puramente circulares e no uso de armas tradicionais japonesas.",
+      "No grupo baseado em golpes com pés e mãos; diferencia-se por ser uma arte marcial moderna e científica que aplica leis da física para a obtenção de poder.",
+      "No grupo de lutas de solo exclusivas, assemelhando-se diretamente ao Judô e Jiu-Jitsu clássicos."
+    ],
+    "correta": 2,
+    "explicacao": "O Taekwon-Do pertence ao grupo que usa pés e mãos para golpear e bloquear, destacando-se como uma arte marcial moderna (criada em 1955) fundamentada na ciência e em fórmulas físicas como a energia cinética."
+  },
+  {
+    "id": 8,
+    "categoria": "8. Objetivos do Quebramento",
+    "pergunta": "Para que serve o ajuste final da técnica por meio do Quebramento (Kyokpa) e quais são seus principais objetivos?",
+    "opcoes": [
+      "Demonstrar superioridade física sobre os outros alunos e machucar voluntariamente o corpo.",
+      "Servir como instrumento de medição da força e velocidade máximas, desenvolvendo a autoconfiança e a habilidade de mensurar a distância ideal.",
+      "Substituir completamente o treino de Tuls e de defesa pessoal na graduação de faixas pretas.",
+      "Apenas fins estéticos e recreativos, sem necessidade de preparação física ou alinhamento técnico."
+    ],
+    "correta": 1,
+    "explicacao": "Como testar a força total em seres humanos é inviável, o quebramento serve para mensurar com precisão a força, velocidade, distância e precisão dos golpes, impulsionando a autoconfiança do praticante."
+  },
+  {
+    "id": 9,
+    "categoria": "9. Objetivos do Salto",
+    "pergunta": "No Taekwon-Do ITF, as técnicas de salto (Twimyo) possuem grande destaque. Quais são os objetivos primordiais dessas técnicas?",
+    "opcoes": [
+      "Apenas demonstração acrobática sem aplicação real em combate ou defesa pessoal.",
+      "Evitar um objeto, surpreender o adversário, cobrir distâncias em menor tempo, atingir regiões altas, mudar ângulos e aumentar a força do ataque pelo acúmulo de energia.",
+      "Diminuir a velocidade dos golpes para permitir que o oponente bloqueie mais facilmente.",
+      "Substituir o uso dos punhos, já que saltos servem exclusivamente para técnicas de soco descendente."
+    ],
+    "correta": 1,
+    "explicacao": "As técnicas de salto multiplicam a eficiência tática permitindo surpreender, desviar de obstáculos, alcançar alvos altos e gerar maior impacto terminal através da aceleração da gravidade e energia potencial."
+  },
+  {
+    "id": 10,
+    "categoria": "10. As 3 Fases da História do Taekwon-Do",
+    "pergunta": "Com base na cronologia histórica apresentada na apostila, quais são as três grandes fases que moldaram a origem, a repressão e a institucionalização do Taekwon-Do?",
+    "opcoes": [
+      "A criação do Hwa-Rang em Silla (670 d.C.); a proibição/prática secreta durante a ocupação japonesa (1909); e a fundação oficial e unificação técnica pelo General Choi Hong Hi (1955-1966).",
+      "A fusão com o Karatê japonês em Tóquio; a Guerra do Vietnã; e a mudança da sede da ITF para os Estados Unidos.",
+      "A era antiga do Soo Bak Gi na China; o período de exportação olímpica; e a divisão da federação em três sedes europeias.",
+      "A dinastia Koguryo puramente pacifista; a criação dos Samurais na Coreia; e o surgimento do Taek Kyon comercial moderno."
+    ],
+    "correta": 0,
+    "explicacao": "As três fases fundamentais mapeadas são: 1) As raízes antigas com os guerreiros Hwa-Rang e o Taek Kyon; 2) O período de opressão e treino secreto sob a ocupação japonesa de 1909; 3) A libertação (1945), seguida pela nomeação oficial (1955) e fundação da ITF (1966) pelo General Choi."
+  }
+]
