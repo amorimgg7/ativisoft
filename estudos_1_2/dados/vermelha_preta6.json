@@ -93,15 +93,15 @@
   {
     "id": 8,
     "categoria": "8. Objetivos do Quebramento (Mecânica de Fratura)",
-    "pergunta": "Sob a perspectiva da física de impacto aplicada ao Quebramento (Kyokpa) de materiais rígidos, qual a função da redução do tempo de contato ($\Delta t$) no momento do choque?",
+    "pergunta": "Sob a perspectiva da física de impacto aplicada ao Quebramento (Kyokpa) de materiais rígidos, qual a função da redução do tempo de contato ($Delta t$) no momento do choque?",
     "opcoes": [
       "Aumentar o tempo de contato distribui a força por uma área maior, facilitando a quebra de superfícies elásticas.",
-      "De acordo com o teorema do impulso ($\Delta p = F \cdot \Delta t$), minimizar o tempo de contato ($\Delta t$) para uma mesma variação de momento linear maximiza exponencialmente a força de impacto terminal ($F$), superando a resistência estrutural do material antes que a energia se dissipe.",
+      "De acordo com o teorema do impulso ($Delta p = F cdot Delta t$), minimizar o tempo de contato ($Delta t$) para uma mesma variação de momento linear maximiza exponencialmente a força de impacto terminal ($F$), superando a resistência estrutural do material antes que a energia se dissipe.",
       "Reduzir o tempo de contato serve unicamente para proteger a pele do praticante contra queimaduras por atrito.",
       "O tempo de contato não possui relevância matemática, importando apenas a massa isolada do membro que golpeia."
     ],
     "correta": 9,
-    "explicacao": "Para quebrar objetos duros (madeira, blocos), o golpe não pode 'empurrar'. Ao retrair a ferramenta ou golpear com velocidade máxima instantânea, o tempo de colisão ($\Delta t$) tende a zero, o que faz com que a força de impacto ($F = \Delta p / \Delta t$) atinja um pico massivo, quebrando o objeto por estresse mecânico abrupto."
+    "explicacao": "Para quebrar objetos duros (madeira, blocos), o golpe não pode 'empurrar'. Ao retrair a ferramenta ou golpear com velocidade máxima instantânea, o tempo de colisão ($Delta t$) tende a zero, o que faz com que a força de impacto ($F = Delta p / Delta t$) atinja um pico massivo, quebrando o objeto por estresse mecânico abrupto."
   },
   {
     "id": 1,
@@ -109,7 +109,7 @@
     "pergunta": "Durante a fase aérea de um Twimyo Chagi complexo (como o chute em rotação ou múltiplos alvos), por que o recolhimento estrito dos braços e das pernas que não atacam é obrigatório para o sucesso balístico?",
     "opcoes": [
       "Para reduzir a resistência do ar (atrito aerodinâmico) de forma a permitir que o corpo flutue por mais tempo.",
-      "De acordo com a Lei de Conservação do Momento Angular ($L = I \cdot \omega$), aproximar os membros do eixo de rotação reduz o Momento de Inércia ($I$), provocando um aumento imediato na velocidade angular ($\omega$) dos quadris e acelerando o chute.",
+      "De acordo com a Lei de Conservação do Momento Angular ($L = I cdot omega$), aproximar os membros do eixo de rotação reduz o Momento de Inércia ($I$), provocando um aumento imediato na velocidade angular ($omega$) dos quadris e acelerando o chute.",
       "Serve para ocultar a ferramenta de ataque até o último segundo, impedindo o bloqueio por parte do oponente.",
       "O recolhimento impede que o centro de gravidade mude de posição vertical durante a parábola do salto."
     ],
