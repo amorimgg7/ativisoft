@@ -37,6 +37,17 @@ if (!$perguntas) {
 
 shuffle($perguntas);
 
+// Quantidade de questões da prova
+$_SESSION['quantidadeQuestoes'] = 3;
+
+// Mantém apenas a quantidade desejada
+$perguntas = array_slice(
+    $perguntas,
+    0,
+    min($_SESSION['quantidadeQuestoes'], count($perguntas))
+);
+
+
 /*
 |--------------------------------------------------------------------------
 | Embaralha as alternativas de cada pergunta

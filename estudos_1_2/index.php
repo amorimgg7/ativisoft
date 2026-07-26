@@ -135,32 +135,10 @@ rel="stylesheet">
 
 
 <div class="container py-4">
-
-
-
-
-
-    <!-- CABEÇALHO -->
-
     <div class="text-center mb-1">
-
-<!--
-        <h6 class="display-4 fw-bold text-primary">
-
-            
-
-        </h6>-->
-
-
-
         <p class="text-secondary fs-5">
-
             🥋 Simulados Taekwon-Do ITF</br>Escolha sua graduação e teste seus conhecimentos
-
         </p>
-
-
-
     </div>
 
 
@@ -170,17 +148,9 @@ rel="stylesheet">
 
 
     <?php if(empty($simulados)): ?>
-
-
-
         <div class="alert alert-warning text-center">
-
             Nenhum simulado encontrado.
-
         </div>
-
-
-
     <?php endif; ?>
 
 
@@ -191,108 +161,37 @@ rel="stylesheet">
 
     <!-- GRID RESPONSIVO -->
 
-
     <div class="row g-4">
-
-
-
     <?php foreach($simulados as $s): ?>
-
-
-
         <div class="col-12 col-md-6 col-lg-4">
-
-
-
             <div class="card shadow-sm border-0 rounded-4 h-100">
-
-
-
                 <div class="card-body d-flex flex-column">
-
-
-
-
-
                     <h2 class="h4 text-primary fw-bold">
-
                         <?= htmlspecialchars($s['titulo']) ?>
-
                     </h2>
-
-
-
-
-
                     <hr>
-
-
-
-
-
                     <p class="mb-2">
-
-
                         📚
-
                         <strong>
-
                         <?= $s['total_perguntas'] ?>
-
                         </strong>
-
                         questões
-
-
                     </p>
-
-
-
-
-
                     <p class="mb-4">
-
-
                         ⏱️
-
                         <strong>
-
                         <?= $s['tempo_minutos'] ?>
-
                         </strong>
-
                         minutos
-
-
                     </p>
-
-
-
-
-
-
                     <a
-
                     class="btn btn-primary btn-lg rounded-3 mt-auto"
-
                     href="iniciar.php?id=<?= urlencode($s['id']) ?>"
-
                     >
-
                         🥋 Iniciar Simulado
-
                     </a>
-
-
-
-
-
                 </div>
-
-
             </div>
-
-
         </div>
 
 

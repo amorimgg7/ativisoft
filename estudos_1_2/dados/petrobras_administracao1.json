@@ -1,0 +1,35 @@
+[
+  {
+    "id": 51,
+    "categoria": "Estrutura Organizacional e Planejamento Estratégico",
+    "pergunta": "Em uma estrutura matricial, a unidade de gás natural está inserida em um projeto estratégico de sustentabilidade ambiental. Nessa estrutura, fortalecem-se a cadeia de comando e a coordenação vertical.",
+    "opcoes": [
+      "Certo",
+      "Errado"
+    ],
+    "correta": 1,
+    "explicacao": "Errado. A estrutura matricial fortalece principalmente a coordenação horizontal e a dupla subordinação, reduzindo a rigidez da cadeia de comando vertical."
+  },
+  {
+    "id": 52,
+    "categoria": "Estratégia Empresarial",
+    "pergunta": "A verticalização é uma política de crescimento realizada mediante aquisições e fusões.",
+    "opcoes": [
+      "Certo",
+      "Errado"
+    ],
+    "correta": 1,
+    "explicacao": "Errado. Verticalização consiste em assumir etapas da cadeia produtiva. Aquisições e fusões caracterizam, em regra, estratégias de integração ou crescimento externo."
+  },
+  {
+    "id": 53,
+    "categoria": "Estratégia Empresarial",
+    "pergunta": "Uma estratégia para internacionalizar organizações consiste no estabelecimento de fontes externas em outros países responsáveis pela manufatura de determinados produtos.",
+    "opcoes": [
+      "Certo",
+      "Errado"
+    ],
+    "correta": 0,
+    "explicacao": "Certo. Trata-se da estratégia de outsourcing internacional (global sourcing), bastante utilizada na internacionalização."
+  }
+]

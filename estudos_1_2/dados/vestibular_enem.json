@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "categoria": "Matemática",
+    "pergunta": "Uma loja oferece 20% de desconto em um produto que custa R$ 250,00. Qual será o valor pago pelo cliente?",
+    "opcoes": [
+      "R$ 180,00",
+      "R$ 200,00",
+      "R$ 210,00",
+      "R$ 220,00"
+    ],
+    "correta": 1,
+    "explicacao": "20% de 250 = 50. Então 250 - 50 = R$ 200,00."
+  },
+  {
+    "id": 2,
+    "categoria": "Português",
+    "pergunta": "Qual alternativa apresenta apenas palavras acentuadas pela mesma regra?",
+    "opcoes": [
+      "Café, sofá, jacaré",
+      "Lápis, tórax, ônibus",
+      "Saída, país, baú",
+      "História, memória, área"
+    ],
+    "correta": 0,
+    "explicacao": "Todas são oxítonas terminadas em 'a', 'e' ou 'o' seguidas ou não de 's'."
+  },
+  {
+    "id": 3,
+    "categoria": "História",
+    "pergunta": "A Revolução Francesa ocorreu em qual ano?",
+    "opcoes": [
+      "1776",
+      "1789",
+      "1808",
+      "1822"
+    ],
+    "correta": 1,
+    "explicacao": "A Revolução Francesa teve início em 1789."
+  },
+  {
+    "id": 4,
+    "categoria": "Geografia",
+    "pergunta": "Qual é o maior bioma brasileiro?",
+    "opcoes": [
+      "Mata Atlântica",
+      "Cerrado",
+      "Amazônia",
+      "Caatinga"
+    ],
+    "correta": 2,
+    "explicacao": "A Amazônia é o maior bioma do Brasil."
+  },
+  {
+    "id": 5,
+    "categoria": "Biologia",
+    "pergunta": "A fotossíntese ocorre principalmente em qual organela?",
+    "opcoes": [
+      "Mitocôndria",
+      "Cloroplasto",
+      "Lisossomo",
+      "Complexo de Golgi"
+    ],
+    "correta": 1,
+    "explicacao": "Os cloroplastos possuem clorofila e realizam a fotossíntese."
+  },
+  {
+    "id": 6,
+    "categoria": "Química",
+    "pergunta": "Qual é o símbolo químico do ouro?",
+    "opcoes": [
+      "Ag",
+      "Au",
+      "O",
+      "Fe"
+    ],
+    "correta": 1,
+    "explicacao": "O símbolo do ouro é Au."
+  },
+  {
+    "id": 7,
+    "categoria": "Física",
+    "pergunta": "A unidade de força no Sistema Internacional é:",
+    "opcoes": [
+      "Joule",
+      "Pascal",
+      "Newton",
+      "Watt"
+    ],
+    "correta": 2,
+    "explicacao": "A unidade de força é o Newton (N)."
+  },
+  {
+    "id": 8,
+    "categoria": "Literatura",
+    "pergunta": "Quem escreveu 'Dom Casmurro'?",
+    "opcoes": [
+      "José de Alencar",
+      "Machado de Assis",
+      "Clarice Lispector",
+      "Graciliano Ramos"
+    ],
+    "correta": 1,
+    "explicacao": "Dom Casmurro foi escrito por Machado de Assis."
+  },
+  {
+    "id": 9,
+    "categoria": "Atualidades",
+    "pergunta": "Qual gás é o principal responsável pelo efeito estufa intensificado?",
+    "opcoes": [
+      "Oxigênio",
+      "Nitrogênio",
+      "Dióxido de Carbono",
+      "Hidrogênio"
+    ],
+    "correta": 2,
+    "explicacao": "O CO₂ é o principal gás associado ao aquecimento global."
+  },
+  {
+    "id": 10,
+    "categoria": "Matemática",
+    "pergunta": "Quanto é 15²?",
+    "opcoes": [
+      "125",
+      "225",
+      "250",
+      "215"
+    ],
+    "correta": 1,
+    "explicacao": "15 × 15 = 225."
+  },
+  {
+    "id": 11,
+    "categoria": "Português",
+    "pergunta": "Qual figura de linguagem ocorre em 'O vento sussurrava entre as árvores'?",
+    "opcoes": [
+      "Hipérbole",
+      "Metáfora",
+      "Personificação",
+      "Ironia"
+    ],
+    "correta": 2,
+    "explicacao": "O vento recebe uma característica humana: sussurrar."
+  },
+  {
+    "id": 12,
+    "categoria": "Geografia",
+    "pergunta": "Qual é o maior oceano do planeta?",
+    "opcoes": [
+      "Atlântico",
+      "Índico",
+      "Pacífico",
+      "Ártico"
+    ],
+    "correta": 2,
+    "explicacao": "O Oceano Pacífico é o maior do mundo."
+  },
+  {
+    "id": 13,
+    "categoria": "História",
+    "pergunta": "Quem foi o primeiro presidente do Brasil?",
+    "opcoes": [
+      "Getúlio Vargas",
+      "Marechal Deodoro da Fonseca",
+      "Floriano Peixoto",
+      "Juscelino Kubitschek"
+    ],
+    "correta": 1,
+    "explicacao": "Deodoro da Fonseca assumiu em 1889."
+  },
+  {
+    "id": 14,
+    "categoria": "Biologia",
+    "pergunta": "Qual é a função principal das hemácias?",
+    "opcoes": [
+      "Produzir hormônios",
+      "Transportar oxigênio",
+      "Combater vírus",
+      "Produzir anticorpos"
+    ],
+    "correta": 1,
+    "explicacao": "As hemácias transportam oxigênio através da hemoglobina."
+  },
+  {
+    "id": 15,
+    "categoria": "Química",
+    "pergunta": "A água é formada por:",
+    "opcoes": [
+      "H₂O",
+      "CO₂",
+      "NaCl",
+      "O₂"
+    ],
+    "correta": 0,
+    "explicacao": "A molécula da água é H₂O."
+  },
+  {
+    "id": 16,
+    "categoria": "Física",
+    "pergunta": "Qual planeta é conhecido como Planeta Vermelho?",
+    "opcoes": [
+      "Júpiter",
+      "Marte",
+      "Saturno",
+      "Mercúrio"
+    ],
+    "correta": 1,
+    "explicacao": "Marte possui grande quantidade de óxido de ferro em sua superfície."
+  },
+  {
+    "id": 17,
+    "categoria": "Matemática",
+    "pergunta": "Qual é a raiz quadrada de 144?",
+    "opcoes": [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "correta": 1,
+    "explicacao": "12 × 12 = 144."
+  },
+  {
+    "id": 18,
+    "categoria": "Literatura",
+    "pergunta": "O Modernismo brasileiro teve início com:",
+    "opcoes": [
+      "Semana de Arte Moderna de 1922",
+      "Independência do Brasil",
+      "República Velha",
+      "Era Vargas"
+    ],
+    "correta": 0,
+    "explicacao": "A Semana de Arte Moderna ocorreu em 1922."
+  },
+  {
+    "id": 19,
+    "categoria": "Sociologia",
+    "pergunta": "Cidadania significa principalmente:",
+    "opcoes": [
+      "Possuir bens materiais",
+      "Exercer direitos e deveres",
+      "Ter ensino superior",
+      "Ser servidor público"
+    ],
+    "correta": 1,
+    "explicacao": "Cidadania envolve direitos e deveres perante a sociedade."
+  },
+  {
+    "id": 20,
+    "categoria": "Matemática",
+    "pergunta": "Se um carro percorre 240 km em 3 horas, sua velocidade média é:",
+    "opcoes": [
+      "60 km/h",
+      "70 km/h",
+      "80 km/h",
+      "90 km/h"
+    ],
+    "correta": 2,
+    "explicacao": "240 ÷ 3 = 80 km/h."
+  }
+]
