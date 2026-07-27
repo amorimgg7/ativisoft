@@ -49,7 +49,7 @@
     font-size: 0.85rem;
 }
 
-.bg-arte { background: #3f51b5; }
+.bg-arte { background: #3f51b5; color: #fff}
 .bg-aluno { background: #009688; color: #fff}
 .bg-treino { background: #ff9800; }
 .bg-exame { background: #9c27b0; }
@@ -87,48 +87,79 @@
                         <!-- CARDS -->
                          
                         <?php
+
+                        $stmt = $pdo->prepare("
+    SELECT
+        ct.*,
+        v.tipo_vinculo,
+        v.dt_inicio,
+        v.dt_fim,
+        v.ativo
+    FROM tb_vinculo v
+    INNER JOIN tb_ct_marcial ct
+        ON ct.cd_ct_marcial = v.cd_ct_marcial
+    WHERE v.cd_pessoa = :cd_pessoa
+    ORDER BY ct.nome_ct
+");
+
+$stmt->execute([
+    ':cd_pessoa' => $_SESSION['cd_pessoa']
+]);
+
+$academias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+if (count($academias) > 0) {
+
+    echo '<div class="row">';
+
+    foreach ($academias as $academia) {
+      echo '<div class="col-md-4">';
+      echo '<div class="card mb-3">';
+      echo '<div class="card-body">';
+      echo '<h5>'.$academia['nome_ct'].'</h5>';
+      echo '<p><strong>Vínculo:</strong> '.$academia['tipo_vinculo'].'</p>';
+      echo '<p><strong>Status:</strong> '.($academia['ativo'] ? 'Ativo' : 'Inativo').'</p>';
+      if (!empty($academia['dt_inicio'])) {
+        echo '<p><strong>Início:</strong> '.date('d/m/Y', strtotime($academia['dt_inicio'])).'</p>';
+      }
+      echo '</div>';
+      // Botões
+      echo '<div class="row justify-content-center">';
+      echo ($academia['tipo_vinculo'] == 'ADMIN'                  ? '<div class="col-4"><a href="../md_admin/index.php" class="btn btn-warning w-100 mr-2">Admin</a></div>' : '');
+      echo ($academia['tipo_vinculo'] == 'ALUNO'                  ? '<div class="col-4"><a href="../md_aluno/index.php" class="btn btn-warning w-100 mr-2">Aluno</a></div><div class="col-4"><a href="../md_simulado/index.php" class="btn bg-treino w-100 mr-2">Simulado</a></div>' : '');
+      echo ($academia['tipo_vinculo'] == 'INSTRUTOR'              ? '<div class="col-4"><a href="../md_instrutor/index.php" class="btn bg-arte w-100 mr-2">Instrutor</a></div> <div class="col-4"><a href="../md_aluno/listar.php" class="btn bg-aluno w-100 mr-2">Gerenciar Alunos</a></div>' : '');
+      echo ($academia['tipo_vinculo'] == 'AUXILIAR DE INSTRUTOR'  ? '<div class="col-4"><a href="../md_auxiliar_de_instrutor/index.php" class="btn btn-warning w-100 mr-2">Auxiliar de Instrutor</a></div>' : '');
+      echo ($academia['tipo_vinculo'] == 'MESTRE'                 ? '<div class="col-4"><a href="../md_mestre/index.php" class="btn btn-warning w-100 mr-2">Mestre</a></div>' : '');
+      echo ($academia['tipo_vinculo'] == 'GRÃO MESTRE'            ? '<div class="col-4"><a href="../md_grao_mestre/index.php" class="btn btn-warning w-100 mr-2">Grão Mestre</a></div>' : '');
+      echo ($academia['tipo_vinculo'] == 'COMPETIDOR'             ? '<div class="col-4"><a href="../md_competidor/index.php" class="btn btn-warning w-100 mr-2">Competidor</a></div>' : '');
+      echo '</div>';
+      echo '</div>';
+      echo '</div>';
+    }
+
+    echo '</div>';
+
+} else {
+
+    echo '<div class="alert alert-warning">';
+    echo 'Você não possui vínculo com nenhuma academia.';
+    echo '</div>';
+
+}
+
+
                             if($_SESSION['perfil'] == "ADMIN"){
-                                $totalAlunos = $pdo->query("SELECT COUNT(*) FROM tb_vinculo WHERE tipo_vinculo='ALUNO'")->fetchColumn();
-                                $totalInstrutores = $pdo->query("SELECT COUNT(*) FROM tb_vinculo WHERE tipo_vinculo='INSTRUTOR'")->fetchColumn();
-                                $totalTreinos = $pdo->query("SELECT COUNT(*) FROM tb_treino")->fetchColumn();
-                                $totalExames = $pdo->query("SELECT COUNT(*) FROM tb_exame_graduacao")->fetchColumn();
-
-                                echo '
-                                    <h1>Perfil de administrador</h1>
-                                    <div class="row">
-                                        <div class="col-6 col-md-3">
-                                            <div class="card-box bg-aluno">
-                                                <h3>'.$totalAlunos.'</h3>
-                                                <p>Alunos</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-md-3">
-                                            <div class="card-box bg-arte">
-                                                <h3>'.$totalInstrutores.'</h3>
-                                                <p>Instrutores</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-md-3">
-                                            <div class="card-box bg-treino">
-                                                <h3>'.$totalTreinos.'</h3>
-                                                <p>Treinos</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-md-3">
-                                            <div class="card-box bg-exame">
-                                                <h3>'.$totalExames.'</h3>
-                                                <p>Exames de Faixa</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ';
-
+                                include '../../pages/md_admin/index.php';
+                                include '../../pages/md_instrutor/index.php';
+                                include '../../pages/md_aluno/index.php';
                             }
                             if($_SESSION['perfil'] == "INSTRUTOR"){
-                                echo '<h1>Perfil de Instrutor</h1>';
+                                include '../../pages/md_instrutor/index.php';
                             }
                             if($_SESSION['perfil'] == "ALUNO"){
-                                echo '<h1>Perfil de Aluno</h1>';
+                                include '../../pages/md_aluno/index.php';
                             }
                         ?>
                         
@@ -138,8 +169,9 @@
                         <div class="col-md-12">
                             <div class="card p-3">
                                 <h5>Ações Rápidas</h5>
-                                <a href="../md_aluno/index.php" class="btn bg-aluno">Gerenciar Alunos</a>
+                                <a href="../md_aluno/listar.php" class="btn bg-aluno">Gerenciar Alunos</a>
                                 <a href="../md_treinos/index.php" class="btn btn-warning">Treinos</a>
+                                <!--<a href="../md_estudos/index.php" class="btn btn-warning">Estudos</a>-->
                                 <!--<a href="../exames/index.php" class="btn btn-dark">Exames</a>
                                 <a href="../competicoes/index.php" class="btn btn-success">Competições</a>-->
                             </div>

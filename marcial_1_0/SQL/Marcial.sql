@@ -32,7 +32,7 @@ CREATE TABLE tb_pessoa (
   senha_pessoa VARCHAR(255),
 
 
-  perfil ENUM('ADMIN','INSTRUTOR','ALUNO'),
+  perfil ENUM('ADMIN', 'ALUNO', 'INSTRUTOR', 'AUXILIAR DE INSTRUTOR', 'MESTRE', 'GRÃO MESTRE', 'COMPETIDOR'),
   ativo TINYINT DEFAULT 1,
 
   dt_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -44,7 +44,13 @@ CREATE TABLE tb_pessoa (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
--- ALTER TABLE `tb_pessoa` ADD `perfil` ENUM('ADMIN','INSTRUTOR','ALUNO') NOT NULL AFTER `dt_ultimo_login`;
+-- ALTER TABLE `tb_pessoa` ADD `perfil` ENUM('ADMIN', 'ALUNO', 'INSTRUTOR', 'AUXILIAR DE INSTRUTOR', 'MESTRE', 'GRÃO MESTRE', 'COMPETIDOR') NOT NULL AFTER `dt_ultimo_login`;
+
+
+
+ALUNO, INSTRUTOR, AUXILIAR DE INSTRUTOR, MESTRE, COMPETIDOR
+
+
 -- ALTER TABLE tb_pessoa ADD ativo TINYINT DEFAULT 1 NOT NULL AFTER `dt_ultimo_login`
 -- ===============================
 -- USUÁRIO (LOGIN)
