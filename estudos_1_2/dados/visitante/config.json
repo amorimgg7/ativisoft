@@ -1,0 +1,15 @@
+{
+    "configuracoes": {
+        "tema": "dark",
+        "tempo_padrao_minutos": 30,
+        "questoes_por_prova": 10
+    },
+    "compartilhado": [
+        {
+            "sala": "demo",
+            "prova": "all",
+            "email": "amorimgg7@gmail.com",
+            "permissao": "ver"
+        }
+    ]
+}

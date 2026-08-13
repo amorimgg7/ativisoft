@@ -1,0 +1,534 @@
+[
+  {
+    "id": 1,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"Por que é que um cão é tão livre? Porque ele é o mistério vivo que não se indaga.\" 4°§\nO uso dos vocábulos destacados foi feito corretamente. Assinale a opção em que o emprego do termo sublinhado também foi realizado de forma correta.",
+    "opcoes": [
+      "Este é o amigo porque me arrisquei tanto e era um falso.",
+      "A funcionária foi demitida e não entendeu porquê.",
+      "Por que tinha medo, preferiu não ir de avião.",
+      "A maneira por que ele falava é que era apaixonada.",
+      "Não entendi o por quê da sua decisão."
+    ],
+    "correta": 3,
+    "explicacao": "A locução 'por que' equivale a 'pela qual' ('A maneira pela qual ele falava...'), estando empregada de forma gramaticalmente correta."
+  },
+  {
+    "id": 2,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção em que o termo destacado exerce o mesmo tipo de função sintática que a do vocábulo sublinhado em:\n\"O cheiro é de uma maresia tonteante que a desperta de seus mais adormecidos sonos seculares.\" 7º §",
+    "opcoes": [
+      "Essa é a cidade onde passei minha infância.",
+      "Essa é a menina cujo pai trabalha nesta empresa.",
+      "O autor escreveu um livro que todos elogiaram.",
+      "Foi o engenheiro quem determinou a execução da obra.",
+      "Chegou o grande médico que todos esperavam."
+    ],
+    "correta": 3,
+    "explicacao": "No trecho do texto, o pronome relativo 'que' exerce a função sintática de sujeito ('a maresia desperta'). Na opção D, o pronome 'quem' também exerce a função sintática de sujeito do verbo 'determinou'."
+  },
+  {
+    "id": 3,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe os termos destacados nos dois fragmentos abaixo.\nI- \"A mulher hesita porque vai entrar.\" 4°§\nII- \"Esse corpo entrará no ilimitado frio (...)\" 5°§\nAssinale a opção em que os termos sublinhados possuem a mesma relação lexical observada nos fragmentos acima.",
+    "opcoes": [
+      "Os brasileirismos são um hábito nacional que se manteve muito depois que palavras em tupi e guarani fossem incorporadas ao português. Alguns desses neologismos surgiram da intuição popular.",
+      "A vida no mar guarda desafios que colocam o ser humano muito além de suas forças físicas, os oceanos instigam o homem a elevar-se espiritualmente.",
+      "Já na segunda-feira, o menino pediu ao pai que fosse ao lançamento da banda, no próximo domingo. Mal sabia aquele que este estava muito mais empolgado que todos.",
+      "Eu lembro de um show, aliás, isto é uma exceção, não sei se é covardia dizer isso agora. Um show no país mais brasileiro da Europa que a gente fez, não sairá de minha mente, foi apoteótico.",
+      "Desta parte, quem cuida é o suporte técnico. Por favor, envie uma mensagem para eles, apresentando, com clareza, a sua dúvida que prontamente será atendida."
+    ],
+    "correta": 1,
+    "explicacao": "Nos fragmentos do texto, há uma coesão lexical na retomada de 'mulher' por 'corpo'. Na opção B, observa-se a mesma relação de equivalência e retomada lexical entre 'ser humano' e 'homem'."
+  },
+  {
+    "id": 4,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção em que o termo retomado pelo pronome relativo \"que\" foi destacado corretamente.",
+    "opcoes": [
+      "(...) com que se entregariam duas compreensões. 2°§",
+      "(...) é a exiguidade do corpo que o permite manter-se quente (...) 5°§",
+      "A água salgada é de um frio que lhe arrepia em ritual as pernas. 6°§",
+      "(...) como no amor em que a oposição pode ser um pedido. 6°§",
+      "(...) menos sôfrega e menos aguda. Agora sabe o que quer. 10°§"
+    ],
+    "correta": 2,
+    "explicacao": "Na opção C, o pronome relativo 'que' retoma o antecedente 'frio' ('o frio arrepia as pernas'), o qual está corretamente destacado."
+  },
+  {
+    "id": 5,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção na qual se observa uma relação de sinonímia com o termo destacado no fragmento: \"Seu corpo se consola com sua própria exiguidade (...)\" 5° §",
+    "opcoes": [
+      "Significância.",
+      "Serenidade.",
+      "Equidade.",
+      "Incipiência.",
+      "Pequenez."
+    ],
+    "correta": 4,
+    "explicacao": "O vocábulo 'exiguidade' indica a qualidade de exíguo ou pequeno, sendo sinônimo de 'pequenez'."
+  },
+  {
+    "id": 6,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção em que a forma verbal destacada possui a mesma transitividade do vocábulo sublinhado no trecho: \"O sal, o iodo, tudo líquido, deixam-na por uns instantes cega\". 7°§",
+    "opcoes": [
+      "Contentar-se com a sorte que não vem de jeito nenhum.",
+      "Ao dono da loja assiste razão de gabar-se do grande feito.",
+      "O persistente devoto chamou pela Virgem sua madrinha.",
+      "O homem comum não responderia o que ele me responde.",
+      "Naquela noite, ele saiu da casa sem olhar para trás."
+    ],
+    "correta": 3,
+    "explicacao": "O verbo 'deixar' no trecho funciona como Verbo Transitivo Direto ('deixam-na'). Na opção D, o verbo 'responderia' também é empregado como Verbo Transitivo Direto ('responderia o que')."
+  },
+  {
+    "id": 7,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"O sal, o iodo, tudo líquido, deixam-na por uns instantes cega, toda escorrendo - espantada de pé, fertilizada.\" 7°§\nO sinal de pontuação denominado travessão foi usado para:",
+    "opcoes": [
+      "marcar a introdução do discurso direto na narrativa.",
+      "indicar uma interrupção abrupta no curso do pensamento.",
+      "destacar, enfaticamente, a parte final do enunciado.",
+      "inserir explicações, digressões sobre o ocorrido.",
+      "tornar o desenvolvimento da narrativa mais objetivo."
+    ],
+    "correta": 2,
+    "explicacao": "O travessão simples foi empregado para conferir destaque enfático aos adjetivos/predicativos no segmento final do enunciado."
+  },
+  {
+    "id": 8,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção em que o termo destacado exerce a mesma função sintática que a do trecho sublinhado em: \"Esse corpo entrará no ilimitado frio (...)\". 5° §",
+    "opcoes": [
+      "(...) que lhe arrepia em ritual as pernas (...) 7º §",
+      "(...) a alegria é uma fatalidade (...) 6º §",
+      "(...) o caminho lento aumenta sua coragem secreta(...) 7° §",
+      "(...) Avançando, ela abre o mar pelo meio (...) 8° §",
+      "(...) Sabe que está brilhando de água, e sal e sol (...) 11° §"
+    ],
+    "correta": 3,
+    "explicacao": "Em 'no ilimitado frio', o termo exerce a função de Adjunto Adverbial de lugar. Na opção D, a locução 'pelo meio' também atua como Adjunto Adverbial."
+  },
+  {
+    "id": 9,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Quanto à ordem gramatical e natureza sintática do termo destacado, assinale a opção em que se observa o mesmo tipo de realce verificado na utilização do termo destacado no trecho: \"Aí está ele, o mar (...)\". 1°§",
+    "opcoes": [
+      "Acolá, no Catongo, é uma festa.",
+      "Que fazes tu de grande e bom?",
+      "Isso não se faz, protestou Fabiano.",
+      "Não vês o que te dou eu?",
+      "Servia-se o almoço às dez."
+    ],
+    "correta": 0,
+    "explicacao": "O advérbio de lugar 'Aí' no início da frase possui valor locativo e de realce, efeito análogo ao do advérbio 'Acolá' na opção A."
+  },
+  {
+    "id": 10,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"Às vezes o mar lhe opõe resistência puxando-a com força para trás (...)\". 11°§\nEm qual opção ocorre próclise pelo mesmo motivo do termo destacado?",
+    "opcoes": [
+      "Talvez a mulher se decidisse entrar no mar.",
+      "Não lhes pode dizer sobre a frieza do mar.",
+      "Que o vento me leve para águas profundas!",
+      "Quando me deitei, o mar me chamou.",
+      "Em lhe beijando o mar, ela cedeu."
+    ],
+    "correta": 0,
+    "explicacao": "No trecho do texto, a próclise ocorre motivada por adjunto adverbial ('Às vezes'). Na opção A, o advérbio 'Talvez' atua igualmente como elemento atrativo para a próclise."
+  },
+  {
+    "id": 11,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"Mesmo que o esqueça daqui a uns minutos (...)\". 12°§\nA locução destacada pode ser substituída, sem alterar o sentido do trecho, por:",
+    "opcoes": [
+      "Nem que.",
+      "Consoante.",
+      "Ao passo que.",
+      "Desde que.",
+      "Até que."
+    ],
+    "correta": 0,
+    "explicacao": "A locução 'Mesmo que' possui sentido concessivo e pode ser substituída por 'Nem que', mantendo a relação de subordinada adverbial concessiva."
+  },
+  {
+    "id": 12,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção que apresenta a sentença transcrita em que há, no contexto, a correta correspondência entre o termo destacado e o referente a ele atribuído.",
+    "opcoes": [
+      "(...) Ele só lhe é delimitado pela linha do horizonte (...) - mar 3º §",
+      "(...) porque é a exiguidade do corpo que o permite (...) - corpo 5º §",
+      "(...) que a torna pobre e livre gente (...) - exiguidade 5º §",
+      "(...) É fatal não se conhecer (...) - fatal 5º §",
+      "(...) tudo líquido, deixam-na por uns instantes cega (...) - ela 7°§"
+    ],
+    "correta": 0,
+    "explicacao": "No parágrafo 3°, o pronome pessoal 'Ele' retoma o substantivo 'mar' ('Ela olha o mar... Ele só lhe é delimitado...')."
+  },
+  {
+    "id": 13,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "O fragmento retirado do texto \"O sol se abre mais (...)\". 10°§ representa um tipo de construção da linguagem coloquial. Assinale a opção que também apresenta coloquialidade.",
+    "opcoes": [
+      "Assistir o jogo ou ir para a praça, naquela tarde tediosa, era o dilema.",
+      "Já não se lembra da picardia que me fez no mês passado?",
+      "Entre mim e ti, não importa o dia, não pode haver nenhuma confusão.",
+      "Mesmo eu quase falando, não perceberam ainda onde quero morar.",
+      "Nem João nem Carlos será eleito presidente do clube do bairro."
+    ],
+    "correta": 0,
+    "explicacao": "Na norma culta, o verbo 'assistir' no sentido de presenciar é transitivo indireto com a preposição 'a' ('assistir ao jogo'). O uso como transitivo direto representa traço de coloquialidade."
+  },
+  {
+    "id": 14,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"(...) a entrega de dois mundos incognoscíveis feita com a confiança com que se entregariam duas compreensões.\" 2°§\nAssinale a opção em que os vocábulos destacados acima foram classificados, respectivamente, de forma correta.",
+    "opcoes": [
+      "Verbo - advérbio - conjunção.",
+      "Substantivo - adjetivo - pronome.",
+      "Verbo - adjetivo - conjunção.",
+      "Substantivo - substantivo - pronome.",
+      "Substantivo - adjetivo - conjunção."
+    ],
+    "correta": 1,
+    "explicacao": "'entrega' é substantivo, 'incognoscíveis' é adjetivo e 'se' é pronome apassivador em 'se entregariam duas compreensões'."
+  },
+  {
+    "id": 15,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "No primeiro parágrafo do texto I, há um fenômeno denominado de heterogeneidade tipológica. Assinale a opção que apresenta corretamente os tipos textuais que predominam no referido parágrafo.",
+    "opcoes": [
+      "Narrativo e injuntivo.",
+      "Descritivo e argumentativo.",
+      "Expositivo e narrativo.",
+      "Argumentativo e injuntivo.",
+      "Descritivo e narrativo."
+    ],
+    "correta": 1,
+    "explicacao": "O primeiro parágrafo combina elementos da tipologia descritiva (a praia, a mulher, o mar) com a tipologia argumentativa/dissertativa (reflexão sobre a ininteligibilidade humana e existencial)."
+  },
+  {
+    "id": 16,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Analise contextualmente o trecho: \"Nessa hora ela se conhece menos (...)\". 5º §\nAssinale a opção que está na mesma voz verbal da sentença acima.",
+    "opcoes": [
+      "Debateram-se soluções para os problemas energéticos globais.",
+      "Considera-se inaceitável a falta de transparência nas decisões.",
+      "Renova-se a sociedade constantemente ao longo do tempo.",
+      "Comprovou-se a eficácia das novas metodologias científicas.",
+      "Investiga-se o impacto das mudanças climáticas nos ecossistemas."
+    ],
+    "correta": 2,
+    "explicacao": "A sentença do texto está na voz reflexiva ('conhece a si mesma'). Na opção C, 'Renova-se a sociedade' possui sentido reflexivo ('a sociedade renova a si própria')."
+  },
+  {
+    "id": 17,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção em que o fragmento retirado do texto evidencia o fenômeno da intertextualidade implícita.",
+    "opcoes": [
+      "O cheiro é de uma maresia tonteante que a desperta de seus mais adormecidos sonos seculares. 6°§",
+      "Avançando, ela abre o mar pelo meio. Já não precisa da coragem, agora já é antiga no ritual. 8°§",
+      "E era isso o que lhe estava faltando: o mar por dentro como o líquido espesso de um homem. 9°§",
+      "Mergulha de novo, de novo bebe, mais água, agora sem sofreguidão pois não precisa mais (...). 10°§",
+      "Não está caminhando sobre as águas - ah nunca faria isso depois que há milênios já andaram sobre as águas (...). 11°§"
+    ],
+    "correta": 4,
+    "explicacao": "O fragmento faz alusão implícita à passagem bíblica sobre caminhar sobre as águas ('há milênios já andaram sobre as águas'), configurando intertextualidade implícita."
+  },
+  {
+    "id": 18,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção em que o termo destacado possui o mesmo processo de formação de palavra que o do trecho sublinhado em: \"a entrega de dois mundos incognoscíveis (...)\". 2° §",
+    "opcoes": [
+      "O governo decidiu repatriar os cidadãos que estavam no exterior.",
+      "Ele tinha aversão a lugares muito barulhentos.",
+      "O gentio da região sempre acolhe os visitantes com hospitalidade.",
+      "O almirantado planejou uma nova estratégia para a frota no mar.",
+      "O enlace entre familiares fortalece os vínculos da sociedade."
+    ],
+    "correta": 4,
+    "explicacao": "O substantivo 'entrega' provém do verbo 'entregar' por derivação regressiva. Da mesma forma, 'enlace' deriva regressivamente do verbo 'enlaçar'."
+  },
+  {
+    "id": 19,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção em que a substituição do fragmento retirado do texto pelo que está entre parênteses apresenta INCORREÇÃO gramatical quanto à concordância.",
+    "opcoes": [
+      "\"Toda manhã saía levando o cachorro a passear.\" (Todas as manhãs saía levando o cachorro a passear).",
+      "\"Era uma boa justificativa o cachorro, para ele que, aposentado, talvez não tivesse outra.\" (Eram um bom argumento os cachorros, para ele que, aposentado, talvez não tivesse outro).",
+      "\"Ia caminhando devagar até a avenida junto ao mar, e lá chegando deixava-se ficar num banco (...)\". (Iam caminhando devagar até a avenida junto ao mar, e lá chegando deixavam-se ficar num banco).",
+      "\"O tráfego marítimo havia aumentado ano a ano, e aos poucos tornara-se necessário esperar por uma vaga no porto.\" (As rotas marítimas haviam aumentado ano a ano, e aos poucos tornaram-se necessário esperar por uma vaga no porto).",
+      "\"Mas, sentado no banco, com o cachorro deitado a seu lado, gostava de pensar que na névoa da manhã os navios esperavam por ele (...)\". (Mas, sentado no banco com o cachorro deitado a seu lado gostavam de pensar que na névoa da manhã os navios esperavam por eles)."
+    ],
+    "correta": 3,
+    "explicacao": "A opção D incorre em erro ao utilizar 'tornaram-se necessário', pois tendo por sujeito uma oração ('esperar por uma vaga no porto'), o verbo deve permanecer na terceira pessoa do singular ('tornou-se necessário esperar')."
+  },
+  {
+    "id": 20,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção cuja palavra seja acentuada pela mesma razão que a sublinhada no trecho: \"Toda manhã saía (...)\".",
+    "opcoes": [
+      "Júri.",
+      "Difícil.",
+      "Reúne.",
+      "Até.",
+      "Ímã."
+    ],
+    "correta": 2,
+    "explicacao": "A palavra 'saía' é acentuada de acordo com a regra dos hiatos ('i' ou 'u' tônicos isolados na sílaba). A palavra 'Reúne' (re-ú-ne) segue exatamente a mesma norma."
+  },
+  {
+    "id": 21,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"Melhor do que outros conhecia as lajes submersas, os bancos de areia, as correntezas (...)\".\nAssinale a opção em que o termo destacado NÃO tem a mesma função sintática da expressão sublinhada acima.",
+    "opcoes": [
+      "O povo manifesta resistência à construção de usinas térmicas.",
+      "O livro antigo estava exposto na nova estante da biblioteca.",
+      "A culinária da Bahia é valorizada por sua diversidade de sabores.",
+      "Adquiriu um dicionário de espanhol para aprimorar as habilidades.",
+      "As luzes da cidade já estão iluminando as ruas desertas."
+    ],
+    "correta": 1,
+    "explicacao": "No trecho, a expressão atua como Objeto Direto. Na opção B, 'na nova estante da biblioteca' funciona como Adjunto Adverbial de lugar."
+  },
+  {
+    "id": 22,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe que, no trecho \"Havia sempre muitos navios.\", o verbo está corretamente flexionado. Assinale a opção em que a flexão verbal do vocábulo destacado está correta.",
+    "opcoes": [
+      "Ainda assim, naquele momento, mesmo havendo oposição a tudo, restava cerca de cem viragos.",
+      "Foi um dos poucos no seu tempo que reconheceu a originalidade da literatura brasileira.",
+      "As \"Memórias Póstumas de Brás Cubas\" lhe dava uma outra dimensão do que poderia representar seu autor.",
+      "Com o sol rachando o solo já seco, soou doze horas por igrejas daqueles vales empoeirados.",
+      "Eu não estava num bom momento, olhar e ver eram para mim um recurso de defesa."
+    ],
+    "correta": 1,
+    "explicacao": "Na expressão 'um dos que', a concordância verbal admite tanto o singular ('reconheceu') quanto o plural ('reconheceram'), estando a construção correta."
+  },
+  {
+    "id": 23,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção que possui a mesma classificação sintática da expressão sublinhada no trecho: \"Havia sempre muitos navios.\"",
+    "opcoes": [
+      "Era um bom argumento o ponto de vista.",
+      "Havia desejado ela esse momento?",
+      "Era inverno na certa no alto sertão.",
+      "Choviam os ditos ao passo que ela seguia.",
+      "Dormiu mal, mas amanheceu alegre."
+    ],
+    "correta": 1,
+    "explicacao": "Em 'Havia sempre muitos navios', o termo destacado exerce função de Objeto Direto. Na opção B, 'esse momento' também desempenha a função de Objeto Direto da locução verbal."
+  },
+  {
+    "id": 24,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe os termos destacados no fragmento: \"Havia sido um belo trabalho\". Assinale a opção em que a locução verbal sublinhada está flexionada no mesmo tempo e modo que no trecho destacado acima.",
+    "opcoes": [
+      "Nós tínhamos terminado o exercício quando o professor chegou.",
+      "Se houvesse recursos financeiros suficientes, teria terminado o projeto.",
+      "Certamente, ainda não terão concluído a mudança amanhã.",
+      "Ele talvez tivesse sido um bom profissional.",
+      "Espero que tenha reservado dinheiro suficiente para a viagem."
+    ],
+    "correta": 0,
+    "explicacao": "A locução 'Havia sido' está no Pretérito Mais-Que-Perfeito Composto do Indicativo. Na opção A, 'tínhamos terminado' é flexionada exatamente no mesmo tempo e modo verbal."
+  },
+  {
+    "id": 25,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Com relação ao sinal indicativo de crase, assinale a opção em que o acento ocorreu pelo mesmo motivo observado no trecho \"Sabia que não estavam ali à espera do prático.\"",
+    "opcoes": [
+      "Mesmo vindo recentemente da Inglaterra, vou à cidade de Londres passar férias.",
+      "Os veludos de fora, talhados à francesa, resplandeciam constelados de pérolas.",
+      "Aquilo que menos tinha conexão, de fato, trouxe prejuízos de toda a natureza.",
+      "Junto às advogadas, parecia ser conhecedora do assunto como suas acompanhantes.",
+      "Por conta de seu histórico, não duvidávamos que estivesse à procura de problemas."
+    ],
+    "correta": 4,
+    "explicacao": "Em 'à espera do', o sinal indicativo de crase decorre do uso de locução prepositiva feminina. A opção E emprega a crase pela mesma razão na locução prepositiva feminina 'à procura de'."
+  },
+  {
+    "id": 26,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção que apresenta corretamente a figura de sintaxe observada no seguinte trecho: \"No seu tempo de prático, navios não precisavam esperar\".",
+    "opcoes": [
+      "Silepse.",
+      "Hipérbato.",
+      "Zeugma.",
+      "Elipse.",
+      "Assíndeto."
+    ],
+    "correta": 3,
+    "explicacao": "Trata-se de uma Elipse, uma vez que há a supressão do complemento do verbo esperar (pelo prático/vaga), subentendido pelo contexto."
+  },
+  {
+    "id": 27,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"Mas, sentado no banco, com o cachorro deitado a seu lado, gostava de pensar que na névoa da manhã os navios esperavam por ele (...)\".\nAssinale a opção em que a reescritura do trecho mantém a correção gramatical, com relação à pontuação.",
+    "opcoes": [
+      "Mas, sentado no banco, com o cachorro deitado a seu lado, gostava de pensar que, na névoa da manhã, os navios esperavam por ele.",
+      "Mas, sentado no banco, com o cachorro deitado a seu lado gostava, de pensar que na névoa da manhã os navios esperavam por ele.",
+      "Mas, sentado no banco, com o cachorro deitado a seu lado, gostava de pensar que na névoa da manhã, os navios esperavam por ele.",
+      "Mas, sentado no banco com o cachorro deitado a seu lado gostava de pensar, que na névoa da manhã, os navios esperavam por ele.",
+      "Mas, sentado no banco, com o cachorro deitado a seu lado, gostava de pensar que na névoa da manhã os navios, esperavam por ele."
+    ],
+    "correta": 0,
+    "explicacao": "A opção A isola corretamente o adjunto adverbial intercalado 'na névoa da manhã' por meio de vírgulas, mantendo a pontuação escorreita."
+  },
+  {
+    "id": 28,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"Sabia que não estavam ali à espera do prático\".\nAssinale a opção em que o termo destacado exerce a mesma função sintática da oração subordinada acima.",
+    "opcoes": [
+      "(...) o olhar posto nos navios (...)",
+      "Mas era o que sabia fazer (...)",
+      "Os navios entravam no porto (...)",
+      "(...) olhava ao longe os navios.",
+      "(...) lancha ou o rebocador que o traria (...)"
+    ],
+    "correta": 3,
+    "explicacao": "A oração 'que não estavam ali à espera do prático' exerce função de Oração Subordinada Substantiva Objetiva Direta. Na opção D, 'os navios' desempenha o papel de Objeto Direto."
+  },
+  {
+    "id": 29,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Os dois textos possuem seu eixo temático em volta do elemento \"mar\", entretanto, com abordagens diferentes. Analise as afirmativas abaixo.\nI- O personagem do texto 2 gostava de contemplar o mar de forma nostálgica.\nII- A personagem do texto 1 se relaciona com o mar em busca de autoconhecimento.\nIII- O texto 1 demonstra uma involução em relação ao autoconhecimento da personagem ao longo da narrativa.\nIV- O texto 2 mostra um movimento cíclico em relação à vivência cotidiana do personagem.\nAssinale a opção correta.",
+    "opcoes": [
+      "Apenas as afirmativas I e II estão corretas.",
+      "Apenas as afirmativas I, II e III estão corretas.",
+      "Apenas as afirmativas I, II e IV estão corretas.",
+      "Apenas as afirmativas II, III e IV estão corretas.",
+      "Apenas as afirmativas III e IV estão corretas."
+    ],
+    "correta": 2,
+    "explicacao": "As afirmativas I, II e IV são fiéis aos textos. A afirmativa III é incorreta porque no texto 1 há evolução e aprofundamento da vivência reflexiva e autoconhecimento, e não involução."
+  },
+  {
+    "id": 30,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe os termos destacados nos dois fragmentos abaixo.\nI- \"Por estarem naturalmente mais vulneráveis, certos grupos populacionais (...)\" 3°§\nII- \"(...) principalmente jovens, pessoas com problemas emocionais ou financeiros (...)\" 3°§\nAssinale a opção em que os termos sublinhados possuem a mesma relação lexical observada acima.",
+    "opcoes": [
+      "Pareciam desconfortáveis de julgadores, ninguém quis falar destes, obviamente: o irado mal-encarado, o desarrumado de bigode e a despudorada de batom vermelho.",
+      "Uma área da Física que é fundamental na hora de projetar meios de transporte: a Aerodinâmica. Essa ciência estuda justamente a ação do ar sobre os objetos.",
+      "Inspirados nas histórias da mitologia que enaltecem os guerreiros de mar e terra, a produção criou uma distopia com combatentes anfíbios extremamente tecnológicos.",
+      "Ao gringo parece inexplicável que os brasileiros vivam sorrindo o tempo todo. Realmente nós temos essa característica que não sei se é boa ou ruim.",
+      "Naquela mesma tarde quente, ele decidiu ir a uma praia. Teve uma semana pesada e justificou-se a si próprio que merecia aproveitar uma praia que havia sonhado."
+    ],
+    "correta": 0,
+    "explicacao": "A relação demonstrada é entre um termo abrangente (hiperônimo: 'certos grupos populacionais') e seus equivalentes específicos (hipônimos: 'jovens, pessoas...'). A opção A apresenta essa mesma relação entre 'julgadores' e as particularizações seguintes."
+  },
+  {
+    "id": 31,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"Essa ação inclui regras que levem em consideração a idade (...)\" 4° §\nAssinale a opção em que o vocábulo destacado possui mesma classificação gramatical do termo sublinhado acima.",
+    "opcoes": [
+      "Nossas expectativas eram que ele voltasse para a sua vida real e desconectasse da virtualidade.",
+      "As principais ações da campanha dependiam de que os viciados em jogos tomassem iniciativa.",
+      "É possível que comunicassem sobre as políticas públicas de combate à dependência em apostas.",
+      "Há pessoas que perderam a capacidade de socializar devido ao nível de dependência virtual.",
+      "Todos trabalham para que possamos vencer este mal do século: a dependência em apostas."
+    ],
+    "correta": 3,
+    "explicacao": "Em 'regras que levem', a palavra 'que' é Pronome Relativo. Na opção D, em 'pessoas que perderam', o vocábulo 'que' também é Pronome Relativo (equivale a 'as quais')."
+  },
+  {
+    "id": 32,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o conjunto de termos destacados no trecho \"(...) que não afetam apenas o indivíduo viciado, mas também o seu círculo familiar (...)\" 3° §\nAssinale a opção que o identifica corretamente.",
+    "opcoes": [
+      "Série enfática.",
+      "Palavras denotativas.",
+      "Conjunção subordinada concessiva.",
+      "Conjunção coordenada adversativa.",
+      "Conjunção coordenada alternativa."
+    ],
+    "correta": 0,
+    "explicacao": "A expressão 'não apenas... mas também' é classificada como locução conjuntiva aditiva correlativa ou Série Enfática."
+  },
+  {
+    "id": 33,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o fragmento abaixo:\n\"Reconhecer os riscos associados à compulsividade no jogo e implementar medidas de prevenção e tratamento é passo essencial (...)\" 5° §\nQuanto à concordância, a forma verbal destacada foi usada corretamente. Assinale a opção em que o vocábulo sublinhado também foi empregado de forma correta.",
+    "opcoes": [
+      "Ainda que seja polêmico, o fazer e o escrever é a mesma coisa.",
+      "São deveras importante criar novas ações para novos desafios.",
+      "Ele em severa crise com sua consciência, se alternam rir e chorar.",
+      "Correr, nadar e pedalar fazem parte de sua intensa rotina matinal.",
+      "Ficar e partir é encarado pelo protagonista com uma frieza absurda."
+    ],
+    "correta": 4,
+    "explicacao": "Quando dois infinitivos de sentidos opostos resumem um dilema ou conjunto conceitual, aceita-se o verbo no singular ('Ficar e partir é encarado...')."
+  },
+  {
+    "id": 34,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o trecho abaixo:\n\"(...) embora haja regulamentação, o número ainda desmedido de anúncios (...)\" 2º §\nAssinale a opção em que a substituição da locução destacada altera o sentido do trecho.",
+    "opcoes": [
+      "por mais que haja regulamentação, o número ainda desmedido de anúncios.",
+      "caso haja regulamentação, o número ainda desmedido de anúncios.",
+      "mesmo que haja regulamentação, o número ainda desmedido de anúncios.",
+      "conquanto haja regulamentação, o número ainda desmedido de anúncios.",
+      "ainda que haja regulamentação, o número ainda desmedido de anúncios."
+    ],
+    "correta": 1,
+    "explicacao": "A locução 'embora' introduz oração concessiva. A substituição por 'caso' altera a relação sintático-semântica para condicional."
+  },
+  {
+    "id": 35,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe o fragmento abaixo:\n\"(...) é preciso explorar os fatores danosos associados a esse vício (...)\" 1° §\nAssinale a opção que, contextualmente, substitui o trecho destacado no fragmento com alteração de sentido.",
+    "opcoes": [
+      "é mandatário.",
+      "faz-se mister.",
+      "é imperativo.",
+      "é imprescindível.",
+      "é capital."
+    ],
+    "correta": 0,
+    "explicacao": "'é preciso' denota necessidade moral/prática. A expressão 'é mandatário' transmite ideia de obrigação por decreto/lei, modificando o sentido no contexto."
+  },
+  {
+    "id": 36,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Observe a acentuação gráfica da palavra destacada no trecho: \"(...) status de 'país do futebol' (...)\" 2° §\nAssinale a opção na qual todas as palavras estão grafadas corretamente.",
+    "opcoes": [
+      "Aí, boiúna, herói.",
+      "Aí, rúbrica, pôde.",
+      "Rainha, itens, pode.",
+      "Mártir, proteico, jaú.",
+      "Biquini, fórceps, raiz."
+    ],
+    "correta": 2,
+    "explicacao": "Na opção C, todas as grafias estão corretas: 'Rainha' (sem acento antes de nh), 'itens' (paroxítona terminada em -ens) e 'pode' (forma do presente do indicativo)."
+  },
+  {
+    "id": 37,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção em que o termo destacado possui a mesma função sintática do vocábulo sublinhado no trecho \"É nesse contexto de paixão dos torcedores (...)\" 2º §",
+    "opcoes": [
+      "A textura de seda do vestido encantou a todos durante o evento.",
+      "A beleza do jardim florido encantou a todos os visitantes.",
+      "O brilho da lua cheia refletia nas águas calmas do lago.",
+      "A realização do sonho trouxe um sentimento de satisfação.",
+      "O livro de capa vermelha chamou a atenção de todos."
+    ],
+    "correta": 3,
+    "explicacao": "No trecho, 'de paixão' atua como complemento nominal de 'contexto'. Na opção D, 'do sonho' é complemento nominal do substantivo 'realização'."
+  },
+  {
+    "id": 38,
+    "categoria": "Língua Portuguesa",
+    "pergunta": "Assinale a opção em que o termo destacado exerce a mesma função sintática que a do trecho sublinhado em: \"(...) que não afetam apenas o indivíduo viciado (...)\" 3° §",
+    "opcoes": [
+      "A janela e o portão estavam abertos quando cheguei.",
+      "Alguns julgaram-no inocente do crime culpabilizado.",
+      "Trata-se do seguinte: eu não sou mais eu!",
+      "Esta carta foi escrita por um marinheiro americano.",
+      "O talento é complexo, inseparável de defeitos."
+    ],
+    "correta": 1,
+    "explicacao": "O segmento 'o indivíduo viciado' atua como Objeto Direto. Na opção B, o pronome oblíquo '-no' exerce idêntica função de Objeto Direto."
+  }
+]

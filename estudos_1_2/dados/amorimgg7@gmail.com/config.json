@@ -1,0 +1,31 @@
+{
+    "compartilhado": [
+        {
+            "sala": "all",
+            "prova": "all",
+            "email": "colega1@gmail.com",
+            "permissao": "ver"
+        },
+        {
+            "sala": "saladeestudos",
+            "prova": "provalegislacao",
+            "email": "colega2@gmail.com",
+            "permissao": "editar"
+        }
+    ],
+    "configuracoes": {
+        "tema": "dark",
+        "tempo_padrao_minutos": 2,
+        "questoes_por_prova": 2
+    },
+    "planos_de_estudo": {
+        "matematica": {
+            "titulo": "Plano de Matemática",
+            "descricao": "Foco em Álgebra e Geometria Plana",
+            "metas": "Fazer 20 questões por dia",
+            "cronograma": "Segunda e Quarta das 14h às 16h",
+            "atualizado_em": "2026-02-18 15:30:00"
+        }
+    },
+    "agendamentos": []
+}

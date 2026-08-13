@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "categoria": "Graduação",
+    "pergunta": "Qual graduação corresponde à faixa verde com ponta azul?",
+    "opcoes": [
+      "5º Gup",
+      "6º Gup",
+      "4º Gup",
+      "3º Gup"
+    ],
+    "correta": 0,
+    "explicacao": "Segundo a apostila, a faixa verde com ponta azul corresponde ao 5º Gup."
+  },
+  {
+    "id": 2,
+    "categoria": "Faixas",
+    "pergunta": "Qual é o significado da faixa azul no Taekwon-Do ITF?",
+    "opcoes": [
+      "O céu, para onde a planta se dirige, representando seu objetivo",
+      "O crescimento da planta e o desenvolvimento da técnica",
+      "A terra onde a planta fixa sua raiz",
+      "O perigo e a necessidade de autocontrole"
+    ],
+    "correta": 0,
+    "explicacao": "A faixa azul representa o céu para onde a planta se dirige, simbolizando o objetivo e o amadurecimento da técnica do aluno."
+  },
+  {
+    "id": 3,
+    "categoria": "Tul - Yul-Gok",
+    "pergunta": "Quem é homenageado pelo Tul Yul-Gok?",
+    "opcoes": [
+      "O filósofo e sábio Yil, conhecido como o 'Confúcio da Coreia'",
+      "O monge Won-Hyo",
+      "O patriota Ahn Joong-Gun",
+      "O patriota Ahn-Chang-Ho"
+    ],
+    "correta": 0,
+    "explicacao": "Yul-Gok é o pseudônimo do grande filósofo e sábio Yil, apelidado de 'Confúcio da Coreia'."
+  },
+  {
+    "id": 4,
+    "categoria": "Tul - Yul-Gok",
+    "pergunta": "Quantos movimentos possui o Tul Yul-Gok?",
+    "opcoes": [
+      "38",
+      "32",
+      "28",
+      "24"
+    ],
+    "correta": 0,
+    "explicacao": "Yul-Gok possui 38 movimentos, número relacionado ao local de nascimento de Yil, na latitude 38°."
+  },
+  {
+    "id": 5,
+    "categoria": "Tul - Yul-Gok",
+    "pergunta": "O que representa o diagrama do Tul Yul-Gok?",
+    "opcoes": [
+      "Um sábio",
+      "Uma espada",
+      "O céu e a terra",
+      "Uma árvore"
+    ],
+    "correta": 0,
+    "explicacao": "Segundo a apostila, o diagrama de Yul-Gok representa um sábio."
+  },
+  {
+    "id": 6,
+    "categoria": "Tul - Joong-Gun",
+    "pergunta": "Quem é homenageado pelo Tul Joong-Gun?",
+    "opcoes": [
+      "O patriota Ahn Joong-Gun",
+      "O filósofo Yil",
+      "O monge Won-Hyo",
+      "O fundador lendário Dan-Gun"
+    ],
+    "correta": 0,
+    "explicacao": "Joong-Gun homenageia o patriota Ahn Joong-Gun."
+  },
+  {
+    "id": 7,
+    "categoria": "Tul - Joong-Gun",
+    "pergunta": "Quantos movimentos possui o Tul Joong-Gun?",
+    "opcoes": [
+      "32",
+      "38",
+      "29",
+      "37"
+    ],
+    "correta": 0,
+    "explicacao": "O Tul Joong-Gun possui 32 movimentos. A apostila relaciona esse número à idade de Ahn Joong-Gun quando foi executado em 1910."
+  },
+  {
+    "id": 8,
+    "categoria": "Tuls",
+    "pergunta": "Qual é a sequência correta dos Tuls entre o 6º e o 4º Gup apresentada na apostila?",
+    "opcoes": [
+      "Won-Hyo, Yul-Gok e Joong-Gun",
+      "Yul-Gok, Won-Hyo e Joong-Gun",
+      "Won-Hyo, Joong-Gun e Yul-Gok",
+      "Joong-Gun, Yul-Gok e Won-Hyo"
+    ],
+    "correta": 0,
+    "explicacao": "A apostila apresenta Won-Hyo no 6º Gup, Yul-Gok no 5º Gup e Joong-Gun no 4º Gup."
+  },
+  {
+    "id": 9,
+    "categoria": "Nomenclatura",
+    "pergunta": "Qual movimento do Yul-Gok utiliza Annun Sogi?",
+    "opcoes": [
+      "Annun So Kaunde Ap Jirugi",
+      "Gunnun So Anpalmok Nopunde Yop Makgi",
+      "Niunja So Sang Sonkal Makgi",
+      "Kyocha So Dung Joomuk Nopunde Yop Taerigi"
+    ],
+    "correta": 0,
+    "explicacao": "Na nomenclatura da apostila, o movimento 26 do Yul-Gok é 'Annun So Kaunde Ap Jirugi'."
+  },
+  {
+    "id": 10,
+    "categoria": "Nomenclatura",
+    "pergunta": "Qual base aparece no movimento 'Kyocha So Dung Joomuk Nopunde Yop Taerigi'?",
+    "opcoes": [
+      "Kyocha Sogi",
+      "Annun Sogi",
+      "Niunja Sogi",
+      "Gunnun Sogi"
+    ],
+    "correta": 0,
+    "explicacao": "O movimento 32 do Yul-Gok utiliza Kyocha Sogi."
+  },
+  {
+    "id": 11,
+    "categoria": "Teoria do Poder",
+    "pergunta": "Segundo a Teoria do Poder, como a concentração aumenta a eficiência de uma técnica?",
+    "opcoes": [
+      "Concentrando a força em uma menor superfície de contato",
+      "Aumentando exclusivamente a massa corporal",
+      "Mantendo o corpo completamente imóvel",
+      "Reduzindo a velocidade do movimento"
+    ],
+    "correta": 0,
+    "explicacao": "A apostila explica que a redução da superfície de contato aumenta a pressão e concentra a força na ferramenta de ataque."
+  },
+  {
+    "id": 12,
+    "categoria": "Teoria do Poder",
+    "pergunta": "Durante a execução de uma técnica, qual é a função da expiração?",
+    "opcoes": [
+      "Facilitar o relaxamento durante o deslocamento e auxiliar na obtenção de velocidade",
+      "Impedir qualquer movimento do abdômen",
+      "Reduzir a velocidade para aumentar o equilíbrio",
+      "Substituir a necessidade de concentração"
+    ],
+    "correta": 0,
+    "explicacao": "A expiração facilita o relaxamento durante o deslocamento, auxiliando na velocidade e contribuindo para um maior impacto terminal."
+  },
+  {
+    "id": 13,
+    "categoria": "Tuls",
+    "pergunta": "Durante a execução de um Tul, como devem ser realizados os movimentos de ataque e defesa?",
+    "opcoes": [
+      "Devem ser executados igualmente pelos dois lados do corpo",
+      "Devem ser executados somente pelo lado dominante",
+      "Devem ser executados somente pelo lado esquerdo",
+      "Devem alternar obrigatoriamente a cada movimento"
+    ],
+    "correta": 0,
+    "explicacao": "Um dos fatores fundamentais para uma boa performance no Tul é executar as técnicas de ataque e defesa igualmente pelos dois lados do corpo."
+  },
+  {
+    "id": 14,
+    "categoria": "Tuls",
+    "pergunta": "O que indica terminar um Tul no mesmo ponto em que ele começou?",
+    "opcoes": [
+      "Precisão no desempenho",
+      "Maior velocidade",
+      "Maior força física",
+      "Maior flexibilidade"
+    ],
+    "correta": 0,
+    "explicacao": "A apostila afirma que terminar o Tul no mesmo ponto em que começou indica precisão no desempenho."
+  },
+  {
+    "id": 15,
+    "categoria": "Segredo do Treinamento",
+    "pergunta": "Segundo o segredo do treinamento do Taekwon-Do apresentado na apostila, o que deve ser transformado em uma só ação coordenada?",
+    "opcoes": [
+      "Os movimentos dos olhos, mãos, pés e respiração",
+      "A força, massa, velocidade e equilíbrio",
+      "As bases, Tuls, luta e quebramento",
+      "Os braços, pernas, quadril e cabeça"
+    ],
+    "correta": 0,
+    "explicacao": "A apostila orienta transformar o movimento dos olhos, mãos, pés e respiração em uma só ação coordenada."
+  }
+]

@@ -87,9 +87,7 @@
                             ELSE 4
                         END,
 
-                        s.cd_servico DESC
-
-                    LIMIT 500;
+                        s.cd_servico DESC;
                   ";
 
                   $resulta_devendo = $conn->query($sql_devendo);

@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "categoria": "Faixas",
+    "pergunta": "Qual é o significado da faixa verde no Taekwon-Do ITF?",
+    "opcoes": [
+      "Crescimento da planta, representando o desenvolvimento da técnica do aluno",
+      "Terra, onde a planta brota e fixa sua raiz",
+      "Céu, para onde a planta se dirige como objetivo",
+      "Perigo, alertando para a necessidade de autocontrole"
+    ],
+    "correta": 0,
+    "explicacao": "A faixa verde representa o crescimento da planta, simbolizando que a técnica começa a se desenvolver no aluno."
+  },
+  {
+    "id": 2,
+    "categoria": "Graduação",
+    "pergunta": "Qual graduação corresponde à faixa amarela com ponta verde?",
+    "opcoes": [
+      "7º Gup",
+      "8º Gup",
+      "6º Gup",
+      "5º Gup"
+    ],
+    "correta": 0,
+    "explicacao": "Segundo a apostila, a faixa amarela com ponta verde corresponde ao 7º Gup."
+  },
+  {
+    "id": 3,
+    "categoria": "Graduação",
+    "pergunta": "Qual graduação corresponde à faixa verde?",
+    "opcoes": [
+      "6º Gup",
+      "7º Gup",
+      "5º Gup",
+      "4º Gup"
+    ],
+    "correta": 0,
+    "explicacao": "A faixa verde corresponde ao 6º Gup."
+  },
+  {
+    "id": 4,
+    "categoria": "Tul - Do-San",
+    "pergunta": "Quem é homenageado pelo Tul Do-San?",
+    "opcoes": [
+      "Ahn-Chang-Ho",
+      "Dan-Gun",
+      "Won-Hyo",
+      "Yi Hwang"
+    ],
+    "correta": 0,
+    "explicacao": "Do-San é o pseudônimo do patriota Ahn-Chang-Ho, que dedicou sua vida à educação e ao movimento de libertação da Coreia."
+  },
+  {
+    "id": 5,
+    "categoria": "Tul - Do-San",
+    "pergunta": "Quantos movimentos possui o Tul Do-San?",
+    "opcoes": [
+      "24",
+      "21",
+      "28",
+      "19"
+    ],
+    "correta": 0,
+    "explicacao": "Segundo a apostila, o Tul Do-San possui 24 movimentos."
+  },
+  {
+    "id": 6,
+    "categoria": "Tul - Won-Hyo",
+    "pergunta": "Quem foi Won-Hyo, personagem homenageado no Tul correspondente ao 6º Gup?",
+    "opcoes": [
+      "Um notável monge que introduziu o Budismo na Dinastia Silla em 686 d.C.",
+      "Um patriota que dedicou sua vida ao movimento de libertação da Coreia",
+      "Um filósofo conhecido como o Confúcio da Coreia",
+      "Um lendário fundador da Coreia"
+    ],
+    "correta": 0,
+    "explicacao": "A apostila apresenta Won-Hyo como o notável monge que introduziu o Budismo na Dinastia Silla no ano de 686 d.C."
+  },
+  {
+    "id": 7,
+    "categoria": "Tul - Won-Hyo",
+    "pergunta": "Quantos movimentos possui o Tul Won-Hyo?",
+    "opcoes": [
+      "28",
+      "24",
+      "32",
+      "38"
+    ],
+    "correta": 0,
+    "explicacao": "O Tul Won-Hyo possui 28 movimentos."
+  },
+  {
+    "id": 8,
+    "categoria": "Nomenclatura",
+    "pergunta": "Qual técnica aparece no Won-Hyo como 'Kaunde Yopcha Jirugi'?",
+    "opcoes": [
+      "Soco lateral na seção média",
+      "Chute lateral na seção média",
+      "Soco frontal na seção baixa",
+      "Defesa lateral na seção alta"
+    ],
+    "correta": 0,
+    "explicacao": "Na nomenclatura apresentada pela apostila, 'Kaunde Yopcha Jirugi' aparece como um dos movimentos do Won-Hyo."
+  },
+  {
+    "id": 9,
+    "categoria": "Nomenclatura",
+    "pergunta": "Qual base é utilizada no movimento 'Gojung So Kaunde Jirugi' do Won-Hyo?",
+    "opcoes": [
+      "Gojung Sogi",
+      "Gunnun Sogi",
+      "Niunja Sogi",
+      "Annun Sogi"
+    ],
+    "correta": 0,
+    "explicacao": "A nomenclatura do Won-Hyo apresenta o movimento 'Gojung So Kaunde Jirugi', utilizando Gojung Sogi."
+  },
+  {
+    "id": 10,
+    "categoria": "Nomenclatura",
+    "pergunta": "Qual movimento do Won-Hyo utiliza a base Goburyo Junbi Sogi?",
+    "opcoes": [
+      "Goburyo Junbi Sogi",
+      "Gunnun So Palmok Dollimyo Makgi",
+      "Niunja So Palmok Kaunde Daebi Makgi",
+      "Kaunde Yopcha Jirugi"
+    ],
+    "correta": 0,
+    "explicacao": "A nomenclatura apresentada na apostila inclui 'Goburyo Junbi Sogi' como o movimento número 21 do Won-Hyo."
+  },
+  {
+    "id": 11,
+    "categoria": "Teoria do Poder",
+    "pergunta": "Segundo a Teoria do Poder, qual é o fator mais essencial de força ou poder?",
+    "opcoes": [
+      "Velocidade",
+      "Massa",
+      "Equilíbrio",
+      "Concentração"
+    ],
+    "correta": 0,
+    "explicacao": "A apostila afirma que a velocidade é o fator mais essencial de força ou poder e que os demais elementos estão inter-relacionados para aumentá-la."
+  },
+  {
+    "id": 12,
+    "categoria": "Teoria do Poder",
+    "pergunta": "O que acontece com a energia quando a velocidade aumenta na fórmula E = 1/2 m.v²?",
+    "opcoes": [
+      "A energia aumenta geometricamente",
+      "A energia permanece constante",
+      "A energia aumenta apenas com a massa",
+      "A energia diminui proporcionalmente"
+    ],
+    "correta": 0,
+    "explicacao": "Como a velocidade está elevada ao quadrado, seu aumento faz a energia crescer geometricamente."
+  },
+  {
+    "id": 13,
+    "categoria": "Teoria do Poder",
+    "pergunta": "Como o giro do quadril contribui para aumentar a massa corporal aplicada à técnica?",
+    "opcoes": [
+      "Ativando os grandes músculos do abdômen e aumentando o peso corporal aplicado",
+      "Diminuindo a velocidade do movimento",
+      "Mantendo o quadril completamente imóvel",
+      "Reduzindo a área de contato da ferramenta"
+    ],
+    "correta": 0,
+    "explicacao": "A apostila explica que o peso do corpo pode ser aumentado com o giro do quadril através da ativação dos grandes músculos do abdômen."
+  },
+  {
+    "id": 14,
+    "categoria": "Tuls",
+    "pergunta": "Qual é um dos critérios fundamentais para uma boa performance em um Tul?",
+    "opcoes": [
+      "Terminar o Tul no mesmo ponto em que começou",
+      "Executar todos os movimentos na maior velocidade possível",
+      "Manter a musculatura sempre contraída",
+      "Executar as técnicas somente de um lado do corpo"
+    ],
+    "correta": 0,
+    "explicacao": "Terminar o Tul no mesmo ponto em que começou indica precisão no desempenho."
+  },
+  {
+    "id": 15,
+    "categoria": "Vocabulário",
+    "pergunta": "No vocabulário apresentado na apostila, o que significa 'Yop'?",
+    "opcoes": [
+      "Lateral",
+      "Frontal",
+      "Descendente",
+      "Contrário"
+    ],
+    "correta": 0,
+    "explicacao": "Yop significa lateral. A apostila também apresenta Ap como frontal, Naeryo como descendente e Bande como contrário."
+  }
+]
