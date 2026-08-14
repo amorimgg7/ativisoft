@@ -150,7 +150,7 @@
 
 															$retornaCadastro = $u->cadUnidadeOperacional(
 																$_POST['cnpj_filial'],
-																'matriz',
+																$tipo_empresa,
 																$_SESSION['cd_colab'],
 																$_POST['rsocial_filial'],
 																$_POST['nfantasia_filial'],

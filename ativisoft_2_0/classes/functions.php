@@ -6611,20 +6611,27 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
     }
 
 
-    public function cadUnidadeOperacional($cnpj_empresa, $tipo_empresa, $cd_colab, $rsocial_filial, $nfantasia_filial, $telefone_filial, $email_filial) 
+    public function cadUnidadeOperacional($cnpj_empresa, $tipo_empresa, $cd_colab, $rsocial_filial, $nfantasia_filial, $telefone_filial, $email_filial, $cd_matriz = null) 
     {
         global $conn;
         $u = new Usuario();
+        $tipo_empresa = strtolower(trim((string) $tipo_empresa));
+        $cd_matriz = $cd_matriz !== null && $cd_matriz !== '' ? (int) $cd_matriz : null;
 
         $conn->autocommit(false); // Desliga o autocommit
         $conn->begin_transaction(); // Inicia a transação manualmente
 
         try {
-            $insert_empresa = "INSERT INTO tb_empresa(cd_proprietario, tipo_empresa, rsocial_empresa, nfantasia_empresa, cnpj_empresa, tel1_empresa, email_empresa, status_empresa) VALUES(
-                '$cd_colab', '$tipo_empresa', '$rsocial_filial', '$nfantasia_filial', '$cnpj_empresa', '$telefone_filial', '$email_filial', 1)
+            if ($tipo_empresa === 'matriz') {
+                $cd_matriz = null;
+            } elseif ($cd_matriz === null && isset($_SESSION['cd_empresa']) && $_SESSION['cd_empresa'] > 0) {
+                $cd_matriz = (int) $_SESSION['cd_empresa'];
+            }
+
+            $insert_empresa = "INSERT INTO tb_empresa(cd_proprietario, cd_matriz, tipo_empresa, rsocial_empresa, nfantasia_empresa, cnpj_empresa, tel1_empresa, email_empresa, status_empresa) VALUES(
+                '$cd_colab', " . ($cd_matriz !== null ? $cd_matriz : 'NULL') . ", '$tipo_empresa', '$rsocial_filial', '$nfantasia_filial', '$cnpj_empresa', '$telefone_filial', '$email_filial', 1)
             ";
             mysqli_query($conn, $insert_empresa);
-            $conn->commit();
 
             $select_empresa = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '$cnpj_empresa' LIMIT 1";
             $result_empresa = mysqli_query($conn, $select_empresa);
@@ -6637,28 +6644,22 @@ $result_financeiro_whatsapp = mysqli_query($conn, $select_financeiro_whatsapp);
                 ];
             }
 
-            // Obtém o ID recém-criado (cd_empresa)
-            $cd_empresa = $row_empresa['cd_empresa'];
+            $cd_empresa = (int) $row_empresa['cd_empresa'];
 
-            if($tipo_empresa == 'matriz'){
-                // Atualiza o campo cd_matriz com o valor de cd_empresa
+            if ($tipo_empresa == 'matriz') {
                 $updateEmpresa = "UPDATE tb_empresa SET cd_matriz = $cd_empresa WHERE cd_empresa = $cd_empresa";
                 mysqli_query($conn, $updateEmpresa);
+                $row_empresa['cd_matriz'] = $cd_empresa;
+            } elseif ($cd_matriz !== null) {
+                $updateEmpresa = "UPDATE tb_empresa SET cd_matriz = $cd_matriz WHERE cd_empresa = $cd_empresa";
+                mysqli_query($conn, $updateEmpresa);
+                $row_empresa['cd_matriz'] = $cd_matriz;
             }
 
             $updateRelMaster = "UPDATE rel_master SET cd_empresa = $cd_empresa WHERE cd_empresa is null and cd_pessoa = ".$_SESSION['cd_colab']."";
 
             mysqli_query($conn, $updateRelMaster);
 
-            
-
-            if (!$row_empresa) {
-                return [
-                    'status'        =>  'Empresa não encontrada',
-                    'cd_empresa'    =>  '0'
-                ];
-            }
-            
             $conn->commit();
         
             return [
@@ -8851,16 +8852,23 @@ $partial_orcamento .= '</script>';
         $conn->begin_transaction();
 
         try {
-            $select_cameras = "SELECT * FROM tb_cameras ";
+            // Traz todos os dados da câmera e os dados principais da empresa vinculada
+            $select_cameras = "SELECT c.*, 
+                                      e.rsocial_empresa, 
+                                      e.nfantasia_empresa, 
+                                      e.cnpj_empresa 
+                               FROM tb_cameras c 
+                               LEFT JOIN tb_empresa e ON c.cd_empresa = e.cd_empresa";
 
             if ($tipo_consulta == 'chave') {
-                $select_cameras .= " WHERE chave_camera = '" . mysqli_real_escape_string($conn, $chave) . "'";
+                $select_cameras .= " WHERE c.chave_camera = '" . mysqli_real_escape_string($conn, $chave) . "'";
             } else if ($tipo_consulta == 'empresa') {
-                $select_cameras .= " WHERE cd_empresa = '" . mysqli_real_escape_string($conn, $chave) . "'";
-            } else if($tipo_consulta == 'all'){
-            }else{
+                $select_cameras .= " WHERE c.cd_empresa = '" . mysqli_real_escape_string($conn, $chave) . "'";
+            } else if ($tipo_consulta == 'all') {
+                // Traz todas sem filtro WHERE
+            } else {
                 return [
-                    'status'         => 'tipo consulta espera (chave) ou (empresa)',
+                    'status'         => 'tipo consulta espera (chave), (empresa) ou (all)',
                     'partial_camera' => '',
                     'list_cameras'   => []
                 ];
@@ -8884,13 +8892,11 @@ $partial_orcamento .= '</script>';
         } catch (Exception $e) {
             $conn->rollback();
             return [
-                'status'     => addslashes($e->getMessage()),
-                'cd_camera'  => '0',
+                'status'       => addslashes($e->getMessage()),
+                'cd_camera'    => '0',
                 'list_cameras' => []
             ];
         }
-
-
     }
 
     public function retUltimoID($id_col, $tb_dado, $cd_empresa, $cd_filial){

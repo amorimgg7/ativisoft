@@ -8,6 +8,10 @@
     require_once '../../classes/conn.php';
     include("../../classes/functions.php");
     $u = new Usuario;
+    // Sanitize POST inputs to avoid undefined index / null warnings in functions
+    $concnpj = isset($_POST['concnpj_cliente_comercial']) ? trim($_POST['concnpj_cliente_comercial']) : '';
+    $concnpj_esc = $concnpj !== '' ? mysqli_real_escape_string($conn, $concnpj) : '';
+    $btnvpag_orcamento = isset($_POST['btnvpag_orcamento']) ? $_POST['btnvpag_orcamento'] : '';
 ?><!--Validar sessão aberta, se usuário está logado.-->
 
 <!DOCTYPE html>
@@ -90,9 +94,13 @@
                 ?>
                 
                 <?php
-                  $select_cliente_comercial = "SELECT * FROM tb_empresa e, tb_contrato c WHERE e.cnpj_empresa = '".$_POST['concnpj_cliente_comercial']."' AND e.cd_empresa = c.cd_empresa ORDER BY c.cd_contrato DESC LIMIT 1";
-                  $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
-                  $row_cliente_comercial = mysqli_fetch_assoc($result_cliente_comercial);
+                  if($concnpj !== ''){
+                    $select_cliente_comercial = "SELECT * FROM tb_empresa e, tb_contrato c WHERE e.cnpj_empresa = '".$concnpj_esc."' AND e.cd_empresa = c.cd_empresa ORDER BY c.cd_contrato DESC LIMIT 1";
+                    $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
+                    $row_cliente_comercial = $result_cliente_comercial ? mysqli_fetch_assoc($result_cliente_comercial) : null;
+                  }else{
+                    $row_cliente_comercial = null;
+                  }
                   // Exibe as informações do usuário no formulário
                   if($row_cliente_comercial) {
                     echo '<script>document.getElementById("consulta").style.display = "none";</script>';
@@ -214,9 +222,13 @@
 
 
                   }else {
-                    $select_cliente_comercial = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$_POST['concnpj_cliente_comercial']."' LIMIT 1";
-                    $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
-                    $row_cliente_comercial = mysqli_fetch_assoc($result_cliente_comercial);
+                    if($concnpj !== ''){
+                      $select_cliente_comercial = "SELECT * FROM tb_empresa WHERE cnpj_empresa = '".$concnpj_esc."' LIMIT 1";
+                      $result_cliente_comercial = mysqli_query($conn, $select_cliente_comercial);
+                      $row_cliente_comercial = $result_cliente_comercial ? mysqli_fetch_assoc($result_cliente_comercial) : null;
+                    }else{
+                      $row_cliente_comercial = null;
+                    }
                     // Exibe as informações do usuário no formulário
                     if($row_cliente_comercial) {
                       echo '<script>document.getElementById("consulta").style.display = "none";</script>';
