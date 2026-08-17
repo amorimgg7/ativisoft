@@ -627,3 +627,7 @@ Stack trace:
 [17-Aug-2026 16:22:47 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
 [17-Aug-2026 16:23:14 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
 [17-Aug-2026 16:23:14 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[17-Aug-2026 16:24:07 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[17-Aug-2026 16:24:07 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[17-Aug-2026 16:24:16 America/Sao_Paulo] PHP Warning:  Undefined array key "pagar_cd_comissao" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 368
+[17-Aug-2026 16:24:16 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
