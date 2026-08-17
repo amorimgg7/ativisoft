@@ -470,11 +470,9 @@
 
                 ?>
               
+</div>
 
-
-        <?php
-          include("../../partials/_footer.php");
-        ?>
+        
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
@@ -482,6 +480,9 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
+<?php
+          include("../../partials/_footer.php");
+        ?>
 
   <!-- base:js -->
   <script src="../../vendors/base/vendor.bundle.base.js"></script>
