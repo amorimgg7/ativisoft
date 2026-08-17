@@ -437,3 +437,86 @@ Stack trace:
 [13-Aug-2026 19:59:57 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
 [13-Aug-2026 19:59:57 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
 [13-Aug-2026 20:01:48 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:20:58 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 43
+[14-Aug-2026 09:20:59 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[14-Aug-2026 09:20:59 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[14-Aug-2026 09:20:59 America/Sao_Paulo] PHP Warning:  include(../classes/tools.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 37
+[14-Aug-2026 09:20:59 America/Sao_Paulo] PHP Warning:  include(): Failed opening '../classes/tools.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 37
+[14-Aug-2026 09:20:59 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "Tools" not found in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php:39
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php(476): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 39
+[14-Aug-2026 09:21:18 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[14-Aug-2026 09:21:18 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[14-Aug-2026 09:21:18 America/Sao_Paulo] PHP Warning:  include(../classes/tools.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 36
+[14-Aug-2026 09:21:18 America/Sao_Paulo] PHP Warning:  include(): Failed opening '../classes/tools.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 36
+[14-Aug-2026 09:21:18 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "Tools" not found in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php:38
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php(476): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 38
+[14-Aug-2026 09:21:21 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[14-Aug-2026 09:21:21 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[14-Aug-2026 09:21:21 America/Sao_Paulo] PHP Warning:  include(../classes/tools.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 36
+[14-Aug-2026 09:21:21 America/Sao_Paulo] PHP Warning:  include(): Failed opening '../classes/tools.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 36
+[14-Aug-2026 09:21:21 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "Tools" not found in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php:38
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php(476): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 38
+[14-Aug-2026 09:21:50 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[14-Aug-2026 09:21:51 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[14-Aug-2026 09:21:51 America/Sao_Paulo] PHP Warning:  include(../classes/tools.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 36
+[14-Aug-2026 09:21:51 America/Sao_Paulo] PHP Warning:  include(): Failed opening '../classes/tools.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 36
+[14-Aug-2026 09:21:51 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "Tools" not found in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php:38
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php(476): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 38
+[14-Aug-2026 09:22:16 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[14-Aug-2026 09:22:51 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:22:51 America/Sao_Paulo] PHP Warning:  include(../classes/tools.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 36
+[14-Aug-2026 09:22:51 America/Sao_Paulo] PHP Warning:  include(): Failed opening '../classes/tools.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 36
+[14-Aug-2026 09:22:51 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "Tools" not found in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php:38
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php(104): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 38
+[14-Aug-2026 09:42:32 America/Sao_Paulo] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\samples\login.php:70) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\conn.php on line 43
+[14-Aug-2026 09:42:32 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[14-Aug-2026 09:42:32 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[14-Aug-2026 09:42:45 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:43:16 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:43:43 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:43:43 America/Sao_Paulo] PHP Warning:  include(../classes/tools.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 37
+[14-Aug-2026 09:43:43 America/Sao_Paulo] PHP Warning:  include(): Failed opening '../classes/tools.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 37
+[14-Aug-2026 09:43:43 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "Tools" not found in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php:39
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php(104): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 39
+[14-Aug-2026 09:44:01 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:44:01 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method Usuario::ultimaAlteracaoPastas() in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php:40
+Stack trace:
+#0 C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php(104): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 40
+[14-Aug-2026 09:44:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:44:44 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare loggout() (previously declared in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:8933) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 8936
+[14-Aug-2026 09:46:02 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:46:02 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare loggout() (previously declared in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:8933) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 8936
+[14-Aug-2026 09:46:44 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:46:44 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare loggout() (previously declared in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:8933) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 8935
+[14-Aug-2026 09:47:14 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:47:14 America/Sao_Paulo] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\partials\_footer.php on line 33
+[14-Aug-2026 09:47:14 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare loggout() (previously declared in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:8933) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 8936
+[14-Aug-2026 09:47:36 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:47:36 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare loggout() (previously declared in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:8933) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 8936
+[14-Aug-2026 09:47:51 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:47:51 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare loggout() (previously declared in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:8933) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 8936
+[14-Aug-2026 09:48:02 America/Sao_Paulo] PHP Warning:  Undefined array key "logo_empresa" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\listar_cliente_comercial.php on line 56
+[14-Aug-2026 09:48:02 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare loggout() (previously declared in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:8933) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 8936
+[14-Aug-2026 09:48:06 America/Sao_Paulo] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\md_fornecedor\financeiro.php on line 90
+[14-Aug-2026 09:48:06 America/Sao_Paulo] PHP Warning:  Undefined array key "titulo_acesso" in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\pages\dashboard\index.php on line 451
+[14-Aug-2026 09:48:06 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare loggout() (previously declared in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php:8933) in C:\xampp\htdocs\ativisoft_1_0\ativisoft_2_0\classes\functions.php on line 8936

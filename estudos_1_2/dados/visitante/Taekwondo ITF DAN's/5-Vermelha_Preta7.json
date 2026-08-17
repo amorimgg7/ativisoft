@@ -1,0 +1,392 @@
+[
+  {
+    "id": 1,
+    "categoria": "1. Ordem das Formas (Tuls)",
+    "pergunta": "Qual é a sequência cronológica exata dos Tuls exigidos da faixa branca até a faixa preta 1º Dan, considerando estritamente as graduações de Kup?",
+    "opcoes": [
+      "Chon-Ji, Dan-Gun, Do-San, Won-Hyo, Yul-Gok, Joong-Gun, Toi-Gye, Hwa-Rang, Choong-Moo.",
+      "Chon-Ji, Do-San, Dan-Gun, Yul-Gok, Won-Hyo, Toi-Gye, Joong-Gun, Choong-Moo, Hwa-Rang.",
+      "Saju-Jirugi, Chon-Ji, Dan-Gun, Do-San, Won-Hyo, Yul-Gok, Toi-Gye, Joong-Gun, Hwa-Rang.",
+      "Chon-Ji, Dan-Gun, Do-San, Won-Hyo, Joong-Gun, Yul-Gok, Hwa-Rang, Toi-Gye, Choong-Moo."
+    ],
+    "correta": 0,
+    "explicacao": "A ordem canônica da ITF para os 9 Tuls de Kup é: Chon-Ji (9º Kup), Dan-Gun (8º Kup), Do-San (7º Kup), Won-Hyo (6º Kup), Yul-Gok (5º Kup), Joong-Gun (4º Kup), Toi-Gye (3º Kup), Hwa-Rang (2º Kup) e Choong-Moo (1º Kup). Saju-Jirugi e Saju-Makgi são exercícios fundamentais, não Tuls."
+  },
+  {
+    "id": 2,
+    "categoria": "1. Ordem das Formas (Tuls)",
+    "pergunta": "Ao analisar o número de movimentos dos quatro primeiros Tuls (Chon-Ji, Dan-Gun, Do-San, Won-Hyo), qual o padrão aritmético correto de sua progressão?",
+    "opcoes": [
+      "19, 21, 24, 28 movimientos.",
+      "19, 20, 22, 24 movimentos.",
+      "21, 21, 24, 28 movimentos.",
+      "19, 21, 24, 26 movimentos."
+    ],
+    "correta": 0,
+    "explicacao": "Para fixar na memória: Chon-Ji tem 19 movimentos; Dan-Gun tem 21 (+2); Do-San tem 24 (+3); Won-Hyo tem 28 (+4). Há uma progressão geométrica incremental sutil no início do currículo."
+  },
+  {
+    "id": 3,
+    "categoria": "1. Ordem das Formas (Tuls)",
+    "pergunta": "Quais Tuls delimitam, respectivamente, o início e o fim do aprendizado nas faixas vermelhas (2º Kup e 1º Kup)?",
+    "opcoes": [
+      "Toi-Gye e Hwa-Rang.",
+      "Joong-Gun e Choong-Moo.",
+      "Hwa-Rang e Choong-Moo.",
+      "Yul-Gok e Toi-Gye."
+    ],
+    "correta": 2,
+    "explicacao": "O praticante de faixa vermelha (2º Kup) estuda o Tul Hwa-Rang. Ao passar para a faixa vermelha ponta preta (1º Kup), ele estuda o Tul Choong-Moo, o último padrão antes do 1º Dan."
+  },
+  {
+    "id": 4,
+    "categoria": "2. Significados das Formas",
+    "pergunta": "O Tul Chon-Ji possui dois diagramas/partes bem definidos que representam o Céu e a Terra. Quantos movimentos são executados em cada uma dessas analogias?",
+    "opcoes": [
+      "10 movimentos para o Céu e 9 para a Terra.",
+      "9 movimentos para o Céu e 10 para a Terra.",
+      "8 movimentos para o Céu e 11 para a Terra.",
+      "12 movimentos para o Céu e 7 para a Terra."
+    ],
+    "correta": 1,
+    "explicacao": "Chon-Ji significa literalmente 'O Céu e a Terra'. Dos seus 19 movimentos, os primeiros 9 representam o Céu e os 10 seguintes representam a Terra, simbolizando a criação do mundo."
+  },
+  {
+    "id": 5,
+    "categoria": "2. Significados das Formas",
+    "pergunta": "Qual Tul homenageia o filósofo Yi I, apelidado de 'Confúcio da Coreia', e qual a justificativa histórica para o número exato de seus 38 movimentos?",
+    "opcoes": [
+      "Toi-Gye; os 38 movimentos indicam os anos em que ele atuou como conselheiro real.",
+      "Yul-Gok; os 38 movimentos referem-se ao paralelo 38, que é o seu local de nascimento.",
+      "Joong-Gun; os 38 movimentos representam a latitude geográfica da Coreia unificada.",
+      "Won-Hyo; os 38 movimentos celebram os templos budistas que ele fundou."
+    ],
+    "correta": 1,
+    "explicacao": "Yul-Gok é o pseudônimo do grande filósofo e estudioso Yi I (1536-1584). Os 38 movimentos referem-se ao paralelo 38 de sua latitude de nascimento, e o diagrama representa o caractere chinês para 'Erudito'."
+  },
+  {
+    "id": 6,
+    "categoria": "2. Significados das Formas",
+    "pergunta": "O Tul Joong-Gun possui exatamente 32 movimentos. O que esse número específico homenageia na biografia do patriota An Joong-Gun?",
+    "opcoes": [
+      "A idade com que ele foi executado na prisão de Lui-Shung em 1910.",
+      "O número de oficiais japoneses capturados em sua campanha de guerrilha.",
+      "Os 32 anos de opressão colonial que a Coreia sofreu sob o Japão.",
+      "O dia e o mês em que ele desferiu o tiro contra Hirobumi Ito."
+    ],
+    "correta": 0,
+    "explicacao": "Joong-Gun homenageia o patriota An Joong-Gun, que assassinou o primeiro governador-geral japonês da Coreia. Os 32 movimentos representam a idade com que ele foi executado na prisão (32 anos)."
+  },
+  {
+    "id": 7,
+    "categoria": "2. Significados das Formas",
+    "pergunta": "Por que o Tul Choong-Moo (1º Kup) termina obrigatoriamente com um ataque desferido pela mão esquerda, de acordo com sua crônica histórica?",
+    "opcoes": [
+      "Para simbolizar que o Almirante Yi Sun-Sin era canhoto na espada.",
+      "Simboliza o arrependimento e a tristeza de sua morte trágica no combate, sem ter tido a oportunidade de demonstrar sua total e irrestrita lealdade ao Rei.",
+      "Representa a aliança militar ocidental que ajudou a Coreia a repelir as invasões navais.",
+      "Trata-se de um erro técnico de simetria que o General Choi manteve para testar a atenção dos alunos."
+    ],
+    "correta": 1,
+    "explicacao": "Choong-Moo foi o nome dado ao Almirante Yi Sun-Sin. O final com a mão esquerda é uma metáfora poética e marcial para a sua morte precoce em batalha, impedido de entregar todo o seu potencial de fidelidade ao trono."
+  },
+  {
+    "id": 8,
+    "categoria": "3. Filosofia do Taekwon-Do",
+    "pergunta": "Na obra do General Choi, o princípio da Integridade (Yom Chi) é definido de forma muito clara. Qual das alternativas exemplifica uma violação direta de Yom Chi por um Faixa Preta?",
+    "opcoes": [
+      "Errar a contagem de movimentos de um Tul complexo durante um treino sob exaustão física.",
+      "Aceitar uma graduação ou certificado sem possuir o conhecimento técnico e o tempo de prática exigidos, ou fingir maestria para inflar o ego.",
+      "Gritar com menor intensidade em um ambiente de competição fora do Do Jang.",
+      "Modificar a base de apoio em um treino de defesa pessoal para se adaptar a uma lesão articular."
+    ],
+    "correta": 1,
+    "explicacao": "Integridade (Yom Chi) é a capacidade de distinguir o certo do errado e ter autocrítica. Fingir conhecimento, ostentar títulos falsos ou comprar graduações que não foram conquistadas pelo suor e conduta são as maiores quebras de integridade."
+  },
+  {
+    "id": 9,
+    "categoria": "3. Filosofia do Taekwon-Do",
+    "pergunta": "O General Choi Hong Hi descreve as 'Quatro Virtudes de Mêncio' dentro da Cultura Moral do Taekwon-Do. Quais são elas?",
+    "opcoes": [
+      "Força, Agilidade, Flexibilidade e Resistência (In, Ui, Ye, Ji).",
+      "Humanidade, Retidão, Decoro e Sabedoria (In, Ui, Ye, Ji).",
+      "Coragem, Lealdade, Disciplina e Patriotismo (In, Ui, Ye, Ji).",
+      "Humildade, Justiça, Paciência e Sinceridade (In, Ui, Ye, Ji)."
+    ],
+    "correta": 1,
+    "explicacao": "A Cultura Moral (Jungshin Charyot) bebe fortemente da filosofia confucionista de Mêncio, estruturando o caráter do guerreiro sobre quatro pilares: Humanidade (In), Retidão (Ui), Decoro (Ye) e Sabedoria (Ji)."
+  },
+  {
+    "id": 10,
+    "categoria": "4. Ciclo de Treinamento",
+    "pergunta": "Como se define graficamente a interdependência e a ciclicidade dos cinco elementos da 'Composição do Taekwon-Do'?",
+    "opcoes": [
+      "Uma pirâmide linear, onde os movimentos fundamentais estão na base e a defesa pessoal é o topo imutável.",
+      "Um círculo ou ciclo contínuo, onde o domínio das técnicas avançadas (como combate e defesa) exige o retorno constante ao refinamento dos movimentos fundamentais.",
+      "Uma linha reta bidirecional que divide a teoria da prática física de combate.",
+      "Uma espiral geométrica que descarta as técnicas antigas à medida que o aluno avança nos Dans."
+    ],
+    "correta": 1,
+    "explicacao": "A Composição do Taekwon-Do é um ciclo fechado de 5 etapas: Movimentos Fundamentais, Tuls, Treino com Equipamentos, Combate e Defesa Pessoal. Elas se retroalimentam; o avanço em uma etapa depende do polimento obsessivo das anteriores."
+  },
+  {
+    "id": 11,
+    "categoria": "4. Ciclo de Treinamento",
+    "pergunta": "Onde se localiza o 'Dallyon' (Treinamento com Equipamentos/Calejamento) dentro do Ciclo de Treinamento e qual sua função pragmática?",
+    "opcoes": [
+      "É opcional e serve apenas para atletas que competem na modalidade de lutas de contato.",
+      "Fica posicionado após os Tuls e antes do Combate real, servindo para blindar as ferramentas de impacto (ossos/músculos) e garantir que a força gerada não destrua o corpo do próprio executor.",
+      "É a primeira fase da aula, substituindo o alongamento e o aquecimento cardiovascular tradicional.",
+      "Serve unicamente para desenvolver a coordenação visual, sem impacto estrutural no esqueleto."
+    ],
+    "correta": 1,
+    "explicacao": "O Dallyon usa sacos de pancada, formadores de impacto (Makiwara), etc. Sem ele, a Teoria do Poder se torna perigosa: de nada adianta gerar uma força imensa se o seu soco (Ap Joomuk) quebrar ao colidir com o alvo por falta de calejamento."
+  },
+  {
+    "id": 12,
+    "categoria": "5. Teoria do Poder",
+    "pergunta": "Matematicamente, se um praticante de Taekwon-Do mantiver sua massa corporal inalterada, mas conseguir dobrar a velocidade terminal do seu golpe, o que ocorrerá com a energia cinética de impacto?",
+    "opcoes": [
+      "A energia cinética será duplicada.",
+      "A energia cinética permanecerá constante devido à conservação de massas.",
+      "A energia cinética será quadruplicada, pois a velocidade está elevada ao quadrado na equação matemática.",
+      "A energia cinética aumentará em três vezes o valor nominal da massa."
+    ],
+    "correta": 2,
+    "explicacao": "Pela fórmula da energia cinética ($E_k = \frac{1}{2}mv^2$), a velocidade ($v$) possui peso quadrático. Portanto, dobrar a velocidade significa multiplicar a energia destrutiva do golpe por 4 ($2^2 = 4$)."
+  },
+  {
+    "id": 13,
+    "categoria": "5. Teoria do Poder",
+    "pergunta": "O princípio da Concentração (Jibjoong) na Teoria do Poder estabelece duas condições simultâneas. Quais são elas?",
+    "opcoes": [
+      "Concentrar a força no abdômen e manter os olhos fechados no impacto.",
+      "Concentrar todos os músculos do corpo no ponto de impacto instantaneamente (Kime) e aplicar essa força na menor área de superfície possível da ferramenta de ataque.",
+      "Dividir o impacto entre dois alvos simultâneos e expirar de forma lenta.",
+      "Concentrar o peso na perna dianteira e manter os braços relaxados após o término do soco."
+    ],
+    "correta": 1,
+    "explicacao": "Jibjoong exige: 1) Concentração de toda a musculatura corporal no milisegundo do impacto (foco interno) e 2) Concentração de força em área reduzida (foco externo, ex: usar as duas primeiras juntas do punho em vez da mão aberta), gerando maior pressão."
+  },
+  {
+    "id": 14,
+    "categoria": "5. Teoria do Poder",
+    "pergunta": "Como a Força de Reação (Bandong Ryok) interna atua na mecânica de um soco direto na cintura de acordo com as leis da física?",
+    "opcoes": [
+      "Ela diminui o torque do quadril para proteger a região lombar contra lesões.",
+      "O ato de puxar o braço oposto vigorosamente para trás até o quadril cria um binário de forças que acelera e estabiliza a rotação do tronco, impulsionando o braço que ataca.",
+      "Ela neutraliza a gravidade para permitir que o soco viaje em uma linha perfeitamente horizontal.",
+      "Serve para dar tempo de o oponente reagir, mantendo o princípio ético da luta justa."
+    ],
+    "correta": 1,
+    "explicacao": "A força de reação interna baseia-se na ação e reação. Puxar o braço recuado com velocidade gera um momento angular que projeta o ombro e o quadril opostos para a frente com velocidade muito maior."
+  },
+  {
+    "id": 15,
+    "categoria": "6. Segredos do Treinamento",
+    "pergunta": "Um dos 'Segredos do Treinamento' do General Choi orienta sobre o estado dos joelhos e articulações durante as transições de bases. Qual é a regra estrita?",
+    "opcoes": [
+      "As articulações devem ser travadas em extensão máxima para demonstrar força estatutária.",
+      "Os movimentos devem manter flexibilidade elástica, flexionando os joelhos adequadamente durante os deslocamentos para permitir o movimento ondulatório constante.",
+      "Os joelhos devem ser estendidos apenas na fase de descida (Down) da onda senoidal.",
+      "O quadril deve se mover de forma rígida, isolando os joelhos de qualquer ação mecânica amortecedora."
+    ],
+    "correta": 1,
+    "explicacao": "Para que a onda senoidal e o deslocamento fluam, o praticante deve dominar a flexibilidade elástica das articulações. Joelhos rígidos ou travados destroem a fluidez da transição e impedem o acúmulo de energia potencial."
+  },
+  {
+    "id": 16,
+    "categoria": "6. Segredos do Treinamento",
+    "pergunta": "Em relação à direção do olhar (visão), o que determinam os Segredos do Treinamento para a execução correta dos Tuls?",
+    "opcoes": [
+      "Olhar fixamente para o chão para monitorar o alinhamento geométrico das bases.",
+      "Manter os olhos focados na direção exata para onde o movimento se desloca, visualizando e enfrentando o oponente imaginário continuamente.",
+      "Olhar para o teto durante as fases de elevação (Up) da onda senoidal.",
+      "Alternar o olhar entre a mão que ataca e o pé de apoio para coordenar o equilíbrio."
+    ],
+    "correta": 1,
+    "explicacao": "A linha de visão (Noon-Sunt) é um critério rigoroso de avaliação. Se você bloqueia para a esquerda, seus olhos devem focar à esquerda antes ou simultaneamente ao movimento, encarando o alvo ficcional com intenção real de combate."
+  },
+  {
+    "id": 17,
+    "categoria": "6. Segredos do Treinamento",
+    "pergunta": "Quando deve ocorrer o enrijecimento completo dos músculos corporais na execução de uma técnica defensiva ou ofensiva?",
+    "opcoes": [
+      "Desde o início do movimento na cintura para acumular rigidez isométrica.",
+      "Exclusivamente no instante exato do impacto contra o alvo, mantendo o corpo relaxado e fluido durante todo o trajeto anterior.",
+      "Apenas na fase intermediária (fase de subida da onda senoidal).",
+      "O corpo deve permanecer 100% tensionado do início ao fim do Tul para maximizar a queima calórica."
+    ],
+    "correta": 1,
+    "explicacao": "Músculos tensos viajam devagar. O segredo é manter o corpo relaxado para ganhar velocidade de aceleração máxima; a contração total (Kime) ocorre apenas na fração de segundo do choque, gerando impacto seco e poupando energia."
+  },
+  {
+    "id": 18,
+    "categoria": "7. Relacionamento Aluno-Instrutor",
+    "pergunta": "Na ética tradicional do Taekwon-Do ITF, qual o comportamento esperado de um aluno de graduação Dan ao notar um erro teórico cometido por um colega mais moderno dentro do Do Jang?",
+    "opcoes": [
+      "Corrigir o colega de forma ríspida imediatamente para demonstrar a autoridade da sua faixa preta.",
+      "Ignorar o erro completamente, pois a responsabilidade de ensino é exclusiva do instrutor chefe.",
+      "Orientar o colega com paciência, polidez e espírito fraternal, ou reportar discretamente ao instrutor se a correção exigir uma abordagem pedagógica mais profunda.",
+      "Desafiar o colega moderno para um combate livre para testar se o erro se repete na prática."
+    ],
+    "correta": 2,
+    "explicacao": "O veterano (Sunbae) tem o dever de guiar o mais moderno (Hubae) com Cortesia e Fraternidade. A arrogância ou a omissão dolosa violam as diretrizes éticas estabelecidas pelo General Choi sobre o ecossistema do Do Jang."
+  },
+  {
+    "id": 19,
+    "categoria": "7. Relacionamento Aluno-Instrutor",
+    "pergunta": "O General Choi estipula que o respeito entre Instrutor e Aluno é uma via de mão dupla. Como o Instrutor deve agir para conquistar a obediência legítima de seus alunos?",
+    "opcoes": [
+      "Aplicando castigos físicos severos e exigindo submissão por meio do medo e de decretos tirânicos.",
+      "Liderando pelo exemplo absoluto, ostentando conduta moral ilibada, justiça distributiva na avaliação de alunos e dedicação pedagógica sincera.",
+      "Sendo extremamente permissivo e eliminando as exigências técnicas nos exames de faixa para agradar a todos.",
+      "Focando as aulas exclusivamente no treinamento de atletas campeões para trazer fama comercial à academia."
+    ],
+    "correta": 1,
+    "explicacao": "Um verdadeiro Sabum não impõe o respeito pelo medo; ele o emana. A liderança pelo exemplo (técnico, físico e moral) é o único mecanismo legítimo aceito pela doutrina do Taekwon-Do para a validação da autoridade marcial."
+  },
+  {
+    "id": 20,
+    "categoria": "1. Arte Marcial x Esporte",
+    "pergunta": "Qual a principal limitação técnica de um sistema que migra inteiramente do conceito de 'Arte Marcial' para o conceito de 'Esporte de Competição'?",
+    "opcoes": [
+      "O aumento exagerado no tempo de duração das sessões de treinamento físico.",
+      "A atrofia e eliminação de técnicas letais, golpes traumáticos profundos e bloqueios complexos, que acabam substituídos por movimentos rápidos e superficiais focados apenas em acionar sensores ou pontuar em coletes.",
+      "A inclusão de exames teóricos obrigatórios baseados em história geopolítica.",
+      "A obrigatoriedade do uso de uniformes tradicionais de gala durante as lutas."
+    ],
+    "correta": 1,
+    "explicacao": "O esporte necessita de regras estritas para proteger a integridade dos atletas, o que restringe o arsenal técnico. A Arte Marcial preserva a eficácia da sobrevivência urbana e o realismo biológico de combate, mantendo técnicas que seriam banidas de qualquer ringue desportivo."
+  },
+  {
+    "id": 21,
+    "categoria": "2. Instrutor x Técnico",
+    "pergunta": "Sob a perspectiva existencial, qual a diferença essencial do escopo de atuação entre um Técnico (Coach) e um Instrutor (Sabum)?",
+    "opcoes": [
+      "O técnico gerencia os contratos financeiros; o instrutor cuida da limpeza física do Do Jang.",
+      "O técnico prepara o atleta para vencer um evento temporário limitado no espaço e no tempo (o campeonato); o instrutor prepara o ser humano para enfrentar as batalhas existenciais, éticas e morais da vida inteira.",
+      "O técnico atua apenas com atletas adultos; o instrutor ensina exclusivamente crianças e iniciantes.",
+      "Não há distinção real, uma vez que ambos utilizam as mesmas planilhas de preparação física moderna."
+    ],
+    "correta": 1,
+    "explicacao": "A vitória do técnico termina com o pódio e o soar do gongo. A vitória do Sabum consolida-se quando o seu aluno se torna um cidadão íntegro, um profissional ético e um pilar de justiça na sociedade, décadas após amarrar a faixa preta na cintura."
+  },
+  {
+    "id": 22,
+    "categoria": "3. Tipos de Grupos de Artes Marciais",
+    "pergunta": "Diferente de sistemas tradicionais focados em misticismo ou no acúmulo de energia metafísica ('Chi/Ki'), como o Taekwon-Do ITF valida cientificamente a eficiência de suas técnicas?",
+    "opcoes": [
+      "Através da replicação de rituais e meditações budistas ancestrais.",
+      "Submetendo cada movimento às leis universais da mecânica clássica newtoniana, calculando ângulos de articulação, aceleração e linhas de força biomecânica.",
+      "Adotando técnicas empíricas que não aceitam contestações lógicas ou científicas.",
+      "Apenas pelo teste de resistência psicológica em combates sem limite de tempo."
+    ],
+    "correta": 1,
+    "explicacao": "O Taekwon-Do é uma arte marcial moderna (1955). O General Choi trabalhou com engenheiros e cientistas para garantir que cada soco e chute extraísse o rendimento físico máximo do corpo humano, baseando-se na física real e observável, eliminando explicações místicas indemonstráveis."
+  },
+  {
+    "id": 23,
+    "categoria": "4. Objetivos do Quebramento",
+    "pergunta": "Do ponto de vista psicológico e neurológico, o que o teste de Quebramento (Kyokpa) valida no candidato a Faixa Preta?",
+    "opcoes": [
+      "A ausência total de dor periférica devido à destruição dos receptores nervosos da pele.",
+      "A eliminação da hesitação subconsciente, comprovando que a mente do praticante alcançou o estado de foco absoluto onde o cérebro não envia comandos de frenagem muscular antes do impacto.",
+      "A capacidade de memorizar sequências longas de movimentos coreografados.",
+      "O nível de tolerância à frustração caso o material não sofra fratura na primeira tentativa."
+    ],
+    "correta": 1,
+    "explicacao": "O cérebro humano, por instinto de autopreservação, sabota golpes contra superfícies duras, desacelerando a mão ou o pé milissegundos antes do choque. O quebramento prova que o aluno dominou o medo e a hesitação, unificando mente e corpo no alvo."
+  },
+  {
+    "id": 24,
+    "categoria": "5. Objetivos do Salto",
+    "pergunta": "Mecanicamente, além de alcançar alvos altos ou superar obstáculos, qual o ganho balístico que uma técnica em salto (Twimyo) adiciona a um ataque traumático?",
+    "opcoes": [
+      "Anula a resistência do ar devido ao vácuo criado pela velocidade ascensional.",
+      "Soma a energia potencial gravitacional acumulada e a energia cinética do deslocamento linear à força de contração muscular, descarregando uma massa dinâmica avassaladora sobre o oponente.",
+      "Permite que o executor altere a trajetória do chute no ar após o esvaziamento total dos pulmões.",
+      "Reduz a força de reação que o corpo do oponente devolve ao membro do atacante."
+    ],
+    "correta": 1,
+    "explicacao": "Ao saltar e avançar, você projeta toda a sua massa corporal em velocidade no ar. No impacto, o peso do seu corpo caindo e deslocando-se para a frente atua como um martelo cinético, multiplicando exponencialmente o estrago mecânico no alvo."
+  },
+  {
+    "id": 25,
+    "categoria": "6. As 3 Fases da História do Taekwon-Do",
+    "pergunta": "Durante a segunda fase histórica (período de ocupação japonesa de 1909 a 1945), qual o impacto sociocultural que a proibição das artes coreanas gerou nos mestres da época?",
+    "opcoes": [
+      "Eles abandonaram a prática marcial definitivamente para se dedicar ao comércio têxtil.",
+      "A prática foi mantida de forma estritamente clandestina e marginalizada, forçando a fusão oculta de técnicas nativas como o Taek Kyon com elementos exógenos do Karatê, refinando a resiliência cultural coreana.",
+      "Eles imigraram em massa para a China para fundar escolas de Kung Fu integradas.",
+      "Houve uma padronização imediata patrocinada pelo governo imperial japonês para criar o Taekwon-Do moderno."
+    ],
+    "correta": 1,
+    "explicacao": "Sob o jugo colonial japonês, manifestações culturais coreanas foram banidas. Manter a chama marcial acesa exigia treinos noturnos e secretos. Esse caldeirão de resistência manteve viva a centelha técnica que, após a libertação em 1945, permitiu ao General Choi estruturar a base unificada da arte."
+  },
+  {
+    "id": 26,
+    "categoria": "1. Ordem das Formas (Tuls)",
+    "pergunta": "Se um examinador solicitar que você execute o Tul que antecede imediatamente o Toi-Gye e o Tul que o sucede logo após, quais formas você deverá apresentar?",
+    "opcoes": [
+      "Yul-Gok e Joong-Gun.",
+      "Joong-Gun e Hwa-Rang.",
+      "Won-Hyo e Hwa-Rang.",
+      "Do-San e Choong-Moo."
+    ],
+    "correta": 1,
+    "explicacao": "Para blindar a memória de ordem: O Toi-Gye é o 7º Tul (3º Kup). Quem vem imediatamente antes dele é o Joong-Gun (6º Tul, 4º Kup). Quem vem imediatamente após ele é o Hwa-Rang (8º Tul, 2º Kup)."
+  },
+  {
+    "id": 27,
+    "categoria": "2. Significados das Formas",
+    "pergunta": "O Tul Do-San possui 24 movimentos. O que esse número exato evoca em relação à vida e ao legado do patriota Ahn Chang-Ho?",
+    "opcoes": [
+      "Os 24 anos que ele passou exilado lutando pela independência na América.",
+      "Sua vida inteira dedicada inteiramente ao avanço da educação na Coreia e às suas 24 reformas educacionais secretas.",
+      "Toda a sua vida dedicada a impulsionar a educação na Coreia e o movimento de independência.",
+      "O dia 24 de março, data em que ele fundou a primeira escola pública mista da península."
+    ],
+    "correta": 2,
+    "explicacao": "Do-San é o pseudônimo do patriota Ahn Chang-Ho (1878-1938). Os 24 movimentos representam toda a sua vida dedicada ao desenvolvimento da educação da Coreia e aos esforços do movimento de libertação nacional."
+  },
+  {
+    "id": 28,
+    "categoria": "5. Teoria do Poder",
+    "pergunta": "Como o controle do Centro de Gravidade (CG) na fase 'Up' (subida) do movimento ondulatório atua diretamente na maximização do poder de destruição de um golpe?",
+    "opcoes": [
+      "Ele reduz a velocidade linear para permitir maior precisão ocular.",
+      "Ao elevar levemente o CG no ponto médio, o praticante armazena energia potencial gravitacional que será convertida em energia cinética violenta na fase de queda ('Down') sobre o alvo.",
+      "O CG elevado serve para alongar os músculos das costas, eliminando a atuação do quadril.",
+      "Sua única função é estancar a respiração para enrijecer o tórax precocemente."
+    ],
+    "correta": 1,
+    "explicacao": "Subir o corpo eleva o centro de massa, acumulando energia elástica e gravitacional. Ao descer desferindo o ataque, você joga a aceleração da gravidade a favor do peso do seu próprio tronco, gerando uma colisão massiva."
+  },
+  {
+    "id": 29,
+    "categoria": "6. Segredos do Treinamento",
+    "pergunta": "O nono segredo do treinamento da ITF dita que o praticante deve liberar cada técnica com flexibilidade e vigor. O que significa o conceito de 'movimento reflexo' citado nesta regra?",
+    "opcoes": [
+      "É a capacidade de fechar os olhos no momento de receber um contra-ataque.",
+      "A execução coordenada onde o início de um ataque gera um estiramento elástico na musculatura oposta, criando uma resposta reflexa miotática que chicoteia a ferramenta para a frente com velocidade amplificada.",
+      "O ato de copiar as técnicas do oponente de forma espelhada durante a luta.",
+      "Um tique nervoso involuntário que o corpo desenvolve após anos de calejamento intenso."
+    ],
+    "correta": 1,
+    "explicacao": "O movimento reflexo aproveita o reflexo de estiramento biológico (mecanismo miotático). Ao iniciar um movimento puxando ou rotacionando levemente para o lado oposto antes do disparo do golpe, o músculo acumula energia elástica e contrai-se com muito mais vigor e velocidade mecânica."
+  },
+  {
+    "id": 30,
+    "categoria": "7. Relacionamento Aluno-Instrutor",
+    "pergunta": "Se um aluno Faixa Preta decide treinar ou se associar temporariamente a outra escola de artes marciais, qual é o protocolo ético mandatório exigido pela ITF para com o seu Instrutor original?",
+    "opcoes": [
+      "Treinar secretamente nos horários alternativos para não ferir os sentimentos do mestre.",
+      "Comunicar e solicitar a autorização de seu Instrutor previamente, demonstrando transparência, lealdade e respeito à sua linhagem técnica e hierarquia marcial.",
+      "Romper o vínculo com a academia antiga por meio de uma notificação formal via e-mail sem explicações verbais.",
+      "A etiqueta dita que um faixa preta é totalmente livre e autônomo, não devendo nenhuma explicação técnica ou satisfação de conduta ao seu formador."
+    ],
+    "correta": 1,
+    "explicacao": "A lealdade e a transparência são as fundações do relacionamento marcial. Visitar ou treinar em outras escolas sem o consentimento ou ciência do seu Sabum quebra o vínculo de confiança e desonra o princípio da Cortesia e da Integridade dentro da linhagem da ITF."
+  }
+]

@@ -212,9 +212,6 @@ class Tools
         ];
     }
     
-
-
-
     function validarCNPJ($cnpj) {
         global $conn;
         // Remove caracteres não numéricos
@@ -307,7 +304,51 @@ class Tools
         
     }
     
-    
-    
+    function ultimaAlteracaoPastas()
+    {
+        $ultimaAlteracao = 0;
+
+
+        // ========================================
+        // PASTAS QUE SERÃO MONITORADAS
+        // ========================================
+
+        $pastas = [
+            __DIR__ . '/ativisoft_2_0/classes',
+            __DIR__ . '/assets',
+            __DIR__ . '/ativisoft_2_0/css',
+            __DIR__ . '/ativisoft_2_0/js',
+            __DIR__ . '/ativisoft_2_0/partials',
+            __DIR__ . '/ativisoft_2_0/pages'
+        ];
+
+        foreach ($pastas as $pasta) {
+            if (!is_dir($pasta)) {
+                continue;
+            }
+            $iterator = new RecursiveIteratorIterator(
+                new RecursiveDirectoryIterator(
+                    $pasta,
+                    FilesystemIterator::SKIP_DOTS
+                )
+            );
+            foreach ($iterator as $arquivo) {
+                if (!$arquivo->isFile()) {
+                    continue;
+                }
+                // Arquivos que não precisam ser considerados
+                $extensao = strtolower($arquivo->getExtension());
+                if (!in_array($extensao, ['php', 'js', 'css', 'html', 'json'])) {
+                    continue;
+                }
+                $modificado = $arquivo->getMTime();
+                if ($modificado > $ultimaAlteracao) {
+                    $ultimaAlteracao = $modificado;
+                }
+            }
+        }
+        return $ultimaAlteracao;
+    }
+
 
 }
